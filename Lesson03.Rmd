@@ -5,6 +5,7 @@ output:
     theme: cerulean
     toc: true
     toc_float: false
+    code_folding: hide
 ---
 
 <script type="text/javascript">
@@ -85,7 +86,7 @@ We will use the five steps in the Statistical Process throughout the course. Rec
 
 <br>
 
-## Shape of a Distribution
+## Tuberculosis Case Study
 
 **Cost to Treat Tuberculosis in India**
 
@@ -170,74 +171,135 @@ $$
 $$
 showing that the *center* of the histogram (or average) is at \$14,100. 
 
-<center>
-**This is a histogram created in Excel:**
+**This is a histogram created in R:**
 <br>
-<img src="./Images/Lesson_2_Activity_2-1.JPG">
-</center>
-<!--
-<div class="stats B C">
-<center>
-{| style="width:50%"
-|- align="center" 
-! This is a histogram created using statistical software:
-|- align="center" 
-| <img src="./Images/IndianTBcosts.png">
-|}
-</center>
+
+```{r, echo=FALSE, fig.width=5}
+tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
+hist(tuberc, 
+     main="Histogram of Costs to Treat Tuberculosis", 
+     xlab="Cost in Dollars", 
+     ylab="Number of Individuals", 
+     col="skyblue")
+```
+
+### R Instructions for Histograms
+
+<div class="SoftwareHeading">R Instructions for Histograms</div>
+<div class="Software" style="padding:10px;">
+
+Follow these steps to create a histogram in R.
+
+<div class="note">
+You need to have RStudio installed to follow this tutorial. If you have not yet installed RStudio, then first follow the instructions listed here: [Installing RStudio](RHelp.html#installing-r-and-rstudio), then return.
 </div>
--->
-
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" 
-{{Software_Filter | PageName=Histogram }}
--->
-
-
-You can watch this short video of how to [create a histogram in Excel](https://screencast-o-matic.com/watch/cYV1YdvU35){target="_blank"}, or follow these steps:  
 
 <br>
 
-#### Step 1 
-Start by typing the data into a column of cells in Excel: each data point into its own cell, as shown below. Then highlight the data.
+**Step 1**
 
-<img src="./Images/create_histogram_step2resized.PNG" width=90%>  
+Open RStudio from your Apps on your computer. It should look like this. (Using the "Search" bar is a quick way to find RStudio in your apps.)
 
-----
+<img src="./Images/rstudio_open.png" width="500">
 
-#### Step 2 
-Go to the Insert ribbon in Excel and select the histogram icon from the "Charts" section of the ribbon. Then select the first option of histograms presented.
+<br/>
 
-<img src="./Images/create_histogram_step3.PNG" width=90%>  
+**Step 2**
 
-You will notice that the histogram does not look much like the histogram above yet. The number and size of bins in a histogram can drastically change the apparent shape of the distribution. It is worth experimenting with a different number of bins so the true shape of the distribution of data is revealed. To change the number of bins go on to the next steps.
+Load the data into RStudio. 
+
+If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)`, the "assignment operator" `<-` and some name you come up with to store the data into. 
+
+* The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again. 
+* The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object."
+
+```{}
+someNameYouMake <- c(value1, value2, value3, ...)
+```
+
+<div class="note">
+If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set.
+</div>
+
+For the tuberculosis data you would use:
+
+```{}
+tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
+```
+
+Notice that numbers like "15,100" are written as just "15100" because the comma "," is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers "15," "100," "19", "000" and so on.  Also, the name `tuberc` could have been any word you wanted to come up with, but "tuberculosis" is hard to spell, so using `tuberc` was easier. It is recommended that you use short names, but not single letter names. So don't use `t` or `tuberculosis` for your names, but `tub` or `tuber` or things like that are good.
+
+In RStudio, it would look like this:
+
+<img src="./Images/rstudio_tuberc.png" width="500">
 
 
-----
 
-#### Step 3  
-Be sure the graph is selected, so that you can select the "Format" ribbon. In the upper left corner of the ribbon, select "Horizontal Category Axis" in the drop down box. Then click on "Format Selection"
+<br/>
+<br/>
 
-<img src="./Images/create_histogram_step4.PNG" width=90%> 
+**Step 2**
 
+Now that you have created an object in R called `tuberc` that contains the 10 data points of the Tuberculosis data, you can create a histogram.
 
-----
+In general, you create a histogram with the code:
 
+```{}
+hist(someData)
+```
 
-#### Step 4  
-A menu of options will open on the right side of the screen. You can adjust the bin width or number of bins. In this case, though we can't make it match, in order to make the histogram look as much as possible like the one shown above, we will choose a bin width of 5000.
+For the tuberculosis data, since you used the assignment operator to store the data in the `tuberc` object, you would access the data and make a histogram of it using the code:
 
-<img src="./Images/create_histogram_step5.PNG" width=90%> 
+```{}
+hist(tuberc)
+```
 
-Excel shows the starting and ending values for each bin. For example, the first bin goes from 600 up to 5,600. We see there are two data points contained in that bin, represented by the bin's bar height. The next bin contains only one of our data points, it includes any value greater than 5,600 up through, and including, 10,600. And so on.
+But the graph that results from this is fairly dull.
 
-This histogram does not look exactly like the histogram pictured above, but it is  close. To make it match exactly you can use the "Overflow bin" and "Underflow bin" options; but that is beyond what we will discuss here.
+```{r, fig.width=5, echo=FALSE}
+hist(tuberc)
+```
 
-----
+So, it is useful to add color and better axis labels. In general, you can control the color and axis labels with the optional commands, each separated by a comma as follows.
+
+* **col=** allows you to specify the color of the graph. For lots of fun colors you could use, go here: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+* **main** allows you to specify a main title at the top of your graph.
+* **xlab** allows you to specify an x-axis title below the x-axis of your graph.
+* **ylab** allows you to specify a y-axis title to the left of the y-axis of your graph.
+
+```{}
+hist(someData, 
+      col="someColorName", 
+      main="Some Main Title for the Graph", 
+      xlab="X-axis Label", 
+      ylab="Y-axis Lable")
+```
+
+For the Tuberculosis data we could use the code
+
+```{}
+hist(tuberc, 
+      col="skyblue", 
+      main="Histogram of Costs to Treat Tuberculosis", 
+      xlab="Cost in Dollars", 
+      ylab="Nubmer of Individuals")
+```
+
+```{r, echo=FALSE}
+hist(tuberc, 
+     col="skyblue", 
+     main="Histogram of Costs to Treat Tuberculosis", 
+     xlab="Cost in Dollars", 
+     ylab="Nubmer of Individuals")
+```
+
+</div>
+
 
 <br>
 <br>
 
-### Making Inference About the Population
+#### Making Inference About the Population
 
 After summarizing the data from our sample of the populations both numerically and graphically, we can use this information to make inference about the full population. 
 <br>
@@ -268,6 +330,8 @@ After making inferences, you take action. The motivation for conducting a study 
 </div>
 <br>
 
+## Shape of a Distribution
+
 One benefit of using a histogram is that it allows you to visualize the distribution of the data. A histogram illustrates the overall shape of the distribution of the data. The height of the bars show how many observations fall in that range.
 
 <div class="QuestionsHeading">Answer the following question:</div>
@@ -280,6 +344,9 @@ One benefit of using a histogram is that it allows you to visualize the distribu
 </div>
 &nbsp;
 </div>
+
+
+<br/>
 
 We will describe the shape of the distribution of a data set using the following basic categories: symmetric, bell-shaped, skewed right, and skewed left. Additionally, we can label the shape of a distribution as uniform, unimodal, bimodal, or multimodal.
 
@@ -294,8 +361,9 @@ If a distribution has only one peak, it is said to be **unimodal**. The three di
 Some distributions have no distinct peak, others have more than one peak. When there is no distinct peak, and the histogram shows a relatively flat shape, we might say the data follow a **uniform** distribution. If there are two distinct peaks, a distribution is called bimodal. If there are more than two peaks, we refer to the distribution as **multimodal**.
 
 <img src="./Images/Modal_distributions.jpg" width=50%>
-<br>
-<br>
+<br/>
+<br/>
+
 
 ## Center of a Distribution
 
@@ -424,44 +492,88 @@ e. A, B, and C can all occur.
 </div>
 <br>
 
-#### Excel Instructions for Mean, Median, and Mode
+### R Instructions for Mean, Median, and Mode
 
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary" style="padding:10px;">
+<div class="SoftwareHeading">R Instructions for Mean, Median, and Mode</div>
+<div class="Software" style="padding:10px;">
 
-**To calculate most numerical summaries** (such as the mean, median, and mode) in Excel, follow these general steps:
+**To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
 
-1. Open Excel.
+1. Open RStudio.
 
-2. Enter the data into Excel. There should only be one data value per cell.    
-3. Next, in the cell where you would like to store the numerical summary type an "=", followed by the name of the function and then an open parenthesis, "(".  
+2. Enter the data into a vector using the code
 
-4. Then, highlight the data (by clicking on it) to which you want to apply the function. The cell reference range will automatically be added to your formula. Then type a closed parenthesis, ")" and hit enter.
+```{}
+someNameYouCreate <- c(value1, value2, ...)
+```
+
 
 **Caculate a Mean**
 
-For example, to calculate the mean of the sample of tuberculosis patient costs in India:
-  
-* put the data in Excel,
-* in a blank cell type "**=AVERAGE(**", 
-* highlight the data, 
-* close the parenthesis with "**)**" before hitting enter:  
+In general, use the code
 
-Notice that Excel calles the "mean" the "average."
+```{}
+mean(someData)
+```
 
-<div style="padding-left:35px;"><img src="./Images/Lesson_03_mean.PNG" width=50%></div>
+
+For the tuberculosis patient costs in India, compute the mean with the R code:
+
+```{}
+mean(tuberc)
+```
+
+In RStudio this looks like:
+
+<img src="./Images/rstudio_tuberc_mean.png" width="500">
+
+
 
 <br>
 
 **Calculate a Median**
 
-Simply replace the word "AVERAGE" in the formula with the word "MEDIAN". Try it with the tuberculosis patient data, you should get the same value that was calculated by hand above.
+To calculate the median of a sample of data use the code
+
+```{}
+median(tuberc)
+```
+
+For the tuberculosis patient costs in India, compute the median with the R code:
+
+```{}
+median(tuberc)
+```
+
+```{r}
+median(tuberc)
+```
+
+The value printed above is the median cost of treating tuberculosis in our sample.
+
 
 <br/>
 
 **Calculate a Mode**
 
-Similarly, to calculate a mode, replace the word "AVERAGE" in the formula with the word "MODE" or "MODE.SNGL". NOTE: If you try this on the tuberculosis patient data, you will get a result of "#N/A". This is Excel's way of saying that a mode does not exist because there are no repeated values in the dataset.
+R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the code
+
+```{}
+table(someData)
+```
+
+For the tuberculosis patient costs in India, count up how many times each value occurs using the code
+
+```{}
+table(tuberc)
+```
+
+```{r}
+table(tuberc)
+```
+
+This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
+
 
 <br>
 </div>
@@ -470,7 +582,7 @@ Similarly, to calculate a mode, replace the word "AVERAGE" in the formula with t
 <!-- {{Software_Filter|PageName=Mean_Median_Mode}} -->
 
 
-### Parameters and Statistics
+## Parameters and Statistics
 
 We only have data on the cost to treat ten randomly selected tuberculosis patients. This represents a random sample from the population. The sample obtained by the researchers depends on random chance. If the study was repeated and a new sample of ten patients was randomly drawn from all cases of tuberculosis in India, would we observe the same data values? Certainly not!
 

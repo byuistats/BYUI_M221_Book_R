@@ -452,6 +452,7 @@ border-top-right-radius: 12px 20px;
 font-size:1.3em;
 padding-top:5px;
 min-height: 22px;
+color: #FFFFFF;
 box-shadow: 4px 4px 5px #888888;
 }
 
@@ -460,7 +461,7 @@ box-shadow: 4px 4px 5px #888888;
         margin-right:auto;
         width:80%;
         font-size:.95em;
-        background-color: #FFF6F3;
+        background-color: #fff6f3;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         box-shadow: 4px 4px 5px #888888;
@@ -483,9 +484,10 @@ padding-top:5px;
 .SoftwareHeading {
         margin-left:auto;
         margin-right:auto;
-padding-top:5px;
+        padding-top:5px;
         width:80%;
         background-color:#7F9FC6;
+        color: #f3fcff;
         text-align:center;
         border-top-left-radius: 12px 20px;
         border-top-right-radius: 12px 20px;
@@ -499,7 +501,7 @@ padding-top:5px;
         margin-right:auto;
         width:80%;
         font-size:.95em;
-        background-color: #E8F2FC;
+        background-color: #f3fcff;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         box-shadow: 4px 4px 5px #888888;
