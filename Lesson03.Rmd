@@ -213,21 +213,17 @@ If your data set is small, then you can load the data into RStudio by using the 
 * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again. 
 * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object."
 
-```{}
-someNameYouMake <- c(value1, value2, value3, ...)
-```
-
 <div class="note">
 If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set.
 </div>
 
-For the tuberculosis data you would use:
+To enter in the tuberculosis data you would use:
 
 ```{}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 ```
 
-Notice that numbers like "15,100" are written as just "15100" because the comma "," is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers "15," "100," "19", "000" and so on.  Also, the name `tuberc` could have been any word you wanted to come up with, but "tuberculosis" is hard to spell, so using `tuberc` was easier. It is recommended that you use short names, but not single letter names. So don't use `t` or `tuberculosis` for your names, but `tub` or `tuber` or things like that are good.
+Notice that numbers like "15,100" are written as just "15100" because the comma "," is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers "15," "100," "19", "000" and so on.  Also, the name `tuberc` could have been any word you wanted to come up with, but "tuberculosis" is hard to spell, so using `tuberc` was easier. It is recommended that you use short names, but not single letter names. So don't use `t` or `tuberculosis` for your names, but `tub` or `tuber` or `tuberc` or other things like that are good.
 
 In RStudio, it would look like this:
 
@@ -240,13 +236,7 @@ In RStudio, it would look like this:
 
 **Step 2**
 
-Now that you have created an object in R called `tuberc` that contains the 10 data points of the Tuberculosis data, you can create a histogram.
-
-In general, you create a histogram with the code:
-
-```{}
-hist(someData)
-```
+Now that you have created an object in R called `tuberc` that contains the 10 data points of the Tuberculosis data, you can create a histogram using the `hist(...)` function.
 
 For the tuberculosis data, since you used the assignment operator to store the data in the `tuberc` object, you would access the data and make a histogram of it using the code:
 
@@ -266,14 +256,6 @@ So, it is useful to add color and better axis labels. In general, you can contro
 * **main** allows you to specify a main title at the top of your graph.
 * **xlab** allows you to specify an x-axis title below the x-axis of your graph.
 * **ylab** allows you to specify a y-axis title to the left of the y-axis of your graph.
-
-```{}
-hist(someData, 
-      col="someColorName", 
-      main="Some Main Title for the Graph", 
-      xlab="X-axis Label", 
-      ylab="Y-axis Lable")
-```
 
 For the Tuberculosis data we could use the code
 
@@ -501,21 +483,19 @@ e. A, B, and C can all occur.
 
 1. Open RStudio.
 
-2. Enter the data into a vector using the code
+2. Enter the data into a vector using the combine function `c(...)`, assignment operator `<-`, and some name you come up with to store the results in, `tuberc` in this case.
 
 ```{}
-someNameYouCreate <- c(value1, value2, ...)
+tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 ```
+
+<div class="note">
+However, if your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set.
+</div>
+
 
 
 **Caculate a Mean**
-
-In general, use the code
-
-```{}
-mean(someData)
-```
-
 
 For the tuberculosis patient costs in India, compute the mean with the R code:
 
@@ -533,19 +513,13 @@ In RStudio this looks like:
 
 **Calculate a Median**
 
-To calculate the median of a sample of data use the code
-
-```{}
-median(tuberc)
-```
-
 For the tuberculosis patient costs in India, compute the median with the R code:
 
 ```{}
 median(tuberc)
 ```
 
-```{r}
+```{r, echo=FALSE}
 median(tuberc)
 ```
 
@@ -556,11 +530,7 @@ The value printed above is the median cost of treating tuberculosis in our sampl
 
 **Calculate a Mode**
 
-R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the code
-
-```{}
-table(someData)
-```
+R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the `table(...)` function.
 
 For the tuberculosis patient costs in India, count up how many times each value occurs using the code
 
@@ -568,7 +538,7 @@ For the tuberculosis patient costs in India, count up how many times each value 
 table(tuberc)
 ```
 
-```{r}
+```{r, echo=FALSE}
 table(tuberc)
 ```
 

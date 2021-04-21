@@ -693,20 +693,17 @@ R Instructions for Histograms
 <li>The <strong>assignment operator</strong> <code>&lt;-</code> is written by typing a less than symbol “&lt;” and a minus sign “-” together as one symbol: <code>&lt;-</code>. It allows you to “save things” into an “object name.” It’s kind of like saving a document on your computer. By later typing the name you “assigned” data into, you can access the data without having to type it in again.</li>
 <li>The <strong>combine function</strong> <code>c(...)</code> is like a back pack where you can “zip up” or “combine” a bunch of things into a single bag, or “object.”</li>
 </ul>
-<pre><code>someNameYouMake &lt;- c(value1, value2, value3, ...)</code></pre>
 <div class="note">
 <p>If your data is already stored in a file somewhere, then use these instructions on <a href="RHelp.html#reading-in-data">Reading in Data</a> to get the data out of an existing data set.</p>
 </div>
-<p>For the tuberculosis data you would use:</p>
+<p>To enter in the tuberculosis data you would use:</p>
 <pre><code>tuberc &lt;- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)</code></pre>
-<p>Notice that numbers like “15,100” are written as just “15100” because the comma “,” is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers “15,” “100,” “19”, “000” and so on. Also, the name <code>tuberc</code> could have been any word you wanted to come up with, but “tuberculosis” is hard to spell, so using <code>tuberc</code> was easier. It is recommended that you use short names, but not single letter names. So don’t use <code>t</code> or <code>tuberculosis</code> for your names, but <code>tub</code> or <code>tuber</code> or things like that are good.</p>
+<p>Notice that numbers like “15,100” are written as just “15100” because the comma “,” is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers “15,” “100,” “19”, “000” and so on. Also, the name <code>tuberc</code> could have been any word you wanted to come up with, but “tuberculosis” is hard to spell, so using <code>tuberc</code> was easier. It is recommended that you use short names, but not single letter names. So don’t use <code>t</code> or <code>tuberculosis</code> for your names, but <code>tub</code> or <code>tuber</code> or <code>tuberc</code> or other things like that are good.</p>
 <p>In RStudio, it would look like this:</p>
 <p><img src="Images/rstudio_tuberc.png" width="500"></p>
 <p><br/> <br/></p>
 <p><strong>Step 2</strong></p>
-<p>Now that you have created an object in R called <code>tuberc</code> that contains the 10 data points of the Tuberculosis data, you can create a histogram.</p>
-<p>In general, you create a histogram with the code:</p>
-<pre><code>hist(someData)</code></pre>
+<p>Now that you have created an object in R called <code>tuberc</code> that contains the 10 data points of the Tuberculosis data, you can create a histogram using the <code>hist(...)</code> function.</p>
 <p>For the tuberculosis data, since you used the assignment operator to store the data in the <code>tuberc</code> object, you would access the data and make a histogram of it using the code:</p>
 <pre><code>hist(tuberc)</code></pre>
 <p>But the graph that results from this is fairly dull.</p>
@@ -718,11 +715,6 @@ R Instructions for Histograms
 <li><strong>xlab</strong> allows you to specify an x-axis title below the x-axis of your graph.</li>
 <li><strong>ylab</strong> allows you to specify a y-axis title to the left of the y-axis of your graph.</li>
 </ul>
-<pre><code>hist(someData, 
-      col=&quot;someColorName&quot;, 
-      main=&quot;Some Main Title for the Graph&quot;, 
-      xlab=&quot;X-axis Label&quot;, 
-      ylab=&quot;Y-axis Lable&quot;)</code></pre>
 <p>For the Tuberculosis data we could use the code</p>
 <pre><code>hist(tuberc, 
       col=&quot;skyblue&quot;, 
@@ -923,32 +915,28 @@ R Instructions for Mean, Median, and Mode
 <p><strong>To calculate numerical summaries</strong> (such as the mean, median, and mode) in R, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>Open RStudio.</p></li>
-<li><p>Enter the data into a vector using the code</p></li>
+<li><p>Enter the data into a vector using the combine function <code>c(...)</code>, assignment operator <code>&lt;-</code>, and some name you come up with to store the results in, <code>tuberc</code> in this case.</p></li>
 </ol>
-<pre><code>someNameYouCreate &lt;- c(value1, value2, ...)</code></pre>
+<pre><code>tuberc &lt;- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)</code></pre>
+<div class="note">
+<p>However, if your data is already stored in a file somewhere, then use these instructions on <a href="RHelp.html#reading-in-data">Reading in Data</a> to get the data out of an existing data set.</p>
+</div>
 <p><strong>Caculate a Mean</strong></p>
-<p>In general, use the code</p>
-<pre><code>mean(someData)</code></pre>
 <p>For the tuberculosis patient costs in India, compute the mean with the R code:</p>
 <pre><code>mean(tuberc)</code></pre>
 <p>In RStudio this looks like:</p>
 <p><img src="Images/rstudio_tuberc_mean.png" width="500"></p>
 <p><br></p>
 <p><strong>Calculate a Median</strong></p>
-<p>To calculate the median of a sample of data use the code</p>
-<pre><code>median(tuberc)</code></pre>
 <p>For the tuberculosis patient costs in India, compute the median with the R code:</p>
 <pre><code>median(tuberc)</code></pre>
-<pre class="r"><code>median(tuberc)</code></pre>
 <pre><code>## [1] 13900</code></pre>
 <p>The value printed above is the median cost of treating tuberculosis in our sample.</p>
 <p><br/></p>
 <p><strong>Calculate a Mode</strong></p>
-<p>R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the code</p>
-<pre><code>table(someData)</code></pre>
+<p>R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the <code>table(...)</code> function.</p>
 <p>For the tuberculosis patient costs in India, count up how many times each value occurs using the code</p>
 <pre><code>table(tuberc)</code></pre>
-<pre class="r"><code>table(tuberc)</code></pre>
 <pre><code>## tuberc
 ##   600  4800  6500 11500 12900 14900 15100 19000 23500 32200 
 ##     1     1     1     1     1     1     1     1     1     1</code></pre>
