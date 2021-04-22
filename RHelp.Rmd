@@ -119,12 +119,36 @@ Once you have successfully opened RStudio it should look like this:
 
 ### Quick Instructions
 
+First, open the "Import Dataset" option from within RStudio.
 
+<img src="./Images/rstudio_import_excel.png" width="500">
+
+Second, either paste in a link to a data set, or "Browse" to find a dataset that is saved somewhere on your computer.
+
+<img src="./Images/rstudio_import_excel2.png" width="500">
 
 
 ### Detailed Instructions
 
+There are many ways to open a dataset in RStudio. One of the easiest methods is to use the "Import Dataset" button. This button can be found by
 
+* Opening RStudio <img src="./Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" />
+* Locating the "Environment" window of RStudio, typically in the top right portion of RStudio.
+* Locating the "Import Dataset" button inside the "Environment" window.
 
+Once you click on the "Import Dataset" button, a menu will appear. Since all datasets in this class are stored in Excel files with a ".xlsx" file extension at the end of the file name, we will always use the option "From Excel..." to import our datasets.
 
+<img src="./Images/rstudio_import_excel.png" width="500">
+
+After selecting the "From Excel..." option, a new window will appear inside of RStudio. It will look like this.
+
+<img src="./Images/rstudio_import_excel1b.png" width="500">
+
+If you have saved the file on your computer already, then you can "Browse" to find the file. However, in this class, it will be more common that you are provided with a link to a file, like this: [WrongSiteWrongPatient](./Data/WrongSiteWrongPatient.xlsx). By right-clicking on the link and selecting "Copy Link Address" you can then paste it into the "File/URL:" box in RStudio and then click the "Update" button. Like this: 
+
+<img src="./Images/rstudio_import_excel2.png" width="500">
+
+Once a data set is read into RStudio, it will appear in the top-left screen of RStudio and is now available for use in the "Console" inside of commands like `boxplot(...)`, `mean(...)`, `summary(...)`, and so on.
+
+<img src="./Images/rstudio_import_excel_finalview.png" width="500">
 

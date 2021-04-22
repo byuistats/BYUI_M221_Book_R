@@ -383,12 +383,18 @@ $(document).ready(function () {
 <li><a href="#spread-of-a-distribution">Spread of a Distribution</a>
 <ul>
 <li><a href="#standard-deviation-and-variance">Standard Deviation and Variance</a></li>
+<li><a href="#computing-standard-deviation-in-r">Computing Standard Deviation in R</a></li>
+<li><a href="#calculating-the-standard-deviation-by-hand">Calculating the Standard Deviation by Hand</a></li>
+<li><a href="#summary">Summary</a></li>
 </ul></li>
 <li><a href="#additional-tools-to-describe-the-data">Additional Tools to Describe the Data</a>
 <ul>
 <li><a href="#percentiles-and-quartiles">Percentiles and Quartiles</a></li>
+<li><a href="#computing-percentiles-in-r">Computing Percentiles in R</a></li>
 <li><a href="#the-five-number-summary">The Five-Number Summary</a></li>
+<li><a href="#computing-quartiles-and-the-five-number-summary-in-r">Computing Quartiles and the Five-number Summary in R</a></li>
 <li><a href="#boxplots">Boxplots</a></li>
+<li><a href="#creating-boxplots-in-r">Creating Boxplots in R</a></li>
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -418,12 +424,13 @@ $(document).ready(function () {
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
 <li>Approximate the standard deviation of a distribution visually from a bell-shaped histogram.</li>
-<li>Calculate the standard deviation from quantitative data using Excel.</li>
+<li>Calculate the standard deviation from quantitative data using R.</li>
 <li>Interpret the standard deviation for symmetric distributions.</li>
-<li>Properly apply the Excel functions STDEV.S, PERCENTILE.INC, QUARTILE.INC, MIN, and MAX to quantitative data.</li>
+<li>Properly apply the R functions <code>sd</code>, <code>quantile</code>,<code>min</code>, <code>max</code>, and <code>summary</code> to quantitative data.</li>
 <li>Interpret the five-number summary for quantitative data.</li>
-<li>Create a box-plot from quantitative data using Excel.</li>
-<li>Determine the five-number summary visually from a box plot. * Explain the relationship between probabilities, percentiles, and percentages.</li>
+<li>Create a box-plot from quantitative data using R.</li>
+<li>Determine the five-number summary visually from a box plot.</li>
+<li>Explain the relationship between probabilities, percentiles, and percentages.</li>
 </ul>
 </div>
 <p><br></p>
@@ -445,38 +452,38 @@ $(document).ready(function () {
 <table>
 <thead>
 <tr class="header">
-<th>Relatively Uncomplicated Cases</th>
-<th>Severe Cases</th>
+<th align="center">Relatively Uncomplicated Cases</th>
+<th align="center">Severe Cases</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>38.1</td>
-<td>39.1</td>
+<td align="center">38.1</td>
+<td align="center">39.1</td>
 </tr>
 <tr class="even">
-<td>38.3</td>
-<td>39.5</td>
+<td align="center">38.3</td>
+<td align="center">39.5</td>
 </tr>
 <tr class="odd">
-<td>38.4</td>
-<td>38.9</td>
+<td align="center">38.4</td>
+<td align="center">38.9</td>
 </tr>
 <tr class="even">
-<td>39.5</td>
-<td>39.2</td>
+<td align="center">39.5</td>
+<td align="center">39.2</td>
 </tr>
 <tr class="odd">
-<td>39.7</td>
-<td>39.9</td>
+<td align="center">39.7</td>
+<td align="center">39.9</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>39.7</td>
+<td align="center"></td>
+<td align="center">39.7</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>39.0</td>
+<td align="center"></td>
+<td align="center">39.0</td>
 </tr>
 </tbody>
 </table>
@@ -495,6 +502,9 @@ Answer the following questions:
 <ul>
 <li>The median body temperature for the relatively uncomplicated cases is 38.4 degrees Centigrade.</li>
 </ul>
+<pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)
+median(bodytemp_uncomp)</code></pre>
+<pre><code>## [1] 38.4</code></pre>
 </div>
 <p><br></p>
 <ol start="8" style="list-style-type: decimal">
@@ -505,6 +515,9 @@ Answer the following questions:
 <ul>
 <li>The mean body temperature for the relatively uncomplicated cases is 38.8 degrees Centigrade.</li>
 </ul>
+<pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)
+mean(bodytemp_uncomp)</code></pre>
+<pre><code>## [1] 38.8</code></pre>
 </div>
 <p> </p>
 </div>
@@ -515,18 +528,22 @@ Answer the following questions:
 <p>The standard deviation of the body temperatures is <span class="math inline">\(0.742 ^\circ \text{C}\)</span>. This number contains information from all the patients. If the patients’ temperatures had been more diverse, the standard deviation would be larger. If the patients’ temperatures were more uniform (i.e. closer together), then the standard deviation would have been smaller. If all the patients somehow had the same temperature, then the standard deviation would be zero.</p>
 <p>We are working with a sample. To be explicit, we call <span class="math inline">\(0.742 ^\circ \text{C}\)</span> the <em>sample</em> standard deviation. The symbol for the sample standard deviation is <span class="math inline">\(s\)</span>. This is a statistic. The parameter representing the <em>population</em> standard deviation is <span class="math inline">\(\sigma\)</span> (pronounced /SIG-ma/). In practice, we rarely know the value of the population standard deviation, so we use the sample standard deviation <span class="math inline">\(s\)</span> as an approximation for the unknown population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 <p>At this point, you probably do not have much intuition regarding the standard deviation. We will use this statistic frequently. By the end of the semester you can expect to become very comfortable with this idea. For now, all you need to know is that if two variables are measured on the same scale, the variable with values that are further apart will have the larger standard deviation.</p>
-<div class="SoftwareHeading">
-Excel Instructions
 </div>
-<div class="Summary">
-<p>  <strong>To calculate the sample standard deviation in Excel, follow these steps:</strong>   </p>
-<ul>
-<li>In a blank cell, type “<strong>=stdev.s(</strong>”</li>
-<li>Highlight the data (the cell range reference will be added to your formula)</li>
-<li>Close the parenthesis with “<strong>)</strong>” and hit enter</li>
-</ul>
-<div style="padding-left:35px;">
-<img src="Images/Lesson_03_stdev.PNG">
+<div id="computing-standard-deviation-in-r" class="section level3">
+<h3>Computing Standard Deviation in R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>  <strong>To calculate the sample standard deviation in R, follow these steps:</strong>   </p>
+<div style="padding-left:20px;">
+<p><strong>Step 1.</strong> Either <a href="RHelp.html#read-in-data">read in a data set</a>, or enter the data manually using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:</p>
+<pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)</code></pre>
+<p><strong>Step 2.</strong> Compute the standard deviation of the data by using the <code>sd(...)</code> function in R, like this:</p>
+<pre class="r"><code>sd(bodytemp_uncomp)</code></pre>
+<pre><code>## [1] 0.7416198</code></pre>
+<p>The value showing above is the standard deviation of the body temperature data for the relatively uncomplicated cases. In RStudio, it would look like this:</p>
+<p><img src="Images/rstudio_bodytemp_uncomp_sd.png" width="500"></p>
 </div>
 <p><br></p>
 </div>
@@ -535,8 +552,9 @@ Excel Instructions
 <strong>Rounding:</strong> As a general rule, when reporting your answers in this class, round to three decimal places unless otherwise specified.
 </div>
 <p><br> <br></p>
-<div id="calculating-the-standard-deviation-by-hand" class="section level4">
-<h4>Calculating the Standard Deviation by Hand</h4>
+</div>
+<div id="calculating-the-standard-deviation-by-hand" class="section level3">
+<h3>Calculating the Standard Deviation by Hand</h3>
 <p>How is the standard deviation computed? Where does this “magic” number come from? How does one number include the information about the spread of all the points?</p>
 <p>It is a little tedious to compute the standard deviation by hand. You will usually compute standard deviation with a computer. However, the process is very instructive and will help you understand conceptually what the statistic represents. As you work through the following steps, please remember the goal is to find a measure of the spread in a data set. We want one number that describes how spread out the data are.</p>
 <p>First, observe the number line below, where each x represents the temperature of a patient with a relatively uncomplicated case of bird flu. As mentioned earlier, there is not a huge spread in the temperatures.</p>
@@ -553,180 +571,101 @@ Excel Instructions
 \]</span></p>
 <p>If the observed value is greater than the mean, the deviation is positive. If the value is less than the mean, the deviation is negative.</p>
 <p>The standard deviation is a complicated sort of average of the deviations. Making a table like the one below will help you keep track of your calculations. Please participate fully in this exercise. Writing your answers at each step and developing a table as instructed will greatly enhance the learning experience. By following these steps, you will be able to compute the standard deviation by hand, and more importantly, understand what it is telling you.</p>
-<p><strong>Step 01</strong>: The first step in computing the standard deviation by hand is to create a table, like the following. Enter the observed data in the first column.</p>
-<center>
+<p><strong>Step 1</strong>: The first step in computing the standard deviation by hand is to create a table with three columns, like the following. The first column contains the observed data. The second column computes how far each of the observed data points has deviated from the sample mean, denoted <span class="math inline">\(\bar{x}\)</span>. The third column computes the squared value of each of these deviations. In Step 1, only enter the observed data in the first column and compute the mean of that column.</p>
 <table>
+<colgroup>
+<col width="17%" />
+<col width="34%" />
+<col width="47%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>
-<p>
-Observation (<span class="math inline">\(x\)</span>)
-</p>
-</td>
-</p>
-</th>
-<th>
-<p>
-Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)
-</p>
-</th>
+<th align="center">Observation (<span class="math inline">\(x\)</span>)</th>
+<th align="center">Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)</th>
+<th align="center">Squared Deviation from the Mean <span class="math inline">\((x - \bar{x})^2\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="center"><span class="math inline">\(38.1\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.3\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(38.4\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(39.5\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(39.5\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(39.7\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(\bar x = 38.8\)</span></span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
-</center>
-<p><strong>Step 02</strong>: The second column of the table contains the deviations from the mean. Complete column 2 of the table above.</p>
-<a href="javascript:showhide('Step2')"><span style="font-size:8pt;">Check Results for Step 2</span></a>
-<div id="Step2" style="display:none;">
+<p><strong>Step 2</strong>: The second column of the table contains the deviations from the mean. Each deviation is computed by subtracting the mean <span class="math inline">\(\bar{x}\)</span> from the observed data value. Since the mean <span class="math inline">\(\bar{x} = 38.8\)</span>, that value is subtraced from each data point to fill in the second column of the table.</p>
 <table>
+<colgroup>
+<col width="17%" />
+<col width="34%" />
+<col width="47%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>
-<p>
-Observation (<span class="math inline">\(x\)</span>)
-</p>
-</th>
-<th>
-<p>
-Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)
-</p>
-</th>
+<th align="center">Observation (<span class="math inline">\(x\)</span>)</th>
+<th align="center">Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)</th>
+<th align="center">Squared Deviation from the Mean <span class="math inline">\((x - \bar{x})^2\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
-</tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.3-38.8=-0.5\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.1\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(38.1-38.8=-0.7\)</span></span></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.4-38.8=-0.4\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.3\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(38.3-38.8=-0.5\)</span></span></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(39.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.5-38.8=0.7\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.4\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(38.4-38.8=-0.4\)</span></span></td>
+<td align="center"></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.7-38.8=0.9\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(39.5\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(39.5-38.8= 0.7\)</span></span></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(39.7\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\(39.7-38.8= 0.9\)</span></span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\bar x = 38.8\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><br></p>
+<p><br/> <br/></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -743,7 +682,7 @@ Answer the following questions:
 <div id="Q9b" style="display:none;">
 <ul>
 <li>You should have found that the mean of the deviations is zero. This is true for <em>every</em> data set. If you add up the deviations from the mean, the positive values will cancel with the negative values. The sum of the deviations from the mean will be zero, so the mean also must equal zero.</li>
-<li>The good news is that you can use this fact to check if you are on the right track. If the deviations from the mean do not add up to zero, then you have made a mistake in the calculations. The bad news is that the deviations always add up to 0, making it look like the distance from the data to the mean is 0. Nonsense!</li>
+<li>The good news is that you can use this fact to check if you are on the right track. If the deviations from the mean do not add up to zero, then you have made a mistake in the calculations. However, the bad news is that because the deviations always add up to 0 (when you have done the calculations correctly), computing the average of the deviations will not be useful because it makes it look like the “average deviation” from the data to the mean is 0. Nonsense! So we need a better way.</li>
 <li>The mean of the deviations from the mean cannot be used to find a measure of the spread in a data set, but it does provide a guidepost that shows we are on the right track. We must find another way to estimate the spread of a data set.</li>
 </ul>
 </div>
@@ -766,7 +705,7 @@ Answer the following questions:
 <div id="Q10b" style="display:none;">
 <ul>
 <li><p>Option #2:</p></li>
-<li><p>If we square the deviations from the mean, the values that were negative will become positive. This leads to an estimator of the spread that has excellent theoretical properties. This is the best of the four options. You will apply this idea in Step 03.</p></li>
+<li><p>If we square the deviations from the mean, the values that were negative will become positive. This leads to an estimator of the spread that has excellent theoretical properties. This is the best of the four options. You will apply this idea in Step 3.</p></li>
 </ul>
 </div>
 <p><br></p>
@@ -787,381 +726,109 @@ Answer the following questions:
 </div>
 <p><br> <br></p>
 <ul>
-<li>Please do not go on to Step 03 until you have finished this exploration.</li>
+<li>Please do not go on to Step 3 until you have finished this exploration.</li>
 </ul>
 </div>
 <p><br></p>
 <center>
 “Piled Higher and Deeper” by Jorge Cham <br> <img src="Images/Phd062307s.png">
 </center>
-<p><strong>Step 03</strong>: Add a third column to your table. To get the values in this column, square the deviations from the mean that you found in Column 2.</p>
-<a href="javascript:showhide('Step3blank')"><span style="font-size:8pt;">Click Here for a Blank Table</span></a>
-<div id="Step3blank" style="display:none;">
+<p><strong>Step 3</strong>: Complete the third column of the table by squaring each of the deviations from the mean that were computed in <strong>Step 2.</strong></p>
 <table>
+<colgroup>
+<col width="17%" />
+<col width="34%" />
+<col width="47%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>
-<p>
-Observation <span class="math inline">\(x\)</span>
-</p>
-</th>
-<th>
-<p>
-Deviation<br /> from the Mean<br /> <span class="math inline">\(x-\bar x\)</span>
-</p>
-</th>
-<th>
-<p>
-Squared Deviation<br /> from the Mean<br /> <span class="math inline">\(\left(x-\bar x\right)^2\)</span>
-</p>
-</th>
+<th align="center">Observation (<span class="math inline">\(x\)</span>)</th>
+<th align="center">Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)</th>
+<th align="center">Squared Deviation from the Mean <span class="math inline">\((x - \bar{x})^2\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
-<td>
-</td>
-</tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.3-38.8=-0.5\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(38.1\)</span></td>
+<td align="center"><span class="math inline">\(38.1-38.8=-0.7\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\((-0.7)^2=0.49\)</span></span></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.4-38.8=-0.4\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(38.3\)</span></td>
+<td align="center"><span class="math inline">\(38.3-38.8=-0.5\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\((-0.5)^2=0.25\)</span></span></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(39.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.5-38.8=0.7\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(38.4\)</span></td>
+<td align="center"><span class="math inline">\(38.4-38.8=-0.4\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\((-0.4)^2=0.16\)</span></span></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.7-38.8=0.9\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(39.5\)</span></td>
+<td align="center"><span class="math inline">\(39.5-38.8= 0.7\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\((0.7)^2=0.49\)</span></span></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=0\)</span>
-</p>
-</td>
-<td>
-</td>
+<td align="center"><span class="math inline">\(39.7\)</span></td>
+<td align="center"><span class="math inline">\(39.7-38.8= 0.9\)</span></td>
+<td align="center"><span style="background-color:yellow;"><span class="math inline">\((0.9)^2=0.81\)</span></span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\bar x = 38.8\)</span></td>
+<td align="center">Sum <span class="math inline">\(=0\)</span></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p></br></p>
-<a href="javascript:showhide('Step3filled')"><span style="font-size:8pt;">Check Results for Step 03</span></a>
-<div id="Step3filled" style="display:none;">
-<table>
-<thead>
-<tr class="header">
-<th>
-<p>
-Observation <span class="math inline">\(x\)</span>
-</p>
-</th>
-<th>
-<p>
-Deviation<br /> from the Mean<br /> <span class="math inline">\(x-\bar x\)</span>
-</p>
-</th>
-<th>
-<p>
-Squared Deviation<br /> from the Mean<br /> <span class="math inline">\(\left(x-\bar x\right)^2\)</span>
-</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.7)^2=0.49\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.3-38.8=-0.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.5)^2=0.25\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.4-38.8=-0.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.4)^2=0.16\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(9.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.5-38.8=0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.7)^2=0.49\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.7-38.8=0.9\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.9)^2=0.81\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=0\)</span>
-</p>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p><br></p>
-<p><strong>Step 04</strong>: Now, add up the squared deviations from the mean.</p>
-<a href="javascript:showhide('Step4')"><span style="font-size:8pt;">Check Results for Step 04</span></a>
-<div id="Step4" style="display:none;">
+<p><strong>Step 4</strong>: Now, add up the squared deviations from the mean.</p>
 <table>
+<colgroup>
+<col width="17%" />
+<col width="34%" />
+<col width="47%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>
-<p>
-Observation <span class="math inline">\(x\)</span>
-</p>
-</th>
-<th>
-<p>
-Deviation<br /> from the Mean<br /> <span class="math inline">\(x-\bar x\)</span>
-</p>
-</th>
-<th>
-<p>
-Squared Deviation<br /> from the Mean<br /> <span class="math inline">\(\left(x-\bar x\right)^2\)</span>
-</p>
-</th>
+<th align="center">Observation (<span class="math inline">\(x\)</span>)</th>
+<th align="center">Deviation from the Mean (<span class="math inline">\(x-\bar x\)</span>)</th>
+<th align="center">Squared Deviation from the Mean <span class="math inline">\((x - \bar{x})^2\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.7)^2=0.49\)</span>
-</p>
-</td>
-</tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.3-38.8=-0.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.5)^2=0.25\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.1\)</span></td>
+<td align="center"><span class="math inline">\(38.1-38.8=-0.7\)</span></td>
+<td align="center"><span class="math inline">\((-0.7)^2=0.49\)</span></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.4-38.8=-0.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.4)^2=0.16\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.3\)</span></td>
+<td align="center"><span class="math inline">\(38.3-38.8=-0.5\)</span></td>
+<td align="center"><span class="math inline">\((-0.5)^2=0.25\)</span></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(39.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.5-38.8=0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.7)^2=0.49\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(38.4\)</span></td>
+<td align="center"><span class="math inline">\(38.4-38.8=-0.4\)</span></td>
+<td align="center"><span class="math inline">\((-0.4)^2=0.16\)</span></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.7-38.8=0.9\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.9)^2=0.81\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(39.5\)</span></td>
+<td align="center"><span class="math inline">\(39.5-38.8= 0.7\)</span></td>
+<td align="center"><span class="math inline">\((0.7)^2=0.49\)</span></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=0\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=2.20\)</span>
-</p>
-</td>
+<td align="center"><span class="math inline">\(39.7\)</span></td>
+<td align="center"><span class="math inline">\(39.7-38.8= 0.9\)</span></td>
+<td align="center"><span class="math inline">\((0.9)^2=0.81\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\bar x = 38.8\)</span></td>
+<td align="center">Sum <span class="math inline">\(=0\)</span></td>
+<td align="center"><span style="background-color:yellow;"><strong>Sum <span class="math inline">\(=2.20\)</span></strong></span></td>
 </tr>
 </tbody>
 </table>
 <p>The sum of the squared deviations is 2.20.</p>
-</div>
 <p><br></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1194,7 +861,7 @@ Answer the following questions:
 <div id="Q12b" style="display:none;">
 <ul>
 <li><p>Option #2:</p></li>
-<li><p>This seems very odd, but it avoids the problem of underestimating the spread in the data, a problem that dividing by <span class="math inline">\(n\)</span> has. Ultimately, dividing by <span class="math inline">\(n-1\)</span> will lead us to the standard deviation you computed using <!--{{Course_Filter|course=B C|content=SPSS}}--> earlier. In Step 05, you will divide the sum of the squared deviations by <span class="math inline">\(n-1\)</span>. Here is how your table should look so far.</p></li>
+<li><p>This seems very odd, but it avoids the problem of underestimating the spread in the data, a problem that dividing by <span class="math inline">\(n\)</span> has. Ultimately, dividing by <span class="math inline">\(n-1\)</span> will lead us to the standard deviation you computed using <!--{{Course_Filter|course=B C|content=SPSS}}--> earlier. In Step 5, you will divide the sum of the squared deviations by <span class="math inline">\(n-1\)</span>. Here is how your table should look so far.</p></li>
 </ul>
 <table>
 <thead>
@@ -1347,154 +1014,13 @@ Sum <span class="math inline">\(=2.20\)</span>
 </ul>
 </div>
 <p><br></p>
-<p><strong>Step 05</strong>: Divide the sum of the squared deviations by <span class="math inline">\(n - 1\)</span>. Write this value at the bottom of Column 3 of your table.</p>
-<p>The number you computed in Step 05 is called the <span id="Sample Variance"><strong>sample variance</strong></span>. It is a measure of the spread in a data set. It has very nice theoretical properties. The variance plays an important role in Statistics. We denote the sample variance by the symbol <span class="math inline">\(s^2\)</span>.</p>
+<p><strong>Step 5</strong>: Take the value of the sum of the squared deviations that was computed in <strong>Step 4</strong> and divide it by <span class="math inline">\(n - 1\)</span>. The value of <span class="math inline">\(n\)</span> is the sample size (the number of observed data values). The value of <span class="math inline">\(n-1\)</span> is called the degrees of freedom.</p>
+<p>The sum of the squared deviations computed in <strong>Step 4</strong> was 2.20. Dividing <span class="math inline">\(2.20\)</span> by the number of observed data points (<span class="math inline">\(5\)</span>) minus <span class="math inline">\(1\)</span>, <span class="math inline">\(n-1=5-1=4\)</span>, we get the value of the sample variance, <span class="math inline">\(s^2\)</span>:</p>
+<p><span class="math display">\[
+  \underbrace{s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=\frac{2.20}{4} = 0.55}_\text{sample variance}
+\]</span></p>
+<p>The number computed in Step 5 is called the <span id="Sample Variance"><strong>sample variance</strong></span>. It is a measure of the spread in a data set. It has very nice theoretical properties, but is not very useful for interpretation or an intuitive undstanding of the data. While the variance plays an important role in statistics, it is not a measurement that will be used very often in this introductory course. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>.</p>
 <p>It can be shown that the sample variance is an unbiased estimator of the true population variance (which is denoted <span class="math inline">\(\sigma^2\)</span>.) This means that the sample variance can be considered a reasonable estimator of the population variance. If the sample size is large, this estimator tends to be very good.</p>
-<a href="javascript:showhide('Step5')"><span style="font-size:8pt;">Check the Results for Step 05</span></a>
-<div id="Step5" style="display:none;">
-<p>The sum of the squared deviations is the sum of the values in Column 3. This sum equals 2.20. We divide the sum of Column 3 (<span class="math inline">\(2.20\)</span>) by <span class="math inline">\(n-1=5-1=4\)</span> to get the sample variance, <span class="math inline">\(s^2\)</span>:</p>
-<p><span class="math display">\[s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=0.55\]</span></p>
-<p>This is the sample variance.</p>
-<table>
-<thead>
-<tr class="header">
-<th>
-<p>
-Observation <span class="math inline">\(x\)</span>
-</p>
-</th>
-<th>
-<p>
-Deviation<br /> from the Mean<br /> <span class="math inline">\(x-\bar x\)</span>
-</p>
-</th>
-<th>
-<p>
-Squared Deviation<br /> from the Mean<br /> <span class="math inline">\(\left(x-\bar x\right)^2\)</span>
-</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.1\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.1-38.8=-0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.7)^2=0.49\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(38.3\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.3-38.8=-0.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.5)^2=0.25\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(38.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(38.4-38.8=-0.4\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((-0.4)^2=0.16\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(39.5\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.5-38.8=0.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.7)^2=0.49\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(39.7\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(39.7-38.8=0.9\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\((0.9)^2=0.81\)</span>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<span class="math inline">\(\bar x = 38.8\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=0\)</span>
-</p>
-</td>
-<td>
-<p>
-Sum <span class="math inline">\(=2.20\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-Variance:
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\displaystyle{s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=0.55}\)</span>
-</p>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p><br></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1527,10 +1053,11 @@ Answer the following questions:
 <p> </p>
 </div>
 <p><br></p>
-<p><strong>Step 06</strong>: Take the square root of the sample variance to get the sample standard deviation.</p>
-<p>The sample standard deviation is defined as the square root of the sample variance.</p>
-<p><span class="math display">\[\text{Sample Standard Deviation} = s = \sqrt{ s^2 } = \sqrt{\strut\text{Sample Variance}}\]</span></p>
-<p>The standard deviation has the same units as the original observations. We use the standard deviation heavily in statistics.</p>
+<p><strong>Step 6</strong>: Compute the standard deviation by taking the square root of the sample variance. The standard deviation is a very interpretable number as it gives the “typical” or “standard” deviation of the observed data from the mean. It gives a good feel for how spread out the data is from the mean.</p>
+<p><span class="math display">\[
+\underbrace{s = \sqrt{ s^2 } = \sqrt{\strut\text{Sample Variance}} = \sqrt{0.55} \approx 0.742}_\text{Sample Standard Deviation}
+\]</span></p>
+<p>The standard deviation has the same units as the original observations. We use the standard deviation heavily in statistics and in this course.</p>
 <p>The sample standard deviation (<span class="math inline">\(s\)</span>) is an estimate of the true population standard deviation (<span class="math inline">\(\sigma\)</span>).</p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1712,8 +1239,8 @@ Standard Deviation:
 </div>
 <p><br></p>
 </div>
-<div id="summary" class="section level4">
-<h4>Summary</h4>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
 <div class="Emphasis">
 <p>  <strong>Standard Deviation</strong></p>
 <p>  The <strong>standard deviation</strong> is one number that describes the spread in a set of data. If the data points are close together the standard deviation will be smaller than if they are spread out.</p>
@@ -1727,21 +1254,20 @@ Standard Deviation:
 </div>
 <p><strong>Variance</strong></p>
 <p>The variance is the square of the standard deviation. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>. You found the sample standard deviation for patient temperatures of uncomplicated cases of bird in the bird above is <span class="math inline">\(s = 0.74162\)</span>. So, the sample variance for this data set is <span class="math inline">\(s^2 = 0.74162^2 = 0.550\)</span>. Be aware, if you had squared the rounded value of <span class="math inline">\(s^2 = 0.742\)</span> in the calculation, you would have gotten an answer of 0.551 instead. This would be considered incorrect! <!-- [[NEED TO DISCUSS STATISTIC v. PARAMETER.]] --></p>
-<div class="message Tip">
-<strong>Rounding:</strong> Use <strong>un</strong>rounded values in interim calculations. Rounding too early in the process can lead to wrong answers.
-</div>
-<p><br> <br></p>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions
 </div>
-<div class="Summary">
-<p>  <strong>To calculate the sample variance in Excel:</strong>   </p>
-<ul>
-<li>In a blank cell, type “<strong>=var.s(</strong>”</li>
-<li>Highlight the data (the cell range reference will be added to your formula)</li>
-<li>Close the parenthesis with “<strong>)</strong>” and hit enter</li>
-</ul>
-<p><br></p>
+<div class="Software">
+<p>  <strong>To calculate the sample variance in R, follow these steps:</strong>   </p>
+<div style="padding-left:20px;">
+<p><strong>Step 1.</strong> Either <a href="RHelp.html#read-in-data">read in a data set</a>, or enter the data manually using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:</p>
+<pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)</code></pre>
+<p><strong>Step 2.</strong> Compute the sample variance of the data by using the <code>var(...)</code> function in R, like this:</p>
+<pre class="r"><code>var(bodytemp_uncomp)</code></pre>
+<pre><code>## [1] 0.55</code></pre>
+<p>The value showing above is the sample variance of the body temperature data for the relatively uncomplicated cases. In RStudio, it would look like this:</p>
+<p><img src="Images/rstudio_bodytemp_uncomp_var.png" width="500"></p>
+</div>
 </div>
 <p><br></p>
 <p>The standard deviation and variance are two commonly used measures of the spread in a data set. Why is there more than one measure of the spread? The standard deviation and the variance each have their own pros and cons.</p>
@@ -1751,7 +1277,7 @@ Excel Instructions
 Answer the following questions:
 </div>
 <div class="Questions">
-<p>Enter the patient temperature data for the severe cases of bird flu into Excel. Then use Excel to calculate the numerical summaries you have learned so far. As a reminder, the temperatures of patients with a severe case of bird flu are:</p>
+<p>Enter the patient temperature data for the severe cases of bird flu into R. Then use R to calculate the numerical summaries you have learned so far. As a reminder, the temperatures of patients with a severe case of bird flu are:</p>
 <center>
 39.1, 39.5, 38.9, 39.2, 39.9, 39.7, 39
 </center>
@@ -1760,9 +1286,13 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
-<div style="padding-left:35px;">
-<img src="Images/Lesson_03_summary_stats_severe_bird_flu.PNG">
-</div>
+<pre class="r"><code>birdflu_severe &lt;- c( 39.1, 39.5, 38.9, 39.2, 39.9, 39.7, 39)
+mean(birdflu_severe)</code></pre>
+<pre><code>## [1] 39.32857</code></pre>
+<pre class="r"><code>median(birdflu_severe)</code></pre>
+<pre><code>## [1] 39.2</code></pre>
+<pre class="r"><code>sd(birdflu_severe)</code></pre>
+<pre><code>## [1] 0.377334</code></pre>
 </div>
 <p><br></p>
 <p>For the next two questions, consider the histograms below comparing weight (in kilograms) of men (top histogram) to elephant seals (bottom histogram).</p>
@@ -1794,97 +1324,34 @@ Answer the following questions:
 <p><br></p>
 <p><strong>Review of Parameters and Statistics</strong></p>
 <p>We have now learned some statistics that can be used to estimate population parameters. For example, we use <span class="math inline">\(\bar x\)</span> to estimate the population mean <span class="math inline">\(\mu\)</span>. The sample statistics <span class="math inline">\(s\)</span> estimates the true population standard deviation <span class="math inline">\(\sigma\)</span>. The following table summarizes what we have done so far:</p>
-<center>
 <table>
 <thead>
 <tr class="header">
-<th>
-</th>
-<th>
-<p>
-Sample Statistic
-</p>
-</th>
-<th>
-<p>
-Population Parameter
-</p>
-</th>
+<th align="center">Measurement</th>
+<th align="center">Sample Statistic</th>
+<th align="center">Population Parameter</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>
-<p>
-Mean
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\bar x\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\mu\)</span>
-</p>
-</td>
+<td align="center">Mean</td>
+<td align="center"><span class="math inline">\(\bar x\)</span></td>
+<td align="center"><span class="math inline">\(\mu\)</span></td>
 </tr>
 <tr class="even">
-<td>
-<p>
-Standard Deviation
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(s\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\sigma\)</span>
-</p>
-</td>
+<td align="center">Standard Deviation</td>
+<td align="center"><span class="math inline">\(s\)</span></td>
+<td align="center"><span class="math inline">\(\sigma\)</span></td>
 </tr>
 <tr class="odd">
-<td>
-<p>
-Variance
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(s^2\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\sigma^2\)</span>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<span class="math inline">\(\vdots\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\vdots\)</span>
-</p>
-</td>
-<td>
-<p>
-<span class="math inline">\(\vdots\)</span>
-</p>
-</td>
+<td align="center">Variance</td>
+<td align="center"><span class="math inline">\(s^2\)</span></td>
+<td align="center"><span class="math inline">\(\sigma^2\)</span></td>
 </tr>
 </tbody>
 </table>
-</center>
-<p>Unless otherwise specified, we will always use Excel to find the sample variance and sample mean. In each case, the sample statistic estimates the population parameter. The ellipses <span class="math inline">\(\vdots\)</span> in this table hint that we will add rows in the future.</p>
+<p>Unless otherwise specified, we will always use R to find the sample variance and sample mean, but knowing how to compute them “by hand” helps you understand what these values measure.</p>
+<p>In each case, the sample statistic estimates the population parameter.</p>
 <p><br></p>
 <p><strong>Optional Reading: Formulas for <span class="math inline">\(s\)</span> and <span class="math inline">\(s^2\)</span> (Hidden)</strong></p>
 <a href="javascript:showhide('s2')"><span style="font-size:8pt;">Click Here if you love Math</span></a>
@@ -1896,14 +1363,13 @@ Variance
 <p><strong>Sample standard deviation</strong>:</p>
 <p><span class="math display">\[\displaystyle{ s=\sqrt{s^2}=\sqrt{\frac{\sum\limits_{i=1}^n (x_i-\bar x)^2}{n-1}} }\]</span></p>
 <p>where <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> observed data value, and <span class="math inline">\(i=1, 2, \ldots, n\)</span>.</p>
-<p>Unless otherwise specified, we will always use Excel<!--{{Course_Filter|course=B C|content=SPSS}}--> to find the sample variance and sample mean.</p>
+<p>Unless otherwise specified, we will always use R to find the sample variance and sample mean.</p>
 <p><strong>Why do we divide by <span class="math inline">\(n-1\)</span>?</strong></p>
 <p>When computing the standard deviation or the variance, we are finding a value that describes the spread of data values. It is a measure of how far the data are from the mean. Since we do not know the true mean (<span class="math inline">\(\mu\)</span>,) we use the sample mean (<span class="math inline">\(\bar x\)</span>,) to estimate it. Typically, the data will be closer to <span class="math inline">\(\bar x\)</span> than to <span class="math inline">\(\mu\)</span>, since <span class="math inline">\(\bar x\)</span> was computed using the data. To compensate for this, we divide by <span class="math inline">\(n-1\)</span> rather than <span class="math inline">\(n\)</span> when we find the “average” of the squared deviations from the mean. It turns out, that subtracting 1 from <span class="math inline">\(n\)</span> inflates this average by the precise amount needed to compensate for the use of <span class="math inline">\(\bar x\)</span> as an estimate for <span class="math inline">\(\mu\)</span>. As a result, the sample variance (<span class="math inline">\(s^2\)</span>) is a good estimator of the population variance (<span class="math inline">\(\sigma^2\)</span>.)</p>
 </div>
 <p><br></p>
 <p>Neither the standard deviation nor the variance is <strong>resistant</strong> to outliers. This means that when there are outliers in the data set, the standard deviation and the variance become artificially large. It is worth noting that the mean is also not resistant. When there are outliers, the mean will be “pulled” in the direction of the outliers.</p>
 <p>The mean and standard deviation are used to describe the center and spread when the distribution of the data is symmetric and bell-shaped. If data are not symmetric and bell-shaped, we typically use the five-number summary (discussed below) to describe the spread, because this summary is resistant.</p>
-</div>
 </div>
 </div>
 <div id="additional-tools-to-describe-the-data" class="section level2">
@@ -2008,24 +1474,25 @@ Step 5:
 <p><br></p>
 <div id="percentiles-and-quartiles" class="section level3">
 <h3>Percentiles and Quartiles</h3>
-<p>Imagine a very long street with houses on one side. The houses increase in value from left to right. At the left end of the street is a small cardboard box with a leaky roof. Next door is a slightly larger cardboard box that does not leak. The houses eventually get larger and more valuable. The rightmost house on the street is a huge mansion.</p>
+<p>Imagine students in a classroom on campus lining up in a line from shortest to tallest. The students are organized with the shortest student on the left and the tallest student on the right.</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
 <div class="Questions">
 <ol start="19" style="list-style-type: decimal">
-<li>There are 100 homes with increasing property values. How many fences are needed to separate the 100 properties?</li>
+<li>If there are 100 students in line, and we draw a line on the floor between each student, how many lines are needed to separate the 100 students?</li>
 </ol>
 <a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
 <ul>
-<li>In order to separate the 100 homes, 99 fences are required.</li>
+<li>In order to separate the 100 students, 99 lines would have to be drawn between them.</li>
 </ul>
 </div>
 <p> </p>
 </div>
 <p><br></p>
-<p>The home values are representative of data. If we have a list of data, sorted in increasing order, and we want to divide it into 100 equal groups, we only need 99 dividers (like fences) to divide up the data. The first divider is as large or larger than 1% of the data. The second divider is as large or larger than 2% of the data, and so on. The last divider, the 99<sup>th</sup>, is the value that is as large or larger than 99% of the data. These dividers are called percentiles. A <strong>percentile</strong> is a number such that a specified percentage of the data are at or below this number. For example, the 99<sup>th</sup> percentile is a number such that 99% of the data are at or below this value. As another example, half (50%) of the data lie at or below the 50<sup>th</sup> percentile. The word percent means <span class="math inline">\(\div 100\)</span>. This can help you remember that the percentiles divide the data into 100 equal groups.</p>
+<p>The student heights are representative of all data. If we have a list of data, sorted in increasing order, and we want to divide it into 100 equal groups, we only need 99 dividers (like lines on a floor) to divide up the data. The first divider is as large or larger than 1% of the data. The second divider is as large or larger than 2% of the data, and so on. The last divider, the 99<sup>th</sup>, is the value that is as large or larger than 99% of the data. These dividers are called percentiles. A <strong>percentile</strong> is a number such that a specified percentage of the data are at or below this number. For example, the 99<sup>th</sup> percentile is a number such that 99% of the data are at or below this value. As another example, half (50%) of the data lie at or below the 50<sup>th</sup> percentile. The word percent means <span class="math inline">\(\div 100\)</span>. This can help you remember that the percentiles divide the data into 100 equal groups.</p>
+<p>So, if there were 100 students in a line from shortest to tallest, the height of the 5th student would be the 5th percentile of heights for those students.</p>
 <p><strong>Quartiles</strong> are special percentiles. The word quartile is from the Latin <em>quartus</em>, which means “fourth.” The quartiles divide the data into four equal groups. The quartiles correspond to specific percentiles. The first quartile, Q<sub>1</sub>, is the 25<sup>th</sup> percentile. The second quartile, Q<sub>2</sub>, is the same as the 50<sup>th</sup> percentile or the median. The third quartile, Q<sub>3</sub>, is equivalent to the 75<sup>th</sup> percentile.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -2045,66 +1512,44 @@ Answer the following questions:
 <p><br></p>
 <p><strong>Wrong Site/Wrong Patient Lawsuits</strong></p>
 <p>Percentiles can be used to describe the center and spread of any distribution and are particularly useful when the distribution is skewed or has outliers. To explore this issue, you will use software to calculate percentiles of data on costs incurred by hospitals due to certain lawsuits. The lawsuits in question were about surgeries performed on the wrong patient, or on the right patient but the wrong part of the patient’s body (the wrong site).</p>
+</div>
+<div id="computing-percentiles-in-r" class="section level3">
+<h3>Computing Percentiles in R</h3>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions
 </div>
-<div class="Summary">
-<p>  <strong>To calculate percentiles and quartiles in Excel, do the following</strong></p>
+<div class="Software">
+<p>  <strong>To calculate percentiles and quartiles in R, do the following</strong></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
-<li><p>You will use Excel’s percentile (inclusive) function: <strong>=percentile.inc()</strong></p></li>
-<li><p>This Excel function requires two inputs (or arguments), separated by a comma. The first input is the cell range reference. The second input is the desired percentile.</p></li>
+<li><p>Read in the dataset. For this example, open the data file by right clicking on this link: <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> and then selecting “Copy Link”.</p></li>
+<li><p>Next, open RStudio. From inside RStudio, select the “Environment” window, click on “Import Dataset”, and then choose “From Excel…” from the menu that appears. Like this:</p></li>
 </ul>
-<p>The wrong-site data in the file ranges from row 2 to row 412 in column A. So, to calculate the 25<sup>th</sup> percentile of the wrong site data you should enter the following formula in a blank cell somewhere in the file:</p>
 <center>
-=PERCENTILE.INC(A2:A412, 0.25)
+<img src="Images/rstudio_import_excel.png" width="500">
 </center>
+<ul>
+<li>Paste the copied link for the data into the “File/URL:” box and click “Update”. The data should pull up in the “Data Preview:” window. If it looks like it worked, click “Import” to import the data into RStudio.</li>
+</ul>
+<center>
+<img src="Images/rstudio_import_excel2.png" width="500">
+</center>
+<ul>
+<li>Percentiles can then be calculated on any quantitative column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</li>
+</ul>
+<p>For the <strong>WrongSiteWrongPatient</strong> data set, we could compute the 25th percentile by using the code:</p>
+<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)</code></pre>
+<pre><code>##   25% 
+## 29496</code></pre>
+<p>Note: as soon as you type in the name of the data set, <code>WrongSiteWrongPatient</code>, and then add the selection operator <code>$</code> (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as “buying an item” from a dataset with “your money: <code>$</code>.”)</p>
+<p><img src="Images/rstudio_selection_operator.png" width="500"></p>
 <p><br></p>
-<p>  You may notice that some of the values for percentiles given in Excel are different from those given in other softwares. This is due to the slightly different ways in which percentiles can be calculated. In this course, be sure to use the percentiles that come from Excel’s percentile.inc() function. <br></p>
 </div>
 <p><br></p>
-<p>The first quartile (<span class="math inline">\(Q_1\)</span>) or 25<sup>th</sup> percentile (calculated in Excel) of the wrong-site data is: $29,496. (This result is illustrated in the figure below.) This means that 25 percent of the time hospitals lost a wrong-site lawsuit, they had to pay $29,496 or less. The 25<sup>th</sup> percentile can be written symbolically as: P<sub>25</sub> = $29,496. Other percentiles can be written the same way. The 99<sup>th</sup> percentile can be written as P<sub>99</sub>.</p>
-<center>
-<strong>Percentiles (Calculated in Excel)</strong>
-</center>
-<table>
-<thead>
-<tr class="header">
-<th> </th>
-<th> </th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1st percentile</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>2nd percentile</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>3rd percentile</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>…</td>
-<td>…</td>
-</tr>
-<tr class="odd">
-<td>24th percentile</td>
-<td>28633.4</td>
-</tr>
-<tr class="even">
-<td>25th percentile</td>
-<td>29496</td>
-</tr>
-<tr class="odd">
-<td>26th percentile</td>
-<td>31067</td>
-</tr>
-</tbody>
-</table>
+<p>The first quartile (<span class="math inline">\(Q_1\)</span>) or 25<sup>th</sup> percentile (calculated in R) of the wrong-site data is: $29,496. This means that 25 percent of the time hospitals lost a wrong-site lawsuit, they had to pay $29,496 or less. The 25<sup>th</sup> percentile can be written symbolically as: P<sub>25</sub> = $29,496. Other percentiles can be written the same way. The 99<sup>th</sup> percentile can be written as P<sub>99</sub>.</p>
+<p><strong>Other Percentiles (Calculated in R)</strong></p>
+<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Site`, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))</code></pre>
+<pre><code>##     1%    10%    20%    40%    60%    80%    90%    99% 
+##      0      0  21900  51997  84200 135239 149963 250000</code></pre>
 <p><br></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -2200,22 +1645,23 @@ Answer the following questions:
 <div id="the-five-number-summary" class="section level3">
 <h3>The Five-Number Summary</h3>
 <p>Another way to summarize data is with the five-number summary. <strong>The five-number summary</strong> is comprised of the minimum, the first quartile, the second quartile (or median), the third quartile, and the maximum.</p>
-<p>Statistical packages can give different results for some computations. This is because there are several reasonable ways to define certain quantities, such as the quartiles. As such, you may find that some of the values that are given in Excel<!--{{Course_Filter|course=B C|content=SPSS}}--> are different than what other software may give.</p>
-<!--Please be sure to use the values that you calculate using the software designated for your particular class ({{Course_Filter|course=A|content=Excel}}{{Course_Filter|course=B C|content=SPSS}}-->
-<div class="SoftwareHeading">
-Excel Instructions
+<p>Statistical packages can give different results for some computations. This is because there are several reasonable ways to define certain quantities, such as the quartiles. As such, you may find that some of the values that are given in R are different than what other software may give.</p>
 </div>
-<div class="Summary">
-<p>  <strong>To find the values for a five-number summary in Excel, do the following</strong></p>
+<div id="computing-quartiles-and-the-five-number-summary-in-r" class="section level3">
+<h3>Computing Quartiles and the Five-number Summary in R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>  <strong>To find the values for a five-number summary in R, do the following</strong></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
-<li><p>You can use the function <strong>=percentile.inc()</strong> in Excel to find the 1<sup>st</sup> quartile, median and 3<sup>rd</sup> quartile (otherwise known as the 25<sup>th</sup>, 50<sup>th</sup>, and 75<sup>th</sup> percentiles respectively).</p></li>
-<li><p>Type the following into a blank cell of the WrongSiteWrongPatient.xlsx worksheet</p>
-<ul>
-<li>to find the minimum wrong-site value: =min(A2:A412)</li>
-<li>to find the maximum wrong-site value: =max(A2:A412) <br></li>
-</ul></li>
+<li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> that you opened previously in this lesson.</p></li>
+<li><p>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</p></li>
 </ul>
+<pre class="r"><code>summary(WrongSiteWrongPatient$`Wrong Site`)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0   29496   68552   80041  124280  780575</code></pre>
+<p><br></p>
 </div>
 <p><br></p>
 <div class="QuestionsHeading">
@@ -2223,7 +1669,7 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="28" style="list-style-type: decimal">
-<li>Give the five-number summary for the Wrong Site data.</li>
+<li>Give the five-number summary for the Wrong Site data. (Remember that the mean is not part of the five-number summary.)</li>
 </ol>
 <a href="javascript:showhide('Q28')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q28" style="display:none;">
@@ -2244,30 +1690,42 @@ Some students mistakenly include the mean in the five-number summary. The third 
 <h3>Boxplots</h3>
 <p>A <strong>boxplot</strong> is a graphical representation of the five-number summary. Unlike the mean or standard deviation, a boxplot is resistant to outliers. That means that it won’t be “pulled” one way or the other by extraordinarily large or small values in the data as will a mean, for instance. We will illustrate the process of making a boxplot using the wrong-site data.</p>
 <p>Follow the steps below to learn how a boxplot relates to the five-number summary. Learning what each part of the boxplot represents will enable you to interpret the plot correctly.</p>
-<p><strong>Step 01:</strong> To draw a boxplot, start with a number line.</p>
+<p><strong>Step 1:</strong> To draw a boxplot, start with a number line.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_1.jpg"></p>
-<p><strong>Step 02:</strong> Draw a vertical line segment above each of the quartiles.</p>
+<p><strong>Step 2:</strong> Draw a vertical line segment above each of the quartiles.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_2.jpg"></p>
-<p><strong>Step 03:</strong> Connect the tops and bottoms of the line segments, making a box.</p>
+<p><strong>Step 3:</strong> Connect the tops and bottoms of the line segments, making a box.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_3.jpg"></p>
-<p><strong>Step 04:</strong> Make a smaller mark above the values corresponding to the minimum and the maximum.</p>
+<p><strong>Step 4:</strong> Make a smaller mark above the values corresponding to the minimum and the maximum.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_4.jpg"></p>
-<p><strong>Step 05:</strong> Draw a line from the left side of the box to the minimum, and draw another line from the right side of the box the maximum.</p>
+<p><strong>Step 5:</strong> Draw a line from the left side of the box to the minimum, and draw another line from the right side of the box the maximum.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_5.jpg"></p>
-<p><strong>Step 06:</strong> These last two lines look like whiskers, so this is sometimes called a box-and-whisker plot.</p>
+<p><strong>Step 6:</strong> These last two lines look like whiskers, so this is sometimes called a box-and-whisker plot.</p>
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_6.jpg"></p>
 <p><br></p>
-<div class="SoftwareHeading">
-Excel Instructions
 </div>
-<div class="Summary" style="padding:10px;">
-<p><strong>To create a boxplot in Excel, do the following</strong></p>
+<div id="creating-boxplots-in-r" class="section level3">
+<h3>Creating Boxplots in R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<p><strong>To create a boxplot in R, do the following</strong></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
-<li><p>Highlight the data you want to plot (in this case, cells A2 to A412 contain the wrong-site lawsuit data).<br />
-</p></li>
-<li><p>Go to the Insert ribbon in Excel and select the histogram icon from the “Charts” section of the ribbon. Then select the only option under the Box and Whisker category. <img src="Images/Lesson_03_boxplot.png" width=80%></p></li>
+<li><p>Open the data file you are using. For this example, continue using the <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> data that you opened previously in this lesson.</p></li>
+<li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</p></li>
 </ul>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`, horizontal=TRUE)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.</p>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab=&quot;Cost in Thousands of Dollars&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Also, you can give color to the graph using <code>col="some color name"</code>.</p>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab=&quot;Cost in Thousands of Dollars&quot;, col=&quot;seagreen&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Finally, note that the default for <code>boxplot(...)</code> is to draw the boxplot vertically. That is why we used the command <code>horizontal=TRUE</code> to force the graph to draw the boxplot sideways. If we remove the <code>horizontal=TRUE</code> statement, we get a vertical boxplot instead It really doesn’t matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.</p>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -2287,11 +1745,10 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
-<p>To create the histogram, highlight the data. Then go to the Insert ribbon of Excel. Select the histogram icon and then choose the first option under the Histogram category.</p>
-<div style="padding-left:35px;">
-<p><img src="Images/Lesson_03_wrong-patient_histogram.png" width=80%></p>
-</div>
-<p>From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the numer line, so the correct answer is ‘c. Skewed right’.</p>
+<p>To create the histogram, <a href="RHelp.html#reading-in-data">read the data</a> into RStudio. Then, use the <code>hist(...)</code> function to create a histogram. If you have forgotten how to do this, review it in <a href="Lesson03.html#r-Instructions-for-histograms">Lesson 3, creating a histogram</a>.</p>
+<pre class="r"><code>hist(WrongSiteWrongPatient$`Wrong Patient`, col=&quot;skyblue&quot;, main=&quot;Costs of Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is ‘c. Skewed right’.</p>
 </div>
 <p><br></p>
 <ol start="30" style="list-style-type: decimal">
@@ -2299,28 +1756,35 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q30')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q30" style="display:none;">
-<div style="padding-left:35px;">
-<p><img src="Images/Lesson_03_wrong-patient_boxplot.png" width=90%></p>
-</div>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Patient`, horizontal=TRUE, col=&quot;orange&quot;, main=&quot;Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
 <p><br></p>
 <p>Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.</p>
-<p><img src="Images/Lesson_03_boxplot_side-by-side.png" width=80%></p>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.</p>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions
 </div>
-<div class="Summary" style="padding:10px;">
-<p><strong>To create side-by-side boxplots in Excel, do the following</strong></p>
-<p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>. Since these two datasets are next to each other in the file, the easiest way to create side-by-side boxplots plots is to highlight both columns of data. Then follow the same steps as for a single boxplot.</p>
-<p>To make a side-by-side boxplot plot easier to understand you can add a legend. This is most easily done by clicking the green ‘+’ near the upper right corner of the plot that appears when the plot is selected. Then, in the menu that appears, ensure the “legend” box is checked.</p>
-<p>Alternatively, if the green ‘+’ is not visible to you, follow these steps shown in the image below. After selecting the plot go to the Design ribbon and select Add Chart Element. In the menu that appears select Legend, and then choose where you would like the legend to appear on the plot, as shown below.</p>
-<div style="padding-left:35px;">
-<p><img src="Images/Lesson_03_boxplot_legend.png" width=85%></p>
-</div>
-<p>Additional formatting can be applied to further improve the appearance of the chart.</p>
+<div class="Software" style="padding:10px;">
+<p><strong>To create side-by-side boxplots in R, do the following</strong></p>
+<ul>
+<li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
+<li><p>Use the <code>boxplot(...)</code> function with the first column listed, followed by a comma, then followed by the next column of data.</p></li>
+</ul>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`, WrongSiteWrongPatient$`Wrong Patient`)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>To make the graph look nicer, we can use the <code>names=c(...)</code> command to give a name to each box in the plot. Then we can also use <code>col=c(...)</code> to give colors to each box. Then we can include a main title with <code>main="..."</code>, a y-axis label with <code>ylab="..."</code>, rotate the numbers on the y-axis with <code>las=1</code>, and change everything to be in “millions of dollars” by dividing each column by 1000000. The result looks like this.</p>
+<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000, 
+        WrongSiteWrongPatient$`Wrong Patient`/1000000, 
+        names=c(&quot;Wrong Site&quot;, &quot;Wrong Patient&quot;), 
+        col=c(&quot;skyblue3&quot;,&quot;firebrick&quot;), 
+        main=&quot;Cost to Hospital by Lawsuit Type&quot;, 
+        ylab=&quot;Cost in Millions of Dollars&quot;, 
+        las=1)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -2334,8 +1798,24 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p>The <strong>standard deviation</strong> is a number that describes how spread out the data are. A larger standard deviation means the data are more spread out than data with a smaller standard deviation.</p></li>
+<li><p>The <strong>standard deviation</strong> is a number that describes how spread out the data are. A larger standard deviation means the data are more spread out than data with a smaller standard deviation. The smallest the standard deviation can be is zero, in which case all of the data is exactly the same.</p></li>
+<li><p>The standard deviation can be easily computed in R, where the six steps are performed automatically with the <code>sd(...)</code> function. However, the six steps to computing standard deviation by hand are:</p>
+<ol style="list-style-type: decimal">
+<li>List out the observed data and compute the mean.</li>
+<li>Subtract the mean from each observed data value to obtain the deviations from the mean.</li>
+<li>Square each of the deviations from the mean.</li>
+<li>Sum the squared deviations.</li>
+<li>Divide the sum of the squared deviations by <span class="math inline">\(n-1\)</span>. (This gives the sample variance.)</li>
+<li>Take the square root of the sample variance to obtain <span class="math inline">\(s\)</span>, the sample standard deviation.</li>
+</ol></li>
+</ul>
+<p><br/></p>
+<ul>
 <li><p><strong>Quartiles/percentiles</strong>, <strong>Five-Number Summaries</strong>, and <strong>Boxplots</strong> are tools that help us understand data. The five-number summary of a data set contains the minimum value, the first quartile, the median, the third quartile, and the maximum value. A boxplot is a graphical representation of the five-number summary.</p></li>
+<li><p>Use <code>sd(...)</code> to compute the standard deviation in R.</p></li>
+<li><p>Use <code>quantile(..., 0.2)</code> to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile.</p></li>
+<li><p>Use <code>summary(...)</code> to obtain the five-number summary in R.</p></li>
+<li><p>Use <code>boxplot(...)</code> to create a boxplot in R.</p></li>
 </ul>
 </div>
 <p><br></p>
