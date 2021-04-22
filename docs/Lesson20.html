@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Lesson 20: Review for Exam 3</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Math 221</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson01_Campus.html">Lesson 1: (On Campus) Course Intro &amp; Probability</a>
+    </li>
+    <li>
+      <a href="Lesson01.html">Lesson 1: (Online) Course Intro &amp; Probability</a>
+    </li>
+    <li>
+      <a href="Lesson02.html">Lesson 2: The Statistical Process</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 3: Describing Quantitative Data (Shape &amp; Center)</a>
+    </li>
+    <li>
+      <a href="Lesson04.html">Lesson 4: Describing Quantitative Data (Spread)</a>
+    </li>
+    <li>
+      <a href="Lesson05.html">Lesson 5: Normal Distributions</a>
+    </li>
+    <li>
+      <a href="Lesson06.html">Lesson 6: The Central Limit Theorem</a>
+    </li>
+    <li>
+      <a href="Lesson07.html">Lesson 7: Calculating Probabilities involving the Sample Mean</a>
+    </li>
+    <li>
+      <a href="Lesson08.html">Lesson 8: Unit 1 Review</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson09.html">Lesson 9: Hypothesis Test for One Mean (Sigma Known)</a>
+    </li>
+    <li>
+      <a href="Lesson10.html">Lesson 10: Confidence Interval for One Mean (Sigma Known)</a>
+    </li>
+    <li>
+      <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
+    </li>
+    <li>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
+    </li>
+    <li>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
+    </li>
+    <li>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
+    </li>
+    <li>
+      <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson16.html">Lesson 16: Describing Categorical Data</a>
+    </li>
+    <li>
+      <a href="Lesson17.html">Lesson 17: Inference for One Proportion</a>
+    </li>
+    <li>
+      <a href="Lesson18.html">Lesson 18: Inference for Two Proportions</a>
+    </li>
+    <li>
+      <a href="Lesson19.html">Lesson 19: Inference for Independence of Categorical Data</a>
+    </li>
+    <li>
+      <a href="Lesson20.html">Lesson 20: Unit 3 Review</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson21.html">Lesson 21: Describing Bivariate Data</a>
+    </li>
+    <li>
+      <a href="Lesson22.html">Lesson 22: Simple Linear Regression</a>
+    </li>
+    <li>
+      <a href="Lesson23.html">Lesson 23: Inference for Bivariate Data</a>
+    </li>
+    <li>
+      <a href="Lesson24.html">Lesson 24: Unit 4 Review</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="RHelp.html">R Help</a>
+</li>
+<li>
+  <a href="Data.html">Data</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Lesson 20: Review for Exam 3</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#unit-3-lesson-outcomes">Unit 3 Lesson Outcomes</a></li>
+<li><a href="#unit-3-lesson-summaries">Unit 3 Lesson Summaries</a></li>
+<li><a href="#navigation">Navigation</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+ function showhide(id) {
+    var e = document.getElementById(id);
+    e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+ }
+</script>
+<p>This is not designed to be a comprehensive review. There may be items on the exam that are not covered in this review. Similarly, there may be items in this review that are not tested on this exam. You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the <a href="Lesson08.html" target="_blank">Review for Exam 1</a> and the <a href="Lesson15.html" target="_blank">Review for Exam 2</a>.</p>
+<!-- Use the <span style="font-variant:small-caps"> -->
+<!-- [[Index]]</span> to review definitions of important terms. 
+Index needs to be built-->
+<div id="unit-3-lesson-outcomes" class="section level2">
+<h2>Unit 3 Lesson Outcomes</h2>
+<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id="oc" style="display:none;">
+<p>The expectation on the exam is the following outcomes. You should be able to do all of the following.</p>
+<ul>
+<li>All of the Outcomes from <a href="Lesson08.html">Lesson 08 (Unit 1)</a> and <a href="Lesson15.html">Lesson 15 (Unit 2)</a></li>
+<li>Calculate and interpret a sample proportion.</li>
+<li>Summarize categorical data with a bar or pie chart.</li>
+<li>Determine the mean, standard deviation and shape of a distribution of sample proportions.</li>
+<li>Calculate probabilities using a distribution of sample proportions.</li>
+<li>Confidence Intervals:
+<ul>
+<li>Determining correct confidence interval for a given scenario.</li>
+<li>Calculate and interpret a confidence interval given a confidence level and a given parameter.</li>
+<li>Identify a point estimate and margin of error for a given confidence interval.</li>
+<li>Show the appropriate connections between the numerical and graphical summaries that support a confidence interval.</li>
+<li>Check the requirements for a confidence interval.</li>
+<li>Calculate a confidence interval for a comparison of two proportions.</li>
+</ul></li>
+<li>Conduct a Hypothesis Test for
+<ul>
+<li>A single mean with σ known.</li>
+<li>A single mean with σ unknown.</li>
+<li>Difference of two means with dependent samples.</li>
+<li>The mean of differences with dependent samples.</li>
+<li>Several means (ANOVA).</li>
+<li>A single proportion.</li>
+<li>A comparison of two proportions.</li>
+<li>Test of Independence for categorical data.</li>
+<li>A goodness of fitness test.</li>
+</ul></li>
+<li>Hypothesis Testing
+<ul>
+<li>Determining correct hypothesis test for a given scenario</li>
+<li>State the null and alternative hypothesis for the chosen test.</li>
+<li>Calculate the test-statistic and p-value of the hypothesis test.</li>
+<li>Assess the statistical significance by comparing the p-value to the α-level.</li>
+<li>Check the requirements for the hypothesis test.</li>
+<li>Show the appropriate connections between the numerical and graphical summaries that support a hypothesis test.</li>
+<li>Draw a correct conclusion for a hypothesis test.</li>
+</ul></li>
+</ul>
+</div>
+<p><br></p>
+</div>
+<div id="unit-3-lesson-summaries" class="section level2">
+<h2>Unit 3 Lesson Summaries</h2>
+<p>Here are the summaries for each lesson in Unit 3. Reviewing these key points from each lesson will help you in your preparation for the exam.</p>
+<a href="javascript:showhide('ls')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
+<div id="ls">
+<div class="RecapHeading">
+Lesson 16 Recap
+</div>
+<div class="Summary">
+<ul>
+<li><p><strong>Pie charts</strong> are used when you want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole.</p></li>
+<li><p><strong>Bar charts</strong> present the same information as pie charts and are used when our data represent counts. A <strong>Pareto chart</strong> is a bar chart where the height of the bars is presented in descending order.</p></li>
+<li><p><span class="math inline">\(\hat p\)</span> is a point estimator for true proportion <span class="math inline">\(p\)</span>. <span class="math inline">\(\displaystyle{\hat p = \frac{x}{n}}\)</span></p></li>
+<li><p>The sampling distribution of <span class="math inline">\(\hat p\)</span> has a mean of <span class="math inline">\(p\)</span> and a standard deviation of <span class="math inline">\(\displaystyle{\sqrt{\frac{p\cdot(1-p)}{n}}}\)</span></p></li>
+<li><p>If <span class="math inline">\(np \ge 10\)</span> and <span class="math inline">\(n(1-p) \ge 10\)</span>, you can conduct <strong>probability calculations</strong> using the Normal Probability Applet. <span class="math display">\[
+\displaystyle {z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
+= \frac{\hat p - p}{\sqrt{\frac{p \cdot (1-p)}{n}}}}
+\]</span> <br></p></li>
+</ul>
+</div>
+<p><br></p>
+<div class="RecapHeading">
+Lesson 17 Recap
+</div>
+<div class="Summary">
+<ul>
+<li><p>The <strong>estimator</strong> of <span class="math inline">\(p\)</span> is <span class="math inline">\(\hat p\)</span>. <span class="math inline">\(\displaystyle{ \hat p = \frac {x}{n}}\)</span> and is used for both confidence intervals and hypothesis testing.</p></li>
+<li><p>You will use the Excel spreadsheet <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a>, to perform hypothesis testing and calculate confidence intervals for problems involving one proportion.</p></li>
+<li><p>The requirements for a confidence interval are <span class="math inline">\(n \hat p \ge 10\)</span> and <span class="math inline">\(n(1-\hat p) \ge 10\)</span>. The requirements for hypothesis tests involving one proportion are <span class="math inline">\(np\ge10\)</span> and <span class="math inline">\(n(1-p)\ge10\)</span>.</p></li>
+<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n=\left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used. <br></p></li>
+</ul>
+</div>
+<p><br></p>
+<div class="RecapHeading">
+Lesson 18 Recap
+</div>
+<div class="Summary">
+<ul>
+<li><p>When conducting hypothesis tests using two proportions, the null hypothesis is always <span class="math inline">\(p_1=p_2\)</span>, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
+<li><p>For a hypothesis test and confidence interval of two proportions, we use the following symbols: <span class="math display">\[
+\begin{array}{lcl}
+\text{Sample proportion for group 1:} &amp; \hat p_1 = \displaystyle{\frac{x_1}{n_1}} \\
+\text{Sample proportion for group 2:} &amp; \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
+\end{array}
+\]</span></p></li>
+<li><p>For a hypothesis test only, we use the following symbols:</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{lcl}
+\text{Overall sample proportion:} &amp; \hat p = \displaystyle{\frac{x_1+x_2}{n_1+n_2}}
+\end{array}
+\]</span></p>
+<ul>
+<li><p>Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.</p></li>
+<li><p>You will use the Excel spreadsheet <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> to perform hypothesis testing and calculate confidence intervals for problems involving two proportions. <br></p></li>
+</ul>
+</div>
+<p><br></p>
+<div class="RecapHeading">
+Lesson 19 Recap
+</div>
+<div class="Summary">
+<ul>
+<li><p>The <strong><span class="math inline">\(\chi^2\)</span> hypothesis test</strong> is a test of independence between two variables. These variables are either associated or they are not. Therefore, the null and alternative hypotheses are the same for every test: <span class="math display">\[
+\begin{array}{1cl}
+H_0: &amp; \text{The (first variable) and the (second variable) are independent.} \\
+H_a: &amp; \text{The (first variable) and the (second variable) are not independent.}
+\end{array}
+\]</span></p></li>
+<li><p>The <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong> for a <span class="math inline">\(\chi^2\)</span> test of independence are calculated using the formula <span class="math inline">\(df=(\text{number of rows}-1)(\text{number of columns}-1)\)</span></p></li>
+<li><p>In our hypothesis testing for <span class="math inline">\(\chi^2\)</span> we never conclude that two variables are <em>dependent</em>. Instead, we say that two variables are <em>not independent</em>. <br></p></li>
+</ul>
+</div>
+<p><br></p>
+</div>
+<p><br></p>
+</div>
+<div id="navigation" class="section level2">
+<h2>Navigation</h2>
+<center>
+<table>
+<colgroup>
+<col width="38%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Previous Reading</strong></th>
+<th align="center"><strong>This Reading</strong></th>
+<th align="center"><strong>Next Reading</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><a href="Lesson19.html">Lesson 19: <br> Inference for Independence of Categorical Data</a></td>
+<td align="center">Lesson 20: <br> Review for Exam 3</td>
+<td align="center"><a href="Lesson21.html">Lesson 21: <br> Describing Bivariate Data: Scatterplots, Correlation, &amp; Covariance</a></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+
+<br />
+<hr />
+<p>Copyright &copy; 2020 Brigham Young University-Idaho. All rights reserved.</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
