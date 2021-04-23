@@ -207,36 +207,53 @@ $$
 
 We will need to conduct the analysis using software, so we can report this value.
 
-**Instructions for conducting a test for one mean with $\sigma$ unknown:**
+### R Instructions for One Sample t Test
 
-<br>
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+Here are the instructions for conducting the one sample t-test in R:
 
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-Here are the instructions for conducting the one sample t-test in Excel:
+**Step 1.** Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: [reading data into RStudio](RHelp.html#reading-in-data).
 
-The Excel file needed for this analysis is [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx).  We will use this Excel file to conduct the hypothesis tests for a single mean with $\sigma$ unknown.
+For this t test, we are using the [BodyTemp.xlsx](./Data/BodyTemp.xlsx) data.
 
-  +  After opening the file, please click on the tab labeled "One-sample t-test".  
-  +  Paste the data in the appropriate place in Column A.
-  +  Set the null hypothesis value in cell M5.  For this example, the value should be 98.6.
-  +  Click in cell L6 and use the drop-down menu to set the alternative hypothesis to: "Not Equal To"
+**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: \mu = 98.6$ and the alternative was $H_a: \mu \neq 98.6$.
 
-The image below shows the Excel file after these changes have been made.
+**Step 3.** Use `t.test(...)` as follows to run the One Sample t Test in R.
 
-<center><img src="./Images/BodyTemp-tTest-Excel_Toolbox.PNG"></center>
+```{r}
+library(readxl)
+BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
+```
 
-Consider each of the following alternative hypotheses that could be used in a test for a single mean where the null hypothesis is $H_0: \mu = 98.6$.
+A few notes about using `t.test(...)`.
 
-- $H_a: \mu \ne 98.6$
-  + Choose "Not Equal To" in the drop-down menu in cell L6.
-- $H_a: \mu < 98.6$
-  + Choose "Less Than" in the drop-down menu in cell L6.
-- $H_a: \mu > 98.6$  
-  + Choose "Greater Than" in the drop-down menu in cell L6.
+* The null hypothesis is established by **mu=98.6** 
+* The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative="less"** and **alternative="greater"**.
+* We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
 
-You will have opportunities to practice using each of these.
+```{r, eval=FALSE}
+t.test(BodyTemp$BodyTemp, mu=98.6, alternative="two.sided")
+```
+
+Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level=0.99)` or `t.test(..., conf.level=0.90)`.
+
+When, the above `t.test(...)` code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.
+
+```{r, echo=FALSE, comment=NA}
+t.test(BodyTemp$BodyTemp, mu=98.6, alternative="two.sided")
+```
+
+**Identifying the various elements of the t test summary ouput.**
+
+* The name of the test is printed first in the output.
+* The data used for the test is printed next.
+* Then the test statistic (t), degrees of freedom (df), and p-value of the test are all printed.
+* The alternative hypothesis of either "less," "greater," or "not equal" is restated so that we know if this was a "one-sided" or "two-sided" test. Also, the value of the null hypothesis (98.6) that was used for the test is printed at the end of this sentence.
+* The confidence level of either 95, 90, or 99 is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.
+* Finally, the sample mean, $\bar{x}$, is printed at the end of the summary output.
+
+
 <br>
 </div>
 <br>
@@ -258,21 +275,20 @@ Any differences are due to rounding.
 
 **State the degrees of freedom**
 
-In Excel, the degrees of freedom ($df$) are given in cell L9.
+In R, the degrees of freedom ($df$) are given in the summary output of the test.
 
 $$df = 147$$
-<!-- **Mark the test statistic and $P$-value on a graph of the sampling distribution** --> <!-- CONSOLIDATED and UPDATED -->
 
 **Find the $P$-value and compare it to the level of significance**
 
-The $P$-value is given in the software as "0.000." (The actual value is 1.2723e-08, a very small number that rounds to 0.000 at three decimal places.)  Writing this properly and comparing it to $\alpha$, we have:
+The $P$-value is given in the software as "1.272e-08" (Remember scientific notation? 1.272e-08 = 0.00000001272, a very small number!)  Comparing the p-value to $\alpha$, we have:
 $$
-P\text{-value} = 1.2723 \times 10^{-8} = 0.000~000~012~723 < 0.05 = \alpha
+P\text{-value} = 1.272 \times 10^{-8} = 0.000~000~012~72 < 0.05 = \alpha
 $$
 
 **State your decision**
 
-The interpretation of the results will follow the pattern established in the previous hypothesis tests.  If the $P$-value is less than the $\alpha$ level, we reject the null hypothesis. If the $P$-value is greater than the $\alpha$ level, we fail to reject the null hypothesis.  This is true for every hypothesis test.  
+The interpretation of the results will follow the pattern established in the previous hypothesis tests.  If the $P$-value is less than the $\alpha$ level, we reject the null hypothesis. This is because a small p-value tells us that there is "essentially no chance of observing the results we just observed" **if** the null hypothesis is true. So it seems reasonable to reject the null hypothesis in favor of a better, alternative hypothesis that is more consistent with the results we have observed in the data. On the other hand, if the $P$-value is greater than the $\alpha$ level, we fail to reject the null hypothesis.  This is true for every hypothesis test.  
 
 Since the $P$-value was less than $\alpha$, we reject the null hypothesis.
 
@@ -281,7 +297,7 @@ Since the $P$-value was less than $\alpha$, we reject the null hypothesis.
 
 **Present your conclusion in an easy to understand sentence, relating the result to the context of the problem**
 
-There is sufficient evidence to suggest that the mean body temperature is not 98.6&deg; Fahrenheit.
+There is sufficient evidence to suggest that the alternative hypothesis is true, i.e., that the mean body temperature is not 98.6&deg; Fahrenheit.
 
 <img src="./Images/StepsAll.png">
 
@@ -324,19 +340,23 @@ Using this data set, test the hypothesis that the mean weight of babies born in 
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 
-When the data are entered into the file
-[Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx), the following output is generated:
+Once the [BabyBoom.xlsx](./Data/BabyBoom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
 
-<img src="./Images/BabyBoom-Ttest-Excel_Toolbox.PNG">
-<br>
+```{r, include=FALSE}
+BabyBoom <- read_excel("./Data/BabyBoom.xlsx")
+```
 
-* The relevant summary statistics are:
-<center>
+```{r}
+mean(BabyBoom$Weight) #mean of Weight column
+sd(BabyBoom$Weight) #sd of Weight column
+nrow(BabyBoom) #sample size of the data set
+```
+
 
 $$
 \begin{align}
 \bar x &= 3275.955 \textrm{g}\\
-s &= 528.032 \textrm{g}\\
+s &= 528.033 \textrm{g}\\
 n &= 44
 \end{align}
 $$
@@ -349,7 +369,11 @@ $$
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 
-The histogram is included in the above image.
+The histogram is created by
+
+```{r}
+hist(BabyBoom$Weight, xlab="Weights in grams", main="Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia", ylab="Number of Children", col="lightblue")
+```
 
 </div>
 &nbsp;
@@ -360,7 +384,7 @@ The histogram is included in the above image.
 
 **Verify the requirements have been met**
 
-The data show a left-skewed shape, however the sample size is large.  Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.
+The data show a left-skewed shape, however the sample size is large ($n=44$).  Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -368,7 +392,13 @@ The data show a left-skewed shape, however the sample size is large.  Using the 
 
 <a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
-- The test statistic is a $t$.  The value of the test statistic is $-1.219$.  This was taken from the output above.  We have $t = -1.219$.
+We perform the one sample t-test in RStudio using the code:
+
+```{r, comment=NA}
+t.test(BabyBoom$Weight, mu=3373, alternative="two.sided")
+```
+
+- The test statistic is a $t$.  The value of the test statistic is $-1.219$.  This was taken from the output above.
 </div>
 <br>
 
@@ -377,18 +407,18 @@ The data show a left-skewed shape, however the sample size is large.  Using the 
 <a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 - The degrees of freedom are given in the output above:
-<center>
+
 $$
 df = 43
 $$
-</center>
-- Notice that this is one less than the sample size.  For a test for a single mean, the degrees of freedom are always equal to one less than the sample size.
+
+- Notice that the degrees of freedom are one less than the sample size.  For a test for a single mean, the degrees of freedom are always equal to one less than the sample size.
 </div>
 &nbsp;
 </div>
 <br>
 
-**Mark the test statistic and $P$-value on a graph of the sampling distribution**  <!-- CONSOLIDATED and UPDATED -->
+**Mark the test statistic and $P$-value on a graph of the sampling distribution**  
 
 The $P$-value is shaded in green:
 
@@ -401,14 +431,14 @@ $$P\text{-value}=0.2295 > 0.05 = \alpha$$
 
 **State your decision**
 
-Since the $P$-value is greater than the level of significance, we fail to reject the null hypothesis.
+Since the $P$-value is greater than the level of significance, we fail to reject the null hypothesis. It seems reasonable to continue believing the null hypothesis is true.
 
 
 <img src="./Images/Step5.png">
 
 **Present your conclusion in an easy to understand sentence, relating the result to the context of the problem**
 
-There is insufficient evidence to suggest that the mean weight of babies born in Australia is different from 3373 grams.
+There is insufficient evidence to suggest that the alternative hypothesis is true. In other words, there is insufficient evidence to believe that the mean weight of babies born in Australia is different from 3373 grams.
 
 <br>
 
@@ -425,7 +455,7 @@ $$
 $$
 where $t^*$ is the $t$-score corresponding to the confidence level and $s$ is the sample standard deviation.
 
-We will use Excel to construct confidence intervals when $\sigma$ is unknown. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
+The confidence intervals are automatically produced in R whenever the `t.test(...)` is performed. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
 
 
 <img src="./Images/StepsAll.png">
@@ -458,16 +488,24 @@ Koehn wants to find an estimate of the true mean BLEU score for text translated 
 
 **Give the relevant summary statistics**
 
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-Copying the
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+Reading the
 [BLEU-Scores](./Data/BLEU-Scores.xlsx)
-data into the
-[Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx)
-file in Excel, we get the following:
+data into R, we get the following:
 
-<center><img src="./Images/BLEUscores-Excel_Toolbox.PNG"></center>
+```{r, include=FALSE}
+BLEU_Scores <- read_excel("./Data/BLEU-Scores.xlsx")
+```
+
+```{r}
+nrow(BLEU_Scores) #sample size
+mean(BLEU_Scores$BLEU) #mean
+sd(BLEU_Scores$BLEU) #standard deviation
+hist(BLEU_Scores$BLEU, main="BLEU Scores", xlab="Score", col="blue")
+```
+
+
 <br>
 </div>
 <br>
@@ -492,21 +530,27 @@ The histogram is included in the image above.
 
 **Make Inference**
 
-#### Find the confidence interval
+### R Instructions for Confidence Intervals
 
-We will use Excel to find the confidence intervals for the mean.  
+We will use R to find the confidence intervals for the mean.  
 
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
 
 Do the following:
 
-- Open the file [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx)
-- Click on the tab labeled "One-sample t-test"
-- Enter the data, and
-- Set the confidence level.  
+- Read in the [BLEU-Scores](./Data/BLEU-Scores.xlsx) data if you haven't already.
+- Run a One-sample t-test using `t.test(...)` with `mu=0` if you don't have a null hypothesis. (Confidence intervals don't require a null hypothesis, but `t.test(...)` can only be used if a null hypothesis is specified.)
+- To set the confidence level use `t.test(..., conf.level=0.95)` or 0.99, or 0.90.
 
-In this case, we are using a 95% confidence level.  So, you set the confidence level in the Excel file to 0.95 (i.e., 95%).  The confidence interval is given to you in cells L14 and M14.
+In this case, we are using a 95% confidence level.  So, you set `t.test(..., conf.level=0.95)`. The only part of the output below that we will consider is the "95 percent confidence interval:" and the "mean of x" output.
+
+```{r, comment=NA}
+t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.95)
+```
+
+
+
 <br>
 </div>
 <br>
@@ -514,6 +558,7 @@ In this case, we are using a 95% confidence level.  So, you set the confidence l
 The 95% confidence interval for the true mean BLEU score is:
 
 $$(0.282, 0.293)$$
+where 0.282 is the lower-bound of the confidence interval and 0.293 is the upper-bound of the confidence interval.
 
 <a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations</span></a>
 <br>
@@ -577,18 +622,28 @@ Answer the following questions using the data set [BLEU-Scores](./Data/BLEU-Scor
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-5. Use Excel to find a 90% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
+5. Use R to find a 90% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
 
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
+
+```{r, comment=NA}
+t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.90)
+```
+
 - $(0.283, 0.292)$<br>We are 90% confident that the true mean BLEU score for translations by the Pharaoh program lies between 0.283 and 0.292.
 </div>
 <br>
 
-6. Use Excel to find a 99% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
+6. Use R to find a 99% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
 
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
+
+```{r, comment=NA}
+t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.99)
+```
+
 - $(0.281, 0.295)$<br>We are 99% confident that the true mean BLEU score for translations by the Pharaoh program lies between 0.281 and 0.295.
 </div>
 <br>
@@ -618,7 +673,7 @@ A group of statisticians measured the weights of 2000 Belgian one Euro coins in 
 
 **Describe the data collection procedures**
 
-The coins were "borrowed" from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [EuroWeight.xlsx](./Data/EuroWeight.xlsx).
+The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [EuroWeight.xlsx](./Data/EuroWeight.xlsx).
 
 <img src="./Images/Step3.png">
 
@@ -629,19 +684,21 @@ The coins were "borrowed" from a bank in Belgium, one batch at a time. The weigh
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 
-The following output was generated using the Excel file
-[Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xlsx):
+Read in the [EuroWeight.xlsx](./Data/EuroWeight.xlsx) data. Then, compute the summary statistics. 
 
-<center><img src="./Images/EuroWeights-Histogram.PNG"></center>
+```{r, include=FALSE}
+EuroWeight <- read_excel("./Data/EuroWeight.xlsx")
+```
 
-* Typically, we round our computations to one more decimal place of precision than was given in the original data.  This means we need one more decimal place than is shown in the output above.  We can increase the precision by selecting the cell we want to modify and then clicking on the following button in the "Home" menu ribbon in Excel:
-
-<center><img src="./Images/Excel-IncreaseDecimals.png"></center>
+```{r, comment=NA}
+nrow(EuroWeight) #sample size
+mean(EuroWeight$Weight) #mean
+sd(EuroWeight$Weight) #standard deviation
+```
 
 <br>
 
-* When we do this, we get the following summary statistics:
-<center>
+* This gives the following summary statistics:
 
 $$
 \begin{align}
@@ -650,20 +707,25 @@ s =& 0.0344 \\
 n =& 2000
 \end{align}
 $$
-</center>
+
 </div>
 <br>
 
 9. **Make an appropriate graph to illustrate the data**
 
-<div class="myemphasis"> **CAUTION:** The Excel Toolbox boxplot only works for datasets of **1,000 observations or less**. This dataset contains 2,000 observations. You will need to create your own boxplot. </div>
-
 <a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 
-If you create your own histogram and boxplot of the data, the graphs should look something like the image below
+Either a histogram or boxplot would be appropriate for graphing this data. 
 
-<img src="./Images/Lesson_11_euro_weights.PNG">
+```{r}
+hist(EuroWeight$Weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", breaks=100)
+#since the sampe size was large, we can use a lot of "bins" or "breaks" in the graph.
+```
+
+```{r, fig.height=3}
+boxplot(EuroWeight$Weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", horizontal=TRUE)
+```
 
 You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.
 
@@ -687,15 +749,21 @@ The data follow a bell-shaped distribution.  There are a few potential outliers,
 
 <div class="QuestionsHeading">Answer the following question:</div>
 <div class="Questions">
-10. **Find the confidence interval**:  Use Excel to create a 99% confidence interval for the true mean.
+10. **Find the confidence interval**:  Use R to create a 99% confidence interval for the true mean.
 
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
-<center>
+
+```{r, comment=NA}
+t.test(EuroWeight$Weight, mu=0, conf.level=0.99)
+```
+
+The lower and upper bounds of the confidence interval are given by
+
 $$
 (7.519, ~ 7.523)
 $$
-</center>
+
 </div>
 &nbsp;
 </div>
@@ -724,7 +792,10 @@ $$\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }$$
 - The $t$-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the $t$-distribution depends on the **degrees of freedom ($df$)**.
 $$df=n-1$$
 
-*You will use Excel to carry out hypothesis testing and create confidence intervals involving $t$-distributions.
+*You will use R to carry out hypothesis testing and create confidence intervals involving $t$-distributions by using the `t.test(...)` function which follows the general format of `t.test(dataSetName$columnName, mu= , alternative= , conf.level= )` where `mu=` some number, `alternative=` either "two.sided", "less", or "greater", and `conf.level=` 0.95, 0.99, or 0.90.
+
+<br/>
+
 </div>
 <br>
 

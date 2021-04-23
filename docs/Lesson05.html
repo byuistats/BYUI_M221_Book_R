@@ -1526,36 +1526,10 @@ setDefaults();
 <h3>Baseball Batting Averages</h3>
 <p>Recall the data on the batting averages of Major League Baseball players. The histogram of the batting averages showed a distinct bell-shaped curve.</p>
 <p><img src="Images/Picture6.jpg"></p>
-<!-- To help us visually assess if data are normally distributed, statisticians have developed Q-Q plots. A **Q-Q plot** is a graph that is used to assess if data are normally distributed. If the points in the Q-Q plot are essentially in a straight line, then we conclude that the data are normally distributed. -->
-<!-- In a Q-Q plot, the $z$-scores for the observed values in the data set are plotted on the horizontal axis. The $z$-scores of the expected values (assuming the data are normally distributed) are plotted on the vertical axis. If the data follow a normal distribution, then we would expect these points to lie in a straight line. If the data are non-normal, we expect to see a distinct curve in the Q-Q plot. -->
-<!-- <img src="Images/L04_QQ_Plot_01.jpg"> -->
-<!-- Notice that the points fall in a fairly straight line. These data appear to follow a normal distribution. -->
-<!-- In any Q-Q plot, we expect little wiggles in the points. If the points in the Q-Q plot are essentially in a line, then we conclude that the data are normally distributed. -->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<p><strong>Here is a refresher of how to make a Histogram in Excel</strong></p>
-<p>For more detailed instructions revisit <a href="./docs/Lesson03.html#visualizing-quantitative-data-histograms">Lesson 3</a>.</p>
-<ol style="list-style-type: decimal">
-<li>Highlight the data you want to summarize with a histogram</li>
-<li>Go to the Insert ribbon in Excel and select the histogram icon from the “Charts” section of the ribbon. Then select the first option of histograms presented.</li>
-</ol>
-<p>The Excel default histogram for this dataset is pretty good. However, if your dataset is relatively small, skewed, or outliers are present, experimenting with different bin sizes can help you get a better idea of the shape of the distribution.</p>
-<p><img src="Images/Lesson_05_batting_avg_Excel_histogram.png" width=80%></p>
-<p><em>Optional</em>: You can explore the shape of the distribution of data by adjusting the number of bins on the histogram with these steps:</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Be sure the graph is selected, so that you can select the “Format” ribbon. In the upper left corner of the ribbon, select “Horizontal Category Axis” in the drop-down box. Then click on “Format Selection”.</p>
-<ul>
-<li>On many computers, a quicker method to access the same menu is to right click anywhere on the x-axis and select “Format Axis”.</li>
-</ul></li>
-<li><p>A menu of options will open on the right side of the screen. You can adjust the bin width or number of bins. Experiment with a few different values to see if the histogram changes much in shape.</p></li>
-</ol>
-<p><br></p>
+<div class="note">
+<p>For a refresher of how to make a Histogram in R, revisit <a href="./docs/Lesson03.html#r-instructions-for-histograms">Lesson 3: R Instructions for Histograms</a>.</p>
 </div>
 <p><br></p>
-<!-- Make sure you can create the Q-Q plot shown above on your own. -->
 </div>
 <div id="body-temperatures" class="section level3">
 <h3>Body Temperatures</h3>
@@ -1573,8 +1547,9 @@ Answer the following questions:
 <!--
 {{Course_Filter_Two|A=[[File:BodyTemperatures-Histogram.png|link=|400 px]]|B=[[File:Histogram Example.jpg|link=|400px]]}}
 -->
-<p>Use Excel’s default histogram:</p>
-<p><img src="Images/Lesson_05_body_temp_Excel_histogram.png" width=80%></p>
+<p>Create a histogram in R by first <a href="RHelp#reading-in-data">importing the data</a> to RStudio. Then, use code similar to:</p>
+<pre class="r"><code>hist(BodyTemp$BodyTemp, main=&quot;Body Temperatures&quot;, xlab=&quot;Degrees Fahrenheit&quot;, col=&quot;steelblue&quot;)</code></pre>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
@@ -1592,9 +1567,12 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
-<!--
-{{Course_Filter_Two|A=[[File:BodyTemperatures-QQ.png|link=|400 px]]|B=[[File:SPSS QQ-Plot Body Temp.jpg|link=|400 px]]}}
--->
+<pre class="r"><code>mean(BodyTemp$BodyTemp) #sample mean</code></pre>
+<pre><code>## [1] 98.23446</code></pre>
+<pre class="r"><code>sd(BodyTemp$BodyTemp) #sample standard deviation</code></pre>
+<pre><code>## [1] 0.7375924</code></pre>
+<pre class="r"><code>nrow(BodyTemp) #sample size</code></pre>
+<pre><code>## [1] 148</code></pre>
 <p>The sample mean is 98.23, sample standard deviation is 0.738, and sample size is n = 148.</p>
 </div>
 <p><br></p>
@@ -1613,12 +1591,10 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
-<!--
-{{Course_Filter_Two|A=[[File:BodyTemperatures-Histogram.png|link=|400 px]]|B=[[File:Histogram Example.jpg|link=|400px]]}}
--->
-<p>To recreate the graph below, start by creating the histogram of wage data in Excel. Then format the x-axis to adjust the number of bins to 7. You can further format the axis by changing the category of the axis from “general” to “number” as seen in the image below.</p>
-<p><img src="Images/Lesson_05_wages_Excel_histogram.PNG" width=90%></p>
-<p>One way to get the Format Axis menu to appear is to right-click anywhere on the x-axis and select “Format Axis”. Alternatively, select the graph and go to the “Format” ribbon. In the upper left corner of the ribbon, select “Horizontal Category Axis” in the drop down box. Then click on “Format Selection” button directly underneath the drop down box.</p>
+<p>First, read in the <strong>Survey Data</strong> into RStudio. Then, use the code</p>
+<pre class="r"><code>SurveyData &lt;- read_excel(&quot;./Data/SurveyData.xlsx&quot;)</code></pre>
+<pre class="r"><code>hist(SurveyData$Wage, xlab=&quot;Hourly Wages&quot;, main=&quot;BYU-Idaho Student Survey Results&quot;, col=&quot;yellow3&quot;)</code></pre>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">
@@ -1631,24 +1607,6 @@ Answer the following questions:
 </ul>
 </div>
 <p><br></p>
-<!-- The following Q-Q plot represents the wages of a random sample of BYU-Idaho students. -->
-<!-- Here is the Q-Q plot for the wages data: -->
-<!-- <img src="Images/L04_QQ_Plot_02.jpg"> -->
-<!-- Notice the distinct curvature in the data. This suggests that the data are not normal. Here is a histogram of the wage data: -->
-<!-- <img src="Images/L04_QQ_Plot_03.jpg"> -->
-<!-- In this case, it is easy to spot the right-skewed shape of the histogram. Sometimes, especially when sample sizes are small, the histogram can be misleading. The Q-Q plot usually gives a better measure of whether or not the data are normally distributed. -->
-<!-- <br> -->
-<!-- ### Other Examples -->
-<!-- We will consider additional Q-Q Plots that illustrate data that are not normal. -->
-<!-- Notice the S-shape in the following plot. -->
-<!-- <img src="Images/L04_QQ_Plot_04.jpg"> -->
-<!-- Here is an example of a plot representing data that are not normal. When the Q-Q plot curves in this manner, it suggests a left-skewed distribution. -->
-<!-- <img src="Images/L04_QQ_Plot_05.jpg"> -->
-<!-- The following Q-Q plot represents right-skewed data. The data are not normal. -->
-<!-- <img src="Images/L04_QQ_Plot_06.jpg"> -->
-<!-- When assessing a Q-Q plot, you should be a little forgiving of the points on the two ends. If there are some points that are slight outliers, you do not need to worry very much about them. If there is not a sustained curve either upward or downward or an S-shape in the data, then you can conclude the data are normally distributed. -->
-<!-- The ability to determine if data follow a normal distribution will be important later in the course. -->
-<!-- <br> -->
 </div>
 </div>
 <div id="summary" class="section level2">
