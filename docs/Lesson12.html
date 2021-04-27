@@ -384,11 +384,15 @@ $(document).ready(function () {
 <li><a href="#hypothesis-tests">Hypothesis Tests</a>
 <ul>
 <li><a href="#mahons-weight-loss-study">Mahon’s Weight Loss Study</a></li>
+<li><a href="#r-instructions-for-computing-paired-differences">R Instructions for Computing Paired Differences</a></li>
+<li><a href="#hypothesis-test-for-mahons-weight-loss-data">Hypothesis Test for Mahon’s Weight Loss Data</a></li>
+<li><a href="#r-instructions-for-a-paired-samples-t-test">R Instructions for a Paired Samples t Test</a></li>
 <li><a href="#nosocomial-infections">Nosocomial Infections</a></li>
 <li><a href="#additional-worked-examples">Additional Worked Examples</a></li>
 </ul></li>
 <li><a href="#confidence-intervals">Confidence Intervals</a>
 <ul>
+<li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
 <li><a href="#mountain-pine-beetle-attacks">Mountain Pine Beetle Attacks</a></li>
 <li><a href="#sleep-inducing-drugs">Sleep Inducing Drugs</a></li>
 </ul></li>
@@ -437,11 +441,9 @@ $(document).ready(function () {
 </div>
 <div id="example-of-paired-data-pre--and-post-test-scores" class="section level2">
 <h2>Example of Paired Data: Pre- and Post-test Scores</h2>
-<p>In education, it is very common for researchers to conduct studies in which they administer a pre-test, provide some instruction, and then give a post-test. The difference between the post- and pre-test scores is a measure of the student’s progress. In this case, it would not make much sense to only look at the mean score on the pre-test and compare it to the mean score on the post-test.</p>
-<p>This is called a <strong>matched-pairs</strong> design or we say we have <strong>dependent samples</strong>. Matched-pairs (or <strong>paired-data</strong>) designs typically involve only one population, and a pair of observations is drawn on the individuals selected for the sample. In the context of the educational study, the two observations are student’s scores on (1) the pre-test and (2) the post-test. If a student is selected to participate in the pre-test (i.e., they are selected to be part of group 1), they are automatically selected to participate in the post-test (i.e., they are chosen to be in group 2 automatically.)</p>
-<p>There is a lot of merit in subtracting the individual scores and looking at the mean <em>gain</em>. The researchers are not really interested in the students knowledge before the instruction. This is used as a baseline to measure how much was gained during the instruction. There is great value in looking at the difference. This removes the effect of the individual students’ ability, and it measures their learning during the unit.</p>
-<p>To analyze the data, the researchers first find the difference in the post- and pre-test scores. At that point, the data have been reduced to a list of numbers (representing the increase in scores). Now, the researchers can conduct inference on the mean of these values. In other words, they can do a hypothesis test for the mean of the difference in the post- and pre-test scores.</p>
-<p>A hypothesis test for two means with paired data (dependent samples) is conducted in the same way as a hypothesis test for a single mean with <span class="math inline">\(\sigma\)</span> unknown. The only exception is that the pairs of data must be subtracted before you start any computations. From a practical perspective, after you subtract, then you apply the one-sample procedures you have already learned. So, there is nothing new that you need to learn to compute a confidence interval for two means with paired data; just that we will be using a different sheet in the Math221 Statistics Toolbox that automatically calculates the differences.</p>
+<p>It is very common for researchers to conduct studies in which they administer a pre-test to a group of individuals, provide some treatment to those individuals, and then give a post-test to each individual. Since each individual in the study has both a pre-test and post-test measurement, researchers can use the difference between the post- and pre-test measurements as a measure of the effect the treatment had on each particular individual. The average of these differences can also be computed to find the average effect the treatment had on indvidiuals. We call this the <em>mean of the differences</em> for paired data.</p>
+<p>These study designs are also called a <strong>matched-pairs</strong> design or we say we have <strong>dependent samples</strong>. Matched-pairs (or <strong>paired-data</strong>) designs typically involve only one population, and a pair of observations is drawn on the individuals selected for the sample (i.e., there are two measurements per individual). If an individual is selected to participate in the pre-test (i.e., they are selected to be part of group 1), they are automatically selected to participate in the post-test (i.e., they are chosen to be in group 2 automatically.)</p>
+<p>A hypothesis test for two means with paired data (dependent samples) is conducted in the same way as a hypothesis test for a single mean with <span class="math inline">\(\sigma\)</span> unknown, the one-sample t test. The only exception is that the pairs of data must be subtracted before you start any computations. From a practical perspective, after you compute the differences for each matched pair, then you apply the one-sample procedures you have already learned to those differences.</p>
 <p>We will first explore an application of pre- and post-testing in a weight loss study.</p>
 </div>
 <div id="hypothesis-tests" class="section level2">
@@ -450,23 +452,23 @@ $(document).ready(function () {
 <div id="mahons-weight-loss-study" class="section level3">
 <h3>Mahon’s Weight Loss Study</h3>
 <p><strong>Background</strong></p>
-<p>Annie Mahon and other researchers in Wayne Campbell’s nutrition lab studied the weight loss of <span class="math inline">\(n=27\)</span> middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>--> The women’s weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file <a href="./Data/Mahon.xlsx">Mahon.xlsx</a>. An excerpt of the data is given below.</p>
+<p>Annie Mahon and other researchers in Wayne Campbell’s nutrition lab studied the weight loss of <span class="math inline">\(n=27\)</span> middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>--> The women’s weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file <a href="./Data/Mahon.xlsx">Mahon.xlsx</a>. An excerpt of the data is shown below.</p>
 <table>
 <thead>
 <tr class="header">
-<th>
+<th align="left">
 <p>
 Subject
 </p>
 </th>
-<th>
+<th align="left">
 <p>
-Pre
+Pre Weight (kg)
 </p>
 </th>
-<th>
+<th align="left">
 <p>
-Post
+Post Weight (kg)
 </p>
 </th>
 </tr>
@@ -584,24 +586,6 @@ Post
 </tr>
 </tbody>
 </table>
-<!--
-{| class="basic"
-! Subject !! Pre !! Post
-|-
-|1 || 62.5 || 56.1
-|-
-|2 || 88.8 || 80.2
-|-
-|3 || 74.7 || 70.8
-|-
-|$\vdots$ || $\vdots$ || $\vdots$
-|-
-|26 || 76.3 || 73.8
-|-
-|27 || 82.1 || 77.9
-|-
-|}
--->
 <p>Notice the structure of the data. The weight of each subject was measured before the study and at the conclusion of the study. Each person provided a pre-study weight and a post-study weight. Stated differently, the pre-study weights and the post-study weights are paired. For each row of data, both of these numbers came from the same person. When we collect two observations of the same measurement on each subject, we call it <strong>paired data</strong>. Sometimes paired data are called <strong>dependent samples</strong>.</p>
 <div class="QuestionsHeading">
 Answer the following question:
@@ -619,30 +603,32 @@ Answer the following question:
 <p> </p>
 </div>
 <p><br></p>
-<p><strong>Computing New Variables in Excel</strong></p>
-<p>The researchers are not interested in the weights of the women, they are more interested in the <em>change</em> in the women’s weights. This will give them a measure of the effectiveness of the low-calorie diet. In other words, they are interested in the difference of the weights after the study compared with before: <span class="math display">\[\text{Difference} = \text{Post} - \text{Pre}\]</span></p>
-<p>We can calculate the difference for each woman in the study:</p>
+</div>
+<div id="r-instructions-for-computing-paired-differences" class="section level3">
+<h3>R Instructions for Computing Paired Differences</h3>
+<p>The researchers are not interested in the weights of the women, they are more interested in the <em>change</em> in the women’s weights. This will give them a measure of the effectiveness of the low-calorie diet. In other words, they are interested in the difference of the weights after the study compared with before: <span class="math display">\[\text{Difference} = \text{Post Weight} - \text{Pre Weight}\]</span></p>
+<p>We can calculate the difference (or change) in weight for each woman in the study:</p>
 <table>
 <thead>
 <tr class="header">
-<th>
+<th align="left">
 <p>
 Subject
 </p>
 </th>
-<th>
+<th align="left">
 <p>
-Post
+Post Weight (kg)
 </p>
 </th>
-<th>
+<th align="left">
 <p>
-Pre
+Pre Weight (kg)
 </p>
 </th>
-<th>
+<th align="left">
 <p>
-Difference
+Difference in Weight (kg)
 </p>
 </th>
 </tr>
@@ -782,34 +768,25 @@ Difference
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" -->
-<!-- ! Subject !! Post !! Pre !! Difference -->
-<!-- |- -->
-<!-- | 1 || 56.1 || 62.5 || 56.1 $-$ 62.5 = -6.4 -->
-<!-- |-                          -->
-<!-- | 2 || 80.2 || 88.8 || 80.2 $-$ 88.8 = -8.6 -->
-<!-- |-                              -->
-<!-- | 3 || 70.8 || 74.7 || 70.8 $-$ 74.7 = -3.9 -->
-<!-- |-                              -->
-<!-- | $\vdots$  || $\vdots$ || $\vdots$ || $\vdots$  -->
-<!-- |-                          -->
-<!-- | 26 || 73.8 || 76.3 || 73.8 $-$ 76.3 = -2.5 -->
-<!-- |-                          -->
-<!-- | 27 || 77.9 || 82.1 || 77.9 $-$ 82.1 = -4.2 -->
-<!-- |} -->
-<a name="SubtractDifferences"></a> <!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<p><a name="SubtractDifferences"></a></p>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions for Computing Paired Differences
 </div>
-<div class="Summary">
-<p>Fortunately, the “Paired Data t-test” tab in the <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> will automatically compute the differences when you paste in the data. <strong>The Toolbox always takes the data in column A - data in column B.</strong> Because we want to take Post - Pre, you will need to swap the order of the columns when pasting the data into the Math221 Statistics Toolbox. Follow this process:</p>
-<ul>
-<li>Copy the “Pre” column and paste it into column B, labeled “Data2” of the Toolbox.</li>
-<li>Copy the “Post” column and paste it into column A, labeled “Data1” of the Toolbox.</li>
-<li>Notice in column C the differences are automatically calculated.</li>
-<li>A excerpt of how the data looks in the Math221 Statistics Toolbox is shown below:</li>
-</ul>
-<p><img src="Images/Mahon-Differences_Excel_Toolbox.PNG"></p>
+<div class="Software">
+<p>To compute the <em>differences</em> within each paired set of measurements in R, begin by reading in the <a href="./Data/Mahon.xlsx">Mahon.xlsx</a> data into RStudio. (If you need a reminder on how to read in data, <a href="RHelp.html#reading-in-data">click here</a>.)</p>
+<p>Then, calculate the <em>differences</em> using the assignment operator <code>&lt;-</code> and the selection operator <code>$</code>:</p>
+<pre class="r"><code>differences &lt;- Mahon$Post - Mahon$Pre</code></pre>
+<p>Here we chose the order Post - Pre so that a positive difference would show an increase in weight (kg) from Pre-Weight to Post-Weight and a negative difference would show a decrease in weight (kg) from Pre-Weight to Post-Weight. Thus, negative differences show the women lost weight. This is usually the preferred order of subtraction with “Post vs. Pre” studies.</p>
+<p>Once the differences are computed, we can compute the mean, median, standard deviation and so on using codes like the following.</p>
+<pre class="r"><code>summary(differences) #mean and five-number summary</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-13.600  -8.900  -6.700  -6.804  -4.200  -1.600 </code></pre>
+<pre class="r"><code>sd(differences) #standard deviation</code></pre>
+<pre><code>[1] 3.172051</code></pre>
+<pre class="r"><code>length(differences) #sample size</code></pre>
+<pre><code>[1] 27</code></pre>
+<pre class="r"><code>hist(differences, main=&quot;Weight Loss Study&quot;, xlab=&quot;Weight Change in Kilograms (Post - Pre)&quot;, col=&quot;wheat2&quot;) #graph</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <div class="QuestionsHeading">
@@ -817,17 +794,17 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="2" style="list-style-type: decimal">
-<li>Following the directions above, compute the difference in the women’s weights by pasting the data in the Math221 Statistics Toolbox.</li>
+<li>Following the directions above, compute the difference in the women’s weights yourself in R.</li>
 </ol>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>What is the mean of the values in the <em>Difference</em> column? (Look in cell J7)</li>
+<li>What is the mean of the <em>differences</em>? Said differently, what is the average weight change of women in the study?</li>
 </ol>
 <a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <center>
 <span class="math display">\[
--6.80 \text{ kg}
+-6.804 \ \text{kg}
 \]</span>
 </center>
 </div>
@@ -838,7 +815,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
-<li>The mean weight change experienced by the women in the study was <span class="math inline">\(-6.80\)</span> kg. It can be tricky to know if this means they gained or lost weight. Remember, we calculated Post-Pre. A negative difference indicates the Pre weight was higher than the Post weight. In other words, there was a mean weight loss of <span class="math inline">\(6.80\)</span> kg.</li>
+<li>The mean weight change experienced by the women in the study was <span class="math inline">\(-6.804\)</span> kg. Because we calculated Post-Pre, the negative mean difference indicates the Pre weight was higher than the Post weight. In other words, there was a mean weight <em>loss</em> of <span class="math inline">\(6.804\)</span> kg.</li>
 </ul>
 </div>
 <p> </p>
@@ -848,14 +825,16 @@ Answer the following questions:
 <p><br></p>
 <p><strong>Relationship to a One Sample t-test</strong></p>
 <p>After you have subtracted the pre-study weights from the post-study weights, you are left with a column of differences. We will denote the pre-study weights by <span class="math inline">\(x_1\)</span> and the post-study weights by <span class="math inline">\(x_2\)</span>. Then, the differences can be denoted as <span class="math inline">\(d = x_2 - x_1\)</span>. The difference, <span class="math inline">\(d\)</span>, is defined as the change in the volunteer’s weight during the study.</p>
-<p>After computing the differences, we do not use the data for the individual groups at all. The researchers are not interested in the values of the women’s weights at the beginning of the study or at the end of the study. They are mostly interested in the difference in the weights after the participants complete the study.</p>
+<p>After computing the differences, we do not use the data for the individual groups at all. The researchers are not interested in the values of the women’s weights at the beginning of the study or at the end of the study. They are interested in the difference in the weights after the participants complete the study.</p>
 <p>After we subtract, we can conduct a hypothesis test to determine if the mean of the differences is less than zero. We use the symbol <span class="math inline">\(\mu_d\)</span> to represent the true mean difference in the weights of the women who follow the diet prescribed in this study. The null hypotheses is that the true mean difference is zero (<span class="math inline">\(\mu_d = 0\)</span>). The alternative hypothesis is that there is a decrease in the weights, in other words, that the true mean difference is less than zero (<span class="math inline">\(\mu_d &lt; 0\)</span>).</p>
-<p>Notice that this is essentially a one-sample t-test where the data are the differences in the women’s weights. We have one column of data, the differences. We are testing whether the true mean difference is less than zero. After subtracting, a test for a difference of two means with paired data is just like a test for one mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
+<p>Notice that this is essentially a one-sample t-test where the data are the <em>differences in the women’s weights</em>. We have one column of data, the differences. We are testing whether the true mean difference is less than zero (or not equal to zero, or greater than zero). So, a test for the <em>differences of matched pairs</em> with dependent samples is just like a test for one mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
 <p>In the hypothesis test, we will refer to the variable representing the differences as <span class="math inline">\(d\)</span>. We will use this notation throughout the hypothesis test. For example, the true population mean will be labeled <span class="math inline">\(\mu_d\)</span> and the sample mean will be labeled <span class="math inline">\(\bar d\)</span>. The sample standard deviation of the differences is denoted <span class="math inline">\(s_d\)</span>.</p>
-<p><strong>Hypothesis Test for Mahon’s Weight Loss Data</strong></p>
+</div>
+<div id="hypothesis-test-for-mahons-weight-loss-data" class="section level3">
+<h3>Hypothesis Test for Mahon’s Weight Loss Data</h3>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Twenty-seven women participated in a nine week weight loss study. During the study period, the participants were provided a reduced calorie diet. Their weights were recorded at the beginning of the study and nine weeks later. The difference of the weights is defined as the post-study weights minus the pre-study weights. The researchers expected that the mean difference in the weights would be negative–in other words, that the women would tend to lose weight.</p>
+<p>Twenty-seven women participated in a nine week weight loss study. During the study period, the participants were provided a reduced calorie diet. Their weights in kilograms were recorded at the beginning of the study and nine weeks later. The difference of the weights is defined as the post-study weights minus the pre-study weights. The researchers expected that the mean difference in the weights would be negative–in other words, that the women would tend to lose weight.</p>
 <p><strong>State the null and alternative hypotheses and the level of significance</strong></p>
 <p><span class="math display">\[
 \begin{align}
@@ -869,50 +848,62 @@ H_a: &amp;~~ \mu_d &lt; 0
 <p>The women’s weights were recorded at the beginning of the study. The women were provided a reduced calorie diet for nine weeks. Then, their weights were measured again at the end of the study. A calibrated scale was used to provide an accurate weight.</p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p>Here is the Excel output:</p>
-<p><img src="Images/Mahon_Paired_t-test_Excel_Toolbox.PNG"></p>
-<p>From the Excel output illustrated above, we can see a histogram of the data and get the following numerical summaries:</p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>From the R output demonstrated previously, we can see a histogram of the data and get the following numerical summaries:</p>
 <p><span class="math display">\[
 \begin{align}
-\bar d &amp;= -6.80 \\
-s_d &amp;= 3.17 \\
+\bar d &amp;= -6.804 \\
+s_d &amp;= 3.172 \\
 n &amp;= 27
 \end{align}
 \]</span></p>
-<p>The mean and standard deviation are rounded to one decimal place more than the original data.</p>
 <p><img src="Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
-<p>Like the one-sample t-test, this procedure is robust, meaning that it is not very sensitive to the requirements. If they are violated, it will probably still give reasonably good results.</p>
+<p>Like the one-sample t-test, this procedure is robust, meaning that it is not very sensitive to the requirements. If they are only mildly violated, the test will still give reasonably good results.</p>
 <p>The requirements for this procedure are the same as the requirements for a one-sample t-test:</p>
 <ul>
 <li>the data represent a simple random sample from the population</li>
-<li>the mean of the differences follows a normal distribution</li>
+<li>the mean of the differences <span class="math inline">\(\bar{d}\)</span> follows a normal distribution</li>
 </ul>
 <p>The subjects were recruited via advertisements for a research study. The participants volunteered to participate. It is not a simple random sample of all middle-aged women, but there is nothing about the selection of the sample that would invalidate the results.</p>
-<p>From a practical perspective, it is impossible to get a simple random sample of people in the general population. When research trials are conducted, people must volunteer to participate. This can lead to a selection bias, but it is usually negligible.</p>
-<p>The requirement of normality is satisfied for Mahon’s data. Though the sample size (n=27) is not quite up to 30, it is still fairly large. Furthermore, the histogram of differences indicates very little skew, so <span class="math inline">\(\bar d\)</span> will be approximately normal.</p>
-<center>
-<img src="Images/Mahon-Differences-Histogram.PNG">
-</center>
-<p>Even with a sample size less than 30, we can still conduct this test.</p>
+<p>From a practical perspective, it is impossible to get a simple random sample of people in the general population. When research trials are conducted, people must volunteer to participate. This can lead to a selection bias, but is the accepted practice.</p>
+<p>The requirement of normality is satisfied for Mahon’s data. Though the sample size (n=27) is not quite up to 30, the histogram of differences looks fairly normal, so <span class="math inline">\(\bar d\)</span> will be approximately normal and the requirement is satisfied. If the data had been highly skewed, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test.</p>
 <p><strong>Give the test statistic and its value</strong></p>
-<p>The test statistic for a test involving paired data when <span class="math inline">\(\sigma\)</span> is unknown is a <span class="math inline">\(t\)</span>. For this situation, the value is: <span class="math display">\[t= \frac{-6.8 - 0}{3.17/\sqrt{27}} =-11.145\]</span> See that this calculation matches the test statistic given in the Excel output. The degrees of freedom and p-value can also be found in the Excel output.</p>
+</div>
+<div id="r-instructions-for-a-paired-samples-t-test" class="section level3">
+<h3>R Instructions for a Paired Samples t Test</h3>
+<div class="SoftwareHeading">
+R Instructions for the Paired Samples t Test
+</div>
+<div class="Software">
+<p>To perform a paired samples t test in R, first compute the <em>differences</em> within each paired set of measurements in R as was <a href="Lesson12.html#r-instructions-for-computing-paired-differences">shown previously</a>.</p>
+<p>Then, run a t test on the differences. Since the null hypothesis for the Mahon Weight Loss study was <span class="math inline">\(H_0: \mu_d = 0\)</span>, we use <code>t.test(..., mu=0)</code>. Since the alternative hypothesis was that <span class="math inline">\(H_a: \mu_d &lt; 0\)</span>, we use the code <code>t.test(..., alternative="less")</code>. Putting this all together we have the following.</p>
+<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;less&quot;)</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  differences
+t = -11.145, df = 26, p-value = 1.059e-11
+alternative hypothesis: true mean is less than 0
+95 percent confidence interval:
+     -Inf -5.76249
+sample estimates:
+mean of x 
+-6.803704 </code></pre>
+</div>
+<p><br></p>
+<p>The test statistic for a test involving paired data when <span class="math inline">\(\sigma\)</span> is unknown is a <span class="math inline">\(t\)</span>. For this situation, the value is: <span class="math display">\[t= \frac{-6.804 - 0}{3.17/\sqrt{27}} =-11.145\]</span> See that this calculation matches the test statistic given in the R output. The degrees of freedom and p-value can also be found in the R output.</p>
 <p><strong>State the degrees of freedom</strong></p>
 <p><span class="math display">\[df = 26\]</span></p>
-<p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
-<p>The test statistic and p-value can be found in the Excel output. The following calculations show conceptually how the p-value is calculated:</p>
-<p>The test statistic, <span class="math inline">\(t\)</span>, is labeled on the horizontal axis. The <span class="math inline">\(P\)</span>-value is the area to the left of <span class="math inline">\(t\)</span> under the curve. This area is so small, it is hiding out on the edges (not actuall visible) on this plot.</p>
-<p><img src="Images/Mahon-Applet.png"></p>
-<p>It is important to note that only the left tail is shaded, even though we cannot see it in this illustration.</p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
 <p><span class="math display">\[
-P\text{-value} = 1.06 \times 10^{-11} &lt; 0.05 = \alpha
+P\text{-value} = 1.059 \times 10^{-11} &lt; 0.05 = \alpha
 \]</span></p>
 <p><strong>State your decision</strong></p>
 <p>Since the <span class="math inline">\(P\)</span>-value is less than the level of significance, we reject the null hypothesis.</p>
 <p><img src="Images/Step5.png"></p>
 <p><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></p>
-<p>There is sufficient evidence to suggest that the reduced calorie diet used in this study results in weight loss for middle-aged women. <br></p>
+<p>There is sufficient evidence to suggest that the reduced calorie diet used in this study results in weight loss for middle-aged women with the average weight loss around 6.804 kg. <br></p>
 <p><img src="Images/StepsAll.png"></p>
 </div>
 <div id="nosocomial-infections" class="section level3">
@@ -920,7 +911,7 @@ P\text{-value} = 1.06 \times 10^{-11} &lt; 0.05 = \alpha
 <p><span id="17:IntroToNosocomialInfections"></span></p>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Matched-pairs designs are not just used in pre- and post-test situations. They are often used in situations where it is not possible to randomly assign subjects to groups (for example, by a coin toss.) Nosocomial (pronounced: NO-suh-KOH-MEE-uhl) infections are infections that occur in hospitals, but are not a result of the original condition. An example of a nosocomial infection is when a heart attack patient develops a staph infection at the site of an IV injection. The infection was not caused by the heart attack, but it was acquired in the hospital. Nosocomial infections are very dangerous and may result in longer recovery times or increased death rates.</p>
+<p>Matched-pairs designs are not just used in pre- and post-test situations. They are also used in situations where it is not possible to randomly assign subjects to treatment groups because of ethical reasons. For example, nosocomial (pronounced: NO-suh-KOH-MEE-uhl) infections are infections that occur in hospitals, but are not a result of the original condition. An example of a nosocomial infection is when a heart attack patient develops a staph infection at the site of an IV injection. The infection was not caused by the heart attack, but it was acquired in the hospital. Nosocomial infections are very dangerous and may result in longer recovery times or increased death rates.</p>
 <p><img src="Images/Pneumonia-CDC-5803.png"></p>
 <p>Health care providers suspect that nosocomial infections increase the amount of time required to recover from an illness or injury. In controlled experiments, subjects (e.g., patients) are randomly assigned to treatments. However, it is not ethical to give patients a nosocomial infection in order to determine if it increases the duration of their hospital stay! At best, we can collect information on the duration of hospital stays for patients who acquire nosocomial infections and compare them to the duration of the stays for patients who do not.</p>
 <p>There are many factors that affect the amount of time that a patient will need to stay in the hospital, including: nature of illness, types of procedures conducted, overall health, gender, age, etc. How can health care practitioners assess the effect of a nosocomial infection in the presence of so many other variables?</p>
@@ -982,15 +973,23 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
-<center>
-<span class="math display">\[
+<p>Recall that the differences <span class="math inline">\(d\)</span> in the duration of the patient’s stay in the hospital were decided to be computed in the order, <span class="math inline">\(differences = Infected - Notinfected\)</span>.</p>
+<pre class="r"><code>differences &lt;- NosocomialInfections$Infected - NosocomialInfections$NotInfected</code></pre>
+<p>The numerical summaries are then computed by</p>
+<pre class="r"><code>summary(differences)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -22.00    2.00   11.50   11.38   19.50   39.00 </code></pre>
+<pre class="r"><code>sd(differences)</code></pre>
+<pre><code>[1] 13.83255</code></pre>
+<pre class="r"><code>length(differences)</code></pre>
+<pre><code>[1] 52</code></pre>
+<p><span class="math display">\[
 \begin{align}
 \bar d &amp;= 11.38 \\
 s_d &amp;= 13.83 \\
 n &amp;= 52
 \end{align}
-\]</span>
-</center>
+\]</span></p>
 </div>
 <p><br></p>
 <ol start="8" style="list-style-type: decimal">
@@ -999,11 +998,10 @@ n &amp;= 52
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <ul>
-<li>Present a graph showing the differences.
-<center>
-<img src="Images/Nosocomial-Differences-Histogram.png">
-</center></li>
+<li>Present a graph showing the differences.</li>
 </ul>
+<pre class="r"><code>hist(differences, main=&quot;Matched Pairs Study \n Nosocomial Infections&quot;, xlab=&quot;Difference in Hospital Stay (Infected - Notinfected)&quot;)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1019,7 +1017,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
-<li>The data represent a random sample of patients, who have been matched based on their overall health and their current ailment. The sample size is large, so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed.</li>
+<li>The data represent a random sample of patients, who have been matched based on their overall health and their current ailment. The sample size is large (<span class="math inline">\(n=52\)</span>), so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed.</li>
 </ul>
 </div>
 <p><br></p>
@@ -1031,6 +1029,18 @@ Answer the following questions:
 <ul>
 <li>The test statistic for a test for two means with paired data is a <span class="math inline">\(t\)</span>.</li>
 </ul>
+<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;greater&quot;)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  differences
+## t = 5.935, df = 51, p-value = 1.296e-07
+## alternative hypothesis: true mean is greater than 0
+## 95 percent confidence interval:
+##  8.171035      Inf
+## sample estimates:
+## mean of x 
+##  11.38462</code></pre>
 <p><span class="math display">\[t = 5.935\]</span></p>
 </div>
 <p><br></p>
@@ -1046,22 +1056,12 @@ df = 51
 </center>
 </div>
 <p><br></p>
-<ol start="12" style="list-style-type: decimal">
-<li><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></li>
-</ol>
-<a href="javascript:showhide('Q12')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q12" style="display:none;">
-<ul>
-<li>The test statistic and p-value can be found in the Excel output and you should not need to calculate it by hand. Your sketch should show the value of <span class="math inline">\(t=5.935\)</span> on the horizontal axis, with only the tiny area to the right of 5.935 shaded.</li>
-</ul>
-</div>
-<p><br></p>
 <ol start="13" style="list-style-type: decimal">
 <li><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></li>
 </ol>
 <a href="javascript:showhide('Q13')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q13" style="display:none;">
-The p-value can be found in the Excel output and you should not need to calculate it by hand. The calculation below shows how the p-value in Excel is being calculated:
+The p-value can be found in the R output. The calculation below shows how the p-value in R is being calculated:
 <center>
 <span class="math display">\[
 P\textrm{-value}=\frac{\textrm{Sig. (2-tailed)}}{2}=\frac{2.592\times 10^{-7}}{2}=1.296 \times 16^{-7} = 0.0000001296 &lt; 0.05 = \alpha
@@ -1151,13 +1151,15 @@ Difference = Stressful - Silence
 </ol>
 <a href="javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q17" style="display:none;">
-<ul>
-<li><p>50 kJ/d</p></li>
-<li><p>Here is an illustration of an excerpt of the data in Excel:</p>
-<center>
-<p><img src="Images/REE-Data-Excel.png"></p>
-</center></li>
-</ul>
+<p>First, read in the <a href="./Data/REE-ClassicalMusic.xlsx">REE-ClassicalMusic</a> data into RStudio.</p>
+<p>Then, compute the differences by</p>
+<pre class="r"><code>differences &lt;- REE_ClassicalMusic$Stressful - REE_ClassicalMusic$Silence</code></pre>
+<p>To look at the differences, simply type</p>
+<pre class="r"><code>differences</code></pre>
+<pre><code> [1]   50  240   80  -30  110 -200  190  180  170  190  130   70 -150  -10  170
+[16] -150 -110   20  280   20 -250  -70  230   20  130 -160 -160   20   80  -40
+[31]  -30 -340  120   10  320  170   30 -220 -230  -80</code></pre>
+<p>The first observed difference is 50 kJ/d.</p>
 </div>
 <p><br></p>
 <p><strong>Give the relevant summary statistics</strong></p>
@@ -1166,22 +1168,38 @@ Difference = Stressful - Silence
 </ol>
 <a href="javascript:showhide('Q18')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q18" style="display:none;">
-The following image illustrates the Excel file used to get the summary statistics.
-<center>
-<img src="Images/REE-Output-Excel_Toolbox.png">
-</center>
+<pre class="r"><code>mean(differences)</code></pre>
+<pre><code>[1] 20</code></pre>
+<pre class="r"><code>length(differences) #sample size</code></pre>
+<pre><code>[1] 40</code></pre>
+<pre class="r"><code>sd(differences)</code></pre>
+<pre><code>[1] 159.5024</code></pre>
 <p><span class="math display">\[
 \begin{align}
 n&amp;=40\\
 \bar d &amp;= 20~\text{kJ}\\
-s_d &amp;= 160~\text{kJ}
+s_d &amp;= 159.5~\text{kJ}
 \end{align}
 \]</span></p>
 </div>
 <p><br></p>
+<p><strong>Visualize the data</strong></p>
 <ol start="19" style="list-style-type: decimal">
-<li><strong>See above output for a graph of the data</strong></li>
+<li>Create a histogram of the differences.</li>
 </ol>
+<a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q19" style="display:none;">
+<pre class="r"><code>hist(differences, main=&quot;Effect of Classical Music on Energy&quot;, xlab=&quot;Resting Energy Expenditure (Stressful - Silence&quot;, col=&quot;orchid&quot;) </code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><span class="math display">\[
+\begin{align}
+n&amp;=40\\
+\bar d &amp;= 20~\text{kJ}\\
+s_d &amp;= 159.5~\text{kJ}
+\end{align}
+\]</span></p>
+</div>
+<p><br></p>
 </div>
 <p><br></p>
 <p><img src="Images/Step4.png"></p>
@@ -1200,6 +1218,18 @@ Answer the following questions:
 <ul>
 <li>The test statistic for a test for two means with paired data is a <span class="math inline">\(t\)</span>.</li>
 </ul>
+<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;greater&quot;)</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  differences
+t = 0.79304, df = 39, p-value = 0.2163
+alternative hypothesis: true mean is greater than 0
+95 percent confidence interval:
+ -22.49179       Inf
+sample estimates:
+mean of x 
+       20 </code></pre>
 <p><span class="math display">\[t=0.793\]</span></p>
 </div>
 <p><br></p>
@@ -1220,7 +1250,7 @@ df = 39
 <a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q22" style="display:none;">
 <ul>
-<li>The test statistic is plotted on the horizontal axis. The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found on the Excel output in cell O10.</li>
+<li>The test statistic is plotted on the horizontal axis. The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output.</li>
 </ul>
 <center>
 <img src="Images/REE-Applet.png">
@@ -1233,7 +1263,6 @@ df = 39
 <a href="javascript:showhide('Q23')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q23" style="display:none;">
 <center>
-<!--$$ P\textrm{-value}=\frac{0.433}{2}=0.216$$-->
 <span class="math inline">\(P\textrm{-value}=0.2163 &gt; 0.1 = \alpha\)</span>
 </center>
 <ul>
@@ -1471,16 +1500,18 @@ Answer the following questions:
 <div id="confidence-intervals" class="section level2">
 <h2>Confidence Intervals</h2>
 <p>We can compute a confidence interval for the true mean of the differences for paired data. After the differences between two paired data sets have been calculated, we can create a confidence interval for the true mean of the differences. To do this, we follow the instructions for creating a confidence interval for a one mean with <span class="math inline">\(\sigma\)</span> unknown, but we use the column of differences as the data set.</p>
+<div id="r-instructions-for-confidence-intervals" class="section level3">
+<h3>R Instructions for Confidence Intervals</h3>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions for Confidence Intervals
 </div>
-<div class="Summary">
-<p><strong>To calculate confidence intervals for the true mean of the difference in Excel, do the following</strong>:</p>
+<div class="Software">
+<p><strong>To calculate confidence intervals for the true mean of the difference in R, do the following</strong>:</p>
 <ul>
-<li>Open the file <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a></li>
-<li>Click on the tab labeled “Paired Data t-test”</li>
-<li>Enter the columns of paired data into column A and B</li>
-<li>Set the desired confidence level. <br></li>
+<li>Read in the data to RStudio.</li>
+<li>Compute the differences.</li>
+<li>Perform a <code>t.test(...)</code> on the differences.</li>
+<li>Set the desired confidence level using <code>t.test(..., conf.level=0.95)</code>. <br></li>
 </ul>
 </div>
 <p><br></p>
@@ -1491,6 +1522,7 @@ Excel Instructions
 </ul>
 <p>  <img src="Images/StepsAll.png"></p>
 <p><img src="Images/PineBeetleDamage-1441150-LG.png"></p>
+</div>
 <div id="mountain-pine-beetle-attacks" class="section level3">
 <h3>Mountain Pine Beetle Attacks</h3>
 <p><img src="Images/Step1.png"></p>
@@ -1529,6 +1561,13 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q38')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q38" style="display:none;">
+<pre class="r"><code>summary(PineBeetle$Before)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  894.6   989.2  1029.8  1028.4  1060.0  1195.9 </code></pre>
+<pre class="r"><code>nrow(PineBeetle)</code></pre>
+<pre><code>[1] 170</code></pre>
+<pre class="r"><code>sd(PineBeetle$Before)</code></pre>
+<pre><code>[1] 57.03149</code></pre>
 <ul>
 <li>The mean was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare. Note that the values were rounded to two decimal places, since the data were given to one decimal place.</li>
 <li>Answers will vary regarding the description of the density. Here is one possible response.</li>
@@ -1541,6 +1580,13 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q39')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q39" style="display:none;">
+<pre class="r"><code>summary(PineBeetle$After)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  429.9   563.7   596.5   592.9   627.5   687.2 </code></pre>
+<pre class="r"><code>nrow(PineBeetle)</code></pre>
+<pre><code>[1] 170</code></pre>
+<pre class="r"><code>sd(PineBeetle$After)</code></pre>
+<pre><code>[1] 45.30785</code></pre>
 <ul>
 <li>The mean was 592.87 trees per hectare and the standard deviation was 45.31 trees per hectare.</li>
 <li>Answers will vary regarding the description of the density. Here is one possible response.</li>
@@ -1551,12 +1597,20 @@ Answer the following questions:
 <ol start="40" style="list-style-type: decimal">
 <li>Find the differences by subtracting the “before” counts from the “after” counts:</li>
 </ol>
-<p><span class="math display">\[Difference = After - Before\]</span> <strong>You will need to change the order of the columns so that “after” is in column A, and “before” is in column B in the Math221 Statistics Toolbox.</strong> The differences are located in column C.</p>
+<p><span class="math display">\[Difference = After - Before\]</span> <strong>Be careful to match the order of subtraction.</strong></p>
 <ul>
 <li>For these differences, report the mean, the standard deviation, and the sample size.</li>
 </ul>
 <a href="javascript:showhide('Q40')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q40" style="display:none;">
+<pre class="r"><code>differences &lt;- PineBeetle$After - PineBeetle$Before
+summary(differences)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -517.3  -441.5  -431.4  -435.5  -425.3  -402.6 </code></pre>
+<pre class="r"><code>length(differences)</code></pre>
+<pre><code>[1] 170</code></pre>
+<pre class="r"><code>sd(differences)</code></pre>
+<pre><code>[1] 17.08227</code></pre>
 <center>
 <strong>Summary Statistics:</strong>
 </center>
@@ -1582,21 +1636,6 @@ Answer the following questions:
 </tr>
 </tbody>
 </table>
-<!-- <center> -->
-<!-- {| class="wikitable" -->
-<!-- |-  -->
-<!-- ! colspan="2" | Summary Statistics: -->
-<!-- |-  -->
-<!-- | Mean:  -->
-<!-- | $ \bar d = -435.535 $ -->
-<!-- |- -->
-<!-- | Standard Deviation: -->
-<!-- | $ s_d = 17.082 $  -->
-<!-- |- -->
-<!-- | Sample Size:  -->
-<!-- | $ n = 170 $ -->
-<!-- |} -->
-<!-- </center> -->
 </div>
 <p><br></p>
 <p><strong>Make an appropriate graph to illustrate the data</strong></p>
@@ -1605,7 +1644,8 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q41')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q41" style="display:none;">
-<p><img src="Images/PineBeetleDiff-Histogram-Excel.png"></p>
+<pre class="r"><code>hist(differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;forestgreen&quot;)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1625,7 +1665,7 @@ Answer the following questions:
 <li>It is not explicitly stated, but we assume the plots of land were selected at random.</li>
 </ol></li>
 <li><ol start="2" style="list-style-type: lower-alpha">
-<li>For the pine beetle data, the histogram indicates that the data are not normally distributed. However, since the sample size is large (<span class="math inline">\(n = 170\)</span>), we can know the sample mean is normally distributed.</li>
+<li>For the pine beetle data, the histogram indicates that the data are not normally distributed. However, since the sample size is large (<span class="math inline">\(n = 170\)</span>), we can know the sample mean <span class="math inline">\(\bar{d}\)</span> is normally distributed despite the skew in the data.</li>
 </ol></li>
 <li>The requirements for creating the confidence interval seem to be satisfied.</li>
 </ul>
@@ -1636,6 +1676,18 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q43')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q43" style="display:none;">
+<pre class="r"><code>t.test(differences, conf.level=0.95)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  differences
+## t = -332.43, df = 169, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  -438.1211 -432.9483
+## sample estimates:
+## mean of x 
+## -435.5347</code></pre>
 <center>
 <span class="math inline">\((-438.121,~ -432.948)\)</span>
 </center>
@@ -1739,33 +1791,6 @@ Answer the following questions:
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" -->
-<!-- |+**Mean hours of sleep** -->
-<!-- |- -->
-<!-- ! Subject !! Control (no drug)  !! L-Hyoscyamine  !! Difference -->
-<!-- |- align="center" -->
-<!-- | 1 || 0.6 || 1.3 || 0.7 -->
-<!-- |- align="center" -->
-<!-- | 2 || 3 || 1.4 || -1.6 -->
-<!-- |- align="center" -->
-<!-- | 3 || 4.7 || 4.5 || -0.2 -->
-<!-- |- align="center" -->
-<!-- | 4 || 5.5 || 4.3 || -1.2 -->
-<!-- |- align="center" -->
-<!-- | 5 || 6.2 || 6.1 || -0.1 -->
-<!-- |- align="center" -->
-<!-- | 6 || 3.2 || 6.6 || 3.4 -->
-<!-- |- align="center" -->
-<!-- | 7 || 2.5 || 6.2 || 3.7 -->
-<!-- |- align="center" -->
-<!-- | 8 || 2.8 || 3.6 || 0.8 -->
-<!-- |- align="center" -->
-<!-- | 9 || 1.1 || 1.1 || 0 -->
-<!-- |- align="center" -->
-<!-- | 10 || 2.9 || 4.9 || 2 -->
-<!-- |- align="center" -->
-<!-- | 11 || - || 6.3 || - -->
-<!-- |} -->
 <p>Notice that the “control” data for Subject #11 is missing. It is not possible to compute a difference for this person, so their data will be omitted from our analysis. For this analysis, we will use the remaining <span class="math inline">\(n=10\)</span> observations.</p>
 <p>You may find it easier to copy and paste the data from the following table. The last row has been omitted.</p>
 <table>
@@ -1807,30 +1832,7 @@ Answer the following questions:
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" -->
-<!-- |- -->
-<!-- ! Increase in hours of sleep -->
-<!-- |- align="center" -->
-<!-- | 0.7 -->
-<!-- |- align="center" -->
-<!-- | -1.6 -->
-<!-- |- align="center" -->
-<!-- | -0.2 -->
-<!-- |- align="center" -->
-<!-- | -1.2 -->
-<!-- |- align="center" -->
-<!-- | -0.1 -->
-<!-- |- align="center" -->
-<!-- | 3.4 -->
-<!-- |- align="center" -->
-<!-- | 3.7 -->
-<!-- |- align="center" -->
-<!-- | 0.8 -->
-<!-- |- align="center" -->
-<!-- | 0 -->
-<!-- |- align="center" -->
-<!-- | 2 -->
-<!-- |}  -->
+<pre class="r"><code>differences &lt;- c(0.7, -1.6, -0.2, -1.2, -0.1, 3.4, 3.7, 0.8, 0, 2)</code></pre>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1867,20 +1869,6 @@ Answer the following questions:
 </tr>
 </tbody>
 </table>
-<!-- {| class="wikitable" -->
-<!-- |-  -->
-<!-- ! colspan="2" | Summary Statistics: -->
-<!-- |-  -->
-<!-- | Mean:  -->
-<!-- | $ \bar d = 0.75 $ hours -->
-<!-- |- -->
-<!-- | Standard Deviation: -->
-<!-- | $ s_d = 1.79 $ hours -->
-<!-- |- -->
-<!-- | Sample Size:  -->
-<!-- | $ n = 10 $ -->
-<!-- |} -->
-<!-- </center> -->
 </div>
 <p><br></p>
 <p><strong>Make an appropriate graph to illustrate the data</strong></p>
@@ -1889,10 +1877,9 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q45')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q45" style="display:none;">
-Here is a boxplot of the data:
-<center>
-<img src="Images/LHyoscyamine-Boxplot-Excel.png">
-</center>
+<p>Here is a boxplot of the data (just to change things up):</p>
+<pre class="r"><code>boxplot(differences, xlab=&quot;Difference in Hours of Sleep&quot;, main=&quot;Slee Inducing Drugs Study&quot;, horizontal=TRUE, col=&quot;firebrick&quot;)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1922,6 +1909,18 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q47')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q47" style="display:none;">
+<pre class="r"><code>t.test(differences, conf.level=0.90)</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  differences
+t = 1.3257, df = 9, p-value = 0.2176
+alternative hypothesis: true mean is not equal to 0
+90 percent confidence interval:
+ -0.2870553  1.7870553
+sample estimates:
+mean of x 
+     0.75 </code></pre>
 <center>
 <span class="math inline">\((-0.287, 1.787)\)</span>
 </center>

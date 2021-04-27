@@ -46,19 +46,11 @@ By the end of this lesson, you should be able to do the following.
 
 ## Independent Samples Versus Paired Data
 
-<!--
-{| class="basic"
-|-
-|
-**Study Tip:**  Samples are dependent (or represent paired data) if knowing which subjects will be in the first group determines which will be in the second group.  If knowing which subjects are in the first group gives you no information about the second group, we say the samples are independent.
-|}
--->
-
-In the previous reading [Lesson 12: Inference for Two Means: Paired Data](Lesson12.html){target="_blank"} we studied confidence intervals and hypothesis tests for the difference of two means, where the data are paired.  One example of paired data is pre- and post-test scores, such as Mahon's weight loss study. <!--<cite>Mahon07</cite>-->  Another example is paired comparisons, like the nosocomial infection study. <!--<cite>Vegas93</cite>-->  How can you tell if data are paired?  The key characteristic of dependent samples (or matched pairs) is that knowing which subjects will be in Group 1 determines which subjects will be in Group 2.  The data for each subject in Group 1 is *paired* with the data for a corresponding subject in Group 2.  In the case of the weight loss study, the same subject provided weight data for both groups: once in the pre-test (group 1) and once in the post-test (group 2).
+In the previous reading [Lesson 12: Inference for Two Means: Paired Data](Lesson12.html){target="_blank"} we studied hypothesis tests and confidence intervals for the true mean of the differences $\mu_d$, where the data are paired.  One example of paired data is pre- and post-test scores, such as Mahon's weight loss study. <!--<cite>Mahon07</cite>-->  Another example is matched-pairs comparisons, like the nosocomial infection study. <!--<cite>Vegas93</cite>-->  How can you tell if data are paired?  The key characteristic of dependent samples (or matched pairs, or paired data) is that knowing which subjects will be in Group 1 determines which subjects will be in Group 2.  The data for each subject in Group 1 is *paired* with the data for a corresponding subject in Group 2.  In the case of the weight loss study, the same subject provided weight data for both groups: once in the pre-test (group 1) and once in the post-test (group 2).
 
 In contrast to dependent samples, two samples are independent if knowing which subjects are in Group 1 tells you nothing about which subjects will be in Group 2.  With **independent samples**, there is no pairing between the groups.  Suppose you want to compare the incomes of men and women in the general population.  A random sample of men would be collected, and each would be asked to report their income.  Similarly, a random sample of women would be drawn, and they would also be asked to report their income.  Notice that the groups are independent.  Knowing the names of the men who are selected tells you nothing about which women would be selected.  This is an example of independent samples.
 
-We can compare the mean income of men to the mean income of women using the procedures of this section.  We will conduct hypothesis tests and compute confidence intervals for the difference in the true population means of two groups ($\mu_1 - \mu_2$).  
+We can compare the mean income of men to the mean income of women using the procedures of this section.  We will conduct hypothesis tests and compute confidence intervals for the difference in the true population means of two groups ($\mu_\text{DEV Group} - \mu_\text{GEN Group}$).  
 
 Some students make the association that samples are independent if they do not affect each other.  This is a false notion.  Instead, remember that *samples are independent if knowing who was selected for Group A tells you nothing about who will be selected for group B.*
 
@@ -67,7 +59,7 @@ Some students make the association that samples are independent if they do not a
 
 <img src="./Images/StepsAll.png">
 
-### Reading Practices of Children with Developmental or Behavioral Problems
+### Case Study: Reading Practices of Children with Developmental or Behavioral Problems
 
 Is there a difference in the amount of reading done by children with problematic behavior compared to other children?
 
@@ -80,11 +72,11 @@ Researchers led by Arlene Butz published a study on the reading practices of chi
 
 **State the null and alternative hypotheses and the level of significance**
 
-The null hypothesis is that there is no difference in the mean number of nights each week in which the two groups of children participate in reading in the home.  The alternative hypothesis is that there is a difference in the mean number of nights that the children in the two groups participate in reading in the home.  These hypotheses are expressed mathematically as:
+The null hypothesis is that there is no difference in the mean number of nights each week in which the two groups of children participate in reading in the home (the means of both GEN and DEV groups are equal).  The alternative hypothesis is that there is a difference in the mean number of nights that the children in the two groups participate in reading in the home.  If we let $\mu_1$ represent the mean number of nights each week that children in the GEN Group spent reading in the home, and $\mu_2$ represent mean nights children read in the home for the DEV Group, then these hypotheses are expressed mathematically as:
 $$
 \begin{align}
 H_0: &~~ \mu_1 = \mu_2 \\
-H_a: &~~ \mu_1 \ne \mu_2
+H_a: &~~  \mu_1  \neq \mu_2 
 \end{align}
 $$
 
@@ -121,9 +113,56 @@ A group of children were enrolled in the study.  Children who were identified to
 
 <img src="./Images/Step3.png">
 
+### R Instructions for Numerical Summaries of Two Groups
+
 **Give the relevant summary statistics**
 
 We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ and $n_1$ for the standard deviation and sample size of Group 1.  For Group 2, we indicate the mean, standard deviation and sample size with the symbols: $\bar x_2$, $s_2$, and $n_2$, respectively.
+
+
+
+
+<div class="SoftwareHeading">R Instructions for Numerical Summaries of Two Groups</div>
+<div class="Software">
+**To compute numerical summaries for two groups at once:**
+
+* First, read the data into RStudio: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx).
+
+```{r, include=FALSE}
+library(readxl)
+ReadingPractices <- read_excel("./Data/ReadingPractices.xlsx")
+```
+
+* Second, load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick.
+
+```{r, warning=FALSE, message=FALSE}
+library(mosaic)
+```
+
+<div class="note">
+If you get the error message <span style="color:red;">Error in library(mosaic) : there is no package called ‘mosaic’</span> then you will need to install the `mosiac` package using the code: `install.packages("mosaic")`
+
+You'll only ever need to "install" this package once. But you'll need to run "library(mosaic)" every time you reopen RStudio and want to use the `mosaic` package. As long as you keep RStudio open, you won't have to re-load the mosaic library.
+
+</div>
+
+Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
+
+```{r, comment=NA}
+favstats(Nights ~ Group, data=ReadingPractices)
+```
+
+<div class="note">
+If you get the error message <span style="color:red;">Error in favstats(Nights ~ Group, data = ReadingPractices) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
+</div>
+
+
+<br>
+</div>
+
+
+<br>
+
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -143,37 +182,10 @@ We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ an
   Sample Size:          $n_1 = 204$        $n_2 = 117$
 
 
-<!-- {| class="basic" -->
-<!-- |+**Summary Statistics:** -->
-<!-- |-  -->
-<!-- ! -->
-<!-- ! DEV Group -->
-<!-- ! GEN Group -->
-<!-- |-  -->
-<!-- | Mean:  -->
-<!-- | $\bar x_1 = 4.1$  -->
-<!-- | $\bar x_2 = 3.7$  -->
-<!-- |- -->
-<!-- | Standard Deviation: -->
-<!-- | $s_1 = 2.4$  -->
-<!-- | $s_2 = 2.5$  -->
-<!-- |- -->
-<!-- | Sample Size:  -->
-<!-- | $n_1 = 204$ -->
-<!-- | $n_2 = 117$ -->
-<!-- |} -->
-
 Were you surprised that the sample mean $\bar x$ was higher for the group with behavioral problems?  Why might this be the case?
 </div>
 <br>
 
-4.Based on the summary statistics (means, standard deviations, and sample sizes) for the two groups, does the true mean number of nights each week that the children engage in reading seem to differ significantly between the DEV and GEN groups?
-
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
-* Answers will vary.  We will conduct a hypothesis test to formally determine the answer to this question.  
-</div>
-&nbsp;
 </div>
 <br>
 
@@ -181,35 +193,67 @@ Were you surprised that the sample mean $\bar x$ was higher for the group with b
 
 There are two populations, and it is important to illustrate both of them separately. It is not sufficient to combine the groups and to produce a single graph.  This would obscure the differences in the groups.
 
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
+### R Instructions for Side-by-Side Boxplots
+
+<div class="SoftwareHeading">R Instructions for Side-by-Side Boxplots</div>
+<div class="Software">
 **To visualize the distributions of the two sample simultaneously:**
 
-Use the "Two-sample t Test" tab of the [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) to create separate histograms, one for each group. You can enter a label for Group1 in L7, and a label for Group 2 in L8. 
+Read the data into RStudio: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx).
 
-<img src="./Images/ReadingPractices-Boxplots-Excel.png">
+```{r, include=FALSE}
+library(readxl)
+ReadingPractices <- read_excel("./Data/ReadingPractices.xlsx")
+```
 
+Use the `boxplot(...)` function and the tilde `~` (top-left key on your keyboard) to produce a side-by-side boxplot. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
 
+```{r}
+boxplot(Nights ~ Group, data=ReadingPractices, col=c("firebrick","skyblue"), main="Reading Practices of Children")
+```
+
+<div align="right">
 <span class=Custom>Click the link at right for a helpful tip.</span>
 <a href="javascript:showhide('tip')"><span style="font-size:8pt;">Show/Hide Tip</span></a>
+</div>
 <div id="tip" style="display:none;">
-**Tip for Excel users:**
+**Tips for R users:**
 
-If you copy and paste the graphs into Microsoft Word, you will want to use the "Paste Special" option.  If you simply paste the histogram from Excel, it is treated as a "Microsoft Office Graphic Object."  This means that it will update if your Excel file is changed. To copy and paste side-by-side histograms into Microsoft word, do the following:
-- Create the graph in Excel
-- Select the graph by clicking on it
-- Copy the graph
-- In Microsoft Word, click on the lower part of the "Paste" icon under the "Home" ribbon:
-<img src="./Images/PasteButtonInFileRibbon.png">
-- Then, choose "Paste Special"
-- A list of options will appear; from this list choose one of the "Picture" options, such as "Picture (PNG)"
-- This will paste a static image of the graph in the Word document, which you can move around or shrink as desired
-- You should create a title for the graph and place it above the graph in your document
+To edit the names along the x-axis of the graph "DEV" and "GEN" use the `names=c("label 1", "label 2", ...)` command where you specify one label for each box in the boxplot.
+
+```{r}
+boxplot(Nights ~ Group, data=ReadingPractices, names=c("Behavioral Problems", "No Problems"), col=c("firebrick","skyblue"), main="Reading Practices of Children")
+```
+
+
+To copy and paste a graph from R into say Microsoft word, do the following:
+- Create the graph in R
+- Click the little "Export" button at the top of the "Plots" window
+- Choose either the "Copy" or "Save" options.
+- Then, either paste in the plot to Word, or insert the image (if you saved it).
 </div>
 <br>
 </div>
+<div style="clear:both;"></div>
+
 <br>
+
+
+
+
+<div class="QuestionsHeading">Answer the following questions:</div>
+<div class="Questions">
+4. Based on the summary statistics (means, standard deviations, and sample sizes) and the graph created above for the two groups, what would you guess for the true difference in the mean number of nights each week that the children engage in reading between the DEV and GEN groups?
+
+<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q4" style="display:none;">
+* Answers will vary.  We will conduct a hypothesis test to formally determine the answer to this question. But based on the data, it seems that the DEV group is spending more time, on average, reading in the home than the GEN group. This seems surprising because the "DEV" group is the one with "developmental or behavioral problems."
+</div>
+&nbsp;
+</div>
+<br>
+
+
 
 <img src="./Images/Step4.png">
 
@@ -218,9 +262,9 @@ If you copy and paste the graphs into Microsoft Word, you will want to use the "
 There are two requirements that need to be checked when conducting a hypothesis test for two means with independent samples:
 
 -  A simple random sample was drawn from each of the populations
--  $\bar x$ is normally distributed for each group
+-  $\bar{x}_1$ and $\bar{x}_2$ are both normally distributed.
 
-Remember, the second requirement will be satisfied if the original populations are normally distributed or if the sample sizes are large. In this example, both groups have a large sample size, so the second requirement is met.
+Remember, the second requirement will be satisfied if (a) the original populations are normally distributed or (b) if the sample sizes are large. If either of these options are true, then the sample mean will be normally distributed for that group. In this example, both groups have a large sample size ($n_1 = 204$ and $n_2 = 117$), so both sample means can be assumed to be normally distributed.
 
 We will assume the data from the study is a representative sample from each of the populations.
 
@@ -231,24 +275,27 @@ The test statistic for a hypothesis test comparing two means with independent sa
 
 
 
-#### Hypothesis Test
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-**The following instructions will help you conduct a hypothesis test for two means with independent samples in Excel.**
+### R Instructions for an Independent Samples t Test
 
-Use the file [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) to do the following:
+<div class="SoftwareHeading">R Instructions for an Independent Samples t Test</div>
+<div class="Software">
+**The following instructions will help you conduct a hypothesis test for two means with independent samples in R.**
 
-- Click on the tab labeled "Two-sample t-test"
-- Paste the data from the first group in the appropriate part of Column A
-- Paste the data for the second group in the designated part of Column B
-- Click on the drop-down menu in cell Q6 and choose the appropriate alternative hypothesis
+* Import the data into RStudio: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx)
+* Take note of your null and alternative hypotheses, in this case $H_0: \mu_1 = \mu_2$ implies $\mu_1 - \mu_2 = 0$ and $H_a: \mu_1 \neq \mu_2$ implies $\mu_1 - \mu_2 \neq 0$.
+* Use the `t.test(...)` function along with the tilde `~` (top-left key on your keyboard) to test a quantitative variable that is "divided into two groups" with the `~` sign like this:
 
-For the Reading Practices example, we choose "Not equal to"
+```{r, comment=NA}
+t.test(Nights ~ Group, data=ReadingPractices, mu=0, alternative="two.sided")
+```
 
-- The test statistic, $t$, is given in cell P10
-- The (approximate) degrees of freedom are presented in cell Q10
-- The $P$-value is reported in cell R10
+Notice the quantitative variable "Nights" was first, followed by the `~`, followed by the categorical variable "Group" containing the two groups. It is important that the categorical variable contain *exactly* two groups or the `t.test` will not work.
+
+A few other things to note:
+
+* `mu=0` is really implying "0 difference" in the mu's: $\mu_1 - \mu_2 = 0$, which is identical to stating that the two means are equal, $\mu_1 = \mu_2$.
+* `alternative="two.sided"` could also have used `alternative="greater"` or `alternative="less"` depending on the actual alternative hypothesis.
+
 <br>
 </div>
 <br>
@@ -270,12 +317,6 @@ $$df = 228.427$$
 
 You will notice that this is not a whole number.  This is called the Satterthwaite approximation for the degrees of freedom.  Do not worry that this is not an whole number.  Just record the value as it is given to you in the software.
 
-**Mark the test statistic and $P$-value on a graph of the sampling distribution** 
-
-The image below represents the area under the curve of a $t$-distribution.
-
-<img src="./Images/Applet-1.455-twotails.png">
-
 **Find the $P$-value and compare it to the level of significance**
 
 From the output, we find that the $P$-value is 0.147.  
@@ -293,7 +334,7 @@ Since the $P$-value is greater than the level of significance, we fail to reject
 
 **Present your conclusion in an English sentence, relating the result to the context of the problem**
 
-There is insufficient evidence to suggest that there is a difference in the mean number of nights children with developmental / behavioral disabilities read compared to children in the general population.
+There is insufficient evidence to suggest that there is a difference in the mean number of nights children with developmental / behavioral disabilities read compared to children in the general population. The average amount of time spent reading in the home appears to be equal for both groups.
 
 <!---
 #### Pooled
@@ -359,7 +400,7 @@ $$
 
 <img src="./Images/StepsAll.png">
 
-### World Cup Heart Attacks
+### Case Study: World Cup Heart Attacks
 
 Do intense sporting events increase the probability of a person having a heart attack?  We will consider this question in the next example.
 
@@ -376,7 +417,7 @@ We will use the data on cardiovascular problems during the World Cup to test the
 
 **State the null and alternative hypotheses and the level of significance**
 
-Let Group 1 be days in the Control Period and let Group 2 represent days during the 2006 World Cup.  We are testing whether the mean number of cardiovascular events is greater during the World Cup than during the control period.  So, the alternative hypothesis will be one-sided.
+Let Group 1 be days in the Control Period and let Group 2 represent days during the 2006 World Cup.  We are testing whether the mean number of cardiovascular events is greater during the World Cup than during the control period.  Since we let Group 1 be the "Control Period", the alternative hypothesis will be one-sided with a less-than symbol because "Control less than during the 2006 World Cup" is the proper way to state that Group 2 is greater than Group 1.
 
 $$
 \begin{align}
@@ -385,14 +426,14 @@ H_a: & ~~ \mu_1 < \mu_2
 \end{align}
 $$
 
-We will use the 0.01 level of significance.
+We will use the $\alpha = 0.01$ level of significance. Remember, we are always free to choose our significance level, but since it controls the probability of a Type I Error occurring, we need to consider how problematic a Type I Error would be for our study. In this case, it isn't terribly detrimental to commit a Type I Error (rejecting the null when the null was actually true), so we go with $\alpha = 0.1$.
 
 
 <img src="./Images/Step2.png">
 
 **Describe the data collection procedures**
 
-The 2006 World Cup was held from June 9, 2006 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file [WorldCupHeartAttacks.xlsx](./Data/WorldCupHeartAttacks.xlsx).
+The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file [WorldCupHeartAttacks.xlsx](./Data/WorldCupHeartAttacks.xlsx).
 
 
 <img src="./Images/Step3.png">
@@ -404,7 +445,16 @@ The 2006 World Cup was held from June 9, 2006 to July 9, 2006.  The number of pa
 
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
-* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$.
+* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$. So we read in the [WorldCupHeartAttacks.xlsx](./Data/WorldCupHeartAttacks.xlsx) data into RStudio, ensure `library(mosaic)` is loaded, and then use the `favstats(...)` function.
+
+```{r, include=FALSE}
+WorldCupHeartAttacks <- read_excel("./Data/WorldCupHeartAttacks.xlsx")
+```
+
+```{r, message=FALSE, warning=FALSE, comment=NA}
+library(mosaic)
+favstats(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks)
+```
 
 <center>
 **Summary Statistics:**
@@ -415,18 +465,6 @@ The 2006 World Cup was held from June 9, 2006 to July 9, 2006.  The number of pa
   Control       $\bar x_1 = 14$   $s_1 = 4.2$      $n_1 = 182$
   World Cup     $\bar x_2 = 19$   $s_2 = 9.8$      $n_2 = 91$
 
-<!-- <center> -->
-<!-- {| class="basic" -->
-<!-- |+ **Summary Statistics:** -->
-<!-- |-  -->
-<!-- ! Time Period !! Mean !! Std. Deviation !! Sample Size -->
-<!-- |- -->
-<!-- | Control || $\bar x_1 = 14$ || $s_1 = 4.2$ || $n_1 = 182$ -->
-<!-- |- -->
-<!-- | World Cup || $\bar x_2 = 19$ || $s_2 = 9.8$ || $n_2 = 91$ -->
-<!-- |- -->
-<!-- |} -->
-<!-- </center> -->
 </div>
 <br>
 
@@ -434,22 +472,11 @@ The 2006 World Cup was held from June 9, 2006 to July 9, 2006.  The number of pa
 
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-Side-by-side boxplots are a great way to summarize the data. The data as it is currently formatted does not fit well into the Toolbox. The current formatting of the data can be referred to as **"long format"**. One column contains the values and the other column contains the category or group the value is from. You can re-arrange the data so that it is in **wide format** (each group's values are in a separate column), but that is not necessary to create side-by-side boxplots in Excel.
+Side-by-side boxplots are a great way to summarize the data. 
 
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-**To create the side-by-side boxplots in Excel from data in long format:** 
-The column with the number values needs to be in the adjacent column on the right of the group labels. So in this case we need to switch the order of the "HeartAttacks" and "TimePeriod" columns. Put HeartAttacks in the column to the *right* of TimePeriod. Then highlight both columns (including the column headers), and create the boxplot with these steps:
-
-* Go to the Insert ribbon
-* Click on the Histogram icon
-* Select the option under the "Box and Whisker" heading
-</div>
-<br>
-<center>
-<img src="./Images/WorldCup-Boxplots-Excel.png">
-</center>
-<br>
+```{r}
+boxplot(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks, col=c("gray", "orange"), main="2006 World Cup \n ")
+```
 
 </div>
 &nbsp;
@@ -466,7 +493,7 @@ The column with the number values needs to be in the adjacent column on the righ
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 * Even though a simple random sample of days was not taken, we can assume that the number of heart attacks on one day do not affect the number of heart attacks on other days.  
-* The sample size is large for both groups, so we conclude that the sample means are normally distributed.
+* The sample size is large for both groups ($n_1 = 182$ and $n_2 = 91$), so we conclude that the sample means for each group, $\bar{x}_1$ and $\bar{x}_2$ are normally distributed.
 </div>
 <br>
 
@@ -474,6 +501,11 @@ The column with the number values needs to be in the adjacent column on the righ
 
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
+
+```{r, comment=NA}
+t.test(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks)
+```
+
 * The test statistic is a $t$ and its value is
 
 $$t = -4.617$$
@@ -486,7 +518,7 @@ $$t = -4.617$$
 <div id="Q9" style="display:none;">
 * The degrees of freedom are: 
 
-$$df = 106.429$$
+$$df = 106.43$$
 </div>
 <br>
 
@@ -494,6 +526,8 @@ $$df = 106.429$$
 
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
+Note that the p-value is automatically computed in R for you when you run `t.test`. However, it is useful to remember that this p-value comes from using a t-distribution with the given number of degrees of freedom, marking the observed t-value from the t-test on the graph, and shading the area "more extreme" than the observed value. Recall the definition of the p-value is "the probability of observing a test statistic as extreme or more extreme than the one observed, assuming the null hypothesis is true." This is what it would look like:
+
 <img src="./Images/WorldCup-Applet.png">
 <center>
 
@@ -506,6 +540,8 @@ $$df = 106.429$$
 <a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
 <center>
+The p-value is much smaller than the significance level of $\alpha = 0.1$.
+
 $$
 P\textrm{-value}=5.4636 \times 10^{-06}
 $$
@@ -539,11 +575,11 @@ $$
 </div>
 <br>
 
-### Theory of Statistics
+#### Statistics Theory: Independent Samples t Test
 
-In this course, we do not go very deep into statistical theory.  For those students who are interested, there is a lot of theory undergirding statistical practice.  
+In this course, we do not go very deep into statistical theory.  For those students who are interested, there is a lot of theory undergirding statistical practice that you will be able to study in other statistics courses here at BYU-Idaho.
 
-An important theoretical issue relates to this hypothesis test.  If the variances of the two groups are equal, then traditional statistical theory suggests that you combine or *pool* the information about the variance in the two groups.  If the variances are not equal, you do not combine the information about the spread.  These two techniques usually lead to slightly different values for the $t$-statistic, degrees of freedom, and $P$-value.
+For now, know that an important theoretical issue relates to this independent samples hypothesis test.  If the variances of the two groups are equal, then traditional statistical theory suggests that you combine or *pool* the information about the variance in the two groups.  If the variances are not equal, you do not combine the information about the spread.  These two techniques usually lead to slightly different values for the $t$-statistic, degrees of freedom, and $P$-value.
 
 If the variances observed in the sample data are very different from each other, you assume unequal variances and do not pool the data.  However, if the variances are very similar to each other, the results of the two procedures will be nearly identical.  In this case, it does not really matter which you choose.  
 
@@ -556,13 +592,13 @@ So, if the variances differ significantly, we should not assume equal variances.
 
 <img src="./Images/StepsAll.png">
 
-### Reading Practices of Children with Developmental or Behavioral Problems
+### Case Study: Reading Practices of Children with Developmental or Behavioral Problems (Revisited)
 
 <img src="./Images/Step1.png">
 
 **Summarize the relevant background information**
 
-Researchers led by Arlene Butz published a study on the reading practices of children [55]. They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group) compared to children in the general population who do not have developmental problems (the GEN group.) One of the factors they considered was the number of nights each week that the children participated in reading in the home. 
+As we stated previously in this lesson, researchers led by Arlene Butz published a study on the reading practices of children. They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group) compared to children in the general population who do not have developmental problems (the GEN group.) One of the factors they considered was the number of nights each week that the children participated in reading in the home. 
 
 We can use a 95% confidence interval to compare the difference between the true mean number of nights children in the DEV group participated in reading compared to children in the GEN group.  We are trying to find an estimate for the difference in the true means of the two groups.  Using math symbols, we want to estimate the value of $\mu_1 - \mu_2$. The confidence interval gives a range of plausible values for the unknown parameter $\mu_1 - \mu_2$. 
 
@@ -582,7 +618,11 @@ In the study by Arlene Butz, et.al., on the reading practices of children, the r
 
 **Give the relevant summary statistics**
 
-Using Excel, we compute the following:
+Using R, we compute the following:
+
+```{r, comment=NA}
+favstats(Nights ~ Group, data=ReadingPractices)
+```
 
 +---------------------+------------------+------------------+
 |                     | DEV Group        | GEN Group        |
@@ -597,30 +637,16 @@ Using Excel, we compute the following:
 
 : **Summary Statistics**
 
-<!-- {| class="basic" -->
-<!-- |+**Summary Statistics** -->
-<!-- |-  -->
-<!-- ! -->
-<!-- ! DEV Group<br>Group 1 -->
-<!-- ! GEN Group<br>Group 2 -->
-<!-- |-  -->
-<!-- | Mean:  -->
-<!-- | $\bar x_1 = 4.1$  -->
-<!-- | $\bar x_2 = 3.7$  -->
-<!-- |- -->
-<!-- | Standard Deviation: -->
-<!-- | $s_1 = 2.4$  -->
-<!-- | $s_2 = 2.5$  -->
-<!-- |- -->
-<!-- | Sample Size:  -->
-<!-- | $n_1 = 204$ -->
-<!-- | $n_2 = 117$ -->
-<!-- |} -->
+
 
 
 **Make an appropriate graph to illustrate the data**
 
-<img src="./Images/ReadingPractices-Boxplots-Excel.png">
+```{r}
+boxplot(Nights ~ Group, data=ReadingPractices,
+        main="Reading Practices of Children",
+        col=c("firebrick","skyblue"))
+```
 
 
 
@@ -632,19 +658,23 @@ The sample size is large enough in both groups respectively, so we can be assure
 
 **Find the confidence interval**
 
+### R Instructions for a Confidence Interval of the Difference of Two Means
+
 In this example, we compute the 95% confidence interval for the difference in the mean number of nights the children in the DEV and GEN groups are reading.  To obtain a confidence interval for the difference in two means with independent samples, follow these steps:
 
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-**To compute a 95% confidence interval for two independent samples in Excel:**
+<div class="SoftwareHeading">R Instructions for a Confidence Interval of the Difference of two Means</div>
+<div class="Software">
+**To compute a 95% confidence interval for the difference of two means from two independent samples:**
 
-- Open the file [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx)
-- Click on the tab labeled, "Two-sample t-test"
-- Paste the data for the first group in the appropriate place of column A
-- Paste the data for group 2 in column B
-- Enter the desired confidence level in cell O12
-- The confidence interval will be given in cells Q15 and R15
+- Read in the data: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx)
+- Perform an independent samples t test using the `t.test(..., conf.level=0.95)` function.
+
+```{r, comment=NA}
+t.test(Nights ~ Group, data=ReadingPractices, conf.level=0.95)
+```
+
+The lower bound and upper bound of the 95% confidence interval for the *difference between the two means* ($\mu_1 - \mu_2$) is given in the output above as (-0.149, 0.987). 
+
 <br>
 </div>
 <br>
@@ -654,14 +684,23 @@ In this example, we compute the 95% confidence interval for the difference in th
 **Present your observations in an English sentence, relating the result to the context of the problem**
 
 We are 95% confident that the true difference in the means is between $-0.149$ and $0.987$ days.
-Note that this confidence interval contains zero, so it is plausible that there is no difference in the mean number of nights the children in the two groups participate in reading.
+Note that this confidence interval contains zero, so it is plausible that there is no difference in the mean number of nights the children in the two groups participate in reading. It is only when both values in the confidence interval are positive, or both values are negative, that we can conclude that one mean is different from the other.
 
-When defining the confidence interval in Excel, if the two groups are reversed, the means are subtracted in the opposite order.  This results in a confidence interval with the opposite sign.  If we assign the GEN group as the first group and the DEV group as the second, we would get a confidence interval of $(-0.987, 0.149)$.
+### Reversing the Order of Groups
 
+When creating the confidence interval in R, it is important to remember that R splits the data into two groups alphabetically. So the "DEV" group is the first group and the "GEN" group is the second group. If this order were reversed, it would result in a confidence interval with the opposite sign. If we assign the GEN group as the first group and the DEV group as the second, we would get a confidence interval of $(-0.987, 0.149)$. We could do this with the code:
+
+```{r, comment=NA}
+ReadingPractices$GroupReversed <- factor(ReadingPractices$Group, levels=c("GEN", "DEV"), ordered=TRUE)
+t.test(Nights ~ GroupReversed, data=ReadingPractices)
+```
+
+
+
+
+### Case Study: Chronic Obstructive Pulmonary Disease (COPD)
 
 <img src="./Images/StepsAll.png">
-
-### Chronic Obstructive Pulmonary Disease (COPD)
 
 <img src="./Images/Step1.png">
 
@@ -689,12 +728,62 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 <img src="./Images/Step3.png">
 
+### R Instructions for Describing "Wide" Data
+
+<div class="SoftwareHeading">R Instructions for Numerical Summaries with Wide Data</div>
+<div class="Software">
+**When the data for each group is in a separate column** numerical summaries are calculated one column at a time.
+
+* First, read the data into RStudio: [COPD-Rehab](./Data/COPD-Rehab.xlsx)
+
+```{r}
+COPD_Rehab <- read_excel("./Data/COPD-Rehab.xlsx")
+```
+
+* Second, load the `mosaic` library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.
+
+```{r, warning=FALSE, message=FALSE}
+library(mosaic)
+```
+
+<div class="note">
+If you get the error message <span style="color:red;">Error in library(mosaic) : there is no package called ‘mosaic’</span> then you will need to install the `mosiac` package using the code: `install.packages("mosaic")`
+</div>
+
+Use the `favstats(...)` function to produce numerical summaries for each group separately.
+
+```{r, comment=NA}
+favstats(COPD_Rehab$Community)
+favstats(COPD_Rehab$Hospital)
+```
+
+<div class="note">
+If you get the error message <span style="color:red;">Error in favstats(...) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
+</div>
+
+**Boxplots can be created by using the `,` instead of the `~`:**
+
+```{r}
+boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital,
+        names=c("Community", "Hospital"), 
+        main="Chronic Obstructive Pulmonary Disease", 
+        ylab="Increased Distance Patients Could Walk (meters)",
+        col=c("steelblue","steelblue3"))
+```
+
+
+<br>
+</div>
+
+
+
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
 15. **Give the relevant summary statistics**.
 
 <a href="javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q15" style="display:none;">
+
 
 +------------------+--------------------+
 | Community        | Hospital           |
@@ -709,19 +798,6 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 : **Location**
 
-<!-- <center> -->
-<!-- {| class="basic" -->
-<!-- |+ **Location** -->
-<!-- |- -->
-<!-- ! Community<br>Group 1 !! Hospital<br>Group 2 -->
-<!-- |- align="center" -->
-<!-- | $\bar x = 216.1$ || $\bar x_2 = 283.4$ -->
-<!-- |- -->
-<!-- | $s = 339.9$ || $s = 359.9$ -->
-<!-- |- -->
-<!-- | $n = 76$ || $n = 85$ -->
-<!-- |} -->
-<!-- </center> -->
 </div>
 <br>
 
@@ -730,10 +806,14 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 <a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
 <br>
-<img src="./Images/COPD-Boxplot-Excel.PNG">
+
+```{r}
+boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital, names=c("Community", "Hospital"), main="Chronic Obstructive Pulmonary Disease", ylab="Increased Distance Patients Could Walk (meters)", col=c("steelblue","steelblue3"))
+```
+
 <br>
 
-* Notice that a descriptive title has been added to the plot. Adding more descriptive titles and axes labels is always a good idea. Furthermore, some changes to the formatting were made to make the chart more attractive. Feel free to experiment with labelling and formatting the graph when using a graph for your own presentation.
+* Notice that a descriptive title has been added to the plot. Adding more descriptive titles and axes labels is always a good idea. Furthermore, some changes to the formatting were made to make the chart more attractive. Feel free to experiment with labeling and formatting the graph when using a graph for your own presentation.
 <br>
 </div>
 <br>
@@ -750,6 +830,28 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 
 <img src="./Images/Step4.png">
+
+
+### R Instructions for t Tests with "Wide" Data
+
+<div class="SoftwareHeading">R Instructions for t Tests with Wide Data</div>
+<div class="Software">
+**When the data for each group is in a separate column** the independent samples t test is performed using the comma `,` instead of the tilde `~`.
+
+* First, read the data into RStudio: [COPD-Rehab](./Data/COPD-Rehab.xlsx)
+
+```{r}
+COPD_Rehab <- read_excel("./Data/COPD-Rehab.xlsx")
+```
+
+* Second, run the `t.test(...)` with the first column of data, followed by a comma `,`, and then the second column of data.
+
+```{r, comment=NA}
+t.test(COPD_Rehab$Community, COPD_Rehab$Hospital, conf.level=0.95)
+```
+
+<br>
+</div>
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
