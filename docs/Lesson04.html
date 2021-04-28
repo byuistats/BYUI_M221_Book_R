@@ -383,18 +383,19 @@ $(document).ready(function () {
 <li><a href="#spread-of-a-distribution">Spread of a Distribution</a>
 <ul>
 <li><a href="#standard-deviation-and-variance">Standard Deviation and Variance</a></li>
-<li><a href="#computing-standard-deviation-in-r">Computing Standard Deviation in R</a></li>
+<li><a href="#r-instructions-for-computing-standard-deviation">R Instructions for Computing Standard Deviation</a></li>
 <li><a href="#calculating-the-standard-deviation-by-hand">Calculating the Standard Deviation by Hand</a></li>
 <li><a href="#summary">Summary</a></li>
 </ul></li>
 <li><a href="#additional-tools-to-describe-the-data">Additional Tools to Describe the Data</a>
 <ul>
 <li><a href="#percentiles-and-quartiles">Percentiles and Quartiles</a></li>
-<li><a href="#computing-percentiles-in-r">Computing Percentiles in R</a></li>
+<li><a href="#r-instructions-for-computing-percentiles">R Instructions for Computing Percentiles</a></li>
 <li><a href="#the-five-number-summary">The Five-Number Summary</a></li>
-<li><a href="#computing-quartiles-and-the-five-number-summary-in-r">Computing Quartiles and the Five-number Summary in R</a></li>
+<li><a href="#r-instructions-for-computing-quartiles-and-the-five-number-summary">R Instructions for Computing Quartiles and the Five-number Summary</a></li>
 <li><a href="#boxplots">Boxplots</a></li>
-<li><a href="#creating-boxplots-in-r">Creating Boxplots in R</a></li>
+<li><a href="#r-instructions-for-creating-boxplots">R Instructions for Creating Boxplots</a></li>
+<li><a href="#r-instructions-for-missing-values">R Instructions for Missing Values</a></li>
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -529,8 +530,8 @@ mean(bodytemp_uncomp)</code></pre>
 <p>We are working with a sample. To be explicit, we call <span class="math inline">\(0.742 ^\circ \text{C}\)</span> the <em>sample</em> standard deviation. The symbol for the sample standard deviation is <span class="math inline">\(s\)</span>. This is a statistic. The parameter representing the <em>population</em> standard deviation is <span class="math inline">\(\sigma\)</span> (pronounced /SIG-ma/). In practice, we rarely know the value of the population standard deviation, so we use the sample standard deviation <span class="math inline">\(s\)</span> as an approximation for the unknown population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 <p>At this point, you probably do not have much intuition regarding the standard deviation. We will use this statistic frequently. By the end of the semester you can expect to become very comfortable with this idea. For now, all you need to know is that if two variables are measured on the same scale, the variable with values that are further apart will have the larger standard deviation.</p>
 </div>
-<div id="computing-standard-deviation-in-r" class="section level3">
-<h3>Computing Standard Deviation in R</h3>
+<div id="r-instructions-for-computing-standard-deviation" class="section level3">
+<h3>R Instructions for Computing Standard Deviation</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1513,8 +1514,8 @@ Answer the following questions:
 <p><strong>Wrong Site/Wrong Patient Lawsuits</strong></p>
 <p>Percentiles can be used to describe the center and spread of any distribution and are particularly useful when the distribution is skewed or has outliers. To explore this issue, you will use software to calculate percentiles of data on costs incurred by hospitals due to certain lawsuits. The lawsuits in question were about surgeries performed on the wrong patient, or on the right patient but the wrong part of the patient’s body (the wrong site).</p>
 </div>
-<div id="computing-percentiles-in-r" class="section level3">
-<h3>Computing Percentiles in R</h3>
+<div id="r-instructions-for-computing-percentiles" class="section level3">
+<h3>R Instructions for Computing Percentiles</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1536,7 +1537,7 @@ R Instructions
 <ul>
 <li>Percentiles can then be calculated on any quantitative column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</li>
 </ul>
-<p>For the <strong>WrongSiteWrongPatient</strong> data set, we could compute the 25th percentile by using the code:</p>
+<p>For the <strong>WrongSiteWrongPatient</strong> data set, we could compute the 25th percentile of the “Wrong Site” column of the data set by using the code:</p>
 <pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)</code></pre>
 <pre><code>##   25% 
 ## 29496</code></pre>
@@ -1647,8 +1648,8 @@ Answer the following questions:
 <p>Another way to summarize data is with the five-number summary. <strong>The five-number summary</strong> is comprised of the minimum, the first quartile, the second quartile (or median), the third quartile, and the maximum.</p>
 <p>Statistical packages can give different results for some computations. This is because there are several reasonable ways to define certain quantities, such as the quartiles. As such, you may find that some of the values that are given in R are different than what other software may give.</p>
 </div>
-<div id="computing-quartiles-and-the-five-number-summary-in-r" class="section level3">
-<h3>Computing Quartiles and the Five-number Summary in R</h3>
+<div id="r-instructions-for-computing-quartiles-and-the-five-number-summary" class="section level3">
+<h3>R Instructions for Computing Quartiles and the Five-number Summary</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1704,8 +1705,8 @@ Some students mistakenly include the mean in the five-number summary. The third 
 <p><img src="Images/Lesson_2_Activity_6_BoxPlot_6.jpg"></p>
 <p><br></p>
 </div>
-<div id="creating-boxplots-in-r" class="section level3">
-<h3>Creating Boxplots in R</h3>
+<div id="r-instructions-for-creating-boxplots" class="section level3">
+<h3>R Instructions for Creating Boxplots</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1788,6 +1789,23 @@ R Instructions
 <p><br></p>
 </div>
 <p><br></p>
+</div>
+<div id="r-instructions-for-missing-values" class="section level3">
+<h3>R Instructions for Missing Values</h3>
+<p>Sometimes the data you are working with has missing values in it. In that case, whether you are using <code>mean</code>, <code>median</code>, <code>quartile</code>, <code>sd</code> or another numerical summary function in R, you will need to tell R to remove the missing values.</p>
+<div class="SoftwareHeading">
+R Instructions for Missing Values
+</div>
+<div class="Software" style="padding:10px;">
+<p>Caution: if the data you are using has missing values in it (like the “wrong-patient” column of the WrongSiteWrongPatient data) then you need to use <code>quantile(..., 0.25, na.rm=TRUE)</code> like this:</p>
+<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)</code></pre>
+<pre><code> 25% 
+3900 </code></pre>
+<p>If you leave off the <code>na.rm=TRUE</code>, you will get the following result:</p>
+<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25)</code></pre>
+<p><span style="color:red;">Error in quantile.default(WrongSiteWrongPatient$<code>Wrong Patient</code>, 0.25)</span> <span style="color:red;">missing values and NaN’s not allowed if ‘na.rm’ is FALSE</span></p>
+</div>
+</div>
 <p><br></p>
 </div>
 </div>

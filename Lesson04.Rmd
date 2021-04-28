@@ -136,7 +136,7 @@ We are working with a sample. To be explicit, we call $0.742 ^\circ \text{C}$ th
 
 At this point, you probably do not have much intuition regarding the standard deviation. We will use this statistic frequently. By the end of the semester you can expect to become very comfortable with this idea. For now, all you need to know is that if two variables are measured on the same scale, the variable with values that are further apart will have the larger standard deviation.
 
-### Computing Standard Deviation in R
+### R Instructions for Computing Standard Deviation
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
@@ -800,7 +800,7 @@ So, if there were 100 students in a line from shortest to tallest, the height of
 
 Percentiles can be used to describe the center and spread of any distribution and are particularly useful when the distribution is skewed or has outliers.  To explore this issue, you will use software to calculate percentiles of data on costs incurred by hospitals due to certain lawsuits. The lawsuits in question were about surgeries performed on the wrong patient, or on the right patient but the wrong part of the patient's body (the wrong site).
 
-### Computing Percentiles in R
+### R Instructions for Computing Percentiles
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
@@ -834,7 +834,7 @@ WrongSiteWrongPatient <- read_excel(destfile)
 
 - Percentiles can then be calculated on any quantitative column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
 
-For the **WrongSiteWrongPatient** data set, we could compute the 25th percentile by using the code:
+For the **WrongSiteWrongPatient** data set, we could compute the 25th percentile of the "Wrong Site" column of the data set by using the code:
 
 ```{r}
 quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)
@@ -843,6 +843,8 @@ quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)
 Note: as soon as you type in the name of the data set, `WrongSiteWrongPatient`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
 
 <img src="./Images/rstudio_selection_operator.png" width="500">
+
+
 
 <br>
 </div>
@@ -933,7 +935,7 @@ Another way to summarize data is with the five-number summary.  **The five-numbe
 
 Statistical packages can give different results for some computations.  This is because there are several reasonable ways to define certain quantities, such as the quartiles. As such, you may find that some of the values that are given in R are different than what other software may give.
 
-### Computing Quartiles and the Five-number Summary in R
+### R Instructions for Computing Quartiles and the Five-number Summary
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
@@ -1017,7 +1019,7 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 
 <br>
 
-### Creating Boxplots in R
+### R Instructions for Creating Boxplots
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
@@ -1135,10 +1137,33 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000,
 
 
 
+### R Instructions for Missing Values
+
+Sometimes the data you are working with has missing values in it. In that case, whether you are using `mean`, `median`, `quartile`, `sd` or another numerical summary function in R, you will need to tell R to remove the missing values.
+
+<div class="SoftwareHeading">R Instructions for Missing Values</div>
+<div class="Software" style="padding:10px;">
+
+
+Caution: if the data you are using has missing values in it (like the "wrong-patient" column of the WrongSiteWrongPatient data) then you need to use `quantile(..., 0.25, na.rm=TRUE)` like this:
+
+```{r, comment=NA}
+quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)
+```
+
+If you leave off the `na.rm=TRUE`, you will get the following result:
+
+```{r, eval=FALSE}
+quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25)
+```
+
+<span style="color:red;">Error in quantile.default(WrongSiteWrongPatient$`Wrong Patient`, 0.25)</span>
+<span style="color:red;">missing values and NaN's not allowed if 'na.rm' is FALSE</span>
 
 
 
-
+</div>
+</div>
 
 
 
