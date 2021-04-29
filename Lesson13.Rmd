@@ -122,7 +122,7 @@ We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ an
 
 
 
-<div class="SoftwareHeading">R Instructions for Numerical Summaries of Two Groups</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **To compute numerical summaries for two groups at once:**
 
@@ -195,7 +195,7 @@ There are two populations, and it is important to illustrate both of them separa
 
 ### R Instructions for Side-by-Side Boxplots
 
-<div class="SoftwareHeading">R Instructions for Side-by-Side Boxplots</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **To visualize the distributions of the two sample simultaneously:**
 
@@ -277,7 +277,7 @@ The test statistic for a hypothesis test comparing two means with independent sa
 
 ### R Instructions for an Independent Samples t Test
 
-<div class="SoftwareHeading">R Instructions for an Independent Samples t Test</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **The following instructions will help you conduct a hypothesis test for two means with independent samples in R.**
 
@@ -662,7 +662,7 @@ The sample size is large enough in both groups respectively, so we can be assure
 
 In this example, we compute the 95% confidence interval for the difference in the mean number of nights the children in the DEV and GEN groups are reading.  To obtain a confidence interval for the difference in two means with independent samples, follow these steps:
 
-<div class="SoftwareHeading">R Instructions for a Confidence Interval of the Difference of two Means</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **To compute a 95% confidence interval for the difference of two means from two independent samples:**
 
@@ -730,7 +730,7 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 ### R Instructions for Describing "Wide" Data
 
-<div class="SoftwareHeading">R Instructions for Numerical Summaries with Wide Data</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **When the data for each group is in a separate column** numerical summaries are calculated one column at a time.
 
@@ -834,7 +834,7 @@ boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital, names=c("Community", "Hospita
 
 ### R Instructions for t Tests with "Wide" Data
 
-<div class="SoftwareHeading">R Instructions for t Tests with Wide Data</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 **When the data for each group is in a separate column** the independent samples t test is performed using the comma `,` instead of the tilde `~`.
 

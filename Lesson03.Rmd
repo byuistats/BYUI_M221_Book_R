@@ -185,7 +185,7 @@ hist(tuberc,
 
 ### R Instructions for Histograms
 
-<div class="SoftwareHeading">R Instructions for Histograms</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
 Follow these steps to create a histogram in R.
@@ -476,7 +476,7 @@ e. A, B, and C can all occur.
 
 ### R Instructions for Mean, Median, and Mode
 
-<div class="SoftwareHeading">R Instructions for Mean, Median, and Mode</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
 **To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:

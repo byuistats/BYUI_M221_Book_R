@@ -1141,7 +1141,7 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000,
 
 Sometimes the data you are working with has missing values in it. In that case, whether you are using `mean`, `median`, `quartile`, `sd` or another numerical summary function in R, you will need to tell R to remove the missing values.
 
-<div class="SoftwareHeading">R Instructions for Missing Values</div>
+<div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
 
