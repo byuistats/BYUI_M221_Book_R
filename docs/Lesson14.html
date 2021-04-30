@@ -380,14 +380,14 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#the-effects-of-gratitude">The Effects of Gratitude</a></li>
+<li><a href="#case-study-the-effects-of-gratitude">Case Study: The Effects of Gratitude</a></li>
 <li><a href="#analysis-of-variance-anova">Analysis of Variance (ANOVA)</a>
 <ul>
-<li><a href="#f-distribution"><span class="math inline">\(F\)</span>-distribution</a></li>
+<li><a href="#r-instructions-for-describing-anova-data">R Instructions for Describing ANOVA Data</a></li>
+<li><a href="#r-instructions-to-conduct-an-anova-test">R Instructions to Conduct an ANOVA Test</a></li>
+<li><a href="#the-f-distribution">The <span class="math inline">\(F\)</span>-distribution</a></li>
 <li><a href="#requirements-of-anova">Requirements of ANOVA</a></li>
-<li><a href="#how-to-conduct-an-anova-test">How to Conduct an ANOVA Test</a></li>
 </ul></li>
-<li><a href="#worked-example-gratitude">Worked Example: Gratitude</a></li>
 <li><a href="#worked-example-soccer-shoes">Worked Example: Soccer Shoes</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -423,10 +423,14 @@ $(document).ready(function () {
 </ul>
 </div>
 <p><br></p>
+<div style="clear:both;">
+
 </div>
-<div id="the-effects-of-gratitude" class="section level2">
-<h2>The Effects of Gratitude</h2>
+<p><br/> <br/></p>
 <p><img src="Images/StepsAll.png"></p>
+</div>
+<div id="case-study-the-effects-of-gratitude" class="section level2">
+<h2>Case Study: The Effects of Gratitude</h2>
 <br>
 <table>
 <tbody>
@@ -457,15 +461,10 @@ President Gordon B. Hinckley said, “My plea is that we stop seeking out the st
 </tr>
 </tbody>
 </table>
-<!-- {| style="border: 1px solid lightblue;" -->
-<!-- |- valign="top" -->
-<!-- | <img src="Images/GordonBHinckley.png">  -->
-<!-- | $~ ~$ -->
-<!-- | President Gordon B. Hinckley said, "My plea is that we stop seeking out the storms and enjoy more fully the sunlight. I am suggesting that as we go through life, we 'accentuate the positive.' I am asking that we look a little deeper for the good, that we still our voices of insult and sarcasm, that we more generously compliment and endorse virtue and effort" (*Standing for Something*, 2000, p.101). -->
-<!-- |- -->
-<!-- |} -->
 <p><img src="Images/Step1.png"></p>
+<div style="float:right; padding:10px;">
 <p><img src="Images/Midnight_sun.jpg"></p>
+</div>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Robert Emmons and Michael McCullough investigated the effects of gratitude on people’s perception of life as a whole<!--<cite>Emmons03</cite>-->. In a study of <span class="math inline">\(n=192\)</span> undergraduates, the people were randomly assigned to one of three groups.</p>
 <ul>
@@ -475,38 +474,158 @@ President Gordon B. Hinckley said, “My plea is that we stop seeking out the st
 </ul>
 <p>In addition to the weekly record of the five things they recorded their level of satisfaction with life in general. (Higher values are more favorable.) Reports were collected for nine weeks, and the overall level of satisfaction with life as a whole was recorded for each individual. The researchers wanted to determine if there was a difference in the perception of life as a whole between the subjects assigned to each of the three groups. Stated differently, they wanted to determine if expressing gratitude affects a person’s view of life in general.</p>
 <p>Here is an excerpt of data representing the results of this study:</p>
-<p><img src="Images/Gratitude-Data.png"></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Person</th>
+<th align="center">Treatment Group</th>
+<th align="center">Happiness Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Grateful</td>
+<td align="center">6.1</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Grateful</td>
+<td align="center">6.2</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">64</td>
+<td align="center">Grateful</td>
+<td align="center">4.9</td>
+</tr>
+<tr class="odd">
+<td align="center">65</td>
+<td align="center">Hassles</td>
+<td align="center">5.9</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">127</td>
+<td align="center">Hassles</td>
+<td align="center">3.8</td>
+</tr>
+<tr class="even">
+<td align="center">128</td>
+<td align="center">Events</td>
+<td align="center">4.9</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">192</td>
+<td align="center">Events</td>
+<td align="center">3.7</td>
+</tr>
+</tbody>
+</table>
 <p>Higher values indicate a greater level of satisfaction with life as a whole.</p>
 <p>How might we analyze these data? One possible method would be to conduct separate t-tests for all the possible pairs of groups in the study. If we did this, we would need to conduct a separate t-test to compare groups 1 &amp; 2, 1 &amp; 3 and 2 &amp; 3. If the probability of committing a Type I error is <span class="math inline">\(\alpha = .05\)</span> on each of these tests, then the probability that we would commit a Type I error on at least one of the tests is much greater than 0.05. We need a hypothesis test that we can use to compare all the groups at once. The procedure that allows us to do this is called Analysis of Variance (ANOVA).</p>
-<!--
-!!!!!!!!!!!!!!!!!!!!!!!!! BEGIN MISSION MEMORIES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-## Mission Memories
-
-
-District meetings are gatherings of approximately 6-12 missionaries who serve in a relatively small area. In some missions, the missionaries conclude each district meeting by individually shaking each other's hands.  If there are 6 missionaries present at a district meeting, how many handshakes will be given at the conclusion?
-
-You might want to use the following diagram to help you determine this number.  Each circle represents a missionary.  Draw line connecting each dot with the others.  The lines represent handshakes.  How many handshakes are there if there are 6 missionaries at a district meeting?
-
-<center>
-<img src="./Images/MissionaryHandshakeANOVA.png">
-</center>
-
-Now, think about the missionaries as means and the handshakes as hypothesis tests to determine if those means were equal.  However, each of these tests carry a probability of committing a type I error. If the tests were independent, the probability of committing at least one type I error in 15 tests (the number of tests required to look at all possible pairs of 6 means) is $1-(1-0.05)^{15}=0.5367$.  In other words, if there are six groups and you do all possible pairwise tests to look for differences in the means with $\alpha=0.05$, there is a probability of over 50% that you will have at least one type one error.  This is unacceptable!
-
-What is the solution?  Conduct only one test: an analysis of variance (ANOVA).
-
-!!!!!!!!!!!!!!!!!!!!!!!!! END MISSION MEMORIES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--->
 </div>
 <div id="analysis-of-variance-anova" class="section level2">
 <h2>Analysis of Variance (ANOVA)</h2>
-<p>ANOVA is a test for equality of several means. It allows us to compare the means for several groups–in one hypothesis test. It might sound intimidating, but ANOVA is simply a way to analyze several means at once. It is based on a comparison of the spread of the data within each of the groups compared to the spread of the means of the groups.</p>
-<p>In an ANOVA test, the null hypothesis is typically expressed in words: <span class="math display">\[H_0: \text{All the means are equal.}\]</span> The alternative hypothesis is given as: <span class="math display">\[H_a: \text{One or more of the means differs from the others.}\]</span></p>
-<p>If the means differ from each other in comparison to the variability in each group, then we conclude that the means are not all equal. If the means do not differ by much (when compared to the spread of the data in each group) then we do not reject the hypothesis that all the means are equal.</p>
+<p>ANOVA, an acronym for <strong>An</strong>alysis <strong>o</strong>f <strong>Va</strong>riance, is a test for equality of several means. It allows us to compare the means for several groups in a single hypothesis test. It is based on a comparison of the spread (or variance) of the data <em>within</em> each of the groups compared to the spread (or variance) <em>between</em> the means of the groups.</p>
+<p>In an ANOVA test, the null hypothesis is typically expressed in words: <span class="math display">\[H_0: \text{All the population means are equal.}\]</span> The alternative hypothesis is also stated in words as: <span class="math display">\[H_a: \text{One or more of the population means differs from the others.}\]</span></p>
+<p>If the sample means differ from each other enough, then we conclude that the true population means for each group are not all equal. If the sample means do not differ by much (when compared to the spread of the data in each group) then we fail to reject the null hypothesis that all the populations means are equal.</p>
 <p>We will use the level of significance, <span class="math inline">\(\alpha\)</span>, and the <span class="math inline">\(P\)</span>-value just as we have in the other hypothesis tests.</p>
-<div id="f-distribution" class="section level3">
-<h3><span class="math inline">\(F\)</span>-distribution</h3>
+<p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
+\begin{align}
+H_0: &amp; ~ \textrm{The population mean happiness scores are equal for each treatment} \\
+H_a: &amp; ~ \textrm{At least one of treatments has a different population mean happiness score}
+\end{align}
+\]</span></p>
+<p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</p>
+<p><img src="Images/Step2.png"></p>
+<p><strong>Describe the data collection procedures</strong></p>
+<p>The 192 students that volunteered to participate in the study were randomly assigned to one of the three treatment groups: Events, Hassles, or Gratitude. They wrote in a weekly journal, according to their group assignment. At the end of the semester, they completed a questionnaire that asked about their attitude toward life. The responses on the survey were coded into a number, where higher numbers represent a more positive outlook on life.</p>
+<p><img src="Images/Step3.png"></p>
+<p><strong>Give the relevant summary statistics</strong></p>
+<div id="r-instructions-for-describing-anova-data" class="section level3">
+<h3>R Instructions for Describing ANOVA Data</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p><strong>To compute numerical summaries for several groups:</strong></p>
+<ul>
+<li>Read in the data: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>.</li>
+<li>Load <code>library(mosaic)</code>.</li>
+<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>`Happiness Score`</code> and <code>`Treatment Group`</code>.</li>
+</ul>
+<pre class="r"><code>library(mosaic)
+favstats(`Happiness Score` ~ `Treatment Group`, data=Gratitude)</code></pre>
+<pre><code>  Treatment Group min    Q1 median    Q3 max     mean        sd  n missing
+1          Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
+2        Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
+3         Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
+<p><strong>To make an appropriate graph to illustrate the data:</strong></p>
+<ul>
+<li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
+<li>Specify colors using either <code>col="skyblue"</code> to give all boxes the same color, or use <code>col=c("orange","skyblue","firebrick")</code> to give each box a different color. Of course, use any color names you like.</li>
+<li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
+</ul>
+<pre class="r"><code>boxplot(`Happiness Score` ~ `Treatment Group`, data=Gratitude,
+        col=c(&quot;orange&quot;,&quot;skyblue&quot;,&quot;firebrick&quot;), 
+        main=&quot;The Effects of Gratitude&quot;,
+        xlab=&quot;Treatment Group&quot;,
+        ylab=&quot;Happiness Score (Higher is More Positive)&quot;)</code></pre>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><br></p>
+</div>
+<p><br></p>
+<p>Based on the numerical summaries and boxplot, the Gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
+<p><img src="Images/Step4.png"></p>
+<p><strong>Make Inference</strong></p>
+</div>
+<div id="r-instructions-to-conduct-an-anova-test" class="section level3">
+<h3>R Instructions to Conduct an ANOVA Test</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>To conduct a test for several means (ANOVA) in R, do the following:</p>
+<ul>
+<li>Read in the data if you haven’t already: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>.</li>
+<li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>gratitude_aov</code>.</li>
+<li>When using the <code>aov(...)</code> function, place the quantitative data first, followed by a <code>~</code>, followed by the categorical data.</li>
+<li>Use the <code>summary(...)</code> function to view the results of the ANOVA test.</li>
+</ul>
+<pre class="r"><code>gratitude_aov &lt;- aov(`Happiness Score` ~ `Treatment Group`, data=Gratitude)
+summary(gratitude_aov)</code></pre>
+<pre><code>                   Df Sum Sq Mean Sq F value Pr(&gt;F)  
+`Treatment Group`   2   6.26   3.130   4.075 0.0185 *
+Residuals         189 145.16   0.768                 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>In the ANOVA table output summary, you will find</p>
+<ul>
+<li>the test statistic (<span class="math inline">\(F\)</span>, see <strong>The <span class="math inline">\(F\)</span>-Distribution</strong> section below for an explanation),</li>
+<li>the <span class="math inline">\(P\)</span>-value (Pr(&gt;F)),</li>
+<li>and the two separate degrees of freedoms (Df) for the <span class="math inline">\(F\)</span> statistic.</li>
+</ul>
+<p>Note that there are two numbers specifying the degrees of freedom. These are given as the “Treatment Group” and “Residuals” degrees of freedom, respectively. The degrees of freedom for the “Treatment Group” are one less than the number of groups, in this case there are three groups (Events, Hassles, and Grateful) so there are 2 degrees of freedom. The “Residuals” degrees of freedom is equal to the total sample size (<span class="math inline">\(n=192\)</span> in this study) minus 1, then minus the Df for the “Treatment Group”, which is 2 in this case. That leaves us with <span class="math inline">\(192 - 1 - 2 = 189\)</span> “residual” degrees of freedom (or leftover degrees of freedom).</p>
+<p>More advanced statistics courses will go deeper into explaining these degrees of freedom and why they matter. For now, just recognize that the “Df” values are used to obtain the “Mean Sq” values by dividing the “Sum Sq” values by the “Df” values. Then, the “F value” is obtained by dividing the two “Mean Sq” values. These “Mean Sq” values are essentially <em>variances</em> and thus the name of the method is called “Analaysis of Variance” or ANOVA because the F-statistic is the ratio of two variances. When the F-statistic is large, that tells us that the means are farther apart than we would expect if all samples were from the same population of data.</p>
+</div>
+<p><br/></p>
+</div>
+<div id="the-f-distribution" class="section level3">
+<h3>The <span class="math inline">\(F\)</span>-distribution</h3>
 <p><img src="Images/Gratitude-F.png"> The test statistic in ANOVA follows an <span class="math inline">\(F\)</span>-distribution. This is the first time we have encountered this distribution. In previous tests, we have used the test statistics <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. For the ANOVA test, we use the <span class="math inline">\(F\)</span>-statistic.</p>
 <p>Here is a brief summary of the characteristics of the <span class="math inline">\(F\)</span>-distribution:</p>
 <ul>
@@ -517,184 +636,38 @@ What is the solution?  Conduct only one test: an analysis of variance (ANOVA).
 </div>
 <div id="requirements-of-anova" class="section level3">
 <h3>Requirements of ANOVA</h3>
+<p><strong>Verify the requirements have been met.</strong></p>
 <p>There are two requirements of ANOVA that must be checked:</p>
 <ul>
 <li><p>The data are normally distributed in each group.</p>
-<p>We can check this by creating a histogram for each group (separately). Unless one (or more) of the group’s histograms provide strong evidence to the contrary, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p></li>
-</ul>
-<!-- **[[Lesson 3: Describing_Quantitative_Data:_Shape,_Center_%26_Spread#Variance|variances]]** 
-I don't know how to reference specific header in other lesson-->
-<ul>
+<p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
+<p>In looking at the boxplot of the Gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
 <li><p>The variances are equal for each group.</p>
-<p>This requirement is checked by examining the variances. The rule we will use is: <em>if the largest variance is less than or equal to four times the smallest variance, then we will conclude that the variances are equal.</em></p></li>
+<p>This requirement is checked by examining the variances. To obtain the sample variances we will need to square each of the standard deviations. The rule we will use is: <em>if the largest variance is less than or equal to four times the smallest variance, then we will conclude that the variances are equal.</em></p>
+<p>For the Gratitude study, the three standard deviations were <span class="math inline">\(0.848\)</span>, <span class="math inline">\(0.944\)</span>, and <span class="math inline">\(0.832\)</span> for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as <span class="math inline">\(0.848^2 = 0.719\)</span>, <span class="math inline">\(0.944^2 = 0.891\)</span>, and <span class="math inline">\(0.832^2 = 0.692\)</span>. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of <span class="math inline">\(0.891/0.692 \approx 1.288\)</span>, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.</p></li>
 </ul>
-<p>If done by hand, the calculations for one simple ANOVA problem can easily require an hour of hard work. We will use software to do these calculations quickly and accurately.</p>
 <br>
 <div class="message Tip">
 The variance is the square of the standard deviation. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>.
 </div>
 <p><br> <br></p>
-</div>
-<div id="how-to-conduct-an-anova-test" class="section level3">
-<h3>How to Conduct an ANOVA Test</h3>
-<div id="auto">
-
-</div>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=TestANOVA }}-->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<p>To conduct a test for several means (ANOVA) in Excel, do the following:</p>
-<p>Open the file <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> and do the following:</p>
-<ul>
-<li>Click on the tab labeled “ANOVA”</li>
-<li>Paste the data from each group into their own column
-<ul>
-<li>Paste the data from the first group in the appropriate part of Column A</li>
-<li>Paste the data for the second group in the designated part of Column B</li>
-<li>Continue to copy and paste each group in the appropriate columns</li>
-</ul></li>
-</ul>
-<p>The following points will help you interpret the output.</p>
-<ul>
-<li><p>The “Numerical Summary of the Data” (Step 3) section of the output gives the sample size, mean and standard deviation for each of the groups in your sample.</p></li>
-<li><p>In the ANOVA table, you will find the test statistic (<span class="math inline">\(F\)</span>), the <span class="math inline">\(P\)</span>-value (Sig.), and the degrees of freedom (df) for the <span class="math inline">\(F\)</span> statistic. Note that there are two numbers specifying the degrees of freedom. These are given as the between groups and within groups df, respectively. Do not worry about the total degrees of freedom. This number is the sum of the other two.</p>
-<ul>
-<li>The test statistic, <span class="math inline">\(F\)</span>, is given in cell T9</li>
-<li>The degrees of freedom are presented in cells R9 and R10</li>
-<li>The <span class="math inline">\(P\)</span>-value is reported in cell U9</li>
-</ul></li>
-</ul>
-<p>To check your requirements, do the following:</p>
-<ul>
-<li><p>To determine if the data are normally distributed, we will look at a histogram plot for each group separately.</p>
-<ul>
-<li>While still on the ANOVA tab, scroll down. Under the boxplots you should see a histogram. In a large, yellow highlighted box located in the upper-right corner of the plot, you can type the group number of the sample you would like to see a histogram for (see the picture below). Make sure that you evaluate each sample’s data. They <strong>all</strong> must look <em>approximately normal</em> to meet the requirement.</li>
-</ul>
-<p><img src="Images/ANOVA_histogram.PNG"></p></li>
-<li><p>To determine if the population variances are equal, we will use a very simple check:</p>
-<ul>
-<li>If the largest variance is at least four times as big as the smallest variance, we will conclude that the population variances are not equal. (Remember, the variance is the square of the standard deviation.)
-<ul>
-<li>If the largest variance is <em>not</em> four times as big as the smallest variance, we will conclude that the population variances are close enough that we can assume the variances are all equal.</li>
-<li>To help you check this assumption the smallest and largest sample variance are displayed in a table spanning cells Y4 to AA6.</li>
-</ul></li>
-</ul></li>
-</ul>
-<p><br></p>
-</div>
-<p><br></p>
-</div>
-</div>
-<div id="worked-example-gratitude" class="section level2">
-<h2>Worked Example: Gratitude</h2>
-<p>We will conduct a hypothesis test to determine if the mean responses of the individuals in the three groups differ.</p>
-<p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
-\begin{align}
-H_0: &amp; ~ \textrm{All the means are equal} \\
-H_a: &amp; ~ \textrm{At least one of the means differs}
-\end{align}
-\]</span></p>
-<p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</p>
-<p><img src="Images/Step2.png"></p>
-<p><strong>Describe the data collection procedures</strong></p>
-<p>The students were randomly assigned to one of the three treatments. They wrote in a weekly journal, according to their group assignment. At the end of the semester, they completed a questionnaire that asked about their attitude toward life. The responses on the survey were coded into a number, where higher numbers represent a more positive outlook.</p>
-<p><img src="Images/Step3.png"></p>
-<p><strong>Give the relevant summary statistics</strong></p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=GratitudeANOVA }} -->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<p>Follow these instructions to apply the ANOVA procedure using Excel:</p>
-<p>Data representative of the values reported by Emmons and McCullough are given in the file <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. The data is divided up into three columns which represent Grateful, Hassels, and Events.</p>
-<p>The summary statistics can be obtained using the <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a>. Paste the three columns of data into the appropriate areas of column A, B, and C. The summary statistics will appear in the table to the right labeled “Numerical Summary of the Data”.</p>
-<p><br></p>
-</div>
-<p><br></p>
-<p>The summary statistics are presented in the following table:</p>
-<table>
-<colgroup>
-<col width="17%" />
-<col width="33%" />
-<col width="28%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Group</th>
-<th>N</th>
-<th>Mean</th>
-<th>Std. Deviation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Grateful</strong></td>
-<td>64</td>
-<td>5.050</td>
-<td>0.9443</td>
-</tr>
-<tr class="even">
-<td><strong>Hassles</strong></td>
-<td>63</td>
-<td>4.675</td>
-<td>0.8320</td>
-</tr>
-<tr class="odd">
-<td><strong>Events</strong></td>
-<td>65</td>
-<td>4.660</td>
-<td>0.8483</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<!-- <center> -->
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |- valign="bottom" -->
-<!-- !Group    || N  || Mean  || Std. <br> Deviation  -->
-<!-- |- -->
-<!-- | **Grateful** || 64 || 5.050 || 0.9443  -->
-<!-- |- -->
-<!-- | **Hassles**  || 63 || 4.675 || 0.8320  -->
-<!-- |- -->
-<!-- | **Events**   || $~$ $~$ $~$ 65$~$ $~$ $~$  || $~$ $~$ 4.660 $~$ $~$ || $~$ 0.8483 $~$  -->
-<!-- |- -->
-<!-- |} -->
-<!-- </center> -->
-<p>Please do not blindly cut-and-paste computer output. It can include a lot of information that we do not use. Identify the relevant parts and only report those pieces of information.</p>
-<p><strong>Make an appropriate graph to illustrate the data</strong></p>
-<p>This graph is from the Math221 Statistics Toolbox, but a title and proper labels have been added so that the chart can be understood without additional text to explain it.</p>
-<p><img src="Images/Gratitude-Boxplots.png"></p>
-<p><img src="Images/Step4.png"></p>
-<p><strong>Verify the requirements have been met</strong></p>
-<p>A histogram for each of the three sample groups is created (not shown). The data from the Grateful group is slightly skewed right. However, the skew is small enough that we should still be able to get reasonable results. The distributions for the other two groups do not exhibit distinctly non-normal shapes. Therefore, we have not violated the assumption of normally distributed sample data.</p>
-<p>The largest variance (0.8917 from the Grateful group) is not four times the smallest (0.6922 from the Hassles group), so we conclude that the variances are equal for the three groups.</p>
-<p>We conclude that the requirements are satisfied and it is appropriate to use ANOVA.</p>
 <p><strong>Give the test statistic and its value</strong></p>
 <p>This can be found in the output. Our test statistic, <span class="math inline">\(F\)</span>, is: <span class="math display">\[F = 4.075\]</span></p>
 <p><strong>State the degrees of freedom</strong></p>
 <p>There are 2 and 189 degrees of freedom.</p>
 <p>The order in which these are stated is important. For an F-test, it is not the same to have 2 and 189 degrees of freedom as it is to have 189 and 2 degrees of freedom.</p>
 <p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
+<p>While this is not something that you have to do in this course, it is good to remember that the <span class="math inline">\(P\)</span>-value provided to you in the output of the ANOVA test in R is the “probability of obtaining a test statistic as extreme or more extreme than the one observed, assuming the null hypothesis is true.” That is why the notation for it in the summary output is <code>Pr(&gt;F)</code>. If we drew a picture of the F-distribution we would see that it starts at zero, is strongly right-skewed, and goes to infinity. Marking the observed test statistic on the graph and shading the area to the right would give the p-value.</p>
 <p><img src="Images/Gratitude-F.png"></p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
-<p><span class="math display">\[P\textrm{-value}=0.019 &lt; 0.05 = \alpha\]</span></p>
+<p>The <span class="math inline">\(P\)</span>-value of the ANOVA test can be found in the output summary of the test. <span class="math display">\[P\textrm{-value}=0.019 &lt; 0.05 = \alpha\]</span></p>
 <p><strong>State your decision</strong></p>
 <p>Since <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.019 &lt; 0.05 = \alpha\)</span>, we reject the null hypothesis.</p>
 <p><img src="Images/Step5.png"></p>
 <p><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></p>
 <p>There is sufficient evidence to suggest that at least one of the three groups has a mean level of satisfaction with life that differs from the others. In short, the mean level of satisfaction with life in general is not the same for all three groups.</p>
 <p>If we take a closer look, we see that the Hassles and Events groups had means that were fairly close together. However, the Grateful group appears to have a significantly higher mean level of satisfaction than the other two groups.</p>
+</div>
 </div>
 <div id="worked-example-soccer-shoes" class="section level2">
 <h2>Worked Example: Soccer Shoes</h2>
@@ -720,13 +693,14 @@ H_a: &amp; \textrm{At least one of the means differs}
 Answer the following questions:
 </div>
 <div class="Questions">
-
 <ol style="list-style-type: decimal">
 <li><strong>Give the relevant summary statistics</strong></li>
 </ol>
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<center>
+<pre class="r"><code>library(mosaic)
+favstats(Accuracy ~ Footwear, data=SoccerShoes)</code></pre>
+<p>Using the code above, we can pull out the important values.</p>
 <table>
 <thead>
 <tr class="header">
@@ -775,23 +749,6 @@ Answer the following questions:
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:center"  -->
-<!-- |- -->
-<!-- ! Group    !! N  !! Mean  !! Std. Deviation  -->
-<!-- |- -->
-<!-- |A  || 20 || 33.10 || 5.230  -->
-<!-- |- -->
-<!-- |B  || 20 || 32.70 || 5.430  -->
-<!-- |- -->
-<!-- |C   || 20 || 29.45 || 5.216  -->
-<!-- |- -->
-<!-- |D   || 20 || 32.00 || 7.291 -->
-<!-- |- -->
-<!-- |E   || 20 || 32.20 || 5.569 -->
-<!-- |- -->
-<!-- |Socks || 20 || 35.25 || 6.382 -->
-<!-- |} -->
-<!-- </center> -->
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -799,10 +756,10 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
-<ul>
-<li>Here is a side-by-side boxplot from the SPSS software to illustrate the data for all six groups. For a review of how to make side-by-side boxplots in Excel using stacked data (a.k.a. long format) like this, review <a href="Lesson10.html" target="_blank">Lesson 13 World Cup Heart Attacks</a> example. As you paste the data into the Math221 Statistics Toolbox you are unstacking it, or in other words, putting it in wide format.</li>
-</ul>
-<p><img src="Images/Soccershoes-boxplot-SPSS.png"></p>
+<pre class="r"><code>boxplot(Accuracy ~ Footwear, data=SoccerShoes, 
+        col=&quot;yellow2&quot;, 
+        main=&quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;)</code></pre>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -817,15 +774,15 @@ Answer the following questions:
 </div>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
-<li>If we conducted independent samples <span class="math inline">\(t\)</span>-tests comparing the six groups, how many tests would be conducted if we compared each of the groups against all the others?</li>
+<li>Which types of footwear seem to be giving the greatest accuracy?</li>
 </ol>
 <a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
-<li>We would need to conduct 15 tests! We need to use ANOVA. We should not do the comparisons using several different t-tests.</li>
+<li>Based on the boxplot, it appears that Footware “A” and “Socks” seem to give the greatest accuracy. This is also the case when looking at the sample means in the numerical summary where “A” has a mean accuracy of 33.10 and “Socks” has a mean accuracy of 35.25.</li>
 </ul>
 </div>
- 
+<p> </p>
 </div>
 <p><br></p>
 <p><img src="Images/Step4.png"></p>
@@ -839,7 +796,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
-<li>Histograms of the data for each of the six groups (separately) may not look very normal; but they do not exhibit strongly skewed data either.<br />
+<li>The boxplots all look fairly symmetric in the graph above. The median line isn’t exactly in the middle of each box, but there are not any outliers and there isn’t any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.<br />
 </li>
 <li>The largest variance (53.159) is not four times the smallest (27.207)</li>
 </ul>
@@ -850,8 +807,15 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
+<pre class="r"><code>soccer_aov &lt;- aov(Accuracy ~ Footwear, data=SoccerShoes)
+summary(soccer_aov)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Footwear      5    352   70.36    2.02 0.0809 .
+## Residuals   114   3970   34.82                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>
-<li><span class="math inline">\(F\)</span> statistic = 2.020</li>
+<li><span class="math inline">\(F\)</span> statistic = 2.02</li>
 </ul>
 </div>
 <p><br></p>
@@ -870,7 +834,12 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
+<p>This is included just to remind you that the p-value is the area to the right of the F-statistic in the F-distribution.</p>
 <p><img src="Images/SoccerShoes-SamplingDist.png"></p>
+<p>If you are curious, this could be done in R using the code</p>
+<pre class="r"><code>curve(df(x, 5, 114), from=0, to=10)
+abline(v=2.02, h=0)</code></pre>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">
@@ -879,7 +848,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
-<li><span class="math inline">\(P\text{-value} =0.08094 &lt; 0.1 = \alpha\)</span></li>
+<li><span class="math inline">\(P\text{-value} =0.0809 &lt; 0.1 = \alpha\)</span></li>
 </ul>
 </div>
 <p><br></p>
@@ -889,7 +858,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
-<li>Since <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.08094 &lt; 0.1 = \alpha\)</span> we reject the null hypothesis.</li>
+<li>Since <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.0809 &lt; 0.1 = \alpha\)</span> we reject the null hypothesis.</li>
 </ul>
 </div>
 <p> </p>
@@ -937,9 +906,10 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 </ul></li>
 <li>The variance is constant.
 <ul>
-<li>This is satisfied when the largest variance is not more than four times the smallest variance. <br></li>
+<li>This is satisfied when the largest variance is not more than four times the smallest variance.</li>
 </ul></li>
 </ol></li>
+<li><p>To perform an ANOVA in R, use the code <code>myaov &lt;- aov(...)</code> to run the test, then the code <code>summary(myaov)</code> to view the results. <br></p></li>
 </ul>
 </div>
 <p><br></p>
