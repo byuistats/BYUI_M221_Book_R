@@ -52,9 +52,9 @@ In practice, we almost never know the population standard deviation, $\sigma$.  
 $$
 z = \frac{ \bar x - \mu }{ \sigma / \sqrt{n} }
 $$
-In 1908, William Sealy Gosset published a solution to this problem<!--<cite>Gosset08</cite>-->.  He found a way to appropriately compute the confidence interval for the mean when $\sigma$ is not known.  The basic idea is to use the sample standard deviation, $s$, in the place of the true population standard deviation, $\sigma$.  If $\sigma$ is not known, we cannot base the calculations on the standard normal distribution, and we cannot use the formula above to conduct hypothesis tests.
+In 1908, William Sealy Gosset published a solution to this problem<!--<cite>Gosset08</cite>-->.  He found a way to appropriately compute the confidence interval for the mean when $\sigma$ is not known.  The basic idea is to use the sample standard deviation, $s$, in the place of the true population standard deviation, $\sigma$.  If $\sigma$ is not known, we cannot base the calculations on the standard normal distribution, and we can no longer use the formula above to compute the $P$-value of a hypothesis test.
 
-In a remarkable piece of work, Gosset found the appropriate distribution to use when $\sigma$ is unknown. At the time of this discovery, Gosset worked for the Guinness brewery.  To avoid problems with industrial espionage, Guinness prohibited employees from publishing any research results.  Knowing his work provided a significant contribution to Statistics, Gosset convinced his employer to allow him to publish under a fictitious name.  He chose the pseudonym "Student".  Gosset's test statistic was denoted by the letter $t$, this distribution has come to be known as **Student's t-distribution**.
+In a remarkable piece of work, Gosset found the appropriate distribution to use when $\sigma$ is unknown. At the time of this discovery, Gosset worked for the Guinness brewery.  To avoid problems with industrial espionage, Guinness prohibited employees from publishing any research results.  Knowing his work provided a significant contribution to Statistics, Gosset convinced his employer to allow him to publish under a fictitious name.  He chose the pseudonym "Student".  Gosset's test statistic was denoted by the letter $t$, this distribution has come to be known as **Student's t-distribution**. The formula for Gosset's test statistic is
 
 $$
 t = \frac{ \bar x - \mu }{ s / \sqrt{n} }
@@ -124,20 +124,6 @@ mtext(side=2, las=2, "density", at=0.43, line=0.3)
 </table>
 </center>
 
-<!-- <center> -->
-<!-- {| class="wikitable" -->
-<!-- |-  -->
-<!-- ! $t$-distribution <br> with $df = 1$ -->
-<!-- ! $t$-distribution <br> with $df = 5$ -->
-<!-- ! $t$-distribution <br> with $df = 15$ -->
-<!-- |-  -->
-<!-- | <img src="./Images/T-dist-df-01.png"> -->
-<!-- | <img src="./Images/T-dist-df-05.png"> -->
-<!-- | <img src="./Images/T-dist-df-15.png"> -->
-<!-- |-  -->
-<!-- | align="center" colspan="3" | (Image credit: Webster West, http://www.stat.tamu.edu/~west/applets/tdemo1.html) <!-- We do not have permission to use these images....-->
-<!-- |} -->
-<!-- </center> -->
 
 <br>
 
@@ -150,7 +136,7 @@ mtext(side=2, las=2, "density", at=0.43, line=0.3)
 
 We will apply the $t$-distribution to the body temperature data we explored previously.  
 
-This hypothesis test is conducted in a manner similar to a test for a single mean where $\sigma$ is known, except that instead of using the population standard deviation, $\sigma$, in the calculations, we estimate this value using the sample standard deviation, $s$.  This leads to a $t$-distribution, rather than a normal distribution for the test statistic. We will not need to compute the value of this test statistic by hand.  It will be done using Software.
+This hypothesis test is conducted in a manner similar to a test for a single mean where $\sigma$ is known, except that instead of using the population standard deviation, $\sigma$, in the calculations, we estimate this value using the sample standard deviation, $s$.  This leads to a $t$-distribution, rather than a normal distribution for the test statistic. We will not need to compute the value of this test statistic by hand, it will be calculated using software.
 
 
 <img src="./Images/Step1.png">
@@ -184,6 +170,22 @@ We will use the body temperature data, [BodyTemp.xlsx](./Data/BodyTemp.xlsx), co
 
 **Give the relevant summary statistics**
 
+
+```{r, include=FALSE}
+library(readxl)
+BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
+```
+
+These could be computed in RStudio after importing the data using the codes:
+
+```{r, eval=FALSE}
+mean(BodyTemp$BodyTemp)
+sd(BodyTemp$BodyTemp)
+nrow(BodyTemp)
+```
+
+These codes result in the values:
+
 $$
 \begin{array}{l}
 \bar x = 98.23\\
@@ -194,7 +196,17 @@ $$
 
 **Make an appropriate graph (e.g. a histogram) to illustrate the data**
 
-<img src="./Images/BodyTemp-Histogram-LoRes.png">
+A histogram of the Body Temperatures could be created in R with the code
+
+```{r}
+hist(BodyTemp$BodyTemp, 
+     col="wheat",
+     xlab="Body Temperature (Degrees Fahrenheight)",
+     main="Body Temperatures of 148 Healthy Adults")
+```
+
+
+</br>
 
 <img src="./Images/Step4.png">
 
@@ -221,11 +233,6 @@ For this t test, we are using the [BodyTemp.xlsx](./Data/BodyTemp.xlsx) data.
 
 **Step 3.** Use `t.test(...)` as follows to run the One Sample t Test in R.
 
-```{r}
-library(readxl)
-BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
-```
-
 A few notes about using `t.test(...)`.
 
 * The null hypothesis is established by **mu=98.6** 
@@ -250,7 +257,7 @@ t.test(BodyTemp$BodyTemp, mu=98.6, alternative="two.sided")
 * The data used for the test is printed next.
 * Then the test statistic (t), degrees of freedom (df), and p-value of the test are all printed.
 * The alternative hypothesis of either "less," "greater," or "not equal" is restated so that we know if this was a "one-sided" or "two-sided" test. Also, the value of the null hypothesis (98.6) that was used for the test is printed at the end of this sentence.
-* The confidence level of either 95, 90, or 99 is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.
+* The confidence level (usually 95%) is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.
 * Finally, the sample mean, $\bar{x}$, is printed at the end of the summary output.
 
 
@@ -288,7 +295,7 @@ $$
 
 **State your decision**
 
-The interpretation of the results will follow the pattern established in the previous hypothesis tests.  If the $P$-value is less than the $\alpha$ level, we reject the null hypothesis. This is because a small p-value tells us that there is "essentially no chance of observing the results we just observed" **if** the null hypothesis is true. So it seems reasonable to reject the null hypothesis in favor of a better, alternative hypothesis that is more consistent with the results we have observed in the data. On the other hand, if the $P$-value is greater than the $\alpha$ level, we fail to reject the null hypothesis.  This is true for every hypothesis test.  
+The interpretation of the results will follow the pattern established in the previous hypothesis tests.  If the $P$-value is less than the $\alpha$ level, we reject the null hypothesis. This is because a small p-value tells us that there is "essentially no chance of observing the results we just observed" **if the null hypothesis is true**. So it seems reasonable to reject the null hypothesis in favor of a better, alternative hypothesis that is more consistent with the results we have observed in the data. On the other hand, if the $P$-value is greater than the $\alpha$ level, we fail to reject the null hypothesis.  This is true for every hypothesis test.  
 
 Since the $P$-value was less than $\alpha$, we reject the null hypothesis.
 
@@ -326,7 +333,7 @@ $$ \alpha = 0.05 $$
 
 **Describe the data collection procedures**
 
-The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [BabyBoom.xlsx](./Data/BabyBoom-JSE.xlsx).
+The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [BabyBoom.xlsx](./Data/BabyBoom.xlsx).
 
 Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha=0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
@@ -346,7 +353,7 @@ Once the [BabyBoom.xlsx](./Data/BabyBoom.xlsx) dataset is [read into RStudio](RH
 BabyBoom <- read_excel("./Data/BabyBoom.xlsx")
 ```
 
-```{r}
+```{r, eval=FALSE}
 mean(BabyBoom$Weight) #mean of Weight column
 sd(BabyBoom$Weight) #sd of Weight column
 nrow(BabyBoom) #sample size of the data set
@@ -372,7 +379,11 @@ $$
 The histogram is created by
 
 ```{r}
-hist(BabyBoom$Weight, xlab="Weights in grams", main="Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia", ylab="Number of Children", col="lightblue")
+hist(BabyBoom$Weight, 
+     col="lightblue",
+     xlab="Weights in grams", 
+     ylab="Number of Children", 
+     main="Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
 ```
 
 </div>
@@ -444,18 +455,15 @@ There is insufficient evidence to suggest that the alternative hypothesis is tru
 
 ## Confidence Intervals
 
-The procedure for finding confidence intervals when $\sigma$ is not known is very similar to the process when $\sigma$ is known. As a reminder, here is the confidence interval (from Lesson 10) when $\sigma$ is known.
-$$
-\left( \bar x - z^* \frac{\sigma}{\sqrt{n}}, ~ \bar x + z^* \frac{\sigma}{\sqrt{n}} \right)
-$$
+The procedure for finding confidence intervals when $\sigma$ is not known is very similar to the process when $\sigma$ is known. As a reminder, here is the confidence interval (from Lesson 10) when $\sigma$ is known: $\left( \bar x - z^* \frac{\sigma}{\sqrt{n}}, ~ \bar x + z^* \frac{\sigma}{\sqrt{n}} \right)$.
 
 To construct the confidence interval when $\sigma$ is not known, we replace the population standard deviation, $\sigma$, with its point estimate, $s$. The appropriate distribution is a $t$, rather than a $z$.  So, we replace $z^*$ with $t^*$. So the confidence interval when $\sigma$ is not known is
 $$
-\left( \bar x - t^* \frac{s}{\sqrt{n}}, ~ \bar x + t^* \frac{s}{\sqrt{n}} \right)
+\left( \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , \ ~ \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} \right)
 $$
 where $t^*$ is the $t$-score corresponding to the confidence level and $s$ is the sample standard deviation.
 
-The confidence intervals are automatically produced in R whenever the `t.test(...)` is performed. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
+These confidence intervals are automatically produced in R with the `t.test(...)` command. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
 
 
 <img src="./Images/StepsAll.png">
@@ -490,19 +498,31 @@ Koehn wants to find an estimate of the true mean BLEU score for text translated 
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
-Reading the
+After reading the
 [BLEU-Scores](./Data/BLEU-Scores.xlsx)
-data into R, we get the following:
+data into R, we can compute the following.
 
 ```{r, include=FALSE}
 BLEU_Scores <- read_excel("./Data/BLEU-Scores.xlsx")
 ```
 
-```{r}
+```{r, eval=FALSE}
 nrow(BLEU_Scores) #sample size
 mean(BLEU_Scores$BLEU) #mean
 sd(BLEU_Scores$BLEU) #standard deviation
-hist(BLEU_Scores$BLEU, main="BLEU Scores", xlab="Score", col="blue")
+```
+
+$$
+ n = 100 \\
+ \bar{x} = 0.288 \\
+ sd = 0.026
+$$
+
+```{r}
+hist(BLEU_Scores$BLEU, 
+     col="blue",
+     xlab="Score",
+     main="BLEU Scores")
 ```
 
 
@@ -540,13 +560,13 @@ We will use R to find the confidence intervals for the mean.
 Do the following:
 
 - Read in the [BLEU-Scores](./Data/BLEU-Scores.xlsx) data if you haven't already.
-- Run a One-sample t-test using `t.test(...)` with `mu=0` if you don't have a null hypothesis. (Confidence intervals don't require a null hypothesis, but `t.test(...)` can only be used if a null hypothesis is specified.)
+- Run a One-sample t-test using `t.test(...)`. (Confidence intervals don't require a null hypothesis.)
 - To set the confidence level use `t.test(..., conf.level=0.95)` or 0.99, or 0.90.
 
 In this case, we are using a 95% confidence level.  So, you set `t.test(..., conf.level=0.95)`. The only part of the output below that we will consider is the "95 percent confidence interval:" and the "mean of x" output.
 
 ```{r, comment=NA}
-t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.95)
+t.test(BLEU_Scores$BLEU, conf.level=0.95)
 ```
 
 
@@ -573,7 +593,15 @@ It is impossible to know the true standard deviation of the BLEU scores for a ne
 $$
 \left( \bar x - t^* \frac{s}{\sqrt{n}}, ~ \bar x + t^* \frac{s}{\sqrt{n}} \right)
 $$
-The value of $t^*$ depends on the level of confidence and the sample size.  It must be computed using software or looked up on a table.  If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of $t^*$ will be given to you.  The other numbers ($\bar x$, $s$, and $n$) can all be obtained directly from your data.
+The value of $t^*$ depends on the level of confidence and the sample size.  It must be computed using software or looked up on a table.  If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of $t^*$ can be calculated with
+
+```{r}
+qt(1-0.05/2, df=99)
+```
+
+where the `0.05` is the significance level $\alpha$, and the `df=` is the degrees of freedom, which is $n-1$.
+
+The other numbers ($\bar x$, $s$, and $n$) can all be obtained directly from your data.
 
 If we want to create a 95% confidence interval for $\mu$, with 99 degrees of freedom, then $t^* = 1.9842$.
 
@@ -604,11 +632,12 @@ The requirements for creating a confidence interval for a mean with $\sigma$ unk
 There are two requirements that need to be checked:
 
 1. A simple random sample was drawn from the population
+
+    All we know is that "a random sample of 100 blocks of Spanish text" were used. We will assume this means they obtained a simple random sample of all possible blocks of Spanish text.
+
 2. $\bar x$ is normally distributed
 
-Recall the requirement of normality is satisfied if the data are approximately normally distributed or if the sample size is large.
-
-The data are bell-shaped and fairly symmetric.  So, the sample mean, $\bar x$, is approximately normally distributed.  
+    Recall that this requirement is satisfied if the parent population data are normally distributed or if the sample size is large. Checking a histogram, the sample data look to be bell-shaped and fairly symmetric, but since the sample size is large, ($n=100$), then the Central Limit Theorem also applies and we can be confident that the sample mean, $\bar x$, is also approximately normally distributed.  
 
 
 
@@ -622,7 +651,7 @@ Answer the following questions using the data set [BLEU-Scores](./Data/BLEU-Scor
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-5. Use R to find a 90% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
+5. Use R to find a 90% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Present this confidence interval in a complete sentence.
 
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
@@ -648,7 +677,7 @@ t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.99)
 </div>
 <br>
 
-7. What do you notice about the confidence interval as the confidence level increased from 90% to 99%?
+7. What do you notice about the width of the confidence interval as the confidence level increased from 90% to 99%?
 
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
@@ -718,10 +747,19 @@ $$
 
 Either a histogram or boxplot would be appropriate for graphing this data. 
 
+Note that when creating a histogram, the exact number of bins you use is up to you. The only rule to follow is to have enough bins to get a good feel for the distribution. 
+
 ```{r}
-hist(EuroWeight$Weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", breaks=100)
-#since the sampe size was large, we can use a lot of "bins" or "breaks" in the graph.
+hist(EuroWeight$Weight, 
+     col="coral",
+     xlab="Weight in grams", 
+     main="Coins from a Bank in Belgium",
+     breaks=50)
+#since the sampe size was large, 
+#we can use a lot of "bins" or "breaks" in the graph.
 ```
+
+With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
 
 ```{r, fig.height=3}
 boxplot(EuroWeight$Weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", horizontal=TRUE)
@@ -741,11 +779,17 @@ You can see the data is relatively normal, with just a couple of potential outli
 We need to check the following two requirements:
 
 1. A simple random sample was drawn from the population
+
+    The coins were taken in batches, but we can think of the batches as a random sample of the possible coins that could be chosen.  
+    
+
 2. $\bar x$ is normally distributed
 
-The coins were taken in batches, but we can think of the batches as a random sample of the possible coins that could be chosen.  
+    The data follow a bell-shaped distribution.  There are a few potential outliers, but they are not too frequent, and the sample size is $n=2000$, which is very large, so we can conclude that $\bar x$ is also normally distributed.
 
-The data follow a bell-shaped distribution.  There are a few potential outliers, but they are not too frequent or extreme.  We can conclude that $\bar x$ is normally distributed.
+
+
+
 
 <div class="QuestionsHeading">Answer the following question:</div>
 <div class="Questions">
@@ -773,7 +817,7 @@ $$
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-11. **Present your observations in an easy to understand sentence, relating the result to the context of the problem**.
+11. **Present your observations in a sentence, relating the result to the context of the problem**.
 
 <a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
