@@ -785,8 +785,17 @@ R Instructions
 <pre><code>[1] 3.172051</code></pre>
 <pre class="r"><code>length(differences) #sample size</code></pre>
 <pre><code>[1] 27</code></pre>
-<pre class="r"><code>hist(differences, main=&quot;Weight Loss Study&quot;, xlab=&quot;Weight Change in Kilograms (Post - Pre)&quot;, col=&quot;wheat2&quot;) #histogram</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>So we find that</p>
+<p><span class="math display">\[
+  \bar{d} = -6.804 \\
+  s_d = 3.172 \\
+  n = 27
+\]</span> To make a histogram of the differences we use the code:</p>
+<pre class="r"><code>hist(differences, 
+     col=&quot;wheat2&quot;,
+     xlab=&quot;Weight Change in Kilograms (Post - Pre)&quot;,
+     main=&quot;Weight Loss Study&quot;) </code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <div class="QuestionsHeading">
@@ -794,15 +803,15 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="2" style="list-style-type: decimal">
-<li>Following the directions above, compute the difference in the women’s weights yourself in R. What is the difference in the post- and pre-study weights for the first person included in the data file?</li>
+<li>What is the difference in the post- and pre-study weights for the first person included in the data file?</li>
 </ol>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <p>The first difference is found by printing the differences to the screen and looking at the first value. Do this by simply typing the name of the object “differences.”</p>
 <pre class="r"><code>differences</code></pre>
-<pre><code>##  [1]  -6.4  -8.6  -3.9  -1.6  -9.0 -10.0  -5.1  -8.8  -4.2  -4.4  -4.7 -10.8
-## [13]  -5.9 -13.6  -3.8  -6.9  -2.8 -13.0  -8.4  -8.1  -9.5  -3.8  -6.8 -10.2
-## [25]  -6.7  -2.5  -4.2</code></pre>
+<pre><code> [1]  -6.4  -8.6  -3.9  -1.6  -9.0 -10.0  -5.1  -8.8  -4.2  -4.4  -4.7 -10.8
+[13]  -5.9 -13.6  -3.8  -6.9  -2.8 -13.0  -8.4  -8.1  -9.5  -3.8  -6.8 -10.2
+[25]  -6.7  -2.5  -4.2</code></pre>
 <p>The first difference is -6.4. So, the first woman included in the study lost 6.4 kg during the course of the study.</p>
 </div>
 <p><br></p>
@@ -811,9 +820,10 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
+<p>As shown in the output above,</p>
 <center>
 <span class="math display">\[
--6.804 \ \text{kg}
+\bar{d} = -6.804 \ \text{kg}
 \]</span>
 </center>
 </div>
@@ -824,7 +834,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
-<li>The mean weight change experienced by the women in the study was <span class="math inline">\(-6.804\)</span> kg. Because we calculated Post-Pre, the negative mean difference indicates the Pre weight was higher than the Post weight. In other words, there was a mean weight <em>loss</em> of <span class="math inline">\(6.804\)</span> kg.</li>
+<li>The mean weight change experienced by the women in the study was <span class="math inline">\(-6.804\)</span> kg. Because we calculated Post-Pre, the <em>negative</em> mean difference indicates the Pre weight was higher than the Post weight. In other words, there was a mean weight <em>loss</em> of <span class="math inline">\(6.804\)</span> kg.</li>
 </ul>
 </div>
 <p> </p>
@@ -834,8 +844,8 @@ Answer the following questions:
 <p><br></p>
 <p><strong>Relationship to a One Sample t-test</strong></p>
 <p>After you have subtracted the pre-study weights from the post-study weights, you are left with a column of differences. We will denote the pre-study weights by <span class="math inline">\(x_1\)</span> and the post-study weights by <span class="math inline">\(x_2\)</span>. Then, the differences can be denoted as <span class="math inline">\(d = x_2 - x_1\)</span>. The difference, <span class="math inline">\(d\)</span>, is defined as the change in the volunteer’s weight during the study.</p>
-<p>After computing the differences, we do not use the data for the individual groups at all. The researchers are not interested in the values of the women’s weights at the beginning of the study or at the end of the study. They are interested in the difference in the weights after the participants complete the study.</p>
-<p>After we subtract, we can conduct a hypothesis test to determine if the mean of the differences is less than zero. We use the symbol <span class="math inline">\(\mu_d\)</span> to represent the true mean difference in the weights of the women who follow the diet prescribed in this study. The null hypotheses is that the true mean difference is zero (<span class="math inline">\(\mu_d = 0\)</span>). The alternative hypothesis is that there is a decrease in the weights, in other words, that the true mean difference is less than zero (<span class="math inline">\(\mu_d &lt; 0\)</span>).</p>
+<p>After computing the differences, we do not use the data for the individual groups anymore. The researchers are not interested in the values of the women’s weights at the beginning of the study or at the end of the study. They are interested in the difference in the weights after the participants complete the study.</p>
+<p>After we subtract, we can conduct a hypothesis test to determine if the mean of the differences is less than zero. We use the symbol <span class="math inline">\(\mu_d\)</span> to represent the true mean difference in the weights of women who follow the diet prescribed in this study. The null hypotheses is that the true mean difference is zero (<span class="math inline">\(\mu_d = 0\)</span>). In other words, the null hypothesis states that the prescribed diet does not influence the weights of women. The alternative hypothesis is that there is a decrease in the weights of the women, in other words, that the true mean difference is less than zero (<span class="math inline">\(\mu_d &lt; 0\)</span>).</p>
 <p>Notice that this is essentially a one-sample t-test where the data are the <em>differences in the women’s weights</em>. We have one column of data, the differences. We are testing whether the true mean difference is less than zero (or not equal to zero, or greater than zero). So, a test for the <em>differences of matched pairs</em> with dependent samples is just like a test for one mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
 <p>In the hypothesis test, we will refer to the variable representing the differences as <span class="math inline">\(d\)</span>. We will use this notation throughout the hypothesis test. For example, the true population mean will be labeled <span class="math inline">\(\mu_d\)</span> and the sample mean will be labeled <span class="math inline">\(\bar d\)</span>. The sample standard deviation of the differences is denoted <span class="math inline">\(s_d\)</span>.</p>
 </div>
@@ -857,7 +867,7 @@ H_a: &amp;~~ \mu_d &lt; 0
 <p>The women’s weights were recorded at the beginning of the study. The women were provided a reduced calorie diet for nine weeks. Then, their weights were measured again at the end of the study. A calibrated scale was used to provide an accurate weight.</p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>From the R output demonstrated previously, we can see a histogram of the data and get the following numerical summaries:</p>
 <p><span class="math display">\[
 \begin{align}
@@ -871,11 +881,11 @@ n &amp;= 27
 <p>Like the one-sample t-test, this procedure is robust, meaning that it is not very sensitive to the requirements. If they are only mildly violated, the test will still give reasonably good results.</p>
 <p>The requirements for this procedure are the same as the requirements for a one-sample t-test:</p>
 <ul>
-<li><p><strong>the data represent a simple random sample from the population</strong><br />
-The subjects were recruited via advertisements for a research study. The participants volunteered to participate. It is not a simple random sample of all middle-aged women, but there is nothing about the selection of the sample that would invalidate the results.<br />
-From a practical perspective, it is impossible to get a simple random sample of people in the general population. When research trials are conducted, people must volunteer to participate. This can lead to a selection bias, but is the accepted practice.</p></li>
-<li><p><strong>the mean of the differences <span class="math inline">\(\bar{d}\)</span> follows a normal distribution</strong><br />
-The requirement of normality is satisfied for Mahon’s data. Though the sample size (n=27) is not quite up to 30, the histogram of differences looks fairly normal, so <span class="math inline">\(\bar d\)</span> will be approximately normal and the requirement is satisfied. If the data had been highly skewed, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test.</p></li>
+<li><p><strong>the data represent a simple random sample from the population</strong></p>
+<p>The subjects were recruited via advertisements for a research study. The participants volunteered to participate. It is not a simple random sample of all middle-aged women, so there could be some selection bias of the sample that would invalidate the results, but there is nothing obvious about how the participants were selected to immediately invalidate the results.</p>
+<p>From a practical perspective, it is impossible to get a simple random sample of people in the general population. When research trials are conducted, people must volunteer to participate. This can lead to a selection bias, but is the accepted practice.</p></li>
+<li><p><strong>the mean of the differences <span class="math inline">\(\bar{d}\)</span> follows a normal distribution</strong></p>
+<p>We will assume the requirement of normality of <span class="math inline">\(\bar{d}\)</span> is satisfied for Mahon’s data. Though the sample size (n=27) is not quite up to 30, the histogram of differences looks fairly normal, so <span class="math inline">\(\bar d\)</span> will be approximately normal and the requirement is satisfied. If the data had been highly skewed, or there was a more pronounced bimodal pattern in the histogram, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test.</p></li>
 </ul>
 <p><strong>Give the test statistic and its value</strong></p>
 </div>
@@ -929,7 +939,7 @@ P\text{-value} = 1.059 \times 10^{-11} &lt; 0.05 = \alpha
 <p>By pairing the patients according to specific characteristics, the researchers can now subtract to observe a difference in their recovery times. In this way, it is possible to assess if nosocomial infections increase the mean duration of a hospital stay. Some researchers conducted such a study in which 52 pairs of patients were matched based on clinical characteristics. A patient with a nosocomial infection was matched as closely as possible to a similar case where there was no nosocomial infection. Patients who died were excluded from the study <!--<cite>Vegas93</cite>-->. The lengths of the hospital stays (in days) for these patients are given in the file <a href="./Data/NosocomialInfections.xlsx">NosocomialInfections.xlsx</a>.</p>
 <p>The difference, <span class="math inline">\(d\)</span>, is defined as the duration of the hospital stay of the individual in the pair with the nosocomial infection minus the duration of the stay for the individual who did not get a nosocomial infection: <span class="math display">\[
 Difference=Infected - NotInfected
-\]</span> After computing the differences, we do not use the data for the individual groups at all. In fact, after we subtract, the hypothesis test is conducted (essentially) like a one-sample test for a single mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
+\]</span> After computing the differences, we do not use the data for the individual groups anymore. In fact, after we subtract, the hypothesis test is conducted (essentially) like a one-sample test for a single mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -939,6 +949,7 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
+<p>The null hypothesis for paired data will always use <span class="math inline">\(\mu_d = 0\)</span>. In this study, we want to know if the nosocomial infections are <em>increasing</em> the length of stay of patients. Since we defined the differences as <span class="math inline">\(Infected - NotInfected\)</span> then the alternative hypothesis needs to show <span class="math inline">\(Infected\)</span> having longer durations than those who are <span class="math inline">\(NotInfected\)</span>, leading to the Differences being positive, i.e., <span class="math inline">\(\mu_d &gt; 0\)</span>.</p>
 <center>
 <span class="math display">\[
 \begin{align}
@@ -1010,7 +1021,7 @@ n &amp;= 52
 <li>Present a graph showing the differences.</li>
 </ul>
 <pre class="r"><code>hist(differences, main=&quot;Matched Pairs Study \n Nosocomial Infections&quot;, xlab=&quot;Difference in Hospital Stay (Infected - Notinfected)&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1026,11 +1037,10 @@ Answer the following questions:
 <a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
-<li>Requirement: <strong>A simple random sample was drawn from the population.</strong><br />
-The data represent a convenience sample of patients, who have been matched based on their overall health and their current ailment. They were college students Dr. Wayne Campbell recruited for his protein study. They were people that were willing to endure the conditions of the study for 3 months for $600. So we fail the requirement of having a simple random sample, but we will pretend that this group of people is representative of the entire adult population in the U.S.<br />
-</li>
-<li>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong><br />
-The sample size is large (<span class="math inline">\(n=52\)</span>), so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed.</li>
+<li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong></p>
+<p>As explained previously, the data represent a convenience sample of patients, who have been matched based on their overall health and their current ailment. In fact, if we go back to the original research article and read, we find that they were college students Dr. Wayne Campbell recruited for his protein study. They were people that were willing to endure the conditions of the study for 3 months for $600. So we fail the requirement of having a simple random sample, but we will pretend that this group of people is representative of the entire adult population in the U.S.</p></li>
+<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
+<p>The sample size is large (<span class="math inline">\(n=52\)</span>), so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed by virtue of the Central Limit Theorem.</p></li>
 </ul>
 </div>
 <p><br></p>
@@ -1074,13 +1084,12 @@ df = 51
 </ol>
 <a href="javascript:showhide('Q13')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q13" style="display:none;">
-The p-value can be found in the R output. The calculation below shows how the p-value in R is being calculated:
+<p>The p-value can be found in the R output. As a reminder, scientific notation of <span class="math inline">\(1.296e^{-7}\)</span> is equivalent to <span class="math inline">\(1.296 \times 10^{-7}\)</span>. The <span class="math inline">\(-7\)</span> tells us to move the decimal place to the left seven times, causing the number to change from <span class="math inline">\(1.296\)</span> to <span class="math inline">\(0.0000001296\)</span>. So, translating what the R output gave us gives</p>
 <center>
 <span class="math display">\[
 P\textrm{-value}= 1.296e^{-7} = 0.0000001296 &lt; 0.05 = \alpha
 \]</span>
 </center>
-<p>As a reminder, scientific notation of <span class="math inline">\(1.296e^{-7}\)</span> is equivalent to <span class="math inline">\(1.296 \times 10^{-7}\)</span>. The <span class="math inline">\(-7\)</span> tells us to move the decimal place to the left seven times, causing the number to change from <span class="math inline">\(1.296\)</span> to <span class="math inline">\(0.0000001296\)</span>.</p>
 </div>
 <p><br></p>
 <ol start="14" style="list-style-type: decimal">
@@ -1137,7 +1146,6 @@ H_0: &amp;~~ \mu_d = 0 \\
 H_a: &amp;~~ \mu_d &gt; 0
 \end{align}
 \]</span></p>
-<p>Note that the data set has the columns listed with <span class="math inline">\(d = REE_1\)</span> in the first column and <span class="math inline">\(d = REE_2\)</span> in the second column. You will need to switch the order of the columns when pasting them into the Excel Toolbox.</p>
 <p>We will use the <span class="math inline">\(\alpha = 0.1\)</span> level of significance.</p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
@@ -1191,8 +1199,8 @@ Difference = Stressful - Silence
 <p><span class="math display">\[
 \begin{align}
 n&amp;=40\\
-\bar d &amp;= 20~\text{kJ}\\
-s_d &amp;= 159.5~\text{kJ}
+\bar d &amp;= 20~\text{kJ/d}\\
+s_d &amp;= 159.5~\text{kJ/d}
 \end{align}
 \]</span></p>
 </div>
@@ -1204,14 +1212,7 @@ s_d &amp;= 159.5~\text{kJ}
 <a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
 <pre class="r"><code>hist(differences, main=&quot;Effect of Classical Music on Energy&quot;, xlab=&quot;Resting Energy Expenditure (Stressful - Silence&quot;, col=&quot;orchid&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<p><span class="math display">\[
-\begin{align}
-n&amp;=40\\
-\bar d &amp;= 20~\text{kJ}\\
-s_d &amp;= 159.5~\text{kJ}
-\end{align}
-\]</span></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <p><br></p>
 </div>
@@ -1219,11 +1220,11 @@ s_d &amp;= 159.5~\text{kJ}
 <p><img src="Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
 <ul>
-<li>Requirment: <strong>A simple random sample was drawn from the population.</strong><br />
-We can consider the sample representative of the population even though it was not a simple random sample.<br />
-</li>
-<li>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong><br />
-Because our sample size (n=40) of differences is greater than 30, we can be sure the sampling distribution of <span class="math inline">\(\bar d\)</span> will be normal.</li>
+<li><p>Requirment: <strong>A simple random sample was drawn from the population.</strong></p>
+<p>We can consider the sample representative of the population even though it was not a simple random sample.<br />
+</p></li>
+<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
+<p>Because our sample size (<span class="math inline">\(n=40\)</span>) of differences is greater than 30, we can be sure the sampling distribution of <span class="math inline">\(\bar d\)</span> will be normal by the Central Limit Theorem.</p></li>
 </ul>
 <p>The requirements for this test appear to have been satisfied.</p>
 <div class="QuestionsHeading">
@@ -1270,7 +1271,7 @@ df = 39
 <a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q22" style="display:none;">
 <ul>
-<li>The test statistic is plotted on the horizontal axis. The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output.</li>
+<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. "The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output above.</li>
 </ul>
 <center>
 <img src="Images/REE-Applet.png">
@@ -1407,14 +1408,22 @@ If you defined your difference as the 90-day price minus the 14-day price, then 
 <a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
 <pre class="r"><code>differences &lt;- DirectFlightCosts$FourteenDays - DirectFlightCosts$NinetyDays
-hist(differences, main=&quot;Direct Flight Costs&quot;, xlab=&quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;, col=&quot;yellow3&quot;, breaks=30)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+hist(differences, 
+     col=&quot;yellow3&quot;,
+     xlab=&quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;,
+     main=&quot;Direct Flight Costs&quot;,
+     breaks=30)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <ul>
-<li>If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram:
-<center>
-<img src="Images/DirectFlightCosts-Histogram2-Excel.png">
-</center></li>
+<li>If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram instead:</li>
 </ul>
+<pre class="r"><code>differences &lt;- DirectFlightCosts$NinetyDays - DirectFlightCosts$FourteenDays
+hist(differences, 
+     col=&quot;yellow4&quot;,
+     xlab=&quot;Difference in Dollar Cost (90 Days - 14 Days)&quot;,
+     main=&quot;Direct Flight Costs&quot;,
+     breaks=30)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1431,7 +1440,7 @@ Answer the following questions:
 <div id="Q30" style="display:none;">
 <ul>
 <li>This is not a simple random sample of airports. Rather, the sample was chosen from the list of the busiest airports in Europe. However, we are not making an inference on the airports but on the difference in the cost of the flights.</li>
-<li>The sample size is large, so we can conclude that the sample mean, <span class="math inline">\(\bar d\)</span> is normally distributed.</li>
+<li>The sample size is large, so we can conclude that the sample mean, <span class="math inline">\(\bar d\)</span> is normally distributed by virtue of the Central Limit Theorem.</li>
 </ul>
 </div>
 <p><br></p>
@@ -1467,7 +1476,7 @@ df = 86
 <a href="javascript:showhide('Q33')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q33" style="display:none;">
 <ul>
-<li>The test statistic is plotted on the horizontal axis. The <span class="math inline">\(P\)</span>-value is shaded in green:
+<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. The <span class="math inline">\(P\)</span>-value is shaded in green.
 <center>
 <img src="Images/DirectFlightCosts-Applet.png">
 </center></li>
@@ -1535,7 +1544,7 @@ R Instructions
 </ul>
 </div>
 <p><br></p>
-<p>The requirements for creating a confidence interval for the difference of means are the same as the requirements for the hypothesis test. We assume:</p>
+<p>The requirements for creating a confidence interval for the difference of means are the same as the requirements for the hypothesis test. We require that:</p>
 <ul>
 <li>A simple random sample was drawn from the population</li>
 <li>The mean of the differences is normally distributed</li>
@@ -1589,7 +1598,7 @@ Answer the following questions:
 <pre class="r"><code>sd(PineBeetle$Before)</code></pre>
 <pre><code>[1] 57.03149</code></pre>
 <ul>
-<li>The mean was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare. Note that the values were rounded to two decimal places, since the data were given to one decimal place.</li>
+<li>The mean, as found in the summary output above, was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare. Note that the values were rounded to two decimal places, since the data were given to one decimal place.</li>
 <li>Answers will vary regarding the description of the density. Here is one possible response.</li>
 <li>There is roughly one tree every <span class="math inline">\(\frac{100 \times 100}{1028.41} = 9.7\)</span> square meters. In other words, on average, each tree would have a space of about <span class="math inline">\(\sqrt{9.7} = 3.1\)</span> meters long and 3.1 meters wide in which to grow.</li>
 </ul>
@@ -1665,7 +1674,7 @@ summary(differences)</code></pre>
 <a href="javascript:showhide('Q41')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q41" style="display:none;">
 <pre class="r"><code>hist(differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;forestgreen&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1681,10 +1690,10 @@ Answer the following questions:
 <a href="javascript:showhide('Q42')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q42" style="display:none;">
 <ul>
-<li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong><br />
-It is not explicitly stated, but we assume the plots of land were selected at random.</p></li>
-<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong><br />
-For the pine beetle data, the histogram indicates that the data are not normally distributed. However, since the sample size is large (<span class="math inline">\(n = 170\)</span>), we can know the sample mean <span class="math inline">\(\bar{d}\)</span> is normally distributed despite the skew in the data.</p></li>
+<li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong></p>
+<p>It is not explicitly stated, but we assume the plots of land were selected at random.</p></li>
+<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
+<p>For the pine beetle data, the histogram indicates that the data are not normally distributed. However, since the sample size is large (<span class="math inline">\(n = 170\)</span>), we can know by the Central Limit Theorem that the sample mean <span class="math inline">\(\bar{d}\)</span> is normally distributed despite the skew in the data.</p></li>
 </ul>
 <p>The requirements for creating the confidence interval seem to be satisfied.</p>
 </div>
@@ -1695,17 +1704,17 @@ For the pine beetle data, the histogram indicates that the data are not normally
 <a href="javascript:showhide('Q43')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q43" style="display:none;">
 <pre class="r"><code>t.test(differences, conf.level=0.95)</code></pre>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  differences
-## t = -332.43, df = 169, p-value &lt; 2.2e-16
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##  -438.1211 -432.9483
-## sample estimates:
-## mean of x 
-## -435.5347</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  differences
+t = -332.43, df = 169, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -438.1211 -432.9483
+sample estimates:
+mean of x 
+-435.5347 </code></pre>
 <center>
 <span class="math inline">\((-438.121,~ -432.948)\)</span>
 </center>
@@ -1862,6 +1871,9 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q44')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q44" style="display:none;">
+<pre class="r"><code>summary(differences)
+sd(differences)
+length(differences)</code></pre>
 <center>
 <strong>Summary Statistics:</strong>
 </center>
@@ -1875,11 +1887,11 @@ Answer the following questions:
 <tbody>
 <tr class="odd">
 <td align="center">Mean:</td>
-<td align="center"><span class="math inline">\(\bar d = 0.75\)</span> hours</td>
+<td align="center"><span class="math inline">\(\bar d = 0.750\)</span> hours</td>
 </tr>
 <tr class="even">
 <td align="center">Standard Deviation:</td>
-<td align="center"><span class="math inline">\(s_d = 1.79\)</span> hours</td>
+<td align="center"><span class="math inline">\(s_d = 1.789\)</span> hours</td>
 </tr>
 <tr class="odd">
 <td align="center">Sample Size:</td>
@@ -1896,8 +1908,12 @@ Answer the following questions:
 <a href="javascript:showhide('Q45')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q45" style="display:none;">
 <p>Here is a boxplot of the data (just to change things up):</p>
-<pre class="r"><code>boxplot(differences, xlab=&quot;Difference in Hours of Sleep&quot;, main=&quot;Slee Inducing Drugs Study&quot;, horizontal=TRUE, col=&quot;firebrick&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(differences, 
+        col=&quot;firebrick&quot;,
+        xlab=&quot;Difference in Hours of Sleep&quot;,
+        main=&quot;Slee Inducing Drugs Study&quot;,
+        horizontal=TRUE)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1913,11 +1929,12 @@ Answer the following questions:
 <a href="javascript:showhide('Q46')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q46" style="display:none;">
 <ul>
-<li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong><br />
-We assume the subjects represent a random sample from the population.</p></li>
-<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong><br />
-Because the sample size is small, with only 10 values, it is hard to see a shape in a histogram of the data, regardless of the number of bins chosen. However, it is clear that the data is not strongly skewed. We will move forward, assuming the requirement of a normal sampling distribution of d is not violated. Remember, just like the hypothesis test, this confidence interval for a mean of differences is robust. That means it is not very sensitive to the requirements. If they are violated, this interval estimate will probably still give reasonably good results.</p></li>
+<li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong></p>
+<p>We assume the subjects represent a random sample from the population because we do not know otherwise.</p></li>
+<li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
+<p>Because the sample size is small, with only 10 values, it is hard to see a shape in a boxplot of the data. However, it is clear that the data is not strongly skewed. We will move forward, assuming the requirement of a normal sampling distribution of <span class="math inline">\(\bar{d}\)</span> is not violated.</p></li>
 </ul>
+<p>Remember, just like the hypothesis test, this confidence interval for a mean of differences is robust. That means it is not very sensitive to the requirements. If they are violated, this interval estimate will probably still give reasonably good results. We just always check requirements to make sure we are not working with data that dramatically violates the requirements because if it did dramatically violate the requirements, our conclusions could be based on faulty values.</p>
 </div>
 <p><br></p>
 <ol start="47" style="list-style-type: decimal">
@@ -1974,6 +1991,7 @@ Remember…
 <li><p>The key characteristic of <strong>dependent samples</strong> (or <strong>matched pairs</strong>) is that knowing which subjects will be in group 1 determines which subjects will be in group 2.</p></li>
 <li><p>We use slightly different symbols when conducting inference using dependent samples:</p></li>
 </ul>
+<div style="padding-left:30px; padding-right:30px;">
 <table>
 <thead>
 <tr class="header">
@@ -2008,9 +2026,11 @@ Remember…
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li><p>When conducting hypothesis tests using dependent samples, the null hypothesis is always <span class="math inline">\(\mu_d=0\)</span>, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
-<li><p>The R code to perform a paired samples t test requires two steps. First, the <code>differences</code> must be computed. Second, the <code>t.test(differences, mu=0, alternative="two.sided", conf.level=0.95)</code> should be used. Be sure to match the <code>alternative=</code> statement to either <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> so that it matches whatever is stated in the actual <span class="math inline">\(H_a\)</span> statement. Also, change <code>conf.level=</code> to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).</p></li>
+<li><p>The R code to perform a paired samples t test requires two steps. First, the <code>differences</code> must be computed. Second, the <code>t.test(differences, mu=0, alternative="two.sided")</code> should be used. Be sure to match the <code>alternative=</code> statement to either <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> so that it matches whatever is stated in the actual <span class="math inline">\(H_a\)</span> statement.</p></li>
+<li><p>The R code to created a confidence interval for the true mean of the differences, <span class="math inline">\(\mu_d\)</span>, uses <code>t.test(differences, conf.level=0.95)</code> where <code>conf.level=</code> can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).</p></li>
 </ul>
 <p><br></p>
 </div>
