@@ -1137,30 +1137,41 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000,
 
 
 
-### R Instructions for Missing Values
+### R Instructions for *NA* or Missing Values 
 
-Sometimes the data you are working with has missing values in it. In that case, whether you are using `mean`, `median`, `quartile`, `sd` or another numerical summary function in R, you will need to tell R to remove the missing values.
+Sometimes the data you are working with has missing values in it. These are recorded in R as `NA` values. Missing values can cause problems with calculations, but usually the `na.rm=TRUE` option can be used to remove the missing values and fix the calculations.
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+**Dealing with NA or missing values:**
 
-Caution: if the data you are using has missing values in it (like the "wrong-patient" column of the WrongSiteWrongPatient data) then you need to use `quantile(..., 0.25, na.rm=TRUE)` like this:
+Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the WrongSiteWrongPatient data) then you need to use the `na.rm=TRUE` option to remove them, like this:
+
+<img src="./Images/rstudio_NA.png" width="500">
+
+
 
 ```{r, comment=NA}
+mean(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
+median(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
+sd(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
 quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)
 ```
 
-If you leave off the `na.rm=TRUE`, you will get the following result:
+If you leave off the `na.rm=TRUE`, you will get an `NA` answer and sometimes a warning message:
 
-```{r, eval=FALSE}
-quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25)
+<span style="color:red;">Error in ... missing values and NaN's not allowed if 'na.rm' is FALSE</span>
+
+So be sure to use `na.rm=TRUE` whenever that happens. Happily, if the data has no missing values, then we don't have to worry about this `na.rm=TRUE` option.
+
+If you want to know how many missing values there were in the data, use `summary(...)`, like this:
+
+```{r, comment=NA}
+summary(WrongSiteWrongPatient$`Wrong Patient`)
 ```
 
-<span style="color:red;">Error in quantile.default(WrongSiteWrongPatient$`Wrong Patient`, 0.25)</span>
-<span style="color:red;">missing values and NaN's not allowed if 'na.rm' is FALSE</span>
-
-
+In this case, there were 235 "NA's" or missing values in the `Wrong Patient` data.
 
 </div>
 </div>
@@ -1204,6 +1215,8 @@ quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25)
 - Use `summary(...)` to obtain the five-number summary in R. 
 
 - Use `boxplot(...)` to create a boxplot in R.
+
+- Use the option `na.rm=TRUE` to remove `NA` or missing values from the data when using any of the functions `mean(..., na.rm=TRUE)`, `median(..., na.rm=TRUE)`, `sd(..., na.rm=TRUE)`, `quantile(..., na.rm=TRUE)`.
 
 </div>
 <br>

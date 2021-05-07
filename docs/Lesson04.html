@@ -395,7 +395,7 @@ $(document).ready(function () {
 <li><a href="#r-instructions-for-computing-quartiles-and-the-five-number-summary">R Instructions for Computing Quartiles and the Five-number Summary</a></li>
 <li><a href="#boxplots">Boxplots</a></li>
 <li><a href="#r-instructions-for-creating-boxplots">R Instructions for Creating Boxplots</a></li>
-<li><a href="#r-instructions-for-missing-values">R Instructions for Missing Values</a></li>
+<li><a href="#r-instructions-for-na-or-missing-values">R Instructions for <em>NA</em> or Missing Values</a></li>
 </ul></li>
 <li><a href="#summary-1">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -1790,20 +1790,33 @@ R Instructions
 </div>
 <p><br></p>
 </div>
-<div id="r-instructions-for-missing-values" class="section level3">
-<h3>R Instructions for Missing Values</h3>
-<p>Sometimes the data you are working with has missing values in it. In that case, whether you are using <code>mean</code>, <code>median</code>, <code>quartile</code>, <code>sd</code> or another numerical summary function in R, you will need to tell R to remove the missing values.</p>
+<div id="r-instructions-for-na-or-missing-values" class="section level3">
+<h3>R Instructions for <em>NA</em> or Missing Values</h3>
+<p>Sometimes the data you are working with has missing values in it. These are recorded in R as <code>NA</code> values. Missing values can cause problems with calculations, but usually the <code>na.rm=TRUE</code> option can be used to remove the missing values and fix the calculations.</p>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software" style="padding:10px;">
-<p>Caution: if the data you are using has missing values in it (like the “wrong-patient” column of the WrongSiteWrongPatient data) then you need to use <code>quantile(..., 0.25, na.rm=TRUE)</code> like this:</p>
+<p><strong>Dealing with NA or missing values:</strong></p>
+<p>Caution: if the data you are using has <code>NA</code> or missing values in it (like the “wrong-patient” column of the WrongSiteWrongPatient data) then you need to use the <code>na.rm=TRUE</code> option to remove them, like this:</p>
+<p><img src="Images/rstudio_NA.png" width="500"></p>
+<pre class="r"><code>mean(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre><code>[1] 46172.05</code></pre>
+<pre class="r"><code>median(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre><code>[1] 18882</code></pre>
+<pre class="r"><code>sd(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre><code>[1] 105986.7</code></pre>
 <pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)</code></pre>
 <pre><code> 25% 
 3900 </code></pre>
-<p>If you leave off the <code>na.rm=TRUE</code>, you will get the following result:</p>
-<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25)</code></pre>
-<p><span style="color:red;">Error in quantile.default(WrongSiteWrongPatient$<code>Wrong Patient</code>, 0.25)</span> <span style="color:red;">missing values and NaN’s not allowed if ‘na.rm’ is FALSE</span></p>
+<p>If you leave off the <code>na.rm=TRUE</code>, you will get an <code>NA</code> answer and sometimes a warning message:</p>
+<p><span style="color:red;">Error in … missing values and NaN’s not allowed if ‘na.rm’ is FALSE</span></p>
+<p>So be sure to use <code>na.rm=TRUE</code> whenever that happens. Happily, if the data has no missing values, then we don’t have to worry about this <code>na.rm=TRUE</code> option.</p>
+<p>If you want to know how many missing values there were in the data, use <code>summary(...)</code>, like this:</p>
+<pre class="r"><code>summary(WrongSiteWrongPatient$`Wrong Patient`)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+      0    3900   18882   46172   50146 1250000     235 </code></pre>
+<p>In this case, there were 235 “NA’s” or missing values in the <code>Wrong Patient</code> data.</p>
 </div>
 </div>
 <p><br></p>
@@ -1834,6 +1847,7 @@ Remember…
 <li><p>Use <code>quantile(..., 0.2)</code> to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile.</p></li>
 <li><p>Use <code>summary(...)</code> to obtain the five-number summary in R.</p></li>
 <li><p>Use <code>boxplot(...)</code> to create a boxplot in R.</p></li>
+<li><p>Use the option <code>na.rm=TRUE</code> to remove <code>NA</code> or missing values from the data when using any of the functions <code>mean(..., na.rm=TRUE)</code>, <code>median(..., na.rm=TRUE)</code>, <code>sd(..., na.rm=TRUE)</code>, <code>quantile(..., na.rm=TRUE)</code>.</p></li>
 </ul>
 </div>
 <p><br></p>
