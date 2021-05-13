@@ -453,6 +453,7 @@ Lesson 1 Summary
 <li>The probability that an outcome will not occur is 1 minus the probability that it will occur. <span class="math display">\[P(\text{not}~X) = 1 - P(X)\]</span></li>
 </ol></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br> <br></p>
 <div class="SummaryHeading">
@@ -472,6 +473,7 @@ Lesson 2 Summary
 </ul></li>
 <li><p><strong>Quantitative variables</strong> represent things that are numeric in nature, such as the value of a car or the number of students in a classroom. <strong>Categorical variables</strong> represent non-numerical data that can only be considered as labels, such as colors or brands of shoes.</p></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 <div class="SummaryHeading">
@@ -482,7 +484,14 @@ Lesson 3 Summary
 <li><p>A <strong>histogram</strong> allows us to visually interpret data. Histograms can be left-skewed, right-skewed, or symmetrical and bell-shaped.</p></li>
 <li><p>The <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong> are measures of the center of a distribution. The mean is the most common measure of center and is computed by adding up the observed data and dividing by the number of observations in the data set.</p></li>
 <li><p>A <strong>parameter</strong> is a true (but usually unknown) number that describes a population. A <strong>statistic</strong> is an estimate of a parameter obtained from a sample of the population.</p></li>
+<li><p>R functions that were discussed in this lesson include:</p>
+<ul>
+<li>how to make a histogram using <a href="Lesson03.html#r-instructions-for-histograms"><code>hist(...)</code></a></li>
+<li>how to compute the <a href="Lesson03.html#r-instructions-for-mean-median-and-mode"><code>mean(...)</code>, <code>median(...)</code>, and mode <code>table(...)</code></a>.</li>
+<li>how to <a href="Lesson03.html#enter-in-data">manually type in data</a> using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>.</li>
+</ul></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 <div class="SummaryHeading">
@@ -504,11 +513,16 @@ Lesson 4 Summary
 <p><br/></p>
 <ul>
 <li><p><strong>Quartiles/percentiles</strong>, <strong>Five-Number Summaries</strong>, and <strong>Boxplots</strong> are tools that help us understand data. The five-number summary of a data set contains the minimum value, the first quartile, the median, the third quartile, and the maximum value. A boxplot is a graphical representation of the five-number summary.</p></li>
-<li><p>Use <code>sd(...)</code> to compute the standard deviation in R.</p></li>
-<li><p>Use <code>quantile(..., 0.2)</code> to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile.</p></li>
-<li><p>Use <code>summary(...)</code> to obtain the five-number summary in R.</p></li>
-<li><p>Use <code>boxplot(...)</code> to create a boxplot in R.</p></li>
+<li><p>R functions that were discussed in this lesson include:</p>
+<ul>
+<li>how to use <a href="Lesson04.html#r-instructions-for-computing-standard-deviation"><code>sd(...)</code></a> to compute the standard deviation in R.</li>
+<li>how to use <a href="Lesson04.html#r-instructions-for-computing-percentiles"><code>quantile(..., 0.2)</code></a> to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile.</li>
+<li>how to use <a href="Lesson04.html#r-instructions-for-computing-quartiles-and-the-five-number-summary"><code>summary(...)</code></a> to obtain the five-number summary in R.</li>
+<li>how to use <a href="Lesson04.html#r-instructions-for-creating-boxplots"><code>boxplot(...)</code></a> to create a boxplot in R.</li>
+<li>how to use the option <code>na.rm=TRUE</code> to <a href="Lesson04.html#r-instructions-for-na-or-missing-values">remove <code>NA</code> or missing values</a> from the data when using any of the functions <code>mean(..., na.rm=TRUE)</code>, <code>median(..., na.rm=TRUE)</code>, <code>sd(..., na.rm=TRUE)</code>, <code>quantile(..., na.rm=TRUE)</code>.</li>
+</ul></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 <div class="SummaryHeading">
@@ -536,6 +550,7 @@ Lesson 6 Summary
 <li><p>The distribution of sample means is <strong>normal</strong> in either of two situations: (1) when the data is normally distributed <strong>or</strong> (2) when, thanks to the <strong>Central Limit Theorem (CLT)</strong>, our sample size (<span class="math inline">\(n\)</span>) is large.</p></li>
 <li><p>The <strong>Law of Large Numbers</strong> states that as the sample size (<span class="math inline">\(n\)</span>) gets larger, the sample mean (<span class="math inline">\(\bar x\)</span>) will get closer to the population mean (<span class="math inline">\(\mu\)</span>). This can be seen in the equation for <span class="math inline">\(\sigma_{\bar{x}} = \sigma/\sqrt{n}\)</span>. Notice as <span class="math inline">\(n\)</span> increases, then <span class="math inline">\(\sigma_\bar{x}\)</span> will get smaller.</p></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 <div class="SummaryHeading">
@@ -546,6 +561,7 @@ Lesson 7 Summary
 <li><p>When the distribution of sample means is normally distributed, we can use <strong>z-scores</strong> and the <strong>probability applet</strong> to calculate proportions and probabilities. A z-score is calculated as: <span class="math inline">\(\displaystyle{z = \frac{\text{value}-\text{mean}}{\text{standard deviation}} = \frac{\bar x-\mu}{\sigma/\sqrt{n}}}\)</span></p></li>
 <li><p>The <strong><span class="math inline">\(P\)</span>-value</strong> is the probability of getting a test statistic at least as extreme as the one you got, assuming <span class="math inline">\(H_0\)</span> is true. A <span class="math inline">\(P\)</span>-value is calculated by finding the area under the normal distribution curve that is more extreme (farther away from the mean) than the z-score.</p></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 </div>

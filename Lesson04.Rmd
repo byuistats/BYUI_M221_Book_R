@@ -1208,15 +1208,15 @@ In this case, there were 235 "NA's" or missing values in the `Wrong Patient` dat
 
 - **Quartiles/percentiles**, **Five-Number Summaries**, and **Boxplots** are tools that help us understand data. The five-number summary of a data set contains the minimum value, the first quartile, the median, the third quartile, and the maximum value. A boxplot is a graphical representation of the five-number summary.
 
-- Use `sd(...)` to compute the standard deviation in R.
+- R functions that were discussed in this lesson include:
 
-- Use `quantile(..., 0.2)` to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile. 
+    - how to use [`sd(...)`](Lesson04.html#r-instructions-for-computing-standard-deviation) to compute the standard deviation in R.
+    - how to use [`quantile(..., 0.2)`](Lesson04.html#r-instructions-for-computing-percentiles) to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile. 
+    - how to use [`summary(...)`](Lesson04.html#r-instructions-for-computing-quartiles-and-the-five-number-summary) to obtain the five-number summary in R. 
+    - how to use [`boxplot(...)`](Lesson04.html#r-instructions-for-creating-boxplots) to create a boxplot in R.
+    - how to use the option `na.rm=TRUE` to [remove `NA` or missing values](Lesson04.html#r-instructions-for-na-or-missing-values) from the data when using any of the functions `mean(..., na.rm=TRUE)`, `median(..., na.rm=TRUE)`, `sd(..., na.rm=TRUE)`, `quantile(..., na.rm=TRUE)`.
 
-- Use `summary(...)` to obtain the five-number summary in R. 
-
-- Use `boxplot(...)` to create a boxplot in R.
-
-- Use the option `na.rm=TRUE` to remove `NA` or missing values from the data when using any of the functions `mean(..., na.rm=TRUE)`, `median(..., na.rm=TRUE)`, `sd(..., na.rm=TRUE)`, `quantile(..., na.rm=TRUE)`.
+<br/>
 
 </div>
 <br>

@@ -183,6 +183,8 @@ If your data set is small, then you can load the data into RStudio by using the 
 If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set. For this particular example, we will just type in the data directly. In a later example we will practice reading in the data from a dataset.
 </div>
 
+<div id="enter-in-data">
+
 To enter in the tuberculosis data you would use:
 
 ```{}
@@ -195,6 +197,8 @@ In RStudio, it would look like this:
 
 <img src="./Images/rstudio_tuberc2.png" width="500">
 
+
+</div>
 
 
 <br/>
@@ -559,6 +563,14 @@ Even though measures of center are important, we need to consider the shape, cen
 - The **mean**, **median**, and **mode** are measures of the center of a distribution. The mean is the most common measure of center and is computed by adding up the observed data and dividing by the number of observations in the data set.
 
 - A **parameter** is a true (but usually unknown) number that describes a population. A **statistic** is an estimate of a parameter obtained from a sample of the population. 
+
+- R functions that were discussed in this lesson include:
+
+    * how to make a histogram using [`hist(...)`](Lesson03.html#r-instructions-for-histograms) 
+    * how to compute the [`mean(...)`, `median(...)`, and mode `table(...)`](Lesson03.html#r-instructions-for-mean-median-and-mode). 
+    * how to [manually type in data](Lesson03.html#enter-in-data) using the assignment operator `<-` and combine function `c(...)`. 
+
+<br/>
 
 </div>
 <br>

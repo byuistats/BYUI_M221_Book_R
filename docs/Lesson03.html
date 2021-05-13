@@ -567,11 +567,13 @@ R Instructions
 <div class="note">
 <p>If your data is already stored in a file somewhere, then use these instructions on <a href="RHelp.html#reading-in-data">Reading in Data</a> to get the data out of an existing data set. For this particular example, we will just type in the data directly. In a later example we will practice reading in the data from a dataset.</p>
 </div>
+<div id="enter-in-data">
 <p>To enter in the tuberculosis data you would use:</p>
 <pre><code>tuberc &lt;- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)</code></pre>
 <p>Notice that numbers like “15,100” are written as just “15100” because the comma “,” is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers “15,” “100,” “19”, “000” and so on. Also, the name <code>tuberc</code> could have been any word you wanted to come up with, but “tuberculosis” is hard to spell, so using <code>tuberc</code> was easier. It is recommended that you use short names, but not single letter names. So don’t use <code>t</code> or <code>tuberculosis</code> for your names, but <code>tub</code> or <code>tuber</code> or <code>tuberc</code> or other things like that instead.</p>
 <p>In RStudio, it would look like this:</p>
 <p><img src="Images/rstudio_tuberc2.png" width="500"></p>
+</div>
 <p><br/> <br/></p>
 <p><strong>Step 2</strong></p>
 <p>Now that you have created an object in R called <code>tuberc</code> that contains the 10 data points of the Tuberculosis data, you can create a histogram using the <code>hist(...)</code> function.</p>
@@ -846,7 +848,14 @@ Remember…
 <li><p>A <strong>histogram</strong> allows us to visually interpret data. Histograms can be left-skewed, right-skewed, or symmetrical and bell-shaped.</p></li>
 <li><p>The <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong> are measures of the center of a distribution. The mean is the most common measure of center and is computed by adding up the observed data and dividing by the number of observations in the data set.</p></li>
 <li><p>A <strong>parameter</strong> is a true (but usually unknown) number that describes a population. A <strong>statistic</strong> is an estimate of a parameter obtained from a sample of the population.</p></li>
+<li><p>R functions that were discussed in this lesson include:</p>
+<ul>
+<li>how to make a histogram using <a href="Lesson03.html#r-instructions-for-histograms"><code>hist(...)</code></a></li>
+<li>how to compute the <a href="Lesson03.html#r-instructions-for-mean-median-and-mode"><code>mean(...)</code>, <code>median(...)</code>, and mode <code>table(...)</code></a>.</li>
+<li>how to <a href="Lesson03.html#enter-in-data">manually type in data</a> using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>.</li>
+</ul></li>
 </ul>
+<p><br/></p>
 </div>
 <p><br></p>
 </div>
