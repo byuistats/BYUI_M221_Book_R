@@ -383,15 +383,15 @@ $(document).ready(function () {
 <li><a href="#what-if-we-dont-know-sigma">What If We Don’t Know <span class="math inline">\(\sigma\)</span>?</a></li>
 <li><a href="#hypothesis-tests">Hypothesis Tests</a>
 <ul>
-<li><a href="#body-temperatures-revisited">Body Temperatures Revisited</a></li>
+<li><a href="#case-study-body-temperatures-revisited">Case Study: Body Temperatures Revisited</a></li>
 <li><a href="#r-instructions-for-one-sample-t-test">R Instructions for One Sample t Test</a></li>
-<li><a href="#baby-boom">Baby Boom</a></li>
+<li><a href="#case-study-baby-boom">Case Study: Baby Boom</a></li>
 </ul></li>
 <li><a href="#confidence-intervals">Confidence Intervals</a>
 <ul>
-<li><a href="#automatic-language-translation-programs">Automatic Language Translation Programs</a></li>
+<li><a href="#case-study-automatic-language-translation-programs">Case Study: Automatic Language Translation Programs</a></li>
 <li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
-<li><a href="#euro-weights">Euro Weights</a></li>
+<li><a href="#case-study-euro-weights">Case Study: Euro Weights</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -497,8 +497,8 @@ t = \frac{ \bar x - \mu }{ s / \sqrt{n} }
 <div id="hypothesis-tests" class="section level2">
 <h2>Hypothesis Tests</h2>
 <p><img src="Images/StepsAll.png"></p>
-<div id="body-temperatures-revisited" class="section level3">
-<h3>Body Temperatures Revisited</h3>
+<div id="case-study-body-temperatures-revisited" class="section level3">
+<h3>Case Study: Body Temperatures Revisited</h3>
 <p>We will apply the <span class="math inline">\(t\)</span>-distribution to the body temperature data we explored previously.</p>
 <p>This hypothesis test is conducted in a manner similar to a test for a single mean where <span class="math inline">\(\sigma\)</span> is known, except that instead of using the population standard deviation, <span class="math inline">\(\sigma\)</span>, in the calculations, we estimate this value using the sample standard deviation, <span class="math inline">\(s\)</span>. This leads to a <span class="math inline">\(t\)</span>-distribution, rather than a normal distribution for the test statistic. We will not need to compute the value of this test statistic by hand, it will be calculated using software.</p>
 <p><img src="Images/Step1.png"></p>
@@ -519,7 +519,7 @@ H_a: \mu \ne 98.6\\
 <p>We will use the body temperature data, <a href="./Data/BodyTemp.xlsx">BodyTemp.xlsx</a>, collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> --></p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p>These could be computed in RStudio after importing the data using the codes:</p>
+<p>These could be computed in RStudio after importing the data (<a href="RHelp.html#reading-in-data">click here</a> for a reminder how to import data into RStudio) using the codes:</p>
 <pre class="r"><code>mean(BodyTemp$BodyTemp)
 sd(BodyTemp$BodyTemp)
 nrow(BodyTemp)</code></pre>
@@ -533,8 +533,8 @@ n = 148
 \]</span></p>
 <p><strong>Make an appropriate graph (e.g. a histogram) to illustrate the data</strong></p>
 <p>A histogram of the Body Temperatures could be created in R with the code</p>
-<pre class="r"><code>hist(BodyTemp$BodyTemp, 
-     col=&quot;wheat&quot;,
+<pre class="r"><code>hist(BodyTemp$BodyTemp, #select the data to use for the graph
+     col=&quot;wheat&quot;, #set the color
      xlab=&quot;Body Temperature (Degrees Fahrenheight)&quot;,
      main=&quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -615,8 +615,8 @@ P\text{-value} = 1.272 \times 10^{-8} = 0.000~000~012~72 &lt; 0.05 = \alpha
 <p>There is sufficient evidence to suggest that the alternative hypothesis is true, i.e., that the mean body temperature is not 98.6° Fahrenheit.</p>
 <p><img src="Images/StepsAll.png"></p>
 </div>
-<div id="baby-boom" class="section level3">
-<h3>Baby Boom</h3>
+<div id="case-study-baby-boom" class="section level3">
+<h3>Case Study: Baby Boom</h3>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>The birth weight of a child is an important indicator of their neonatal health. It is important that pediatric health care providers track changes in the birth weights over time. The birth weight of children in Australia has historically had a population mean of 3373 grams.<!--<cite>Steele97,JSEdunn99</cite>--> Is this still the mean birth weight of Australian children, or has there been a change? We will use the 0.05 level of significance.</p>
@@ -741,8 +741,8 @@ df = 43
 \]</span> where <span class="math inline">\(t^*\)</span> is the <span class="math inline">\(t\)</span>-score corresponding to the confidence level and <span class="math inline">\(s\)</span> is the sample standard deviation.</p>
 <p>These confidence intervals are automatically produced in R with the <code>t.test(...)</code> command. The values of <span class="math inline">\(t^*\)</span> and <span class="math inline">\(s\)</span> will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.</p>
 <p><img src="Images/StepsAll.png"></p>
-<div id="automatic-language-translation-programs" class="section level3">
-<h3>Automatic Language Translation Programs</h3>
+<div id="case-study-automatic-language-translation-programs" class="section level3">
+<h3>Case Study: Automatic Language Translation Programs</h3>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Computer software is commonly used to translate text from one language to another. As part of his Ph.D. thesis, Philipp Koehn developed a phrase-based translation program called Pharaoh. <!--<cite>Koehn04Pharaoh</cite>--></p>
@@ -922,8 +922,8 @@ mean of x
 <p><img src="Images/StepsAll.png"></p>
 </div>
 </div>
-<div id="euro-weights" class="section level3">
-<h3>Euro Weights</h3>
+<div id="case-study-euro-weights" class="section level3">
+<h3>Case Study: Euro Weights</h3>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>A group of statisticians measured the weights of 2000 Belgian one Euro coins in eight batches. Each batch contains coins that were all minted together. <!--<cite>JSEeuros</cite>--> You can learn more about these data at: <a href="http://www.amstat.org/publications/jse/datasets/euroweight.txt" target="_blank">http://www.amstat.org/publications/jse/</a></p>

@@ -83,9 +83,9 @@ with $df = 15$</p></th>
 ```{r, echo=FALSE, fig.width=4, fig.height=4}
 par(mai=c(.6,.6,.3,.1))
 curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 1), add=TRUE, col="gray44", lwd=4)
+curve(dt(x, 1), add=TRUE, col="green3", lwd=4)
 abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","gray44"), lwd=c(2,4), bty="n", cex=.8)
+legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
 mtext(side=2, las=2, "density", at=0.43, line=.3)
 ```
 
@@ -95,9 +95,9 @@ mtext(side=2, las=2, "density", at=0.43, line=.3)
 ```{r, echo=FALSE, fig.width=4, fig.height=4}
 par(mai=c(.6,.6,.3,.1))
 curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 5), add=TRUE, col="gray44", lwd=4)
+curve(dt(x, 5), add=TRUE, col="green3", lwd=4)
 abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","gray44"), lwd=c(2,4), bty="n", cex=.8)
+legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
 mtext(side=2, las=2, "density", at=0.43, line=.3)
 ```
 
@@ -107,9 +107,9 @@ mtext(side=2, las=2, "density", at=0.43, line=.3)
 ```{r, echo=FALSE, fig.width=4, fig.height=4}
 par(mai=c(.6,.6,.3,.1))
 curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 15), add=TRUE, col="gray44", lwd=4)
+curve(dt(x, 15), add=TRUE, col="green3", lwd=4)
 abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","gray44"), lwd=c(2,4), bty="n", cex=.8)
+legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
 mtext(side=2, las=2, "density", at=0.43, line=0.3)
 ```
 
@@ -132,7 +132,7 @@ mtext(side=2, las=2, "density", at=0.43, line=0.3)
 
 <img src="./Images/StepsAll.png">
 
-### Body Temperatures Revisited
+### Case Study: Body Temperatures Revisited
 
 We will apply the $t$-distribution to the body temperature data we explored previously.  
 
@@ -176,7 +176,7 @@ library(readxl)
 BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
 ```
 
-These could be computed in RStudio after importing the data using the codes:
+These could be computed in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio) using the codes:
 
 ```{r, eval=FALSE}
 mean(BodyTemp$BodyTemp)
@@ -199,8 +199,8 @@ $$
 A histogram of the Body Temperatures could be created in R with the code
 
 ```{r}
-hist(BodyTemp$BodyTemp, 
-     col="wheat",
+hist(BodyTemp$BodyTemp, #select the data to use for the graph
+     col="wheat", #set the color
      xlab="Body Temperature (Degrees Fahrenheight)",
      main="Body Temperatures of 148 Healthy Adults")
 ```
@@ -308,7 +308,7 @@ There is sufficient evidence to suggest that the alternative hypothesis is true,
 
 <img src="./Images/StepsAll.png">
 
-### Baby Boom
+### Case Study: Baby Boom
 
 
 <img src="./Images/Step1.png">
@@ -468,7 +468,7 @@ These confidence intervals are automatically produced in R with the `t.test(...)
 
 <img src="./Images/StepsAll.png">
 
-### Automatic Language Translation Programs
+### Case Study: Automatic Language Translation Programs
 
 
 <img src="./Images/Step1.png">
@@ -689,7 +689,7 @@ t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.99)
 
 <img src="./Images/StepsAll.png">
 
-### Euro Weights
+### Case Study: Euro Weights
 
 <img src="./Images/Step1.png">
 
