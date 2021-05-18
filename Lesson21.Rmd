@@ -33,11 +33,18 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
-## How Confident are You?
+<div style="clear:both;"></div>
+<br/>
+
+## Case Study: How Confident are You?
+
+<div style="float:right;padding:10px;">
+<img src="./Images/Testtaking-exam.jpg">
+</div>
 
 Think about a time when you walked into an exam, having prepared carefully, *knowing* that you would do well.  On the other hand, have you ever entered an exam feeling unprepared?  How have your exam scores compared to your confidence?
 
-<img src="./Images/Testtaking-exam.jpg">
+<img src="./Images/Step1.png">
 
 Shane Goodwin and other researchers examined this question.  They studied factors that affect a student's confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. In addition to marking their test question responses, they evaluated their confidence for each answer on a scale of 1 to 6.  The confidence rating scale is summarized in the following table:
 
@@ -55,117 +62,183 @@ Shane Goodwin and other researchers examined this question.  They studied factor
 
 6. Certain (absolutely sure)
 
-<!-- <center> -->
-<!-- {| class="basic" -->
-<!-- ! colspan="2" | Confidence Rating  -->
-<!-- |- -->
-<!-- |1 || Random guess (no clue)	  -->
-<!-- |- -->
-<!-- |2 || Very unsure	  -->
-<!-- |- -->
-<!-- |3 || Somewhat unsure	  -->
-<!-- |- -->
-<!-- |4 || Somewhat sure	  -->
-<!-- |- -->
-<!-- |5 || Very sure	  -->
-<!-- |- -->
-<!-- |6 || Certain (absolutely sure)  -->
-<!-- |- -->
-<!-- |} -->
-<!-- </center> -->
 Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.  
 
-For each student, the mean confidence rating was computed.  This mean confidence rating and their score on the exam (out of 100 points) are given in the file [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx).
+<img src="./Images/Step2.png">
 
-Previously, we have been dealing with one response variable at a time.  Now, we have two quantitative measurements on each unit (participant).  We call these data **bivariate data**, since there are two (bi-) variables that we are considering simultaneously.
+The $n=139$ students from the selected Math 101 course represented a convenience sample of students. They were the students of teachers who elected to have their students participate in this study.
+
+<img src="./Images/Step3.png">
+
+
+##  Describing Bivariate Data 
+
+Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx).
+
+Notice that we have two quantitative measurements on each participant.  We call these data **bivariate data**, since there are two (bi-) quantitative variables that we are considering simultaneously.
 
 In the past, we have summarized quantitative data by computing summary statistics.  Here are a couple of statistics computed from these data:  
 
 - The mean score on the test was 74.7 points. 
 - The mean confidence rating was 4.4.  
 
-These statistics do not provide information about the *connection* between the students' scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score?  We need a new tool to help us relate the values of two quantitative observations.  When we have two quantitative measurements on a unit, we have **bivariate data**.
+While these statistics are useful, they do not provide information about the *connection* between the students' scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score? Do they score higher on the exam than those that feel less confident? We need a new tool to help us relate the values of two quantitative observations.  When we have two quantitative measurements on a unit, we have **bivariate data**.
 
-###  Describing Bivariate Data 
 
-####  Describing Form: Scatterplots 
+###  Graphical Summary 
 
-The following scatterplot illustrates the data from the Goodwin study.  
+A scatterplot is an excellent way to present the bivariate relationship between two quantitative variables. The scatterplot has a y-axis (the vertical axis) that usually represents the variable we are most interested in studying. The x-axis of the scatterplot uses the other variable to help *explain* the y-variable. In this case, we will use the x-axis as the confidence rating of each student in order to *explain* the exam score of each student.
 
-<img src="./Images/SelfEfficacy-Scatterplot-SPSS.png">
+### R Instructions for Scatterplots
 
-Each point in the plot represents both the confidence and score of one student.  The points are plotted on the X-Y coordinate plane.  The position on the horizontal (X) axis represents the student's confidence rating. The height of the point or the value on the Y-axis, represents the student's score on the exam.  (We will explore how to create a scatterplot in the next example.  For now, focus on understanding the interpretation of the graph.)
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+**To create a scatterplot in R** use the `plot(...)` function with the `y-variable` placed first, followed by a `~`, followed by the `x-variable`.
+
+First, read in the data: [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
+
+```{r, include=FALSE}
+library(readxl)
+MathSelfEfficacy <- read_excel("./Data/MathSelfEfficacy.xlsx")
+```
+
+```{r}
+plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy)
+```
+
+Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of 
+
+* `col=` a name of a color to specify the color of the points in the graph,
+* `pch=` a number 1 to 25 to specify the plotting character used for each point in the graph, 
+* `xlab=` to specify in quotations the words to print below the x-axis, 
+* `ylab=` to specify in quotations the words to print next to the y-axis, and 
+* `main=` to specify in quotations the main title of the graph.
+
+These options are demonstrated below.
+
+```{r}
+plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
+     col="skyblue", #specify the color
+     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab="Mean Confidence Rating for Each Student",
+     ylab="Exam Score of Each Student (Out of 100 Pts.)",
+     main="Study on Student Exam Performance in Math 101")
+```
+
+<br/>
+
+**Options for Plotting Characters** 
+
+If you were curious, here are the `pch=` options you can pick from by selecting the number corresponding to the symbol you want.
+
+```{r, fig.height=.8, echo=FALSE}
+par(mai=c(0,0,0,0))
+plot(1:25, rep(1,25), pch=1:25)
+text(1:25, rep(1,25), 1:25, pos=3, col="gray", cex=0.5)
+```
+
+
+</div>
+
+<br/>
+
+Each point in the plot represents both the confidence and score of one student.  The points are plotted on the X-Y coordinate plane.  The position on the horizontal (X) axis represents the student's confidence rating. The height of the point or the value on the Y-axis, represents the student's score on the exam.  
+
+```{r, echo=FALSE}
+plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
+     col="skyblue", #specify the color
+     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab="Mean Confidence Rating for Each Student",
+     ylab="Exam Score of Each Student (Out of 100 Pts.)",
+     main="Study on Student Exam Performance in Math 101")
+lines(c(2.35, 2), c(53.3,80), col="darkgray")
+points(2.35, 53.3, pch=16, cex=1.3, col="skyblue3")
+lines(c(5.70, 5.75), c(86.7,60), col="darkgray")
+points(5.7, 86.7, pch=16, cex=1.3, col="skyblue3")
+text(2.15,80, "This student had \n a confidence score of 2.35 \n and earned a 53.3 on the exam", pos=3, col="darkgray", cex=0.7)
+text(5.50,60, "This student had \n a confidence score of 5.70 \n and earned a 86.7 on the exam", pos=1, col="darkgray", cex=0.65)
+```
+
+
 
 The cloud of data illustrated in this scatterplot help us visualize the relationship between the student's confidence rating and their score on the exam. Notice that the points tend to be higher as you move to the right.  Students who have a high confidence rating (points further to the right) tend to have higher exam scores (higher vertical position).  Similarly, students with lower confidence typically have lower exam scores.  Notice that as a students' confidence increases, their exam score tends to increase.  We call this a *positive association* or a *positive correlation*.
 
-Notice that there is variability in the responses.  Consider the students who have a mean confidence rating of 5.0.  The points above this number represent those students who reported a mean confidence value of about 5.  There is variability in the exam scores of these students.  They range from about 75 to approximately 100.
+Notice that there is variability in the responses.  Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind's eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as a 60 on the exam to as high as a 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn't tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.
 
-In the scatterplot, we see a cloud of data.  Even though there is a considerable amount of variability in the data, the points tend to follow a line.  If you squint with your eyes, you might imagine that the data look like a fat hot dog.
+```{r, echo=FALSE}
+plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
+     col="skyblue", #specify the color
+     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab="Mean Confidence Rating for Each Student",
+     ylab="Exam Score of Each Student (Out of 100 Pts.)",
+     main="Study on Student Exam Performance in Math 101")
+lines(c(5, 5), c(60,100), col=rgb(0.1,0.1,0.1,0.1), lwd=10)
+lm1 <- lm(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy)
+preds <- predict(lm1, data.frame(ConfidenceRatingMean=5), interval="prediction")
+```
 
-<img src="./Images/Scatter-HotDog.png">
+When the points in a scatterplot follow a straight pattern, we say that there is a *linear relationship* in the data.  Data are considered linearly related if the points in the scatterplot follow a straight line.  The points do not have to be aligned tightly to represent a linear relationship. Both broadly scattered and narrow clouds of data can be considered linear. Here are some examples that all would be considered linear relationships.
 
-When the points in a scatterplot follow a straight pattern, we say that there is a *linear relationship* in the data.  Data are considered linearly related if the points in the scatterplot follow a straight line.  The points do not have to be aligned tightly to represent a linear relationship.  They can be in the shape of a long skinny cucumber or a short, fat cucumber.  Both broad and narrow clouds of data can be considered linear.
+```{r, fig.height=1.5, echo=FALSE, message=FALSE, warning=FALSE}
+library(car)
+par(mfrow=c(1,5), mai=c(.1,.1,.1,.1))
+plot(Wind ~ Temp, data=airquality, yaxt='n', xaxt='n')
+plot(dist ~ speed, data=cars, yaxt='n', xaxt='n')
+plot(weight ~ repwt, data=Davis[-12,], yaxt='n', xaxt='n')
+plot(circumference ~ age, data=Orange, yaxt='n', xaxt='n')
+plot(height^1.3 ~ age, data=Loblolly, yaxt='n', xaxt='n')
+```
 
-#### How to make a scatterplot
+In the examples above, even though each plot could be considered a *linear relationship*, they each differ in how much the dots are spread out along that linear relationship. We need to be able to describe the not only the **shape** of the relationship, but also the the **direction** and **strength** of a linear relationship in bivariate data.  We use the correlation coefficient to quantify the direction and strength of the relationship.  This idea is discussed below.
 
-**Estuarine Crocodile Data**
-
-Data for estuarine, or saltwater, crocodiles is given in the file [EstuarineCrocodiles(Modified).xlsx](./Data/Estuarine_Crocodile_(Modified).xlsx).  We will illustrate the relationship between the head length of the crocodiles and their body lengths by creating a scatterplot.
-
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=Scatterplot }} -->
-
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-**To make a scatterplot in Excel:**
-
-- Open the [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) file and select the "Linear Regression" tab.
-- Put the variable that you want on the x-axis (head length) in column A, labeled as the "X" column.
-- Put the variable that you want on the y-axis (body length) in column B, labeled as the "Y" column.  This is the value you want to predict.
-- The points in the scatterplot will update with your data.
-
-Here is the scatterplot for the estuarine crocodile data.  The head length in centimeters is on the horizontal (x) axis and the body length in centimeters is on the vertical (y) axis.
-
-<img src="./Images/EstuarineCrocodile-Scatterplot-Excel.png">
-<br>
-</div>
-<br>
-
-Notice that there is a strong positive linear relationship between the head lengths and the body lengths of the crocodiles.  That fact will be important in the next lesson.
-
-We want to be able to describe the relationship between the variables.  The first thing we look for is the **shape** or **form** observed in the scatterplot.  Is it **linear** or **nonlinear**?
-
-In many cases, the points on a scatterplot do not follow a straight line.  If the data form a curved shape, e.g. a banana shape, we say that there is a *nonlinear relationship* in the data.  The methods presented in this course do not directly apply to nonlinear data.  As a professional, you may encounter nonlinear data.  Math 325 Intermediate Statistical Methods includes ways to handle nonlinear relationships.  If you cannot take additional statistics courses, you should consult a statistician if you want to analyze the relationships observed in nonlinear bivariate data.
-
-In addition to the shape or the form of the data observed in the scatterplot, we need to be able to describe the **direction** and **strength** of a linear relationship in data.  We use the correlation coefficient to quantify the direction and strength of the relationship.  These ideas are discussed below.
-
-#### Describing Direction: Scatterplots and the Correlation Coefficient
+### Describing Direction: Scatterplots and the Correlation Coefficient
 
 We say that the direction of data in a scatterplot is **positive**  or there is a **positive association** between two variables when an *increase* in one variable tends to lead to an *increase* in the other variable.  We observed a positive association in Goodwin's confidence data. 
 
 The **correlation coefficient** is a number that is used to measure the direction and strength of the linear association between two variables.  The direction is either positive, negative, or neither.  The strength can be described as weak, moderate, or strong.
 
-Correlation coefficients are always between $-1$ and $1$.
+Correlation coefficients are always between $-1$ and $1$, and a correlation of $0$ implies *no correlation* in the data. We use the letter $r$ to write the correlation coefficient.
 
 We will use software to compute the correlation coefficient.  For the Goodwin data, the correlation coefficient is:
 $$r = 0.728$$
-We use the symbol $r$ to represent the correlation coefficient.  In this reading, we will explore the correlation coefficient, including its properties and interpretation.
 
-When a positive association exists in the data, the correlation coefficient will be positive.  As an example, a positive association was observed in Goodwin's data and $r = 0.728 > 0$.
+### R Instructions for Computing Correlation
 
-There are many examples of positive associations.  It has been demonstrated that  a student's level of motivation is positively associated with academic success <!--<cite>Busato00</cite>-->.  Students who are highly motivated tend to do better academically.  As another example, there is a positive association between the height of a person and their weight.  If someone's height increases, we would expect that their weight would typically increase as well.  
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+**To compute correlation in R** use the `cor(...)` function where the x-axis variable is listed first, followed by a comma `,`, followed by the y-axis variable second. The `cor(...)` function also requires stating the name of the data set and using the `$` sign to access the desired columns of the dataset.
 
-When an *increase* in one variable is associated with a *decrease* in the other variable, we say that there is a **negative** association between the two variables.  Several studies have demonstrated that there is a negative association between the amount of time spent playing video games and academic performance<!--<cite>Gentile04</cite>-->.  Students who spend a lot of time on video games tend to do worse in school than their peers who do not spend much time gaming.
+```{r, comment=NA}
+cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score)
+```
+
+Note that if there are missing values in the data, you would need to use the `use = "pairwise.complete.obs"` option to remove those missing `NA` values.
+
+```{r, comment=NA}
+cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score,
+    use = "pairwise.complete.obs")
+```
+
+
+</div>
+
+<br/>
+
+When a positive association exists in the data, the correlation coefficient $r$ will be positive. As an example, a positive association was observed in Goodwin's data and $r = 0.728 > 0$.
+
+There are many examples of positive associations.  It has been demonstrated that  a student's level of motivation is positively associated with academic success <!--<cite>Busato00</cite>-->.  Students who are highly motivated tend to do better academically.  As another example, there is a positive association between the height of a person and their weight.  If someone's height increases, we would expect that their weight would typically be greater as well.  
+
+On the other hand, when an *increase* in one variable is associated with a *decrease* in the other variable, we say that there is a **negative** association between the two variables.  Several studies have demonstrated that there is a negative association between the amount of time spent playing video games and academic performance<!--<cite>Gentile04</cite>-->.  Students who spend a lot of time on video games tend to do worse in school than their peers who do not spend much time gaming.
 
 #### Describing Strength: The Correlation Coefficient
 
 We also describe the relationship between two variables as **weak**, **moderate**, or **strong**, depending on how close the relationship between the variables is.  The strength of the linear relationship is also described in the correlation coefficient.  
 
-The correlation coefficient is always between $-1$ and $1$.  If there is a strong positive association, the correlation coefficient will be close to $1$.  If the correlation coefficient is positive but relatively close to 0, we say there is a weak positive association in the data.  
+The correlation coefficient $r$ is always a value between $-1$ and $1$.  If there is a strong positive association, the correlation coefficient will be close to $1$.  If the correlation coefficient is positive but relatively close to 0, we say there is a weak positive association in the data.  
 
 Similarly, if the correlation coefficient is close to $-1$, we say there is a strong negative association.  A weak negative association results in a correlation coefficient that is negative but close to 0.
 
-We will not establish cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong.  This depends upon the application and is very subjective.
+It is difficult to establish definite cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong.  This depends a great deal upon the context of the data and how much is known about the situation already. In some contexts, a correlation of $r=0.2$ could be considered strong. But typically in this class, we only consider correlations above $r=0.7$ to be strong correlations (and similary for $r=-0.7$ and below). In this course, we also typically call anything between $r=-0.3$ and $r=0.3$ a weak correlation. But again, in a different course or in a different type of research, these cut-offs could completely change as to what we consider to be a *strong* or *weak* or *moderate* correlation.
 
 Several scatterplots have been created, and the correlation coefficient summarizing the relationship between the two variables is presented.  Study these graphs to see if you can infer some of the properties of the correlation coefficient.
 
@@ -306,25 +379,6 @@ Several scatterplots have been created, and the correlation coefficient summariz
 
 <img src="./Images/Phd1641.png">
 
-### More on the Correlation Coefficient
-
-#### Calculating the Correlation Coefficient
-
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=CorrelationCoefficient }} -->
-
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-The correlation coefficient can easily be calculated in Excel.
-
-Using any cell in an excel page you can calculate the Correlation coefficient.  The command is = CORREL (array 1, array2).  For array 1 highlight the explanatory variable (x) and for array 2 highlight the response variable (y).  Here is a screen shot example of finding the correlation coefficient of the Old Faithful data.   
-
-<img src="./Images/OldFaithfulCorrelation-Excel.png">
-
-An easier way to do this is to use the file [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx).  After entering the data in the first two columns in the Linear Regression worksheet, the correlation coefficient is given as "r" in cell G7 of that spreadsheet.
-<br>
-
-</div>
 <br>
 
 #### Effect of Outliers
@@ -475,6 +529,7 @@ The following figures illustrate possible situations where the relationship betw
 #### Properties of the Correlation Coefficient
 
 We will summarize the properties of the correlation coefficient, $r$:
+
 - $r$ is a number between $-1$ and $1$
 - positive values of $r$ imply a positive linear relationship between the two variables
 - negative values of $r$ imply a negative linear relationship between the two variables
@@ -490,13 +545,22 @@ We will summarize the properties of the correlation coefficient, $r$:
 
 The correlation coefficient, $r$, is a sample statistic. It is sometimes called the sample correlation coefficient.  The value of $r$ is computed using data.  It is an estimate of the population correlation coefficient, which we will denote as $\rho$.  Usually, we do not know $\rho$.
 
-## Predicting Old Faithful
+## Case Study: Predicting Old Faithful
 
+
+<img src="./Images/Step1.png">
+
+<div style="float:right;">
 <img src="./Images/OldFaithful-NPS-05232.png">
+</div>
 
 A geyser is a hot spring that periodically erupts a mixture of hot water and steam.  Old Faithful in Yellowstone National Park is the world's most famous geyser.  This geyser earned its name from the predictability of the waiting time between its eruptions.  At the Old Faithful Visitors Center, there is a sign predicting when the next eruption will occur.  Rangers observing the behavior of the geyser maintain this sign for the convenience of park visitors.
 
 The amount of time between eruptions (wait time) is random.  However, it can be predicted, give-or-take a reasonable error bound.
+
+<div style="clear:both;"></div>
+
+<img src="./Images/Step2.png">
 
 Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [OldFaithful.xlsx](./Data/OldFaithful.xlsx).
 
@@ -511,6 +575,17 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 </div>
 <br>
 
+&nbsp;
+</div>
+<br>
+
+
+
+<img src="./Images/Step3.png">
+
+
+<div class="QuestionsHeading">Answer the following questions:</div>
+<div class="Questions">
 13. Conduct the analysis you proposed in Question 1.  What is your prediction for the waiting time between eruptions?
 
 <a href="javascript:showhide('Q13')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
@@ -533,6 +608,7 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 &nbsp;
 </div>
 <br>
+
 
 There appear to be two peaks in the histogram representing the waiting times.  This bimodal distribution is curious.  Why should there be a bimodal distribution in the duration of the eruptions?  Could there be a relationship between the length of an eruption and the waiting time until the next eruption?
 
@@ -641,6 +717,11 @@ Each point in the plot represents both the actual eruption time and the wait tim
 - Creating **scatterplots** of bivariate data allows us to visualize the data by helping us understand its **shape** (linear or nonlinear), **direction** (positive, negative, or neither), and **strength** (strong, moderate, or weak). 
 
 - The **correlation coefficient ($r$)** is a number between $-1$ and $1$ that tells us the direction and strength of the linear association between two variables. A positive $r$ corresponds to a **positive association** while a negative $r$ corresponds to a **negative association**. A value of $r$ closer to $-1$ or $1$ indicates a stronger association than a value of $r$ closer to zero.
+
+- To create a scatterplot in R use the [`plot(...)`](Lesson21.htlm#r-instructions-for-scatterplots) function.
+
+- To compute the correlation in R, use the [`cor(...)`](Lesson21.html#r-instructions-for-computing-correlation) function.
+
 
 <!-- - The **covariance** is a measure of how two variables vary together. The formula for the covariance is $s_{xy}=r \cdot s_x \cdot s_y$. -->
 
