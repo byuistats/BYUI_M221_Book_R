@@ -380,17 +380,17 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#numerical-and-graphical-summaries-of-categorical-data">Numerical and Graphical Summaries of Categorical Data</a></li>
-<li><a href="#case-study-coin-flips">Case Study: Coin Flips</a>
+<li><a href="#case-study-eating-habits-of-college-students">Case Study: Eating Habits of College Students</a></li>
+<li><a href="#numerical-and-graphical-summaries-of-categorical-data">Numerical and Graphical Summaries of Categorical Data</a>
 <ul>
-<li><a href="#pie-charts">Pie charts</a></li>
-<li><a href="#bar-charts-and-pareto-charts">Bar charts and Pareto charts</a></li>
-<li><a href="#r-instructions-for-describing-categorical-data">R Instructions for Describing Categorical Data</a></li>
+<li><a href="#r-instructions-for-computing-sample-proportions">R-Instructions for Computing Sample Proportions</a></li>
+<li><a href="#bar-charts">Bar Charts</a></li>
+<li><a href="#r-instructions-for-bar-charts">R Instructions for Bar Charts</a></li>
 </ul></li>
 <li><a href="#sampling-distribution-of-the-sample-proportion">Sampling Distribution of the Sample Proportion</a>
 <ul>
 <li><a href="#example-tossing-a-coin">Example: Tossing a Coin</a></li>
-<li><a href="#sampling-distribution-of-the-sample-proportion-1">Sampling Distribution of the Sample Proportion</a></li>
+<li><a href="#central-limit-theorem-for-the-sample-proportion">Central Limit Theorem for the Sample Proportion</a></li>
 <li><a href="#probability-calculations-for-a-sample-proportion">Probability Calculations for a Sample Proportion</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
@@ -425,99 +425,197 @@ $(document).ready(function () {
 </ul>
 </div>
 <p><br></p>
+<div style="clear:both;">
+
+</div>
+<p><br/></p>
+</div>
+<div id="case-study-eating-habits-of-college-students" class="section level2">
+<h2>Case Study: Eating Habits of College Students</h2>
+<div style="float:right;padding:10px;">
+<p><img src="Images/byui_crossroads.jpeg" width="300px"></p>
+</div>
+<p><img src="Images/Step1.png"></p>
+<p>Chances are that as a college student you have probably thought to yourself, “It takes too much time to prepare healthy food.” In fact, the American College Health Association estimates that only 6% of college students across the U.S. are eating the recommended “five or more servings of fruits and vegetables” daily.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> In an effort to better understand the barriers that were keeping college students from eating healthy, a team of researchers from the Department of Psychology at BYU-Idaho undertook a study.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p><br/></p>
+<p><img src="Images/Step2.png"></p>
+<p>The team of researchers obtained a convenience sample of <span class="math inline">\(n=517\)</span> college students from General Psychology courses over three different semesters. <a href="javascript:showhide('articledetails')"><span style="font-size:8pt;">Click to Show/Hide More Sampling Details</span></a></p>
+<div id="articledetails" style="display:none;padding-left:30px;padding-right:30px;">
+<p>As reported in their article, “Participation in this study was a required experiential component of the course, but students’ grades were based on participation rather than performance and alternate assignments were available.” Further, use of the data for research purposes was approved by the university’s Institutional Review Board.</p>
+</div>
+<p>The survey contained many questions for the students to answer and found some fantastic conclusions about what keeps students from eating healthy. (If you are interested, <a href="https://byuiscroll.org/psychology-students-did-the-research-for-you/">click here</a> to read an news article highlighting their findings.) For simplicity, we will look at only a couple of questions this study asked.</p>
+<p>One particularly interesting question asked students about the barriers they faced to eating a healthy diet. (A healthy diet was stated to be a diet that included fresh fruits and vegetables.) Students were allowed to select as many of the following answers as they felt applicable in response to this question.</p>
+<ul>
+<li>It is too expensive to purchase fruits and vegetables</li>
+<li>It takes too much time to prepare healthy food (e.g., fruits and vegetables)</li>
+<li>There are not enough options for healthy eating here</li>
+<li>I am uncomfortable with healthy eating because it is something I am not familiar with</li>
+<li>It is confusing to know what is considered “healthy eating” anymore</li>
+<li>I prefer tasty, quick options such as fast food</li>
+<li>I do not see positive results when I eat healthy (e.g., I am not full, I do not lose weight)</li>
+<li>Other, please specify.</li>
+</ul>
+<p>Another question asked to each student was whether or not the student ate fresh fruits and vegetables as part of their daily diet. They were allowed to answer with either of</p>
+<ul>
+<li>Yes</li>
+<li>No</li>
+</ul>
+<p><img src="Images/Step3.png"></p>
 </div>
 <div id="numerical-and-graphical-summaries-of-categorical-data" class="section level2">
 <h2>Numerical and Graphical Summaries of Categorical Data</h2>
-<p><span id="21:Proportions"></span></p>
+<p>To describe categorical data, we need a different approach than what we used for quantitative data. Instead of discussing means (like <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\bar{x}\)</span>) we will work with proportions. A proportion is a number between 0 and 1 that measures the size of a portion of something to the whole. In the current eating habits study, the researchers are interested in knowing the proportion of students who experience barriers to healthy eating. This proportion probably isn’t 0 (which would imply no students experience barriers to healthy eating) and probably isn’t 1 (which would imply all students experience barriers to healthy eating) but is likely somewhere in between.</p>
+<div class="myemphasis">
+<p><strong>Proportions</strong>: A number between 0 and 1 that measures the size of a part to the whole.</p>
+<p>The <strong>sample proportion</strong> is a sample statistic. It is written as <span class="math inline">\(\hat{p}\)</span>. It is computed by taking the number of “successes” in the data, called <span class="math inline">\(x\)</span>, and dividing by the total number of individuals in the sample, <span class="math inline">\(n\)</span> (the sample size).</p>
+<p><span class="math display">\[
+\text{Sample Proportion:} \quad \hat{p} = \frac{x}{n}
+\]</span></p>
+<p>The theoretical <strong>true proportion</strong> for a population is written as just <span class="math inline">\(p\)</span>. It is a population parameter. To compute the <em>true proportion</em> we must know the total size of the population (or total possible outcomes) <span class="math inline">\(N\)</span>, as well as the number of possible <em>successes</em> <span class="math inline">\(X\)</span>. We rarely know <span class="math inline">\(p\)</span>. But we can usually hypothesize a reasonable value for <span class="math inline">\(p\)</span> using a null hypothesis.</p>
+<p><span class="math display">\[
+ \text{True Proportion:} \quad p = \frac{X}{N}
+\]</span></p>
 </div>
-<div id="case-study-coin-flips" class="section level2">
-<h2>Case Study: Coin Flips</h2>
-<p>Chances are, you have probab</p>
-<div id="pie-charts" class="section level3">
-<h3>Pie charts</h3>
-<p>Pie charts are a popular way to display categorical data. These are used extensively in practice. Typically, pie charts are used when you want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole.</p>
-<p>We can represent the reasons the students did not click in their searches using a pie chart.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=PieCharts }} -->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<p><strong>To make a pie chart in Excel:</strong></p>
+<p>Let’s take a quick glance at the data for one of the questions from the eating habits study.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Student</th>
+<th align="center">Do you regularly eat fresh fruits and vegetables?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">(No Answer)</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">(No Answer)</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">(No Answer)</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">No</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">No</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">515</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left">516</td>
+<td align="center">No</td>
+</tr>
+<tr class="even">
+<td align="left">517</td>
+<td align="center">No</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that in this data, some students chose not to answer this question, i.e., “No Answer”. Other students answered “Yes” and other students answered “No”. Our first step to computing the proportion of students who answered “Yes” (what we will call successes in this case) is to count up two numbers.</p>
 <ul>
-<li>Open the data file <a href="./Data/NoClickQuery-Summary.xlsx">NoClickQuery-Summary.xlsx</a>. This file contains a summary of the NoClickQuery data. Notice that each row in this data file represents the responses of several individuals. The <em>Count</em> column tells how many times each response was given. The data in this file have been summarized.<br />
-</li>
-<li>Make sure the categorical column (Reason) and the Count column are next to each other with the Count column on the right and highlight both of them.</li>
-<li>Click on the Insert tab, then click on the Pie chart button.</li>
-<li>Please choose the basic 2D pie.</li>
+<li>First, we count how many students said “Yes”. This turns out to give <span class="math inline">\(x = 245\)</span>.</li>
+<li>Second, we count how many students answered the question. This gives our sample size as <span class="math inline">\(n = 399\)</span>.</li>
+<li>Third, we divide to get</li>
 </ul>
-<p>The pie chart will look like this:</p>
-<p><img src="Images/NoClickQuery-Pie-Excel.png"> <br></p>
-</div>
-<p><br></p>
-</div>
-<div id="bar-charts-and-pareto-charts" class="section level3">
-<h3>Bar charts and Pareto charts</h3>
-<p>Bar charts can be considered a companion plot to the pie chart. They present the same basic information but are not, however, interchangeable. We typically use bar charts if our data represent counts. In contrast, pie charts are used to represent parts of a whole.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=BarCharts }} -->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<p><strong>To make a bar chart in Excel:</strong></p>
-<ul>
-<li>Highlight the categorical column and the count column.</li>
-<li>Click on the Insert tab and then click on column chart button.</li>
-<li>Again, please choose the simple 2D column chart.</li>
-</ul>
-<p>Your bar chart will look like this:</p>
-<p><img src="Images/NoClickQuery-Bar-Excel.png"> <br></p>
-</div>
-<p><br></p>
-<p>A Pareto chart is a bar chart where the bars are presented in descending order.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=ParetoCharts }} -->
-<div class="SoftwareHeading">
-Excel Instructions
-</div>
-<div class="Summary">
-<p><strong>To make a Pareto chart in Excel:</strong></p>
-<ul>
-<li>Begin by creating a bar chart. You can use the one you created above.</li>
-<li>Highlight the “Count” column.</li>
-<li>Click on the Sort and Filter tab in the right hand corner of the screen.</li>
-<li>Click on Sort Largest to Smallest (A little window will pop up, select “Expand the Selection” then “Sort”.)</li>
-<li>The bars in your chart should now be resorted to create a Pareto chart.</li>
-</ul>
-<p>Your Pareto chart will look like this:</p>
-<p><img src="Images/NoClickQuery-Pareto-Excel.png"> <br></p>
-</div>
-<p><br></p>
-<p>We conclude that the main reason that people do not click on any of the search results is that the results were not relevant. The next two most common reasons were that they did not find any new results or they made a spelling error in their search query.</p>
-<p>Pareto charts are often used to display causes of problems in an industry. For example, in health care administration, it may be causes of patient deaths. In business, it may be used to display common reasons employees are terminated.</p>
-<p>There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes. Many Pareto charts display a few very tall columns with several much shorter ones. This can give you an idea of where you should focus your energy in your business or organization.</p>
-</div>
-<div id="r-instructions-for-describing-categorical-data" class="section level3">
-<h3>R Instructions for Describing Categorical Data</h3>
+<p><span class="math display">\[
+ \hat{p} = \frac{245}{399} \approx 0.614
+\]</span></p>
+<div id="r-instructions-for-computing-sample-proportions" class="section level3">
+<h3>R-Instructions for Computing Sample Proportions</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
 <p><strong>To compute the sample proportion in R:</strong></p>
 <ul>
-<li>Use the table function to count up how many times certain observations occur in data.</li>
+<li>Use the <code>table(...)</code> function to count up how many times certain observations occur in a dataset.</li>
 <li>Use the <code>/</code> symbol to divide <span class="math inline">\(x\)</span> by <span class="math inline">\(n\)</span>.</li>
 </ul>
-<p><strong>To make a bar chart:</strong></p>
+<p>To practice, start by reading in the <a href="./Data/EatingHealthy.xlsx">EatingHealthy.xlsx</a> data file into RStudio. (For a reminder on how to read in data, <a href="RHelp.html#reading-in-data.">click here</a></p>
+<p>Next, note that the “Yes” and “No” answers to the question “Do you regularly eat fresh fruits and vegetables?” is stored in the column of the dataset called <code>Eathealthy</code>. So we use the <code>table(</code> function, followed by the name of the dataset <code>EatingHealthy</code> followed by a <code>$</code> sign, followed by the column name <code>Eathealthy</code>.</p>
+<pre class="r"><code>#Count up the &quot;Yes&quot; and &quot;No&quot; answers:
+table(EatingHealthy$Eathealthy)</code></pre>
+<pre><code>
+ NA  No Yes 
+118 154 245 </code></pre>
+<p>From this we learn that there are 118 people who did not answer this question (the “NA” means the answer is “Not Available”), 154 people answered “No”, and 245 people answered “Yes”. Considering only those that answered this question we have a total of <span class="math inline">\(n=399\)</span> people that answered:</p>
+<pre class="r"><code>#Get the sample size:
+154 + 245</code></pre>
+<pre><code>[1] 399</code></pre>
+<p>Dividing the number of “Yes” answers (<span class="math inline">\(x=245\)</span>) by the total number of answers (<span class="math inline">\(n=399\)</span>) gives the proportion of students in our sample claiming to eat a healthy diet, <span class="math inline">\(\hat{p} = 0.614\)</span> or 61.4%.</p>
+<pre class="r"><code>#Compute the sample proportion:
+245/399</code></pre>
+<pre><code>[1] 0.6140351</code></pre>
+</div>
+<p><br/></p>
+</div>
+<div id="bar-charts" class="section level3">
+<h3>Bar Charts</h3>
+<p>Bar charts are a popular way to display categorical data. They provide a bar for each category in the data, and the height of the bar shows many observations from the sample landed that particular category.</p>
+<p>We can represent the answers of the <span class="math inline">\(n=399\)</span> students concering whether or not they “regularly eat fresh fruits and vegetables” with a bar chart.</p>
+</div>
+<div id="r-instructions-for-bar-charts" class="section level3">
+<h3>R Instructions for Bar Charts</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p><strong>To make a bar chart in R:</strong></p>
 <ul>
-<li>Use the <code>barplot(...)</code> function and either the <code>cbind(...)</code> function or the <code>table(...)</code> function to compute the height of each bar.</li>
-<li>Specify colors using either <code>col="skyblue"</code> to give all bars the same color, or use <code>col=c("orange","skyblue","firebrick")</code> to give each bar a different color. Of course, use any color names you like.</li>
+<li>First, read in the data: <a href="./Data/EatingHealthy.xlsx">EatingHealthy</a>.</li>
+<li>Second, use the <code>table(...)</code> function, the assignment operator <code>&lt;-</code>, and a name for the table of counts that you create (like <code>mytable</code>) to save a table of counts.</li>
+</ul>
+<div style="padding-left:40px;">
+<pre class="r"><code>#Save your table of counts:
+mytable &lt;- table(EatingHealthy$Eathealthy)
+mytable</code></pre>
+<pre><code>
+ NA  No Yes 
+118 154 245 </code></pre>
+<p>Sometimes you might not have kept track of the actual dataset, but you might still know the counts already. In that case, manually type the counts into R using the combine function <code>c(...)</code>:</p>
+<pre class="r"><code>mytable &lt;- c(`NA` = 118, `No` = 154, `Yes` = 245)</code></pre>
+<p>Note how the above code puts a label in front of each number. That will make it so the bar chart prints those labels underneath of each bar.</p>
+</div>
+<ul>
+<li>Use the <code>barplot(...)</code> function on your table of counts to create a bar chart of the values.</li>
+</ul>
+<div style="padding-left:40px;">
+<pre class="r"><code>#Create a plot of the counts in mytable:
+barplot(mytable)</code></pre>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<ul>
+<li>Specify colors for the bar chart using either <code>col="skyblue"</code> to give all bars the same color, or use <code>col=c("orange","firebrick","skyblue")</code> to give each bar a different color. Of course, use any color names you like.</li>
 <li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
 </ul>
+<pre class="r"><code>#Make a fancier graph using the options:
+barplot(mytable,
+        col=c(&quot;orange&quot;,&quot;firebrick&quot;,&quot;skyblue&quot;),
+        main=&quot;College Students were Asked \n \&quot;Do you regularly eat fresh fruits and vegetables?\&quot;&quot;,
+        xlab=&quot;Student Answers&quot;,
+        ylab=&quot;Number of Students&quot;)</code></pre>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
 <p><br></p>
 </div>
 <p><br></p>
+<p><img src="Images/Step4.png"></p>
+<p>To learn how to <em>Make Inference</em> (Step 4 of the Statistical Process) about the true population proportion <span class="math inline">\(p\)</span>, we first need to explore the sampling distribution of the sample proportion. You may recall studying the <a href="Lesson06.html#introduction-to-sampling-distributions">sampling distribution of the sample mean</a> in Lesson 6. Using those ideas along with the z-score equation of Lesson 7, we were able to use the sample mean, <span class="math inline">\(\bar{x}\)</span>, to make inference about the population mean, <span class="math inline">\(\mu\)</span>. Now we will study how to use the sample proportion, <span class="math inline">\(\hat{p}\)</span>, to make inference about the population proportion, <span class="math inline">\(p\)</span>, by studying the sampling distribution of the sample proportion.</p>
 </div>
 </div>
 <div id="sampling-distribution-of-the-sample-proportion" class="section level2">
@@ -641,8 +739,8 @@ You may want to refresh your memory on our definition of “unusual events” in
 </div>
 <p><br> <br></p>
 </div>
-<div id="sampling-distribution-of-the-sample-proportion-1" class="section level3">
-<h3>Sampling Distribution of the Sample Proportion</h3>
+<div id="central-limit-theorem-for-the-sample-proportion" class="section level3">
+<h3>Central Limit Theorem for the Sample Proportion</h3>
 <p>If the sample size is large, the sample proportion, <span class="math inline">\(\widehat p\)</span>, will be approximately normally distributed. This is a direct consequence of the Central Limit Theorem.</p>
 <div id="how-large-is-large-enough" class="section level4">
 <h4>How Large is Large Enough?</h4>
@@ -817,6 +915,13 @@ Remember…
 </tbody>
 </table>
 </center>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>American College Health Association (2014). American College Health Association-National College Health Assessment II: Undergraduate students reference group executive summary spring 2014. Hanover, MD: American College Health Association.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Robert R. Wright, Jack Shuai, Yovanny Maldonado, and Caleb Nelson, all originally from the Department of Psychology at BYU-Idaho, published their study results under the title “The CENTS Program” which is currently under review.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
 <br />
