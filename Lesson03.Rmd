@@ -174,7 +174,7 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 Load the data into RStudio. 
 
-If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)`, the "assignment operator" `<-` and some name you come up with to store the data into. 
+If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into. 
 
 * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again. 
 * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object."
