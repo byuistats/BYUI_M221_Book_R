@@ -126,7 +126,7 @@ We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ an
 <div class="Software">
 **To compute numerical summaries for two groups at once:**
 
-* First, read the data into RStudio: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx).
+* First, read the data into RStudio: [ReadingPractices.xlsx](./Data/ReadingPractices.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 
 ```{r, include=FALSE}
 library(readxl)
@@ -149,7 +149,7 @@ You'll only ever need to "install" this package once. But you'll need to run "li
 Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
 
 ```{r, comment=NA}
-favstats(Nights ~ Group, data=ReadingPractices)
+favstats(ReadingPractices$Nights ~ ReadingPractices$Group)
 ```
 
 <div class="note">
@@ -209,32 +209,44 @@ ReadingPractices <- read_excel("./Data/ReadingPractices.xlsx")
 Use the `boxplot(...)` function and the tilde `~` (top-left key on your keyboard) to produce a side-by-side boxplot. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
 
 ```{r}
-boxplot(Nights ~ Group, data=ReadingPractices, col=c("firebrick","skyblue"), main="Reading Practices of Children")
+boxplot(ReadingPractices$Nights ~ ReadingPractices$Group)
 ```
 
-<div align="right">
-<span class=Custom>Click the link at right for a helpful tip.</span>
-<a href="javascript:showhide('tip')"><span style="font-size:8pt;">Show/Hide Tip</span></a>
-</div>
-<div id="tip" style="display:none;">
-**Tips for R users:**
+<br/>
 
-To edit the names along the x-axis of the graph "DEV" and "GEN" use the `names=c("label 1", "label 2", ...)` command where you specify one label for each box in the boxplot.
+**To Make a Fancier Graph**
+
+To make the graph look a little nicer we could use the following options.
+
+* the `col=...` statement provide colors, either one color for both boxes in the plot `col="skyblue"`, or colors for each box in the plot, `col=c("firebrick","skyblue")`.
+* the `main="a nice title"`, allows you to specify a main title for your graph,  
+* the `ylab="a nice y-axis label"` allows you to specify a y-axis label for your graph,
+* the `xlab="a nice x-axis label"` allows you to label the x-axis of your graph,
+* the `names=c("label 1", "label 2")` statement can be used to give each box a label along the x-axis.
 
 ```{r}
-boxplot(Nights ~ Group, data=ReadingPractices, names=c("Behavioral Problems", "No Problems"), col=c("firebrick","skyblue"), main="Reading Practices of Children")
+boxplot(ReadingPractices$Nights ~ ReadingPractices$Group,
+        col=c("firebrick","skyblue"), 
+        main="Reading Practices of Children", 
+        ylab="Number of Nights of Reading",
+        xlab="Group",
+        names=c("Behavioral Problems", "No Problems"))
 ```
 
+**Tip**
 
-To copy and paste a graph from R into say Microsoft word, do the following:
+To copy and paste a graph from R into a document, do the following:
+
 - Create the graph in R
 - Click the little "Export" button at the top of the "Plots" window
 - Choose either the "Copy" or "Save" options.
-- Then, either paste in the plot to Word, or insert the image (if you saved it).
+- Then, either paste in the plot to your document, or insert the image (if you saved it).
+
+<img src="./Images/exportImage.png">
+
+<br/>
 </div>
-<br>
-</div>
-<div style="clear:both;"></div>
+
 
 <br>
 
@@ -286,7 +298,7 @@ The test statistic for a hypothesis test comparing two means with independent sa
 * Use the `t.test(...)` function along with the tilde `~` (top-left key on your keyboard) to test a quantitative variable that is "divided into two groups" with the `~` sign like this:
 
 ```{r, comment=NA}
-t.test(Nights ~ Group, data=ReadingPractices, mu=0, alternative="two.sided")
+t.test(ReadingPractices$Nights ~ ReadingPractices$Group, mu=0, alternative="two.sided")
 ```
 
 Notice the quantitative variable "Nights" was first, followed by the `~`, followed by the categorical variable "Group" containing the two groups. It is important that the categorical variable contain *exactly* two groups or the `t.test` will not work.
@@ -453,7 +465,7 @@ WorldCupHeartAttacks <- read_excel("./Data/WorldCupHeartAttacks.xlsx")
 
 ```{r, message=FALSE, warning=FALSE, comment=NA}
 library(mosaic)
-favstats(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks)
+favstats(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)
 ```
 
 <center>
@@ -475,7 +487,7 @@ favstats(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks)
 Side-by-side boxplots are a great way to summarize the data. 
 
 ```{r}
-boxplot(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks, col=c("gray", "orange"), main="2006 World Cup \n ")
+boxplot(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod, col=c("gray", "orange"), main="2006 World Cup \n ")
 ```
 
 </div>
@@ -503,7 +515,7 @@ boxplot(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks, col=c("gray", "ora
 <div id="Q8" style="display:none;">
 
 ```{r, comment=NA}
-t.test(HeartAttacks ~ TimePeriod, data=WorldCupHeartAttacks)
+t.test(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)
 ```
 
 * The test statistic is a $t$ and its value is
@@ -621,7 +633,7 @@ In the study by Arlene Butz, et.al., on the reading practices of children, the r
 Using R, we compute the following:
 
 ```{r, comment=NA}
-favstats(Nights ~ Group, data=ReadingPractices)
+favstats(ReadingPractices$Nights ~ ReadingPractices$Group)
 ```
 
 +---------------------+------------------+------------------+
@@ -643,9 +655,12 @@ favstats(Nights ~ Group, data=ReadingPractices)
 **Make an appropriate graph to illustrate the data**
 
 ```{r}
-boxplot(Nights ~ Group, data=ReadingPractices,
+boxplot(ReadingPractices$Nights ~ ReadingPractices$Group,
         main="Reading Practices of Children",
-        col=c("firebrick","skyblue"))
+        col=c("firebrick","skyblue"), 
+        ylab="Nights Spent Reading", 
+        xlab="Group",
+        names=c("Behavioral Problems", "No Problems"))
 ```
 
 
@@ -670,7 +685,7 @@ In this example, we compute the 95% confidence interval for the difference in th
 - Perform an independent samples t test using the `t.test(..., conf.level=0.95)` function.
 
 ```{r, comment=NA}
-t.test(Nights ~ Group, data=ReadingPractices, conf.level=0.95)
+t.test(ReadingPractices$Nights ~ ReadingPractices$Group, conf.level=0.95)
 ```
 
 The lower bound and upper bound of the 95% confidence interval for the *difference between the two means* ($\mu_1 - \mu_2$) is given in the output above as (-0.149, 0.987). 
@@ -692,7 +707,7 @@ When creating the confidence interval in R, it is important to remember that R s
 
 ```{r, comment=NA}
 ReadingPractices$GroupReversed <- factor(ReadingPractices$Group, levels=c("GEN", "DEV"), ordered=TRUE)
-t.test(Nights ~ GroupReversed, data=ReadingPractices)
+t.test(ReadingPractices$Nights ~ ReadingPractices$GroupReversed)
 ```
 
 

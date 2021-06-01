@@ -445,24 +445,12 @@ $(document).ready(function () {
 <div id="articledetails" style="display:none;padding-left:30px;padding-right:30px;">
 <p>As reported in their article, “Participation in this study was a required experiential component of the course, but students’ grades were based on participation rather than performance and alternate assignments were available.” Further, use of the data for research purposes was approved by the university’s Institutional Review Board.</p>
 </div>
-<p>The survey contained many questions for the students to answer and found some fantastic conclusions about what keeps students from eating healthy. (If you are interested, <a href="https://byuiscroll.org/psychology-students-did-the-research-for-you/">click here</a> to read an news article highlighting their findings.) For simplicity, we will look at only a couple of questions this study asked.</p>
-<p>One particularly interesting question asked students about the barriers they faced to eating a healthy diet. (A healthy diet was stated to be a diet that included fresh fruits and vegetables.) Students were allowed to select as many of the following answers as they felt applicable in response to this question.</p>
-<ul>
-<li>It is too expensive to purchase fruits and vegetables.</li>
-<li>It takes too much time to prepare healthy food (e.g., fruits and vegetables).</li>
-<li>There are not enough options for healthy eating here.</li>
-<li>I am uncomfortable with healthy eating because it is something I am not familiar with.</li>
-<li>It is confusing to know what is considered “healthy eating” anymore.</li>
-<li>I prefer tasty, quick options such as fast food.</li>
-<li>I do not see positive results when I eat healthy (e.g., I am not full, I do not lose weight).</li>
-<li>Other, please specify.</li>
-</ul>
-<p>Another question asked to each student was whether or not the student ate fresh fruits and vegetables as part of their daily diet. They were allowed to answer with either of</p>
+<p>The survey contained many questions for the students to answer and found some fantastic conclusions about what keeps students from eating healthy. (If you are interested, <a href="https://byuiscroll.org/psychology-students-did-the-research-for-you/">click here</a> to read an news article highlighting their findings.) One important question on the survey asked each student whether or not they (the student) ate fresh fruits and vegetables as part of their daily diet. They were allowed to answer with either of</p>
 <ul>
 <li>Yes</li>
 <li>No</li>
 </ul>
-<p>Not all students out of the 517 that were surveyed answered both of these questions, but most answered at least one of the questions. We will summarize their answers below.</p>
+<p>Unfortunately, not all students out of the 517 that were surveyed answered the question. We will summarize the results of the answers below as we also present details on how to describe categorical data.</p>
 <p><img src="Images/Step3.png"></p>
 </div>
 <div id="numerical-and-graphical-summaries-of-categorical-data" class="section level2">
@@ -584,7 +572,7 @@ R Instructions
 <div class="Software">
 <p><strong>To make a bar chart in R:</strong></p>
 <ul>
-<li>First, read in the data: <a href="./Data/EatingHealthy.xlsx">EatingHealthy</a>.</li>
+<li>First, read in the data: <a href="./Data/EatingHealthy.xlsx">EatingHealthy</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Second, use the <code>table(...)</code> function, the assignment operator <code>&lt;-</code>, and a name for the table of counts that you create (like <code>mytable</code>) to save a table of counts.</li>
 </ul>
 <div style="padding-left:40px;">
@@ -620,7 +608,17 @@ barplot(mytable,
 <p><br></p>
 </div>
 <p><br/></p>
-<p>Before we move on, it is worth mentioning that bar charts can represent many categories rather than just “Yes” and “No” answers. For example, here is a bar chart showing the student answers to the question asking students about the barriers they faced to eating a healthy diet.</p>
+<p>Before we move on, it is worth mentioning that bar charts can represent many categories rather than just “Yes” and “No” answers. For example, here is a bar chart showing the student answers to the question asking students about the barriers they faced to eating a healthy diet. (A healthy diet was stated to be a diet that included fresh fruits and vegetables.) Students were allowed to select as many of the following answers as they felt applicable in response to this question.</p>
+<ul>
+<li>It is too expensive to purchase fruits and vegetables.</li>
+<li>It takes too much time to prepare healthy food (e.g., fruits and vegetables).</li>
+<li>There are not enough options for healthy eating here.</li>
+<li>I am uncomfortable with healthy eating because it is something I am not familiar with.</li>
+<li>It is confusing to know what is considered “healthy eating” anymore.</li>
+<li>I prefer tasty, quick options such as fast food.</li>
+<li>I do not see positive results when I eat healthy (e.g., I am not full, I do not lose weight).</li>
+<li>Other, please specify.</li>
+</ul>
 <div style="float:right;background-color:gray;border-radius:5px;">
 <a href="javascript:showhide('coolplot')"><span style="font-size:12pt;color:white;">  Show Plot Code  </span></a>
 </div>

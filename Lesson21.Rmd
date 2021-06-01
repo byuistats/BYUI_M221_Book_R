@@ -38,7 +38,7 @@ By the end of this lesson, you should be able to:
 
 ## Case Study: How Confident are You?
 
-<div style="float:right;padding:10px;">
+<div style="float:right;padding:10px;width=80%;">
 <img src="./Images/Testtaking-exam.jpg">
 </div>
 
@@ -46,7 +46,7 @@ Think about a time when you walked into an exam, having prepared carefully, *kno
 
 <img src="./Images/Step1.png">
 
-Shane Goodwin and other researchers examined this question.  They studied factors that affect a student's confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. In addition to marking their test question responses, they evaluated their confidence for each answer on a scale of 1 to 6.  The confidence rating scale is summarized in the following table:
+Shane Goodwin and other researchers examined this question.  They studied factors that affect a student's confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. As students completed the exam, they were required to both answer each question on the exam as well as rate their confidence for each of their answers being correct on a scale of 1 to 6, where confidence ratings of 1 meant "No Clue" and confidence ratings of 6 meant the student was "Certain" they had entered the correct answer to that question. 
 
 **Confidence Rating**
 
@@ -62,7 +62,7 @@ Shane Goodwin and other researchers examined this question.  They studied factor
 
 6. Certain (absolutely sure)
 
-Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.  
+At the end of the exam, two values were recorded for each student. First, the final score was computed as a percentage of questions answered correctly for that student. Second, the final confidence rating was computed by taking the average confidence score from all of the confidence scores that the student had recorded for each question. Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.  
 
 <img src="./Images/Step2.png">
 
@@ -197,7 +197,7 @@ We say that the direction of data in a scatterplot is **positive**  or there is 
 
 The **correlation coefficient** is a number that is used to measure the direction and strength of the linear association between two variables.  The direction is either positive, negative, or neither.  The strength can be described as weak, moderate, or strong.
 
-Correlation coefficients are always between $-1$ and $1$, and a correlation of $0$ implies *no correlation* in the data. We use the letter $r$ to write the correlation coefficient.
+Correlation coefficients are always between $-1$ and $1$. A correlation of $0$ implies *no correlation* in the data. We use the letter $r$ to represent the correlation coefficient.
 
 We will use software to compute the correlation coefficient.  For the Goodwin data, the correlation coefficient is:
 $$r = 0.728$$
@@ -234,9 +234,9 @@ On the other hand, when an *increase* in one variable is associated with a *decr
 
 We also describe the relationship between two variables as **weak**, **moderate**, or **strong**, depending on how close the relationship between the variables is.  The strength of the linear relationship is also described in the correlation coefficient.  
 
-The correlation coefficient $r$ is always a value between $-1$ and $1$.  If there is a strong positive association, the correlation coefficient will be close to $1$.  If the correlation coefficient is positive but relatively close to 0, we say there is a weak positive association in the data.  
+The correlation coefficient $r$ is always a value between $-1$ and $1$.  If there is a strong positive association, the correlation coefficient will be close to $1$.  If the correlation coefficient is positive but relatively small, we say there is a weak positive association in the data. If the correlation is zero (or really close to zero), then we say there is no correlation in the data.
 
-Similarly, if the correlation coefficient is close to $-1$, we say there is a strong negative association.  A weak negative association results in a correlation coefficient that is negative but close to 0.
+Similarly, if the correlation coefficient is close to $-1$, we say there is a strong negative association.  A weak negative association results in a correlation coefficient that is negative but close to 0. But if the correlation is negative and really close to zero, then we say there is no correlation in the data.
 
 It is difficult to establish definite cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong.  This depends a great deal upon the context of the data and how much is known about the situation already. In some contexts, a correlation of $r=0.2$ could be considered strong. But typically in this class, we only consider correlations above $r=0.7$ to be strong correlations (and similary for $r=-0.7$ and below). In this course, we also typically call anything between $r=-0.3$ and $r=0.3$ a weak correlation. But again, in a different course or in a different type of research, these cut-offs could completely change as to what we consider to be a *strong* or *weak* or *moderate* correlation.
 
@@ -371,7 +371,7 @@ Several scatterplots have been created, and the correlation coefficient summariz
 
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
-- If $r = -1$, there is a perfect negative linear relationship between $X$ and $Y$.  All the points are in a line that slopes downward.
+- If $r = -1$, there is a perfect negative linear relationship between $X$ and $Y$.  All the points are exactly on a line that slopes downward.
 </div>
 &nbsp;
 </div>
@@ -425,7 +425,7 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
-- Outliers can dramatically affect the value of the correlation coefficient.  It is possible for one outlier to change a correlation coefficient from a strong positive value to a negative value.  It is possible for one outlier to change uncorrelated data to a data set that has a very high correlation.
+- Outliers can dramatically affect the value of the correlation coefficient.  It is possible for one outlier to change a correlation coefficient from a strong positive value to a negative value, like in Figure 10.  It is possible for one outlier to change uncorrelated data to a data set that has a very high correlation, like in Figure 12.
 </div>
 &nbsp;
 </div>
@@ -433,7 +433,7 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 
 #### Nonlinear Relationships
 
-The following figures illustrate possible situations where the relationship between two variables does not follow a straight line.  There can be a very strong relationship between the variables and still not have a strong correlation.  Conversely, you can have a correlation coefficient that is close to zero, even though there is a perfect nonlinear association between the data.
+The following figures illustrate possible situations where the relationship between two variables does not follow a straight line.  You can have a correlation coefficient that is close to zero, even though there is a perfect *nonlinear* association between the data. This is why it is meaningful to show a scatterplot *and* the correlation coefficient. That way we know if we are really measuring the strength and direction of a *linear* relationship or not.
 
 <br>
 <center>
@@ -512,7 +512,7 @@ The following figures illustrate possible situations where the relationship betw
 
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
-- Figures 14 and 16 both have relatively high correlation coefficient, $r = 0.86$.
+- Figures 14 and 16 both have relatively high correlation coefficient, $r = 0.86$ and $r = 0.74$, respectively.
 </div>
 <br>
 
@@ -533,10 +533,11 @@ We will summarize the properties of the correlation coefficient, $r$:
 - $r$ is a number between $-1$ and $1$
 - positive values of $r$ imply a positive linear relationship between the two variables
 - negative values of $r$ imply a negative linear relationship between the two variables
-- values of $r$ close to zero suggest there is a weak correlation between the two variables
+- a value of $r=0$ implies no correlation.
+- values of $r$ close to zero suggest there is a weak linear relationship between the two variables
 - if $r$ is close to $1$, it is evidence of a strong positive linear relationship between the two variables
 - if $r$ is close to $-1$, there is evidence of a strong negative linear relationship between the two variables
-- if $r$ equals $1$ or $-1$, then there is a perfect linear relationship between the two variables (the points are all in a line)
+- if $r$ equals $1$ or $-1$, then there is a perfect linear relationship between the two variables (the points are all exactly on the line)
 - the correlation of $X$ and $Y$ is the same as the correlation between $Y$ and $X$ (i.e.there is no distinction between explanatory and response variables.)
 - the correlation coefficient measures the strength of the linear relationship between two variables; it does not give the strength of a nonlinear relationship, no matter how strong
 - the correlation coefficient is affected by outliers
@@ -571,7 +572,7 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 <a href="javascript:showhide('Q12')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q12" style="display:none;">
 - Answers will vary.
-- A natural way to predict the waiting times until the next eruption is to compute the mean and median wait times.  We can compute the standard deviation of the waiting times.  We can even make a 95% confidence interval for the true mean waiting times.
+- One way to guess wait times until the next eruption, is to just compute the mean or median amount of time people have had to wait for the next eruption to occur. We could also compute the standard deviation of the waiting times, and even make a 95% confidence interval for the true mean waiting time.
 </div>
 <br>
 

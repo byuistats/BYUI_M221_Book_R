@@ -59,25 +59,12 @@ The team of researchers obtained a convenience sample of $n=517$ college student
 As reported in their article, "Participation in this study was a required experiential component of the course, but students’ grades were based on participation rather than performance and alternate assignments were available." Further, use of the data for research purposes was approved by the university’s Institutional Review Board.
 </div>
 
-The survey contained many questions for the students to answer and found some fantastic conclusions about what keeps students from eating healthy. (If you are interested, [click here](https://byuiscroll.org/psychology-students-did-the-research-for-you/) to read an news article highlighting their findings.) For simplicity, we will look at only a couple of questions this study asked.
-
-One particularly interesting question asked students about the barriers they faced to eating a healthy diet. (A healthy diet was stated to be a diet that included fresh fruits and vegetables.) Students were allowed to select as many of the following answers as they felt applicable in response to this question.
-
-* It is too expensive to purchase fruits and vegetables.
-* It takes too much time to prepare healthy food (e.g., fruits and vegetables).
-* There are not enough options for healthy eating here.
-* I am uncomfortable with healthy eating because it is something I am not familiar with.
-* It is confusing to know what is considered "healthy eating" anymore.
-* I prefer tasty, quick options such as fast food.
-* I do not see positive results when I eat healthy (e.g., I am not full, I do not lose weight).
-* Other, please specify.
-
-Another question asked to each student was whether or not the student ate fresh fruits and vegetables as part of their daily diet. They were allowed to answer with either of
+The survey contained many questions for the students to answer and found some fantastic conclusions about what keeps students from eating healthy. (If you are interested, [click here](https://byuiscroll.org/psychology-students-did-the-research-for-you/) to read an news article highlighting their findings.) One important question on the survey asked  each student whether or not they (the student) ate fresh fruits and vegetables as part of their daily diet. They were allowed to answer with either of
 
 * Yes
 * No
 
-Not all students out of the 517 that were surveyed answered both of these questions, but most answered at least one of the questions. We will summarize their answers below.
+Unfortunately, not all students out of the 517 that were surveyed answered the question. We will summarize the results of the answers below as we also present details on how to describe categorical data.
 
 <img src="./Images/Step3.png">
 
@@ -193,7 +180,7 @@ The above chart shows that the 118 students that did not respond to this questio
 
 **To make a bar chart in R:**
 
-- First, read in the data: [EatingHealthy](./Data/EatingHealthy.xlsx).
+- First, read in the data: [EatingHealthy](./Data/EatingHealthy.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 - Second, use the `table(...)` function, the assignment operator `<-`, and a name for the table of counts that you create (like `mytable`) to save a table of counts.
 
 <div style="padding-left:40px;">
@@ -241,7 +228,16 @@ barplot(mytable,
 
 <br/>
 
-Before we move on, it is worth mentioning that bar charts can represent many categories rather than just "Yes" and "No" answers. For example, here is a bar chart showing the student answers to the question asking students about the barriers they faced to eating a healthy diet.
+Before we move on, it is worth mentioning that bar charts can represent many categories rather than just "Yes" and "No" answers. For example, here is a bar chart showing the student answers to the question asking students about the barriers they faced to eating a healthy diet. (A healthy diet was stated to be a diet that included fresh fruits and vegetables.) Students were allowed to select as many of the following answers as they felt applicable in response to this question.
+
+* It is too expensive to purchase fruits and vegetables.
+* It takes too much time to prepare healthy food (e.g., fruits and vegetables).
+* There are not enough options for healthy eating here.
+* I am uncomfortable with healthy eating because it is something I am not familiar with.
+* It is confusing to know what is considered "healthy eating" anymore.
+* I prefer tasty, quick options such as fast food.
+* I do not see positive results when I eat healthy (e.g., I am not full, I do not lose weight).
+* Other, please specify.
 
 <div style="float:right;background-color:gray;border-radius:5px;"><a href="javascript:showhide('coolplot')"><span style="font-size:12pt;color:white;">&nbsp; Show Plot Code &nbsp;</span></a></div>
 

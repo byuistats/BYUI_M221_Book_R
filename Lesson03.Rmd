@@ -304,6 +304,19 @@ A distribution is symmetric if both the left and right side of the distribution 
 
 A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.
 
+```{r, echo=FALSE}
+library(readr)
+par(mai=c(1.5,1,.1,1))
+ClassSurvey <- read_excel("./Data/ClassSurvey.xlsx")
+
+CS_males <- subset(ClassSurvey, Gender=="M")
+
+hist(CS_males$Height, xlab="Height (in inches) of \n Male BYU-Idaho Students", col="wheat3", main="", breaks=8, ylab="Number of Students")
+curve(dnorm(x, mean(CS_males$Height, na.rm=TRUE), sd(CS_males$Height, na.rm=TRUE))*150, add=TRUE)
+```
+
+
+
 <img src="./Images/Lesson_2_Activity_2-3.JPG" width=130%>
 
 If a distribution has only one peak, it is said to be **unimodal**. The three distributions illustrated above are all unimodal distributions. Some people might argue that there are several peaks in the GPA data, so it should not be considered unimodal. Even though there are jagged bumps in the histogram, it is important to visualize the overall shape in the data. When interpreting a histogram, it can be helpful to blur your eyes and imagine the overall shape after smoothing out the bumps. If the overall trend indicates that there is more than one bump, then we do not consider the distribution to be unimodal. We will usually only work with unimodal data sets in this course.
@@ -516,8 +529,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 <br>
 </div>
 <br>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter|PageName=Mean_Median_Mode}} -->
+
 
 
 ## Parameters and Statistics

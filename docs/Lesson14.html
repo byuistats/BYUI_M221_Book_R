@@ -558,29 +558,34 @@ H_a: &amp; ~ \textrm{At least one of treatments has a different population mean 
 <p><strong>Give the relevant summary statistics</strong></p>
 <div id="r-instructions-for-describing-anova-data" class="section level3">
 <h3>R Instructions for Describing ANOVA Data</h3>
+Gratitude
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
 <p><strong>To compute numerical summaries for several groups:</strong></p>
 <ul>
-<li>Read in the data: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>.</li>
+<li>Read in the data: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Load <code>library(mosaic)</code>.</li>
 <li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>`Happiness Score`</code> and <code>`Treatment Group`</code>.</li>
 </ul>
 <pre class="r"><code>library(mosaic)
-favstats(`Happiness Score` ~ `Treatment Group`, data=Gratitude)</code></pre>
-<pre><code>  Treatment Group min    Q1 median    Q3 max     mean        sd  n missing
-1          Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
-2        Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
-3         Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
+favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)</code></pre>
+<pre><code>  Gratitude$`Treatment Group` min    Q1 median    Q3 max     mean        sd  n
+1                      Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65
+2                    Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64
+3                     Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63
+  missing
+1       0
+2       0
+3       0</code></pre>
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
 <li>Specify colors using either <code>col="skyblue"</code> to give all boxes the same color, or use <code>col=c("orange","skyblue","firebrick")</code> to give each box a different color. Of course, use any color names you like.</li>
 <li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
 </ul>
-<pre class="r"><code>boxplot(`Happiness Score` ~ `Treatment Group`, data=Gratitude,
+<pre class="r"><code>boxplot(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`,
         col=c(&quot;orange&quot;,&quot;skyblue&quot;,&quot;firebrick&quot;), 
         main=&quot;The Effects of Gratitude&quot;,
         xlab=&quot;Treatment Group&quot;,
@@ -601,16 +606,16 @@ R Instructions
 <div class="Software">
 <p>To conduct a test for several means (ANOVA) in R, do the following:</p>
 <ul>
-<li>Read in the data if you haven’t already: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>.</li>
+<li>Read in the data if you haven’t already: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>gratitude_aov</code>.</li>
 <li>When using the <code>aov(...)</code> function, place the quantitative data first, followed by a <code>~</code>, followed by the categorical data.</li>
 <li>Use the <code>summary(...)</code> function to view the results of the ANOVA test.</li>
 </ul>
-<pre class="r"><code>gratitude_aov &lt;- aov(`Happiness Score` ~ `Treatment Group`, data=Gratitude)
+<pre class="r"><code>gratitude_aov &lt;- aov(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
 summary(gratitude_aov)</code></pre>
-<pre><code>                   Df Sum Sq Mean Sq F value Pr(&gt;F)  
-`Treatment Group`   2   6.26   3.130   4.075 0.0185 *
-Residuals         189 145.16   0.768                 
+<pre><code>                             Df Sum Sq Mean Sq F value Pr(&gt;F)  
+Gratitude$`Treatment Group`   2   6.26   3.130   4.075 0.0185 *
+Residuals                   189 145.16   0.768                 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In the ANOVA table output summary, you will find</p>
@@ -699,7 +704,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>library(mosaic)
-favstats(Accuracy ~ Footwear, data=SoccerShoes)</code></pre>
+favstats(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)</code></pre>
 <p>Using the code above, we can pull out the important values.</p>
 <table>
 <thead>
@@ -756,7 +761,7 @@ favstats(Accuracy ~ Footwear, data=SoccerShoes)</code></pre>
 </ol>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
-<pre class="r"><code>boxplot(Accuracy ~ Footwear, data=SoccerShoes, 
+<pre class="r"><code>boxplot(SoccerShoes$Accuracy ~ SoccerShoes$Footwear, 
         col=&quot;yellow2&quot;, 
         main=&quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;)</code></pre>
 <p><img src="Lesson14_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
@@ -807,11 +812,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-<pre class="r"><code>soccer_aov &lt;- aov(Accuracy ~ Footwear, data=SoccerShoes)
+<pre class="r"><code>soccer_aov &lt;- aov(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)
 summary(soccer_aov)</code></pre>
-<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## Footwear      5    352   70.36    2.02 0.0809 .
-## Residuals   114   3970   34.82                 
+<pre><code>##                       Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## SoccerShoes$Footwear   5    352   70.36    2.02 0.0809 .
+## Residuals            114   3970   34.82                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>

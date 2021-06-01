@@ -1006,7 +1006,8 @@ $$
 
 <a href="javascript:showhide('Q33')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q33" style="display:none;">
-- The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. The $P$-value is shaded in green.
+- The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. The $P$-value is shaded in green. The same value can be found in the R output of the `t.test(...)`.
+
 <center>
 <img src="./Images/DirectFlightCosts-Applet.png">
 </center>

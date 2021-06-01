@@ -139,13 +139,13 @@ The 192 students that volunteered to participate in the study were randomly assi
 **Give the relevant summary statistics**
 
 ### R Instructions for Describing ANOVA Data
-
+Gratitude
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 
 **To compute numerical summaries for several groups:**
 
-* Read in the data: [Gratitude.xlsx](./Data/Gratitude.xlsx).
+* Read in the data: [Gratitude.xlsx](./Data/Gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Load `library(mosaic)`.
 * Use the `favstats(...)` function with the quantitative data column listed first, followed by a `~`, followed by the categorical data column. Use the back tick mark `` ` `` to surround column names that have spaces in them, like `` `Happiness Score` `` and `` `Treatment Group` ``. 
 
@@ -157,7 +157,7 @@ Gratitude <- read_excel("./Data/Gratitude.xlsx")
 
 ```{r, message=FALSE, warning=FALSE, comment=NA}
 library(mosaic)
-favstats(`Happiness Score` ~ `Treatment Group`, data=Gratitude)
+favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
 ```
 
 **To make an appropriate graph to illustrate the data:**
@@ -167,7 +167,7 @@ favstats(`Happiness Score` ~ `Treatment Group`, data=Gratitude)
 * Specify axes labeling with `main="A main title"`, `xlab="An x-axis label"`, and `ylab="A y-axis label"`.
 
 ```{r}
-boxplot(`Happiness Score` ~ `Treatment Group`, data=Gratitude,
+boxplot(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`,
         col=c("orange","skyblue","firebrick"), 
         main="The Effects of Gratitude",
         xlab="Treatment Group",
@@ -193,13 +193,13 @@ Based on the numerical summaries and boxplot, the Gratitude group had a higher l
 
 To conduct a test for several means (ANOVA) in R, do the following: 
 
-* Read in the data if you haven't already: [Gratitude.xlsx](./Data/Gratitude.xlsx).
+* Read in the data if you haven't already: [Gratitude.xlsx](./Data/Gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Use the `aov(...)` function and the assignment operator `<-` to perform and save the results of the test to any name you want to create for the test. Here we use the name `gratitude_aov`. 
 * When using the `aov(...)` function, place the quantitative data first, followed by a `~`, followed by the categorical data.
 * Use the `summary(...)` function to view the results of the ANOVA test.
 
 ```{r, comment=NA}
-gratitude_aov <- aov(`Happiness Score` ~ `Treatment Group`, data=Gratitude)
+gratitude_aov <- aov(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
 summary(gratitude_aov)
 ```
 
@@ -345,7 +345,7 @@ SoccerShoes <- read_excel("./Data/SoccerShoes.xlsx")
 
 ```{r, eval=FALSE}
 library(mosaic)
-favstats(Accuracy ~ Footwear, data=SoccerShoes)
+favstats(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)
 ```
 
 Using the code above, we can pull out the important values.
@@ -371,7 +371,7 @@ Using the code above, we can pull out the important values.
 
 
 ```{r}
-boxplot(Accuracy ~ Footwear, data=SoccerShoes, 
+boxplot(SoccerShoes$Accuracy ~ SoccerShoes$Footwear, 
         col="yellow2", 
         main="Soccer Shoes vs. Socks and Shooting Accuracy")
 ````
@@ -419,7 +419,7 @@ boxplot(Accuracy ~ Footwear, data=SoccerShoes,
 <div id="Q6" style="display:none;">
 
 ```{r}
-soccer_aov <- aov(Accuracy ~ Footwear, data=SoccerShoes)
+soccer_aov <- aov(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)
 summary(soccer_aov)
 ```
 

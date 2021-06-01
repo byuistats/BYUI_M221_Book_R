@@ -428,12 +428,12 @@ $(document).ready(function () {
 </div>
 <div id="case-study-how-confident-are-you" class="section level2">
 <h2>Case Study: How Confident are You?</h2>
-<div style="float:right;padding:10px;">
+<div style="float:right;padding:10px;width=80%;">
 <p><img src="Images/Testtaking-exam.jpg"></p>
 </div>
 <p>Think about a time when you walked into an exam, having prepared carefully, <em>knowing</em> that you would do well. On the other hand, have you ever entered an exam feeling unprepared? How have your exam scores compared to your confidence?</p>
 <p><img src="Images/Step1.png"></p>
-<p>Shane Goodwin and other researchers examined this question. They studied factors that affect a student’s confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. In addition to marking their test question responses, they evaluated their confidence for each answer on a scale of 1 to 6. The confidence rating scale is summarized in the following table:</p>
+<p>Shane Goodwin and other researchers examined this question. They studied factors that affect a student’s confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. As students completed the exam, they were required to both answer each question on the exam as well as rate their confidence for each of their answers being correct on a scale of 1 to 6, where confidence ratings of 1 meant “No Clue” and confidence ratings of 6 meant the student was “Certain” they had entered the correct answer to that question.</p>
 <p><strong>Confidence Rating</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Random guess (no clue)</p></li>
@@ -443,7 +443,7 @@ $(document).ready(function () {
 <li><p>Very sure</p></li>
 <li><p>Certain (absolutely sure)</p></li>
 </ol>
-<p>Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.</p>
+<p>At the end of the exam, two values were recorded for each student. First, the final score was computed as a percentage of questions answered correctly for that student. Second, the final confidence rating was computed by taking the average confidence score from all of the confidence scores that the student had recorded for each question. Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.</p>
 <p><img src="Images/Step2.png"></p>
 <p>The <span class="math inline">\(n=139\)</span> students from the selected Math 101 course represented a convenience sample of students. They were the students of teachers who elected to have their students participate in this study.</p>
 <p><img src="Images/Step3.png"></p>
@@ -507,7 +507,7 @@ R Instructions
 <h3>Describing Direction: Scatterplots and the Correlation Coefficient</h3>
 <p>We say that the direction of data in a scatterplot is <strong>positive</strong> or there is a <strong>positive association</strong> between two variables when an <em>increase</em> in one variable tends to lead to an <em>increase</em> in the other variable. We observed a positive association in Goodwin’s confidence data.</p>
 <p>The <strong>correlation coefficient</strong> is a number that is used to measure the direction and strength of the linear association between two variables. The direction is either positive, negative, or neither. The strength can be described as weak, moderate, or strong.</p>
-<p>Correlation coefficients are always between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>, and a correlation of <span class="math inline">\(0\)</span> implies <em>no correlation</em> in the data. We use the letter <span class="math inline">\(r\)</span> to write the correlation coefficient.</p>
+<p>Correlation coefficients are always between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. A correlation of <span class="math inline">\(0\)</span> implies <em>no correlation</em> in the data. We use the letter <span class="math inline">\(r\)</span> to represent the correlation coefficient.</p>
 <p>We will use software to compute the correlation coefficient. For the Goodwin data, the correlation coefficient is: <span class="math display">\[r = 0.728\]</span></p>
 </div>
 <div id="r-instructions-for-computing-correlation" class="section level3">
@@ -531,8 +531,8 @@ R Instructions
 <div id="describing-strength-the-correlation-coefficient" class="section level4">
 <h4>Describing Strength: The Correlation Coefficient</h4>
 <p>We also describe the relationship between two variables as <strong>weak</strong>, <strong>moderate</strong>, or <strong>strong</strong>, depending on how close the relationship between the variables is. The strength of the linear relationship is also described in the correlation coefficient.</p>
-<p>The correlation coefficient <span class="math inline">\(r\)</span> is always a value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. If there is a strong positive association, the correlation coefficient will be close to <span class="math inline">\(1\)</span>. If the correlation coefficient is positive but relatively close to 0, we say there is a weak positive association in the data.</p>
-<p>Similarly, if the correlation coefficient is close to <span class="math inline">\(-1\)</span>, we say there is a strong negative association. A weak negative association results in a correlation coefficient that is negative but close to 0.</p>
+<p>The correlation coefficient <span class="math inline">\(r\)</span> is always a value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. If there is a strong positive association, the correlation coefficient will be close to <span class="math inline">\(1\)</span>. If the correlation coefficient is positive but relatively small, we say there is a weak positive association in the data. If the correlation is zero (or really close to zero), then we say there is no correlation in the data.</p>
+<p>Similarly, if the correlation coefficient is close to <span class="math inline">\(-1\)</span>, we say there is a strong negative association. A weak negative association results in a correlation coefficient that is negative but close to 0. But if the correlation is negative and really close to zero, then we say there is no correlation in the data.</p>
 <p>It is difficult to establish definite cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong. This depends a great deal upon the context of the data and how much is known about the situation already. In some contexts, a correlation of <span class="math inline">\(r=0.2\)</span> could be considered strong. But typically in this class, we only consider correlations above <span class="math inline">\(r=0.7\)</span> to be strong correlations (and similary for <span class="math inline">\(r=-0.7\)</span> and below). In this course, we also typically call anything between <span class="math inline">\(r=-0.3\)</span> and <span class="math inline">\(r=0.3\)</span> a weak correlation. But again, in a different course or in a different type of research, these cut-offs could completely change as to what we consider to be a <em>strong</em> or <em>weak</em> or <em>moderate</em> correlation.</p>
 <p>Several scatterplots have been created, and the correlation coefficient summarizing the relationship between the two variables is presented. Study these graphs to see if you can infer some of the properties of the correlation coefficient.</p>
 <br>
@@ -791,7 +791,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
-<li>If <span class="math inline">\(r = -1\)</span>, there is a perfect negative linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. All the points are in a line that slopes downward.</li>
+<li>If <span class="math inline">\(r = -1\)</span>, there is a perfect negative linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. All the points are exactly on a line that slopes downward.</li>
 </ul>
 </div>
 <p> </p>
@@ -880,7 +880,7 @@ Answer the following question:
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <ul>
-<li>Outliers can dramatically affect the value of the correlation coefficient. It is possible for one outlier to change a correlation coefficient from a strong positive value to a negative value. It is possible for one outlier to change uncorrelated data to a data set that has a very high correlation.</li>
+<li>Outliers can dramatically affect the value of the correlation coefficient. It is possible for one outlier to change a correlation coefficient from a strong positive value to a negative value, like in Figure 10. It is possible for one outlier to change uncorrelated data to a data set that has a very high correlation, like in Figure 12.</li>
 </ul>
 </div>
 <p> </p>
@@ -889,7 +889,7 @@ Answer the following question:
 </div>
 <div id="nonlinear-relationships" class="section level4">
 <h4>Nonlinear Relationships</h4>
-<p>The following figures illustrate possible situations where the relationship between two variables does not follow a straight line. There can be a very strong relationship between the variables and still not have a strong correlation. Conversely, you can have a correlation coefficient that is close to zero, even though there is a perfect nonlinear association between the data.</p>
+<p>The following figures illustrate possible situations where the relationship between two variables does not follow a straight line. You can have a correlation coefficient that is close to zero, even though there is a perfect <em>nonlinear</em> association between the data. This is why it is meaningful to show a scatterplot <em>and</em> the correlation coefficient. That way we know if we are really measuring the strength and direction of a <em>linear</em> relationship or not.</p>
 <br>
 <center>
 <table>
@@ -1019,7 +1019,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
-<li>Figures 14 and 16 both have relatively high correlation coefficient, <span class="math inline">\(r = 0.86\)</span>.</li>
+<li>Figures 14 and 16 both have relatively high correlation coefficient, <span class="math inline">\(r = 0.86\)</span> and <span class="math inline">\(r = 0.74\)</span>, respectively.</li>
 </ul>
 </div>
 <p><br></p>
@@ -1043,10 +1043,11 @@ Answer the following questions:
 <li><span class="math inline">\(r\)</span> is a number between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span></li>
 <li>positive values of <span class="math inline">\(r\)</span> imply a positive linear relationship between the two variables</li>
 <li>negative values of <span class="math inline">\(r\)</span> imply a negative linear relationship between the two variables</li>
-<li>values of <span class="math inline">\(r\)</span> close to zero suggest there is a weak correlation between the two variables</li>
+<li>a value of <span class="math inline">\(r=0\)</span> implies no correlation.</li>
+<li>values of <span class="math inline">\(r\)</span> close to zero suggest there is a weak linear relationship between the two variables</li>
 <li>if <span class="math inline">\(r\)</span> is close to <span class="math inline">\(1\)</span>, it is evidence of a strong positive linear relationship between the two variables</li>
 <li>if <span class="math inline">\(r\)</span> is close to <span class="math inline">\(-1\)</span>, there is evidence of a strong negative linear relationship between the two variables</li>
-<li>if <span class="math inline">\(r\)</span> equals <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span>, then there is a perfect linear relationship between the two variables (the points are all in a line)</li>
+<li>if <span class="math inline">\(r\)</span> equals <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span>, then there is a perfect linear relationship between the two variables (the points are all exactly on the line)</li>
 <li>the correlation of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is the same as the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> (i.e.there is no distinction between explanatory and response variables.)</li>
 <li>the correlation coefficient measures the strength of the linear relationship between two variables; it does not give the strength of a nonlinear relationship, no matter how strong</li>
 <li>the correlation coefficient is affected by outliers</li>
@@ -1082,7 +1083,7 @@ Answer the following questions:
 <div id="Q12" style="display:none;">
 <ul>
 <li>Answers will vary.</li>
-<li>A natural way to predict the waiting times until the next eruption is to compute the mean and median wait times. We can compute the standard deviation of the waiting times. We can even make a 95% confidence interval for the true mean waiting times.</li>
+<li>One way to guess wait times until the next eruption, is to just compute the mean or median amount of time people have had to wait for the next eruption to occur. We could also compute the standard deviation of the waiting times, and even make a 95% confidence interval for the true mean waiting time.</li>
 </ul>
 </div>
 <p><br></p>
