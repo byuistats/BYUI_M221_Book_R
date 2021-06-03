@@ -1055,21 +1055,6 @@ $$
 
 We can compute a confidence interval for the true mean of the differences for paired data.  After the differences between two paired data sets have been calculated, we can create a confidence interval for the true mean of the differences.  To do this, we follow the instructions for creating a confidence interval for a one mean with $\sigma$ unknown, but we use the column of differences as the data set.
 
-### R Instructions for Confidence Intervals
-
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
-**To calculate confidence intervals for the true mean of the difference in R, do the following**:
-
-* Read in the data to RStudio.
-* Compute the differences.
-* Perform a `t.test(...)` on the differences.
-* Set the desired confidence level using `t.test(..., conf.level=0.95)`.
-<br>
-
-</div>
-<br>
-
 The requirements for creating a confidence interval for the difference of means are the same as the requirements for the hypothesis test.  We require that:
 
 * A simple random sample was drawn from the population
@@ -1206,6 +1191,36 @@ hist(differences, main="Pine Beetle Outbreaks", xlab="Difference in Tree Density
 
 
 <img src="./Images/Step4.png">
+
+To create a confidence interval for the true mean of the differences $\mu_d$ in R, use the following.
+
+### R Instructions for Confidence Intervals
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+**To calculate confidence intervals for the true mean of the difference in R, do the following**:
+
+* Read in the data to RStudio if you haven't already: [PineBeetle](./Data/PineBeetle.xslx) 
+* Compute the differences if you haven't already:
+
+```{r}
+differences <- PineBeetle$After - PineBeetle$Before
+```
+
+* Use the code `t.test(differences, conf.level=0.95)` to set the desired confidence level and create the confidence interval.
+
+```{r, comment=NA}
+t.test(differences, conf.level=0.95)
+```
+
+The row of the output shown above called "95 percent confidence interval:" shows the **lower bound** as -438.1211 and the **upper bound** as -432.9483.
+
+<br>
+
+</div>
+<br>
+
+
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">

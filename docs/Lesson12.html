@@ -392,8 +392,8 @@ $(document).ready(function () {
 </ul></li>
 <li><a href="#confidence-intervals">Confidence Intervals</a>
 <ul>
-<li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
 <li><a href="#mountain-pine-beetle-attacks">Mountain Pine Beetle Attacks</a></li>
+<li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
 <li><a href="#sleep-inducing-drugs">Sleep Inducing Drugs</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
@@ -1476,11 +1476,11 @@ df = 86
 <a href="javascript:showhide('Q33')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q33" style="display:none;">
 <ul>
-<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. The <span class="math inline">\(P\)</span>-value is shaded in green.
+<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output of the <code>t.test(...)</code>.</li>
+</ul>
 <center>
 <img src="Images/DirectFlightCosts-Applet.png">
-</center></li>
-</ul>
+</center>
 </div>
 <p><br></p>
 <ol start="34" style="list-style-type: decimal">
@@ -1529,21 +1529,6 @@ Answer the following questions:
 <div id="confidence-intervals" class="section level2">
 <h2>Confidence Intervals</h2>
 <p>We can compute a confidence interval for the true mean of the differences for paired data. After the differences between two paired data sets have been calculated, we can create a confidence interval for the true mean of the differences. To do this, we follow the instructions for creating a confidence interval for a one mean with <span class="math inline">\(\sigma\)</span> unknown, but we use the column of differences as the data set.</p>
-<div id="r-instructions-for-confidence-intervals" class="section level3">
-<h3>R Instructions for Confidence Intervals</h3>
-<div class="SoftwareHeading">
-R Instructions
-</div>
-<div class="Software">
-<p><strong>To calculate confidence intervals for the true mean of the difference in R, do the following</strong>:</p>
-<ul>
-<li>Read in the data to RStudio.</li>
-<li>Compute the differences.</li>
-<li>Perform a <code>t.test(...)</code> on the differences.</li>
-<li>Set the desired confidence level using <code>t.test(..., conf.level=0.95)</code>. <br></li>
-</ul>
-</div>
-<p><br></p>
 <p>The requirements for creating a confidence interval for the difference of means are the same as the requirements for the hypothesis test. We require that:</p>
 <ul>
 <li>A simple random sample was drawn from the population</li>
@@ -1551,7 +1536,6 @@ R Instructions
 </ul>
 <p>  <img src="Images/StepsAll.png"></p>
 <p><img src="Images/PineBeetleDamage-1441150-LG.png"></p>
-</div>
 <div id="mountain-pine-beetle-attacks" class="section level3">
 <h3>Mountain Pine Beetle Attacks</h3>
 <p><img src="Images/Step1.png"></p>
@@ -1680,6 +1664,39 @@ summary(differences)</code></pre>
 </div>
 <p><br></p>
 <p><img src="Images/Step4.png"></p>
+<p>To create a confidence interval for the true mean of the differences <span class="math inline">\(\mu_d\)</span> in R, use the following.</p>
+</div>
+<div id="r-instructions-for-confidence-intervals" class="section level3">
+<h3>R Instructions for Confidence Intervals</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p><strong>To calculate confidence intervals for the true mean of the difference in R, do the following</strong>:</p>
+<ul>
+<li>Read in the data to RStudio if you haven’t already: <a href="./Data/PineBeetle.xslx">PineBeetle</a></li>
+<li>Compute the differences if you haven’t already:</li>
+</ul>
+<pre class="r"><code>differences &lt;- PineBeetle$After - PineBeetle$Before</code></pre>
+<ul>
+<li>Use the code <code>t.test(differences, conf.level=0.95)</code> to set the desired confidence level and create the confidence interval.</li>
+</ul>
+<pre class="r"><code>t.test(differences, conf.level=0.95)</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  differences
+t = -332.43, df = 169, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -438.1211 -432.9483
+sample estimates:
+mean of x 
+-435.5347 </code></pre>
+<p>The row of the output shown above called “95 percent confidence interval:” shows the <strong>lower bound</strong> as -438.1211 and the <strong>upper bound</strong> as -432.9483.</p>
+<p><br></p>
+</div>
+<p><br></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1913,7 +1930,7 @@ length(differences)</code></pre>
         xlab=&quot;Difference in Hours of Sleep&quot;,
         main=&quot;Slee Inducing Drugs Study&quot;,
         horizontal=TRUE)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
