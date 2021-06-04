@@ -743,7 +743,7 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 <img src="./Images/Step3.png">
 
-### R Instructions for Describing "Wide" Data
+### R Instructions for Describing Data in Two Different Columns
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
@@ -847,7 +847,7 @@ boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital, names=c("Community", "Hospita
 <img src="./Images/Step4.png">
 
 
-### R Instructions for t Tests with "Wide" Data
+### R Instructions for t Tests with Data in Two Different Columns
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
