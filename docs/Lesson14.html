@@ -566,10 +566,10 @@ R Instructions
 <p><strong>To compute numerical summaries for several groups:</strong></p>
 <ul>
 <li>Read in the data: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
-<li>Load <code>library(mosaic)</code>.</li>
+<li>Load <code>library(mosaic)</code>. (If this fails for you, try running <code>install.packages("mosaic")</code> and then re-run the <code>library(mosaic)</code> command.)</li>
 <li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>`Happiness Score`</code> and <code>`Treatment Group`</code>.</li>
 </ul>
-<pre class="r"><code>library(mosaic)
+<pre class="r"><code>library(mosaic) 
 favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)</code></pre>
 <pre><code>  Gratitude$`Treatment Group` min    Q1 median    Q3 max     mean        sd  n
 1                      Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65

@@ -146,7 +146,7 @@ Gratitude
 **To compute numerical summaries for several groups:**
 
 * Read in the data: [Gratitude.xlsx](./Data/Gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
-* Load `library(mosaic)`.
+* Load `library(mosaic)`. (If this fails for you, try running `install.packages("mosaic")` and then re-run the `library(mosaic)` command.)
 * Use the `favstats(...)` function with the quantitative data column listed first, followed by a `~`, followed by the categorical data column. Use the back tick mark `` ` `` to surround column names that have spaces in them, like `` `Happiness Score` `` and `` `Treatment Group` ``. 
 
 ```{r, include=FALSE}
@@ -156,7 +156,7 @@ Gratitude <- read_excel("./Data/Gratitude.xlsx")
 ```
 
 ```{r, message=FALSE, warning=FALSE, comment=NA}
-library(mosaic)
+library(mosaic) 
 favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
 ```
 
