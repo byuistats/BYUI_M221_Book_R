@@ -382,10 +382,11 @@ $(document).ready(function () {
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
 <li><a href="#hypothesis-tests">Hypothesis Tests</a>
 <ul>
-<li><a href="#another-taste-of-ptc">Another Taste of PTC</a></li>
-<li><a href="#using-excel-to-perform-these-calculations">Using Excel to perform these calculations</a></li>
-<li><a href="#mortality-rates-and-day-of-admission-aortic-aneurysms">Mortality Rates and Day of Admission: Aortic Aneurysms</a></li>
-<li><a href="#mortality-rates-and-day-of-admission-heart-attacks">Mortality Rates and Day of Admission: Heart Attacks</a></li>
+<li><a href="#case-study-another-taste-of-ptc">Case Study: Another Taste of PTC</a></li>
+<li><a href="#r-instructions-for-testing-two-proportions">R Instructions for Testing Two Proportions</a></li>
+<li><a href="#case-study-mortality-rates-and-day-of-admissionaortic-aneurysms">Case Study: Mortality Rates and Day of Admission–Aortic Aneurysms</a></li>
+<li><a href="#checking-requirements-for-the-hypothesis-test">Checking Requirements for the Hypothesis Test</a></li>
+<li><a href="#case-study-mortality-rates-and-day-of-admission-heart-attacks">Case Study: Mortality Rates and Day of Admission: Heart Attacks</a></li>
 </ul></li>
 <li><a href="#confidence-intervals-managing-fox-populations">Confidence Intervals: Managing Fox Populations</a>
 <ul>
@@ -433,18 +434,22 @@ $(document).ready(function () {
 </ul>
 </div>
 <p><br></p>
+<div style="clear:both;">
+
+</div>
 </div>
 <div id="hypothesis-tests" class="section level2">
 <h2>Hypothesis Tests</h2>
-<p><img src="Images/StepsAll.png"></p>
-<div id="another-taste-of-ptc" class="section level3">
-<h3>Another Taste of PTC</h3>
-<p><img src="Images/Step1.png"></p>
+<div id="case-study-another-taste-of-ptc" class="section level3">
+<h3>Case Study: Another Taste of PTC</h3>
+<div style="float:right;padding:10px;">
 <p><img src="Images/Phenylthiocarbamide-3D-balls.png"></p>
+</div>
+<p><img src="Images/Step1.png"></p>
 <p>The ability to taste the chemical Phenylthiocarbamide (PTC) is hereditary. Some people can taste it, while others cannot. Even though the ability to taste PTC was observed in all age, race, and sex groups, this does not address the issue about whether men or women are more likely to be able taste PTC.</p>
-<p>Further exploration of the PTC data allows us to investigate if there is a difference in the proportion of men and women who can taste PTC. The following contingency table summarizes Elise Johnson’s results<!--<cite>Johnson06</cite>-->:</p>
+<p>Further exploration of the PTC data allows us to investigate if there is a difference in the proportion of men and women who can taste PTC. The following table of counts summarizes Elise Johnson’s results:</p>
 <table>
-<caption><strong>Gender Data Table</strong></caption>
+<caption><strong>PTC Taste Test Results Table</strong></caption>
 <thead>
 <tr class="header">
 <th align="left">Can Taste PTC?</th>
@@ -474,59 +479,34 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |+ **Gender Data Table** -->
-<!-- |- -->
-<!-- ! Can Taste PTC? || Female || Male || Total -->
-<!-- |- -->
-<!-- !  No -->
-<!-- | 15 || 14 || 29 -->
-<!-- |- -->
-<!-- ! Yes -->
-<!-- || 51 || 38 || 89 -->
-<!-- |- -->
-<!-- ! Total -->
-<!-- | 66 || 52 || 118 -->
-<!-- |- -->
-<!-- |} -->
 <p>These data are available in the file <a href="./Data/PTCtasting.xlsx">PTCTasting</a>. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
-<p>Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of men and the proportion of women who can taste PTC? The hypothesis is that there is no difference in the the true proportion of men who can taste PTC compared to the true proportion of women who can taste PTC.</p>
+<p>Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of males and the proportion of females who can taste PTC? The hypothesis is that there is no difference in the the true proportion of males who can taste PTC compared to the true proportion of females who can taste PTC. This is written mathematically as:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+H_0: &amp; p_\text{males} = p_\text{females} \\
+H_a: &amp; p_\text{males} \ne p_\text{females} \\
+\end{array}
+\]</span></p>
 <p><img src="Images/Step2.png"></p>
 <p>A sample of 66 females and 52 males were provided with PTC strips and asked to indicate if they could taste the chemical or not. (This research was approved by the BYU-Idaho Institutional Review Board.)</p>
 <p><img src="Images/Step3.png"></p>
-<p>When working with categorical data, it is natural to summarize the data by computing proportions. If someone has the ability to taste PTC, we will call this a success. The sample proportion is defined as the number of successes observed divided by the total number of observations. For the females, the proportion of the sample who could taste the PTC was: <span class="math display">\[
-\hat p_1 = \frac{x_1}{n_1} = \frac{51}{66}
-\]</span> This is approximately 77.3% of the people who were surveyed. For the males, the proportion who could taste PTC was: <span class="math display">\[
-\hat p_2 = \frac{x_2}{n_2} = \frac{38}{52}
-\]</span> This works out to be about 73.1%.</p>
-<p>When working with data for two proportions, graphically displaying the data can help us compare each proportion. Pie charts and bar charts are essential tools for describing our data. The Math221 Statistics Toolbox automatically creates a side-by-side 100% stacked bar chart when you input the data into the “Two Proportions” tab.</p>
-<p><img src="Images/PTC_Stacked_Bar_Toolbox.PNG"></p>
-Click on the link at right if you would like to learn how to create a side-by-side 100% stacked bar chart on your own in Excel. <a href="javascript:showhide('ins')"><span style="font-size:8pt;">Show/Hide Instructions</span></a>
-<div id="ins" style="display:none;">
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=SideBySidePieCharts}} -->
-<div class="SoftwareHeading">
-Excel Instructions
+<p>When working with categorical data, it is natural to summarize the data by computing proportions. If someone has the ability to taste PTC, we will call this a success. The sample proportion is defined as the number of successes observed divided by the total number of observations. For the males, the proportion who could taste PTC was: <span class="math display">\[
+\hat p_\text{males} = \frac{x_2}{n_2} = \frac{38}{52} \approx 0.731
+\]</span> This works out to be about 73.1%. For the females, the proportion of the sample who could taste the PTC was: <span class="math display">\[
+\hat p_\text{females} = \frac{x_1}{n_1} = \frac{51}{66} \approx 0.773
+\]</span> This is approximately 77.3% of the people who were surveyed.</p>
+<p>When working with data for two proportions, graphically displaying the data can help us compare each proportion. Bar charts are essential tools for describing our data. The stacked bar chart show below was created in R.</p>
+<a href="javascript:showhide('ptcbarplot')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
+<div id="ptcbarplot" style="display:none;">
+<pre class="r"><code>ptc.table &lt;- c(`Male` = 14/38, `Female` = 15/51)
+barplot(ptc.table, 
+        col=c(&quot;skyblue2&quot;,&quot;hotpink&quot;), 
+        ylim=c(0,1),
+        main=&quot;PTC Taste Test Results&quot;,
+        ylab=&quot;Proportion Able to Taste&quot;,
+        xlab=&quot;Gender&quot;)</code></pre>
 </div>
-<div class="Summary">
-<p><strong>To create 100% Stacked Bar Charts in Excel, do the following:</strong></p>
-<p>For this example we will continue to use the PTCTasting data set.</p>
-<ul>
-<li>First, re-arrange the summary of the data so that it looks like the table above, but without a row and column for total.</li>
-<li>Highlight the counts and the row and column headings. Now click on the “Insert” tab and select the 3rd option under the “2D Column” heading.</li>
-</ul>
-<center>
-<img src="Images/PTC_Stacked_Bar_Creation.png">
-</center>
-<p><br> - Your graph would look like the image below. You can further customize it by adding data labels, titles, changing colors, etc.</p>
-<center>
-<p><img src="Images/PTC_Stacked_bar.PNG"></p>
-</center>
-<p><br></p>
-</div>
-<p><br></p>
-</div>
-<p><br></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p><img src="Images/Step4.png"></p>
 <p>The null and alternative hypotheses for a test of equality of two proportions is: <span class="math display">\[
 \begin{array}{rl}
@@ -534,8 +514,8 @@ H_0: &amp; p_1 = p_2 \\
 H_a: &amp; p_1 \ne p_2 \\
 \end{array}
 \]</span></p>
-<p>If the null hypothesis is true, then the proportion of females who can taste PTC is the same as the proportion of males who can taste PTC.</p>
-<p><span id="Equation"></span> The test statistic is a <span class="math inline">\(z\)</span>, and is given by: <span class="math display">\[
+<p>In this PTC study, we let <span class="math inline">\(p_1\)</span> be the true proportion of males that could taste PTC, <span class="math inline">\(p_\text{males}\)</span>. We let <span class="math inline">\(p_2\)</span> be the true proportion of females that could taste PTC, <span class="math inline">\(p_\text{females}\)</span>. If the null hypothesis is true, then the proportion of females who can taste PTC is the same as the proportion of males who can taste PTC.</p>
+<p><span id="Equation"></span> The test statistic of a two-proportion test is a <span class="math inline">\(z\)</span>, and is given by the equation: <span class="math display">\[
 z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
 \]</span> where <span class="math display">\[
 \begin{array}{lll}
@@ -546,6 +526,45 @@ n_2= \text{sample size for group 2:}    &amp; n_2 = 52  &amp; \text{(number of m
 \hat p= \text{overall sample proportion:}   &amp; \hat p = \frac{x_1+x_2}{n_1+n_2} = \frac{89}{118} &amp; \text{(overall proportion who can taste PTC)}\\
 \end{array}
 \]</span></p>
+<p>However, computing this test statistic by hand is tedious. R will compute the test statistic for us.</p>
+</div>
+<div id="r-instructions-for-testing-two-proportions" class="section level3">
+<h3>R Instructions for Testing Two Proportions</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>Use the <code>prop.test( )</code> function in R to perform a test of two proportions. The test requires typing in</p>
+<ul>
+<li><code>x = c(first value, second value)</code></li>
+<li><code>n = c(first value, second value)</code></li>
+<li><code>correct=FALSE</code> which turns off the Yate’s Continuity Correction. This correction is only needed for small sample sizes. (Recall that if <span class="math inline">\(np &lt; 10\)</span> or <span class="math inline">\(n(1-p)&lt;10\)</span>, then the sampling distribution of the sample proportion may not be normal. In that case, using <code>correct=TRUE</code> would be appropriate.)</li>
+<li><code>alternative="two.sided"</code> runs a two-tailed test, but <code>alternative="greater"</code> or <code>alternative="less"</code> could also be used if specified in the alternative hypothesis of the test.</li>
+</ul>
+<pre class="r"><code>prop.test(x=c(38,51), n=c(52,66), correct=FALSE, alternative=&quot;two.sided&quot;)</code></pre>
+<pre><code>
+    2-sample test for equality of proportions without continuity
+    correction
+
+data:  c(38, 51) out of c(52, 66)
+X-squared = 0.27623, df = 1, p-value = 0.5992
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.1992990  0.1153829
+sample estimates:
+   prop 1    prop 2 
+0.7307692 0.7727273 </code></pre>
+<p>At the bottom of the output above we are given the “prop 1” and “prop 2” sample proportions. Since we entered the male values first, “prop 1” is for the males and “prop 2” is for the females.</p>
+<p><strong>Note</strong>: <code>prop.test( )</code> gives the “Test Statistic” as the “X-squared” value. You will need to square root that value to get the <span class="math inline">\(Z\)</span>-value of the test. As shown above, this test gave X-squared <span class="math inline">\(= 0.27623\)</span>, so the <span class="math inline">\(Z\)</span>-value of the test statistic (which is required for quizzes and exams in Math 221) is <span class="math inline">\(Z = \sqrt{0.27623} = 0.526\)</span>.</p>
+<p>The <span class="math inline">\(P\)</span>-value of this test is 0.599, which is confirmed by putting the <span class="math inline">\(Z\)</span>-value into the Normal Probability Applet and shading both tails.</p>
+<p><img src="Images/ShadeBothZ-0-5256.png"></p>
+<p>(While you don’t need to shade the Normal Distribution yourself to get the <span class="math inline">\(P\)</span>-value, as R already did that for you, it is useful to recognize that is what R is doing to get the <span class="math inline">\(P\)</span>-value.)</p>
+<p><br/></p>
+</div>
+<p><br/></p>
+<p>If you are interested in seeing how these same calculations could be done by had, click the button below. These calculations are optional reading, and are only included for the curious student.</p>
+<a href="javascript:showhide('handcalculations1')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Math Calculations</span></a>
+<div id="handcalculations1" style="display:none;">
 <p>Substituting these values into the equation for the test statistic, <span class="math inline">\(z\)</span>, we get: <span class="math display">\[
 \begin{align}
 z &amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
@@ -563,55 +582,28 @@ The test statistic is <span class="math inline">\(z=0.526\)</span>. Under the nu
 <img src="Images/ShadeBothZ-0-5256.png">
 </center>
 <p>Since <span class="math inline">\(P\textrm{-value} = 0.599 &gt; 0.05 = \alpha\)</span>, we fail to reject the null hypothesis. In English we say, there is insufficient evidence to suggest that the true proportion of males who can taste PTC is different from the true proportion of females who can taste PTC.</p>
+<p><br/></p>
+</div>
+<p><br/></p>
 <p><img src="Images/Step5.png"></p>
 <p>Men and women appear to be able to taste PTC in equal proportions. There is not enough evidence to say that one gender is able to taste PTC more than the other. It appears that the ability to taste PTC is not a sex-linked trait.</p>
+<p><br/></p>
 </div>
-<div id="using-excel-to-perform-these-calculations" class="section level3">
-<h3>Using Excel to perform these calculations</h3>
-<!-- {{Content:Excel/SPSS-Two Proportion HT}} -->
-<p>Just like we did for one proportion, we will use the <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> to perform hypothesis tests for two proportions.</p>
-<span class="Custom">Click on the link at right</span> for instructions on using this spreadsheet to perform hypothesis testing. <a href="javascript:showhide('ins')"><span style="font-size:8pt;">Show/Hide Instructions</span></a>
-<div id="ins" style="display:none;">
-<p>For this example we will consider the “PTC” data above.</p>
-<ul>
-<li><strong>Step 1</strong>: Open the Excel file Math221 Statistics Toolbox and click on the “Two Proportions” tab at the bottom of the spreadsheet. Find the group of cells labeled “Numerical Summary”. Here we will input the values of <span class="math inline">\(x_1\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(n_2\)</span> from the PTC tasting data above.</li>
-</ul>
-<center>
-<img src="Images/Lesson_18_pic_1.PNG">
-</center>
-<ul>
-<li><p>The yellow boxes indicate the input spaces. These are the only cells into which you will enter data.</p></li>
-<li><p><strong>Confidence Interval</strong>: Next, we indicate our desired level of confidence for our confidence interval. Down and to the right of where we entered in our counts is a block of cells labeled “Confidence Interval”. There is a yellow cell there, I12, where we can choose a confidence level. By default the cell contains the value 95%. The confidence interval bounds are shown as well as the sample proportion, <span class="math inline">\(\hat{p}\)</span> and the margin of error.</p></li>
-</ul>
-<center>
-<img src="Images/Lesson_18_pic_2.PNG">
-</center>
-<p><br></p>
-<ul>
-<li><strong>Hypothesis Test</strong>: To conduct a hypothesis test we must define our null and alternative hypotheses. To the right of the “Numerical Summary” cells is a block of cells labeled “Hypothesis Test”. The null hypothesis is always the same and does not need to be updated. For the alternative hypothesis we can change the yellow cell, K6, to select the type of alternative hypothesis we wish to test, i.e. “Greater Than”, “Less Than”, or “Not Equal To.”</li>
-</ul>
-<p>The results of the hypothesis test are given immediately below where we define the hypotheses:</p>
-<center>
-<img src="Images/Lesson_18_pic_3.PNG">
-</center>
-<p><br></p>
-<ul>
-<li>Compare the z-score and <span class="math inline">\(P\)</span>-value with the one you calculated by hand. They’re the same! <br></li>
-</ul>
+<div id="case-study-mortality-rates-and-day-of-admissionaortic-aneurysms" class="section level3">
+<h3>Case Study: Mortality Rates and Day of Admission–Aortic Aneurysms</h3>
+<div style="float:right;padding:10px;">
+<p><img src="Images/AneurysmAorta-marked.png"></p>
 </div>
-<p><br></p>
-<p><img src="Images/StepsAll.png"></p>
-</div>
-<div id="mortality-rates-and-day-of-admission-aortic-aneurysms" class="section level3">
-<h3>Mortality Rates and Day of Admission: Aortic Aneurysms</h3>
 <p>Some people have claimed that mortality (death) rates are higher for patients admitted to a hospital on a weekend compared to patients admitted on a weekday. Researchers Chaim Bell and Donald Redelmeier analyzed admission data from hospital emergency rooms in Ontario, Canada <!--<cite>Bell01</cite>-->.</p>
-<center>
-<img src="Images/AneurysmAorta-marked.png">
-</center>
 <p>The aorta is a major artery that takes oxygen-rich blood from the heart to the entire body. In some patients, this artery can swell like a balloon and burst. If this occurs in the abdomen, the technical term for the event is a ruptured abdominal aortic aneurysm. Although this condition is treatable, it requires immediate action, or the patient will die rapidly.</p>
 <p><img src="Images/Step1.png"></p>
 <p>The problem is that the quality of care in an emergency care facility may differ at different times of the week. Doctors Bell and Redelmeier hypothesized that the probability that a patient with an aortic aneurysm will die is greater if they are admitted to a hospital on a weekend compared to a weekday.</p>
 <p><strong>Hypothesis:</strong> The proportion of patients with a ruptured abdominal aortic aneurysm who will die is greater on the weekends than on weekdays.</p>
+<p><span class="math display">\[
+ H_0: p_\text{weekday death} = p_\text{weekend death}
+\]</span> <span class="math display">\[
+ H_a: p_\text{weekday death} &lt; p_\text{weekend death}
+\]</span></p>
 <p><img src="Images/Step2.png"></p>
 <p>To test this claim, the researchers accessed medical records for several patients admitted to the emergency department of the hospitals in Ontario, Canada. They recorded the number of patients admitted with an aortic aneurysm on weekdays compared to weekends.</p>
 <p>Data representative of their results are given below <!--<cite>Bell01</cite>-->.</p>
@@ -642,24 +634,6 @@ The test statistic is <span class="math inline">\(z=0.526\)</span>. Under the nu
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |+ **Aortic Aneurysm Outcomes** -->
-<!-- |- -->
-<!-- ! Outcome || Weekday Admission ||  Weekend Admission -->
-<!-- |- -->
-<!-- ! Died (x) -->
-<!-- | align="right" | $x_1 = 1476$ -->
-<!-- | align="right" | $x_2 = 553$ -->
-<!-- |- -->
-<!-- ! Survived -->
-<!-- | align="right" | $2669$ -->
-<!-- | align="right" | $756$ -->
-<!-- |- -->
-<!-- ! Total (n) -->
-<!-- | align="right" | $n_1 = 4145$ -->
-<!-- | align="right" | $n_2 = 1309$ -->
-<!-- |- -->
-<!-- |} -->
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -670,9 +644,9 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<center>
-<span class="math inline">\(\hat p_1 = 0.3561\)</span>
-</center>
+<p><span class="math display">\[
+ \hat p_1 = \hat{p}_\text{weekday} = \frac{1476}{4145} \approx 0.3561
+\]</span></p>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -680,9 +654,9 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
-<center>
-<span class="math inline">\(\hat p_2 = 0.4225\)</span>
-</center>
+<p><span class="math display">\[
+  \hat p_2 = \hat{p}_\text{weekend} = \frac{553}{1309} \approx 0.4225
+\]</span></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -691,39 +665,30 @@ Answer the following questions:
 <a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <center>
-<span class="math inline">\(\hat p_2~&gt;~\hat p_1\)</span>
+<span class="math inline">\(\hat p_\text{weekend}~&gt;~\hat p_\text{weekday}\)</span>
 </center>
 </div>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Without doing any more calculations, do you think that there is a significant increase in the death rates of patients admitted on a weekend compared to those admitted on a weekday? Justify your answer.</li>
+<li>Create a bar chart showing the two sample proportions side-by-side.</li>
 </ol>
 <a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
-<ul>
-<li>It appears that those admitted on a weekend have a greater death rate than those who are admitted on a weekday, but we do not know if it is a statistically significant difference until we do a hypothesis test.</li>
-</ul>
+<pre class="r"><code>aortic.table &lt;- c(Weekday=1476/4145, Weekend=553/1309)
+barplot(aortic.table, ylim=c(0,1))</code></pre>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Or, yours might look a little nicer than that if you labeled it and colored it, as is good practice. Maybe something like this:</p>
+<pre class="r"><code>barplot(aortic.table, 
+        ylim=c(0,1),
+        main=&quot;Death Rates of Aortic Aneurysm Patients \n An Emergency Care Facilty in Ontario, Canada&quot;,
+        ylab=&quot;Proportion of Patients who Died&quot;,
+        xlab=&quot;Day Patient Entered the Hospital&quot;,
+        col=c(&quot;orange&quot;,&quot;red3&quot;))</code></pre>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="./Images/Lesson18_aortic_bar_chart.PNG"> <br></p>
-<!-- #### Side-by-side Bar Charts -->
-<!-- If the data are considered counts, then a side-by-side bar chart is usually the preferred plot. -->
-<!-- <!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<p>–&gt; <!-- <!-- {{Software_Filter | PageName=SideBySideBarCharts }} --> –&gt;</p>
-<!-- <div class="SoftwareHeading">Excel Instructions</div> -->
-<!-- <div class="Summary"> -->
-<!-- **To create side-by-side bar charts in Excel, do the following:** -->
-<!-- - First, make sure the data are organized so that the first column gives the outcome (died or survived), the next column indicates the day of admittance (weekday or weekend) and the last column shows the counts. -->
-<!-- - Then highlight the all three columns but just for the "Weekday" data.   -->
-<!-- - Now click on the "Insert" tab and then the "Chart" button, and select "column".  Please select the most basic 2D column chart. -->
-<!-- - Next you can repeat the process above but highlighting the "Weekend" data for all three columns.   -->
-<!-- - To keep the two pie charts straight, you can add a title. If "Chart Title" is already displayed on the graph, simply double-click it to type in a new title. If you need to add a title, click on the "Design" tab under Chart Tools.  Next click on "Add Chart Element" and choose "Chart Title" from the list of options. Select "Above Chart" as the location of the title.    -->
-<!-- - You can now type in the Titles, "Aortic Aneurysm Outcomes Weekday Admittance" and "Aortic Aneurysm Outcomes Weekend Admittance" or something similar. -->
-<!-- <br> -->
-<!-- </div> -->
-<!-- <br> -->
 <p><img src="Images/Step4.png"></p>
 <br>
 <div class="message Tip">
@@ -736,8 +701,9 @@ H_0: &amp;  p_1 = p_2 \\
 H_a: &amp;  p_1 &lt; p_2
 \end{align}
 \]</span> where group 1 represents the patients admitted on a weekday and group 2 represents patients admitted on a weekend. Note that if <span class="math inline">\(p_1 &lt; p_2\)</span>, then the risk of death is greater in group 2 than in group 1. We will use the 0.05 level of significance.</p>
-<div id="checking-requirements-for-the-hypothesis-test" class="section level4">
-<h4>Checking Requirements for the Hypothesis Test</h4>
+</div>
+<div id="checking-requirements-for-the-hypothesis-test" class="section level3">
+<h3>Checking Requirements for the Hypothesis Test</h3>
 <br>
 <div class="message Tip">
 When you check the requirements for this procedure, you are actually checking that you have at least 10 successes and 10 failures in both Group 1 and Group 2. All four conditions must be true in order to conduct the test.
@@ -748,56 +714,88 @@ When you check the requirements for this procedure, you are actually checking th
 n_1 \cdot \hat p_1 \ge 10                 &amp;&amp; n_2 \cdot \hat p_2 \ge 10 \\
 n_1 \cdot \left(1-\hat p_1\right) \ge 10  &amp;&amp; n_2 \cdot \left(1-\hat p_2\right) \ge 10
 \end{array}
-\]</span> If these requirements are satisfied, the <span class="math inline">\(z\)</span>-statistic can be used to compute to assess whether the true population proportions are equal or if the risk of death is greater on weekends.</p>
+\]</span> If all of these requirements are satisfied, the two proportion test can be used to assess whether the true population proportions are equal or if the risk of death is greater on weekends.</p>
 <p>Note that the requirements are all satisfied: <span class="math display">\[
 \begin{array}{rr}
 n_1 \cdot \hat p_1  = 4145 \cdot 0.3561 = 1476 \ge 10           &amp; n_2 \cdot \hat p_2  = 1309 \cdot 0.4225 = 553 \ge 10  \\
 n_1 \cdot \left(1-\hat p_1\right) = 4145 \cdot 0.6439 = 2669 \ge 10     &amp; n_2 \cdot \left(1-\hat p_2\right) = 1309 \cdot 0.5775 = 756 \ge 10
 \end{array}
 \]</span></p>
-<p><strong>Reminder:</strong> <span class="math inline">\(~ x_1 = 1476,~x_2 =553\)</span>, <span class="math inline">\(n_1=4145,~n_2 = 1309\)</span>, <span class="math inline">\(\hat p_1 = \frac{x_1}{n_1},~\hat p_2 = \frac{x_2}{n_2}\)</span>, and <span class="math inline">\(\hat p = \frac{x_1+x_2}{n_1+n_2}\)</span>.</p>
-<p>The test statistic can be computed by following these steps:</p>
-<ul>
-<li>First, find the combined proportion of “successes.” This is computed as: <span class="math display">\[
+<p><strong>Reminder:</strong> <span class="math inline">\(~ x_1 = 1476,~x_2 =553\)</span>, <span class="math inline">\(n_1=4145,~n_2 = 1309\)</span>, <span class="math inline">\(\hat p_1 = \frac{x_1}{n_1},~\hat p_2 = \frac{x_2}{n_2}\)</span>.</p>
+<p>We perform the test using <code>prop.test( )</code> in R.</p>
+<pre class="r"><code>prop.test(x = c(1476, 533), n = c(4145, 1309), correct=FALSE, alternative=&quot;less&quot;)</code></pre>
+<pre><code>
+    2-sample test for equality of proportions without continuity
+    correction
+
+data:  c(1476, 533) out of c(4145, 1309)
+X-squared = 11.16, df = 1, p-value = 0.0004179
+alternative hypothesis: less
+95 percent confidence interval:
+ -1.00000000 -0.02562222
+sample estimates:
+   prop 1    prop 2 
+0.3560917 0.4071811 </code></pre>
+<!--These calculations don't match prop.test...
+
+If you wanted to see the computations required to compute this test statistic by hand, click the button below.
+
+<a href="javascript:showhide('handcalculations2')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Math Calculations</span></a>
+<div id="handcalculations2" style="display:none;">
+
+The test statistic can be computed by following these steps:
+
+- First, find the combined proportion of "successes."  This is computed as:
+$$
 \hat p = \frac{x_1+x_2}{n_1+n_2} = \frac{1476+553}{4145+1309} = \frac{2029}{5454}
-\]</span></li>
-<li>Next, enter the appropriate values into the equation for the <span class="math inline">\(z\)</span>-score. <span class="math display">\[
+$$
+- Next, enter the appropriate values into the equation for the $z$-score.
+$$
 \begin{array}{rcll}
-z &amp;=&amp; \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } \\
-&amp;=&amp; \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( 0 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } &amp; \text{We assumed } p_1=p_2. \\
-&amp;=&amp; \frac{ \left( \hat p_1 - \hat p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } \\
-&amp;=&amp; \frac{ \left( \frac{1476}{4145} - \frac{553}{1309} \right) }{ \sqrt{\frac{2029}{5454} \left( 1-\frac{2029}{5454} \right) \left( \frac{1}{4145} + \frac{1}{1309} \right) } } \\
-&amp;=&amp; -4.331
+z &=& \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } \\
+&=& \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( 0 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } & \text{We assumed } p_1=p_2. \\
+&=& \frac{ \left( \hat p_1 - \hat p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } \\
+&=& \frac{ \left( \frac{1476}{4145} - \frac{553}{1309} \right) }{ \sqrt{\frac{2029}{5454} \left( 1-\frac{2029}{5454} \right) \left( \frac{1}{4145} + \frac{1}{1309} \right) } } \\
+&=& -4.331
 \end{array}
-\]</span></li>
-</ul>
-<p>(Make sure you can get this value using your calculator.)</p>
+$$
+
+
 <div class="Emphasis">
-<ul>
-<li><strong>Remember…</strong></li>
-</ul>
-<p>The alternative hypothesis determines which area in the tails of the <span class="math inline">\(z\)</span>-distribution will be shaded as you calculated the <span class="math inline">\(P\)</span>-value.</p>
-<p>If the alternative hypothesis is <span class="math inline">\(\ldots\)</span></p>
-<ul>
-<li><p><span class="math inline">\(p_1 \ne p_2\)</span>, shade both tails.</p></li>
-<li><p><span class="math inline">\(p_1 &lt; p_2\)</span>, shade the left tail.</p></li>
-<li><p><span class="math inline">\(p_1 &gt; p_2\)</span>, shade the right tail. <br></p></li>
-</ul>
+- **Remember...**
+
+The alternative hypothesis determines which area in the tails of the $z$-distribution will be shaded as you calculated the $P$-value.
+
+If the alternative hypothesis is $\ldots$
+
+- $p_1 \ne p_2$, shade both tails.
+
+- $p_1 < p_2$, shade the left tail.
+
+- $p_1 > p_2$, shade the right tail.
+<br>
 </div>
-<p><br></p>
-This <span class="math inline">\(z\)</span>-score can be substituted into the Normal Probability applet to find the <span class="math inline">\(P\)</span>-value. Since the alternative hypothesis is that <span class="math inline">\(p_1 &lt; p_2\)</span>, we consider only the area to the left of <span class="math inline">\(z=-4.331\)</span>. The applet gives this area (our <span class="math inline">\(P\)</span>-value) as <span class="math inline">\(7.42 \times 10^{-6} = 0.00000742\)</span>.
+<br>
+
+This $z$-score can be substituted into the Normal Probability applet to find the $P$-value.  Since the alternative hypothesis is that $p_1 < p_2$, we consider only the area to the left of $z=-4.331$.  The applet gives this area (our $P$-value) as $7.42 \times 10^{-6} = 0.00000742$.
 <center>
 <img src="Images/ShadeLeftZ-4-331.png">
 </center>
-<p>Note that <span class="math inline">\(P\)</span>-value<span class="math inline">\(= 0.00000742 &lt; 0.05 = \alpha\)</span>, so we reject the null hypothesis.</p>
+
+</div>
+
+-->
+<p><br/></p>
+<p>The <span class="math inline">\(P\)</span>-value<span class="math inline">\(= 0.00000742 &lt; 0.05 = \alpha\)</span>, so we reject the null hypothesis.</p>
 <p><img src="Images/Step5.png"></p>
 <p>There is sufficient evidence to suggest that the true proportion of patients who die from an aortic aneurysm is greater on the weekends than on the weekdays. It appears that there are substantial differences in the quality of care available to patients on the weekends compared to patients on weekdays.</p>
-<p><img src="Images/StepsAll.png"></p>
+<p><br/></p>
 </div>
-</div>
-<div id="mortality-rates-and-day-of-admission-heart-attacks" class="section level3">
-<h3>Mortality Rates and Day of Admission: Heart Attacks</h3>
+<div id="case-study-mortality-rates-and-day-of-admission-heart-attacks" class="section level3">
+<h3>Case Study: Mortality Rates and Day of Admission: Heart Attacks</h3>
+<div style="float:right;padding:10px;">
 <p><img src="Images/Acute_myocardial_infarction_with_contraction_band_necrosis.png"></p>
+</div>
 <p>Heart attacks are a leading cause of death in many areas of the world. The study by Doctors Bell and Redelmeier included an analysis of the risk of dying of a heart attack, after admission to a hospital. The researchers reported the following death rates, depending on whether the heart attack occurred on a weekday or a weekend <!--<cite>Bell01</cite>-->.</p>
 <table>
 <caption><strong>Heart Attack Outcomes</strong></caption>
@@ -826,20 +824,6 @@ This <span class="math inline">\(z\)</span>-score can be substituted into the No
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |+ **Heart Attack Outcomes** -->
-<!-- ! Outcome  !! Weekday Admission !! Weekend Admission -->
-<!-- |- -->
-<!-- !Died (x) -->
-<!-- | 17,113 || 6,289 -->
-<!-- |- -->
-<!-- !Survived -->
-<!-- | 100,596 || 36,222 -->
-<!-- |- -->
-<!-- !Total (n) -->
-<!-- | 117,709 || 42,511 -->
-<!-- |- -->
-<!-- |} -->
 <p>In this section, you will conduct a hypothesis test to determine if the proportion of patients who die of a heart attack is greater on weekends than on weekdays. Use the 0.05 level of significance.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -883,7 +867,9 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
-<p><img src="Images/Lesson_18_heart_attack_weekend_graph.PNG"></p>
+<pre class="r"><code>hattack.table &lt;- c(Weekday=17113/117709, Weekend=6289/42511)
+barplot(hattack.table, ylim=c(0,1))</code></pre>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">
@@ -980,10 +966,26 @@ z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqr
 </div>
 <p><br></p>
 <ol start="15" style="list-style-type: decimal">
-<li>Compute the value of the test statistic.</li>
+<li>Perform a two-proportion test in R for these data, report the test statistic, <span class="math inline">\(Z\)</span>. (Remember to take the square root of “X-squared” to get the test statistic.)</li>
 </ol>
 <a href="javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q15" style="display:none;">
+<pre class="r"><code>prop.test(x=c(17113, 6289), n=c(117709,42511), correct=FALSE, alternative=&quot;less&quot;)</code></pre>
+<pre><code>
+    2-sample test for equality of proportions without continuity
+    correction
+
+data:  c(17113, 6289) out of c(117709, 42511)
+X-squared = 1.6336, df = 1, p-value = 0.1006
+alternative hypothesis: less
+95 percent confidence interval:
+ -1.0000000000  0.0007439916
+sample estimates:
+   prop 1    prop 2 
+0.1453840 0.1479382 </code></pre>
+<pre class="r"><code>sqrt(1.6336)</code></pre>
+<pre><code>[1] 1.278124</code></pre>
+<p>We get <span class="math inline">\(Z=sqrt(1.6336)=1.278\)</span>. Note however, that since</p>
 <center>
 <span class="math inline">\(z=-1.278\)</span>
 </center>
