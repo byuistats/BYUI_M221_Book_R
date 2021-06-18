@@ -603,15 +603,13 @@ $$
 </div>
 <br>
 
-14. Write the equation for the test statistic, $z$.
+14. What type of test statistic does the two proportion test use? How do you obtain this test statistic using R?
 
 <a href="javascript:showhide('Q14')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q14" style="display:none;">
-<center>
-$$
-z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) }}
-$$
-</center>
+
+The test statistic is a $Z$ statistic that you obtain from the `prop.test( )` function in R by taking the square root of the "X-squared" statistic.
+
 </div>
 <br>
 
@@ -626,7 +624,7 @@ prop.test(x=c(17113, 6289), n=c(117709,42511), correct=FALSE, alternative="less"
 sqrt(1.6336)
 ```
 
-We get $Z=sqrt(1.6336)=1.278$. Note however, that since 
+We get $Z=sqrt(1.6336)=1.278$. Note however, that since "prop 1" is 0.145 and "prop 2" is 0.148, then "prop 1" is less than "prop 2" so the $Z$-score should be made negative. 
 
 <center>$z=-1.278$</center>
 </div>
@@ -690,15 +688,14 @@ We get $Z=sqrt(1.6336)=1.278$. Note however, that since
 
 <br>
 
-## Confidence Intervals: Managing Fox Populations
+## Confidence Intervals
+
+### Case Study: Managing Fox Populations
+
+<div style="float:right;padding:10px;"><img src="./Images/RoyalBotanicGardensCranbourne-Flikr-flipsockgrrl.png" width=80%>
+</div>
 
 During the mid 1800's, European foxes were introduced to the Australian mainland.  These predators have been responsible for the reduction or extinction of several species of native wildlife. <!--(Coates08)--> 
-
-<center>
-<img src="./Images/RoyalBotanicGardensCranbourne-Flikr-flipsockgrrl.png" width=80%>
-</center>
-
-<br/>
 
 The Royal Botanic Gardens Cranbourne is a 914 acre (370 ha) conservation reserve outside Melbourne, Australia.  Predation by foxes has been an ongoing problem in the gardens.  To reduce the risk to native species, a systematic program of killing foxes was implemented.
 
@@ -722,116 +719,42 @@ Before we compute the confidence interval, we first organize our data and calcul
 </center>
 
 
-Similar to what we did in the lesson for [Lesson 17: Inference for One Proportion](Lesson17.html), we compute $\hat p$ for each group.
+We compute $\hat p$ for each group.
 
 For group 1:
 $$
-\hat p_1 = \frac{x_1}{n_1} = \frac{576}{950}
+\hat p_1 = \frac{x_1}{n_1} = \frac{576}{950} \approx 0.606
 $$
 
 For group 2:
 $$
-\hat p_2 = \frac{x_2}{n_2} = \frac{268}{1359}
+\hat p_2 = \frac{x_2}{n_2} = \frac{268}{1359}\approx 0.197
 $$
 
-An equation of the confidence interval for the difference between two proportions is computed by combining all the information above:
+When working with two proportions, we are mainly interested in the *difference between the proportions.* In this case, subtracting the two proportions gives us an estimate of how different the true proportions $p_1$ and $p_2$ might be.
+
 $$
-\left(
-\left( \hat p_1 -\hat p_2 \right)
-- z^*
-\sqrt{
-\frac{\hat p_1 \left( 1 - \hat p_1 \right)}{n_1}
-+
-\frac{\hat p_2 \left( 1 - \hat p_2 \right)}{n_2}
-}
-,
-~
-\left( \hat p_1 -\hat p_2 \right)
-+ z^*
-\sqrt{
-\frac{\hat p_1 \left( 1 - \hat p_1 \right)}{n_1}
-+
-\frac{\hat p_2 \left( 1 - \hat p_2 \right)}{n_2}
-}
-\right)
+\hat p_1 -\hat p_2 = 0.606 - 0.197 = 0.409
 $$
 
-<div class="note">
-If you need to review how to find the value of $z^*$ for other confidence levels, see page [Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html#a-little-more-precision).
+This tells us that it appears the first proportion, $p_1$ is somewhere around 40.9 percentage points higher than $p_2$, which is quite a bit! It seems the intervention lowered the prevalence of foxes in the sand-pads. However, our conclusions are based on sample proportions instead of the true proportions. So we can't be sure on exactly how much the true proportions actually differ. Using a confidence interval to estimate a set of possibilities for true difference in proportions can give us greater insight.
+
+### R Instructions for Confidence Intervals
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software">
+Use the `prop.test( )` function in R to obtain a confidence interval for the difference of two proportions.
+
+```{r, comment=NA}
+prop.test(x=c(576, 268), n=c(950, 1359), correct=FALSE, conf.level=0.95)
+```
+
+
 </div>
 
-The lower bound for a 95% confidence interval for the difference of the proportions of times fox prints are observed in the sand-pads is:
+<br/>
 
-
-$$
-\displaystyle{
-\left( \hat p_1 -\hat p_2 \right)
-- z^*
-\sqrt{
-\frac{\hat p_1 \left( 1 - \hat p_1 \right)}{n_1}
-+
-\frac{\hat p_2 \left( 1 - \hat p_2 \right)}{n_2}
-}
-}
-$$
-
-$$
-\displaystyle{
-=
-\left( \frac{576}{950} - \frac{268}{1359} \right)
-- 1.96
-\sqrt{
-\frac{\frac{576}{950} \left( 1 - \frac{576}{950} \right)}{950}
-+
-\frac{\frac{268}{1359} \left( 1 - \frac{268}{1359} \right)}{1359}
-}
-}
-$$
-
-$$
-\displaystyle{
-=
-0.372
-}
-$$
-
-and the upper bound is:
-
-$$
-\displaystyle{
-\left( \hat p_1 -\hat p_2 \right)
-+ z^*
-\sqrt{
-\frac{\hat p_1 \left( 1 - \hat p_1 \right)}{n_1}
-+
-\frac{\hat p_2 \left( 1 - \hat p_2 \right)}{n_2}
-}
-}
-$$
-
-$$
-\displaystyle{
-=
-\left( \frac{576}{950} - \frac{268}{1359} \right)
-+ 1.96
-\sqrt{
-\frac{\frac{576}{950} \left( 1 - \frac{576}{950} \right)}{950}
-+
-\frac{\frac{268}{1359} \left( 1 - \frac{268}{1359} \right)}{1359}
-}
-}
-$$
-
-$$
-\displaystyle{
-=
-0.447
-}
-$$
-
-<div class="note">
-Make sure you can compute these confidence intervals before reading on.
-</div>
+The lower bound for a 95% confidence interval for the difference of the proportions of times fox prints are observed in the sand-pads is $0.371$ while the upper-bound is $0.447$.
 
 So, the 95% confidence interval for the difference in the proportions is:
 
@@ -845,9 +768,7 @@ If we switch the way we label group 1 and group 2, then our confidence interval 
 
 To interpret this confidence interval, we say, "We are 95% confident that the true *difference* in the proportions of times fox prints will appear in the sand-pads is between 0.372 and 0.447."
 
-Notice that zero is not in this confidence interval, so zero is not a plausible value for $p_1 - p_2$.  Based on this result, it is reasonable to conclude that the proportion of times foxes are observed in the sand-pads is not the same before and after the effort to reduce their population.  It seems that the work to reduce the number of foxes is having an effect on their presence in the reserve.
-
-As you may have guessed, the [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) can be used to calculate confidence intervals for the difference of two proportions.
+Based on this result, it is reasonable to conclude that the proportion of times foxes are observed in the sand-pads has been reduced by anywhere from 37.2 percentage points to 44.7 percentage points.  It seems that the work to reduce the number of foxes is having an effect on their presence in the reserve.
 
 
 ### Checking Requirements for a Confidence Interval
@@ -872,26 +793,7 @@ n_1 \cdot \left(1-\hat p_1\right) = 950 \cdot (1-0.606) = 374 \ge 10  	& n_2 \cd
 $$
 
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
-22. What is the value of $z^*$ for a 93% confidence interval?
 
-
-<a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q22" style="display:none;">
-<center>$z^* = 1.8119$</center>
-</div>
-<br>
-
-
-
-23. Find the 93% confidence interval for the difference in the proprotions of the times fox prints are observed in the sand-pads before and after the effort to reduce the fox population.
-
-<a href="javascript:showhide('Q23')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q23" style="display:none;">
-<center>$(0.374, 0.444)$</center>
-</div>
-<br>
 
 
 <br>
@@ -912,17 +814,12 @@ $$
 \end{array}
 $$
 
-- For a hypothesis test only, we use the following symbols:
-
-$$
-\begin{array}{lcl}
-\text{Overall sample proportion:} & \hat p = \displaystyle{\frac{x_1+x_2}{n_1+n_2}}
-\end{array}
-$$
-
 - Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.
 
-- You will use the Excel spreadsheet [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) to perform hypothesis testing and calculate confidence intervals for problems involving two proportions.
+- Use `prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")` to perform a hypothesis test of two proportions. 
+
+- Use `prop.test(x=c(  ,  ), y=c(  ,  ), correct=FALSE, conf.level=0.95)` to obtain a confidence interval for the difference of two proportions.
+
 <br>
 </div>
 <br>
