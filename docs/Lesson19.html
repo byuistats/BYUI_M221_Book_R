@@ -380,9 +380,9 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#the-chi2-chi-squared-test-of-independence">The <span class="math inline">\(\chi^2\)</span> (Chi-squared) Test of Independence</a></li>
-<li><a href="#reasons-for-seeking-chiropractic-care">Reasons for Seeking Chiropractic Care</a>
+<li><a href="#the-chi-squared-test-of-independence">The Chi-squared Test of Independence</a>
 <ul>
+<li><a href="#case-study-chiropractic-care">Case Study: Chiropractic Care</a></li>
 <li><a href="#requirements">Requirements</a></li>
 </ul></li>
 <li><a href="#other-considerations">Other considerations</a>
@@ -435,54 +435,49 @@ $(document).ready(function () {
 </ul>
 </div>
 <p><br></p>
-<!-- -------------------------- BEGIN HIDDEN COMMENTED SECTION --------------------------
+<div style="clear:both;">
 
-
-## Introduction
-In this section, we will explore three different, but related hypothesis tests. We will not compute confidence intervals for these tests. 
-The first test we will consider is a test for several proportions.  This is used when one categorical variable is measured on units (i.e. subjects) within several populations or treatment groups.  The test for two proportions measures a categorical variable that can take one of two values for subjects in two populations.  The test for several proportions is the natural extension of the test for two proportions.  With this test, we measure a categorical variable across several proportions.
-
-Next, we will explore a test for independence of two categorical variables.  This procedure applies when two categorical variables are measured on each subject.  This test is used to determine whether there is a relationship between the two variables.
-
-Lastly, we will study a test to determine whether the values of a categorical variable follow a specified distribution.
-
-The three tests are related in that they rely in much the same way on frequencies. We can't do arithmetic with categorical data for the purpose of calculating a test statistic, like we can with numeric data. Our only recourse is to convert categorical data into numbers from which a test statistic *can* be calculated. Frequencies can be used for this purpose.
-
-## The $\chi^2$ (Chi-square) Test for Several Proportions
-### Nurses' Weight Loss
-Dr. Bruce Zitkus, an advanced practice registered nurse, conducted a study in which a convenience sample of 721 registered nurses were 
-{| class="basic"  width="60%"
-|- 
-! || colspan="6"| Weight Loss Regimen 
-|- 
-! Outcome || Diet || Exercise || Social <br> Interaction  || Medication
-|- align="center"
-! Helpful 
-| 71 || 121 || 12 || 17 
-|- align="center"
-! Not helpful 
-| 278 || 291 || 22 || 44 
-|- 
-|} 
--------------------------- END HIDDEN COMMENTED SECTION -------------------------- -->
 </div>
-<div id="the-chi2-chi-squared-test-of-independence" class="section level2">
-<h2>The <span class="math inline">\(\chi^2\)</span> (Chi-squared) Test of Independence</h2>
-<p><img src="Images/Oc-chiropractor.jpg"></p>
-<p>People often wonder whether two things influence each other. For example, people seek chiropractic care for different reasons. We may want to know if those reasons are different for Europeans than for Americans or Australians. This question can be expressed as “Do reasons for seeking chiropractic care depend on the location in which one lives?”</p>
-<p>This question has only two possible answers: “yes” and “no.” The answer “no” can be written as “Motivations for seeking chiropractic care and one’s location are independent.” (The statistical meaning of “independent” is too technical to give here. However, for now, you can think of it as meaning that the two variables are not associated in any way. For example, neither variable depends on the other.) Writing the answer “no” this way allows us to use it as the null hypothesis of a test. We can write the alternative hypothesis by expressing the answer “yes” as “Motivations for seeking chiropractic care and one’s location are not independent.” (Reasons for wording it this way will be given after you’ve been through the entire hypothesis test.)</p>
-<p>To prepare for the hypothesis test, recall that our hypothesis tests always measure how different two or more things are. For example, in the 2-sample <span class="math inline">\(t\)</span>-test, we compare two population means by seeing how different they are. In a test of one proportion, we measure the difference between a sample proportion and a population proportion. Each of these tests requires some information about at least one parameter. That information is given in the null hypothesis of the test, which we’ve always been able to write with one or more “=” signs, because we’ve always used numeric parameters.</p>
-<p>Unfortunately, we have no parameter we can use to measure the independence of the variables “location” and “motivation”. Nevertheless, we have to be able to calculate a <span class="math inline">\(P\)</span>-value, and the only approach we have so far is to measure differences between things. “Difference” means “subtraction” in Statistics, and if the measurements are categorical, we cannot subtract them. Therefore, as in the other lessons of this unit, we will count occurrences of each value of each variable to get some numbers. (The example that follows will show how this is handled.) The numbers we get will be called “counts” or “observed counts”.</p>
-<p>When we have our observed counts in hand, software will calculate the counts we should <em>expect</em> to see, <em>if the null hypothesis is true.</em> We call these the “expected counts.” The software will then subtract the observed counts from the expected counts and combine these differences to create a single number that we can use to get a <span class="math inline">\(P\)</span>-value. That single number is called the <span class="math inline">\(\chi^2\)</span> test statistic. (Note that <span class="math inline">\(\chi\)</span> is a Greek letter, and its name is “ki”, as in “kite”. The symbol <span class="math inline">\(\chi^2\)</span> should be pronounced “ki squared,” but many people pronounce it “ki-square.”)</p>
-<p>In this course, software will calculate the <span class="math inline">\(\chi^2\)</span> test statistic for you, but you need to understand that the <span class="math inline">\(\chi^2\)</span> test statistic compares the observed counts to the expected counts—that is, to the counts we should expect to get if the null hypothesis is true. The larger the <span class="math inline">\(\chi^2\)</span> test statistic is, the smaller the <span class="math inline">\(P\)</span>-value will be. If the <span class="math inline">\(\chi^2\)</span> test statistic is large enough that the <span class="math inline">\(P\)</span>-value is less than <span class="math inline">\(\alpha\)</span>, we will conclude that the observed counts and expected counts are too different for the null hypothesis to be plausible, and will therefore reject <span class="math inline">\(H_0\)</span>. Otherwise, we will fail to reject <span class="math inline">\(H_0\)</span>, as always.</p>
-<p>For organizational reasons, counts are traditionally arranged in a table called a “contingency table.” One variable is chosen as the “row variable,” so called because its values are the row headers for the table. The other variable is called the “column variable,” because its values are the column headers. Different <span class="math inline">\(\chi^2\)</span> distributions are distinguished by the number of degrees of freedom, which are determined by the number of rows and columns in the table:</p>
-<p><span class="math display">\[df = (\text{number of rows }-1)(\text{number of columns }-1)\]</span></p>
-<p>Note that the number of degrees of freedom does not depend on the number of subjects in the study.</p>
+<p><br/></p>
+</div>
+<div id="the-chi-squared-test-of-independence" class="section level2">
+<h2>The Chi-squared Test of Independence</h2>
+<p>The chi-squared test of independence allows us to determine if two different categorical variables are related to each other. Here are some questions that could be answered with a chi-squared test of independence.</p>
+<ul>
+<li>Does the education level obtained by your father impact the education level you will obtain in life? (Here education level could be defined to be one of: High School, Associates Degree, Bachelor’s Degree, or Graduate Degree. The two variables we would be comparing would be the child’s education level and their father’s education level.)</li>
+<li>Does the marital status of a person (single, married, widowed, or divorced/separated) relate to the overall happiness of that person (very happy, happy, not too happy)?</li>
+<li>Does a student’s major (say Business, Nursing, Biology, or Math) have any impact on their ability to get a good paying job (say above $50,000 per year versus below $50,000) after graduating from college?</li>
+</ul>
+<p>In each of these examples, there were two sets of categorical data that were being compared to see if there was any relation between those variables. An important word that will be used in this lesson to talk about variables being related or not is the word <em>independent</em>. Things that <strong>are independent</strong> of each other have absolutely no relation to each other. On the other hand, when things are related to each other, that means that they are <strong>not independent of each other</strong>. Keep this in mind as you read this lesson. Independent means not related, and <em>not independent</em> means <em>related</em>.</p>
+<!--
+
+People seek chiropractic care for different reasons. We may want to know if those reasons are different for Europeans than for Americans or Australians. This question can be expressed as "Do reasons for seeking chiropractic care depend on the location in which one lives?"
+
+This question has only two possible answers: "yes" and "no." The answer "no" can be written as "Motivations for seeking chiropractic care and one's location are independent." (The statistical meaning of "independent" is too technical to give here. However, for now, you can think of it as meaning that the two variables are not associated in any way. For example, neither variable depends on the other.) Writing the answer "no" this way allows us to use it as the null hypothesis of a test. We can write the alternative hypothesis by expressing the answer "yes" as "Motivations for seeking chiropractic care and one's location are not independent." (Reasons for wording it this way will be given after you've been through the entire hypothesis test.)
+
+To prepare for the hypothesis test, recall that our hypothesis tests always measure how different two or more things are. For example, in the 2-sample $t$-test, we compare two population means by seeing how different they are. In a test of one proportion, we measure the difference between a sample proportion and a population proportion. Each of these tests requires some information about at least one parameter. That information is given in the null hypothesis of the test, which we've always been able to write with one or more "=" signs, because we've always used numeric parameters.
+
+Unfortunately, we have no parameter we can use to measure the independence of the variables "location" and "motivation". Nevertheless, we have to be able to calculate a $P$-value, and the only approach we have so far is to measure differences between things. "Difference" means "subtraction" in Statistics, and if the measurements are categorical, we cannot subtract them. Therefore, as in the other lessons of this unit, we will count occurrences of each value of each variable to get some numbers. (The example that follows will show how this is handled.) The numbers we get will be called "counts" or "observed counts".
+
+When we have our observed counts in hand, software will calculate the counts we should *expect* to see, *if the null hypothesis is true.* We call these the "expected counts." The software will then subtract the observed counts from the expected counts and combine these differences to create a single number that we can use to get a $P$-value. That single number is called the $\chi^2$ test statistic. (Note that $\chi$ is a Greek letter, and its name is "ki", as in "kite". The symbol $\chi^2$ should be pronounced "ki squared," but many people pronounce it "ki-square.")
+
+In this course, software will calculate the $\chi^2$ test statistic for you, but you need to understand that the $\chi^2$ test statistic compares the observed counts to the expected counts---that is, to the counts we should expect to get if the null hypothesis is true. The larger the $\chi^2$ test statistic is, the smaller the $P$-value will be. If the $\chi^2$ test statistic is large enough that the $P$-value is less than $\alpha$, we will conclude that the observed counts and expected counts are too different for the null hypothesis to be plausible, and will therefore reject $H_0$. Otherwise, we will fail to reject $H_0$, as always.
+
+For organizational reasons, counts are traditionally arranged in a table called a "contingency table." One variable is chosen as the "row variable," so called because its values are the row headers for the table. The other variable is called the "column variable," because its values are the column headers. Different $\chi^2$ distributions are distinguished by the number of degrees of freedom, which are determined by the number of rows and columns in the table: 
+
+$$df = (\text{number of rows }-1)(\text{number of columns }-1)$$
+
+Note that the number of degrees of freedom does not depend on the number of subjects in the study.
+
+-->
 <p><br></p>
+<div id="case-study-chiropractic-care" class="section level3">
+<h3>Case Study: Chiropractic Care</h3>
+<div style="float:right;padding:10px;">
+<p><img src="Images/chiropracticCare.jpeg" width="400px;"></p>
 </div>
-<div id="reasons-for-seeking-chiropractic-care" class="section level2">
-<h2>Reasons for Seeking Chiropractic Care</h2>
-<p>A study was conducted to determine why patients seek chiropractic care<!--<cite>Blum08</cite>-->. Patients were classified based on their location and their motivation for seeking treatment. Using descriptions developed by Green and Krueter, patients were asked which of the five reasons led them to seek chiropractic care <!--<cite>Blum08,Green99</cite>-->:</p>
+<p><img src="Images/Step1.png"></p>
+<p>A study was conducted to determine why patients in Australia, Europe, and the U.S.A. seek chiropractic care<!--<cite>Blum08</cite>-->. Patients were classified based on their location (Australia, Europe, or the U.S.A.) and their motivation for seeking treatment. Using descriptions developed by Green and Krueter, patients were asked which of the five reasons led them to seek chiropractic care <!--<cite>Blum08,Green99</cite>-->:</p>
 <ul>
 <li><em>Wellness</em>: defined as optimizing health among the self-identified healthy</li>
 <li><em>Preventive health</em>: defined as preventing illness among the self-identified healthy</li>
@@ -490,9 +485,9 @@ Dr. Bruce Zitkus, an advanced practice registered nurse, conducted a study in wh
 <li><em>Sick role</em>: defined as getting well among those self-perceived as ill with an emphasis on therapist-directed treatment</li>
 <li><em>Self care</em>: defined as getting well among those self-perceived as ill favoring the use of self vs. therapist directed strategies</li>
 </ul>
-<p>The data from the study are summarized in the following contingency table <!--<cite>Blum08</cite>-->:</p>
+<p>The data from the study are summarized in the following table of counts. (This is sometimes called a <em>contingency table</em>.) <!--<cite>Blum08</cite>--></p>
 <table>
-<caption><strong>Motivation</strong></caption>
+<caption><strong>Motivation for Choosing to Seek Chiropractic Care</strong></caption>
 <colgroup>
 <col width="19%" />
 <col width="13%" />
@@ -500,87 +495,68 @@ Dr. Bruce Zitkus, an advanced practice registered nurse, conducted a study in wh
 <col width="12%" />
 <col width="14%" />
 <col width="14%" />
-<col width="9%" />
+<col width="10%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Location</th>
-<th>Wellness</th>
-<th>Preventive Health</th>
-<th>At Risk</th>
-<th>Sick Role</th>
-<th>Self Care</th>
-<th>Total</th>
+<th align="center">Wellness</th>
+<th align="center">Preventive Health</th>
+<th align="center">At Risk</th>
+<th align="center">Sick Role</th>
+<th align="center">Self Care</th>
+<th align="center"><strong>Total</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Europe</td>
-<td>23</td>
-<td>28</td>
-<td>59</td>
-<td>77</td>
-<td>95</td>
-<td>282</td>
+<td align="center">23</td>
+<td align="center">28</td>
+<td align="center">59</td>
+<td align="center">77</td>
+<td align="center">95</td>
+<td align="center"><strong>282</strong></td>
 </tr>
 <tr class="even">
 <td>Australia</td>
-<td>71</td>
-<td>59</td>
-<td>83</td>
-<td>68</td>
-<td>188</td>
-<td>469</td>
+<td align="center">71</td>
+<td align="center">59</td>
+<td align="center">83</td>
+<td align="center">68</td>
+<td align="center">188</td>
+<td align="center"><strong>469</strong></td>
 </tr>
 <tr class="odd">
 <td>United States</td>
-<td>90</td>
-<td>76</td>
-<td>65</td>
-<td>82</td>
-<td>252</td>
-<td>565</td>
+<td align="center">90</td>
+<td align="center">76</td>
+<td align="center">65</td>
+<td align="center">82</td>
+<td align="center">252</td>
+<td align="center"><strong>565</strong></td>
 </tr>
 <tr class="even">
-<td>Total</td>
-<td>184</td>
-<td>163</td>
-<td>207</td>
-<td>227</td>
-<td>535</td>
-<td>1316</td>
+<td><strong>Total</strong></td>
+<td align="center"><strong>184</strong></td>
+<td align="center"><strong>163</strong></td>
+<td align="center"><strong>207</strong></td>
+<td align="center"><strong>227</strong></td>
+<td align="center"><strong>535</strong></td>
+<td align="center"><strong>1316</strong></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |+ **Motivation** -->
-<!-- ! Location || Wellness || Preventive<br>Health || At Risk || Sick Role || Self Care || Total -->
-<!-- |- -->
-<!-- !Europe     -->
-<!-- |             23       || 28                   || 59      || 77        || 95        || 282  -->
-<!-- |- -->
-<!-- !Australia        -->
-<!-- |             71       || 59                   || 83      || 68        || 188       || 469  -->
-<!-- |- -->
-<!-- !United States    -->
-<!-- |             90       || 76                   || 65      || 82        || 252       || 565 -->
-<!-- |- -->
-<!-- !Total  -->
-<!-- |             184  || 163              || 207 || 227   || 535   || 1316  -->
-<!-- |- -->
-<!-- |} -->
-<p>The research question was whether people’s motivation for seeking chiropractic care was independent of their location: Europe, Australia, or the United States. The hypothesis test used to address this question was the chi-squared (<span class="math inline">\(\chi^2\)</span>) test of independence. (Recall that the Greek letter <span class="math inline">\(\chi\)</span> is pronounced, “ki” as in “kite.”)</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=TestForIndependence-ChiropracticCare-DataEntry }} -->
+<p>The research question was whether people’s motivation for seeking chiropractic care was related to their location: Europe, Australia, or the United States or not. The hypothesis test used to address this question was the chi-squared (<span class="math inline">\(\chi^2\)</span>) test of independence. (Note that the Greek letter <span class="math inline">\(\chi\)</span> is pronounced, “ki” as in “kite.”)</p>
 <!--
 <div class="SoftwareHeading">Excel Instructions</div>
 <div class="Summary">
@@ -607,7 +583,8 @@ H_0\colon &amp; \text{The row variable and the column variable are independent} 
 H_a\colon &amp; \text{The row variable and the column variable are not independent.} \\
 \end{array}
 \]</span> But when there’s a context, please make sure you write your hypotheses in terms of the context.</p>
-<p>If the row and column variable are independent, then no matter which row you consider, the proportion of observations in each column should be roughly the same. For example, if motivation for seeking chiropractic care is independent of location, then the proportion of people who seek chiropractic care for, say, wellness will be approximately the same in each row. That is, it will be approximately the same for Australians, Europeans, and Americans.</p>
+<p>If the row and column variable are independent, then no matter which row you consider, the proportion of observations in each column should be roughly the same. For example, if motivation for seeking chiropractic care is independent of location, then the proportion of people who seek chiropractic care for, say, wellness will be approximately the same in each row. That is, it will be approximately the same for Australians, Europeans, and Americans. So you can think of the chi-squared test of independence as a test of <em>many proportions</em>.</p>
+<p><img src="Images/Step2.png"></p>
 <!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
 <!-- {{Software_Filter | PageName=TestForIndependence-ChiropracticCare-Calculations }} -->
 <!--
@@ -627,6 +604,7 @@ H_a\colon &amp; \text{The row variable and the column variable are not independe
 <br>
 
 -->
+</div>
 <div id="requirements" class="section level3">
 <h3>Requirements</h3>
 <p>The following requirements must be met in order to conduct a <span class="math inline">\(\chi^2\)</span> test of independence:</p>
