@@ -383,6 +383,8 @@ $(document).ready(function () {
 <li><a href="#the-chi-squared-test-of-independence">The Chi-squared Test of Independence</a>
 <ul>
 <li><a href="#case-study-chiropractic-care">Case Study: Chiropractic Care</a></li>
+<li><a href="#r-instructions-for-clustered-bar-charts">R Instructions for Clustered Bar Charts</a></li>
+<li><a href="#r-instructions-for-performing-a-chi-squared-test-of-independence">R Instructions for Performing a Chi-squared Test of Independence</a></li>
 <li><a href="#requirements">Requirements</a></li>
 </ul></li>
 <li><a href="#other-considerations">Other considerations</a>
@@ -477,7 +479,7 @@ Note that the number of degrees of freedom does not depend on the number of subj
 <p><img src="Images/chiropracticCare.jpeg" width="400px;"></p>
 </div>
 <p><img src="Images/Step1.png"></p>
-<p>A study was conducted to determine why patients in Australia, Europe, and the U.S.A. seek chiropractic care<!--<cite>Blum08</cite>-->. Patients were classified based on their location (Australia, Europe, or the U.S.A.) and their motivation for seeking treatment. Using descriptions developed by Green and Krueter, patients were asked which of the five reasons led them to seek chiropractic care <!--<cite>Blum08,Green99</cite>-->:</p>
+<p>A <a href="https://drcharlesblum.com/About%20Us/BlumJCCASep2008.pdf">study was conducted</a> to determine why patients in Australia, Europe, and the U.S.A. seek chiropractic care<!--<cite>Blum08</cite>-->. Patients were classified based on their location (Australia, Europe, or the U.S.A.) and their motivation for seeking treatment. Using descriptions developed by Green and Krueter, patients were asked which of the five reasons led them to seek chiropractic care <!--<cite>Blum08,Green99</cite>-->:</p>
 <ul>
 <li><em>Wellness</em>: defined as optimizing health among the self-identified healthy</li>
 <li><em>Preventive health</em>: defined as preventing illness among the self-identified healthy</li>
@@ -485,6 +487,23 @@ Note that the number of degrees of freedom does not depend on the number of subj
 <li><em>Sick role</em>: defined as getting well among those self-perceived as ill with an emphasis on therapist-directed treatment</li>
 <li><em>Self care</em>: defined as getting well among those self-perceived as ill favoring the use of self vs. therapist directed strategies</li>
 </ul>
+<p>The research question was whether people’s motivation for seeking chiropractic care was related to their location: Europe, Australia, or the United States or not. The hypothesis test used to address this question was the chi-squared (<span class="math inline">\(\chi^2\)</span>) test of independence. (Note that the Greek letter <span class="math inline">\(\chi\)</span> is pronounced, “ki” as in “kite.”)</p>
+<p>The null and alternative hypotheses for this chi-squared test of independence are: <span class="math display">\[
+\begin{array}{rl}
+H_0\colon &amp; \text{The location and the motivation for seeking treatment are independent} \\
+H_a\colon &amp; \text{The location and the motivation for seeking treatment are not independent} \\
+\end{array}
+\]</span></p>
+<p>Note: When speaking of the hypotheses in the absence of a context, we can write them in the form <span class="math display">\[
+\begin{array}{rl}
+H_0\colon &amp; \text{The row variable and the column variable are independent} \\
+H_a\colon &amp; \text{The row variable and the column variable are not independent.} \\
+\end{array}
+\]</span> But when there’s a context, please make sure you write your hypotheses in terms of the context.</p>
+<p><img src="Images/Step2.png"></p>
+<p>The researchers reported on their data collection procedures with the following statement. “Using an international convenience sample of Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients attending 27 different chiropractic clinics in the USA, Europe and Australia completed a one-page survey on intake to assess reason for seeking care. A forced choice response was obtained characterizing the patient’s reason for seeking chiropractic care.”</p>
+<p><br/></p>
+<p><img src="Images/Step3.png"></p>
 <p>The data from the study are summarized in the following table of counts. (This is sometimes called a <em>contingency table</em>.) <!--<cite>Blum08</cite>--></p>
 <table>
 <caption><strong>Motivation for Choosing to Seek Chiropractic Care</strong></caption>
@@ -556,179 +575,112 @@ Note that the number of degrees of freedom does not depend on the number of subj
 </tr>
 </tbody>
 </table>
-<p>The research question was whether people’s motivation for seeking chiropractic care was related to their location: Europe, Australia, or the United States or not. The hypothesis test used to address this question was the chi-squared (<span class="math inline">\(\chi^2\)</span>) test of independence. (Note that the Greek letter <span class="math inline">\(\chi\)</span> is pronounced, “ki” as in “kite.”)</p>
-<!--
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-
-- In the Excel sheet [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx), go to the tab labeled "Chi Squared".  This tab will allow you to perform tests for independence.  Excel allows us to enter data in the same way as the table above, so enter the data in the following manner on the excel sheet:
-
-<img src="Images/Excel-Chi-Square-Filled-Out.png">
-
-- Note: The boxes without data are left blank.
-<br>
+<p>While a table of counts, or contingency table, is helpful in describing the relationship between two categorical variables like <em>location</em> and <em>motivation</em>, a clustered bar chart makes it much easier to visually compare and contrast the observed counts.</p>
 </div>
-<br>
-
--->
-<p>The null and alternative hypotheses for this chi-squared test of independence are: <span class="math display">\[
-\begin{array}{rl}
-H_0\colon &amp; \text{The location and the motivation for seeking treatment are independent} \\
-H_a\colon &amp; \text{The location and the motivation for seeking treatment are not independent} \\
-\end{array}
-\]</span></p>
-<p>Note: When speaking of the hypotheses in the absence of a context, we can write them in the form <span class="math display">\[
-\begin{array}{rl}
-H_0\colon &amp; \text{The row variable and the column variable are independent} \\
-H_a\colon &amp; \text{The row variable and the column variable are not independent.} \\
-\end{array}
-\]</span> But when there’s a context, please make sure you write your hypotheses in terms of the context.</p>
-<p>If the row and column variable are independent, then no matter which row you consider, the proportion of observations in each column should be roughly the same. For example, if motivation for seeking chiropractic care is independent of location, then the proportion of people who seek chiropractic care for, say, wellness will be approximately the same in each row. That is, it will be approximately the same for Australians, Europeans, and Americans. So you can think of the chi-squared test of independence as a test of <em>many proportions</em>.</p>
-<p><img src="Images/Step2.png"></p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=TestForIndependence-ChiropracticCare-Calculations }} -->
-<!--
-
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-- The Chi-Square statistic, degrees of freedom, and $P$-value of the hypotheiss test are all displayed to the right of the where the data is entered in.  The data for this example will look like:
-
-<img src="Images/Excel-Chi-Square-Results.png">
-
-- If we reject the null hypothesis, we state, "There is sufficient evidence to suggest that (restate the alternative hypothesis.)" If we failed to reject the null hypothesis, we would replace the word, "sufficient" with "insufficient."
-
-
-
-<br>
+<div id="r-instructions-for-clustered-bar-charts" class="section level3">
+<h3>R Instructions for Clustered Bar Charts</h3>
+<div class="SoftwareHeading">
+R Instructions
 </div>
-<br>
+<div class="Software">
+<p>First, the data must be entered into an R object using the <code>cbind( )</code> or <code>rbind( )</code> functions.</p>
+<div style="padding:15px;color:darkgray;">
+<p>While the counts don’t have to be named as shown below, it is a good way to stay organized. Pressing both “Shift” and “Enter” (or “Shift” and “Return”) after each line of code will indent your code automatically and keep it more organized.</p>
+</div>
+<pre class="r"><code>motivation_table &lt;- cbind( Europe = c(Wellness = 23, 
+                                      `Preventative Health` = 28,
+                                      `At Risk` = 59,
+                                      `Sick Role` = 77,
+                                      `Self Care` = 95),
+                           Australia = c(Wellness = 71,
+                                         `Prevantative Health` = 59,
+                                         `At Risk` = 83,
+                                         `Sick Role` = 68,
+                                         `Self Care` = 188),
+                           `United States` = c(Wellness = 90,
+                                               `Preventative Health` = 76,
+                                               `At Risk` = 65,
+                                               `Sick Role` = 82,
+                                               `Self Care` = 252))</code></pre>
+<p>The above code created a table that could be displayed by typing the name of the table:</p>
+<pre class="r"><code>motivation_table</code></pre>
+<pre><code>                    Europe Australia United States
+Wellness                23        71            90
+Preventative Health     28        59            76
+At Risk                 59        83            65
+Sick Role               77        68            82
+Self Care               95       188           252</code></pre>
+<p>Once the table of observed counts is created, then it can be turned into a clustered bar chart using the <code>barplot( )</code> code with the optional commands of</p>
+<ul>
+<li><p><code>beside=TRUE</code> puts the bars side-by-side. Not using <code>beside=TRUE</code> results in a stacked bar chart.</p></li>
+<li><p><code>legend.text=TRUE</code> adds a legend to the graph. Sometimes the legend covers the bars, so it is useful in that case to use <code>ylim=c(0, some number)</code> so that the legend is moved off of the bars.</p></li>
+</ul>
+<pre class="r"><code>barplot(motivation_table, beside=TRUE, legend=TRUE)</code></pre>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Notice that the legend is on top of the bars for the United States in the above plot. If we increased the y-axis from say 0 to 500 (instead of the current 250 showing as the highest value on the y-axis) then the legend would no longer cover the bars. We could also color the plot by providing enough colors for each of the legend entries.</p>
+<pre class="r"><code>barplot(motivation_table, beside=TRUE, legend=TRUE,
+        ylim=c(0,500), #extend the y-axis to 500
+        col=c(&quot;skyblue4&quot;,&quot;green3&quot;,&quot;orange&quot;,&quot;red3&quot;,&quot;skyblue&quot;))</code></pre>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br/></p>
+</div>
+<p><br></p>
+<p><br></p>
+<p>The above bar plot of observed counts shows that for Australia and the United States, it seems that the predominant motivation that people choose to seek chiropractic care is for <em>self care</em>. In Europe, the <em>wellness</em> motivation seems especially low.</p>
+<p><br/></p>
+<p><img src="Images/Step4.png"></p>
+<p>Before making any strong conclusions about the data depicted in a bar chart it is important to conduct the chi-squared test of independence. The <span class="math inline">\(P\)</span>-value from this test will help us know if we should reject the null hypothesis or not. If we fail to reject the null hypothesis, then <em>motivation</em> and <em>location</em> are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that <em>motivation</em> and <em>location</em> are <strong>not independent</strong> (meaning they are related) and we can make conclusions from the patterns showing in the bar plot.</p>
+</div>
+<div id="r-instructions-for-performing-a-chi-squared-test-of-independence" class="section level3">
+<h3>R Instructions for Performing a Chi-squared Test of Independence</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>To perform a chi-squared test of independence in R, use the <code>chisq.test( )</code> function. Using this function requires that you have previously made a table of counts. (Review the <a href="Lesson19.html#r-instructions-for-clustered-bar-charts">R Instructions for Clustered Bar Charts</a> to review how to create a table of counts in R.)</p>
+<pre class="r"><code>#motivation_table is a table of counts created previously.
 
--->
+chisq.test(motivation_table)</code></pre>
+<pre><code>
+    Pearson&#39;s Chi-squared test
+
+data:  motivation_table
+X-squared = 49.743, df = 8, p-value = 4.58e-08</code></pre>
+<p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should read <span class="math inline">\(\chi^2 = 49.743\)</span> but the words “X-squared” are used to represent the Greek character chi-squared (<span class="math inline">\(\chi^2\)</span>) in the output of the test. The <strong>df</strong> stands for degrees of freedom. The p-value is clearly stated.</p>
+</div>
+<p><br/></p>
+<p>Recall that the hypotheses of this test were:</p>
+<p><span class="math inline">\(~~~~~H_0\colon\)</span> Location and the motivation to visit a chiropractor are independent.</p>
+<p><span class="math inline">\(~~~~~H_a\colon\)</span> Location and the motivation to visit a chiropractor are not independent.</p>
+<p>Let <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p>The test statistic is: <span class="math inline">\(\chi^2 = 49.743\)</span>, with <span class="math inline">\(df=8\)</span> and <span class="math inline">\(P\)</span>-value = 4.58e-08 = 0.0000000458. This allows us to reject the null hypothesis and conclude that location and the motivation to visit a chiropractor are not independent (the motivation is associated with the location).</p>
 </div>
 <div id="requirements" class="section level3">
 <h3>Requirements</h3>
 <p>The following requirements must be met in order to conduct a <span class="math inline">\(\chi^2\)</span> test of independence:</p>
 <ol style="list-style-type: decimal">
-<li>You must use simple random sampling to obtain a sample from a single population.</li>
-<li>Each expected count must be greater than or equal to 5.</li>
-</ol>
-<!--
-
-A table of expected counts is found starting in cell S4 (scroll to the right of the data entry area and hypothesis test results). 
-
-<img src="Images/Excel-Chi-Req-Expected-Counts.PNG">
-
--->
-<p><br></p>
-<p>Let’s walk through the chiropractic example now from beginning to end: <!--[To do: Flesh this out a bit]:--></p>
-<p><strong>Background:</strong></p>
+<li><p>The sample of data should be representative of the full population. This is most likely to happen when simple random sampling is used to obtain a sample from the population.</p>
 <ul>
-<li>Context of the study: The population of interest consisted of chiropractic patients in three locations: Australia, Europe, and the United States. The objective was to determine whether reasons for seeking chiropractic care are different in the different locations.</li>
-<li>Research question: Is a patient’s location independent of their motivation for seeking treatment? In other words, do people in Australia, Europe, and the United States seek chiropractic care for the same reasons?</li>
-<li>Data collection procedures: Upon check-in at their visit, patients were provided a brief questionnaire regarding the reason they were seeking care. Responses were categorized and tabulated. (Note that the table contains statistics (frequencies) that describe the patients in the sample.)</li>
+<li>In this study, a convenience sample was used. So there could be some doubt as to whether these individuals are representative of all individuals in each country that seek chiropractic care.</li>
+</ul></li>
+<li><p>Each expected count must be greater than or equal to 5.</p>
+<ul>
+<li><p>In this study, all expected counts were greater than 5.</p></li>
+<li><p>To check expected counts in R, use the code:</p></li>
 </ul>
-<p><br></p>
-<p><strong>Descriptive statistics:</strong></p>
-<table>
-<caption><strong>Motivation</strong></caption>
-<colgroup>
-<col width="19%" />
-<col width="13%" />
-<col width="15%" />
-<col width="12%" />
-<col width="14%" />
-<col width="14%" />
-<col width="9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Location</th>
-<th>Wellness</th>
-<th>Preventive Health</th>
-<th>At Risk</th>
-<th>Sick Role</th>
-<th>Self Care</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Europe</td>
-<td>23</td>
-<td>28</td>
-<td>59</td>
-<td>77</td>
-<td>95</td>
-<td>282</td>
-</tr>
-<tr class="even">
-<td>Australia</td>
-<td>71</td>
-<td>59</td>
-<td>83</td>
-<td>68</td>
-<td>188</td>
-<td>469</td>
-</tr>
-<tr class="odd">
-<td>United States</td>
-<td>90</td>
-<td>76</td>
-<td>65</td>
-<td>82</td>
-<td>252</td>
-<td>565</td>
-</tr>
-<tr class="even">
-<td>Total</td>
-<td>184</td>
-<td>163</td>
-<td>207</td>
-<td>227</td>
-<td>535</td>
-<td>1316</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<!-- {| class="basic" style="text-align:center" -->
-<!-- |+ **Motivation** -->
-<!-- ! Location || Wellness || Preventive<br>Health || At Risk || Sick Role || Self Care || Total -->
-<!-- |- -->
-<!-- !Europe     -->
-<!-- |             23       || 28                   || 59      || 77        || 95        || 282  -->
-<!-- |- -->
-<!-- !Australia        -->
-<!-- |             71       || 59                   || 83      || 68        || 188       || 469  -->
-<!-- |- -->
-<!-- !United States    -->
-<!-- |             90       || 76                   || 65      || 82        || 252       || 565  -->
-<!-- |- -->
-<!-- !Total  -->
-<!-- |             184  || 163              || 207 || 227   || 535   || 1316 -->
-<!-- |- -->
-<!-- |} -->
-<p><strong>Inferential statistics:</strong></p>
-<p>The appropriate hypothesis test is the chi-squared test for independence. The requirement that the expected counts are all at least 5 is met. (Check the picture of the Expected Counts table already shown above.)</p>
-<p>Conduct the hypothesis test:</p>
-<p><span class="math inline">\(~~~~~H_0\colon\)</span> Location and the motivation to visit a chiropractor are independent.</p>
-<p><span class="math inline">\(~~~~~H_a\colon\)</span> Location and the motivation to visit a chiropractor are not independent.</p>
-<p>Let <span class="math inline">\(\alpha=0.05\)</span>.</p>
-<p>The test statistic is: <span class="math inline">\(\chi^2 = 49.743\)</span>, with <span class="math inline">\(df=8\)</span>.</p>
-<!--:*Sketch of the sampling distribution of $\chi^2$: (Draw a right skewed distribution that looks somewhat like an $F$.)-->
-<p>The <span class="math inline">\(P\)</span>-value is rounded to .000 in the output. To see the actual <span class="math inline">\(P\)</span>-value you would need to use Excel to expand the number of decimal places shown: <span class="math inline">\(P\textrm{-value} = 4.58 \times 10^{-8} &lt; 0.05 = \alpha\)</span></p>
-<p>Decision: Reject the null hypothesis.</p>
-<p>Conclusion: There is sufficient evidence to suggest that the motivation to visit a chiropractor is not independent of the location.</p>
-<!--The following observation really needs to be supported by an appropriate table of percentages or a clustered bar chart, or something.-->
-<!--:*Further discussion: <br> People in these three locations evidently have different reasons for seeking chiropractic care. It appears that individuals in Europe are much more likely to seek chiropractic care in the sick role than individuals in the United States and Australia. The Europeans are also less likely to visit a chiropractor for wellness reasons.-->
+<pre class="r"><code>chisq.test(motivation_table)$expected</code></pre>
+<pre><code>                       Europe Australia United States
+Wellness             39.42857  65.57447      78.99696
+Preventative Health  34.92857  58.09043      69.98100
+At Risk              44.35714  73.77128      88.87158
+Sick Role            48.64286  80.89894      97.45821
+Self Care           114.64286 190.66489     229.69225</code></pre>
+<ul>
+<li>As shown in the above table, the smallest expected count is 34.92857, which is well above the required 5.</li>
+</ul></li>
+</ol>
+<p><img src="Images/Step5.png"></p>
+<p>People in Europe, Australia, and the United States evidently have different reasons for seeking chiropractic care. It appears that individuals in Europe are much more likely to seek chiropractic care in the sick role than individuals in the United States and Australia. The Europeans are also less likely to visit a chiropractor for wellness reasons.</p>
 <p><br></p>
 </div>
 </div>
@@ -763,7 +715,7 @@ Answer the following questions:
 <p> </p>
 </div>
 <p><br></p>
-<p>There may be no general guideline for deciding which variable is the row variable, but the graphics produced by your software may depend on this decision. For example, Excel will give you a different clustered bar chart when you use “Location” as the row variable than when you use “Motivation” as the row variable. Sometimes, choosing one of the variables as the row variable makes the clustered bar chart easier to understand. The bar chart is just below the data entry area in Excel.</p>
+<p>There may be no general guideline for deciding which variable is the row variable, but the graphics produced by your software may depend on this decision. For example, R will give you a different clustered bar chart when you use “Location” as the row variable than when you use “Motivation” as the row variable. Sometimes, choosing one of the variables as the row variable makes the clustered bar chart easier to understand.</p>
 </div>
 <div id="why-h_a-is-worded-as-it-is" class="section level3">
 <h3>Why <span class="math inline">\(H_a\)</span> is Worded As It Is</h3>
@@ -936,8 +888,12 @@ H_a: &amp; \text{The (first variable) and the (second variable) are not independ
 \end{array}
 \]</span></p></li>
 <li><p>The <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong> for a <span class="math inline">\(\chi^2\)</span> test of independence are calculated using the formula <span class="math inline">\(df=(\text{number of rows}-1)(\text{number of columns}-1)\)</span></p></li>
-<li><p>In our hypothesis testing for <span class="math inline">\(\chi^2\)</span> we never conclude that two variables are <em>dependent</em>. Instead, we say that two variables are <em>not independent</em>. <br></p></li>
+<li><p>In our hypothesis testing for <span class="math inline">\(\chi^2\)</span> we never conclude that two variables are <em>dependent</em>. Instead, we say that two variables are <em>not independent</em>.</p></li>
+<li><p>To create a clustered bar chart in R first requires using either <code>cbind( )</code> or <code>rbind( )</code> to create a table of observed counts, and then using <code>barplot( , beside=TRUE, legend.text=TRUE)</code> to create the plot. Review this by <a href="Lesson19.html#r-instructions-for-clustered-bar-charts">clicking here</a>.</p></li>
+<li><p>To perform a chi-squared test of independence in R, use the <code>chisq.test( )</code> with your table of observed counts placed inside the function. Review this by <a href="Lesson19.html#r-instructions-for-performing-a%20chi-squared-test-of-independence">clicking here</a>.</p></li>
+<li><p>To check the requirements of a chi-squared test of independence, use the code <code>chisq.test(your_table_of_counts)$expected</code> where <code>your_table_of_counts</code> is the table of counts you made. Look to see that all expected counts are greater than 5.</p></li>
 </ul>
+<p><br></p>
 </div>
 <p><br></p>
 </div>
