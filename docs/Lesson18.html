@@ -1176,6 +1176,13 @@ Remember…
 \text{Sample proportion for group 2:} &amp; \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
 \end{array}
 \]</span></p></li>
+<li><p>A test of two proportions is appropriate to perform whenever all of the following requirements are satisfied:</p></li>
+</ul>
+<p><span class="math display">\[
+n_1\hat{p}_1 \geq 10 \quad\quad n_2 \hat{p}_2 \geq 10\\
+n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
+\]</span></p>
+<ul>
 <li><p>Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.</p></li>
 <li><p>Use <code>prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")</code> to perform a hypothesis test of two proportions.</p></li>
 <li><p>Use <code>prop.test(x=c(  ,  ), y=c(  ,  ), correct=FALSE, conf.level=0.95)</code> to obtain a confidence interval for the difference of two proportions.</p></li>
