@@ -391,7 +391,7 @@ $(document).ready(function () {
 <li><a href="#confidence-intervals">Confidence Intervals</a>
 <ul>
 <li><a href="#case-study-managing-fox-populations">Case Study: Managing Fox Populations</a></li>
-<li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
+<li><a href="#r-instructions-for-the-confidence-interval-of-the-difference-of-two-proportions">R Instructions for the Confidence Interval of the Difference of Two Proportions</a></li>
 <li><a href="#checking-requirements-for-a-confidence-interval">Checking Requirements for a Confidence Interval</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
@@ -1110,8 +1110,8 @@ sample estimates:
 \]</span></p>
 <p>This tells us that it appears the first proportion, <span class="math inline">\(p_1\)</span> is somewhere around 40.9 percentage points higher than <span class="math inline">\(p_2\)</span>, which is quite a bit! It seems the intervention lowered the prevalence of foxes in the sand-pads. However, our conclusions are based on sample proportions instead of the true proportions. So we can’t be sure on exactly how much the true proportions actually differ. Using a confidence interval to estimate a set of possibilities for true difference in proportions can give us greater insight.</p>
 </div>
-<div id="r-instructions-for-confidence-intervals" class="section level3">
-<h3>R Instructions for Confidence Intervals</h3>
+<div id="r-instructions-for-the-confidence-interval-of-the-difference-of-two-proportions" class="section level3">
+<h3>R Instructions for the Confidence Interval of the Difference of Two Proportions</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1176,7 +1176,7 @@ Remember…
 \text{Sample proportion for group 2:} &amp; \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
 \end{array}
 \]</span></p></li>
-<li><p>A test of two proportions is appropriate to perform whenever all of the following requirements are satisfied:</p></li>
+<li><p>A test of two proportions (or confidence interval for two proportions) is appropriate to perform whenever all of the following requirements are satisfied:</p></li>
 </ul>
 <p><span class="math display">\[
 n_1\hat{p}_1 \geq 10 \quad\quad n_2 \hat{p}_2 \geq 10\\
@@ -1184,8 +1184,8 @@ n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
 \]</span></p>
 <ul>
 <li><p>Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.</p></li>
-<li><p>Use <code>prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")</code> to perform a hypothesis test of two proportions.</p></li>
-<li><p>Use <code>prop.test(x=c(  ,  ), y=c(  ,  ), correct=FALSE, conf.level=0.95)</code> to obtain a confidence interval for the difference of two proportions.</p></li>
+<li><p>Use <a href="Lesson18.html#r-instructions-for-testing-two-proportions"><code>prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")</code></a> to perform a hypothesis test of two proportions.</p></li>
+<li><p>Use <a href="Lesson18.html#r-instructions-for-confidence-interval-of-the-difference-of-two-proportions"><code>prop.test(x=c(  ,  ), y=c(  ,  ), correct=FALSE, conf.level=0.95)</code></a> to obtain a confidence interval for the difference of two proportions.</p></li>
 </ul>
 <p><br></p>
 </div>
