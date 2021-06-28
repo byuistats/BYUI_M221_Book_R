@@ -814,6 +814,13 @@ $$
 \end{array}
 $$
 
+- A test of two proportions is appropriate to perform whenever all of the following requirements are satisfied:
+
+$$
+n_1\hat{p}_1 \geq 10 \quad\quad n_2 \hat{p}_2 \geq 10\\
+n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
+$$
+
 - Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.
 
 - Use `prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")` to perform a hypothesis test of two proportions. 
