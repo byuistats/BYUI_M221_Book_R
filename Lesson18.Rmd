@@ -443,7 +443,7 @@ This $z$-score can be substituted into the Normal Probability applet to find the
 
 <br/>
 
-The $P$-value$= 0.00000742 < 0.05 = \alpha$, so we reject the null hypothesis.
+The $P$-value$= 0.0004179 < 0.05 = \alpha$, so we reject the null hypothesis.
 
 
 <img src="./Images/Step5.png">
