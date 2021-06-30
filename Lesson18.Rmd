@@ -823,9 +823,9 @@ $$
 
 - Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.
 
-- Use [`prop.test(x=c( ,  ), y=c(  ,  ), correct=FALSE, alternative="two.sided")`](Lesson18.html#r-instructions-for-testing-two-proportions) to perform a hypothesis test of two proportions. 
+- Use [`prop.test(x=c( ,  ), n=c(  ,  ), correct=FALSE, alternative="two.sided")`](Lesson18.html#r-instructions-for-testing-two-proportions) to perform a hypothesis test of two proportions. 
 
-- Use [`prop.test(x=c(  ,  ), y=c(  ,  ), correct=FALSE, conf.level=0.95)`](Lesson18.html#r-instructions-for-confidence-interval-of-the-difference-of-two-proportions) to obtain a confidence interval for the difference of two proportions.
+- Use [`prop.test(x=c(  ,  ), n=c(  ,  ), correct=FALSE, conf.level=0.95)`](Lesson18.html#r-instructions-for-confidence-interval-of-the-difference-of-two-proportions) to obtain a confidence interval for the difference of two proportions.
 
 <br>
 </div>
