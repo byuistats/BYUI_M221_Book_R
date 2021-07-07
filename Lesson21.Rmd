@@ -103,7 +103,7 @@ MathSelfEfficacy <- read_excel("./Data/MathSelfEfficacy.xlsx")
 ```
 
 ```{r}
-plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy)
+plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean)
 ```
 
 Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of 
@@ -117,7 +117,7 @@ Of course, it is good practice to provide some color and better labeling with an
 These options are demonstrated below.
 
 ```{r}
-plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
+plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean,
      col="skyblue", #specify the color
      pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
      xlab="Mean Confidence Rating for Each Student",
