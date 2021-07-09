@@ -537,8 +537,8 @@ This video is an hour and a half long. <strong>YOU DO NOT NEED TO WATCH THE ENTI
 <p>Using the information we learned in <a href="Lesson21.html#r-instructions-for-scatterplots">Lesson 21</a> we create a scatterplot for the Estuarine Crocodile data.</p>
 <pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main=&quot;Estuarine Crocodile Measurements&quot;,
-     ylab=&quot;Head Length (cm)&quot;,
-     xlab=&quot;Body Length (cm)&quot;,
+     ylab=&quot;Body Length (cm)&quot;,
+     xlab=&quot;Head Length (cm)&quot;,
      col=&quot;seagreen&quot;, pch=16)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Also, using the information we learned in Lesson 21 about <a href="Lesson21.html#r-instructions-for-computing-correlation">computing correlation</a> we obtain the following.</p>
@@ -629,8 +629,8 @@ R Instructions
 </ul>
 <pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main=&quot;Estuarine Crocodile Measurements&quot;,
-     ylab=&quot;Head Length (cm)&quot;,
-     xlab=&quot;Body Length (cm)&quot;,
+     ylab=&quot;Body Length (cm)&quot;,
+     xlab=&quot;Head Length (cm)&quot;,
      col=&quot;seagreen&quot;, pch=16)
 
 abline(estuarine.lm)</code></pre>
@@ -641,8 +641,8 @@ abline(estuarine.lm)</code></pre>
 <p>If you looked carefully at the scatterplot shown above you might realize that the x-axis of the graph only goes up to 60 cm. The juvenile sarcosuchus we were using to make predictions had a head lenght of 87 cm, which is way off the chart! Further, the estimated body length our regression predicts for this juvenile sarcosuchus is over six and a half meters long! That is over 21 feet! Imagine how big it might have been if it reached maturity! Further, to actually draw the prediction on our graph we would need to use the <code>xlim=c(0,90)</code> and <code>ylim=c(0,650)</code> commands inside the <code>plot( )</code> function.</p>
 <pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main=&quot;Estuarine Crocodile Measurements&quot;,
-     ylab=&quot;Head Length (cm)&quot;,
-     xlab=&quot;Body Length (cm)&quot;,
+     ylab=&quot;Body Length (cm)&quot;,
+     xlab=&quot;Head Length (cm)&quot;,
      col=&quot;seagreen&quot;, pch=16,
      xlim=c(0,90),
      ylim=c(0,650))
@@ -668,8 +668,8 @@ Answer the following question:
 <p>Further, if we wanted to draw a picture of this prediction, it would look as follows.</p>
 <pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main=&quot;Estuarine Crocodile Measurements&quot;,
-     ylab=&quot;Head Length (cm)&quot;,
-     xlab=&quot;Body Length (cm)&quot;,
+     ylab=&quot;Body Length (cm)&quot;,
+     xlab=&quot;Head Length (cm)&quot;,
      col=&quot;seagreen&quot;, pch=16,
      xlim=c(0,165),
      ylim=c(0,1210))

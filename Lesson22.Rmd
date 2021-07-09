@@ -184,8 +184,8 @@ EstuarineCrocodiles <- read_excel("./Data/EstuarineCrocodiles.xlsx")
 ```{r}
 plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main="Estuarine Crocodile Measurements",
-     ylab="Head Length (cm)",
-     xlab="Body Length (cm)",
+     ylab="Body Length (cm)",
+     xlab="Head Length (cm)",
      col="seagreen", pch=16)
 ```
 
@@ -283,8 +283,8 @@ estuarine.lm <- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLeng
 ```{r}
 plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main="Estuarine Crocodile Measurements",
-     ylab="Head Length (cm)",
-     xlab="Body Length (cm)",
+     ylab="Body Length (cm)",
+     xlab="Head Length (cm)",
      col="seagreen", pch=16)
 
 abline(estuarine.lm)
@@ -301,8 +301,8 @@ If you looked carefully at the scatterplot shown above you might realize that th
 ```{r}
 plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main="Estuarine Crocodile Measurements",
-     ylab="Head Length (cm)",
-     xlab="Body Length (cm)",
+     ylab="Body Length (cm)",
+     xlab="Head Length (cm)",
      col="seagreen", pch=16,
      xlim=c(0,90),
      ylim=c(0,650))
@@ -334,8 +334,8 @@ Further, if we wanted to draw a picture of this prediction, it would look as fol
 ```{r}
 plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
      main="Estuarine Crocodile Measurements",
-     ylab="Head Length (cm)",
-     xlab="Body Length (cm)",
+     ylab="Body Length (cm)",
+     xlab="Head Length (cm)",
      col="seagreen", pch=16,
      xlim=c(0,165),
      ylim=c(0,1210))
