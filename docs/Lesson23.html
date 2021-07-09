@@ -472,7 +472,7 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <h3>Scatterplot</h3>
 <p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This has been referred to as a “hot dog” shape in the data.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
-<p>Consider the scatterplot of the estuarine crocodile data <a href="./Data/Estuarine_Crocodile_(Modified).xlsx">EstuarineCrocodile(Modified).xlsx</a>:</p>
+<p>Consider the scatterplot of the estuarine crocodile data <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a>:</p>
 <p><img src="Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG"></p>
 <p>Notice how the data follow a linear shape. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
@@ -482,52 +482,83 @@ Y = \beta_0 + \beta_1 X + \epsilon
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p>
 <p>It is tedious to calculate the residuals by hand, but software can be used to find the residuals.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=CalculateResiduals }} -->
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions
 </div>
-<div class="Summary">
-<p><strong>To find the residuals in Excel, do the following:</strong></p>
+<div class="Software">
+<p><strong>To find the residuals in R, do the following:</strong></p>
 <ul>
-<li>Open <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> and click on the “Linear Regression” tab</li>
-<li>Copy and Paste the dependent (or response) variable into the “Y” column (Column B). The dependent variable (or response variable) is the thing you are trying to predict. Often it is the more difficult/expensive variable to measure.</li>
-<li>Copy and paste the independent (or explanatory) variable into the “X” column (Column A).</li>
-<li>Your residuals will then be calculated in column Y of the Excel Spreadsheet. <br></li>
+<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
+<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
+<ul>
+<li>Use the name of the lm that you created and the <code>$</code> to access the residuals.</li>
+</ul>
+<pre class="r"><code>estuarine.lm$residuals</code></pre>
+<pre><code>##           1           2           3           4           5           6 
+##  -4.5684826  13.4315174  -0.8493199   9.1703661  -1.1301573  11.8698427 
+##           7           8           9          10          11          12 
+##   7.9092147 -16.4109947  25.9485867  10.0076446   3.6086913 -15.3716227 
+##          13          14          15          16          17          18 
+##  -7.8099479  14.9092147  -8.8099479   0.9289007  -4.4700526  -1.0710993 
+##          19          20          21          22          23          24 
+## -18.1301573   4.2884820  -6.9923554 -10.7115180   3.2294240  -5.3716227 
+##          25          26          27          28 
+##  12.2687960   0.6480633 -12.1301573  -4.3913087</code></pre>
+<p>Each residual is labeled as residual #1, #2, #3, and so on, in this case up to residual #28. These correspond to the order of the original data set.</p>
+<p><br></p>
 </div>
 <p><br></p>
 </div>
 <div id="residual-plot" class="section level3">
 <h3>Residual Plot</h3>
 <p>The residual is calculated for each data point, so you have one residual for every observation in the data set. It is hard to use so many numbers to make decisions. How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a <em>residual plot</em>. A residual plot is a scatterplot where the <span class="math inline">\(X\)</span>-axis shows the independent variable (<span class="math inline">\(X\)</span>) and the <span class="math inline">\(Y\)</span>-axis presents the residuals for each value of <span class="math inline">\(X\)</span>.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=ResidualPlot }} -->
 <div class="SoftwareHeading">
 Excel Instructions
 </div>
-<div class="Summary">
-<p><strong>To make a residual plot in Excel do the following:</strong></p>
+<div class="Software">
 <ul>
-<li><p>Once the explanatory and response variables are entered into the correct columns in the <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> spreadsheet, you are given a scatter plot of residuals starting in cell S4, to the right of the hypothesis testing section.</p></li>
-<li><p>To create a residual plot on your own, you can highlight columns X and Y, then click on the Insert Ribbon, and then click on “Scatter” (or the icon that looks like a scatter plot). You want the first choice (Scatter with only markers), so select the first scatter plot choice. <br></p></li>
+<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
+<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
+<ul>
+<li>Use the name of the lm that you created and the <code>plot()</code> function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use <code>plot(  , which=1)</code> to obtain just the first plot.</li>
+</ul>
+<pre class="r"><code>plot(estuarine.lm, which=1)</code></pre>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don’t worry about whether or not it is flat.</p>
+<p><br></p>
 </div>
 <p><br></p>
-<p>The following image shows the residual plot for the estuarine crocodile data.</p>
-<p><img src="Images/EstuarineCrocodile-ResidualPlot-Excel.PNG"></p>
-<p>This residual plot shows random scatter. There is no obvious pattern in the data. If linear regression is appropriate, then the residual plot will show no patterns and will consist of random scatter. If there is a pattern in the residuals, it suggests that linear regression is not appropriate.</p>
+<p>The residual plot of the estuarine crocodile data shown above shows random scatter. There is no obvious pattern in the data. This is good. Whenever linear regression is appropriate, then the residual plot will show no patterns and will consist of random scatter. If there is a pattern in the residuals, it suggests that linear regression is not appropriate.</p>
 <p>There are several patterns that could arise in a residual plot:</p>
 <ul>
 <li><strong>Curvature</strong> If the residual plot shows curvature, that suggests that the data are not linearly related.</li>
+</ul>
+<div style="padding-left:30px;">
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-7-1.png" width="288" /></p>
+</div>
+<ul>
 <li><strong>Megaphone</strong> A megaphone shape occurs when points tend to be close together on one side of the graph and farther apart on the other side of the graph. If there is a megaphone shape apparent in the residuals, it suggests that the variance of the error terms is not constant for all values of <span class="math inline">\(X\)</span>. It suggests that there is a difference in the spread of the residuals depending on the value of <span class="math inline">\(X\)</span>.</li>
+</ul>
+<div style="padding-left:30px;">
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-8-1.png" width="288" /></p>
+</div>
+<ul>
 <li><strong>Outliers</strong> If there are outliers in the residual plot, that suggests that the error terms are not normally distributed. This should also be apparent in the scatterplot or histogram of the residuals.</li>
 </ul>
+<div style="padding-left:30px;">
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-9-1.png" width="288" /></p>
+</div>
+<p><br/></p>
 </div>
 <div id="histogram-of-the-residuals" class="section level3">
 <h3>Histogram of the Residuals</h3>
-<p>Once the residuals have been calculated in Excel, we can assess if they are normally distributed using a histogram. If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met.Don’t forget that you may need to try out various histograms with different number of bins to get a feel for the shape of the distribution of residuals.</p>
-<p><img src="Images/EstuarineCrocodile-Hist-Residuals-Excel.PNG"></p>
+<p>Once the residuals have been calculated in R, we can assess if they are normally distributed using a histogram. If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met.</p>
+<pre class="r"><code>hist(estuarine.lm$residuals)</code></pre>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>The histogram of the residuals using 7 bins does not show a distinct or extreme departure from a normal shape. We do not have evidence of nonnormality in the residuals. We conclude that the residuals are normally distributed. In more advanced classes you will use a tool called a Q-Q plot to assess whether residuals are normally distributed.</p>
 </div>
 <div id="requirements-summary" class="section level3">
