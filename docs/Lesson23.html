@@ -385,18 +385,22 @@ $(document).ready(function () {
 <ul>
 <li><a href="#scatterplot">Scatterplot</a></li>
 <li><a href="#residuals">Residuals</a></li>
+<li><a href="#r-instructions-for-computing-residuals">R Instructions for Computing Residuals</a></li>
 <li><a href="#residual-plot">Residual Plot</a></li>
+<li><a href="#r-instructions-for-residual-plots">R Instructions for Residual Plots</a></li>
 <li><a href="#histogram-of-the-residuals">Histogram of the Residuals</a></li>
 <li><a href="#requirements-summary">Requirements Summary</a></li>
 </ul></li>
 <li><a href="#hypothesis-test-for-regression-coefficients">Hypothesis Test for Regression Coefficients</a>
 <ul>
 <li><a href="#estuarine-crocodiles">Estuarine Crocodiles</a></li>
+<li><a href="#r-instructions-for-testing-the-regression-slope">R Instructions for Testing the Regression Slope</a></li>
 <li><a href="#manatees">Manatees</a></li>
 </ul></li>
 <li><a href="#confidence-intervals-for-regression-coefficients">Confidence Intervals for Regression Coefficients</a>
 <ul>
 <li><a href="#manatees-1">Manatees</a></li>
+<li><a href="#r-instructions-for-confidence-intervals">R Instructions for Confidence Intervals</a></li>
 <li><a href="#estuarine-crocodiles-1">Estuarine Crocodiles</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
@@ -482,6 +486,9 @@ Y = \beta_0 + \beta_1 X + \epsilon
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p>
 <p>It is tedious to calculate the residuals by hand, but software can be used to find the residuals.</p>
+</div>
+<div id="r-instructions-for-computing-residuals" class="section level3">
+<h3>R Instructions for Computing Residuals</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -514,6 +521,9 @@ R Instructions
 <div id="residual-plot" class="section level3">
 <h3>Residual Plot</h3>
 <p>The residual is calculated for each data point, so you have one residual for every observation in the data set. It is hard to use so many numbers to make decisions. How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a <em>residual plot</em>. A residual plot is a scatterplot where the <span class="math inline">\(X\)</span>-axis shows the independent variable (<span class="math inline">\(X\)</span>) and the <span class="math inline">\(Y\)</span>-axis presents the residuals for each value of <span class="math inline">\(X\)</span>.</p>
+</div>
+<div id="r-instructions-for-residual-plots" class="section level3">
+<h3>R Instructions for Residual Plots</h3>
 <div class="SoftwareHeading">
 Excel Instructions
 </div>
@@ -725,34 +735,17 @@ Knowing the value of one of the <span class="math inline">\(Y\)</span>’s<br />
 </tr>
 </tbody>
 </table>
-<!-- {| class="basic" style="text-align:left" -->
-<!-- ! !! Requirement                      !! How to Check      !! What you hope to see -->
-<!-- |- -->
-<!-- |1. || Linear Relationship           || Scatterplot || "Hot dog" shape   -->
-<!-- |- -->
-<!-- | ||            || Residual Plot|| No pattern in the residuals  -->
-<!-- |- -->
-<!-- |2. || Normal Error Term             || Q-Q Plot of the Residuals  || Points in the Q-Q plot are close to the line  -->
-<!-- |- -->
-<!-- |3.  || Constant Variance             || Residual Plot              || No megaphone shape in the residuals  -->
-<!-- |- -->
-<!-- |4.  || $X$'s are Known <br> Constants|| Cannot be checked directly || $X$'s should be measured <br> accurately and precisely  -->
-<!-- |- -->
-<!-- |5.  || Observations are <br> Independent|| Cannot be checked directly || Knowing the value of one of the $Y$'s <br> tells you nothing about any other points  -->
-<!-- |- -->
-<!-- |} -->
 <p>If these requirements are met, then it is reasonable to assume that the use of regression with the data is appropriate.</p>
 </div>
 </div>
 <div id="hypothesis-test-for-regression-coefficients" class="section level2">
 <h2>Hypothesis Test for Regression Coefficients</h2>
+<p><img src="Images/Step4.png"></p>
 <div id="estuarine-crocodiles" class="section level3">
 <h3>Estuarine Crocodiles</h3>
 <p>We want to know if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. To test for this, we need to determine if the slope is different from zero. If the slope is zero, then that suggests that there is no linear relationship between the two variables. If the slope is not zero, that suggests that there is a linear relationship between the two variables.</p>
-<p>The regression output will include all the calculations you need to conduct a hypothesis test for the regression slope:</p>
-<p><img src="Images/EstuarineCrocodile_HypTest_Output.PNG"></p>
-<p>In this course, we will test if the true slope is different from zero. If the slope equals zero, then the regression line reduces from: <span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
-<p>to: <span class="math display">\[Y = \beta_0 + \epsilon\]</span></p>
+<p>In this course, we will test if the true slope is different from zero. If the slope equals zero, <span class="math inline">\(\beta_1 = 0\)</span>, then the regression line reduces from: <span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
+<p>to: <span class="math display">\[Y = \beta_0 + 0 \cdot X_i + \epsilon = \beta_0 + \epsilon_i\]</span></p>
 <p>In other words, the independent variable <span class="math inline">\(X\)</span> does not affect the value of the dependent variable <span class="math inline">\(Y\)</span>.</p>
 <p>The null and alternative hypotheses for this test are: <span class="math display">\[
 \begin{array}{ll}
@@ -761,50 +754,102 @@ H_a: &amp; \beta_1 \ne 0\\
 \end{array}
 \]</span></p>
 <p>We will assume the <span class="math inline">\(0.05\)</span> level of significance.</p>
-<p>The relevant summary statistics include the sample size and the estimated regression equation (<span class="math inline">\(\hat Y = b_0 + b_1 X\)</span>). For the estuarine crocodile data, we get: <span class="math display">\[
+<p>The relevant summary statistics include the sample size and the estimated regression equation (<span class="math inline">\(\hat Y = b_0 + b_1 X\)</span>). For the estuarine crocodile data, we get the following.</p>
+</div>
+<div id="r-instructions-for-testing-the-regression-slope" class="section level3">
+<h3>R Instructions for Testing the Regression Slope</h3>
+<div class="SoftwareHeading">
+Excel Instructions
+</div>
+<div class="Software">
+<ul>
+<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Perform a linear regression using the <code>lm( )</code> function.</li>
+<li>See the results using <code>summary( )</code>.</li>
+</ul>
+<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+summary(estuarine.lm)</code></pre>
+<pre><code>
+Call:
+lm(formula = EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-18.1302  -7.1968  -0.9602   8.2245  25.9486 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                    -18.2740     9.9663  -1.834   0.0782 .  
+EstuarineCrocodiles$HeadLength   7.6601     0.2152  35.588   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 10.8 on 26 degrees of freedom
+Multiple R-squared:  0.9799,    Adjusted R-squared:  0.9791 
+F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><br/></p>
+</div>
+<p><br/></p>
+<p>The output above shows that</p>
+<p><span class="math display">\[
 \begin{array}{c}
 n=28 \\
 \hat Y = -18.274 + 7.660 X \\
 \end{array}
 \]</span></p>
-<p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution. We are conducting a test for the slope. The information related to the slope is given in the second row of the “Coefficients” table, which is labeled “Head Length (cm)”. Looking across the second row, we find the value of <span class="math inline">\(t\)</span> is given as 35.588. <span class="math display">\[
+<p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution. We are conducting a test for the slope. The information related to the slope is given in the second row of the “Estimate” table, which is labeled “EstuarineCrocodiles$HeadLength”. Looking across the second row, we find the value of <span class="math inline">\(t\)</span> is given as 35.588. <span class="math display">\[
 t=35.588
 \]</span></p>
 <p>This is a tremendously large value for t. This indicates that there is a lot of evidence against the null hypothesis.</p>
-<!-- The degrees of freedom are given in the ANOVA table in the "Residual" row under the "df" column:
-
-<img src="Images/SPSS_Estuarine_Croc_Regression_output_df.PNG"> -->
-<p>Remember, the <span class="math inline">\(t\)</span> distribution has one number describing its degrees of freedom. The degrees of freedom for this test is not shown on the Excel sheet, but is easy to calculate by hand. Because we used the dataset to estimate two population parameters (a slope and a y-intercept) we have used two degrees of freedom. There are 28 observations in our dataset. The degrees of freedom equals <span class="math inline">\(28-2 = 26\)</span> for the estuarine crocodile data. <span class="math display">\[
+<p>Remember, the <span class="math inline">\(t\)</span> distribution has one number describing its degrees of freedom. The degrees of freedom for this test is shown towards the bottom of the output where it states “26 degrees of freedom”. It is also easy to calculate the degrees of freedom by hand. Because we used the dataset to estimate two population parameters (a slope and a y-intercept) we have used two degrees of freedom. There are 28 observations in our dataset. The degrees of freedom equals <span class="math inline">\(28-2 = 26\)</span> for the estuarine crocodile data. <span class="math display">\[
 df= 28-2 = 26
 \]</span></p>
-<p>With a test statistic of <span class="math inline">\(t=35.588\)</span>, we get a very small <span class="math inline">\(P\)</span>-value, “0.000” as shown in cell Q9.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=EstuarineCrocodilePvalue }} -->
-<!--
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-Note that in the output for Excel, the $P$-value is given in scientific notation.  Also note that there are two values under $P$-value.  One is for the slope and the other is for the y-intercept.  In this class we will always be looking at the slope, which is the bottom or the "Predictors".  So, our $P$-value for this test is written as:
-
-$$
-P\textrm{-value} = 0.0000000000000000000000107211   
-$$
-<center>or as</center>
-$$
-1.07211E^-23
-$$
-
-Assuming $\alpha=0.05$, then $P\textrm{-value} = 1.07211E^-23 < 0.05 = \alpha$.
-<br>
-</div>
-<br>
--->
+<p>With a test statistic of <span class="math inline">\(t=35.588\)</span>, we get a very small <span class="math inline">\(P\)</span>-value, “0.000” as shown in the column of the output titled “Pr(&gt;|t|)”. That stands for “the probability” (Pr) of being “more extreme” (&gt;) than the observed test statistic (t).</p>
 <p>Assuming <span class="math inline">\(\alpha=0.05\)</span>, we reject the null hypothesis since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the head length and the body length of estuarine crocodiles.</p>
 <p>It was appropriate to conduct this analysis, since the requirements of simple linear regression were satisfied.</p>
 </div>
 <div id="manatees" class="section level3">
 <h3>Manatees</h3>
-<p>Here is an excerpt from the output for the <a href="./Data/Manatees.xlsx">Manatees.xlsx</a> data set: <!--<cite>Manatees06</cite>--></p>
-<p><img src="Images/Manatees-RegressionOutput.PNG"></p>
+<p><img src="Images/Step4.png"></p>
+<p>Here is an excerpt from the output for the <a href="./Data/Manatees.xlsx">Manatees.xlsx</a> data set:</p>
+<table style="width:51%;">
+<colgroup>
+<col width="36%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Power Boats (in 1000’s)</th>
+<th align="center">Manatees</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">436</td>
+<td align="center">14</td>
+</tr>
+<tr class="even">
+<td align="center">449</td>
+<td align="center">21</td>
+</tr>
+<tr class="odd">
+<td align="center">470</td>
+<td align="center">18</td>
+</tr>
+<tr class="even">
+<td align="center">487</td>
+<td align="center">19</td>
+</tr>
+<tr class="odd">
+<td align="center">502</td>
+<td align="center">24</td>
+</tr>
+<tr class="even">
+<td align="center">501</td>
+<td align="center">18</td>
+</tr>
+</tbody>
+</table>
 <p>The null and alternative hypotheses for this test are: <span class="math display">\[
 \begin{array}{ll}
 H_0: &amp; \beta_1  =  0\\
@@ -818,36 +863,35 @@ n=35 \\
 \end{array}
 \]</span></p>
 <p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution.</p>
-<p><img src="Images/Manatees-RegressionOutput-HypTest.PNG"></p>
-<p>Remember, we are conducting a test for the slope, so the information we need is given in the block of output labeled “Hypothesis Test of the Regression Slope”. We find the value of <span class="math inline">\(t\)</span> is given as 15.491. <span class="math display">\[
-t=15.491
+<pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+summary(manatee.lm)</code></pre>
+<pre><code>
+Call:
+lm(formula = Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.758  -6.647  -1.239   4.349  22.344 
+
+Coefficients:
+                                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                        -42.541613   6.349634   -6.70 1.25e-07 ***
+Manatees$`Power Boats (in 1000&#39;s)`   0.129162   0.008338   15.49  &lt; 2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 9.239 on 33 degrees of freedom
+Multiple R-squared:  0.8791,    Adjusted R-squared:  0.8754 
+F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Remember, we are conducting a test for the slope, so the information we need is given in the second row of output. We find the value of <span class="math inline">\(t\)</span> is given as 15.49. <span class="math display">\[
+t=15.49
 \]</span></p>
 <p>Think about this result. Is this a large or a small value for <span class="math inline">\(t\)</span>? What does this say about the conclusion to our test?</p>
-<p>Remember, the <span class="math inline">\(t\)</span> has one number describing its degrees of freedom. For this test, the degrees of freedom <span class="math inline">\(35-2 = 33\)</span>. We subtract two from the total number of observations because we estimated a 2 population parameters for the line: a y-intercept and a slope.<br />
+<p>Remember, the <span class="math inline">\(t\)</span> has one number describing its degrees of freedom. For this test, the degrees of freedom <span class="math inline">\(35-2 = 33\)</span>. We subtract two from the total number of observations because we estimated 2 population parameters for the line: a y-intercept and a slope.<br />
 <span class="math display">\[
 df=33
 \]</span></p>
-<p>With a test statistic of <span class="math inline">\(t=15.491\)</span> and <span class="math inline">\(33\)</span> degrees of freedom, we get a very small <span class="math inline">\(P\)</span>-value. The value is so small that when we round to just three decimal places, the <span class="math inline">\(P\)</span>-value appears to be zero.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=ManateePvalue }} -->
-<!--
-<div class="SoftwareHeading">Excel Instructions</div>
-<div class="Summary">
-Note that in the output for Excel, the $P$-value is given in scientific notation.  Also note that there are two values under $P$-value.  One is for the slope and the other is for the y-intercept.  In this class we will always be looking at the slope, which is the bottom or the "Predictors".  So, our $P$-value for this test is written as:
-
-$$
-P\textrm{-value} = 0.000000000000000000105954   
-$$
-<center>or as</center>
-$$
-1.05954E^-19
-$$
-
-Assuming $\alpha=0.05$, then $P\textrm{-value} = 1.05954E^-19 < 0.05 = \alpha$.
-<br>
-</div>
-<br>
--->
+<p>With a test statistic of <span class="math inline">\(t=15.49\)</span> and <span class="math inline">\(33\)</span> degrees of freedom, we get a very small <span class="math inline">\(P\)</span>-value. The value is so small that when we round to just three decimal places, the <span class="math inline">\(P\)</span>-value appears to be zero. In the output the p-value is listed as “&lt;2e-16” which means it is so small that it is less than <span class="math inline">\(2\times10^{-16}\)</span>!</p>
 <p>Assuming <span class="math inline">\(\alpha=0.05\)</span>, our decision rule is to reject the null hypothesis, since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the number of powerboats registered in Florida and the number of manatees killed by powerboats. This conclusion fits our intuition. If there are more boats on the water, it seems plausible that this will affect the number of manatees killed. If any statistical conclusion is counterintuitive, you should always be very wary!</p>
 <p><br></p>
 </div>
@@ -856,28 +900,33 @@ Assuming $\alpha=0.05$, then $P\textrm{-value} = 1.05954E^-19 < 0.05 = \alpha$.
 <h2>Confidence Intervals for Regression Coefficients</h2>
 <div id="manatees-1" class="section level3">
 <h3>Manatees</h3>
-<p>We are often interested in the range of plausible values for the true regression coefficients. We can create a confidence interval for the slope and the <span class="math inline">\(Y\)</span>-intercept in Excel.</p>
-<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
-<!-- {{Software_Filter | PageName=ManateeCIforRegressionCoefficients }} -->
+<p>We are often interested in the range of plausible values for the true regression coefficients. We can create a confidence interval for the slope and the <span class="math inline">\(Y\)</span>-intercept in R.</p>
+</div>
+<div id="r-instructions-for-confidence-intervals" class="section level3">
+<h3>R Instructions for Confidence Intervals</h3>
 <div class="SoftwareHeading">
-Excel Instructions
+R Instructions
 </div>
-<div class="Summary">
-<p><strong>To find the residuals in Excel, do the following:</strong></p>
+<div class="Software">
+<p><strong>To compute the confidence intervals for the regression coefficients in R, do the following:</strong></p>
 <ul>
-<li>Open <a href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a> and click on the “Linear Regression” tab</li>
-<li>Copy and Paste the dependent (or response) variable into the “Y” column (Column B). The dependent variable is also known as the response variable. It is the thing you are trying to predict. Often it is the more difficult/expensive variable to measure.</li>
-<li>Copy and paste the independent (or explanatory) variable into the “X” column (Column A).</li>
-<li>You can change the confidence level in cell N12.<br />
-</li>
-<li>The confidence interval for the slope is found in cells P15 and Q15.</li>
+<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<p><img src="Images/Manatees-RegressionOutputCIs.png"></p>
+<pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)</code></pre>
+<ul>
+<li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level=0.95)</code> to control the confidence level.</li>
+</ul>
+<pre class="r"><code>confint(manatee.lm, level=0.95)</code></pre>
+<pre><code>                                         2.5 %      97.5 %
+(Intercept)                        -55.4600405 -29.6231851
+Manatees$`Power Boats (in 1000&#39;s)`   0.1121986   0.1461254</code></pre>
+<p>The first row of the output gives the confidence interval for <span class="math inline">\(\beta_0\)</span>, the y-intercept. The second row of the output gives the confidence interval for <span class="math inline">\(\beta_1\)</span>, the slope.</p>
 <p><br></p>
 </div>
 <p><br></p>
-<p>In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of manatees killed is <span class="math inline">\((0.112, 0.146)\)</span>. Remember the slope is the amount that <span class="math inline">\(Y\)</span> is expected to change if <span class="math inline">\(X\)</span> changes by one unit. Also, recall that <span class="math inline">\(X\)</span> is given in terms of thousands of powerboats registered. If an additional one thousand powerboats are registered (one unit increase in <span class="math inline">\(X\)</span>,) we are 95% confident that the number of manatees killed will increase between 0.112 and 0.146. Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect 11.2 to 14.6 manatees will be killed.</p>
-<p>Though the Math221 Excel toolbox does not compute a 95% confidence interval for the <span class="math inline">\(Y\)</span>-intercept, many softwares do. The 95% confidence interval for the <span class="math inline">\(Y\)</span>-intercept is <span class="math inline">\((-55.460, -29.623)\)</span>. We are 95% confident that the expected number of manatees that will be killed if there are zero powerboats registered in Florida is between <span class="math inline">\(-55.5\)</span> and <span class="math inline">\(-29.6\)</span>. This is illogical. There cannot be a negative number of manatees killed. The <span class="math inline">\(Y\)</span>-intercept is not interpretable.</p>
+<p>In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of manatees killed is <span class="math inline">\((0.112, 0.146)\)</span>. Remember the slope is the amount that <span class="math inline">\(Y\)</span> is expected to change if <span class="math inline">\(X\)</span> changes by one unit. Also, recall that <span class="math inline">\(X\)</span> is given in terms of thousands of powerboats registered. If an additional one thousand powerboats are registered (one unit increase in <span class="math inline">\(X\)</span>,) we are 95% confident that the average number of manatees killed in such years will increase between 0.112 and 0.146. Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect the average number of manatee deaths witnessed in such years to be between 11.2 to 14.6 manatees.</p>
+<p>The 95% confidence interval for the <span class="math inline">\(Y\)</span>-intercept is <span class="math inline">\((-55.460, -29.623)\)</span>. We are 95% confident that the expected number of manatees that will be killed if there are zero powerboats registered in Florida is between <span class="math inline">\(-55.5\)</span> and <span class="math inline">\(-29.6\)</span>. This is illogical. There cannot be a negative number of manatees killed. The <span class="math inline">\(Y\)</span>-intercept is not interpretable for this data.</p>
 <p>Sometimes the <span class="math inline">\(Y\)</span>-intercept makes sense in the context of the problem, but in many cases it is just used to get the best fit for the regression equation.</p>
 </div>
 <div id="estuarine-crocodiles-1" class="section level3">
@@ -892,6 +941,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
+<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+confint(estuarine.lm, level=0.95)</code></pre>
+<pre><code>                                    2.5 %   97.5 %
+(Intercept)                    -38.760103 2.212044
+EstuarineCrocodiles$HeadLength   7.217669 8.102540</code></pre>
 <center>
 <span class="math display">\[
 (7.218,~8.103)
@@ -905,7 +959,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
-<li>We are 95% confident that the true slope of the regression line relating the head length and the body length of estuarine crocodiles is between 7.218 and 8.103. So, we are 95% confident that if the length of the head increases by 1 cm, then the mean increase in the body length is expected to be between 7.218 and 8.103.</li>
+<li>We are 95% confident that the true slope of the regression line relating the head length and the body length of estuarine crocodiles is between 7.218 and 8.103. So, we are 95% confident that if the length of the head increases by 1 cm, then the increase in the mean body length is expected to be between 7.218 and 8.103.</li>
 </ul>
 </div>
 <p> </p>
@@ -924,14 +978,16 @@ Remember…
 <li><p>A <strong>residual</strong> is the difference between the observed value of <span class="math inline">\(Y\)</span> for a given <span class="math inline">\(X\)</span> and the predicted value of <span class="math inline">\(Y\)</span> on the regression line for the same <span class="math inline">\(X\)</span>. It can be expressed as: <span class="math display">\[
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p></li>
-<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>.</p></li>
+<li><p>Residuals can be obtained in R using <code>lmObjectName$residuals</code>, <a href="Lesson23.html#r-instructions-for-computing-residuals">see here</a> for details.</p></li>
+<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>. These plots can be created in R using <code>plot(lmObjectName, which=1)</code> and <code>hist(lmObjectName$residuals)</code>, <a href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for an example.</p></li>
 <li><p>We conduct a hypothesis test on bivariate data to know if there is a linear relationship between the two variables. To determine this, we test the slope (<span class="math inline">\(\beta_1\)</span>) on whether or not it equals zero. The appropriate hypotheses for this test are: <span class="math display">\[
 \begin{array}{1cl}
 H_0: &amp; \beta_1=0 \\
 H_a: &amp; \beta_1\ne0
 \end{array}
 \]</span></p></li>
-<li><p>For bivariate inference we use software to calculate the sample coefficients, residuals, test statistic, <span class="math inline">\(P\)</span>-value, and confidence intervals of the true linear regression coefficients. <br></p></li>
+<li><p>For bivariate inference we use R to calculate the sample coefficients, residuals, test statistic, <span class="math inline">\(P\)</span>-value, and confidence intervals of the true linear regression coefficients using <code>lm( )</code> and <code>summary( )</code> as <a href="Lesson23.html#r-instructions-for-testing-the-regression-slope">shown here</a>.</p></li>
+<li><p>Confidence intervals for the true regression coefficients (<span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>) can be computed by <code>confint( )</code> as <a href="Lesson23.html#r-instructions-for-confidence-intervals">shown here</a>. <br></p></li>
 </ul>
 </div>
 <p><br></p>
