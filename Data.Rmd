@@ -113,7 +113,7 @@ Or download individual files:
 
 [EuroWeight.xlsx](./Data/EuroWeight.xlsx)                 
 
-[Exam 1 and Exam 2 Scores.xlsx](./Data/Exam 1 and Exam 2 Scores.xlsx)
+[Exam 1 and Exam 2 Scores.xlsx](./Data/Exam1_and_Exam2_Scores.xlsx)
 
 [ExercisedBoneDensity.xlsx](./Data/ExercisedBoneDensity.xlsx)                                          
 
