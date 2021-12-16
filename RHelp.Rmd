@@ -25,7 +25,7 @@ We will use [RStudio](https://www.rstudio.com/products/rstudio/download/) for al
     <td style="padding:5px;">
 **First**, install:
     </td><td style="padding:5px;">
-<img src="./Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" />&nbsp;(<a href="https://cran.r-project.org/bin/macosx/base/R-4.1.0.pkg" target="_blank">Mac OS X</a> | <a href="https://cran.r-project.org/bin/windows/base/release.html" target="_blank">Windows</a>),
+<img src="./Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" />&nbsp;(<a href="https://cran.r-project.org/bin/macosx/base/R-4.1.0.pkg" target="_blank">Mac OS X</a> | <a href="https://cran.r-project.org/bin/windows/base/R-4.0.5-win.exe" target="_blank">Windows</a>),
     </td>
   </tr><tr>
     <td style="padding:5px;">
