@@ -13,7 +13,6 @@
 
 <title>Lesson 3: Describing Quantitative Data (Shape &amp; Center)</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -381,14 +380,12 @@ $(document).ready(function () {
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
 <li><a href="#review-of-the-five-steps-of-the-statistical-process">Review of the Five Steps of the Statistical Process</a></li>
-<li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a>
-<ul>
+<li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a><ul>
 <li><a href="#visualizing-quantitative-data-histograms">Visualizing Quantitative Data: Histograms</a></li>
 <li><a href="#r-instructions-for-histograms">R Instructions for Histograms</a></li>
 </ul></li>
 <li><a href="#shape-of-a-distribution">Shape of a Distribution</a></li>
-<li><a href="#center-of-a-distribution">Center of a Distribution</a>
-<ul>
+<li><a href="#center-of-a-distribution">Center of a Distribution</a><ul>
 <li><a href="#measuring-the-center-of-a-distribution">Measuring the Center of a Distribution</a></li>
 <li><a href="#r-instructions-for-mean-median-and-mode">R Instructions for Mean, Median, and Mode</a></li>
 </ul></li>
@@ -489,7 +486,7 @@ $(document).ready(function () {
 <p><br/></p>
 <p><img src="Images/Step3.png"> <br> <strong>Step 3: Describe the data.</strong></p>
 <div id="visualizing-quantitative-data-histograms" class="section level3 tabset tabset-fade">
-<h3 class="tabset tabset-fade">Visualizing Quantitative Data: Histograms</h3>
+<h3>Visualizing Quantitative Data: Histograms</h3>
 <p>The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
 <center>
 15,100     19,000     4,800     6,500     14,900     600     23,500     11,500     12,900     32,200
@@ -548,6 +545,8 @@ $(document).ready(function () {
 R Instructions
 </div>
 <div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_1')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1" style="display:none;">
 <p>Follow these steps to create a histogram in R.</p>
 <div class="note">
 <p>You need to have RStudio installed to follow this tutorial. If you have not yet installed RStudio, then first follow the instructions listed here: <a href="RHelp.html#installing-r-and-rstudio">Installing RStudio</a>, then return.</p>
@@ -595,6 +594,8 @@ R Instructions
       xlab=&quot;Cost in Dollars&quot;, 
       ylab=&quot;Nubmer of Individuals&quot;)</code></pre>
 <p><img src="Lesson03_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<p><!-- id="r_instr_1" style="display:none;"> --></p>
 </div>
 <p><br> <br></p>
 <div id="making-inference-about-the-population" class="section level4">
@@ -646,6 +647,8 @@ Answer the following question:
 <p>We will describe the shape of the distribution of a data set using the following basic categories: symmetric, bell-shaped, skewed right, and skewed left. Additionally, we can label the shape of a distribution as uniform, unimodal, bimodal, or multimodal.</p>
 <p>A distribution is symmetric if both the left and right side of the distribution appear to be roughly a mirror image of each other. A special symmetric distribution is a bell-shaped distribution. When data follow a bell-shaped distribution, the histogram looks like a bell. Bell-shaped distributions play an important role in Statistics and will play a role in most of the future lessons.</p>
 <p>A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.</p>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.5</code></pre>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><img src="Images/Lesson_2_Activity_2-3.JPG" width=130%></p>
 <p>If a distribution has only one peak, it is said to be <strong>unimodal</strong>. The three distributions illustrated above are all unimodal distributions. Some people might argue that there are several peaks in the GPA data, so it should not be considered unimodal. Even though there are jagged bumps in the histogram, it is important to visualize the overall shape in the data. When interpreting a histogram, it can be helpful to blur your eyes and imagine the overall shape after smoothing out the bumps. If the overall trend indicates that there is more than one bump, then we do not consider the distribution to be unimodal. We will usually only work with unimodal data sets in this course.</p>
 <p>Some distributions have no distinct peak, others have more than one peak. When there is no distinct peak, and the histogram shows a relatively flat shape, we might say the data follow a <strong>uniform</strong> distribution. If there are two distinct peaks, a distribution is called bimodal. If there are more than two peaks, we refer to the distribution as <strong>multimodal</strong>.</p>
@@ -816,7 +819,7 @@ R Instructions
 <p>This shows us that all values occur just once in our sample, so there is no mode. (The “1” printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)</p>
 <p><br></p>
 </div>
-<p><br> <!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" --> <!-- {{Software_Filter|PageName=Mean_Median_Mode}} --></p>
+<p><br></p>
 </div>
 </div>
 <div id="parameters-and-statistics" class="section level2">

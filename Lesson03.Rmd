@@ -154,6 +154,10 @@ hist(tuberc,
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+<a href="javascript:showhide('r_instr_1')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1" style="display:none;">
+
+
 Follow these steps to create a histogram in R.
 
 <div class="note">
@@ -243,6 +247,8 @@ hist(tuberc,
      ylab="Nubmer of Individuals")
 ```
 
+</div> <!-- id="r_instr_1" style="display:none;"> -->
+
 </div>
 
 
@@ -305,7 +311,7 @@ A distribution is symmetric if both the left and right side of the distribution 
 A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.
 
 ```{r, echo=FALSE}
-library(readr)
+library(readxl)
 par(mai=c(1.5,1,.1,1))
 ClassSurvey <- read_excel("./Data/ClassSurvey.xlsx")
 
