@@ -154,6 +154,7 @@ hist(tuberc,
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+
 <a href="javascript:showhide('r_instr_1')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1" style="display:none;">
 
