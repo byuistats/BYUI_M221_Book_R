@@ -140,6 +140,11 @@ At this point, you probably do not have much intuition regarding the standard de
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
+
+<a href="javascript:showhide('r_instr_4_sd')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_sd" style="display:none;">
+
+
 &nbsp;&nbsp;**To calculate the sample standard deviation in R, follow these steps:**
 &nbsp;&nbsp;
 
@@ -161,11 +166,11 @@ The value showing above is the standard deviation of the body temperature data f
 
 <img src="./Images/rstudio_bodytemp_uncomp_sd.png" width="500">
 
+</div> <!-- R instructions for std dev -->
 
 </div>
-
-<br>
 </div>
+
 <br>
 
 <div class="message Tip">**Rounding:** As a general rule, when reporting your answers in this class, round to three decimal places unless otherwise specified.</div>
@@ -577,6 +582,10 @@ The variance is the square of the standard deviation.  The sample variance is de
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
+
+<a href="javascript:showhide('r_instr_4_var')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_var" style="display:none;">
+
 &nbsp;&nbsp;**To calculate the sample variance in R, follow these steps:**
 &nbsp;&nbsp;
 
@@ -598,7 +607,7 @@ The value showing above is the sample variance of the body temperature data for 
 
 <img src="./Images/rstudio_bodytemp_uncomp_var.png" width="500">
 
-
+</div> <!-- R instructions for variance -->
 </div>
 </div>
 
@@ -805,6 +814,9 @@ Percentiles can be used to describe the center and spread of any distribution an
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 
+<a href="javascript:showhide('r_instr_4_percentiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_percentiles" style="display:none;">
+
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
 
 - Read in the dataset. For this example, open the data file by right clicking on this link: [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) and then selecting "Copy Link".
@@ -844,9 +856,8 @@ Note: as soon as you type in the name of the data set, `WrongSiteWrongPatient`, 
 
 <img src="./Images/rstudio_selection_operator.png" width="500">
 
+</div> <!-- R instructions for percentiles -->
 
-
-<br>
 </div>
 <br>
 
@@ -940,6 +951,9 @@ Statistical packages can give different results for some computations.  This is 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 
+<a href="javascript:showhide('r_instr_4_quartiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_quartiles" style="display:none;">
+
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 
 - Open the data file you are using if you haven't already. For this example, continue using the file [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) that you opened previously in this lesson.
@@ -951,7 +965,8 @@ summary(WrongSiteWrongPatient$`Wrong Site`)
 ```
 
 
-<br>
+</div> <!-- R instructions for quartiles and 5-number summary -->
+
 </div>
 <br>
 
@@ -1024,6 +1039,9 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+<a href="javascript:showhide('r_instr_4_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_boxplots" style="display:none;">
+
 **To create a boxplot in R, do the following**
 
 - Open the data file you are using. For this example, continue using the [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) data that you opened previously in this lesson.
@@ -1052,7 +1070,8 @@ Finally, note that the default for `boxplot(...)` is to draw the boxplot vertica
 boxplot(WrongSiteWrongPatient$`Wrong Site`)
 ```
 
-<br>
+</div> <!-- R instructions for boxplot -->
+
 </div>
 <br>
 
@@ -1106,6 +1125,10 @@ In the plot we can quickly see that a wrong-patient lawsuit resulted in the larg
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+<a href="javascript:showhide('r_instr_4_sidebyside_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_sidebyside_boxplots" style="display:none;">
+
+
 **To create side-by-side boxplots in R, do the following**
 
 - Open the data file you are using. For this example, open the file [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx).
@@ -1128,7 +1151,8 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000,
         las=1)
 ```
 
-<br>
+</div> <!-- R instructions for side-by-side boxplots -->
+
 </div>
 <br>
 
@@ -1143,6 +1167,10 @@ Sometimes the data you are working with has missing values in it. These are reco
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_4_missing')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_4_missing" style="display:none;">
+
 
 **Dealing with NA or missing values:**
 
@@ -1172,6 +1200,8 @@ summary(WrongSiteWrongPatient$`Wrong Patient`)
 ```
 
 In this case, there were 235 "NA's" or missing values in the `Wrong Patient` data.
+
+</div> <!-- R instructions for missing data -->
 
 </div>
 </div>
