@@ -467,6 +467,9 @@ e. A, B, and C can all occur.
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
+<a href="javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1_center" style="display:none;">
+
 **To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
 
 1. Open RStudio.
@@ -533,9 +536,10 @@ table(tuberc)
 This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
 
 
-<br>
+</div> <!-- End of R instructions for measures of center -->
+
 </div>
-<br>
+<br/>
 
 
 
