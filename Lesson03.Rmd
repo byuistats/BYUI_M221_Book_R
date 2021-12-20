@@ -17,7 +17,7 @@ output:
 <!--
 
 <div style="float:right;width=40%;">
-<br/>
+<br />
 <div style="padding-left:10%;">**Optional Lesson Video**</div>
 <iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC_w9Z1CWsBjtdmcQdJwuAay" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
@@ -76,7 +76,7 @@ We will use the five steps in the Statistical Process throughout the course. Rec
 </div>
 
 
-<br/>
+<br />
 
 <img src="./Images/Step1.png">
 <br>
@@ -87,7 +87,7 @@ Tuberculosis (TB) is the deadliest bacterial disease in the world. In 2009, nine
 In this activity, you will compare the average costs of treating a person who contracts tuberculosis to the costs of preventing a case of tuberculosis in India.
 
 
-<br/>
+<br />
 
 <img src="./Images/Step2.png">
 <br>
@@ -100,7 +100,7 @@ Health Care records of tuberculosis patients in India were surveyed to estimate 
 These costs include health care treatment, time missed from work, and in some cases utility lost due to death.
 
 
-<br/>
+<br />
 
 <img src="./Images/Step3.png">
 <br>
@@ -147,7 +147,7 @@ hist(tuberc,
 ```
 
 
-<br/>
+<br />
 
 ### R Instructions for Histograms
 
@@ -158,8 +158,9 @@ hist(tuberc,
 <a href="javascript:showhide('r_instr_1_hist')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1_hist" style="display:none;">
 
-
+<br> 
 Follow these steps to create a histogram in R.
+<br />
 
 <div class="note">
 You need to have RStudio installed to follow this tutorial. If you have not yet installed RStudio, then first follow the instructions listed here: [Installing RStudio](RHelp.html#installing-r-and-rstudio), then return.
@@ -173,7 +174,7 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 <img src="./Images/rstudio_open.png" width="500">
 
-<br/>
+<br />
 
 **Step 2**
 
@@ -206,8 +207,8 @@ In RStudio, it would look like this:
 </div>
 
 
-<br/>
-<br/>
+<br />
+<br />
 
 **Step 2**
 
@@ -303,7 +304,7 @@ One benefit of using a histogram is that it allows you to visualize the distribu
 </div>
 
 
-<br/>
+<br />
 
 We will describe the shape of the distribution of a data set using the following basic categories: symmetric, bell-shaped, skewed right, and skewed left. Additionally, we can label the shape of a distribution as uniform, unimodal, bimodal, or multimodal.
 
@@ -331,8 +332,8 @@ If a distribution has only one peak, it is said to be **unimodal**. The three di
 Some distributions have no distinct peak, others have more than one peak. When there is no distinct peak, and the histogram shows a relatively flat shape, we might say the data follow a **uniform** distribution. If there are two distinct peaks, a distribution is called bimodal. If there are more than two peaks, we refer to the distribution as **multimodal**.
 
 <img src="./Images/Modal_distributions.jpg" width=50%>
-<br/>
-<br/>
+<br />
+<br />
 
 
 ## Center of a Distribution
@@ -470,7 +471,9 @@ e. A, B, and C can all occur.
 <a href="javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1_center" style="display:none;">
 
+<br>
 **To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
+<br />
 
 1. Open RStudio.
 
@@ -517,7 +520,7 @@ median(tuberc)
 The value printed above is the median cost of treating tuberculosis in our sample.
 
 
-<br/>
+<br />
 
 **Calculate a Mode**
 
@@ -539,7 +542,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 </div> <!-- End of R instructions for measures of center -->
 
 </div>
-<br/>
+<br />
 
 
 
@@ -593,7 +596,7 @@ Even though measures of center are important, we need to consider the shape, cen
     * how to compute the [`mean(...)`, `median(...)`, and mode `table(...)`](Lesson03.html#r-instructions-for-mean-median-and-mode). 
     * how to [manually type in data](Lesson03.html#enter-in-data) using the assignment operator `<-` and combine function `c(...)`. 
 
-<br/>
+<br />
 
 </div>
 <br>
