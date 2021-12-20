@@ -408,7 +408,7 @@ $(document).ready(function () {
 <!--
 
 <div style="float:right;width=40%;">
-<br/>
+<br />
 <div style="padding-left:10%;">**Optional Lesson Video**</div>
 <iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC-a7rYECFUKhL6yMzvOIwCO" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
@@ -535,7 +535,7 @@ R Instructions
 <div class="Software">
 <a href="javascript:showhide('r_instr_4_sd')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_sd" style="display:none;">
-<p>  <strong>To calculate the sample standard deviation in R, follow these steps:</strong>   </p>
+<p><br>   <strong>To calculate the sample standard deviation in R, follow these steps:</strong>    <br /></p>
 <div style="padding-left:20px;">
 <p><strong>Step 1.</strong> Either <a href="RHelp.html#read-in-data">read in a data set</a>, or enter the data manually using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:</p>
 <pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)</code></pre>
@@ -666,7 +666,7 @@ R Instructions
 </tr>
 </tbody>
 </table>
-<p><br/> <br/></p>
+<p><br /> <br /></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1261,7 +1261,7 @@ R Instructions
 <div class="Software">
 <a href="javascript:showhide('r_instr_4_var')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_var" style="display:none;">
-<p>  <strong>To calculate the sample variance in R, follow these steps:</strong>   </p>
+<p><br>   <strong>To calculate the sample variance in R, follow these steps:</strong>    <br /></p>
 <div style="padding-left:20px;">
 <p><strong>Step 1.</strong> Either <a href="RHelp.html#read-in-data">read in a data set</a>, or enter the data manually using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:</p>
 <pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)</code></pre>
@@ -1526,7 +1526,7 @@ R Instructions
 <div class="Software">
 <a href="javascript:showhide('r_instr_4_percentiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_percentiles" style="display:none;">
-<p>  <strong>To calculate percentiles and quartiles in R, do the following</strong></p>
+<p><br>   <strong>To calculate percentiles and quartiles in R, do the following</strong> <br /></p>
 <ul>
 <li><p>Read in the dataset. For this example, open the data file by right clicking on this link: <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> and then selecting “Copy Link”.</p></li>
 <li><p>Next, open RStudio. From inside RStudio, select the “Environment” window, click on “Import Dataset”, and then choose “From Excel…” from the menu that appears. Like this:</p></li>
@@ -1554,10 +1554,19 @@ R Instructions
 </div>
 <p><br></p>
 <p>The first quartile (<span class="math inline">\(Q_1\)</span>) or 25<sup>th</sup> percentile (calculated in R) of the wrong-site data is: $29,496. This means that 25 percent of the time hospitals lost a wrong-site lawsuit, they had to pay $29,496 or less. The 25<sup>th</sup> percentile can be written symbolically as: P<sub>25</sub> = $29,496. Other percentiles can be written the same way. The 99<sup>th</sup> percentile can be written as P<sub>99</sub>.</p>
-<p><strong>Other Percentiles (Calculated in R)</strong></p>
-<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Site`, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))</code></pre>
-<pre><code>##     1%    10%    20%    40%    60%    80%    90%    99% 
-##      0      0  21900  51997  84200 135239 149963 250000</code></pre>
+<!--  (Eliminate concatenated list of percentiles)
+**Other Percentiles (Calculated in R)**
+
+
+```r
+quantile(WrongSiteWrongPatient$`Wrong Site`, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
+```
+
+```
+##     1%    10%    20%    40%    60%    80%    90%    99% 
+##      0      0  21900  51997  84200 135239 149963 250000
+```
+-->
 <p><br></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1663,7 +1672,7 @@ R Instructions
 <div class="Software">
 <a href="javascript:showhide('r_instr_4_quartiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_quartiles" style="display:none;">
-<p>  <strong>To find the values for a five-number summary in R, do the following</strong></p>
+<p><br>   <strong>To find the values for a five-number summary in R, do the following</strong> <br /></p>
 <ul>
 <li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> that you opened previously in this lesson.</p></li>
 <li><p>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</p></li>
@@ -1723,20 +1732,35 @@ R Instructions
 <div class="Software" style="padding:10px;">
 <a href="javascript:showhide('r_instr_4_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_boxplots" style="display:none;">
-<p><strong>To create a boxplot in R, do the following</strong></p>
+<p><br> <strong>To create a boxplot in R, do the following</strong> <br /></p>
 <ul>
 <li><p>Open the data file you are using. For this example, continue using the <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> data that you opened previously in this lesson.</p></li>
 <li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</p></li>
 </ul>
 <pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`, horizontal=TRUE)</code></pre>
 <p><img src="Lesson04_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p>If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.</p>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab=&quot;Cost in Thousands of Dollars&quot;)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Also, you can give color to the graph using <code>col="some color name"</code>.</p>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab=&quot;Cost in Thousands of Dollars&quot;, col=&quot;seagreen&quot;)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<p>Finally, note that the default for <code>boxplot(...)</code> is to draw the boxplot vertically. That is why we used the command <code>horizontal=TRUE</code> to force the graph to draw the boxplot sideways. If we remove the <code>horizontal=TRUE</code> statement, we get a vertical boxplot instead It really doesn’t matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.</p>
+<!-- SIMPLIFY INSTRUCTIONS FOR BOXPLOTS ---------------------
+
+If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.
+
+
+```r
+boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
+```
+
+<img src="Lesson04_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+
+Also, you can give color to the graph using `col="some color name"`.
+
+
+```r
+boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+```
+
+<img src="Lesson04_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+-->
+<p>Note that the default for <code>boxplot(...)</code> is to draw the boxplot vertically. That is why we used the command <code>horizontal=TRUE</code> to force the graph to draw the boxplot sideways. If we remove the <code>horizontal=TRUE</code> statement, we get a vertical boxplot instead It really doesn’t matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.</p>
 <pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`)</code></pre>
 <p><img src="Lesson04_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
@@ -1785,7 +1809,7 @@ R Instructions
 <div class="Software" style="padding:10px;">
 <a href="javascript:showhide('r_instr_4_sidebyside_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_sidebyside_boxplots" style="display:none;">
-<p><strong>To create side-by-side boxplots in R, do the following</strong></p>
+<p><br> <strong>To create side-by-side boxplots in R, do the following</strong> <br /></p>
 <ul>
 <li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
 <li><p>Use the <code>boxplot(...)</code> function with the first column listed, followed by a comma, then followed by the next column of data.</p></li>
@@ -1815,7 +1839,7 @@ R Instructions
 <div class="Software" style="padding:10px;">
 <a href="javascript:showhide('r_instr_4_missing')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_missing" style="display:none;">
-<p><strong>Dealing with NA or missing values:</strong></p>
+<p><br> <strong>Dealing with NA or missing values:</strong> <br/></p>
 <p>Caution: if the data you are using has <code>NA</code> or missing values in it (like the “wrong-patient” column of the WrongSiteWrongPatient data) then you need to use the <code>na.rm=TRUE</code> option to remove them, like this:</p>
 <p><img src="Images/rstudio_NA.png" width="500"></p>
 <pre class="r"><code>mean(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
@@ -1860,7 +1884,7 @@ Remember…
 <li>Take the square root of the sample variance to obtain <span class="math inline">\(s\)</span>, the sample standard deviation.</li>
 </ol></li>
 </ul>
-<p><br/></p>
+<p><br /></p>
 <ul>
 <li><p><strong>Quartiles/percentiles</strong>, <strong>Five-Number Summaries</strong>, and <strong>Boxplots</strong> are tools that help us understand data. The five-number summary of a data set contains the minimum value, the first quartile, the median, the third quartile, and the maximum value. A boxplot is a graphical representation of the five-number summary.</p></li>
 <li><p>R functions that were discussed in this lesson include:</p>
@@ -1872,7 +1896,7 @@ Remember…
 <li>how to use the option <code>na.rm=TRUE</code> to <a href="Lesson04.html#r-instructions-for-na-or-missing-values">remove <code>NA</code> or missing values</a> from the data when using any of the functions <code>mean(..., na.rm=TRUE)</code>, <code>median(..., na.rm=TRUE)</code>, <code>sd(..., na.rm=TRUE)</code>, <code>quantile(..., na.rm=TRUE)</code>.</li>
 </ul></li>
 </ul>
-<p><br/></p>
+<p><br /></p>
 </div>
 <p><br></p>
 </div>
