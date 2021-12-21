@@ -535,6 +535,52 @@ Since there was not enough evidence to suggest that ImmunAvance's financial stat
 
 <br>
 
+
+## Verify R and RStudio are Properly Installed
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_mean')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_mean" style="display:none;">
+
+<br>
+**Check R and RStudio have been installed correctly**  by calculating the average of a data set. To do this, follow these steps:
+<br />
+
+1. Open RStudio.
+
+2. Enter the data into a vector using the combine function `c(...)`, assignment operator `<-`, and some name you come up with to store the results in, `tuberc` in this case.
+
+```{}
+mydata <- c(1, 1, 2, 3, 5, 8, 13)
+mean(mydata)
+```
+
+In RStudio this looks like:
+
+<img src="./Images/rstudio_tuberc_mean.png" width="500">
+
+
+
+</div> <!-- End of R instructions for measures of center -->
+
+</div>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Summary
 
 <div class="SummaryHeading">Remember...</div>

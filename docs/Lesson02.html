@@ -13,7 +13,6 @@
 
 <title>Lesson 2: The Statistical Process &amp; Design of Studies</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -380,8 +379,7 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#introduction">Introduction</a>
-<ul>
+<li><a href="#introduction">Introduction</a><ul>
 <li><a href="#the-statistical-process-and-daniels-experiment">The Statistical Process and Daniel’s Experiment</a></li>
 <li><a href="#step-1-design-the-study">Step 1: Design the Study</a></li>
 <li><a href="#step-2-collect-data">Step 2: Collect Data</a></li>
@@ -390,14 +388,14 @@ $(document).ready(function () {
 <li><a href="#step-5-take-action">Step 5: Take Action</a></li>
 <li><a href="#summary-of-the-statistical-process">Summary of the Statistical Process</a></li>
 </ul></li>
-<li><a href="#design-of-studies">Design of Studies</a>
-<ul>
+<li><a href="#design-of-studies">Design of Studies</a><ul>
 <li><a href="#designed-experiments">Designed Experiments</a></li>
 <li><a href="#observational-studies">Observational Studies</a></li>
 <li><a href="#sampling-methods">Sampling Methods</a></li>
 <li><a href="#types-of-variables">Types of Variables</a></li>
 </ul></li>
 <li><a href="#making-inferences-hypothesis-testing">Making Inferences: Hypothesis Testing</a></li>
+<li><a href="#verify-r-and-rstudio-are-properly-installed">Verify R and RStudio are Properly Installed</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#references">References</a></li>
 <li><a href="#additional-reading">Additional Reading</a></li>
@@ -919,6 +917,28 @@ The variable "Customer" is categorical. It classifies the customer.
 <p>The auditors prepare a report in which they give their opinion on the status of the company’s current operations.</p>
 <p>Since there was not enough evidence to suggest that ImmunAvance’s financial statements were fraudulent, the auditor’s conclusion is that no adjustment is necessary. The few observed discrepancies were apparently just the result of random chance errors, not the deliberate falsefying of information.</p>
 <p><br></p>
+</div>
+<div id="verify-r-and-rstudio-are-properly-installed" class="section level2">
+<h2>Verify R and RStudio are Properly Installed</h2>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_mean')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_mean" style="display:none;">
+<p><br> <strong>Check R and RStudio have been installed correctly</strong> by calculating the average of a data set. To do this, follow these steps: <br /></p>
+<ol style="list-style-type: decimal">
+<li><p>Open RStudio.</p></li>
+<li><p>Enter the data into a vector using the combine function <code>c(...)</code>, assignment operator <code>&lt;-</code>, and some name you come up with to store the results in, <code>tuberc</code> in this case.</p></li>
+</ol>
+<pre><code>mydata &lt;- c(1, 1, 2, 3, 5, 8, 13)
+mean(mydata)</code></pre>
+<p>In RStudio this looks like:</p>
+<p><img src="Images/rstudio_tuberc_mean.png" width="500"></p>
+</div>
+<p><!-- End of R instructions for measures of center --></p>
+</div>
+<p><br /></p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
