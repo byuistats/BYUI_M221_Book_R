@@ -925,14 +925,19 @@ R Instructions
 </div>
 <div class="Software" style="padding:10px;">
 <a href="javascript:showhide('r_instr_2_mean')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_2_mean" style="display:none;">
+<div id="r_instr_2_mean">
+<p><!--  style="display:none;" --></p>
 <p><br> <strong>Check R and RStudio have been installed correctly</strong> by calculating the average of a data set. To do this, follow these steps: <br /></p>
 <ol style="list-style-type: decimal">
 <li><p>Open RStudio.</p></li>
-<li><p>Enter the data into a vector using the combine function <code>c(...)</code>, assignment operator <code>&lt;-</code>, and some name you come up with to store the results in, <code>tuberc</code> in this case.</p></li>
+<li><p>Paste the following text into the lower left corner of the RStudio screen. Look for a <code>&gt;</code> symbol below the word Console.</p></li>
 </ol>
 <pre><code>mydata &lt;- c(1, 1, 2, 3, 5, 8, 13)
 mean(mydata)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Then press Return. It should give the following answer:</li>
+</ol>
+<pre><code>## [1] 4.714286</code></pre>
 <p>In RStudio this looks like:</p>
 <p><img src="Images/rstudio_tuberc_mean.png" width="500"></p>
 </div>
