@@ -383,6 +383,7 @@ $(document).ready(function () {
 <li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a><ul>
 <li><a href="#visualizing-quantitative-data-histograms">Visualizing Quantitative Data: Histograms</a></li>
 <li><a href="#r-instructions-for-histograms">R Instructions for Histograms</a></li>
+<li><a href="#r-instructions-for-more-advanced-histograms-optional">R Instructions for More Advanced Histograms (Optional)</a></li>
 </ul></li>
 <li><a href="#shape-of-a-distribution">Shape of a Distribution</a></li>
 <li><a href="#center-of-a-distribution">Center of a Distribution</a><ul>
@@ -585,19 +586,33 @@ R Instructions
 <pre class="r"><code>hist(tuberc)</code></pre>
 <p>In RStudio, it would look like this.</p>
 <p><img src="Images/rstudio_tuberc_hist.png" width="500"></p>
-<p>So, it is useful to add color and better axis labels. In general, you can control the color and axis labels with the optional commands, each separated by a comma as follows.</p>
+</div>
+<p><!-- id="r_instr_1" style="display:none;"> --></p>
+</div>
+<p><br> <br></p>
+</div>
+<div id="r-instructions-for-more-advanced-histograms-optional" class="section level3">
+<h3>R Instructions for More Advanced Histograms (Optional)</h3>
+<div class="SoftwareHeading">
+R Instructions (Optional)
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_1_hist_fancy')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1_hist_fancy" style="display:none;">
+<p><br> You can use the code below as a template to create fancier histograms in R. This is not required for this course, but you may want to explore some of R’s capabilities. <br /></p>
+<p>It is useful to add color and descriptive axis labels. In general, you can control the color and axis labels with the following optional commands, each separated by a comma.</p>
 <ul>
-<li><strong>col=</strong> allows you to specify the color of the graph. For lots of fun colors you could use, go here: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a>.</li>
-<li><strong>main</strong> allows you to specify a main title at the top of your graph.</li>
-<li><strong>xlab</strong> allows you to specify an x-axis title below the x-axis of your graph.</li>
-<li><strong>ylab</strong> allows you to specify a y-axis title to the left of the y-axis of your graph.</li>
+<li><strong>col = </strong> allows you to specify the color of the graph. For lots of fun colors you could use, go here: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a>.</li>
+<li><strong>main = </strong> allows you to specify the main title at the top of your graph.</li>
+<li><strong>xlab = </strong> allows you to specify the x-axis title below the x-axis of your graph.</li>
+<li><strong>ylab = </strong> allows you to specify the y-axis title to the left of the y-axis of your graph.</li>
 </ul>
 <p>For the Tuberculosis data we could use the code</p>
 <pre><code>hist(tuberc, 
-      col=&quot;skyblue&quot;, 
-      main=&quot;Histogram of Costs to Treat Tuberculosis&quot;, 
-      xlab=&quot;Cost in Dollars&quot;, 
-      ylab=&quot;Nubmer of Individuals&quot;)</code></pre>
+      col = &quot;skyblue&quot;, 
+      main = &quot;Histogram of Costs to Treat Tuberculosis&quot;, 
+      xlab = &quot;Cost in Dollars&quot;, 
+      ylab = &quot;Number of Individuals&quot;)</code></pre>
 <p><img src="Lesson03_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p><!-- id="r_instr_1" style="display:none;"> --></p>

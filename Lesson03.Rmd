@@ -232,35 +232,53 @@ In RStudio, it would look like this.
 
 <img src="./Images/rstudio_tuberc_hist.png" width="500">
 
-So, it is useful to add color and better axis labels. In general, you can control the color and axis labels with the optional commands, each separated by a comma as follows.
 
-* **col=** allows you to specify the color of the graph. For lots of fun colors you could use, go here: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
-* **main** allows you to specify a main title at the top of your graph.
-* **xlab** allows you to specify an x-axis title below the x-axis of your graph.
-* **ylab** allows you to specify a y-axis title to the left of the y-axis of your graph.
+</div> <!-- id="r_instr_1" style="display:none;"> -->
+</div>
+
+<br>
+<br>
+
+
+### R Instructions for More Advanced Histograms (Optional)
+
+<div class="SoftwareHeading">R Instructions (Optional)</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_1_hist_fancy')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1_hist_fancy" style="display:none;">
+
+<br> 
+You can use the code below as a template to create fancier histograms in R. This is not required for this course, but you may want to explore some of R's capabilities.
+<br />
+
+It is useful to add color and descriptive axis labels. In general, you can control the color and axis labels with the following optional commands, each separated by a comma.
+
+* **col = ** allows you to specify the color of the graph. For lots of fun colors you could use, go here: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+* **main = ** allows you to specify the main title at the top of your graph.
+* **xlab = ** allows you to specify the x-axis title below the x-axis of your graph.
+* **ylab = ** allows you to specify the y-axis title to the left of the y-axis of your graph.
 
 For the Tuberculosis data we could use the code
 
 ```{}
 hist(tuberc, 
-      col="skyblue", 
-      main="Histogram of Costs to Treat Tuberculosis", 
-      xlab="Cost in Dollars", 
-      ylab="Nubmer of Individuals")
+      col = "skyblue", 
+      main = "Histogram of Costs to Treat Tuberculosis", 
+      xlab = "Cost in Dollars", 
+      ylab = "Number of Individuals")
 ```
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 hist(tuberc, 
-     col="skyblue", 
-     main="Histogram of Costs to Treat Tuberculosis", 
-     xlab="Cost in Dollars", 
-     ylab="Nubmer of Individuals")
+     col = "skyblue", 
+     main = "Histogram of Costs to Treat Tuberculosis", 
+     xlab = "Cost in Dollars", 
+     ylab = "Number of Individuals")
 ```
 
 </div> <!-- id="r_instr_1" style="display:none;"> -->
-
 </div>
-
 
 <br>
 <br>
