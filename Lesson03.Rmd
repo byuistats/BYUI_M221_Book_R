@@ -165,9 +165,11 @@ hist(tuberc,
 Follow these steps to create a histogram in R.
 <br />
 
-<div class="note">
-You need to have RStudio installed to follow this tutorial. If you have not yet installed RStudio, then first follow the instructions listed here: [Installing RStudio](RHelp.html#installing-r-and-rstudio), then return.
-</div>
+<br>
+**Step 0**
+
+You need to have R and RStudio installed. This procedure was included in the reading for Lesson 1. If you have not yet installed these programs, first follow the instructions here: [Installing RStudio](RHelp.html#installing-r-and-rstudio).
+<br />
 
 <br>
 
@@ -175,9 +177,12 @@ You need to have RStudio installed to follow this tutorial. If you have not yet 
 
 Open RStudio from your Apps on your computer. It should look like this. (Using the "Search" bar is a quick way to find RStudio in your apps.)
 
+<!--
 <img src="./Images/rstudio_open.png" width="500">
+-->
 
 <br />
+
 
 **Step 2**
 
