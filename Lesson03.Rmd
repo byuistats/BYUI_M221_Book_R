@@ -46,6 +46,227 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
+## Center of a Distribution
+
+
+<img src="./Images/Step3.png">
+
+**Step 3: Describe the data.** 
+
+Sometimes people talk about the "typical" BYU-Idaho student or the average waiting time for a bus. But what does it mean for something or someone to be "average?" How can we quantify what it means to be typical or average? In the example below, we will explore one way to define what "average" means. 
+
+When we talk about the "typical" or "average" value, we are essentially describing the center of a population. If we want to estimate the "average" costs to treat a tuberculosis patient, there are several ways we can do it.
+
+<br>
+
+### Measuring the Center of a Distribution
+
+#### Mean
+
+The sample mean or sample arithmetic mean is the most common tool to estimate the center of a distribution. It is referred to simply as the mean. It is computed by adding up the observed data and dividing by the number of observations in the data set.
+
+In Statistics, important ideas are given a name. Very important ideas are given a symbol. The sample mean has both a name (mean) and a symbol ($\bar x$, called "x-bar").
+
+$$
+  \bar{x} \text{ is used to denote the sample mean}
+$$
+
+You may have heard people refer to the sample mean as the average. Technically, the word average refers to any number that is used to estimate the center of a distribution. The mean, median and mode are all examples of "averages." To avoid confusion, it is best to use the words mean, median, and mode instead of the word average, so that it is clear which "average" your are referencing.
+
+<div class="QuestionsHeading">Answer the following question:</div>
+<div class="Questions">
+3. Practice finding the mean, $\bar x$, for the tuberculosis treatment costs of the 10 patients in India by simplifying the following:
+$$\bar x=\frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10}=$$
+
+<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q3" style="display:none;">
+* The mean cost to treat the 10 TB patients in India is:  $\bar x = \$14,100$.
+</div>
+&nbsp;
+</div>
+<br>
+
+
+#### Median
+
+The median is the middle value in a sorted data set. Half of the observations in the data set are below the median and half are above the median. To find the median, you:
+
+* Sort the values from smallest to largest
+  + Do one of the following:
+    + If there are an odd number of values, the median is the middle value in the sorted list.
+    + If there are an even number of values, the median is the mean of the two middle values in the sorted list.
+
+<div class="QuestionsHeading">Answer the following questions:</div>
+<div class="Questions">
+4. Practice finding the median of the tuberculosis treatment costs for the 10 patients in India. First, sort the data from smallest to largest.
+
+<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q4" style="display:none;">
+* 600
+* 4800
+* 6500
+* 11500
+* 12900
+* 14900
+* 15100
+* 19000
+* 23500
+* 32200
+</div>
+<br>
+
+5. Since there are an even number of observations (n=10), the median is computed as the mean of the middle two values. Use your answer to the previous question to find the median of the data. What is the median?
+
+<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q5" style="display:none;">
+* 600
+* 4800
+* 6500
+* 11500
+- **12900**
+- **14900**
+* 15100
+* 19000
+* 23500
+* 32200
+
+The middle two numbers are 12900 and 14900.  The mean of these two numbers is:
+
+<center>$\text{Median } = \frac{12900 + 14900}{2} = 13900$</center>
+
+The median cost to treat the ten TB patients in India is $13,900.
+</div>
+&nbsp;
+</div>
+<br>
+
+#### Mode
+The most frequently occurring value is called the mode. Sometimes there is more than one mode. For example, in the data set
+
+$${1,~~2, ~~2, ~~2, ~~3, ~~4, ~~4, ~~5, ~~5, ~~5, ~~6}$$ 
+
+the modes are 2 and 5. Both of these values occur three times, which is more times than any other value.
+
+If no number occurs more than once in the data set, we say that there is no mode. For the data set representing the costs to treat tuberculosis in India, none of the values is repeated. So, there is no mode for these data.
+
+
+<div class="QuestionsHeading">Answer the following question:</div>
+<div class="Questions">
+6. For a particular data set, which of the following can occur?
+
+a. There may be no mode.
+
+b. There may be exactly one mode.
+
+c. There may be several modes.
+
+d. Only A and B can occur.
+
+e. A, B, and C can all occur.
+
+
+<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q6" style="display:none;">
+e. A, B, and C can all occur.
+</div>
+&nbsp;
+</div>
+<br>
+
+### R Instructions for Mean, Median, and Mode
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_1_center" style="display:none;">
+
+<br>
+**To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
+<br />
+
+1. Open RStudio.
+
+2. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
+
+```{}
+tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
+```
+
+<div class="note">
+However, if your data is stored in a file, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to read in data from an existing data set.
+</div>
+
+
+
+**Caculate a Mean**
+
+For the tuberculosis patient costs in India, compute the mean with the R code:
+
+```{}
+mean(tuberc)
+```
+
+
+```{r, echo=FALSE}
+tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
+mean(tuberc)
+```
+
+In RStudio this looks like:
+
+<img src="./Images/rstudio_tuberc_mean.png" width="500">
+
+
+
+<br>
+
+**Calculate a Median**
+
+For the tuberculosis patient costs in India, compute the median with the R code:
+
+```{}
+median(tuberc)
+```
+
+```{r, echo=FALSE}
+median(tuberc)
+```
+
+The value printed above is the median cost of treating tuberculosis in our sample.
+
+
+<br />
+
+**Calculate a Mode**
+
+R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the `table(...)` function.
+
+For the tuberculosis patient costs in India, count up how many times each value occurs using the code
+
+```{}
+table(tuberc)
+```
+
+```{r, echo=FALSE}
+table(tuberc)
+```
+
+This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
+
+
+</div> <!-- End of R instructions for measures of center -->
+
+</div>
+<br />
+
+
+## Visualizing the Distribution of a Data Set (Histograms------------------)
+
+### NEEDS INSTRUCTIONS FOR HISTOGRAMS HERE
+
+
+
 ## Review of the Five Steps of the Statistical Process
 
 We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth) before you begin this lesson.
@@ -364,216 +585,6 @@ Some distributions have no distinct peak, others have more than one peak. When t
 <img src="./Images/Modal_distributions.jpg" width=50%>
 <br />
 <br />
-
-
-## Center of a Distribution
-
-
-<img src="./Images/Step3.png">
-
-**Step 3: Describe the data.** 
-
-Sometimes people talk about the "typical" BYU-Idaho student or the average waiting time for a bus. But what does it mean for something or someone to be "average?" How can we quantify what it means to be typical or average? In the example below, we will explore one way to define what "average" means. 
-
-When we talk about the "typical" or "average" value, we are essentially describing the center of a population. If we want to estimate the "average" costs to treat a tuberculosis patient, there are several ways we can do it.
-
-<br>
-
-### Measuring the Center of a Distribution
-
-#### Mean
-
-The sample mean or sample arithmetic mean is the most common tool to estimate the center of a distribution. It is referred to simply as the mean. It is computed by adding up the observed data and dividing by the number of observations in the data set.
-
-In Statistics, important ideas are given a name. Very important ideas are given a symbol. The sample mean has both a name (mean) and a symbol ($\bar x$, called "x-bar").
-
-$$
-  \bar{x} \text{ is used to denote the sample mean}
-$$
-
-You may have heard people refer to the sample mean as the average. Technically, the word average refers to any number that is used to estimate the center of a distribution. The mean, median and mode are all examples of "averages." To avoid confusion, it is best to use the words mean, median, and mode instead of the word average, so that it is clear which "average" your are referencing.
-
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
-3. Practice finding the mean, $\bar x$, for the tuberculosis treatment costs of the 10 patients in India by simplifying the following:
-$$\bar x=\frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10}=$$
-
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
-* The mean cost to treat the 10 TB patients in India is:  $\bar x = \$14,100$.
-</div>
-&nbsp;
-</div>
-<br>
-
-
-#### Median
-
-The median is the middle value in a sorted data set. Half of the observations in the data set are below the median and half are above the median. To find the median, you:
-
-* Sort the values from smallest to largest
-  + Do one of the following:
-    + If there are an odd number of values, the median is the middle value in the sorted list.
-    + If there are an even number of values, the median is the mean of the two middle values in the sorted list.
-
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
-4. Practice finding the median of the tuberculosis treatment costs for the 10 patients in India. First, sort the data from smallest to largest.
-
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
-* 600
-* 4800
-* 6500
-* 11500
-* 12900
-* 14900
-* 15100
-* 19000
-* 23500
-* 32200
-</div>
-<br>
-
-5. Since there are an even number of observations (n=10), the median is computed as the mean of the middle two values. Use your answer to the previous question to find the median of the data. What is the median?
-
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
-* 600
-* 4800
-* 6500
-* 11500
-- **12900**
-- **14900**
-* 15100
-* 19000
-* 23500
-* 32200
-
-The middle two numbers are 12900 and 14900.  The mean of these two numbers is:
-
-<center>$\text{Median } = \frac{12900 + 14900}{2} = 13900$</center>
-
-The median cost to treat the ten TB patients in India is $13,900.
-</div>
-&nbsp;
-</div>
-<br>
-
-#### Mode
-The most frequently occurring value is called the mode. Sometimes there is more than one mode. For example, in the data set
-
-$${1,~~2, ~~2, ~~2, ~~3, ~~4, ~~4, ~~5, ~~5, ~~5, ~~6}$$ 
-
-the modes are 2 and 5. Both of these values occur three times, which is more times than any other value.
-
-If no number occurs more than once in the data set, we say that there is no mode. For the data set representing the costs to treat tuberculosis in India, none of the values is repeated. So, there is no mode for these data.
-
-
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
-6. For a particular data set, which of the following can occur?
-
-a. There may be no mode.
-
-b. There may be exactly one mode.
-
-c. There may be several modes.
-
-d. Only A and B can occur.
-
-e. A, B, and C can all occur.
-
-
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
-e. A, B, and C can all occur.
-</div>
-&nbsp;
-</div>
-<br>
-
-### R Instructions for Mean, Median, and Mode
-
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
-
-<a href="javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_1_center" style="display:none;">
-
-<br>
-**To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
-<br />
-
-1. Open RStudio.
-
-2. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
-
-```{}
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
-```
-
-<div class="note">
-However, if your data is stored in a file, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to read in data from an existing data set.
-</div>
-
-
-
-**Caculate a Mean**
-
-For the tuberculosis patient costs in India, compute the mean with the R code:
-
-```{}
-mean(tuberc)
-```
-
-In RStudio this looks like:
-
-<img src="./Images/rstudio_tuberc_mean.png" width="500">
-
-
-
-<br>
-
-**Calculate a Median**
-
-For the tuberculosis patient costs in India, compute the median with the R code:
-
-```{}
-median(tuberc)
-```
-
-```{r, echo=FALSE}
-median(tuberc)
-```
-
-The value printed above is the median cost of treating tuberculosis in our sample.
-
-
-<br />
-
-**Calculate a Mode**
-
-R does not directly calculate a mode, but you can tabulate (or count) how many times each value in the data occurs using the `table(...)` function.
-
-For the tuberculosis patient costs in India, count up how many times each value occurs using the code
-
-```{}
-table(tuberc)
-```
-
-```{r, echo=FALSE}
-table(tuberc)
-```
-
-This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
-
-
-</div> <!-- End of R instructions for measures of center -->
-
-</div>
-<br />
-
 
 
 ## Parameters and Statistics
