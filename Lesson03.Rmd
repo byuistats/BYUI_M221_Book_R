@@ -128,22 +128,25 @@ To help us visualize these data, we will create a graph called a histogram. To m
 
 </div>
 
-For each of these intervals, we draw a bar on the histogram. The width of the bars is determined by the width of the interval (5000 in this example). The height of the bars is equal to the number of observations that fall in each interval. As we look at the histogram shown below, we see bars ranging from \$0 to \$35,000. We also see higher bars in the middle between \$10,000 to \$20,000 show that these values are more commonly occurring than the other values. If we computed the average of the values contained in our histogram, we would compute the number
+For each of these intervals, we draw a bar on the histogram. The width of the bars is determined by the width of the interval (5000 in this example). The height of the bars is equal to the number of observations that fall in each interval. As we look at the histogram shown below, we see bars ranging from \$0 to \$35,000. Higher bars indicate values that occurred more frequently. Note that the highest bar is in the middle between \$10,000 to \$15,000, where there were three observations. 
+<!--
+If we computed the average of the values contained in our histogram, we would compute the number
 $$
   \frac{15,100 + 19,000 + 4,800 + 6,500 + 14,900 + 600 + 23,500 + 11,500 + 12,900 + 32,200}{10} = 14,100
 $$
 showing that the *center* of the histogram (or average) is at \$14,100. 
+-->
 
-**This is a histogram created in R:**
+**Histogram of these data created in R:**
 <br>
 
 ```{r, echo=FALSE, fig.width=5}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 hist(tuberc, 
+#     col="skyblue", 
      main="Histogram of Costs to Treat Tuberculosis", 
-     xlab="Cost in Dollars", 
-     ylab="Number of Individuals", 
-     col="skyblue")
+     xlab="Cost in Dollars",
+     ylab="Number of Individuals")
 ```
 
 
