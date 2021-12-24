@@ -207,11 +207,12 @@ For the tuberculosis patient costs in India, compute the mean with the R code:
 mean(tuberc)
 ```
 
-
 ```{r, echo=FALSE}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 mean(tuberc)
 ```
+
+The value given above is the output from this command and represents the mean cost to treat the tuberculosis patients in our sample.
 
 In RStudio this looks like:
 
