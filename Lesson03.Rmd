@@ -283,14 +283,14 @@ hist(tuberc,
 <br>
 <br>
 
-#### Making Inference About the Population
-
-After summarizing the data from our sample of the populations both numerically and graphically, we can use this information to make inference about the full population. 
-<br>
 
 <img src="./Images/Step4.png">
 <br>
 **Step 4: Make inferences.** 
+
+
+After summarizing the data from our sample of the populations both numerically and graphically, we can use this information to make inference about the full population. 
+<br>
 
 In the past, the total average cost to society to treat a case of tuberculosis in India was known to be \$13,800. As shown in our Step 3 calculations, the 10 randomly selected patients showed an average cost that was higher than the historic value at \$14,100. This might make us believe that the *actual* total average cost to society is also \$14,100. However, in depth statistical calculations (that you will be taught how to do later this semestr) show that there is a 46% chance that our sample had an average of \$14,100 just by random chance. This isn't too hard to believe since we only had a sample size of 10 people, and \$14,100 is only $300 above \$13,800, so it turns out to be fairly likely (46% chance) that because of random chance our sample had an average that was a little higher than the actual value from the population. So we will conclude that the total average cost to society is still essentially the same as it has been in the past.
 
@@ -300,7 +300,7 @@ In the past, the total average cost to society to treat a case of tuberculosis i
 <br>
 **Step 5: Take action.** 
 
-After making inferences, you take action. The motivation for conducting a study like this is usually to see if there is inflation in the costs.
+After making inferences, you take action. The motivation for conducting a study like this is usually to see if there is inflation in the costs. Actions may include seeking additional funding for the treatment of tuberculosis.
 
 <div class="QuestionsHeading">Answer the following question:</div>
 <div class="Questions">
@@ -503,14 +503,14 @@ e. A, B, and C can all occur.
 
 1. Open RStudio.
 
-2. Enter the data into a vector using the combine function `c(...)`, assignment operator `<-`, and some name you come up with to store the results in, `tuberc` in this case.
+2. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
 
 ```{}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 ```
 
 <div class="note">
-However, if your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set.
+However, if your data is stored in a file, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to read in data from an existing data set.
 </div>
 
 

@@ -618,14 +618,12 @@ R Instructions (Optional)
 <p><!-- id="r_instr_1" style="display:none;"> --></p>
 </div>
 <p><br> <br></p>
-<div id="making-inference-about-the-population" class="section level4">
-<h4>Making Inference About the Population</h4>
-<p>After summarizing the data from our sample of the populations both numerically and graphically, we can use this information to make inference about the full population. <br></p>
 <p><img src="Images/Step4.png"> <br> <strong>Step 4: Make inferences.</strong></p>
+<p>After summarizing the data from our sample of the populations both numerically and graphically, we can use this information to make inference about the full population. <br></p>
 <p>In the past, the total average cost to society to treat a case of tuberculosis in India was known to be $13,800. As shown in our Step 3 calculations, the 10 randomly selected patients showed an average cost that was higher than the historic value at $14,100. This might make us believe that the <em>actual</em> total average cost to society is also $14,100. However, in depth statistical calculations (that you will be taught how to do later this semestr) show that there is a 46% chance that our sample had an average of $14,100 just by random chance. This isn’t too hard to believe since we only had a sample size of 10 people, and $14,100 is only $300 above $13,800, so it turns out to be fairly likely (46% chance) that because of random chance our sample had an average that was a little higher than the actual value from the population. So we will conclude that the total average cost to society is still essentially the same as it has been in the past.</p>
 <p><br></p>
 <p><img src="Images/Step5.png"> <br> <strong>Step 5: Take action.</strong></p>
-<p>After making inferences, you take action. The motivation for conducting a study like this is usually to see if there is inflation in the costs.</p>
+<p>After making inferences, you take action. The motivation for conducting a study like this is usually to see if there is inflation in the costs. Actions may include seeking additional funding for the treatment of tuberculosis.</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
@@ -642,7 +640,6 @@ Answer the following question:
 <p> </p>
 </div>
 <p><br></p>
-</div>
 </div>
 </div>
 <div id="shape-of-a-distribution" class="section level2">
@@ -813,11 +810,11 @@ R Instructions
 <p><br> <strong>To calculate numerical summaries</strong> (such as the mean, median, and mode) in R, follow these steps: <br /></p>
 <ol style="list-style-type: decimal">
 <li><p>Open RStudio.</p></li>
-<li><p>Enter the data into a vector using the combine function <code>c(...)</code>, assignment operator <code>&lt;-</code>, and some name you come up with to store the results in, <code>tuberc</code> in this case.</p></li>
+<li><p>You can store data into a vector by giving the name of the vector <code>tuberc</code> followed by the assignment operator <code>&lt;-</code>, and then combining the individual data values into a vector using the combine function <code>c(...)</code>, where the values are listed in the parentheses.</p></li>
 </ol>
 <pre><code>tuberc &lt;- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)</code></pre>
 <div class="note">
-<p>However, if your data is already stored in a file somewhere, then use these instructions on <a href="RHelp.html#reading-in-data">Reading in Data</a> to get the data out of an existing data set.</p>
+<p>However, if your data is stored in a file, then use these instructions on <a href="RHelp.html#reading-in-data">Reading in Data</a> to read in data from an existing data set.</p>
 </div>
 <p><strong>Caculate a Mean</strong></p>
 <p>For the tuberculosis patient costs in India, compute the mean with the R code:</p>
