@@ -210,7 +210,7 @@ In RStudio, it would look like this:
 <br />
 <br />
 
-**Step 2**
+**Step 3**
 
 Now that you have created an object in R called `tuberc` that contains the 10 data points of the Tuberculosis data, you can create a histogram using the `hist(...)` function.
 
