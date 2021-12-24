@@ -398,6 +398,7 @@ $(document).ready(function () {
 <li><a href="#quick-instructions">Quick Instructions</a></li>
 <li><a href="#detailed-instructions">Detailed Instructions</a></li>
 </ul></li>
+<li><a href="#verify-r-and-rstudio-are-properly-installed">Verify R and RStudio are Properly Installed</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -912,10 +913,36 @@ Install the RStudio app by clicking here:
 <p>Once the installation finishes you can use your computer’s search bar to search for “RStudio” in your apps. It will have an icon like this: <img src="Images/RStudio_logo.png" width="30">.</p>
 <p>Once you have successfully opened RStudio it should look like this:</p>
 <p><img src="Images/rstudio_open.png" width="500"></p>
-<hr />
 <p><br/> <br/></p>
-<p><br></p>
 </div>
+</div>
+<div id="verify-r-and-rstudio-are-properly-installed" class="section level2">
+<h2>Verify R and RStudio are Properly Installed</h2>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_mean')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_mean">
+<p><!--  style="display:none;" --></p>
+<p><br> <strong>Check R and RStudio have been installed correctly</strong> by calculating the average of some data values. To do this, follow these steps: <br /></p>
+<ol style="list-style-type: decimal">
+<li><p>Open RStudio.</p></li>
+<li><p>Copy and paste the following text into the lower left corner of the RStudio screen next to the <code>&gt;</code> symbol. You will find this symbol below the word Console.</p></li>
+</ol>
+<pre><code>mydata &lt;- c(1, 1, 2, 3, 5, 8)
+mean(mydata)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Then press Return. The first line of code stores the six numbers in a variable called <code>mydata</code>. The second line tells R to compute the average (or mean) of the numbers {1, 1, 2, 3, 5, 8}. You should see the following result:</li>
+</ol>
+<pre><code>## [1] 3.333333</code></pre>
+<p>In RStudio this looks like:</p>
+<p><img src="Images/rstudio_tuberc_mean.png" width="500"></p>
+</div>
+<p><!-- End of R instructions for measures of center --></p>
+</div>
+<p><br /></p>
+<p><br></p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>

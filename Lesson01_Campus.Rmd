@@ -553,14 +553,50 @@ Once you have successfully opened RStudio it should look like this:
 
 <img src="./Images/rstudio_open.png" width="500">
 
-
-----
-
-
-
 <br/>
 <br/>
 
+
+## Verify R and RStudio are Properly Installed
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_mean')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_mean">  <!--  style="display:none;" -->
+
+<br>
+**Check R and RStudio have been installed correctly**  by calculating the average of some data values. To do this, follow these steps:
+<br />
+
+1. Open RStudio.
+
+2. Copy and paste the following text into the lower left corner of the RStudio screen next to the `>` symbol. You will find this symbol below the word Console.
+
+```{}
+mydata <- c(1, 1, 2, 3, 5, 8)
+mean(mydata)
+```
+
+3. Then press Return. The first line of code stores the six numbers in a variable called `mydata`. The second line tells R to compute the average (or mean) of the numbers {1, 1, 2, 3, 5, 8}. You should see the following result:
+
+```{r, echo=FALSE}
+mydata <- c(1, 1, 2, 3, 5, 8)
+mean(mydata)
+```
+
+
+
+In RStudio this looks like:
+
+<img src="./Images/rstudio_tuberc_mean.png" width="500">
+
+
+
+</div> <!-- End of R instructions for measures of center -->
+
+</div>
+<br />
 
 
 <br>
