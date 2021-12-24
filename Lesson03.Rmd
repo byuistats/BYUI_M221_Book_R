@@ -262,7 +262,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 <br />
 
 
-## Visualizing the Distribution of a Data Set (Histograms------------------)
+## Visualizing the Distribution of a Data Set (Histograms)
 
 ### NEEDS INSTRUCTIONS FOR HISTOGRAMS HERE
 
