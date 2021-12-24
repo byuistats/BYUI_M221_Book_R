@@ -578,7 +578,7 @@ mydata <- c(1, 1, 2, 3, 5, 8)
 mean(mydata)
 ```
 
-3. Then press Return. The first line of code stores the six numbers in a variable called `mydata`. The second line tells R to compute the average (or mean) of the numbers {1, 1, 2, 3, 5, 8}. You should see the following result:
+3. Then press Return. The first line of code stores the six numbers in a variable called `mydata`. The second line tells R to compute the average (or mean) of the numbers (1, 1, 2, 3, 5, 8). You should see the following result:
 
 ```{r, echo=FALSE}
 mydata <- c(1, 1, 2, 3, 5, 8)
