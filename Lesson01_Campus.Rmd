@@ -23,7 +23,7 @@ By the end of this lesson, you should be able to:
 * Understand and explain the course policies
 * Access course resources (course outline, lesson schedule, preparation activities, reading quizzes, homework assignments, assessments, Zoom, etc.)
 * Communicate with your instructor
-* Obtain access to a spreadsheet program (Microsoft Excel)
+* Download and install R and RStudio
 * Discuss ways in which you will apply gospel principles to your work in this class
 * State and apply the three rules of probability.
 </div>
