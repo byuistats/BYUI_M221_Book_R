@@ -1259,8 +1259,6 @@ In this case, there were 235 "NA's" or missing values in the wrong_patient data.
     4. Sum the squared deviations.
     5. Divide the sum of the squared deviations by $n-1$. (This gives the sample variance.)
     6. Take the square root of the sample variance to obtain $s$, the sample standard deviation.
-    
-<br />
 
 - **Quartiles/percentiles**, **Five-Number Summaries**, and **Boxplots** are tools that help us understand data. The five-number summary of a data set contains the minimum value, the first quartile, the median, the third quartile, and the maximum value. A boxplot is a graphical representation of the five-number summary.
 
