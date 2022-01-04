@@ -536,7 +536,170 @@ Since there was not enough evidence to suggest that ImmunAvance's financial stat
 <br>
 
 
-## Reading Data into R
+## Introduction to R and RStudio
+
+
+### Data Types in R
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_data_types')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_data_types">  <!--  style="display:none;" -->
+
+
+There are many data types in R. In this course, we will use two data types: vectors and data frames.
+
+#### Vectors in R
+
+A **vector** is simply a collection of numbers. To allow us to access the vector later, we assign it a name. If you copy the following code into the console area (the lower left-hand part of the RStudio screen) and press Enter, you will create a vector consisting of five numbers.
+
+```{r}
+mydata <- c(1, 1, 2, 3, 5, 8)
+```
+
+It may not seem like anything happened, but you can see your variable in the Environment pane (the upper-right corner of the RStudio screen).
+
+If you type the variable name in the Console area and press Enter, RStudio will display the contents of the variable. 
+
+```{r}
+mydata
+```
+
+Let's explore the command we used to create the vector `mydata`.
+
+```{r}
+mydata <- c(1, 1, 2, 3, 5, 8)
+```
+
+There are four important elements here. We will investigate them from right to left.
+
+1. First, consider the values we want to store in the vector: `1, 1, 2, 3, 5, 8`. These numbers are given in an order that they will appear in the vector.
+
+2. Next, we use the combine (or concatentate) function, `c(...)` to join the six individual numbers together as one vector. The values in the parentheses are the values that will appear in the vector.
+
+3. Then, we use the "assignment operator" which is denoted as `<-` to indicate that we are going to take the value on the right and give it the name listed to the left. It is easy to remember, because it looks like a backwards arrow moving the information on the right into the variable name on the left.
+
+4. Finally, we state the name of our vector: `mydata`. This allows us to use this vector later.
+
+Vectors can have numeric `(3.14159, 6, -7.02, ...)` or character `("a", "hello", "world", ...)` values. All the values in a vector must have the same type.
+
+#### Data Frames in R
+
+The data type we will most frequently use is a **data frame**. This is basically a collection of vectors. (Think about a frame keeping these vectors of data together.)
+
+Typically, we will create data frames by reading data in from a file. To illustrate that a data frame is just a collection of vectors, copy and paste the following code into the Console. (We typically use lower-case letters for R variable names and separate words with an underscore `_`.)
+
+```{r}
+name <- c("Abigail", "Benjamin", "Cleopas", "Deborah", "Esther")
+gender <- c("Female", "Male", "Male", "Female", "Female")
+age <- c(28, 27, 22, 25, 27)
+height_cm <- c(153, 175.5, 166.75, 167, 142.25)
+mydata2 <- data.frame(name, gender, age, height_cm)
+```
+
+By pasting these commands in the Console and pressing Enter, you have created five new variables in R. They will be displayed in the Environment pane (in the upper-right portion of the RStudio window).
+
+Notice that the vectors are listed together under "Values," and the data frame `mydata2` is listed separately in the "Data" area above.
+
+If you click on `mydata2` in the Environment pane, this data frame will be displayed in the upper-left corner of the RStudio window. 
+
+Look in the Console pane. You will notice that when you clicked on `mydata2`, RStudio executed the following command in the Console.
+
+```{r}
+View(mydata2)
+```
+
+You can use this shortcut any time you want to view the full data frame.
+
+</div>
+</div>
+
+<br>
+
+### Accessing a Vector in a Data Frame
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_access_vector')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_access_vector">  <!--  style="display:none;" -->
+
+
+If you want to quickly see what is in a data frame, just enter the name of the data frame in the Console:
+
+```{r}
+mydata2
+```
+
+However, if you want to work with just one vector from this data frame, we use the `$` (dollar sign) operator.
+To access the vector `height_cm` contained in the data frame `mydata2`, enter the following in the Console:
+
+```{r}
+mydata2$height_cm
+```
+
+Notice that if you start typing `mydata2` in the console, after about three characters, RStudio will give you suggestions of how you might finish your expression. From the drop-down list that appears, choose `mydata2`. Then, type the $ sign. A drop-down list will appear showing all the variables in that vector. Use up- or down-arrows to choose `height_cm` from the drop-down list. Notice that RStudio then completes your expression. If you press enter, RStudio will display the values stored in that vector.
+
+</div>
+</div>
+
+<br>
+
+### Computing an Average using R
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_avg')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_avg">  <!--  style="display:none;" -->
+
+To find the average of a set of values, the R command is `mean(...)`. As you will discover in the next lesson, statisticians use the word "mean" to describe what many people call the "average".
+
+We can compute the mean (or average) of a vector of values by giving the name of the vector as the argument to the function `mean()'. The argument for the function `mean()` (i.e. the thing you put in parentheses) needs to be a vector.
+
+```{r}
+mean(height_cm)
+```
+
+This command is using the vector of values that we called `height_cm` just before the data frame `mydata2` was created.
+
+Now, we will compute the mean of the vector `height_cm` contained in the dataframe `mydata2`:
+
+```{r}
+mean(mydata2$height_cm)
+```
+
+Notice that in both cases, we have computed the mean of a vector. These are different vectors. Usually, we will be accessing data stored in a data frame, so we will almost always use the latter method.
+
+</div>
+</div>
+
+<br>
+
+
+### Comments in R
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_2_comments')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_comments">  <!--  style="display:none;" -->
+
+Sometimes you may want to make a note to yourself to remind you about something related to your code. If you place the `#` symbol at the beginning of a line in your R commands, R will not run that command. This is called a comment. When R evaluates code, it skips over each comment and goes to the next line.
+
+```{r}
+# This is a comment
+```
+
+
+</div>
+</div>
+
+<br>
+
+### Reading Data into R
+
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
@@ -544,11 +707,25 @@ Since there was not enough evidence to suggest that ImmunAvance's financial stat
 <a href="javascript:showhide('r_instr_2_read')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_2_read">  <!--  style="display:none;" -->
 
-<br>
 **Here are two methods for reading data into R:**
-<br />
 
 **Method 1: Specify the data values explicitly**
+
+This is what we have done in the examples above.
+
+```{r}
+# Define a vector of six values called mydata
+mydata <- c(1, 1, 2, 3, 5, 8)
+
+# Define additional vectors with five values each
+name <- c("Abigail", "Benjamin", "Cleopas", "Deborah", "Esther")
+gender <- c("Female", "Male", "Male", "Female", "Female")
+age <- c(28, 27, 22, 25, 27)
+height_cm <- c(153, 175.5, 166.75, 167, 142.25)
+
+# Combine the four vectors into a data frame called mydata2
+mydata2 <- data.frame(name, gender, age, height_cm)
+```
 
 **Method 2: Read in data from a file**
 

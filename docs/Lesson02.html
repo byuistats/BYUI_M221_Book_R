@@ -13,7 +13,8 @@
 
 <title>Lesson 2: The Statistical Process &amp; Design of Studies</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -379,7 +380,8 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
 <li><a href="#the-statistical-process-and-daniels-experiment">The Statistical Process and Daniel’s Experiment</a></li>
 <li><a href="#step-1-design-the-study">Step 1: Design the Study</a></li>
 <li><a href="#step-2-collect-data">Step 2: Collect Data</a></li>
@@ -388,14 +390,22 @@ $(document).ready(function () {
 <li><a href="#step-5-take-action">Step 5: Take Action</a></li>
 <li><a href="#summary-of-the-statistical-process">Summary of the Statistical Process</a></li>
 </ul></li>
-<li><a href="#design-of-studies">Design of Studies</a><ul>
+<li><a href="#design-of-studies">Design of Studies</a>
+<ul>
 <li><a href="#designed-experiments">Designed Experiments</a></li>
 <li><a href="#observational-studies">Observational Studies</a></li>
 <li><a href="#sampling-methods">Sampling Methods</a></li>
 <li><a href="#types-of-variables">Types of Variables</a></li>
 </ul></li>
 <li><a href="#making-inferences-hypothesis-testing">Making Inferences: Hypothesis Testing</a></li>
+<li><a href="#introduction-to-r-and-rstudio">Introduction to R and RStudio</a>
+<ul>
+<li><a href="#data-types-in-r">Data Types in R</a></li>
+<li><a href="#accessing-a-vector-in-a-data-frame">Accessing a Vector in a Data Frame</a></li>
+<li><a href="#computing-an-average-using-r">Computing an Average using R</a></li>
+<li><a href="#comments-in-r">Comments in R</a></li>
 <li><a href="#reading-data-into-r">Reading Data into R</a></li>
+</ul></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#references">References</a></li>
 <li><a href="#additional-reading">Additional Reading</a></li>
@@ -918,8 +928,121 @@ The variable "Customer" is categorical. It classifies the customer.
 <p>Since there was not enough evidence to suggest that ImmunAvance’s financial statements were fraudulent, the auditor’s conclusion is that no adjustment is necessary. The few observed discrepancies were apparently just the result of random chance errors, not the deliberate falsefying of information.</p>
 <p><br></p>
 </div>
-<div id="reading-data-into-r" class="section level2">
-<h2>Reading Data into R</h2>
+<div id="introduction-to-r-and-rstudio" class="section level2">
+<h2>Introduction to R and RStudio</h2>
+<div id="data-types-in-r" class="section level3">
+<h3>Data Types in R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_data_types')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_data_types">
+<p><!--  style="display:none;" --></p>
+<p>There are many data types in R. In this course, we will use two data types: vectors and data frames.</p>
+<div id="vectors-in-r" class="section level4">
+<h4>Vectors in R</h4>
+<p>A <strong>vector</strong> is simply a collection of numbers. To allow us to access the vector later, we assign it a name. If you copy the following code into the console area (the lower left-hand part of the RStudio screen) and press Enter, you will create a vector consisting of five numbers.</p>
+<pre class="r"><code>mydata &lt;- c(1, 1, 2, 3, 5, 8)</code></pre>
+<p>It may not seem like anything happened, but you can see your variable in the Environment pane (the upper-right corner of the RStudio screen).</p>
+<p>If you type the variable name in the Console area and press Enter, RStudio will display the contents of the variable.</p>
+<pre class="r"><code>mydata</code></pre>
+<pre><code>## [1] 1 1 2 3 5 8</code></pre>
+<p>Let’s explore the command we used to create the vector <code>mydata</code>.</p>
+<pre class="r"><code>mydata &lt;- c(1, 1, 2, 3, 5, 8)</code></pre>
+<p>There are four important elements here. We will investigate them from right to left.</p>
+<ol style="list-style-type: decimal">
+<li><p>First, consider the values we want to store in the vector: <code>1, 1, 2, 3, 5, 8</code>. These numbers are given in an order that they will appear in the vector.</p></li>
+<li><p>Next, we use the combine (or concatentate) function, <code>c(...)</code> to join the six individual numbers together as one vector. The values in the parentheses are the values that will appear in the vector.</p></li>
+<li><p>Then, we use the “assignment operator” which is denoted as <code>&lt;-</code> to indicate that we are going to take the value on the right and give it the name listed to the left. It is easy to remember, because it looks like a backwards arrow moving the information on the right into the variable name on the left.</p></li>
+<li><p>Finally, we state the name of our vector: <code>mydata</code>. This allows us to use this vector later.</p></li>
+</ol>
+<p>Vectors can have numeric <code>(3.14159, 6, -7.02, ...)</code> or character <code>("a", "hello", "world", ...)</code> values. All the values in a vector must have the same type.</p>
+</div>
+<div id="data-frames-in-r" class="section level4">
+<h4>Data Frames in R</h4>
+<p>The data type we will most frequently use is a <strong>data frame</strong>. This is basically a collection of vectors. (Think about a frame keeping these vectors of data together.)</p>
+<p>Typically, we will create data frames by reading data in from a file. To illustrate that a data frame is just a collection of vectors, copy and paste the following code into the Console. (We typically use lower-case letters for R variable names and separate words with an underscore <code>_</code>.)</p>
+<pre class="r"><code>name &lt;- c(&quot;Abigail&quot;, &quot;Benjamin&quot;, &quot;Cleopas&quot;, &quot;Deborah&quot;, &quot;Esther&quot;)
+gender &lt;- c(&quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;)
+age &lt;- c(28, 27, 22, 25, 27)
+height_cm &lt;- c(153, 175.5, 166.75, 167, 142.25)
+mydata2 &lt;- data.frame(name, gender, age, height_cm)</code></pre>
+<p>By pasting these commands in the Console and pressing Enter, you have created five new variables in R. They will be displayed in the Environment pane (in the upper-right portion of the RStudio window).</p>
+<p>Notice that the vectors are listed together under “Values,” and the data frame <code>mydata2</code> is listed separately in the “Data” area above.</p>
+<p>If you click on <code>mydata2</code> in the Environment pane, this data frame will be displayed in the upper-left corner of the RStudio window.</p>
+<p>Look in the Console pane. You will notice that when you clicked on <code>mydata2</code>, RStudio executed the following command in the Console.</p>
+<pre class="r"><code>View(mydata2)</code></pre>
+<p>You can use this shortcut any time you want to view the full data frame.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</div>
+<div id="accessing-a-vector-in-a-data-frame" class="section level3">
+<h3>Accessing a Vector in a Data Frame</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_access_vector')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_access_vector">
+<p><!--  style="display:none;" --></p>
+<p>If you want to quickly see what is in a data frame, just enter the name of the data frame in the Console:</p>
+<pre class="r"><code>mydata2</code></pre>
+<pre><code>##       name gender age height_cm
+## 1  Abigail Female  28    153.00
+## 2 Benjamin   Male  27    175.50
+## 3  Cleopas   Male  22    166.75
+## 4  Deborah Female  25    167.00
+## 5   Esther Female  27    142.25</code></pre>
+<p>However, if you want to work with just one vector from this data frame, we use the <code>$</code> (dollar sign) operator. To access the vector <code>height_cm</code> contained in the data frame <code>mydata2</code>, enter the following in the Console:</p>
+<pre class="r"><code>mydata2$height_cm</code></pre>
+<pre><code>## [1] 153.00 175.50 166.75 167.00 142.25</code></pre>
+<p>Notice that if you start typing <code>mydata2</code> in the console, after about three characters, RStudio will give you suggestions of how you might finish your expression. From the drop-down list that appears, choose <code>mydata2</code>. Then, type the $ sign. A drop-down list will appear showing all the variables in that vector. Use up- or down-arrows to choose <code>height_cm</code> from the drop-down list. Notice that RStudio then completes your expression. If you press enter, RStudio will display the values stored in that vector.</p>
+</div>
+</div>
+<p><br></p>
+</div>
+<div id="computing-an-average-using-r" class="section level3">
+<h3>Computing an Average using R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_avg')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_avg">
+<p><!--  style="display:none;" --></p>
+<p>To find the average of a set of values, the R command is <code>mean(...)</code>. As you will discover in the next lesson, statisticians use the word “mean” to describe what many people call the “average”.</p>
+<p>We can compute the mean (or average) of a vector of values by giving the name of the vector as the argument to the function <code>mean()'. The argument for the function</code>mean()` (i.e. the thing you put in parentheses) needs to be a vector.</p>
+<pre class="r"><code>mean(height_cm)</code></pre>
+<pre><code>## [1] 160.9</code></pre>
+<p>This command is using the vector of values that we called <code>height_cm</code> just before the data frame <code>mydata2</code> was created.</p>
+<p>Now, we will compute the mean of the vector <code>height_cm</code> contained in the dataframe <code>mydata2</code>:</p>
+<pre class="r"><code>mean(mydata2$height_cm)</code></pre>
+<pre><code>## [1] 160.9</code></pre>
+<p>Notice that in both cases, we have computed the mean of a vector. These are different vectors. Usually, we will be accessing data stored in a data frame, so we will almost always use the latter method.</p>
+</div>
+</div>
+<p><br></p>
+</div>
+<div id="comments-in-r" class="section level3">
+<h3>Comments in R</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software" style="padding:10px;">
+<a href="javascript:showhide('r_instr_2_comments')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_2_comments">
+<p><!--  style="display:none;" --></p>
+<p>Sometimes you may want to make a note to yourself to remind you about something related to your code. If you place the <code>#</code> symbol at the beginning of a line in your R commands, R will not run that command. This is called a comment. When R evaluates code, it skips over each comment and goes to the next line.</p>
+<pre class="r"><code># This is a comment</code></pre>
+</div>
+</div>
+<p><br></p>
+</div>
+<div id="reading-data-into-r" class="section level3">
+<h3>Reading Data into R</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -927,8 +1050,20 @@ R Instructions
 <a href="javascript:showhide('r_instr_2_read')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_2_read">
 <p><!--  style="display:none;" --></p>
-<p><br> <strong>Here are two methods for reading data into R:</strong> <br /></p>
+<p><strong>Here are two methods for reading data into R:</strong></p>
 <p><strong>Method 1: Specify the data values explicitly</strong></p>
+<p>This is what we have done in the examples above.</p>
+<pre class="r"><code># Define a vector of six values called mydata
+mydata &lt;- c(1, 1, 2, 3, 5, 8)
+
+# Define additional vectors with five values each
+name &lt;- c(&quot;Abigail&quot;, &quot;Benjamin&quot;, &quot;Cleopas&quot;, &quot;Deborah&quot;, &quot;Esther&quot;)
+gender &lt;- c(&quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;)
+age &lt;- c(28, 27, 22, 25, 27)
+height_cm &lt;- c(153, 175.5, 166.75, 167, 142.25)
+
+# Combine the four vectors into a data frame called mydata2
+mydata2 &lt;- data.frame(name, gender, age, height_cm)</code></pre>
 <p><strong>Method 2: Read in data from a file</strong></p>
 <!-- THIS NEEDS TO BE CHANGED TO EXPLAIN THESE TWO METHODS
 NOTICE THE TWO HEADERS ABOVE NEED TO HAVE EXPLANATION PUT IN BELOW THEM.
@@ -968,6 +1103,7 @@ In RStudio this looks like:
 <p><!-- End of R instructions for measures of center --></p>
 </div>
 <p><br /></p>
+</div>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
