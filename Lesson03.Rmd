@@ -270,7 +270,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 
 ## Review of the Five Steps of the Statistical Process
 
-We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth) before you begin this lesson.
+We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth") before you begin this case study.
 
 <div style="padding-left:30px;padding-right:30px;">
 
