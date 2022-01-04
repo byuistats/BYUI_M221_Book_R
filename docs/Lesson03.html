@@ -13,7 +13,8 @@
 
 <title>Lesson 3: Describing Quantitative Data (Shape &amp; Center)</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -380,7 +381,8 @@ $(document).ready(function () {
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
 <li><a href="#review-of-the-five-steps-of-the-statistical-process">Review of the Five Steps of the Statistical Process</a></li>
-<li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a><ul>
+<li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a>
+<ul>
 <li><a href="#measuring-the-center-of-a-distribution">Measuring the Center of a Distribution</a></li>
 <li><a href="#r-instructions-for-mean-median-and-mode">R Instructions for Mean, Median, and Mode</a></li>
 <li><a href="#visualizing-quantitative-data-histograms">Visualizing Quantitative Data: Histograms</a></li>
@@ -656,7 +658,7 @@ R Instructions
 <p><br /></p>
 </div>
 <div id="visualizing-quantitative-data-histograms" class="section level3 tabset tabset-fade">
-<h3>Visualizing Quantitative Data: Histograms</h3>
+<h3 class="tabset tabset-fade">Visualizing Quantitative Data: Histograms</h3>
 <p>The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
 <center>
 15,100     19,000     4,800     6,500     14,900     600     23,500     11,500     12,900     32,200
@@ -833,7 +835,6 @@ Answer the following question:
 <p>We will describe the shape of the distribution of a data set using the following basic categories: symmetric, bell-shaped, skewed right, and skewed left. Additionally, we can label the shape of a distribution as uniform, unimodal, bimodal, or multimodal.</p>
 <p>A distribution is symmetric if both the left and right side of the distribution appear to be roughly a mirror image of each other. A special symmetric distribution is a bell-shaped distribution. When data follow a bell-shaped distribution, the histogram looks like a bell. Bell-shaped distributions play an important role in Statistics and will play a role in most of the future lessons.</p>
 <p>A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.</p>
-<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.5</code></pre>
 <p><img src="Lesson03_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><img src="Images/Lesson_2_Activity_2-3.JPG" width=130%></p>
 <p>If a distribution has only one peak, it is said to be <strong>unimodal</strong>. The three distributions illustrated above are all unimodal distributions. Some people might argue that there are several peaks in the GPA data, so it should not be considered unimodal. Even though there are jagged bumps in the histogram, it is important to visualize the overall shape in the data. When interpreting a histogram, it can be helpful to blur your eyes and imagine the overall shape after smoothing out the bumps. If the overall trend indicates that there is more than one bump, then we do not consider the distribution to be unimodal. We will usually only work with unimodal data sets in this course.</p>
