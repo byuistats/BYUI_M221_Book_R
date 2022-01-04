@@ -379,15 +379,10 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#center-of-a-distribution">Center of a Distribution</a><ul>
-<li><a href="#measuring-the-center-of-a-distribution">Measuring the Center of a Distribution</a></li>
-<li><a href="#r-instructions-for-mean-median-and-mode">R Instructions for Mean, Median, and Mode</a></li>
-</ul></li>
-<li><a href="#visualizing-the-distribution-of-a-data-set-histograms">Visualizing the Distribution of a Data Set (Histograms)</a><ul>
-<li><a href="#needs-instructions-for-histograms-here">NEEDS INSTRUCTIONS FOR HISTOGRAMS HERE</a></li>
-</ul></li>
 <li><a href="#review-of-the-five-steps-of-the-statistical-process">Review of the Five Steps of the Statistical Process</a></li>
 <li><a href="#case-study-tuberculosis">Case Study: Tuberculosis</a><ul>
+<li><a href="#measuring-the-center-of-a-distribution">Measuring the Center of a Distribution</a></li>
+<li><a href="#r-instructions-for-mean-median-and-mode">R Instructions for Mean, Median, and Mode</a></li>
 <li><a href="#visualizing-quantitative-data-histograms">Visualizing Quantitative Data: Histograms</a></li>
 <li><a href="#r-instructions-for-histograms">R Instructions for Histograms</a></li>
 <li><a href="#r-instructions-for-more-advanced-histograms-optional">R Instructions for More Advanced Histograms (Optional)</a></li>
@@ -435,10 +430,63 @@ Use ZincForColds, zinc group to demonstrate
 </div>
 <p><br></p>
 </div>
-<div id="center-of-a-distribution" class="section level2">
-<h2>Center of a Distribution</h2>
-<p><img src="Images/Step3.png"></p>
-<p><strong>Step 3: Describe the data.</strong></p>
+<div id="review-of-the-five-steps-of-the-statistical-process" class="section level2">
+<h2>Review of the Five Steps of the Statistical Process</h2>
+<p>We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic “Daniel Can Discern More Truth”) before you begin this case study.</p>
+<div style="padding-left:30px;padding-right:30px;">
+<table>
+<thead>
+<tr class="header">
+<th align="left">The Statistical Process</th>
+<th align="left">Mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Step 1: <strong>D</strong>esign the Study</td>
+<td align="left"><strong>D</strong>aniel</td>
+</tr>
+<tr class="even">
+<td align="left">Step 2: <strong>C</strong>ollect Data</td>
+<td align="left"><strong>C</strong>an</td>
+</tr>
+<tr class="odd">
+<td align="left">Step 3: <strong>D</strong>escribe Data</td>
+<td align="left"><strong>D</strong>iscern</td>
+</tr>
+<tr class="even">
+<td align="left">Step 4: <strong>M</strong>ake Inference</td>
+<td align="left"><strong>M</strong>ore</td>
+</tr>
+<tr class="odd">
+<td align="left">Step 5: <strong>T</strong>ake Action</td>
+<td align="left"><strong>T</strong>ruth</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="case-study-tuberculosis" class="section level2">
+<h2>Case Study: Tuberculosis</h2>
+<p><img src="Images/StepsAll.png"></p>
+<div style="float:right;padding:15px;">
+<p><strong>Cost to Treat Tuberculosis in India</strong></p>
+<p><img src="Images/Market_rural-India_-Tamilword22.jpg"></p>
+</div>
+<p><br /></p>
+<p><img src="Images/Step1.png"> <br> <strong>Step 1: Design the study.</strong></p>
+<p>Tuberculosis (TB) is the deadliest bacterial disease in the world. In 2009, nine million new cases of tuberculosis were diagnosed, leading to almost 2 million deaths worldwide. Currently, the principal vaccine used to prevent tuberculosis is Bacille Calmette Guerin (BCG). Unfortunately, BCG is only moderately effective at preventing tuberculosis. Historically, India has had a high number of tuberculosis cases. The Indian Government wants to reduce the prevalence of this disease.</p>
+<p>In this activity, you will compare the average costs of treating a person who contracts tuberculosis to the costs of preventing a case of tuberculosis in India.</p>
+<p><br /></p>
+<p><img src="Images/Step2.png"> <br> <strong>Step 2: Collect data.</strong></p>
+<p>Health Care records of tuberculosis patients in India were surveyed to estimate the cost to treat patients with tuberculosis. The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
+<center>
+15,100     19,000     4,800     6,500     14,900     600     23,500     11,500     12,900     32,200
+</center>
+<p>These costs include health care treatment, time missed from work, and in some cases utility lost due to death.</p>
+<p><br /></p>
+<p><img src="Images/Step3.png"> <br> <strong>Step 3: Describe the data.</strong></p>
 <p>Sometimes people talk about the “typical” BYU-Idaho student or the average waiting time for a bus. But what does it mean for something or someone to be “average?” How can we quantify what it means to be typical or average? In the example below, we will explore one way to define what “average” means.</p>
 <p>When we talk about the “typical” or “average” value, we are essentially describing the center of a population. If we want to estimate the “average” costs to treat a tuberculosis patient, there are several ways we can do it.</p>
 <p><br></p>
@@ -607,70 +655,6 @@ R Instructions
 </div>
 <p><br /></p>
 </div>
-</div>
-<div id="visualizing-the-distribution-of-a-data-set-histograms" class="section level2">
-<h2>Visualizing the Distribution of a Data Set (Histograms)</h2>
-<div id="needs-instructions-for-histograms-here" class="section level3">
-<h3>NEEDS INSTRUCTIONS FOR HISTOGRAMS HERE</h3>
-</div>
-</div>
-<div id="review-of-the-five-steps-of-the-statistical-process" class="section level2">
-<h2>Review of the Five Steps of the Statistical Process</h2>
-<p>We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic “Daniel Can Discern More Truth”) before you begin this case study.</p>
-<div style="padding-left:30px;padding-right:30px;">
-<table>
-<thead>
-<tr class="header">
-<th align="left">The Statistical Process</th>
-<th align="left">Mnemonic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Step 1: <strong>D</strong>esign the Study</td>
-<td align="left"><strong>D</strong>aniel</td>
-</tr>
-<tr class="even">
-<td align="left">Step 2: <strong>C</strong>ollect Data</td>
-<td align="left"><strong>C</strong>an</td>
-</tr>
-<tr class="odd">
-<td align="left">Step 3: <strong>D</strong>escribe Data</td>
-<td align="left"><strong>D</strong>iscern</td>
-</tr>
-<tr class="even">
-<td align="left">Step 4: <strong>M</strong>ake Inference</td>
-<td align="left"><strong>M</strong>ore</td>
-</tr>
-<tr class="odd">
-<td align="left">Step 5: <strong>T</strong>ake Action</td>
-<td align="left"><strong>T</strong>ruth</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-</div>
-<div id="case-study-tuberculosis" class="section level2">
-<h2>Case Study: Tuberculosis</h2>
-<p><img src="Images/StepsAll.png"></p>
-<div style="float:right;padding:15px;">
-<p><strong>Cost to Treat Tuberculosis in India</strong></p>
-<p><img src="Images/Market_rural-India_-Tamilword22.jpg"></p>
-</div>
-<p><br /></p>
-<p><img src="Images/Step1.png"> <br> <strong>Step 1: Design the study.</strong></p>
-<p>Tuberculosis (TB) is the deadliest bacterial disease in the world. In 2009, nine million new cases of tuberculosis were diagnosed, leading to almost 2 million deaths worldwide. Currently, the principal vaccine used to prevent tuberculosis is Bacille Calmette Guerin (BCG). Unfortunately, BCG is only moderately effective at preventing tuberculosis. Historically, India has had a high number of tuberculosis cases. The Indian Government wants to reduce the prevalence of this disease.</p>
-<p>In this activity, you will compare the average costs of treating a person who contracts tuberculosis to the costs of preventing a case of tuberculosis in India.</p>
-<p><br /></p>
-<p><img src="Images/Step2.png"> <br> <strong>Step 2: Collect data.</strong></p>
-<p>Health Care records of tuberculosis patients in India were surveyed to estimate the cost to treat patients with tuberculosis. The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
-<center>
-15,100     19,000     4,800     6,500     14,900     600     23,500     11,500     12,900     32,200
-</center>
-<p>These costs include health care treatment, time missed from work, and in some cases utility lost due to death.</p>
-<p><br /></p>
-<p><img src="Images/Step3.png"> <br> <strong>Step 3: Describe the data.</strong></p>
 <div id="visualizing-quantitative-data-histograms" class="section level3 tabset tabset-fade">
 <h3>Visualizing Quantitative Data: Histograms</h3>
 <p>The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>

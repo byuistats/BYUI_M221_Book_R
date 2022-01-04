@@ -46,12 +46,69 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
-## Center of a Distribution
+## Review of the Five Steps of the Statistical Process
 
+We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth") before you begin this case study.
+
+<div style="padding-left:30px;padding-right:30px;">
+
+| The Statistical Process | Mnemonic | 
+|:------------------------|:---------|
+| Step 1: **D**esign the Study | **D**aniel |
+| Step 2: **C**ollect Data | **C**an |
+| Step 3: **D**escribe Data | **D**iscern |
+| Step 4: **M**ake Inference | **M**ore |
+| Step 5: **T**ake Action | **T**ruth |
+
+</div>
+
+
+
+<br>
+
+## Case Study: Tuberculosis
+
+<img src="./Images/StepsAll.png">
+
+
+<div style="float:right;padding:15px;">
+
+**Cost to Treat Tuberculosis in India**
+
+<img src="./Images/Market_rural-India_-Tamilword22.jpg">
+
+</div>
+
+
+<br />
+
+<img src="./Images/Step1.png">
+<br>
+**Step 1: Design the study.** 
+
+Tuberculosis (TB) is the deadliest bacterial disease in the world. In 2009, nine million new cases of tuberculosis were diagnosed, leading to almost 2 million deaths worldwide. Currently, the principal vaccine used to prevent tuberculosis is Bacille Calmette Guerin (BCG). Unfortunately, BCG is only moderately effective at preventing tuberculosis. Historically, India has had a high number of tuberculosis cases. The Indian Government wants to reduce the prevalence of this disease.
+
+In this activity, you will compare the average costs of treating a person who contracts tuberculosis to the costs of preventing a case of tuberculosis in India.
+
+
+<br />
+
+<img src="./Images/Step2.png">
+<br>
+**Step 2: Collect data.** 
+
+Health Care records of tuberculosis patients in India were surveyed to estimate the cost to treat patients with tuberculosis. The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.
+
+<center>15,100 &nbsp; &nbsp; 19,000 &nbsp; &nbsp; 4,800 &nbsp; &nbsp; 6,500 &nbsp; &nbsp; 14,900 &nbsp; &nbsp; 600 &nbsp; &nbsp; 23,500 &nbsp; &nbsp; 11,500 &nbsp; &nbsp; 12,900 &nbsp; &nbsp; 32,200</center>
+
+These costs include health care treatment, time missed from work, and in some cases utility lost due to death.
+
+
+<br />
 
 <img src="./Images/Step3.png">
-
-**Step 3: Describe the data.** 
+<br>
+**Step 3: Describe the data.**
 
 Sometimes people talk about the "typical" BYU-Idaho student or the average waiting time for a bus. But what does it mean for something or someone to be "average?" How can we quantify what it means to be typical or average? In the example below, we will explore one way to define what "average" means. 
 
@@ -262,75 +319,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 <br />
 
 
-## Visualizing the Distribution of a Data Set (Histograms)
 
-### NEEDS INSTRUCTIONS FOR HISTOGRAMS HERE
-
-
-
-## Review of the Five Steps of the Statistical Process
-
-We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth") before you begin this case study.
-
-<div style="padding-left:30px;padding-right:30px;">
-
-| The Statistical Process | Mnemonic | 
-|:------------------------|:---------|
-| Step 1: **D**esign the Study | **D**aniel |
-| Step 2: **C**ollect Data | **C**an |
-| Step 3: **D**escribe Data | **D**iscern |
-| Step 4: **M**ake Inference | **M**ore |
-| Step 5: **T**ake Action | **T**ruth |
-
-</div>
-
-
-
-<br>
-
-## Case Study: Tuberculosis
-
-<img src="./Images/StepsAll.png">
-
-
-<div style="float:right;padding:15px;">
-
-**Cost to Treat Tuberculosis in India**
-
-<img src="./Images/Market_rural-India_-Tamilword22.jpg">
-
-</div>
-
-
-<br />
-
-<img src="./Images/Step1.png">
-<br>
-**Step 1: Design the study.** 
-
-Tuberculosis (TB) is the deadliest bacterial disease in the world. In 2009, nine million new cases of tuberculosis were diagnosed, leading to almost 2 million deaths worldwide. Currently, the principal vaccine used to prevent tuberculosis is Bacille Calmette Guerin (BCG). Unfortunately, BCG is only moderately effective at preventing tuberculosis. Historically, India has had a high number of tuberculosis cases. The Indian Government wants to reduce the prevalence of this disease.
-
-In this activity, you will compare the average costs of treating a person who contracts tuberculosis to the costs of preventing a case of tuberculosis in India.
-
-
-<br />
-
-<img src="./Images/Step2.png">
-<br>
-**Step 2: Collect data.** 
-
-Health Care records of tuberculosis patients in India were surveyed to estimate the cost to treat patients with tuberculosis. The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.
-
-<center>15,100 &nbsp; &nbsp; 19,000 &nbsp; &nbsp; 4,800 &nbsp; &nbsp; 6,500 &nbsp; &nbsp; 14,900 &nbsp; &nbsp; 600 &nbsp; &nbsp; 23,500 &nbsp; &nbsp; 11,500 &nbsp; &nbsp; 12,900 &nbsp; &nbsp; 32,200</center>
-
-These costs include health care treatment, time missed from work, and in some cases utility lost due to death.
-
-
-<br />
-
-<img src="./Images/Step3.png">
-<br>
-**Step 3: Describe the data.**
 
 ### Visualizing Quantitative Data: Histograms {.tabset .tabset-fade}  
 
