@@ -558,7 +558,7 @@ There are many data types in R. In this course, we will use two data types: vect
 
 #### Vectors in R
 
-A **vector** is simply a collection of numbers. To allow us to access the vector later, we assign it a name. If you copy the following code into the console area (the lower left-hand part of the RStudio screen) and press Enter, you will create a vector consisting of five numbers.
+A **vector** is simply an ordered collection of numbers. To allow us to access the vector later, we assign it a name. If you copy the following code into the console area (the lower left-hand part of the RStudio screen) and press Enter, you will create a vector consisting of five numbers.
 
 ```{r}
 mydata <- c(1, 1, 2, 3, 5, 8)
