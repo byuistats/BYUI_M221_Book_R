@@ -24,6 +24,12 @@ output:
 
 -->
 
+```{r, include = FALSE}
+#read in required packages
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(curl, readxl)
+```
+
 <br>
 
 ## Lesson Outcomes
@@ -700,7 +706,6 @@ Sometimes you may want to make a note to yourself to remind you about something 
 
 ### Reading Data into R
 
-
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
 
@@ -711,7 +716,7 @@ Sometimes you may want to make a note to yourself to remind you about something 
 
 **Method 1: Specify the data values explicitly**
 
-This is what we have done in the examples above.
+This is the process we followed in the examples above.
 
 ```{r}
 # Define a vector of six values called mydata
@@ -727,44 +732,50 @@ height_cm <- c(153, 175.5, 166.75, 167, 142.25)
 mydata2 <- data.frame(name, gender, age, height_cm)
 ```
 
+This works well if you have a very small data set. Usually, we have a large data set and will need to read it in from a file.
+
 **Method 2: Read in data from a file**
 
-<!-- THIS NEEDS TO BE CHANGED TO EXPLAIN THESE TWO METHODS
-NOTICE THE TWO HEADERS ABOVE NEED TO HAVE EXPLANATION PUT IN BELOW THEM.
-------------------
-------------------
-------------------
+To read in a data file in R, do the following:
 
-1. Open RStudio.
+- Read in the dataset. For this example, open the data file by right clicking on this link: [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) and then selecting "Copy link address".
 
-2. Copy and paste the following text into the lower left corner of the RStudio screen next to the `>` symbol. You will find this symbol below the word Console.
+- Next, open RStudio. From inside RStudio, select the "Environment" window, click on "Import Dataset", and then choose "From Excel..." from the menu that appears. Like this:
 
-```{}
-mydata <- c(1, 1, 2, 3, 5, 8)
-mean(mydata)
+<center>
+<img src="./Images/rstudio_import_excel.png" width="500">
+</center>
+
+- Paste the copied link for the data into the "File/URL:" box and click "Update". The data should pull up in the "Data Preview:" window. If it looks like it worked, click "Import" to import the data into RStudio.
+
+<center>
+<img src="./Images/rstudio_import_excel2.png" width="500">
+</center>
+
+
+```{r, include=FALSE}
+#Read the data into this document so that we can use it here as well.
+url <- "https://byuistats.github.io/BYUI_M221_Book_R/Data/wrong_site_wrong_patient.xlsx"
+destfile <- "wrong_site_wrong_patient.xlsx"
+curl::curl_download(url, destfile)
+wrong_site_wrong_patient <- read_excel(destfile)
 ```
 
-3. Then press Return. The first line of code stores the six numbers in a variable called `mydata`. The second line tells R to compute the average (or mean) of the numbers {1, 1, 2, 3, 5, 8}. You should see the following result:
+- We can calculate the average (mean) of any quantitative column of the data frame `wrong_site_wrong_patient` using the `mean(...)` function and the selection operator `$` as follows. If we want the mean of the `wrong_site` column, we enter the following in the Console:
 
-```{r, echo=FALSE}
-mydata <- c(1, 1, 2, 3, 5, 8)
-mean(mydata)
+```{r}
+mean(wrong_site_wrong_patient$wrong_site)
 ```
 
+Note: as soon as you type in the name of the data set, `wrong_site_wrong_patient`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
+
+<img src="./Images/rstudio_selection_operator.png" width="500">
+
+Try computing the mean of the `wrong_patient` data.
 
 
-In RStudio this looks like:
 
-<img src="./Images/rstudio_tuberc_mean.png" width="500">
-
------------------------
------------------------
------------------------
------------------------
------------------------
---> 
-
-</div> <!-- End of R instructions for measures of center -->
+</div> <!-- End of R instructions for reading in data -->
 
 </div>
 <br />

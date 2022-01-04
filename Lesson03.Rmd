@@ -29,6 +29,19 @@ Use ZincForColds, zinc group to demonstrate
 
 -->
 
+<br> 
+
+<!--
+
+```{r, include = FALSE}
+#read in required packages
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(curl)
+```
+
+-->
+
+
 ## Lesson Outcomes
 
 <a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>

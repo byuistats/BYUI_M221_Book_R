@@ -24,6 +24,12 @@ output:
 
 -->
 
+```{r, include = FALSE}
+#read in required packages
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(curl, readxl)
+```
+
 <br>
 
 
@@ -99,7 +105,7 @@ We can, however, use numerical summaries to give an indication of the center of 
 <div id="Q7" style="display:none;">
 * The median body temperature for the relatively uncomplicated cases is 38.4 degrees Centigrade.
 
-```{r}
+```{r, label = body_temp_median}
 bodytemp_uncomp <- c(38.1, 38.3, 38.4, 39.5, 39.7)
 median(bodytemp_uncomp)
 ```
@@ -113,7 +119,7 @@ median(bodytemp_uncomp)
 <div id="Q8" style="display:none;">
 * The mean body temperature for the relatively uncomplicated cases is 38.8 degrees Centigrade.
 
-```{r}
+```{r, label = body_temp_mean}
 bodytemp_uncomp <- c(38.1, 38.3, 38.4, 39.5, 39.7)
 mean(bodytemp_uncomp)
 ```
@@ -153,13 +159,13 @@ At this point, you probably do not have much intuition regarding the standard de
 
 **Step 1.** Either [read in a data set](RHelp.html#read-in-data), or enter the data manually using the assignment operator `<-` and combine function `c(...)`. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:
 
-```{r}
+```{r, label = body_temp_uncomp_data}
 bodytemp_uncomp <- c(38.1, 38.3, 38.4, 39.5, 39.7)
 ```
 
 **Step 2.** Compute the standard deviation of the data by using the `sd(...)` function in R, like this:
 
-```{r}
+```{r, label = body_temp_uncomp_sd}
 sd(bodytemp_uncomp)
 ```
 
@@ -596,13 +602,13 @@ The variance is the square of the standard deviation.  The sample variance is de
 
 **Step 1.** Either [read in a data set](RHelp.html#read-in-data), or enter the data manually using the assignment operator `<-` and combine function `c(...)`. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:
 
-```{r}
+```{r, label = body_temp_uncomp_data_again}
 bodytemp_uncomp <- c(38.1, 38.3, 38.4, 39.5, 39.7)
 ```
 
 **Step 2.** Compute the sample variance of the data by using the `var(...)` function in R, like this:
 
-```{r}
+```{r, label = body_temp_uncomp_var}
 var(bodytemp_uncomp)
 ```
 
@@ -638,7 +644,7 @@ Enter the patient temperature data for the severe cases of bird flu into R. Then
 <a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
 
-```{r}
+```{r, label = bird_flu}
 birdflu_severe <- c( 39.1, 39.5, 38.9, 39.2, 39.9, 39.7, 39)
 mean(birdflu_severe)
 median(birdflu_severe)
@@ -824,40 +830,25 @@ Percentiles can be used to describe the center and spread of any distribution an
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
 <br />
 
-- Read in the dataset. For this example, open the data file by right clicking on this link: [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) and then selecting "Copy Link".
+- Read in the dataset [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx). If needed, you can review the instructions on reading in data from [Lesson 2: Reading Data into R](Lesson02.html#Reading-Data-into-R).
 
-- Next, open RStudio. From inside RStudio, select the "Environment" window, click on "Import Dataset", and then choose "From Excel..." from the menu that appears. Like this:
-
-<center>
-<img src="./Images/rstudio_import_excel.png" width="500">
-</center>
-
-- Paste the copied link for the data into the "File/URL:" box and click "Update". The data should pull up in the "Data Preview:" window. If it looks like it worked, click "Import" to import the data into RStudio.
-
-<center>
-<img src="./Images/rstudio_import_excel2.png" width="500">
-</center>
-
-
-```{r, include=FALSE}
+```{r, include=FALSE, label = w_s_w_p_data}
 #Read the data into this document so that we can use it here as well.
-library(readxl)
-url <- "https://saundersg.github.io/BYUI_M221_Book_R/Data/WrongSiteWrongPatient.xlsx"
-destfile <- "WrongSiteWrongPatient.xlsx"
+url <- "https://byuistats.github.io/BYUI_M221_Book_R/Data/wrong_site_wrong_patient.xlsx"
+destfile <- "wrong_site_wrong_patient.xlsx"
 curl::curl_download(url, destfile)
-WrongSiteWrongPatient <- read_excel(destfile)
+wrong_site_wrong_patient <- read_excel(destfile)
 ```
 
+- Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
 
-- Percentiles can then be calculated on any quantitative column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
+For the **wrong_site_wrong_patient** data set, we could compute the 25th percentile of the "Wrong Site" column of the data set by using the code:
 
-For the **WrongSiteWrongPatient** data set, we could compute the 25th percentile of the "Wrong Site" column of the data set by using the code:
-
-```{r}
-quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)
+```{r, label = w_s_w_p_25_percentile}
+quantile(wrong_site_wrong_patient$wrong_site, 0.25)
 ```
 
-Note: as soon as you type in the name of the data set, `WrongSiteWrongPatient`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
+Note: as soon as you type in the name of the data set, `wrong_site_wrong_patient`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
 
 <img src="./Images/rstudio_selection_operator.png" width="500">
 
@@ -872,8 +863,8 @@ The first quartile ($Q_1$) or 25<sup>th</sup> percentile (calculated in R) of th
 <!--  (Eliminate concatenated list of percentiles)
 **Other Percentiles (Calculated in R)**
 
-```{r}
-quantile(WrongSiteWrongPatient$`Wrong Site`, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
+```{r, label = w_s_w_p_quantile_many}
+quantile(wrong_site_wrong_patient$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
 ```
 -->
 
@@ -964,12 +955,12 @@ Statistical packages can give different results for some computations.  This is 
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 <br />
 
-- Open the data file you are using if you haven't already. For this example, continue using the file [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) that you opened previously in this lesson.
+- Open the data file you are using if you haven't already. For this example, continue using the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) that you opened previously in this lesson.
 
 - You can use the function **summary(...)** in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The `summary(...)` function also provides the value of the mean, which isn't technically part of the five-number summary, but is useful to compare against the median.)
 
-```{r}
-summary(WrongSiteWrongPatient$`Wrong Site`)
+```{r, label = w_s_w_p_summary}
+summary(wrong_site_wrong_patient$wrong_site)
 ```
 
 
@@ -1054,26 +1045,26 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **To create a boxplot in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, continue using the [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx) data that you opened previously in this lesson.
+- Open the data file you are using. For this example, continue using the [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) data that you opened previously in this lesson.
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 
-```{r, fig.height=3}
-boxplot(WrongSiteWrongPatient$`Wrong Site`, horizontal=TRUE)
+```{r, fig.height=3, label = w_s_w_p_boxplot1}
+boxplot(wrong_site_wrong_patient$wrong_site, horizontal=TRUE)
 ```
 
 <!-- SIMPLIFY INSTRUCTIONS FOR BOXPLOTS ---------------------
 
 If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.
 
-```{r, fig.height=3}
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
+```{r, fig.height=3, label=w_s_w_p_boxplot_1000_x}
+boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
 ```
 
 Also, you can give color to the graph using `col="some color name"`.
 
-```{r, fig.height=3}
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+```{r, fig.height=3, label=w_s_w_p_boxplot_1000_again_x}
+boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
 ```
 
 -->
@@ -1081,7 +1072,7 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in 
 Note that the default for `boxplot(...)` is to draw the boxplot vertically. That is why we used the command `horizontal=TRUE` to force the graph to draw the boxplot sideways. If we remove the `horizontal=TRUE` statement, we get a vertical boxplot instead It really doesn't matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.
 
 ```{r}
-boxplot(WrongSiteWrongPatient$`Wrong Site`)
+boxplot(wrong_site_wrong_patient$wrong_site)
 ```
 
 </div> <!-- R instructions for boxplot -->
@@ -1091,7 +1082,7 @@ boxplot(WrongSiteWrongPatient$`Wrong Site`)
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx). What is the shape of the wrong-patient data?
+29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx). What is the shape of the wrong-patient data?
 
 a. Skewed left
 b. Symmetric
@@ -1104,8 +1095,8 @@ e. Uniform
 <div id="Q29" style="display:none;">
 To create the histogram, [read the data](RHelp.html#reading-in-data) into RStudio. Then, use the `hist(...)` function to create a histogram. If you have forgotten how to do this, review it in [Lesson 3, creating a histogram](Lesson03.html#r-Instructions-for-histograms).
 
-```{r}
-hist(WrongSiteWrongPatient$`Wrong Patient`, col="skyblue", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+```{r, label=w_s_w_p_hist}
+hist(wrong_site_wrong_patient$wrong_patient, col="skyblue", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is 'c. Skewed right'.
@@ -1119,8 +1110,8 @@ From the histogram we clearly see most values bunched near the left and graduall
 <div id="Q30" style="display:none;">
 
 
-```{r, fig.height=3}
-boxplot(WrongSiteWrongPatient$`Wrong Patient`, horizontal=TRUE, col="orange", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+```{r, fig.height=3, label=w_s_w_p_boxplot_orange}
+boxplot(wrong_site_wrong_patient$wrong_patient, horizontal=TRUE, col="orange", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 </div>
@@ -1130,8 +1121,8 @@ boxplot(WrongSiteWrongPatient$`Wrong Patient`, horizontal=TRUE, col="orange", ma
 
 Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.
 
-```{r, echo=FALSE}
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000, WrongSiteWrongPatient$`Wrong Patient`/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("skyblue3","firebrick"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
+```{r, echo=FALSE, label=w_s_w_p_boxplot_1000000}
+boxplot(wrong_site_wrong_patient$wrong_site/1000000, wrong_site_wrong_patient$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("skyblue3","firebrick"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
 ```
 
 In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.
@@ -1146,19 +1137,19 @@ In the plot we can quickly see that a wrong-patient lawsuit resulted in the larg
 **To create side-by-side boxplots in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, open the file [WrongSiteWrongPatient.xlsx](./Data/WrongSiteWrongPatient.xlsx).
+- Open the data file you are using. For this example, open the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx).
 
 - Use the `boxplot(...)` function with the first column listed, followed by a comma, then followed by the next column of data.
 
-```{r}
-boxplot(WrongSiteWrongPatient$`Wrong Site`, WrongSiteWrongPatient$`Wrong Patient`)
+```{r, label=w_s_w_p_boxplot_two}
+boxplot(wrong_site_wrong_patient$wrong_site, wrong_site_wrong_patient$wrong_patient)
 ```
 
 To make the graph look nicer, we can use the `names=c(...)` command to give a name to each box in the plot. Then we can also use `col=c(...)` to give colors to each box. Then we can include a main title with `main="..."`, a y-axis label with `ylab="..."`, rotate the numbers on the y-axis with `las=1`, and change everything to be in "millions of dollars" by dividing each column by 1000000. The result looks like this.
 
-```{r}
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000, 
-        WrongSiteWrongPatient$`Wrong Patient`/1000000, 
+```{r, label=w_s_w_p_boxplot_two_fancy}
+boxplot(wrong_site_wrong_patient$wrong_site/1000000, 
+       wrong_site_wrong_patient$wrong_patient/1000000, 
         names=c("Wrong Site", "Wrong Patient"), 
         col=c("skyblue3","firebrick"), 
         main="Cost to Hospital by Lawsuit Type", 
@@ -1190,17 +1181,17 @@ Sometimes the data you are working with has missing values in it. These are reco
 **Dealing with NA or missing values:**
 <br/>
 
-Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the WrongSiteWrongPatient data) then you need to use the `na.rm=TRUE` option to remove them, like this:
+Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the wrong_site_wrong_patient data) then you need to use the `na.rm=TRUE` option to remove them, like this:
 
 <img src="./Images/rstudio_NA.png" width="500">
 
 
 
 ```{r, comment=NA}
-mean(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
-median(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
-sd(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)
-quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)
+mean(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
+median(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
+sd(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
+quantile(wrong_site_wrong_patient$wrong_patient, 0.25, na.rm=TRUE)
 ```
 
 If you leave off the `na.rm=TRUE`, you will get an `NA` answer and sometimes a warning message:
@@ -1212,10 +1203,10 @@ So be sure to use `na.rm=TRUE` whenever that happens. Happily, if the data has n
 If you want to know how many missing values there were in the data, use `summary(...)`, like this:
 
 ```{r, comment=NA}
-summary(WrongSiteWrongPatient$`Wrong Patient`)
+summary(wrong_site_wrong_patient$wrong_patient)
 ```
 
-In this case, there were 235 "NA's" or missing values in the `Wrong Patient` data.
+In this case, there were 235 "NA's" or missing values in the wrong_patient data.
 
 </div> <!-- R instructions for missing data -->
 

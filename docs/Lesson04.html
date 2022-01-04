@@ -13,7 +13,8 @@
 
 <title>Lesson 4: Describing Quantitative Data (Spread)</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -379,13 +380,15 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#spread-of-a-distribution">Spread of a Distribution</a><ul>
+<li><a href="#spread-of-a-distribution">Spread of a Distribution</a>
+<ul>
 <li><a href="#standard-deviation-and-variance">Standard Deviation and Variance</a></li>
 <li><a href="#r-instructions-for-computing-standard-deviation">R Instructions for Computing Standard Deviation</a></li>
 <li><a href="#calculating-the-standard-deviation-by-hand">Calculating the Standard Deviation by Hand</a></li>
 <li><a href="#summary">Summary</a></li>
 </ul></li>
-<li><a href="#additional-tools-to-describe-the-data">Additional Tools to Describe the Data</a><ul>
+<li><a href="#additional-tools-to-describe-the-data">Additional Tools to Describe the Data</a>
+<ul>
 <li><a href="#percentiles-and-quartiles">Percentiles and Quartiles</a></li>
 <li><a href="#r-instructions-for-computing-percentiles">R Instructions for Computing Percentiles</a></li>
 <li><a href="#the-five-number-summary">The Five-Number Summary</a></li>
@@ -1379,7 +1382,7 @@ mean(birdflu_severe)</code></pre>
 </div>
 <div id="additional-tools-to-describe-the-data" class="section level2">
 <h2>Additional Tools to Describe the Data</h2>
-<p>Recall the five steps of the Statistical Process (and the mnemonic "Daniel Can Discern More Truth).</p>
+<p>Recall the five steps of the Statistical Process (and the mnemonic “Daniel Can Discern More Truth).</p>
 <center>
 <table>
 <tbody>
@@ -1528,26 +1531,14 @@ R Instructions
 <div id="r_instr_4_percentiles" style="display:none;">
 <p><br>   <strong>To calculate percentiles and quartiles in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Read in the dataset. For this example, open the data file by right clicking on this link: <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> and then selecting “Copy Link”.</p></li>
-<li><p>Next, open RStudio. From inside RStudio, select the “Environment” window, click on “Import Dataset”, and then choose “From Excel…” from the menu that appears. Like this:</p></li>
+<li><p>Read in the dataset <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a>. If needed, you can review the instructions on reading in data from <a href="Lesson02.html#Reading-Data-into-R">Lesson 2: Reading Data into R</a>.</p></li>
+<li><p>Percentiles can then be calculated on any numeric column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</p></li>
 </ul>
-<center>
-<img src="Images/rstudio_import_excel.png" width="500">
-</center>
-<ul>
-<li>Paste the copied link for the data into the “File/URL:” box and click “Update”. The data should pull up in the “Data Preview:” window. If it looks like it worked, click “Import” to import the data into RStudio.</li>
-</ul>
-<center>
-<img src="Images/rstudio_import_excel2.png" width="500">
-</center>
-<ul>
-<li>Percentiles can then be calculated on any quantitative column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</li>
-</ul>
-<p>For the <strong>WrongSiteWrongPatient</strong> data set, we could compute the 25th percentile of the “Wrong Site” column of the data set by using the code:</p>
-<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Site`, 0.25)</code></pre>
+<p>For the <strong>wrong_site_wrong_patient</strong> data set, we could compute the 25th percentile of the “Wrong Site” column of the data set by using the code:</p>
+<pre class="r"><code>quantile(wrong_site_wrong_patient$wrong_site, 0.25)</code></pre>
 <pre><code>##   25% 
 ## 29496</code></pre>
-<p>Note: as soon as you type in the name of the data set, <code>WrongSiteWrongPatient</code>, and then add the selection operator <code>$</code> (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as “buying an item” from a dataset with “your money: <code>$</code>.”)</p>
+<p>Note: as soon as you type in the name of the data set, <code>wrong_site_wrong_patient</code>, and then add the selection operator <code>$</code> (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as “buying an item” from a dataset with “your money: <code>$</code>.”)</p>
 <p><img src="Images/rstudio_selection_operator.png" width="500"></p>
 </div>
 <p><!-- R instructions for percentiles --></p>
@@ -1559,7 +1550,7 @@ R Instructions
 
 
 ```r
-quantile(WrongSiteWrongPatient$`Wrong Site`, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
+quantile(wrong_site_wrong_patient$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
 ```
 
 ```
@@ -1674,10 +1665,10 @@ R Instructions
 <div id="r_instr_4_quartiles" style="display:none;">
 <p><br>   <strong>To find the values for a five-number summary in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> that you opened previously in this lesson.</p></li>
+<li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a> that you opened previously in this lesson.</p></li>
 <li><p>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</p></li>
 </ul>
-<pre class="r"><code>summary(WrongSiteWrongPatient$`Wrong Site`)</code></pre>
+<pre class="r"><code>summary(wrong_site_wrong_patient$wrong_site)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##       0   29496   68552   80041  124280  780575</code></pre>
 </div>
@@ -1734,35 +1725,35 @@ R Instructions
 <div id="r_instr_4_boxplots" style="display:none;">
 <p><br> <strong>To create a boxplot in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, continue using the <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a> data that you opened previously in this lesson.</p></li>
+<li><p>Open the data file you are using. For this example, continue using the <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a> data that you opened previously in this lesson.</p></li>
 <li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</p></li>
 </ul>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`, horizontal=TRUE)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(wrong_site_wrong_patient$wrong_site, horizontal=TRUE)</code></pre>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot1-1.png" width="672" /></p>
 <!-- SIMPLIFY INSTRUCTIONS FOR BOXPLOTS ---------------------
 
 If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.
 
 
 ```r
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
+boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
 ```
 
-<img src="Lesson04_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="Lesson04_files/figure-html/w_s_w_p_boxplot_1000_x-1.png" width="672" />
 
 Also, you can give color to the graph using `col="some color name"`.
 
 
 ```r
-boxplot(WrongSiteWrongPatient$`Wrong Site`/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
 ```
 
-<img src="Lesson04_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="Lesson04_files/figure-html/w_s_w_p_boxplot_1000_again_x-1.png" width="672" />
 
 -->
 <p>Note that the default for <code>boxplot(...)</code> is to draw the boxplot vertically. That is why we used the command <code>horizontal=TRUE</code> to force the graph to draw the boxplot sideways. If we remove the <code>horizontal=TRUE</code> statement, we get a vertical boxplot instead It really doesn’t matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.</p>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(wrong_site_wrong_patient$wrong_site)</code></pre>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <p><!-- R instructions for boxplot --></p>
 </div>
@@ -1772,7 +1763,7 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="29" style="list-style-type: decimal">
-<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>. What is the shape of the wrong-patient data?</li>
+<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the file <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a>. What is the shape of the wrong-patient data?</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Skewed left</li>
@@ -1784,8 +1775,8 @@ Answer the following questions:
 <a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
 <p>To create the histogram, <a href="RHelp.html#reading-in-data">read the data</a> into RStudio. Then, use the <code>hist(...)</code> function to create a histogram. If you have forgotten how to do this, review it in <a href="Lesson03.html#r-Instructions-for-histograms">Lesson 3, creating a histogram</a>.</p>
-<pre class="r"><code>hist(WrongSiteWrongPatient$`Wrong Patient`, col=&quot;skyblue&quot;, main=&quot;Costs of Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>hist(wrong_site_wrong_patient$wrong_patient, col=&quot;skyblue&quot;, main=&quot;Costs of Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_hist-1.png" width="672" /></p>
 <p>From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is ‘c. Skewed right’.</p>
 </div>
 <p><br></p>
@@ -1794,14 +1785,14 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q30')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q30" style="display:none;">
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Patient`, horizontal=TRUE, col=&quot;orange&quot;, main=&quot;Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(wrong_site_wrong_patient$wrong_patient, horizontal=TRUE, col=&quot;orange&quot;, main=&quot;Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot_orange-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
 <p><br></p>
 <p>Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.</p>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot_1000000-1.png" width="672" /></p>
 <p>In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.</p>
 <div class="SoftwareHeading">
 R Instructions
@@ -1811,20 +1802,20 @@ R Instructions
 <div id="r_instr_4_sidebyside_boxplots" style="display:none;">
 <p><br> <strong>To create side-by-side boxplots in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient.xlsx</a>.</p></li>
+<li><p>Open the data file you are using. For this example, open the file <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a>.</p></li>
 <li><p>Use the <code>boxplot(...)</code> function with the first column listed, followed by a comma, then followed by the next column of data.</p></li>
 </ul>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`, WrongSiteWrongPatient$`Wrong Patient`)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(wrong_site_wrong_patient$wrong_site, wrong_site_wrong_patient$wrong_patient)</code></pre>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot_two-1.png" width="672" /></p>
 <p>To make the graph look nicer, we can use the <code>names=c(...)</code> command to give a name to each box in the plot. Then we can also use <code>col=c(...)</code> to give colors to each box. Then we can include a main title with <code>main="..."</code>, a y-axis label with <code>ylab="..."</code>, rotate the numbers on the y-axis with <code>las=1</code>, and change everything to be in “millions of dollars” by dividing each column by 1000000. The result looks like this.</p>
-<pre class="r"><code>boxplot(WrongSiteWrongPatient$`Wrong Site`/1000000, 
-        WrongSiteWrongPatient$`Wrong Patient`/1000000, 
+<pre class="r"><code>boxplot(wrong_site_wrong_patient$wrong_site/1000000, 
+       wrong_site_wrong_patient$wrong_patient/1000000, 
         names=c(&quot;Wrong Site&quot;, &quot;Wrong Patient&quot;), 
         col=c(&quot;skyblue3&quot;,&quot;firebrick&quot;), 
         main=&quot;Cost to Hospital by Lawsuit Type&quot;, 
         ylab=&quot;Cost in Millions of Dollars&quot;, 
         las=1)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot_two_fancy-1.png" width="672" /></p>
 </div>
 <p><!-- R instructions for side-by-side boxplots --></p>
 </div>
@@ -1840,25 +1831,25 @@ R Instructions
 <a href="javascript:showhide('r_instr_4_missing')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_missing" style="display:none;">
 <p><br> <strong>Dealing with NA or missing values:</strong> <br/></p>
-<p>Caution: if the data you are using has <code>NA</code> or missing values in it (like the “wrong-patient” column of the WrongSiteWrongPatient data) then you need to use the <code>na.rm=TRUE</code> option to remove them, like this:</p>
+<p>Caution: if the data you are using has <code>NA</code> or missing values in it (like the “wrong-patient” column of the wrong_site_wrong_patient data) then you need to use the <code>na.rm=TRUE</code> option to remove them, like this:</p>
 <p><img src="Images/rstudio_NA.png" width="500"></p>
-<pre class="r"><code>mean(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre class="r"><code>mean(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)</code></pre>
 <pre><code>[1] 46172.05</code></pre>
-<pre class="r"><code>median(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre class="r"><code>median(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)</code></pre>
 <pre><code>[1] 18882</code></pre>
-<pre class="r"><code>sd(WrongSiteWrongPatient$`Wrong Patient`, na.rm=TRUE)</code></pre>
+<pre class="r"><code>sd(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)</code></pre>
 <pre><code>[1] 105986.7</code></pre>
-<pre class="r"><code>quantile(WrongSiteWrongPatient$`Wrong Patient`, 0.25, na.rm=TRUE)</code></pre>
+<pre class="r"><code>quantile(wrong_site_wrong_patient$wrong_patient, 0.25, na.rm=TRUE)</code></pre>
 <pre><code> 25% 
 3900 </code></pre>
 <p>If you leave off the <code>na.rm=TRUE</code>, you will get an <code>NA</code> answer and sometimes a warning message:</p>
 <p><span style="color:red;">Error in … missing values and NaN’s not allowed if ‘na.rm’ is FALSE</span></p>
 <p>So be sure to use <code>na.rm=TRUE</code> whenever that happens. Happily, if the data has no missing values, then we don’t have to worry about this <code>na.rm=TRUE</code> option.</p>
 <p>If you want to know how many missing values there were in the data, use <code>summary(...)</code>, like this:</p>
-<pre class="r"><code>summary(WrongSiteWrongPatient$`Wrong Patient`)</code></pre>
+<pre class="r"><code>summary(wrong_site_wrong_patient$wrong_patient)</code></pre>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
       0    3900   18882   46172   50146 1250000     235 </code></pre>
-<p>In this case, there were 235 “NA’s” or missing values in the <code>Wrong Patient</code> data.</p>
+<p>In this case, there were 235 “NA’s” or missing values in the wrong_patient data.</p>
 </div>
 <p><!-- R instructions for missing data --></p>
 </div>
