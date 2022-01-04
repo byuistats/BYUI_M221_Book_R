@@ -21,6 +21,17 @@ View(mydata)
 
 
 # --------------------------------------------------
+# Standard Deviation and Variance
+# --------------------------------------------------
+
+# Sample standard deviation
+sd(mydata$wrong_site)
+
+# Sample variance
+var(mydata$wrong_site)
+
+
+# --------------------------------------------------
 # Percentiles
 # --------------------------------------------------
 

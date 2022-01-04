@@ -73,12 +73,20 @@ By the end of this lesson, you should be able to:
 
 
 
+## R Script for Lesson 3
+
+Here is a link to the [R Script for Lesson 4](lesson04_script.R).
+
+<br>
+
+
+
 ## Spread of a Distribution
 
 In the previous lesson, we introduced two important characteristics of a distribution: the **shape** and the **center**.  In this section, you will discover ways to summarize the **spread** of a distribution of data. The spread of a distribution of data describes how far the observations tend to be from each other.  There are many ways to describe the spread of a distribution, but one of the most popular measurements of spread is called the "standard deviation."
 <br>
 
-### Standard Deviation and Variance
+### Standard Deviation
 
 This activity introduces two measures of spread: the standard deviation and the variance.
 
@@ -161,7 +169,7 @@ We are working with a sample. To be explicit, we call $0.742 ^\circ \text{C}$ th
 
 At this point, you probably do not have much intuition regarding the standard deviation. We will use this statistic frequently. By the end of the semester you can expect to become very comfortable with this idea. For now, all you need to know is that if two variables are measured on the same scale, the variable with values that are further apart will have the larger standard deviation.
 
-### R Instructions for Computing Standard Deviation
+### R Instructions for Computing the Standard Deviation
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
@@ -170,7 +178,7 @@ At this point, you probably do not have much intuition regarding the standard de
 <div id="r_instr_4_sd" style="display:none;">
 
 <br>
-&nbsp;&nbsp;**To calculate the sample standard deviation in R, follow these steps:**
+&nbsp;&nbsp;**To calculate the sample standard deviation and variance in R, follow these steps:**
 &nbsp;&nbsp;
 <br />
 
@@ -191,6 +199,7 @@ sd(bodytemp_uncomp)
 The value showing above is the standard deviation of the body temperature data for the relatively uncomplicated cases. In RStudio, it would look like this:
 
 <img src="./Images/rstudio_bodytemp_uncomp_sd.png" width="500">
+
 
 </div> <!-- R instructions for std dev -->
 
@@ -584,7 +593,7 @@ $\left(x-\bar x\right)^2$</p></th>
 </div>
 <br>
 
-### Summary
+**Summary**
 
 <div class="Emphasis">
 &nbsp;&nbsp;**Standard Deviation**
@@ -600,11 +609,12 @@ $\left(x-\bar x\right)^2$</p></th>
 <br>
 </div>
 
-**Variance**
+### Variance
 
 The variance is the square of the standard deviation.  The sample variance is denoted by the symbol $s^2$.  You found the sample standard deviation for  patient temperatures of uncomplicated cases of bird  in the bird  above is $s = 0.74162$.  So, the sample variance for this data set is $s^2 = 0.74162^2 = 0.550$. Be aware, if you had squared the rounded value of $s^2 = 0.742$ in the calculation, you would have gotten an answer of 0.551 instead. This would be considered incorrect!
 <!-- [[NEED TO DISCUSS STATISTIC v. PARAMETER.]] -->
 
+### R Instructions for Computing the Sample Variance
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">

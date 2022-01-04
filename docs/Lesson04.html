@@ -380,12 +380,14 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
+<li><a href="#r-script-for-lesson-3">R Script for Lesson 3</a></li>
 <li><a href="#spread-of-a-distribution">Spread of a Distribution</a>
 <ul>
-<li><a href="#standard-deviation-and-variance">Standard Deviation and Variance</a></li>
-<li><a href="#r-instructions-for-computing-standard-deviation">R Instructions for Computing Standard Deviation</a></li>
+<li><a href="#standard-deviation">Standard Deviation</a></li>
+<li><a href="#r-instructions-for-computing-the-standard-deviation">R Instructions for Computing the Standard Deviation</a></li>
 <li><a href="#calculating-the-standard-deviation-by-hand">Calculating the Standard Deviation by Hand</a></li>
-<li><a href="#summary">Summary</a></li>
+<li><a href="#variance">Variance</a></li>
+<li><a href="#r-instructions-for-computing-the-sample-variance">R Instructions for Computing the Sample Variance</a></li>
 </ul></li>
 <li><a href="#additional-tools-to-describe-the-data">Additional Tools to Describe the Data</a>
 <ul>
@@ -397,7 +399,7 @@ $(document).ready(function () {
 <li><a href="#r-instructions-for-creating-boxplots">R Instructions for Creating Boxplots</a></li>
 <li><a href="#r-instructions-for-na-or-missing-values">R Instructions for <em>NA</em> or Missing Values</a></li>
 </ul></li>
-<li><a href="#summary-1">Summary</a></li>
+<li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
 </ul>
 </div>
@@ -454,11 +456,16 @@ $(document).ready(function () {
 </div>
 <p><br></p>
 </div>
+<div id="r-script-for-lesson-3" class="section level2">
+<h2>R Script for Lesson 3</h2>
+<p>Here is a link to the <a href="lesson04_script.R">R Script for Lesson 4</a>.</p>
+<p><br></p>
+</div>
 <div id="spread-of-a-distribution" class="section level2">
 <h2>Spread of a Distribution</h2>
 <p>In the previous lesson, we introduced two important characteristics of a distribution: the <strong>shape</strong> and the <strong>center</strong>. In this section, you will discover ways to summarize the <strong>spread</strong> of a distribution of data. The spread of a distribution of data describes how far the observations tend to be from each other. There are many ways to describe the spread of a distribution, but one of the most popular measurements of spread is called the “standard deviation.” <br></p>
-<div id="standard-deviation-and-variance" class="section level3">
-<h3>Standard Deviation and Variance</h3>
+<div id="standard-deviation" class="section level3">
+<h3>Standard Deviation</h3>
 <p>This activity introduces two measures of spread: the standard deviation and the variance.</p>
 <p><img src="Images/StepsAll.png"></p>
 <p><strong>Bird Flu Fever </strong></p>
@@ -548,15 +555,15 @@ mean(bodytemp_uncomp)</code></pre>
 <p>We are working with a sample. To be explicit, we call <span class="math inline">\(0.742 ^\circ \text{C}\)</span> the <em>sample</em> standard deviation. The symbol for the sample standard deviation is <span class="math inline">\(s\)</span>. This is a statistic. The parameter representing the <em>population</em> standard deviation is <span class="math inline">\(\sigma\)</span> (pronounced /SIG-ma/). In practice, we rarely know the value of the population standard deviation, so we use the sample standard deviation <span class="math inline">\(s\)</span> as an approximation for the unknown population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 <p>At this point, you probably do not have much intuition regarding the standard deviation. We will use this statistic frequently. By the end of the semester you can expect to become very comfortable with this idea. For now, all you need to know is that if two variables are measured on the same scale, the variable with values that are further apart will have the larger standard deviation.</p>
 </div>
-<div id="r-instructions-for-computing-standard-deviation" class="section level3">
-<h3>R Instructions for Computing Standard Deviation</h3>
+<div id="r-instructions-for-computing-the-standard-deviation" class="section level3">
+<h3>R Instructions for Computing the Standard Deviation</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
 <a href="javascript:showhide('r_instr_4_sd')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_4_sd" style="display:none;">
-<p><br>   <strong>To calculate the sample standard deviation in R, follow these steps:</strong>    <br /></p>
+<p><br>   <strong>To calculate the sample standard deviation and variance in R, follow these steps:</strong>    <br /></p>
 <div style="padding-left:20px;">
 <p><strong>Step 1.</strong> Either <a href="RHelp.html#read-in-data">read in a data set</a>, or enter the data manually using the assignment operator <code>&lt;-</code> and combine function <code>c(...)</code>. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:</p>
 <pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)</code></pre>
@@ -1260,9 +1267,7 @@ Standard Deviation:
 <p> </p>
 </div>
 <p><br></p>
-</div>
-<div id="summary" class="section level3">
-<h3>Summary</h3>
+<p><strong>Summary</strong></p>
 <div class="Emphasis">
 <p>  <strong>Standard Deviation</strong></p>
 <p>  The <strong>standard deviation</strong> is one number that describes the spread in a set of data. If the data points are close together the standard deviation will be smaller than if they are spread out.</p>
@@ -1274,8 +1279,13 @@ Standard Deviation:
 <li>The standard deviation cannot be negative. <br></li>
 </ul>
 </div>
-<p><strong>Variance</strong></p>
+</div>
+<div id="variance" class="section level3">
+<h3>Variance</h3>
 <p>The variance is the square of the standard deviation. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>. You found the sample standard deviation for patient temperatures of uncomplicated cases of bird in the bird above is <span class="math inline">\(s = 0.74162\)</span>. So, the sample variance for this data set is <span class="math inline">\(s^2 = 0.74162^2 = 0.550\)</span>. Be aware, if you had squared the rounded value of <span class="math inline">\(s^2 = 0.742\)</span> in the calculation, you would have gotten an answer of 0.551 instead. This would be considered incorrect! <!-- [[NEED TO DISCUSS STATISTIC v. PARAMETER.]] --></p>
+</div>
+<div id="r-instructions-for-computing-the-sample-variance" class="section level3">
+<h3>R Instructions for Computing the Sample Variance</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -1875,7 +1885,7 @@ R Instructions
 <p><br></p>
 </div>
 </div>
-<div id="summary-1" class="section level2">
+<div id="summary" class="section level2">
 <h2>Summary</h2>
 <div class="SummaryHeading">
 Remember…
