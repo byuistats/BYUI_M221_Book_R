@@ -771,7 +771,7 @@ Note: as soon as you type in the name of the data set, `wrong_site_wrong_patient
 
 <img src="./Images/rstudio_selection_operator.png" width="500">
 
-Try computing the mean of the `wrong_patient` data.
+Now, try computing the mean of the `wrong_patient` data.
 
 
 
