@@ -788,11 +788,6 @@ Now, try computing the mean of the `wrong_patient` data.
 
 
 
-
-
-
-
-
 ## Summary
 
 <div class="SummaryHeading">Remember...</div>

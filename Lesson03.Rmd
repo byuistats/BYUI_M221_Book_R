@@ -60,6 +60,27 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
+## R Instructions for Using Scripts
+
+<div class="SoftwareHeading">R Instructions</div>
+<div class="Software" style="padding:10px;">
+
+<a href="javascript:showhide('r_instr_3_using_scripts')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id="r_instr_3_using_scripts" style="display:none;">
+
+Instructions go here.
+
+
+</div> <!-- id="r_instr_1" style="display:none;"> -->
+</div>
+
+<br>
+
+## R Script for Lesson 3
+
+Here is a link to the [R Script for Lesson 3](lesson03_script.R).
+
+
 ## Review of the Five Steps of the Statistical Process
 
 We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth") before you begin this case study.
