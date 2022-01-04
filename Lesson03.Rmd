@@ -80,6 +80,7 @@ Instructions go here.
 
 Here is a link to the [R Script for Lesson 3](lesson03_script.R).
 
+<br>
 
 ## Review of the Five Steps of the Statistical Process
 
