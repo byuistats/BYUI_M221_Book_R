@@ -4,7 +4,7 @@
 # https://byuistats.github.io/BYUI_M221_Book_R
 
 # --------------------------------------------------
-# Load packages and data
+# Load packages and read in data
 # --------------------------------------------------
 
 # Load required packages
@@ -25,6 +25,9 @@ View(mydata)
 # --------------------------------------------------
 
 # Compute the 25th percentile
+# Note: You will need to change the variable name from "wrong_site" 
+#       to whatever your variable is called.
+# Change the 0.25 to another value to compute a different percentile.
 quantile(mydata$wrong_site, 0.25)
 
 # Five-number summary
