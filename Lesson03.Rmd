@@ -286,13 +286,10 @@ e. A, B, and C can all occur.
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 ```
 
-<div class="note">
-However, if your data is stored in a file, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to read in data from an existing data set.
-</div>
+Recall that if your data is stored in a file, you will need to read it in using the "Import Dataset" feature of RStudio. You can use these instructions [Reading in Data](RHelp.html#reading-in-data) if you need a remninder about how to do this.
 
 
-
-**Caculate a Mean**
+**Calculate a Mean**
 
 For the tuberculosis patient costs in India, compute the mean with the R code:
 
