@@ -740,7 +740,7 @@ To read in a data file in R, do the following:
 
 - Read in the dataset. For this example, open the data file by right clicking on this link: [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) and then selecting "Copy link address".
 
-- Next, open RStudio. From inside RStudio, select the "Environment" window, click on "Import Dataset", and then choose "From Excel..." from the menu that appears. Like this:
+- In RStudio, select the "Environment" window, click on "Import Dataset", and then choose "From Excel..." from the menu that appears. Like this:
 
 <center>
 <img src="./Images/rstudio_import_excel.png" width="500">
