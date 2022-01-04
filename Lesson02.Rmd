@@ -652,7 +652,7 @@ Notice that if you start typing `mydata2` in the console, after about three char
 
 <br>
 
-### Computing an Average using R
+### Computing an Average (i.e. Mean) using R
 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software" style="padding:10px;">
