@@ -44,7 +44,7 @@ hist(tuberc,
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(curl, readxl)
 
-# To download an Excel file from the web, replace the URL and run this code:
+# To download an Excel file from the web, update the URL below:
 url <- "https://byuistats.github.io/BYUI_M221_Book_R/Data/wrong_site_wrong_patient.xlsx"
 destfile <- basename(url)
 curl::curl_download(url, destfile)
