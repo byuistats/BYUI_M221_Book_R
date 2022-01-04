@@ -345,6 +345,14 @@ table(tuberc)
 
 This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
 
+If the table is very large, you can use the command
+
+```{r, echo=FALSE}
+sort(table(tuberc))
+```
+
+to arrange the data in order of increasing frequency. This is obviously not needed here, but it would be helpful with a large data set.
+
 
 </div> <!-- End of R instructions for measures of center -->
 
