@@ -76,7 +76,7 @@ Instructions go here.
 
 <br>
 
-## R Script for Lesson 3
+## R Script
 
 Here is a link to the [R Script for Lesson 3](lesson03_script.R).
 
