@@ -12,7 +12,6 @@ salaries$ssal <-  as.numeric(salaries$`Starting Salary`)
 salaries_clean <- dplyr::filter(salaries, is.na(ssal) == FALSE )
 n_reps = 200      # Number of reps to plot
 sample_size = 50  # number of observations in each sample
-n_bins = 95       # number of bins in histograms
 w_bin = 2000
 max_x = 250000    # Maximum value of the x-axis
 dist.means <- rep(NA,n_reps)
