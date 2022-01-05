@@ -13,12 +13,13 @@ salaries_clean <- dplyr::filter(salaries, is.na(ssal) == FALSE )
 n_reps = 200      # Number of reps to plot
 sample_size = 50  # number of observations in each sample
 n_bins = 95       # number of bins in histograms
+w_bin = 2000
 max_x = 250000    # Maximum value of the x-axis
 dist.means <- rep(NA,n_reps)
 
 #  create starting salaries plot, prepared for close facetting
 ssplot <- ggplot(salaries_clean, aes(ssal)) + 
-  geom_histogram(fill = "skyblue", bins = n_bins) + 
+  geom_histogram(fill = "skyblue", binwidth = w_bin) + 
   xlim(0,max_x) +
   labs(y = "BYU-Idaho Graduates", title = "Means of Starting Salaries of BYU-Idaho Graduates") +
   theme(plot.title = element_text(hjust = 0.5)) +
@@ -53,7 +54,7 @@ dist_of_means <- data.frame(dist.means)
 
 #  Create sample means plot
 smplot <- ggplot(dist_of_means, aes(dist.means)) + 
-  geom_histogram(fill = "blue", bins = n_bins) + 
+  geom_histogram(fill = "blue", bins = binwidth = w_bin) + 
   xlim(0,max_x) +
   ylim(0,100) +
   labs(x = "Starting Salary (USD)", y = ("Sample means"))
