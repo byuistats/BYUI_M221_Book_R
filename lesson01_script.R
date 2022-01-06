@@ -12,20 +12,17 @@ salaries$ssal <-  as.numeric(salaries$`Starting Salary`)
 salaries_clean <- dplyr::filter(salaries, is.na(ssal) == FALSE )
 n_reps = 200      # Number of reps to plot
 sample_size = 50  # number of observations in each sample
-w_bin = 2000
+width_of_bins = 2000
 max_x = 250000    # Maximum value of the x-axis
 dist.means <- rep(NA,n_reps)
 
 #  create starting salaries plot, prepared for close facetting
 ssplot <- ggplot(salaries_clean, aes(ssal)) + 
-  geom_histogram(fill = "skyblue", binwidth = w_bin) + 
+  geom_histogram(fill = "skyblue", binwidth = width_of_bins) + 
   xlim(0,max_x) +
   labs(y = "BYU-Idaho Graduates", title = "Means of Starting Salaries of BYU-Idaho Graduates") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(axis.title.x = element_blank(), 
-        axis.line.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.text.x = element_blank()) 
+   theme(axis.title.x = element_blank())
 
 empty_df <- data.frame()
 blank_plot <- ggplot(empty_df) + 
@@ -41,6 +38,9 @@ blank_plot <- ggplot(empty_df) +
 
 ssplot/blank_plot
 
+
+
+
 #Run from here down to perform the demo with a different sample each time
 
 #  samples starting salaries n_reps times
@@ -51,11 +51,18 @@ for ( i in 1:n_reps)
 
 dist_of_means <- data.frame(dist.means)
 
+y_axis_ht <- 1.75 * dist_of_means %>% 
+  mutate(bin = floor(dist.means/width_of_bins)) %>%  
+  group_by(bin) %>% 
+  summarise(n = n()) %>% 
+  filter(n == max(n)) %>% 
+  pull(n)
+
 #  Create sample means plot
 smplot <- ggplot(dist_of_means, aes(dist.means)) + 
-  geom_histogram(fill = "blue", bins = binwidth = w_bin) + 
+  geom_histogram(fill = "blue", binwidth = width_of_bins) + 
   xlim(0,max_x) +
-  ylim(0,100) +
+  ylim(0,y_axis_ht) +
   labs(x = "Starting Salary (USD)", y = ("Sample means"))
 
 #  Use patchwork to combine the two plots easily
