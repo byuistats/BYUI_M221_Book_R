@@ -62,7 +62,7 @@ median(mydata$wrong_site)
 table(mydata$wrong_site)
 
 # Find the mode of the wrong_site data (Sorted in ascending order)
-# Notice the two most-frequently occuring value is 0, with 50 instances
+# Notice the two most-frequently occurring value is 0, with 50 instances
 sort(table(mydata$wrong_site))
 
 # Basic histogram of the wrong_site data
