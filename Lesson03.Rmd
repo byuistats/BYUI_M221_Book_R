@@ -60,6 +60,8 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
+
+<!-- ------------------------------------ NEED TO WRITE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## R Instructions for Using Scripts
 
 <div class="SoftwareHeading">R Instructions</div>
@@ -71,10 +73,13 @@ By the end of this lesson, you should be able to:
 Instructions go here.
 
 
-</div> <!-- id="r_instr_1" style="display:none;"> -->
+</div> 
 </div>
 
 <br>
+
+-->
+
 
 ## R Script
 
