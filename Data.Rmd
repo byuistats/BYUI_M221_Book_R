@@ -45,7 +45,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [cardiac_arrest_health.xlsx](./Data/cardiac_arrest_health.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
 
-<tr> <td> [cause_of_death-malnourished.xlsx](./Data/cause_of_death-malnourished.xlsx) </td> <td> tinyurl.com/M221-cause-malnourished </td> </tr>
+<tr> <td> [cause_of_death-malnourished.xlsx](./Data/cause_of_death_malnourished.xlsx) </td> <td> tinyurl.com/M221-cause-malnourished </td> </tr>
 
 <tr> <td> [class_survey.xlsx](./Data/class_survey.xlsx) </td> <td> tinyurl.com/M221-class-survey </td> </tr>
 
