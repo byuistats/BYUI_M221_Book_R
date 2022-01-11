@@ -11,200 +11,196 @@ Links to data files used throughout the course:
 
 <div style="padding-left:15px;">
 
-[admissions_byu_idaho.xlsx](./Data/admissions_byu_idaho.xlsx)	or	[admissions_byu_idaho.xlsx](./Data/admissions_byu_idaho.xlsx)
-		
-[admissions_u_of_idaho.xlsx](./Data/admissions_u_of_idaho.xlsx)	or	[admissions_u_of_idaho.xlsx](./Data/admissions_u_of_idaho.xlsx)
-		
-[am_pm_heights.xlsx](./Data/am_pm_heights.xlsx)	or	[am_pm_heights.xlsx](./Data/am_pm_heights.xlsx)
-		
-[appt_wait_times.xlsx](./Data/appt_wait_times.xlsx)	or	[appt_wait_times.xlsx](./Data/appt_wait_times.xlsx)
-		
-[baby_boom.xlsx](./Data/baby_boom.xlsx)	or	[baby_boom.xlsx](./Data/baby_boom.xlsx)
-		
-[baby_boom_jse.xlsx](./Data/baby_boom_jse.xlsx)	or	[baby_boom_jse.xlsx](./Data/baby_boom_jse.xlsx)
-		
-[batting_averages.xlsx](./Data/batting_averages.xlsx)	or	[batting_averages.xlsx](./Data/batting_averages.xlsx)
-		
-[biggest_loser.xlsx](./Data/biggest_loser.xlsx)	or	[biggest_loser.xlsx](./Data/biggest_loser.xlsx)
-		
-[bleu_scores.xlsx](./Data/bleu_scores.xlsx)	or	[bleu_scores.xlsx](./Data/bleu_scores.xlsx)
-		
-[body_measurements.xlsx](./Data/body_measurements.xlsx)	or	[body_measurements.xlsx](./Data/body_measurements.xlsx)
-		
-[body_measurements_corrected.xlsx](./Data/body_measurements_corrected.xlsx)	or	[body_measurements_corrected.xlsx](./Data/body_measurements_corrected.xlsx)
-		
-[body_temp.xlsx](./Data/body_temp.xlsx)	or	[body_temp.xlsx](./Data/body_temp.xlsx)
-		
-[bone_mineral_data.xlsx](./Data/bone_mineral_data.xlsx)	or	[bone_mineral_data.xlsx](./Data/bone_mineral_data.xlsx)
-		
-[book_of_mormon_wordprint.xlsx](./Data/book_of_mormon_wordprint.xlsx)	or	[book_of_mormon_wordprint.xlsx](./Data/book_of_mormon_wordprint.xlsx)
-		
-[car_prices.xlsx](./Data/car_prices.xlsx)	or	[car_prices.xlsx](./Data/car_prices.xlsx)
-		
-[cardiac_arrest_health.xlsx](./Data/cardiac_arrest_health.xlsx)	or	[cardiac_arrest_health.xlsx](./Data/cardiac_arrest_health.xlsx)
-		
-[cause_of_death-malnourished.xlsx](./Data/cause_of_death-malnourished.xlsx)	or	[cause_of_death-malnourished.xlsx](./Data/cause_of_death-malnourished.xlsx)
-		
-[chap_12_data_a.xlsx](./Data/chap_12_data_a.xlsx)	or	[chap_12_data_a.xlsx](./Data/chap_12_data_a.xlsx)
-		
-[chap_12_data_b.xlsx](./Data/chap_12_data_b.xlsx)	or	[chap_12_data_b.xlsx](./Data/chap_12_data_b.xlsx)
-		
-[class_survey.xlsx](./Data/class_survey.xlsx)	or	[class_survey.xlsx](./Data/class_survey.xlsx)
-		
-[coin_toss_heads.xlsx](./Data/coin_toss_heads.xlsx)	or	[coin_toss_heads.xlsx](./Data/coin_toss_heads.xlsx)
-		
-[comet_water_production_magnitude.xlsx](./Data/comet_water_production_magnitude.xlsx)	or	[comet_water_production_magnitude.xlsx](./Data/comet_water_production_magnitude.xlsx)
-		
-[conjugated_linoleic_acid.xlsx](./Data/conjugated_linoleic_acid.xlsx)	or	[conjugated_linoleic_acid.xlsx](./Data/conjugated_linoleic_acid.xlsx)
-		
-[copd_rehab.xlsx](./Data/copd_rehab.xlsx)	or	[copd_rehab.xlsx](./Data/copd_rehab.xlsx)
-		
-[crossroads_purchases.xlsx](./Data/crossroads_purchases.xlsx)	or	[crossroads_purchases.xlsx](./Data/crossroads_purchases.xlsx)
-		
-[cuckoo_eggs.xlsx](./Data/cuckoo_eggs.xlsx)	or	[cuckoo_eggs.xlsx](./Data/cuckoo_eggs.xlsx)
-		
-[dart_expert_dow_6_month.xlsx](./Data/dart_expert_dow_6_month.xlsx)	or	[dart_expert_dow_6_month.xlsx](./Data/dart_expert_dow_6_month.xlsx)
-		
-[dasl_cheese.xlsx](./Data/dasl_cheese.xlsx)	or	[dasl_cheese.xlsx](./Data/dasl_cheese.xlsx)
-		
-[dasl_fiber.xlsx](./Data/dasl_fiber.xlsx)	or	[dasl_fiber.xlsx](./Data/dasl_fiber.xlsx)
-		
-[dasl_helium_football.xlsx](./Data/dasl_helium_football.xlsx)	or	[dasl_helium_football.xlsx](./Data/dasl_helium_football.xlsx)
-		
-[dasl_hot_dog_nutrition.xlsx](./Data/dasl_hot_dog_nutrition.xlsx)	or	[dasl_hot_dog_nutrition.xlsx](./Data/dasl_hot_dog_nutrition.xlsx)
-		
-[dasl_hubble.xlsx](./Data/dasl_hubble.xlsx)	or	[dasl_hubble.xlsx](./Data/dasl_hubble.xlsx)
-		
-[dasl_stepping.xlsx](./Data/dasl_stepping.xlsx)	or	[dasl_stepping.xlsx](./Data/dasl_stepping.xlsx)
-		
-[dasl_student_dat.xlsx](./Data/dasl_student_dat.xlsx)	or	[dasl_student_dat.xlsx](./Data/dasl_student_dat.xlsx)
-		
-[dasl_taste_test_scores.xlsx](./Data/dasl_taste_test_scores.xlsx)	or	[dasl_taste_test_scores.xlsx](./Data/dasl_taste_test_scores.xlsx)
-		
-[dasl_waste_run_up.xlsx](./Data/dasl_waste_run_up.xlsx)	or	[dasl_waste_run_up.xlsx](./Data/dasl_waste_run_up.xlsx)
-		
-[dentist_office_bills.xlsx](./Data/dentist_office_bills.xlsx)	or	[dentist_office_bills.xlsx](./Data/dentist_office_bills.xlsx)
-		
-[direct_flight_costs.xlsx](./Data/direct_flight_costs.xlsx)	or	[direct_flight_costs.xlsx](./Data/direct_flight_costs.xlsx)
-		
-[dissolved_organic_carbon.xlsx](./Data/dissolved_organic_carbon.xlsx)	or	[dissolved_organic_carbon.xlsx](./Data/dissolved_organic_carbon.xlsx)
-		
-[diving_elephant_seals.xlsx](./Data/diving_elephant_seals.xlsx)	or	[diving_elephant_seals.xlsx](./Data/diving_elephant_seals.xlsx)
-		
-[eating_healthy.xlsx](./Data/eating_healthy.xlsx)	or	[eating_healthy.xlsx](./Data/eating_healthy.xlsx)
-		
-[estuarine_crocodiles.xlsx](./Data/estuarine_crocodiles.xlsx)	or	[estuarine_crocodiles.xlsx](./Data/estuarine_crocodiles.xlsx)
-		
-[euro_weight.xlsx](./Data/euro_weight.xlsx)	or	[euro_weight.xlsx](./Data/euro_weight.xlsx)
-		
-[exam_1_and_exam_2_scores.xlsx](./Data/exam_1_and_exam_2_scores.xlsx)	or	[exam_1_and_exam_2_scores.xlsx](./Data/exam_1_and_exam_2_scores.xlsx)
-		
-[exercised_bone_density.xlsx](./Data/exercised_bone_density.xlsx)	or	[exercised_bone_density.xlsx](./Data/exercised_bone_density.xlsx)
-		
-[factory_assembly_times_sim.xlsx](./Data/factory_assembly_times_sim.xlsx)	or	[factory_assembly_times_sim.xlsx](./Data/factory_assembly_times_sim.xlsx)
-		
-[forced_expiratory_volume.xlsx](./Data/forced_expiratory_volume.xlsx)	or	[forced_expiratory_volume.xlsx](./Data/forced_expiratory_volume.xlsx)
-		
-[freshmen_dinner.xlsx](./Data/freshmen_dinner.xlsx)	or	[freshmen_dinner.xlsx](./Data/freshmen_dinner.xlsx)
-		
-[gharial_crocodiles.xlsx](./Data/gharial_crocodiles.xlsx)	or	[gharial_crocodiles.xlsx](./Data/gharial_crocodiles.xlsx)
-		
-[grades_l3_hw_quiz.xlsx](./Data/grades_l3_hw_quiz.xlsx)	or	[grades_l3_hw_quiz.xlsx](./Data/grades_l3_hw_quiz.xlsx)
-		
-[hubbles_constant-supernovas_up_to_250_mpc.xlsx](./Data/hubbles_constant-supernovas_up_to_250_mpc.xlsx)	or	[hubbles_constant-supernovas_up_to_250_mpc.xlsx](./Data/hubbles_constant-supernovas_up_to_250_mpc.xlsx)
-		
-[hubbles_constant_hubbles_data.xlsx](./Data/hubbles_constant_hubbles_data.xlsx)	or	[hubbles_constant_hubbles_data.xlsx](./Data/hubbles_constant_hubbles_data.xlsx)
-		
-[hubbles_constant_supernovas.xlsx](./Data/hubbles_constant_supernovas.xlsx)	or	[hubbles_constant_supernovas.xlsx](./Data/hubbles_constant_supernovas.xlsx)
-		
-[illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx)	or	[illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx)
-		
-[illinois_birth_weights_two_var.xlsx](./Data/illinois_birth_weights_two_var.xlsx)	or	[illinois_birth_weights_two_var.xlsx](./Data/illinois_birth_weights_two_var.xlsx)
-		
-[insulin_resistance_depression.xlsx](./Data/insulin_resistance_depression.xlsx)	or	[insulin_resistance_depression.xlsx](./Data/insulin_resistance_depression.xlsx)
-		
-[jse_hats_modified.xlsx](./Data/jse_hats_modified.xlsx)	or	[jse_hats_modified.xlsx](./Data/jse_hats_modified.xlsx)
-		
-[junk_food.xlsx](./Data/junk_food.xlsx)	or	[junk_food.xlsx](./Data/junk_food.xlsx)
-		
-[la_saturn_winter_06.xlsx](./Data/la_saturn_winter_06.xlsx)	or	[la_saturn_winter_06.xlsx](./Data/la_saturn_winter_06.xlsx)
-		
-[lead_exposure_and_behavior.xlsx](./Data/lead_exposure_and_behavior.xlsx)	or	[lead_exposure_and_behavior.xlsx](./Data/lead_exposure_and_behavior.xlsx)
-		
-[madison_county_real_estate.xlsx](./Data/madison_county_real_estate.xlsx)	or	[madison_county_real_estate.xlsx](./Data/madison_county_real_estate.xlsx)
-		
-[math_self_efficacy.xlsx](./Data/math_self_efficacy.xlsx)	or	[math_self_efficacy.xlsx](./Data/math_self_efficacy.xlsx)
-		
-[mla_data.xlsx](./Data/mla_data.xlsx)	or	[mla_data.xlsx](./Data/mla_data.xlsx)
-		
-[mystery_investment_opportunities.xlsx](./Data/mystery_investment_opportunities.xlsx)	or	[mystery_investment_opportunities.xlsx](./Data/mystery_investment_opportunities.xlsx)
-		
-[nasdaq_price_and_volume.xlsx](./Data/nasdaq_price_and_volume.xlsx)	or	[nasdaq_price_and_volume.xlsx](./Data/nasdaq_price_and_volume.xlsx)
-		
-[nba_salaries.xlsx](./Data/nba_salaries.xlsx)	or	[nba_salaries.xlsx](./Data/nba_salaries.xlsx)
-		
-[nicotine_test.xlsx](./Data/nicotine_test.xlsx)	or	[nicotine_test.xlsx](./Data/nicotine_test.xlsx)
-		
-[no_click_query.xlsx](./Data/no_click_query.xlsx)	or	[no_click_query.xlsx](./Data/no_click_query.xlsx)
-		
-[no_click_query_summary.xlsx](./Data/no_click_query_summary.xlsx)	or	[no_click_query_summary.xlsx](./Data/no_click_query_summary.xlsx)
-		
-[nosocomial_infections.xlsx](./Data/nosocomial_infections.xlsx)	or	[nosocomial_infections.xlsx](./Data/nosocomial_infections.xlsx)
-		
-[old_faithful.xlsx](./Data/old_faithful.xlsx)	or	[old_faithful.xlsx](./Data/old_faithful.xlsx)
-		
-[oreo_double_stuf.xlsx](./Data/oreo_double_stuf.xlsx)	or	[oreo_double_stuf.xlsx](./Data/oreo_double_stuf.xlsx)
-		
-[patient_satisfaction_dr_v_nurse-stacked.xlsx](./Data/patient_satisfaction_dr_v_nurse-stacked.xlsx)	or	[patient_satisfaction_dr_v_nurse-stacked.xlsx](./Data/patient_satisfaction_dr_v_nurse-stacked.xlsx)
-		
-[pine_beetle.xlsx](./Data/pine_beetle.xlsx)	or	[pine_beetle.xlsx](./Data/pine_beetle.xlsx)
-		
-[protein_requirement_campbell.xlsx](./Data/protein_requirement_campbell.xlsx)	or	[protein_requirement_campbell.xlsx](./Data/protein_requirement_campbell.xlsx)
-		
-[ptc_tasting.xlsx](./Data/ptc_tasting.xlsx)	or	[ptc_tasting.xlsx](./Data/ptc_tasting.xlsx)
-		
-[rates_of_return.xlsx](./Data/rates_of_return.xlsx)	or	[rates_of_return.xlsx](./Data/rates_of_return.xlsx)
-		
-[reading_practices.xlsx](./Data/reading_practices.xlsx)	or	[reading_practices.xlsx](./Data/reading_practices.xlsx)
-		
-[redbox_decision_times.xlsx](./Data/redbox_decision_times.xlsx)	or	[redbox_decision_times.xlsx](./Data/redbox_decision_times.xlsx)
-		
-[ree-classical_music.xlsx](./Data/ree-classical_music.xlsx)	or	[ree-classical_music.xlsx](./Data/ree-classical_music.xlsx)
-		
-[singer_heights.xlsx](./Data/singer_heights.xlsx)	or	[singer_heights.xlsx](./Data/singer_heights.xlsx)
-		
-[soccer_shoes.xlsx](./Data/soccer_shoes.xlsx)	or	[soccer_shoes.xlsx](./Data/soccer_shoes.xlsx)
-		
-[soviet_accidents.xlsx](./Data/soviet_accidents.xlsx)	or	[soviet_accidents.xlsx](./Data/soviet_accidents.xlsx)
-		
-[speed_of_light_michelson_1879.xlsx](./Data/speed_of_light_michelson_1879.xlsx)	or	[speed_of_light_michelson_1879.xlsx](./Data/speed_of_light_michelson_1879.xlsx)
-		
-[speed_of_light_michelson_1882.xlsx](./Data/speed_of_light_michelson_1882.xlsx)	or	[speed_of_light_michelson_1882.xlsx](./Data/speed_of_light_michelson_1882.xlsx)
-		
-[super_bowl_movies.xlsx](./Data/super_bowl_movies.xlsx)	or	[super_bowl_movies.xlsx](./Data/super_bowl_movies.xlsx)
-		
-[survey_data.xlsx](./Data/survey_data.xlsx)	or	[survey_data.xlsx](./Data/survey_data.xlsx)
-		
-[toyota_prius_2005.xlsx](./Data/toyota_prius_2005.xlsx)	or	[toyota_prius_2005.xlsx](./Data/toyota_prius_2005.xlsx)
-		
-[twin_weights.xlsx](./Data/twin_weights.xlsx)	or	[twin_weights.xlsx](./Data/twin_weights.xlsx)
-		
-[twins_diabetes.xlsx](./Data/twins_diabetes.xlsx)	or	[twins_diabetes.xlsx](./Data/twins_diabetes.xlsx)
-		
-[uranium_plant_data_lead.xlsx](./Data/uranium_plant_data_lead.xlsx)	or	[uranium_plant_data_lead.xlsx](./Data/uranium_plant_data_lead.xlsx)
-		
-[used_hummers_ny_and_la.xlsx](./Data/used_hummers_ny_and_la.xlsx)	or	[used_hummers_ny_and_la.xlsx](./Data/used_hummers_ny_and_la.xlsx)
-		
-[vertebral_heights.xlsx](./Data/vertebral_heights.xlsx)	or	[vertebral_heights.xlsx](./Data/vertebral_heights.xlsx)
-		
-[women_poet.xlsx](./Data/women_poet.xlsx)	or	[women_poet.xlsx](./Data/women_poet.xlsx)
-		
-[world_cup_heart_attacks.xlsx](./Data/world_cup_heart_attacks.xlsx)	or	[world_cup_heart_attacks.xlsx](./Data/world_cup_heart_attacks.xlsx)
-		
-[wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx)	or	[wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx)
-		
-[zinc_for_colds.xlsx](./Data/zinc_for_colds.xlsx)	or	[zinc_for_colds.xlsx](./Data/zinc_for_colds.xlsx)
-		
-[zung_sim.xlsx](./Data/zung_sim.xlsx)	or	[zung_sim.xlsx](./Data/zung_sim.xlsx)
+<table>
+
+<tr> <td> [admissions_byu_idaho.xlsx](./Data/admissions_byu_idaho.xlsx) </td> <td> tinyurl.com/M221-admit-byui </td> </tr>
+
+<tr> <td> [admissions_u_of_idaho.xlsx](./Data/admissions_u_of_idaho.xlsx) </td> <td> tinyurl.com/M221-admit-uofi </td> </tr>
+
+<tr> <td> [am_pm_heights.xlsx](./Data/am_pm_heights.xlsx) </td> <td> tinyurl.com/M221-am-pm-ht </td> </tr>
+
+<tr> <td> [appt_wait_times.xlsx](./Data/appt_wait_times.xlsx) </td> <td> tinyurl.com/M221-appt-wait </td> </tr>
+
+<tr> <td> [baby_boom.xlsx](./Data/baby_boom.xlsx) </td> <td> tinyurl.com/M221-baby-boom </td> </tr>
+
+<tr> <td> [baby_boom_jse.xlsx](./Data/baby_boom_jse.xlsx) </td> <td> tinyurl.com/M221-baby-boom-jse </td> </tr>
+
+<tr> <td> [batting_averages.xlsx](./Data/batting_averages.xlsx) </td> <td> tinyurl.com/M221-batting-avg </td> </tr>
+
+<tr> <td> [biggest_loser.xlsx](./Data/biggest_loser.xlsx) </td> <td> tinyurl.com/M221-biggest-loser </td> </tr>
+
+<tr> <td> [bleu_scores.xlsx](./Data/bleu_scores.xlsx) </td> <td> tinyurl.com/M221-bleu </td> </tr>
+
+<tr> <td> [body_measurements.xlsx](./Data/body_measurements.xlsx) </td> <td> tinyurl.com/M221-body-measure </td> </tr>
+
+<tr> <td> [body_measurements_corrected.xlsx](./Data/body_measurements_corrected.xlsx) </td> <td> tinyurl.com/M221-body-measure-corrected </td> </tr>
+
+<tr> <td> [body_temp.xlsx](./Data/body_temp.xlsx) </td> <td> tinyurl.com/M221-body-temp </td> </tr>
+
+<tr> <td> [bone_mineral_data.xlsx](./Data/bone_mineral_data.xlsx) </td> <td> tinyurl.com/M221-bone-mineral </td> </tr>
+
+<tr> <td> [book_of_mormon_wordprint.xlsx](./Data/book_of_mormon_wordprint.xlsx) </td> <td> tinyurl.com/M221-bom-wordprint </td> </tr>
+
+<tr> <td> [car_prices.xlsx](./Data/car_prices.xlsx) </td> <td> tinyurl.com/M221-car-prices </td> </tr>
+
+<tr> <td> [cardiac_arrest_health.xlsx](./Data/cardiac_arrest_health.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
+
+<tr> <td> [cause_of_death-malnourished.xlsx](./Data/cause_of_death-malnourished.xlsx) </td> <td> tinyurl.com/M221-cause-malnourished </td> </tr>
+
+<tr> <td> [class_survey.xlsx](./Data/class_survey.xlsx) </td> <td> tinyurl.com/M221-class-survey </td> </tr>
+
+<tr> <td> [coin_toss_heads.xlsx](./Data/coin_toss_heads.xlsx) </td> <td> tinyurl.com/M221-coin-toss-heads </td> </tr>
+
+<tr> <td> [comet_water_production_magnitude.xlsx](./Data/comet_water_production_magnitude.xlsx) </td> <td> tinyurl.com/M221-comet-water </td> </tr>
+
+<tr> <td> [conjugated_linoleic_acid.xlsx](./Data/conjugated_linoleic_acid.xlsx) </td> <td> tinyurl.com/M221-conjugated-linoleic-acid </td> </tr>
+
+<tr> <td> [copd_rehab.xlsx](./Data/copd_rehab.xlsx) </td> <td> tinyurl.com/M221-copd-rehab </td> </tr>
+
+<tr> <td> [crossroads_purchases.xlsx](./Data/crossroads_purchases.xlsx) </td> <td> tinyurl.com/M221-crossroads-purchases </td> </tr>
+
+<tr> <td> [cuckoo_eggs.xlsx](./Data/cuckoo_eggs.xlsx) </td> <td> tinyurl.com/M221-cuckoo-eggs </td> </tr>
+
+<tr> <td> [dart_expert_dow_6_month.xlsx](./Data/dart_expert_dow_6_month.xlsx) </td> <td> tinyurl.com/M221-dow-darts </td> </tr>
+
+<tr> <td> [dasl_cheese.xlsx](./Data/dasl_cheese.xlsx) </td> <td> tinyurl.com/M221-dasl-cheese </td> </tr>
+
+<tr> <td> [dasl_fiber.xlsx](./Data/dasl_fiber.xlsx) </td> <td> tinyurl.com/M221-dasl-fiber </td> </tr>
+
+<tr> <td> [dasl_helium_football.xlsx](./Data/dasl_helium_football.xlsx) </td> <td> tinyurl.com/M221-dasl-he-football </td> </tr>
+
+<tr> <td> [dasl_hot_dog_nutrition.xlsx](./Data/dasl_hot_dog_nutrition.xlsx) </td> <td> tinyurl.com/M221-dasl-hotdog </td> </tr>
+
+<tr> <td> [dasl_hubble.xlsx](./Data/dasl_hubble.xlsx) </td> <td> tinyurl.com/M221-dasl-hubble </td> </tr>
+
+<tr> <td> [dasl_stepping.xlsx](./Data/dasl_stepping.xlsx) </td> <td> tinyurl.com/M221-dasl-stepping </td> </tr>
+
+<tr> <td> [dasl_student_dat.xlsx](./Data/dasl_student_dat.xlsx) </td> <td> tinyurl.com/M221-dasl-student </td> </tr>
+
+<tr> <td> [dasl_taste_test_scores.xlsx](./Data/dasl_taste_test_scores.xlsx) </td> <td> tinyurl.com/M221-dasl-taste-test </td> </tr>
+
+<tr> <td> [dasl_waste_run_up.xlsx](./Data/dasl_waste_run_up.xlsx) </td> <td> tinyurl.com/M221-dasl-waste-run-up </td> </tr>
+
+<tr> <td> [dentist_office_bills.xlsx](./Data/dentist_office_bills.xlsx) </td> <td> tinyurl.com/M221-dentist-bills </td> </tr>
+
+<tr> <td> [direct_flight_costs.xlsx](./Data/direct_flight_costs.xlsx) </td> <td> tinyurl.com/M221-direct-flight-costs </td> </tr>
+
+<tr> <td> [dissolved_organic_carbon.xlsx](./Data/dissolved_organic_carbon.xlsx) </td> <td> tinyurl.com/M221-dissolved-carbon </td> </tr>
+
+<tr> <td> [diving_elephant_seals.xlsx](./Data/diving_elephant_seals.xlsx) </td> <td> tinyurl.com/M221-diving-elephant-seals </td> </tr>
+
+<tr> <td> [eating_healthy.xlsx](./Data/eating_healthy.xlsx) </td> <td> tinyurl.com/M221-eating-healthy </td> </tr>
+
+<tr> <td> [estuarine_crocodiles.xlsx](./Data/estuarine_crocodiles.xlsx) </td> <td> tinyurl.com/M221-estuarine-crocs </td> </tr>
+
+<tr> <td> [euro_weight.xlsx](./Data/euro_weight.xlsx) </td> <td> tinyurl.com/M221-euro-weight </td> </tr>
+
+<tr> <td> [exam_1_and_exam_2_scores.xlsx](./Data/exam_1_and_exam_2_scores.xlsx) </td> <td> tinyurl.com/M221-exam-1-2 </td> </tr>
+
+<tr> <td> [exercised_bone_density.xlsx](./Data/exercised_bone_density.xlsx) </td> <td> tinyurl.com/M221-exercised-bone-density </td> </tr>
+
+<tr> <td> [factory_assembly_times_sim.xlsx](./Data/factory_assembly_times_sim.xlsx) </td> <td> tinyurl.com/M221-assembly-times </td> </tr>
+
+<tr> <td> [forced_expiratory_volume.xlsx](./Data/forced_expiratory_volume.xlsx) </td> <td> tinyurl.com/M221-fev </td> </tr>
+
+<tr> <td> [freshmen_dinner.xlsx](./Data/freshmen_dinner.xlsx) </td> <td> tinyurl.com/M221-freshmen-dinner </td> </tr>
+
+<tr> <td> [gharial_crocodiles.xlsx](./Data/gharial_crocodiles.xlsx) </td> <td> tinyurl.com/M221-gharial-crocs </td> </tr>
+
+<tr> <td> [hubbles_constant_supernovas_up_to_250_mpc.xlsx](./Data/hubbles_constant_supernovas_up_to_250_mpc.xlsx) &nbsp; </td> <td> tinyurl.com/M221-hubbles-const-250mpc </td> </tr>
+
+<tr> <td> [hubbles_constant_hubbles_data.xlsx](./Data/hubbles_constant_hubbles_data.xlsx) </td> <td> tinyurl.com/M221-hubbles-const </td> </tr>
+
+<tr> <td> [hubbles_constant_supernovas.xlsx](./Data/hubbles_constant_supernovas.xlsx) </td> <td> tinyurl.com/M221-hubbles-supernovas </td> </tr>
+
+<tr> <td> [illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt </td> </tr>
+
+<tr> <td> [illinois_birth_weights_two_var.xlsx](./Data/illinois_birth_weights_two_var.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt-2 </td> </tr>
+
+<tr> <td> [insulin_resistance_depression.xlsx](./Data/insulin_resistance_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
+
+<tr> <td> [jse_hats_modified.xlsx](./Data/jse_hats_modified.xlsx) </td> <td> tinyurl.com/M221-jse-hats </td> </tr>
+
+<tr> <td> [junk_food.xlsx](./Data/junk_food.xlsx) </td> <td> tinyurl.com/M221-junk-food </td> </tr>
+
+<tr> <td> [la_saturn_winter_06.xlsx](./Data/la_saturn_winter_06.xlsx) </td> <td> tinyurl.com/M221-saturn-06 </td> </tr>
+
+<tr> <td> [lead_exposure_and_behavior.xlsx](./Data/lead_exposure_and_behavior.xlsx) </td> <td> tinyurl.com/M221-lead-exposure </td> </tr>
+
+<tr> <td> [madison_county_real_estate.xlsx](./Data/madison_county_real_estate.xlsx) </td> <td> tinyurl.com/M221-madison-real-estate </td> </tr>
+
+<tr> <td> [math_self_efficacy.xlsx](./Data/math_self_efficacy.xlsx) </td> <td> tinyurl.com/M221-math-self-efficacy </td> </tr>
+
+<tr> <td> [mla_data.xlsx](./Data/mla_data.xlsx) </td> <td> tinyurl.com/M221-mla-data </td> </tr>
+
+<tr> <td> [mystery_investment_opportunities.xlsx](./Data/mystery_investment_opportunities.xlsx) </td> <td> tinyurl.com/M221-mystery-investments </td> </tr>
+
+<tr> <td> [nasdaq_price_and_volume.xlsx](./Data/nasdaq_price_and_volume.xlsx) </td> <td> tinyurl.com/M221-nasdaq-price-volume </td> </tr>
+
+<tr> <td> [nba_salaries.xlsx](./Data/nba_salaries.xlsx) </td> <td> tinyurl.com/M221-nba-salaries </td> </tr>
+
+<tr> <td> [no_click_query.xlsx](./Data/no_click_query.xlsx) </td> <td> tinyurl.com/M221-no-click-query </td> </tr>
+
+<tr> <td> [no_click_query_summary.xlsx](./Data/no_click_query_summary.xlsx) </td> <td> tinyurl.com/M221-no-click-query-summary </td> </tr>
+
+<tr> <td> [nosocomial_infections.xlsx](./Data/nosocomial_infections.xlsx) </td> <td> tinyurl.com/M221-nosocomial </td> </tr>
+
+<tr> <td> [old_faithful.xlsx](./Data/old_faithful.xlsx) </td> <td> tinyurl.com/M221-old-faithful </td> </tr>
+
+<tr> <td> [oreo_double_stuf.xlsx](./Data/oreo_double_stuf.xlsx) </td> <td> tinyurl.com/M221-double-stuf </td> </tr>
+
+<tr> <td> [patient_satisfaction_dr_v_nurse_stacked.xlsx](./Data/patient_satisfaction_dr_v_nurse_stacked.xlsx) </td> <td> tinyurl.com/M221-patient-satisfaction </td> </tr>
+
+<tr> <td> [pine_beetle.xlsx](./Data/pine_beetle.xlsx) </td> <td> tinyurl.com/M221-pine-beetle </td> </tr>
+
+<tr> <td> [protein_requirement_campbell.xlsx](./Data/protein_requirement_campbell.xlsx) </td> <td> tinyurl.com/M221-protein-requirement </td> </tr>
+
+<tr> <td> [ptc_tasting.xlsx](./Data/ptc_tasting.xlsx) </td> <td> tinyurl.com/M221-ptc-tasting </td> </tr>
+
+<tr> <td> [rates_of_return.xlsx](./Data/rates_of_return.xlsx) </td> <td> tinyurl.com/M221-rates-of-return </td> </tr>
+
+<tr> <td> [reading_practices.xlsx](./Data/reading_practices.xlsx) </td> <td> tinyurl.com/M221-reading-practices </td> </tr>
+
+<tr> <td> [redbox_decision_times.xlsx](./Data/redbox_decision_times.xlsx) </td> <td> tinyurl.com/M221-redbox-times </td> </tr>
+
+<tr> <td> [ree_classical_music.xlsx](./Data/ree_classical_music.xlsx) </td> <td> tinyurl.com/M221-ree-classical-music </td> </tr>
+
+<tr> <td> [singer_heights.xlsx](./Data/singer_heights.xlsx) </td> <td> tinyurl.com/M221-singer-heights </td> </tr>
+
+<tr> <td> [soccer_shoes.xlsx](./Data/soccer_shoes.xlsx) </td> <td> tinyurl.com/M221-soccer-shoes </td> </tr>
+
+<tr> <td> [soviet_accidents.xlsx](./Data/soviet_accidents.xlsx) </td> <td> tinyurl.com/M221-soviet-accidents </td> </tr>
+
+<tr> <td> [speed_of_light_michelson_1879.xlsx](./Data/speed_of_light_michelson_1879.xlsx) </td> <td> tinyurl.com/M221-speed-light-1879 </td> </tr>
+
+<tr> <td> [speed_of_light_michelson_1882.xlsx](./Data/speed_of_light_michelson_1882.xlsx) </td> <td> tinyurl.com/M221-speed-light-1882 </td> </tr>
+
+<tr> <td> [super_bowl_movies.xlsx](./Data/super_bowl_movies.xlsx) </td> <td> tinyurl.com/M221-super-bowl-movies </td> </tr>
+
+<tr> <td> [survey_data.xlsx](./Data/survey_data.xlsx) </td> <td> tinyurl.com/M221-survey-data </td> </tr>
+
+<tr> <td> [toyota_prius_2005.xlsx](./Data/toyota_prius_2005.xlsx) </td> <td> tinyurl.com/M221-prius-2005 </td> </tr>
+
+<tr> <td> [twin_weights.xlsx](./Data/twin_weights.xlsx) </td> <td> tinyurl.com/M221-twin-weights </td> </tr>
+
+<tr> <td> [twins_diabetes.xlsx](./Data/twins_diabetes.xlsx) </td> <td> tinyurl.com/M221-twins-diabetes </td> </tr>
+
+<tr> <td> [uranium_plant_data_lead.xlsx](./Data/uranium_plant_data_lead.xlsx) </td> <td> tinyurl.com/M221-uranium-lead </td> </tr>
+
+<tr> <td> [used_hummers_ny_and_la.xlsx](./Data/used_hummers_ny_and_la.xlsx) </td> <td> tinyurl.com/M221-used-hummers </td> </tr>
+
+<tr> <td> [vertebral_heights.xlsx](./Data/vertebral_heights.xlsx) </td> <td> tinyurl.com/M221-vertebral-heights </td> </tr>
+
+<tr> <td> [women_poet.xlsx](./Data/women_poet.xlsx) </td> <td> tinyurl.com/M221-women-poet </td> </tr>
+
+<tr> <td> [world_cup_heart_attacks.xlsx](./Data/world_cup_heart_attacks.xlsx) </td> <td> tinyurl.com/M221-world-cup-heart-attacks </td> </tr>
+
+<tr> <td> [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) </td> <td> tinyurl.com/M221-site-patient </td> </tr>
+
+<tr> <td> [zinc_for_colds.xlsx](./Data/zinc_for_colds.xlsx) </td> <td> tinyurl.com/M221-zinc-colds </td> </tr>
+
+<tr> <td> [zung_sim.xlsx](./Data/zung_sim.xlsx) </td> <td> tinyurl.com/M221-zung-sim </td> </tr>
+
+</table>
 
 </div>
