@@ -115,6 +115,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [hubbles_constant_supernovas.xlsx](./Data/hubbles_constant_supernovas.xlsx) </td> <td> tinyurl.com/M221-hubbles-supernovas </td> </tr>
 
+<tr> <td> [hurricanes.xlsx](./Data/hurricanes.xlsx) </td> <td> tinyurl.com/M221-hurricanes </td> </tr>
+
 <tr> <td> [illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt </td> </tr>
 
 <tr> <td> [illinois_birth_weights_two_var.xlsx](./Data/illinois_birth_weights_two_var.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt-2 </td> </tr>
