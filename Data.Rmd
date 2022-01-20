@@ -91,6 +91,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [eating_healthy.xlsx](./Data/eating_healthy.xlsx) </td> <td> tinyurl.com/M221-eating-healthy </td> </tr>
 
+<tr> <td> [ethanallen.xlsx](./Data/ethanallen.xlsx) </td> <td> tinyurl.com/M221-ethan-allen </td> </tr>
+
 <tr> <td> [estuarine_crocodiles.xlsx](./Data/estuarine_crocodiles.xlsx) </td> <td> tinyurl.com/M221-estuarine-crocs </td> </tr>
 
 <tr> <td> [euro_weight.xlsx](./Data/euro_weight.xlsx) </td> <td> tinyurl.com/M221-euro-weight </td> </tr>
