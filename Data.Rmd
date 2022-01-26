@@ -29,7 +29,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [biggest_loser.xlsx](./Data/biggest_loser.xlsx) </td> <td> tinyurl.com/M221-biggest-loser </td> </tr>
 
-<tr> <td> [bleu_scores.xlsx](./Data/bleu_scores.xlsx) </td> <td> tinyurl.com/M221-bleu </td> </tr>
+<tr> <td> [bleu.xlsx](./Data/bleu.xlsx) </td>  </tr>
 
 <tr> <td> [body_measurements.xlsx](./Data/body_measurements.xlsx) </td> <td> tinyurl.com/M221-body-measure </td> </tr>
 
@@ -95,7 +95,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [estuarine_crocodiles.xlsx](./Data/estuarine_crocodiles.xlsx) </td> <td> tinyurl.com/M221-estuarine-crocs </td> </tr>
 
-<tr> <td> [euro_weight.xlsx](./Data/euro_weight.xlsx) </td> <td> tinyurl.com/M221-euro-weight </td> </tr>
+<tr> <td> [euro.xlsx](./Data/euro.xlsx) </td> </tr>
 
 <tr> <td> [exam_1_and_exam_2_scores.xlsx](./Data/exam_1_and_exam_2_scores.xlsx) </td> <td> tinyurl.com/M221-exam-1-2 </td> </tr>
 
