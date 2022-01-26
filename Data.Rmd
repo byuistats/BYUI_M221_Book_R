@@ -13,9 +13,9 @@ Links to data files used throughout the course:
 
 <table>
 
-<tr> <td> [admissions_byu_idaho.xlsx](./Data/admissions_byu_idaho.xlsx) </td> <td> tinyurl.com/M221-admit-byui </td> </tr>
+<tr> <td> [admissions_byui.xlsx](./Data/admissions_byui.xlsx) </td>  </tr>
 
-<tr> <td> [admissions_u_of_idaho.xlsx](./Data/admissions_u_of_idaho.xlsx) </td> <td> tinyurl.com/M221-admit-uofi </td> </tr>
+<tr> <td> [admissions_uofi.xlsx](./Data/admissions_uofi.xlsx) </td> </tr>
 
 <tr> <td> [am_pm_heights.xlsx](./Data/am_pm_heights.xlsx) </td> <td> tinyurl.com/M221-am-pm-ht </td> </tr>
 
@@ -45,13 +45,13 @@ Links to data files used throughout the course:
 
 <tr> <td> [cardiac_arrest_health.xlsx](./Data/cardiac_arrest_health.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
 
-<tr> <td> [cause_of_death-malnourished.xlsx](./Data/cause_of_death_malnourished.xlsx) </td> <td> tinyurl.com/M221-cause-malnourished </td> </tr>
+<tr> <td> [cause_of_death.xlsx](./Data/cause_of_death.xlsx) </td> </tr>
 
 <tr> <td> [class_survey.xlsx](./Data/class_survey.xlsx) </td> <td> tinyurl.com/M221-class-survey </td> </tr>
 
 <tr> <td> [coin_toss_heads.xlsx](./Data/coin_toss_heads.xlsx) </td> <td> tinyurl.com/M221-coin-toss-heads </td> </tr>
 
-<tr> <td> [comet_water_production_magnitude.xlsx](./Data/comet_water_production_magnitude.xlsx) </td> <td> tinyurl.com/M221-comet-water </td> </tr>
+<tr> <td> [comet.xlsx](./Data/comet.xlsx) </td> <td> tinyurl.com/M221-comet-water </td> </tr>
 
 <tr> <td> [conjugated_linoleic_acid.xlsx](./Data/conjugated_linoleic_acid.xlsx) </td> <td> tinyurl.com/M221-conjugated-linoleic-acid </td> </tr>
 
@@ -115,7 +115,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [hubbles_constant_supernovas.xlsx](./Data/hubbles_constant_supernovas.xlsx) </td> <td> tinyurl.com/M221-hubbles-supernovas </td> </tr>
 
-<tr> <td> [hurricanes.xlsx](./Data/hurricanes.xlsx) </td> <td> tinyurl.com/M221-hurricane-data </td> </tr>
+<tr> <td> [hurricane.xlsx](./Data/hurricane.xlsx) </td> <td> tinyurl.com/M221-hurricane-data </td> </tr>
 
 <tr> <td> [illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt </td> </tr>
 
@@ -129,7 +129,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [la_saturn_winter_06.xlsx](./Data/la_saturn_winter_06.xlsx) </td> <td> tinyurl.com/M221-saturn-06 </td> </tr>
 
-<tr> <td> [lead_exposure_and_behavior.xlsx](./Data/lead_exposure_and_behavior.xlsx) </td> <td> tinyurl.com/M221-lead-exposure </td> </tr>
+<tr> <td> [lead_behavior.xlsx](./Data/lead_behavior.xlsx) </td> <td> tinyurl.com/M221-lead-exposure </td> </tr>
 
 <tr> <td> [madison_county_real_estate.xlsx](./Data/madison_county_real_estate.xlsx) </td> <td> tinyurl.com/M221-madison-real-estate </td> </tr>
 
@@ -153,7 +153,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [oreo_double_stuf.xlsx](./Data/oreo_double_stuf.xlsx) </td> <td> tinyurl.com/M221-double-stuf </td> </tr>
 
-<tr> <td> [patient_satisfaction_dr_v_nurse_stacked.xlsx](./Data/patient_satisfaction_dr_v_nurse_stacked.xlsx) </td> <td> tinyurl.com/M221-patient-satisfaction </td> </tr>
+<tr> <td> [patient_satisfaction.xlsx](./Data/patient_satisfaction.xlsx) </td> <td> tinyurl.com/M221-patient-satisfaction </td> </tr>
 
 <tr> <td> [pine_beetle.xlsx](./Data/pine_beetle.xlsx) </td> <td> tinyurl.com/M221-pine-beetle </td> </tr>
 
