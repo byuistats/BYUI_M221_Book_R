@@ -119,6 +119,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [gratitude.xlsx](./Data/gratitude.xlsx) </td> </tr>
 
+<tr> <td> [hospital_infections.xlsx](./Data/hospital_infections.xlsx) </td> </tr>
+
 <tr> <td> [hubbles_constant_supernovas_up_to_250_mpc.xlsx](./Data/hubbles_constant_supernovas_up_to_250_mpc.xlsx) &nbsp; </td> <td> tinyurl.com/M221-hubbles-const-250mpc </td> </tr>
 
 <tr> <td> [hubbles_data.xlsx](./Data/hubbles_constant_hubbles_data.xlsx) </td> <td> tinyurl.com/M221-hubbles-const </td> </tr>
@@ -152,8 +154,6 @@ Links to data files used throughout the course:
 <tr> <td> [no_click_query.xlsx](./Data/no_click_query.xlsx) </td> <td> tinyurl.com/M221-no-click-query </td> </tr>
 
 <tr> <td> [no_click_query_summary.xlsx](./Data/no_click_query_summary.xlsx) </td> <td> tinyurl.com/M221-no-click-query-summary </td> </tr>
-
-<tr> <td> [nosocomial_infections.xlsx](./Data/nosocomial_infections.xlsx) </td> <td> tinyurl.com/M221-nosocomial </td> </tr>
 
 <tr> <td> [old_faithful.xlsx](./Data/old_faithful.xlsx) </td> <td> tinyurl.com/M221-old-faithful </td> </tr>
 
