@@ -80,37 +80,37 @@ with $df = 15$</p></th>
 <tr class="odd">
 <td style="width:33.3%;">
 
-```{r, echo=FALSE, fig.width=4, fig.height=4}
-par(mai=c(.6,.6,.3,.1))
-curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 1), add=TRUE, col="green3", lwd=4)
-abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
-mtext(side=2, las=2, "density", at=0.43, line=.3)
+```{r, echo = FALSE, fig.width=4, fig.height = 4}
+par(mai = c(.6,.6,.3,.1))
+curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
+curve(dt(x, 1), add = TRUE, col="green3", lwd = 4)
+abline(h = 0, lty = 1, col="gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
 </td>
 <td style="width:33.3%;">
 
-```{r, echo=FALSE, fig.width=4, fig.height=4}
-par(mai=c(.6,.6,.3,.1))
-curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 5), add=TRUE, col="green3", lwd=4)
-abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
-mtext(side=2, las=2, "density", at=0.43, line=.3)
+```{r, echo = FALSE, fig.width=4, fig.height = 4}
+par(mai = c(.6,.6,.3,.1))
+curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
+curve(dt(x, 5), add = TRUE, col="green3", lwd = 4)
+abline(h = 0, lty = 1, col="gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
 </td>
 <td style="width:33.3%;">
 
-```{r, echo=FALSE, fig.width=4, fig.height=4}
-par(mai=c(.6,.6,.3,.1))
-curve(dnorm(x), xlim=c(-3.2,3.2), col="gray", lwd=3, xlab="", ylab="")
-curve(dt(x, 15), add=TRUE, col="green3", lwd=4)
-abline(h=0, lty=1, col="gray")
-legend("topright", legend=c("Normal", "t"), col=c("gray","green3"), lwd=c(2,4), bty="n", cex=.8)
-mtext(side=2, las=2, "density", at=0.43, line=0.3)
+```{r, echo = FALSE, fig.width=4, fig.height = 4}
+par(mai = c(.6,.6,.3,.1))
+curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
+curve(dt(x, 15), add = TRUE, col="green3", lwd = 4)
+abline(h = 0, lty = 1, col="gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+mtext(side = 2, las = 2, "density", at = 0.43, line = 0.3)
 ```
 
 </td>
@@ -163,7 +163,7 @@ $$
 
 **Describe the data collection procedures**
 
-We will use the body temperature data, [BodyTemp.xlsx](./Data/BodyTemp.xlsx), collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
+We will use the body temperature data, [body_temp.xlsx](./Data/body_temp.xlsx), collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
 
 
 <img src="./Images/Step3.png">
@@ -171,17 +171,17 @@ We will use the body temperature data, [BodyTemp.xlsx](./Data/BodyTemp.xlsx), co
 **Give the relevant summary statistics**
 
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 library(readxl)
-BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
+body_temp <- read_excel("./Data/body_temp.xlsx")
 ```
 
 These could be computed in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio) using the codes:
 
-```{r, eval=FALSE}
-mean(BodyTemp$BodyTemp)
-sd(BodyTemp$BodyTemp)
-nrow(BodyTemp)
+```{r, eval = FALSE}
+mean(body_temp$temperature)   # sample mean (x-bar)
+sd(body_temp$temperature)     # sample standard deviation (s)
+length(body_temp$temperature) # sample size (n)
 ```
 
 These codes result in the values:
@@ -199,7 +199,7 @@ $$
 A histogram of the Body Temperatures could be created in R with the code
 
 ```{r}
-hist(BodyTemp$BodyTemp, #select the data to use for the graph
+hist(body_temp$temperature, #select the data to use for the graph
      col="wheat", #set the color
      xlab="Body Temperature (Degrees Fahrenheight)",
      main="Body Temperatures of 148 Healthy Adults")
@@ -227,7 +227,7 @@ Here are the instructions for conducting the one sample t-test in R:
 
 **Step 1.** Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: [reading data into RStudio](RHelp.html#reading-in-data).
 
-For this t test, we are using the [BodyTemp.xlsx](./Data/BodyTemp.xlsx) data.
+For this t test, we are using the [body_temp.xlsx](./Data/body_temp.xlsx) data.
 
 **Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: \mu = 98.6$ and the alternative was $H_a: \mu \neq 98.6$.
 
@@ -235,20 +235,20 @@ For this t test, we are using the [BodyTemp.xlsx](./Data/BodyTemp.xlsx) data.
 
 A few notes about using `t.test(...)`.
 
-* The null hypothesis is established by **mu=98.6** 
-* The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative="less"** and **alternative="greater"**.
+* The null hypothesis is established by **mu = 98.6** 
+* The alternative hypothesis is established by **alternative="two.sided"**. Other options for the alternative hypothesis are **alternative="less"** and **alternative="greater"**.
 * We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
 
-```{r, eval=FALSE}
-t.test(BodyTemp$BodyTemp, mu=98.6, alternative="two.sided")
+```{r, eval = FALSE}
+t.test(body_temp$temperature, mu = 98.6, alternative="two.sided")
 ```
 
-Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level=0.99)` or `t.test(..., conf.level=0.90)`.
+Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level = 0.99)` or `t.test(..., conf.level = 0.90)`.
 
 When, the above `t.test(...)` code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.
 
-```{r, echo=FALSE, comment=NA}
-t.test(BodyTemp$BodyTemp, mu=98.6, alternative="two.sided")
+```{r, echo = FALSE, comment = NA}
+t.test(body_temp$temperature, mu = 98.6, alternative="two.sided")
 ```
 
 **Identifying the various elements of the t test summary ouput.**
@@ -273,7 +273,7 @@ The test statistic is $t$ and its value is $-6.029$.  So, we have $t = -6.029$.
 Notice this is the same number we get if we use the formula:
 $$
 \begin{align}
-t &= \frac{ \bar x - \mu }{ s / \sqrt{n} } \\
+t & = \frac{ \bar x - \mu }{ s / \sqrt{n} } \\
 &\approx \frac{ 98.234 - 98.6 }{ 0.738 / \sqrt{148} } \\
 &\approx -6.03
 \end{align}
@@ -321,7 +321,7 @@ The birth weight of a child is an important indicator of their neonatal health. 
 
 $$
 \begin{align}
-H_0: &~ \mu=3373 \\
+H_0: &~ \mu = 3373 \\
 H_a: &~ \mu \ne 3373
 \end{align}
 $$
@@ -333,9 +333,9 @@ $$ \alpha = 0.05 $$
 
 **Describe the data collection procedures**
 
-The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [BabyBoom.xlsx](./Data/BabyBoom.xlsx).
+The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [baby_boom.xlsx](./Data/baby_boom.xlsx).
 
-Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha=0.05$ level of significance for this problem.  Make an appropriate graph of the data.
+Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
 
 <img src="./Images/Step3.png">
@@ -347,24 +347,24 @@ Using this data set, test the hypothesis that the mean weight of babies born in 
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 
-Once the [BabyBoom.xlsx](./Data/BabyBoom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
+Once the [baby_boom.xlsx](./Data/baby_boom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
 
-```{r, include=FALSE}
-BabyBoom <- read_excel("./Data/BabyBoom.xlsx")
+```{r, include = FALSE}
+baby_boom <- read_excel("./Data/baby_boom.xlsx")
 ```
 
-```{r, eval=FALSE}
-mean(BabyBoom$Weight) #mean of Weight column
-sd(BabyBoom$Weight) #sd of Weight column
-nrow(BabyBoom) #sample size of the data set
+```{r, eval = FALSE}
+mean(baby_boom$weight)   # sample mean of the weights (x-bar)
+sd(baby_boom$weight)     # sample standard deviation (s)
+length(baby_boom$weight) # sample size (n)
 ```
 
 
 $$
 \begin{align}
-\bar x &= 3275.955 \textrm{g}\\
-s &= 528.033 \textrm{g}\\
-n &= 44
+\bar x & = 3275.955 \textrm{g}\\
+s & = 528.033 \textrm{g}\\
+n & = 44
 \end{align}
 $$
 </center>
@@ -379,7 +379,7 @@ $$
 The histogram is created by
 
 ```{r}
-hist(BabyBoom$Weight, 
+hist(baby_boom$weight, 
      col="lightblue",
      xlab="Weights in grams", 
      ylab="Number of Children", 
@@ -395,7 +395,7 @@ hist(BabyBoom$Weight,
 
 **Verify the requirements have been met**
 
-The data show a left-skewed shape, however the sample size is large ($n=44$).  Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.
+The data show a left-skewed shape, however the sample size is large ($n = 44$).  Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -405,8 +405,8 @@ The data show a left-skewed shape, however the sample size is large ($n=44$).  U
 <div id="Q3" style="display:none;">
 We perform the one sample t-test in RStudio using the code:
 
-```{r, comment=NA}
-t.test(BabyBoom$Weight, mu=3373, alternative="two.sided")
+```{r, comment = NA}
+t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 ```
 
 - The test statistic is a $t$.  The value of the test statistic is $-1.219$.  This was taken from the output above.
@@ -433,11 +433,11 @@ $$
 
 The $P$-value is shaded in green:
 
-<img src="./Images/BabyBoom-JSE-TwoSidedT1-2.png">
+<img src="./Images/baby_boom-JSE-TwoSidedT1-2.png">
 
 **Find the $P$-value and compare it to the level of significance**
 
-$$P\text{-value}=0.2295 > 0.05 = \alpha$$
+$$P\text{-value} = 0.2295 > 0.05 = \alpha$$
 
 
 **State your decision**
@@ -487,7 +487,7 @@ The IBM T. J. Watson Research Center developed methods to measure the quality of
 **Describe the data collection procedures**
 
 To test Pharaoh's ability to translate, Koehn took a random sample of 100 blocks of Spanish text, each of which contained 300 sentences, and used Pharaoh to translate each of these to English.  The BLEU score was calculated for each of the 100 blocks.  The data were extracted from Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>-->  The 100 BLEU scores are given in
-[BLEU-Scores](./Data/BLEU-Scores.xlsx).
+[bleu.xlsx](./Data/bleu.xlsx).
 
 Koehn wants to find an estimate of the true mean BLEU score for text translated by the Pharaoh computer program.  He would like to compute a confidence interval, but he does not know the true population standard deviation, $\sigma$.
 
@@ -499,28 +499,28 @@ Koehn wants to find an estimate of the true mean BLEU score for text translated 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 After reading the
-[BLEU-Scores](./Data/BLEU-Scores.xlsx)
+[bleu.xlsx](./Data/bleu.xlsx)
 data into R, we can compute the following.
 
-```{r, include=FALSE}
-BLEU_Scores <- read_excel("./Data/BLEU-Scores.xlsx")
+```{r, include = FALSE}
+bleu <- read_excel("./Data/bleu.xlsx")
 ```
 
-```{r, eval=FALSE}
-nrow(BLEU_Scores) #sample size
-mean(BLEU_Scores$BLEU) #mean
-sd(BLEU_Scores$BLEU) #standard deviation
+```{r, eval = FALSE}
+mean(bleu$score)   # sample mean (x-bar)
+sd(bleu$score)     # sample standard deviation (s)
+length(bleu$score) # sample size (n)
 ```
 
 $$
- n = 100 \\
  \bar{x} = 0.288 \\
- sd = 0.026
+ s = 0.026 \\
+ n = 100 
 $$
 
 ```{r}
-hist(BLEU_Scores$BLEU, 
-     col="blue",
+hist(bleu$score, 
+     col="skyblue3",
      xlab="Score",
      main="BLEU Scores")
 ```
@@ -535,9 +535,9 @@ The summary statistics are:
 
 $$
 \begin{align}
-\bar x =& 0.288 \\
-s =& 0.026 \\
-n =& 100
+\bar x = & 0.288 \\
+s = & 0.026 \\
+n = & 100
 \end{align}
 $$
 
@@ -559,14 +559,14 @@ We will use R to find the confidence intervals for the mean.
 
 Do the following:
 
-- Read in the [BLEU-Scores](./Data/BLEU-Scores.xlsx) data if you haven't already.
+- Read in the [bleu.xlsx](./Data/bleu.xlsx) data if you haven't already.
 - Run a One-sample t-test using `t.test(...)`. (Confidence intervals don't require a null hypothesis.)
-- To set the confidence level use `t.test(..., conf.level=0.95)` or 0.99, or 0.90.
+- To set the confidence level use `t.test(..., conf.level = 0.95)` or 0.99, or 0.90.
 
-In this case, we are using a 95% confidence level.  So, you set `t.test(..., conf.level=0.95)`. The only part of the output below that we will consider is the "95 percent confidence interval:" and the "mean of x" output.
+In this case, we are using a 95% confidence level.  So, you set `t.test(..., conf.level = 0.95)`. The only part of the output below that we will consider is the "95 percent confidence interval:" and the "mean of x" output.
 
-```{r, comment=NA}
-t.test(BLEU_Scores$BLEU, conf.level=0.95)
+```{r, comment = NA}
+t.test(bleu$score, conf.level = 0.95)
 ```
 
 
@@ -578,9 +578,9 @@ t.test(BLEU_Scores$BLEU, conf.level=0.95)
 The 95% confidence interval for the true mean BLEU score is:
 
 $$(0.282, 0.293)$$
-where 0.282 is the lower-bound of the confidence interval and 0.293 is the upper-bound of the confidence interval.
+where 0.282 is the lower-bound and 0.293 is the upper-bound of the confidence interval.
 
-<a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations</span></a>
+<a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations (Optional)</span></a>
 <br>
 
 <div id="hc" style="display:none;">
@@ -596,10 +596,10 @@ $$
 The value of $t^*$ depends on the level of confidence and the sample size.  It must be computed using software or looked up on a table.  If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of $t^*$ can be calculated with
 
 ```{r}
-qt(1-0.05/2, df=99)
+qt(1-0.05/2, df = 99)
 ```
 
-where the `0.05` is the significance level $\alpha$, and the `df=` is the degrees of freedom, which is $n-1$.
+where the `0.05` is the significance level $\alpha$, and the `df = ` is the degrees of freedom, which is $n-1$.
 
 The other numbers ($\bar x$, $s$, and $n$) can all be obtained directly from your data.
 
@@ -608,9 +608,9 @@ If we want to create a 95% confidence interval for $\mu$, with 99 degrees of fre
 Using the sample statistics:
 $$
 \begin{align}
-\bar x =& 0.2876 \\
-s =& 0.0264 \\
-n =& 100
+\bar x = & 0.2876 \\
+s = & 0.0264 \\
+n = & 100
 \end{align}
 $$
 
@@ -637,7 +637,7 @@ There are two requirements that need to be checked:
 
 2. $\bar x$ is normally distributed
 
-    Recall that this requirement is satisfied if the parent population data are normally distributed or if the sample size is large. Checking a histogram, the sample data look to be bell-shaped and fairly symmetric, but since the sample size is large, ($n=100$), then the Central Limit Theorem also applies and we can be confident that the sample mean, $\bar x$, is also approximately normally distributed.  
+    Recall that this requirement is satisfied if the parent population data are normally distributed or if the sample size is large. Checking a histogram, the sample data look to be bell-shaped and fairly symmetric, but since the sample size is large, ($n = 100$), then the Central Limit Theorem also applies and we can be confident that the sample mean, $\bar x$, is also approximately normally distributed.  
 
 
 
@@ -647,7 +647,7 @@ There are two requirements that need to be checked:
 
 We are 95% confident that the true mean BLEU score for all translations by the Pharaoh program is between 0.2824 and 0.2928.
 
-Answer the following questions using the data set [BLEU-Scores](./Data/BLEU-Scores.xslx), which gives the BLEU scores for $n=100$ translations from Spanish to English by the computer program Pharaoh.
+Answer the following questions using the data set [bleu.xlsx](./Data/bleu.xlsx), which gives the BLEU scores for $n = 100$ translations from Spanish to English by the computer program Pharaoh.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -656,8 +656,8 @@ Answer the following questions using the data set [BLEU-Scores](./Data/BLEU-Scor
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 
-```{r, comment=NA}
-t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.90)
+```{r, comment = NA}
+t.test(bleu$score, mu = 0, conf.level = 0.90)
 ```
 
 - $(0.283, 0.292)$<br>We are 90% confident that the true mean BLEU score for translations by the Pharaoh program lies between 0.283 and 0.292.
@@ -669,8 +669,8 @@ t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.90)
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 
-```{r, comment=NA}
-t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.99)
+```{r, comment = NA}
+t.test(bleu$score, mu = 0, conf.level = 0.99)
 ```
 
 - $(0.281, 0.295)$<br>We are 99% confident that the true mean BLEU score for translations by the Pharaoh program lies between 0.281 and 0.295.
@@ -702,7 +702,7 @@ A group of statisticians measured the weights of 2000 Belgian one Euro coins in 
 
 **Describe the data collection procedures**
 
-The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [EuroWeight.xlsx](./Data/EuroWeight.xlsx).
+The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [euro.xlsx](./Data/euro.xlsx).
 
 <img src="./Images/Step3.png">
 
@@ -713,16 +713,16 @@ The coins were borrowed from a bank in Belgium, one batch at a time. The weights
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 
-Read in the [EuroWeight.xlsx](./Data/EuroWeight.xlsx) data. Then, compute the summary statistics. 
+Read in the [euro.xlsx](./Data/euro.xlsx) data. Then, compute the summary statistics. 
 
-```{r, include=FALSE}
-EuroWeight <- read_excel("./Data/EuroWeight.xlsx")
+```{r, include = FALSE}
+euro <- read_excel("./Data/euro.xlsx")
 ```
 
-```{r, comment=NA}
-nrow(EuroWeight) #sample size
-mean(EuroWeight$Weight) #mean
-sd(EuroWeight$Weight) #standard deviation
+```{r, comment = NA}
+mean(euro$weight)   # sample mean (x-bar)
+sd(euro$weight)     # sample standard deviation (s)
+length(euro$weight) # sample size (n)
 ```
 
 <br>
@@ -731,9 +731,9 @@ sd(EuroWeight$Weight) #standard deviation
 
 $$
 \begin{align}
-\bar x =& 7.521 \\
-s =& 0.0344 \\
-n =& 2000
+\bar x = & 7.521 \\
+s = & 0.0344 \\
+n = & 2000
 \end{align}
 $$
 
@@ -750,19 +750,19 @@ Either a histogram or boxplot would be appropriate for graphing this data.
 Note that when creating a histogram, the exact number of bins you use is up to you. The only rule to follow is to have enough bins to get a good feel for the distribution. 
 
 ```{r}
-hist(EuroWeight$Weight, 
+hist(euro$weight, 
      col="coral",
      xlab="Weight in grams", 
      main="Coins from a Bank in Belgium",
-     breaks=50)
+     breaks = 50)
 #since the sampe size was large, 
 #we can use a lot of "bins" or "breaks" in the graph.
 ```
 
 With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
 
-```{r, fig.height=3}
-boxplot(EuroWeight$Weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", horizontal=TRUE)
+```{r, fig.height = 3}
+boxplot(euro$weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", horizontal = TRUE)
 ```
 
 You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.
@@ -785,7 +785,7 @@ We need to check the following two requirements:
 
 2. $\bar x$ is normally distributed
 
-    The data follow a bell-shaped distribution.  There are a few potential outliers, but they are not too frequent, and the sample size is $n=2000$, which is very large, so we can conclude that $\bar x$ is also normally distributed.
+    The data follow a bell-shaped distribution.  There are a few potential outliers, but they are not too frequent, and the sample size is $n = 2000$, which is very large, so we can conclude that $\bar x$ is also normally distributed.
 
 
 
@@ -798,8 +798,8 @@ We need to check the following two requirements:
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 
-```{r, comment=NA}
-t.test(EuroWeight$Weight, mu=0, conf.level=0.99)
+```{r, comment = NA}
+t.test(euro$weight, mu = 0, conf.level = 0.99)
 ```
 
 The lower and upper bounds of the confidence interval are given by
@@ -832,11 +832,12 @@ $$
 <div class="Summary">
 - In practice we rarely know the true standard deviation $\sigma$ and will therefore be unable to calculate a z-score. **Student's t-distribution** gives us a new test statistic, $t$, that is calculated using the sample standard deviation ($s$) instead.
 $$\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }$$
+You will never need to compute the $t$-statistic by hand, because R will provide it.
 
 - The $t$-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the $t$-distribution depends on the **degrees of freedom ($df$)**.
-$$df=n-1$$
+$$df = n-1$$
 
-*You will use R to carry out hypothesis testing and create confidence intervals involving $t$-distributions by using the `t.test(...)` function which follows the general format of `t.test(dataSetName$columnName, mu= , alternative= , conf.level= )` where `mu=` some number, `alternative=` either "two.sided", "less", or "greater", and `conf.level=` 0.95, 0.99, or 0.90.
+- You will use R to carry out hypothesis testing and create confidence intervals involving $t$-distributions by using the `t.test(...)` function which follows the general format of `t.test(dataSetName$columnName, mu = , alternative = , conf.level = )` where `mu = ` the value from the null hypothesis, `alternative = ` either "two.sided", "less", or "greater", and `conf.level = ` 0.95, 0.99, or 0.90.
 
 <br/>
 

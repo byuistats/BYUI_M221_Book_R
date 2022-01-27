@@ -13,8 +13,8 @@
 
 <title>Lesson 11 Inference for One Mean (Sigma Unknown)</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -516,13 +516,13 @@ H_a: \mu \ne 98.6\\
 \]</span></p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>We will use the body temperature data, <a href="./Data/BodyTemp.xlsx">BodyTemp.xlsx</a>, collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> --></p>
+<p>We will use the body temperature data, <a href="./Data/body_temp.xlsx">body_temp.xlsx</a>, collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> --></p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
 <p>These could be computed in RStudio after importing the data (<a href="RHelp.html#reading-in-data">click here</a> for a reminder how to import data into RStudio) using the codes:</p>
-<pre class="r"><code>mean(BodyTemp$BodyTemp)
-sd(BodyTemp$BodyTemp)
-nrow(BodyTemp)</code></pre>
+<pre class="r"><code>mean(body_temp$temperature)   # sample mean (x-bar)
+sd(body_temp$temperature)     # sample standard deviation (s)
+length(body_temp$temperature) # sample size (n)</code></pre>
 <p>These codes result in the values:</p>
 <p><span class="math display">\[
 \begin{array}{l}
@@ -533,7 +533,7 @@ n = 148
 \]</span></p>
 <p><strong>Make an appropriate graph (e.g. a histogram) to illustrate the data</strong></p>
 <p>A histogram of the Body Temperatures could be created in R with the code</p>
-<pre class="r"><code>hist(BodyTemp$BodyTemp, #select the data to use for the graph
+<pre class="r"><code>hist(body_temp$temperature, #select the data to use for the graph
      col=&quot;wheat&quot;, #set the color
      xlab=&quot;Body Temperature (Degrees Fahrenheight)&quot;,
      main=&quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
@@ -556,22 +556,22 @@ R Instructions
 <div class="Software">
 <p>Here are the instructions for conducting the one sample t-test in R:</p>
 <p><strong>Step 1.</strong> Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: <a href="RHelp.html#reading-in-data">reading data into RStudio</a>.</p>
-<p>For this t test, we are using the <a href="./Data/BodyTemp.xlsx">BodyTemp.xlsx</a> data.</p>
+<p>For this t test, we are using the <a href="./Data/body_temp.xlsx">body_temp.xlsx</a> data.</p>
 <p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: \mu = 98.6\)</span> and the alternative was <span class="math inline">\(H_a: \mu \neq 98.6\)</span>.</p>
 <p><strong>Step 3.</strong> Use <code>t.test(...)</code> as follows to run the One Sample t Test in R.</p>
 <p>A few notes about using <code>t.test(...)</code>.</p>
 <ul>
-<li>The null hypothesis is established by <strong>mu=98.6</strong></li>
-<li>The alternative hypothesis is established by <strong>alternative = “two.sided”</strong>. Other options for the alternative hypothesis are <strong>alternative=“less”</strong> and <strong>alternative=“greater”</strong>.</li>
+<li>The null hypothesis is established by <strong>mu = 98.6</strong></li>
+<li>The alternative hypothesis is established by <strong>alternative=“two.sided”</strong>. Other options for the alternative hypothesis are <strong>alternative=“less”</strong> and <strong>alternative=“greater”</strong>.</li>
 <li>We access the data we will use for the test by using the name of the dataset, followed by a <code>$</code> sign, followed by the name of the column we want to use for the test.</li>
 </ul>
-<pre class="r"><code>t.test(BodyTemp$BodyTemp, mu=98.6, alternative=&quot;two.sided&quot;)</code></pre>
-<p>Note, by default the <code>t.test(...)</code> function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use <code>t.test(..., conf.level=0.99)</code> or <code>t.test(..., conf.level=0.90)</code>.</p>
+<pre class="r"><code>t.test(body_temp$temperature, mu = 98.6, alternative=&quot;two.sided&quot;)</code></pre>
+<p>Note, by default the <code>t.test(...)</code> function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use <code>t.test(..., conf.level = 0.99)</code> or <code>t.test(..., conf.level = 0.90)</code>.</p>
 <p>When, the above <code>t.test(...)</code> code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.</p>
 <pre><code>
     One Sample t-test
 
-data:  BodyTemp$BodyTemp
+data:  body_temp$temperature
 t = -6.0291, df = 147, p-value = 1.272e-08
 alternative hypothesis: true mean is not equal to 98.6
 95 percent confidence interval:
@@ -595,7 +595,7 @@ mean of x
 <p>The test statistic is <span class="math inline">\(t\)</span> and its value is <span class="math inline">\(-6.029\)</span>. So, we have <span class="math inline">\(t = -6.029\)</span>.</p>
 <p>Notice this is the same number we get if we use the formula: <span class="math display">\[
 \begin{align}
-t &amp;= \frac{ \bar x - \mu }{ s / \sqrt{n} } \\
+t &amp; = \frac{ \bar x - \mu }{ s / \sqrt{n} } \\
 &amp;\approx \frac{ 98.234 - 98.6 }{ 0.738 / \sqrt{148} } \\
 &amp;\approx -6.03
 \end{align}
@@ -623,15 +623,15 @@ P\text{-value} = 1.272 \times 10^{-8} = 0.000~000~012~72 &lt; 0.05 = \alpha
 <p><strong>State the null and alternative hypotheses and the level of significance</strong></p>
 <p><span class="math display">\[
 \begin{align}
-H_0: &amp;~ \mu=3373 \\
+H_0: &amp;~ \mu = 3373 \\
 H_a: &amp;~ \mu \ne 3373
 \end{align}
 \]</span></p>
 <p><span class="math display">\[ \alpha = 0.05 \]</span></p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>The birth weights of all children born on December 18, 1997 at the Mater Mothers’ Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->. The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file <a href="./Data/BabyBoom.xlsx">BabyBoom.xlsx</a>.</p>
-<p>Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the <span class="math inline">\(\alpha=0.05\)</span> level of significance for this problem. Make an appropriate graph of the data.</p>
+<p>The birth weights of all children born on December 18, 1997 at the Mater Mothers’ Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->. The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file <a href="./Data/baby_boom.xlsx">baby_boom.xlsx</a>.</p>
+<p>Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance for this problem. Make an appropriate graph of the data.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -642,15 +642,15 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<p>Once the <a href="./Data/BabyBoom.xlsx">BabyBoom.xlsx</a> dataset is <a href="RHelp.html#reading-in-data">read into RStudio</a>, the relevant summary statistics for the “Weight” column are computed by:</p>
-<pre class="r"><code>mean(BabyBoom$Weight) #mean of Weight column
-sd(BabyBoom$Weight) #sd of Weight column
-nrow(BabyBoom) #sample size of the data set</code></pre>
+<p>Once the <a href="./Data/baby_boom.xlsx">baby_boom.xlsx</a> dataset is <a href="RHelp.html#reading-in-data">read into RStudio</a>, the relevant summary statistics for the “Weight” column are computed by:</p>
+<pre class="r"><code>mean(baby_boom$weight)   # sample mean of the weights (x-bar)
+sd(baby_boom$weight)     # sample standard deviation (s)
+length(baby_boom$weight) # sample size (n)</code></pre>
 <span class="math display">\[
 \begin{align}
-\bar x &amp;= 3275.955 \textrm{g}\\
-s &amp;= 528.033 \textrm{g}\\
-n &amp;= 44
+\bar x &amp; = 3275.955 \textrm{g}\\
+s &amp; = 528.033 \textrm{g}\\
+n &amp; = 44
 \end{align}
 \]</span>
 </center>
@@ -662,7 +662,7 @@ n &amp;= 44
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <p>The histogram is created by</p>
-<pre class="r"><code>hist(BabyBoom$Weight, 
+<pre class="r"><code>hist(baby_boom$weight, 
      col=&quot;lightblue&quot;,
      xlab=&quot;Weights in grams&quot;, 
      ylab=&quot;Number of Children&quot;, 
@@ -674,7 +674,7 @@ n &amp;= 44
 <p><br></p>
 <p><img src="Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
-<p>The data show a left-skewed shape, however the sample size is large (<span class="math inline">\(n=44\)</span>). Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.</p>
+<p>The data show a left-skewed shape, however the sample size is large (<span class="math inline">\(n = 44\)</span>). Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -685,11 +685,11 @@ Answer the following questions:
 <a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <p>We perform the one sample t-test in RStudio using the code:</p>
-<pre class="r"><code>t.test(BabyBoom$Weight, mu=3373, alternative=&quot;two.sided&quot;)</code></pre>
+<pre class="r"><code>t.test(baby_boom$weight, mu = 3373, alternative=&quot;two.sided&quot;)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  BabyBoom$Weight
+data:  baby_boom$weight
 t = -1.2191, df = 43, p-value = 0.2295
 alternative hypothesis: true mean is not equal to 3373
 95 percent confidence interval:
@@ -722,9 +722,9 @@ df = 43
 <p><br></p>
 <p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
 <p>The <span class="math inline">\(P\)</span>-value is shaded in green:</p>
-<p><img src="Images/BabyBoom-JSE-TwoSidedT1-2.png"></p>
+<p><img src="./Images/baby_boom-JSE-TwoSidedT1-2.png"></p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
-<p><span class="math display">\[P\text{-value}=0.2295 &gt; 0.05 = \alpha\]</span></p>
+<p><span class="math display">\[P\text{-value} = 0.2295 &gt; 0.05 = \alpha\]</span></p>
 <p><strong>State your decision</strong></p>
 <p>Since the <span class="math inline">\(P\)</span>-value is greater than the level of significance, we fail to reject the null hypothesis. It seems reasonable to continue believing the null hypothesis is true.</p>
 <p><img src="Images/Step5.png"></p>
@@ -750,7 +750,7 @@ df = 43
 <p>The IBM T. J. Watson Research Center developed methods to measure the quality of a translation from one language to another. <!--<cite>Brown90</cite>--> One of these is the BiLingual Evaluation Understudy (BLEU). <!--<cite>Papineni02</cite>--> BLEU is a score ranging from 0 to 1 that indicates how well a computer translation matches a professional human translation of the same text. Higher scores indicate a better match. BLEU helps companies who develop translation software “to monitor the effect of daily changes to their systems in order to weed out bad ideas from good ideas”. <!--<cite>Papineni02</cite>--></p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>To test Pharaoh’s ability to translate, Koehn took a random sample of 100 blocks of Spanish text, each of which contained 300 sentences, and used Pharaoh to translate each of these to English. The BLEU score was calculated for each of the 100 blocks. The data were extracted from Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>--> The 100 BLEU scores are given in <a href="./Data/BLEU-Scores.xlsx">BLEU-Scores</a>.</p>
+<p>To test Pharaoh’s ability to translate, Koehn took a random sample of 100 blocks of Spanish text, each of which contained 300 sentences, and used Pharaoh to translate each of these to English. The BLEU score was calculated for each of the 100 blocks. The data were extracted from Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>--> The 100 BLEU scores are given in <a href="./Data/bleu.xlsx">bleu.xlsx</a>.</p>
 <p>Koehn wants to find an estimate of the true mean BLEU score for text translated by the Pharaoh computer program. He would like to compute a confidence interval, but he does not know the true population standard deviation, <span class="math inline">\(\sigma\)</span>.</p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
@@ -758,17 +758,17 @@ df = 43
 R Instructions
 </div>
 <div class="Software">
-<p>After reading the <a href="./Data/BLEU-Scores.xlsx">BLEU-Scores</a> data into R, we can compute the following.</p>
-<pre class="r"><code>nrow(BLEU_Scores) #sample size
-mean(BLEU_Scores$BLEU) #mean
-sd(BLEU_Scores$BLEU) #standard deviation</code></pre>
+<p>After reading the <a href="./Data/bleu.xlsx">bleu.xlsx</a> data into R, we can compute the following.</p>
+<pre class="r"><code>mean(bleu$score)   # sample mean (x-bar)
+sd(bleu$score)     # sample standard deviation (s)
+length(bleu$score) # sample size (n)</code></pre>
 <p><span class="math display">\[
- n = 100 \\
  \bar{x} = 0.288 \\
- sd = 0.026
+ s = 0.026 \\
+ n = 100 
 \]</span></p>
-<pre class="r"><code>hist(BLEU_Scores$BLEU, 
-     col=&quot;blue&quot;,
+<pre class="r"><code>hist(bleu$score, 
+     col=&quot;skyblue3&quot;,
      xlab=&quot;Score&quot;,
      main=&quot;BLEU Scores&quot;)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
@@ -778,9 +778,9 @@ sd(BLEU_Scores$BLEU) #standard deviation</code></pre>
 <p>The summary statistics are:</p>
 <p><span class="math display">\[
 \begin{align}
-\bar x =&amp; 0.288 \\
-s =&amp; 0.026 \\
-n =&amp; 100
+\bar x = &amp; 0.288 \\
+s = &amp; 0.026 \\
+n = &amp; 100
 \end{align}
 \]</span></p>
 <p><strong>Make an appropriate graph to illustrate the data</strong></p>
@@ -797,16 +797,16 @@ R Instructions
 <div class="Software">
 <p>Do the following:</p>
 <ul>
-<li>Read in the <a href="./Data/BLEU-Scores.xlsx">BLEU-Scores</a> data if you haven’t already.</li>
+<li>Read in the <a href="./Data/bleu.xlsx">bleu.xlsx</a> data if you haven’t already.</li>
 <li>Run a One-sample t-test using <code>t.test(...)</code>. (Confidence intervals don’t require a null hypothesis.)</li>
-<li>To set the confidence level use <code>t.test(..., conf.level=0.95)</code> or 0.99, or 0.90.</li>
+<li>To set the confidence level use <code>t.test(..., conf.level = 0.95)</code> or 0.99, or 0.90.</li>
 </ul>
-<p>In this case, we are using a 95% confidence level. So, you set <code>t.test(..., conf.level=0.95)</code>. The only part of the output below that we will consider is the “95 percent confidence interval:” and the “mean of x” output.</p>
-<pre class="r"><code>t.test(BLEU_Scores$BLEU, conf.level=0.95)</code></pre>
+<p>In this case, we are using a 95% confidence level. So, you set <code>t.test(..., conf.level = 0.95)</code>. The only part of the output below that we will consider is the “95 percent confidence interval:” and the “mean of x” output.</p>
+<pre class="r"><code>t.test(bleu$score, conf.level = 0.95)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  BLEU_Scores$BLEU
+data:  bleu$score
 t = 109.09, df = 99, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
@@ -818,24 +818,24 @@ mean of x
 </div>
 <p><br></p>
 <p>The 95% confidence interval for the true mean BLEU score is:</p>
-<p><span class="math display">\[(0.282, 0.293)\]</span> where 0.282 is the lower-bound of the confidence interval and 0.293 is the upper-bound of the confidence interval.</p>
-<p><a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations</span></a> <br></p>
+<p><span class="math display">\[(0.282, 0.293)\]</span> where 0.282 is the lower-bound and 0.293 is the upper-bound of the confidence interval.</p>
+<p><a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations (Optional)</span></a> <br></p>
 <div id="hc" style="display:none;">
 <p>The formula for the confidence interval where <span class="math inline">\(\sigma\)</span> is known was given in the reading titled <a href="Lesson10.html">Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)</a> as <span class="math display">\[
 \left( \bar x - z^* \frac{\sigma}{\sqrt{n}}, ~ \bar x + z^* \frac{\sigma}{\sqrt{n}} \right)
 \]</span> It is impossible to know the true standard deviation of the BLEU scores for a new translation program like Pharaoh. Replacing <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s\)</span> and replacing <span class="math inline">\(z^*\)</span> with <span class="math inline">\(t^*\)</span>, we get: <span class="math display">\[
 \left( \bar x - t^* \frac{s}{\sqrt{n}}, ~ \bar x + t^* \frac{s}{\sqrt{n}} \right)
 \]</span> The value of <span class="math inline">\(t^*\)</span> depends on the level of confidence and the sample size. It must be computed using software or looked up on a table. If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of <span class="math inline">\(t^*\)</span> can be calculated with</p>
-<pre class="r"><code>qt(1-0.05/2, df=99)</code></pre>
+<pre class="r"><code>qt(1-0.05/2, df = 99)</code></pre>
 <pre><code>## [1] 1.984217</code></pre>
-<p>where the <code>0.05</code> is the significance level <span class="math inline">\(\alpha\)</span>, and the <code>df=</code> is the degrees of freedom, which is <span class="math inline">\(n-1\)</span>.</p>
+<p>where the <code>0.05</code> is the significance level <span class="math inline">\(\alpha\)</span>, and the <code>df =</code> is the degrees of freedom, which is <span class="math inline">\(n-1\)</span>.</p>
 <p>The other numbers (<span class="math inline">\(\bar x\)</span>, <span class="math inline">\(s\)</span>, and <span class="math inline">\(n\)</span>) can all be obtained directly from your data.</p>
 <p>If we want to create a 95% confidence interval for <span class="math inline">\(\mu\)</span>, with 99 degrees of freedom, then <span class="math inline">\(t^* = 1.9842\)</span>.</p>
 <p>Using the sample statistics: <span class="math display">\[
 \begin{align}
-\bar x =&amp; 0.2876 \\
-s =&amp; 0.0264 \\
-n =&amp; 100
+\bar x = &amp; 0.2876 \\
+s = &amp; 0.0264 \\
+n = &amp; 100
 \end{align}
 \]</span></p>
 <p>The 95% confidence interval for <span class="math inline">\(\mu\)</span> is: <span class="math display">\[
@@ -853,12 +853,12 @@ n =&amp; 100
 <li><p>A simple random sample was drawn from the population</p>
 <p>All we know is that “a random sample of 100 blocks of Spanish text” were used. We will assume this means they obtained a simple random sample of all possible blocks of Spanish text.</p></li>
 <li><p><span class="math inline">\(\bar x\)</span> is normally distributed</p>
-<p>Recall that this requirement is satisfied if the parent population data are normally distributed or if the sample size is large. Checking a histogram, the sample data look to be bell-shaped and fairly symmetric, but since the sample size is large, (<span class="math inline">\(n=100\)</span>), then the Central Limit Theorem also applies and we can be confident that the sample mean, <span class="math inline">\(\bar x\)</span>, is also approximately normally distributed.</p></li>
+<p>Recall that this requirement is satisfied if the parent population data are normally distributed or if the sample size is large. Checking a histogram, the sample data look to be bell-shaped and fairly symmetric, but since the sample size is large, (<span class="math inline">\(n = 100\)</span>), then the Central Limit Theorem also applies and we can be confident that the sample mean, <span class="math inline">\(\bar x\)</span>, is also approximately normally distributed.</p></li>
 </ol>
 <p><img src="Images/Step5.png"></p>
 <p><strong>Present your observations in an easy to understand sentence, relating the result to the context of the problem</strong></p>
 <p>We are 95% confident that the true mean BLEU score for all translations by the Pharaoh program is between 0.2824 and 0.2928.</p>
-<p>Answer the following questions using the data set <a href="./Data/BLEU-Scores.xslx">BLEU-Scores</a>, which gives the BLEU scores for <span class="math inline">\(n=100\)</span> translations from Spanish to English by the computer program Pharaoh.</p>
+<p>Answer the following questions using the data set <a href="./Data/bleu.xlsx">bleu.xlsx</a>, which gives the BLEU scores for <span class="math inline">\(n = 100\)</span> translations from Spanish to English by the computer program Pharaoh.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -868,11 +868,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
-<pre class="r"><code>t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.90)</code></pre>
+<pre class="r"><code>t.test(bleu$score, mu = 0, conf.level = 0.90)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  BLEU_Scores$BLEU
+data:  bleu$score
 t = 109.09, df = 99, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 90 percent confidence interval:
@@ -890,11 +890,11 @@ mean of x
 </ol>
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-<pre class="r"><code>t.test(BLEU_Scores$BLEU, mu=0, conf.level=0.99)</code></pre>
+<pre class="r"><code>t.test(bleu$score, mu = 0, conf.level = 0.99)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  BLEU_Scores$BLEU
+data:  bleu$score
 t = 109.09, df = 99, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 99 percent confidence interval:
@@ -929,7 +929,7 @@ mean of x
 <p>A group of statisticians measured the weights of 2000 Belgian one Euro coins in eight batches. Each batch contains coins that were all minted together. <!--<cite>JSEeuros</cite>--> You can learn more about these data at: <a href="http://www.amstat.org/publications/jse/datasets/euroweight.txt" target="_blank">http://www.amstat.org/publications/jse/</a></p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file <a href="./Data/EuroWeight.xlsx">EuroWeight.xlsx</a>.</p>
+<p>The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file <a href="./Data/euro.xlsx">euro.xlsx</a>.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -940,22 +940,22 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
-<p>Read in the <a href="./Data/EuroWeight.xlsx">EuroWeight.xlsx</a> data. Then, compute the summary statistics.</p>
-<pre class="r"><code>nrow(EuroWeight) #sample size</code></pre>
-<pre><code>[1] 2000</code></pre>
-<pre class="r"><code>mean(EuroWeight$Weight) #mean</code></pre>
+<p>Read in the <a href="./Data/euro.xlsx">euro.xlsx</a> data. Then, compute the summary statistics.</p>
+<pre class="r"><code>mean(euro$weight)   # sample mean (x-bar)</code></pre>
 <pre><code>[1] 7.521232</code></pre>
-<pre class="r"><code>sd(EuroWeight$Weight) #standard deviation</code></pre>
+<pre class="r"><code>sd(euro$weight)     # sample standard deviation (s)</code></pre>
 <pre><code>[1] 0.03437914</code></pre>
+<pre class="r"><code>length(euro$weight) # sample size (n)</code></pre>
+<pre><code>[1] 2000</code></pre>
 <p><br></p>
 <ul>
 <li>This gives the following summary statistics:</li>
 </ul>
 <p><span class="math display">\[
 \begin{align}
-\bar x =&amp; 7.521 \\
-s =&amp; 0.0344 \\
-n =&amp; 2000
+\bar x = &amp; 7.521 \\
+s = &amp; 0.0344 \\
+n = &amp; 2000
 \end{align}
 \]</span></p>
 </div>
@@ -967,16 +967,16 @@ n =&amp; 2000
 <div id="Q9" style="display:none;">
 <p>Either a histogram or boxplot would be appropriate for graphing this data.</p>
 <p>Note that when creating a histogram, the exact number of bins you use is up to you. The only rule to follow is to have enough bins to get a good feel for the distribution.</p>
-<pre class="r"><code>hist(EuroWeight$Weight, 
+<pre class="r"><code>hist(euro$weight, 
      col=&quot;coral&quot;,
      xlab=&quot;Weight in grams&quot;, 
      main=&quot;Coins from a Bank in Belgium&quot;,
-     breaks=50)</code></pre>
+     breaks = 50)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <pre class="r"><code>#since the sampe size was large, 
 #we can use a lot of &quot;bins&quot; or &quot;breaks&quot; in the graph.</code></pre>
 <p>With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.</p>
-<pre class="r"><code>boxplot(EuroWeight$Weight, xlab=&quot;Weight in grams&quot;, main=&quot;Coins from a Bank in Belgium&quot;, col=&quot;coral&quot;, horizontal=TRUE)</code></pre>
+<pre class="r"><code>boxplot(euro$weight, xlab=&quot;Weight in grams&quot;, main=&quot;Coins from a Bank in Belgium&quot;, col=&quot;coral&quot;, horizontal = TRUE)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.</p>
 </div>
@@ -990,7 +990,7 @@ n =&amp; 2000
 <li><p>A simple random sample was drawn from the population</p>
 <p>The coins were taken in batches, but we can think of the batches as a random sample of the possible coins that could be chosen.</p></li>
 <li><p><span class="math inline">\(\bar x\)</span> is normally distributed</p>
-<p>The data follow a bell-shaped distribution. There are a few potential outliers, but they are not too frequent, and the sample size is <span class="math inline">\(n=2000\)</span>, which is very large, so we can conclude that <span class="math inline">\(\bar x\)</span> is also normally distributed.</p></li>
+<p>The data follow a bell-shaped distribution. There are a few potential outliers, but they are not too frequent, and the sample size is <span class="math inline">\(n = 2000\)</span>, which is very large, so we can conclude that <span class="math inline">\(\bar x\)</span> is also normally distributed.</p></li>
 </ol>
 <div class="QuestionsHeading">
 Answer the following question:
@@ -1001,11 +1001,11 @@ Answer the following question:
 </ol>
 <a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
-<pre class="r"><code>t.test(EuroWeight$Weight, mu=0, conf.level=0.99)</code></pre>
+<pre class="r"><code>t.test(euro$weight, mu = 0, conf.level = 0.99)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  EuroWeight$Weight
+data:  euro$weight
 t = 9783.8, df = 1999, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 99 percent confidence interval:
@@ -1047,10 +1047,10 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p>In practice we rarely know the true standard deviation <span class="math inline">\(\sigma\)</span> and will therefore be unable to calculate a z-score. <strong>Student’s t-distribution</strong> gives us a new test statistic, <span class="math inline">\(t\)</span>, that is calculated using the sample standard deviation (<span class="math inline">\(s\)</span>) instead. <span class="math display">\[\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }\]</span></p></li>
-<li><p>The <span class="math inline">\(t\)</span>-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the <span class="math inline">\(t\)</span>-distribution depends on the <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong>. <span class="math display">\[df=n-1\]</span></p></li>
+<li><p>In practice we rarely know the true standard deviation <span class="math inline">\(\sigma\)</span> and will therefore be unable to calculate a z-score. <strong>Student’s t-distribution</strong> gives us a new test statistic, <span class="math inline">\(t\)</span>, that is calculated using the sample standard deviation (<span class="math inline">\(s\)</span>) instead. <span class="math display">\[\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }\]</span> You will never need to compute the <span class="math inline">\(t\)</span>-statistic by hand, because R will provide it.</p></li>
+<li><p>The <span class="math inline">\(t\)</span>-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the <span class="math inline">\(t\)</span>-distribution depends on the <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong>. <span class="math display">\[df = n-1\]</span></p></li>
+<li><p>You will use R to carry out hypothesis testing and create confidence intervals involving <span class="math inline">\(t\)</span>-distributions by using the <code>t.test(...)</code> function which follows the general format of <code>t.test(dataSetName$columnName, mu = , alternative = , conf.level = )</code> where <code>mu =</code> the value from the null hypothesis, <code>alternative =</code> either “two.sided”, “less”, or “greater”, and <code>conf.level =</code> 0.95, 0.99, or 0.90.</p></li>
 </ul>
-<p>*You will use R to carry out hypothesis testing and create confidence intervals involving <span class="math inline">\(t\)</span>-distributions by using the <code>t.test(...)</code> function which follows the general format of <code>t.test(dataSetName$columnName, mu= , alternative= , conf.level= )</code> where <code>mu=</code> some number, <code>alternative=</code> either “two.sided”, “less”, or “greater”, and <code>conf.level=</code> 0.95, 0.99, or 0.90.</p>
 <p><br/></p>
 </div>
 <p><br></p>
