@@ -89,6 +89,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [dentist_office_bills.xlsx](./Data/dentist_office_bills.xlsx) </td> <td> tinyurl.com/M221-dentist-bills </td> </tr>
 
+<tr> <td> [diabetes_depression.xlsx](./Data/diabetes_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
+
 <tr> <td> [direct_flight_costs.xlsx](./Data/direct_flight_costs.xlsx) </td> <td> tinyurl.com/M221-direct-flight-costs </td> </tr>
 
 <tr> <td> [dissolved_organic_carbon.xlsx](./Data/dissolved_organic_carbon.xlsx) </td> <td> tinyurl.com/M221-dissolved-carbon </td> </tr>
@@ -128,8 +130,6 @@ Links to data files used throughout the course:
 <tr> <td> [illinois_birth_weights.xlsx](./Data/illinois_birth_weights.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt </td> </tr>
 
 <tr> <td> [illinois_birth_weights_two_var.xlsx](./Data/illinois_birth_weights_two_var.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt-2 </td> </tr>
-
-<tr> <td> [insulin_resistance_depression.xlsx](./Data/insulin_resistance_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
 
 <tr> <td> [jse_hats.xlsx](./Data/jse_hats.xlsx) </td> <td> tinyurl.com/M221-jse-hats </td> </tr>
 
