@@ -666,7 +666,7 @@ $$
 Once the level of confidence is selected, $z^*$ is automatically determined. In practice, the most common level of confidence is 95%, which means that $z^*$ would equal 1.96.
 
 <br>
-<div class="message Note">If you need a reminder on finding the value of $z^*$, click [here](#z).</div>
+<div class="message Note">If you need a reminder on finding the value of $z^*$, [click here](#z).</div>
 <br>
 <br>
 
