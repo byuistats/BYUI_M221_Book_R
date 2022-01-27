@@ -41,6 +41,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [bone_mineral.xlsx](./Data/bone_mineral.xlsx) </td> </tr>
 
+<tr> <td> [bp_placebo.xlsx](./Data/bp_placebo.xlsx) </td>  </tr>
+
 <tr> <td> [car_prices.xlsx](./Data/car_prices.xlsx) </td> <td> tinyurl.com/M221-car-prices </td> </tr>
 
 <tr> <td> [cardiac_arrest.xlsx](./Data/cardiac_arrest.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
