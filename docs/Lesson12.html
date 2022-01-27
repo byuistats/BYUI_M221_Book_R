@@ -13,8 +13,8 @@
 
 <title>Lesson 12: Inference for Two Means: Paired Data</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -407,12 +407,12 @@ $(document).ready(function () {
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width=40%;">
+<div style="float:right;width = 40%;">
 <br/>
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <div id="lesson-outcomes" class="section level2">
@@ -452,7 +452,7 @@ $(document).ready(function () {
 <div id="mahons-weight-loss-study" class="section level3">
 <h3>Mahon’s Weight Loss Study</h3>
 <p><strong>Background</strong></p>
-<p>Annie Mahon and other researchers in Wayne Campbell’s nutrition lab studied the weight loss of <span class="math inline">\(n=27\)</span> middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>--> The women’s weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file <a href="./Data/Mahon.xlsx">Mahon.xlsx</a>. An excerpt of the data is shown below.</p>
+<p>Annie Mahon and other researchers in Wayne Campbell’s nutrition lab studied the weight loss of <span class="math inline">\(n = 27\)</span> middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>--> The women’s weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file <a href="./Data/weight_loss.xlsx">weight_loss.xlsx</a>. An excerpt of the data is shown below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -773,17 +773,16 @@ Difference in Weight (kg)
 R Instructions
 </div>
 <div class="Software">
-<p>To compute the <em>differences</em> within each paired set of measurements in R, begin by reading in the <a href="./Data/Mahon.xlsx">Mahon.xlsx</a> data into RStudio. (If you need a reminder on how to read in data, <a href="RHelp.html#reading-in-data">click here</a>.)</p>
+<p>To compute the <em>differences</em> within each paired set of measurements in R, begin by reading in the <a href="./Data/weight_loss.xlsx">weight_loss.xlsx</a> data into RStudio. (If you need a reminder on how to read in data, <a href="RHelp.html#reading-in-data">click here</a>.)</p>
 <p>Then, calculate the <em>differences</em> using the assignment operator <code>&lt;-</code> and the selection operator <code>$</code>:</p>
-<pre class="r"><code>differences &lt;- Mahon$Post - Mahon$Pre</code></pre>
+<pre class="r"><code>weight_loss$differences &lt;- weight_loss$post - weight_loss$pre</code></pre>
 <p>Here we chose the order Post - Pre so that a positive difference would show an increase in weight (kg) from Pre-Weight to Post-Weight and a negative difference would show a decrease in weight (kg) from Pre-Weight to Post-Weight. Thus, a negative difference means the woman lost weight. This is usually the preferred order of subtraction with “Post vs. Pre” studies.</p>
 <p>Once the differences are computed, we can compute the mean, median, standard deviation and so on using codes like the following.</p>
-<pre class="r"><code>summary(differences) #mean and five-number summary</code></pre>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--13.600  -8.900  -6.700  -6.804  -4.200  -1.600 </code></pre>
-<pre class="r"><code>sd(differences) #standard deviation</code></pre>
+<pre class="r"><code>mean(weight_loss$differences)   # sample mean </code></pre>
+<pre><code>[1] -6.803704</code></pre>
+<pre class="r"><code>sd(weight_loss$differences)     # sample standard deviation</code></pre>
 <pre><code>[1] 3.172051</code></pre>
-<pre class="r"><code>length(differences) #sample size</code></pre>
+<pre class="r"><code>length(weight_loss$differences) # sample size</code></pre>
 <pre><code>[1] 27</code></pre>
 <p>So we find that</p>
 <p><span class="math display">\[
@@ -791,7 +790,7 @@ R Instructions
   s_d = 3.172 \\
   n = 27
 \]</span> To make a histogram of the differences we use the code:</p>
-<pre class="r"><code>hist(differences, 
+<pre class="r"><code>hist(weight_loss$differences, 
      col=&quot;wheat2&quot;,
      xlab=&quot;Weight Change in Kilograms (Post - Pre)&quot;,
      main=&quot;Weight Loss Study&quot;) </code></pre>
@@ -808,11 +807,183 @@ Answer the following questions:
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <p>The first difference is found by printing the differences to the screen and looking at the first value. Do this by simply typing the name of the object “differences.”</p>
-<pre class="r"><code>differences</code></pre>
-<pre><code> [1]  -6.4  -8.6  -3.9  -1.6  -9.0 -10.0  -5.1  -8.8  -4.2  -4.4  -4.7 -10.8
-[13]  -5.9 -13.6  -3.8  -6.9  -2.8 -13.0  -8.4  -8.1  -9.5  -3.8  -6.8 -10.2
-[25]  -6.7  -2.5  -4.2</code></pre>
-<p>The first difference is -6.4. So, the first woman included in the study lost 6.4 kg during the course of the study.</p>
+<pre class="r"><code>library(knitr)
+kable(weight_loss)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">subject</th>
+<th align="right">pre</th>
+<th align="right">post</th>
+<th align="right">differences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">62.5</td>
+<td align="right">56.1</td>
+<td align="right">-6.4</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">88.8</td>
+<td align="right">80.2</td>
+<td align="right">-8.6</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">74.7</td>
+<td align="right">70.8</td>
+<td align="right">-3.9</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">98.6</td>
+<td align="right">97.0</td>
+<td align="right">-1.6</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">78.1</td>
+<td align="right">69.1</td>
+<td align="right">-9.0</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">73.8</td>
+<td align="right">63.8</td>
+<td align="right">-10.0</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">87.0</td>
+<td align="right">81.9</td>
+<td align="right">-5.1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">62.1</td>
+<td align="right">53.3</td>
+<td align="right">-8.8</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">60.7</td>
+<td align="right">56.5</td>
+<td align="right">-4.2</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">76.2</td>
+<td align="right">71.8</td>
+<td align="right">-4.4</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">81.3</td>
+<td align="right">76.6</td>
+<td align="right">-4.7</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">79.4</td>
+<td align="right">68.6</td>
+<td align="right">-10.8</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">89.9</td>
+<td align="right">84.0</td>
+<td align="right">-5.9</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">71.8</td>
+<td align="right">58.2</td>
+<td align="right">-13.6</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">73.7</td>
+<td align="right">69.9</td>
+<td align="right">-3.8</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">80.1</td>
+<td align="right">73.2</td>
+<td align="right">-6.9</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">64.2</td>
+<td align="right">61.4</td>
+<td align="right">-2.8</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">78.9</td>
+<td align="right">65.9</td>
+<td align="right">-13.0</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="right">61.9</td>
+<td align="right">53.5</td>
+<td align="right">-8.4</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">79.2</td>
+<td align="right">71.1</td>
+<td align="right">-8.1</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
+<td align="right">77.6</td>
+<td align="right">68.1</td>
+<td align="right">-9.5</td>
+</tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="right">66.9</td>
+<td align="right">63.1</td>
+<td align="right">-3.8</td>
+</tr>
+<tr class="odd">
+<td align="right">23</td>
+<td align="right">77.0</td>
+<td align="right">70.2</td>
+<td align="right">-6.8</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="right">99.6</td>
+<td align="right">89.4</td>
+<td align="right">-10.2</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="right">73.9</td>
+<td align="right">67.2</td>
+<td align="right">-6.7</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="right">76.3</td>
+<td align="right">73.8</td>
+<td align="right">-2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">27</td>
+<td align="right">82.1</td>
+<td align="right">77.9</td>
+<td align="right">-4.2</td>
+</tr>
+</tbody>
+</table>
+<p>The first difference is <span class="math inline">\(-6.4\)</span>. So, the first woman included in the study lost 6.4 kg during the course of the study.</p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -857,7 +1028,7 @@ Answer the following questions:
 <p><strong>State the null and alternative hypotheses and the level of significance</strong></p>
 <p><span class="math display">\[
 \begin{align}
-H_0: &amp;~~ \mu_d=0 \\
+H_0: &amp;~~ \mu_d = 0 \\
 H_a: &amp;~~ \mu_d &lt; 0
 \end{align}
 \]</span></p>
@@ -867,13 +1038,13 @@ H_a: &amp;~~ \mu_d &lt; 0
 <p>The women’s weights were recorded at the beginning of the study. The women were provided a reduced calorie diet for nine weeks. Then, their weights were measured again at the end of the study. A calibrated scale was used to provide an accurate weight.</p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>From the R output demonstrated previously, we can see a histogram of the data and get the following numerical summaries:</p>
 <p><span class="math display">\[
 \begin{align}
-\bar d &amp;= -6.804 \\
-s_d &amp;= 3.172 \\
-n &amp;= 27
+\bar d &amp; = -6.804 \\
+s_d &amp; = 3.172 \\
+n &amp; = 27
 \end{align}
 \]</span></p>
 <p><img src="Images/Step4.png"></p>
@@ -885,7 +1056,7 @@ n &amp;= 27
 <p>The subjects were recruited via advertisements for a research study. The participants volunteered to participate. It is not a simple random sample of all middle-aged women, so there could be some selection bias of the sample that would invalidate the results, but there is nothing obvious about how the participants were selected to immediately invalidate the results.</p>
 <p>From a practical perspective, it is impossible to get a simple random sample of people in the general population. When research trials are conducted, people must volunteer to participate. This can lead to a selection bias, but is the accepted practice.</p></li>
 <li><p><strong>the mean of the differences <span class="math inline">\(\bar{d}\)</span> follows a normal distribution</strong></p>
-<p>We will assume the requirement of normality of <span class="math inline">\(\bar{d}\)</span> is satisfied for Mahon’s data. Though the sample size (n=27) is not quite up to 30, the histogram of differences looks fairly normal, so <span class="math inline">\(\bar d\)</span> will be approximately normal and the requirement is satisfied. If the data had been highly skewed, or there was a more pronounced bimodal pattern in the histogram, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test.</p></li>
+<p>We will assume the requirement of normality of <span class="math inline">\(\bar{d}\)</span> is satisfied for Mahon’s data. Though the sample size (n = 27) is not quite up to 30, the histogram of differences looks fairly normal, so <span class="math inline">\(\bar d\)</span> will be approximately normal and the requirement is satisfied. If the data had been highly skewed, or there was a more pronounced bimodal pattern in the histogram, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test.</p></li>
 </ul>
 <p><strong>Give the test statistic and its value</strong></p>
 </div>
@@ -896,12 +1067,12 @@ R Instructions
 </div>
 <div class="Software">
 <p>To perform a paired samples t test in R, first compute the <em>differences</em> within each paired set of measurements in R as was <a href="Lesson12.html#r-instructions-for-computing-paired-differences">shown previously</a>.</p>
-<p>Then, run a t test on the differences. Since the null hypothesis for the Mahon Weight Loss study was <span class="math inline">\(H_0: \mu_d = 0\)</span>, we use <code>t.test(..., mu=0)</code>. Since the alternative hypothesis was that <span class="math inline">\(H_a: \mu_d &lt; 0\)</span>, we use the code <code>t.test(..., alternative="less")</code>. Putting this all together we have the following.</p>
-<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;less&quot;)</code></pre>
+<p>Then, run a t test on the differences. Since the null hypothesis for the Mahon Weight Loss study was <span class="math inline">\(H_0: \mu_d = 0\)</span>, we use <code>t.test(..., mu = 0)</code>. Since the alternative hypothesis was that <span class="math inline">\(H_a: \mu_d &lt; 0\)</span>, we use the code <code>t.test(..., alternative = "less")</code>. Putting this all together we have the following.</p>
+<pre class="r"><code>t.test(weight_loss$differences, mu = 0, alternative = &quot;less&quot;)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  differences
+data:  weight_loss$differences
 t = -11.145, df = 26, p-value = 1.059e-11
 alternative hypothesis: true mean is less than 0
 95 percent confidence interval:
@@ -911,7 +1082,7 @@ mean of x
 -6.803704 </code></pre>
 </div>
 <p><br></p>
-<p>The test statistic for a test involving paired data when <span class="math inline">\(\sigma\)</span> is unknown is a <span class="math inline">\(t\)</span>. For this situation, the value is: <span class="math display">\[t= \frac{-6.804 - 0}{3.17/\sqrt{27}} =-11.145\]</span> See that this calculation matches the test statistic given in the R output. The degrees of freedom and p-value can also be found in the R output.</p>
+<p>The test statistic for a test involving paired data when <span class="math inline">\(\sigma\)</span> is unknown is a <span class="math inline">\(t\)</span>. For this situation, the value is: <span class="math display">\[t = \frac{-6.804 - 0}{3.17/\sqrt{27}} = -11.145\]</span> See that this calculation matches the test statistic given in the R output. The degrees of freedom and p-value can also be found in the R output.</p>
 <p><strong>State the degrees of freedom</strong></p>
 <p>The degrees of freedom are one less than the sample size. They are also shown automatically in the output of the test results.</p>
 <p><span class="math display">\[df = n - 1 = 27 - 1 = 26\]</span></p>
@@ -928,7 +1099,7 @@ P\text{-value} = 1.059 \times 10^{-11} &lt; 0.05 = \alpha
 </div>
 <div id="nosocomial-infections" class="section level3">
 <h3>Nosocomial Infections</h3>
-<p><span id="17:IntroToNosocomialInfections"></span></p>
+<p><span id="17:IntroTohospital_infections"></span></p>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Matched-pairs designs are not just used in pre- and post-test situations. They are also used in situations where it is not possible to randomly assign subjects to treatment groups because of ethical reasons. For example, nosocomial (pronounced: NO-suh-KOH-MEE-uhl) infections are infections that occur in hospitals, but are not a result of the original condition. An example of a nosocomial infection is when a heart attack patient develops a staph infection at the site of an IV injection. The infection was not caused by the heart attack, but it was acquired in the hospital. Nosocomial infections are very dangerous and may result in longer recovery times or increased death rates.</p>
@@ -936,9 +1107,9 @@ P\text{-value} = 1.059 \times 10^{-11} &lt; 0.05 = \alpha
 <p>Health care providers suspect that nosocomial infections increase the amount of time required to recover from an illness or injury. In controlled experiments, subjects (e.g., patients) are randomly assigned to treatments. However, it is not ethical to give patients a nosocomial infection in order to determine if it increases the duration of their hospital stay! At best, we can collect information on the duration of hospital stays for patients who acquire nosocomial infections and compare them to the duration of the stays for patients who do not.</p>
 <p>There are many factors that affect the amount of time that a patient will need to stay in the hospital, including: nature of illness, types of procedures conducted, overall health, gender, age, etc. How can health care practitioners assess the effect of a nosocomial infection in the presence of so many other variables?</p>
 <p>One way is to match a patient who develops a nosocomial infection with another one who has similar characteristics (illness, procedures, health, gender, age group, etc.) but does not develop a nosocomial infection. Now, the patients are matched into pairs with similar characteristics, where the principle difference between the members of each pair is whether or not they acquired a nosocomial infection.</p>
-<p>By pairing the patients according to specific characteristics, the researchers can now subtract to observe a difference in their recovery times. In this way, it is possible to assess if nosocomial infections increase the mean duration of a hospital stay. Some researchers conducted such a study in which 52 pairs of patients were matched based on clinical characteristics. A patient with a nosocomial infection was matched as closely as possible to a similar case where there was no nosocomial infection. Patients who died were excluded from the study <!--<cite>Vegas93</cite>-->. The lengths of the hospital stays (in days) for these patients are given in the file <a href="./Data/NosocomialInfections.xlsx">NosocomialInfections.xlsx</a>.</p>
+<p>By pairing the patients according to specific characteristics, the researchers can now subtract to observe a difference in their recovery times. In this way, it is possible to assess if nosocomial infections increase the mean duration of a hospital stay. Some researchers conducted such a study in which 52 pairs of patients were matched based on clinical characteristics. A patient with a nosocomial infection was matched as closely as possible to a similar case where there was no nosocomial infection. Patients who died were excluded from the study <!--<cite>Vegas93</cite>-->. The lengths of the hospital stays (in days) for these patients are given in the file <a href="./Data/hospital_infections.xlsx">hospital_infections.xlsx</a>.</p>
 <p>The difference, <span class="math inline">\(d\)</span>, is defined as the duration of the hospital stay of the individual in the pair with the nosocomial infection minus the duration of the stay for the individual who did not get a nosocomial infection: <span class="math display">\[
-Difference=Infected - NotInfected
+difference = infected - not_infected
 \]</span> After computing the differences, we do not use the data for the individual groups anymore. In fact, after we subtract, the hypothesis test is conducted (essentially) like a one-sample test for a single mean with <span class="math inline">\(\sigma\)</span> unknown.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -949,7 +1120,7 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
-<p>The null hypothesis for paired data will always use <span class="math inline">\(\mu_d = 0\)</span>. In this study, we want to know if the nosocomial infections are <em>increasing</em> the length of stay of patients. Since we defined the differences as <span class="math inline">\(Infected - NotInfected\)</span> then the alternative hypothesis needs to show <span class="math inline">\(Infected\)</span> having longer durations than those who are <span class="math inline">\(NotInfected\)</span>, leading to the Differences being positive, i.e., <span class="math inline">\(\mu_d &gt; 0\)</span>.</p>
+<p>The null hypothesis for paired data will always use <span class="math inline">\(\mu_d = 0\)</span>. In this study, we want to know if the nosocomial infections are <em>increasing</em> the length of stay of patients. Since we defined the differences as <span class="math inline">\(infected - not_infected\)</span> then the alternative hypothesis needs to show <span class="math inline">\(infected\)</span> having longer durations than those who are <span class="math inline">\(not_infected\)</span>, leading to the Differences being positive, i.e., <span class="math inline">\(\mu_d &gt; 0\)</span>.</p>
 <center>
 <span class="math display">\[
 \begin{align}
@@ -993,21 +1164,20 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
-<p>Recall that the differences <span class="math inline">\(d\)</span> in the duration of the patient’s stay in the hospital were decided to be computed in the order, <span class="math inline">\(differences = Infected - Notinfected\)</span>.</p>
-<pre class="r"><code>differences &lt;- NosocomialInfections$Infected - NosocomialInfections$NotInfected</code></pre>
+<p>Recall that the differences <span class="math inline">\(d\)</span> in the duration of the patient’s stay in the hospital were decided to be computed in the order, <span class="math inline">\(differences = infected - not_infected\)</span>.</p>
+<pre class="r"><code>hospital_infections$differences &lt;- hospital_infections$infected - hospital_infections$not_infected</code></pre>
 <p>The numerical summaries are then computed by</p>
-<pre class="r"><code>summary(differences)</code></pre>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- -22.00    2.00   11.50   11.38   19.50   39.00 </code></pre>
-<pre class="r"><code>sd(differences)</code></pre>
-<pre><code>[1] 13.83255</code></pre>
-<pre class="r"><code>length(differences)</code></pre>
-<pre><code>[1] 52</code></pre>
+<pre class="r"><code>mean(hospital_infections$differences)</code></pre>
+<pre><code>[1] NA</code></pre>
+<pre class="r"><code>sd(hospital_infections$differences)</code></pre>
+<pre><code>[1] NA</code></pre>
+<pre class="r"><code>length(hospital_infections$differences)</code></pre>
+<pre><code>[1] 56</code></pre>
 <p><span class="math display">\[
 \begin{align}
-\bar d &amp;= 11.38 \\
-s_d &amp;= 13.83 \\
-n &amp;= 52
+\bar d &amp; = 11.38 \\
+s_d &amp; = 13.83 \\
+n &amp; = 52
 \end{align}
 \]</span></p>
 </div>
@@ -1020,8 +1190,8 @@ n &amp;= 52
 <ul>
 <li>Present a graph showing the differences.</li>
 </ul>
-<pre class="r"><code>hist(differences, main=&quot;Matched Pairs Study \n Nosocomial Infections&quot;, xlab=&quot;Difference in Hospital Stay (Infected - Notinfected)&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>hist(hospital_infections$differences, main=&quot;Matched Pairs Study \n Nosocomial Infections&quot;, xlab=&quot;Difference in Hospital Stay (infected - not_infected)&quot;)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1040,7 +1210,7 @@ Answer the following questions:
 <li><p>Requirement: <strong>A simple random sample was drawn from the population.</strong></p>
 <p>As explained previously, the data represent a convenience sample of patients, who have been matched based on their overall health and their current ailment. In fact, if we go back to the original research article and read, we find that they were college students Dr. Wayne Campbell recruited for his protein study. They were people that were willing to endure the conditions of the study for 3 months for $600. So we fail the requirement of having a simple random sample, but we will pretend that this group of people is representative of the entire adult population in the U.S.</p></li>
 <li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
-<p>The sample size is large (<span class="math inline">\(n=52\)</span>), so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed by virtue of the Central Limit Theorem.</p></li>
+<p>The sample size is large (<span class="math inline">\(n = 52\)</span>), so the mean of the differences <span class="math inline">\(\bar d\)</span> will be approximately normally distributed by virtue of the Central Limit Theorem.</p></li>
 </ul>
 </div>
 <p><br></p>
@@ -1052,11 +1222,11 @@ Answer the following questions:
 <ul>
 <li>The test statistic for a test for two means with paired data is a <span class="math inline">\(t\)</span>.</li>
 </ul>
-<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;greater&quot;)</code></pre>
+<pre class="r"><code>t.test(hospital_infections$differences, mu = 0, alternative = &quot;greater&quot;)</code></pre>
 <pre><code>## 
 ##  One Sample t-test
 ## 
-## data:  differences
+## data:  hospital_infections$differences
 ## t = 5.935, df = 51, p-value = 1.296e-07
 ## alternative hypothesis: true mean is greater than 0
 ## 95 percent confidence interval:
@@ -1087,7 +1257,7 @@ df = 51
 <p>The p-value can be found in the R output. As a reminder, scientific notation of <span class="math inline">\(1.296e^{-7}\)</span> is equivalent to <span class="math inline">\(1.296 \times 10^{-7}\)</span>. The <span class="math inline">\(-7\)</span> tells us to move the decimal place to the left seven times, causing the number to change from <span class="math inline">\(1.296\)</span> to <span class="math inline">\(0.0000001296\)</span>. So, translating what the R output gave us gives</p>
 <center>
 <span class="math display">\[
-P\textrm{-value}= 1.296e^{-7} = 0.0000001296 &lt; 0.05 = \alpha
+P\textrm{-value} = 1.296e^{-7} = 0.0000001296 &lt; 0.05 = \alpha
 \]</span>
 </center>
 </div>
@@ -1137,7 +1307,7 @@ Answer the following questions:
 <p>Obesity is a growing problem worldwide. Many scientists are seeking creative solutions to trim down this epidemic. Reduced energy expenditure is a potential cause of obesity.</p>
 <p>Resting Energy Expenditure (REE) is defined as the amount of energy a person would use if resting for 24 hours. In essence, this is the amount of energy that a person’s body will consume if they do not do any physical activity. REE is measured in terms of kilo-Joules per day (kJ/d).</p>
 <p>REE accounts for approximately 70 to 80% of all energy that a person will expend in a day. <!--<cite>Carlsson05</cite>--> If researchers can find simple, enjoyable activities that will increase REE, it may be possible to minimize the spread of obesity around the world.</p>
-<p>Ebba Carlsson and other researchers in Sweden investigated whether listening to stressful classical music increases a person’s REE. <!--<cite>Carlsson05</cite>--> Each subject’s REE was measuring during silence and again while listening to stressful classical music. Data representing their results are given in the file <a href="./Data/REE-ClassicalMusic.xlsx">REE-ClassicalMusic</a>.</p>
+<p>Ebba Carlsson and other researchers in Sweden investigated whether listening to stressful classical music increases a person’s REE. <!--<cite>Carlsson05</cite>--> Each subject’s REE was measuring during silence and again while listening to stressful classical music. Data representing their results are given in the file <a href="./Data/ree.xlsx">ree.xlsx</a>.</p>
 <p>Notice that this is not a pre- and post-test, but it is still a test involving paired data. Two REE measurements were made for each subject: (1) in silence (<span class="math inline">\(REE_1\)</span>) and (2) while listening to stressful classical music (<span class="math inline">\(REE_2\)</span>).</p>
 <p><strong>State the null and alternative hypotheses and the level of significance</strong></p>
 <p>Since we are testing for an increase in the mean REE, we let <span class="math inline">\(d = REE_2 - REE_1\)</span>. Our alternative hypothesis will be that <span class="math inline">\(\mu_d &gt; 0\)</span>. The null and alternative hypotheses are: <span class="math display">\[
@@ -1164,7 +1334,7 @@ Answer the following questions:
 <li>If the REE is higher while listening to classical music than while resting in silence, we would expect the value of the difference to be positive. In other words the following difference would tend to be positive:</li>
 </ul>
 <p><span class="math display">\[
-Difference = Stressful - Silence
+difference stressful - silence
 \]</span></p>
 </div>
 <p><br></p>
@@ -1173,9 +1343,9 @@ Difference = Stressful - Silence
 </ol>
 <a href="javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q17" style="display:none;">
-<p>First, read in the <a href="./Data/REE-ClassicalMusic.xlsx">REE-ClassicalMusic</a> data into RStudio.</p>
+<p>First, read in the <a href="./Data/ree.xlsx">ree.xlsx</a> data into RStudio.</p>
 <p>Then, compute the differences by</p>
-<pre class="r"><code>differences &lt;- REE_ClassicalMusic$Stressful - REE_ClassicalMusic$Silence</code></pre>
+<pre class="r"><code>differences &lt;- REE_ClassicalMusic$stressful - REE_ClassicalMusic$silence</code></pre>
 <p>To look at the differences, simply type</p>
 <pre class="r"><code>differences</code></pre>
 <pre><code> [1]   50  240   80  -30  110 -200  190  180  170  190  130   70 -150  -10  170
@@ -1198,9 +1368,9 @@ Difference = Stressful - Silence
 <pre><code>[1] 159.5024</code></pre>
 <p><span class="math display">\[
 \begin{align}
-n&amp;=40\\
-\bar d &amp;= 20~\text{kJ/d}\\
-s_d &amp;= 159.5~\text{kJ/d}
+n&amp; = 40\\
+\bar d &amp; = 20~\text{kJ/d}\\
+s_d &amp; = 159.5~\text{kJ/d}
 \end{align}
 \]</span></p>
 </div>
@@ -1212,7 +1382,7 @@ s_d &amp;= 159.5~\text{kJ/d}
 <a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
 <pre class="r"><code>hist(differences, main=&quot;Effect of Classical Music on Energy&quot;, xlab=&quot;Resting Energy Expenditure (Stressful - Silence&quot;, col=&quot;orchid&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <p><br></p>
 </div>
@@ -1224,7 +1394,7 @@ s_d &amp;= 159.5~\text{kJ/d}
 <p>We can consider the sample representative of the population even though it was not a simple random sample.<br />
 </p></li>
 <li><p>Requirement: <strong>The sample mean (<span class="math inline">\(\bar{d}\)</span>) is normally distributed.</strong></p>
-<p>Because our sample size (<span class="math inline">\(n=40\)</span>) of differences is greater than 30, we can be sure the sampling distribution of <span class="math inline">\(\bar d\)</span> will be normal by the Central Limit Theorem.</p></li>
+<p>Because our sample size (<span class="math inline">\(n = 40\)</span>) of differences is greater than 30, we can be sure the sampling distribution of <span class="math inline">\(\bar d\)</span> will be normal by the Central Limit Theorem.</p></li>
 </ul>
 <p>The requirements for this test appear to have been satisfied.</p>
 <div class="QuestionsHeading">
@@ -1239,7 +1409,7 @@ Answer the following questions:
 <ul>
 <li>The test statistic for a test for two means with paired data is a <span class="math inline">\(t\)</span>.</li>
 </ul>
-<pre class="r"><code>t.test(differences, mu=0, alternative=&quot;greater&quot;)</code></pre>
+<pre class="r"><code>t.test(differences, mu = 0, alternative = &quot;greater&quot;)</code></pre>
 <pre><code>
     One Sample t-test
 
@@ -1251,7 +1421,7 @@ alternative hypothesis: true mean is greater than 0
 sample estimates:
 mean of x 
        20 </code></pre>
-<p><span class="math display">\[t=0.793\]</span></p>
+<p><span class="math display">\[t = 0.793\]</span></p>
 </div>
 <p><br></p>
 <ol start="21" style="list-style-type: decimal">
@@ -1271,7 +1441,7 @@ df = 39
 <a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q22" style="display:none;">
 <ul>
-<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. "The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output above.</li>
+<li>The test statistic is plotted on the horizontal axis. The degrees of freedom are entered into the top box. “The <span class="math inline">\(P\)</span>-value is shaded in green. The same value can be found in the R output above.</li>
 </ul>
 <center>
 <img src="Images/REE-Applet.png">
@@ -1284,7 +1454,7 @@ df = 39
 <a href="javascript:showhide('Q23')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q23" style="display:none;">
 <center>
-<span class="math inline">\(P\textrm{-value}=0.2163 &gt; 0.1 = \alpha\)</span>
+<span class="math inline">\(P\textrm{-value} = 0.2163 &gt; 0.1 = \alpha\)</span>
 </center>
 <ul>
 <li>Notice that the <span class="math inline">\(P\)</span>-value is half as large for a one-tailed test as it would have been for a two-tailed test. Since we have a one-sided alternative hypothesis, we are only interested in the right tail of the <span class="math inline">\(t\)</span>-distribution.</li>
@@ -1328,7 +1498,7 @@ Answer the following questions:
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Pressures of supply and demand act directly on the prices for an airline ticket. As the seats available on the plane begin to fill, airlines raise the price. If seats on a flight do not sell well, an airline may discount the tickets or even cancel the flight. Business travelers frequently demand travel booked on short notice. They must pay the current price. Typically, tourists book their flights well in advance, hoping to buy tickets before the price rises. We will consider the cost of a one-way ticket from London’s Heathrow Airport to a variety of destinations in Europe.</p>
-<p>Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe. Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance. The prices (in US dollars) are given in the file <a href="./Data/DirectFlightCosts.xlsx">DirectFlightCosts.xlsx</a>. Notice that for some destinations, flights were not available.</p>
+<p>Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe. Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance. The prices (in US dollars) are given in the file <a href="./Data/flight_costs.xlsx">flight_costs.xlsx</a>. Notice that for some destinations, flights were not available.</p>
 <p>The data are paired, because we are measuring the costs twice for each city. The 14-day ticket price is paired with the 90-day price for each city.</p>
 <p>We will conduct a hypothesis test to determine if there is a difference in the cost of the nonstop flights when tickets are purchased 14 days in advance compared to 90 days in advance. We will use the 0.01 level of significance.</p>
 <div class="QuestionsHeading">
@@ -1390,9 +1560,9 @@ Answer the following questions:
 </ul>
 <p><span class="math display">\[
 \begin{align}
-n&amp;=87\\
-\bar d &amp;= 24.612\\
-s_d &amp;= 136.267
+n&amp; = 87\\
+\bar d &amp; = 24.612\\
+s_d &amp; = 136.267
 \end{align}
 \]</span></p>
 <br>
@@ -1407,23 +1577,23 @@ If you defined your difference as the 90-day price minus the 14-day price, then 
 </ol>
 <a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
-<pre class="r"><code>differences &lt;- DirectFlightCosts$FourteenDays - DirectFlightCosts$NinetyDays
+<pre class="r"><code>differences &lt;- flight_costs$fourteen_days - flight_costs$ninety_days
 hist(differences, 
      col=&quot;yellow3&quot;,
      xlab=&quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;,
      main=&quot;Direct Flight Costs&quot;,
-     breaks=30)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+     breaks = 30)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <ul>
 <li>If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram instead:</li>
 </ul>
-<pre class="r"><code>differences &lt;- DirectFlightCosts$NinetyDays - DirectFlightCosts$FourteenDays
+<pre class="r"><code>differences &lt;- flight_costs$ninety_days - flight_costs$fourteen_days
 hist(differences, 
      col=&quot;yellow4&quot;,
      xlab=&quot;Difference in Dollar Cost (90 Days - 14 Days)&quot;,
      main=&quot;Direct Flight Costs&quot;,
-     breaks=30)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+     breaks = 30)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1452,7 +1622,7 @@ Answer the following questions:
 <ul>
 <li>The test statistic for a test for two means with paired data is a <span class="math inline">\(t\)</span>.</li>
 </ul>
-<p><span class="math display">\[t=1.685\]</span></p>
+<p><span class="math display">\[t = 1.685\]</span></p>
 <ul>
 <li>If you computed the difference as the 90-day price minus the 14-day price, the value of your test statistic is <span class="math inline">\(-1.685\)</span>.</li>
 </ul>
@@ -1490,7 +1660,7 @@ df = 86
 <div id="Q34" style="display:none;">
 <center>
 <span class="math display">\[
-P\textrm{-value}= 0.096 &gt; 0.01 = \alpha
+P\textrm{-value} = 0.096 &gt; 0.01 = \alpha
 \]</span>
 </center>
 <p>The <span class="math inline">\(P\)</span>-value will be 0.096, no matter what order you subtracted the values.</p>
@@ -1535,7 +1705,7 @@ Answer the following questions:
 <li>The mean of the differences is normally distributed</li>
 </ul>
 <p>  <img src="Images/StepsAll.png"></p>
-<p><img src="Images/PineBeetleDamage-1441150-LG.png"></p>
+<p><img src="./Images/pine_beetleDamage-1441150-LG.png"></p>
 <div id="mountain-pine-beetle-attacks" class="section level3">
 <h3>Mountain Pine Beetle Attacks</h3>
 <p><img src="Images/Step1.png"></p>
@@ -1549,7 +1719,7 @@ Answer the following questions:
 <ol start="37" style="list-style-type: decimal">
 <li>The mountain pine beetle threatens many forests in the United States. These tiny insects are only 0.5 cm long–about the size of a grain of rice. This photo of a mountain pine beetle is magnified greatly. These little creatures can destroy a large, healthy forest. Can you think of a spiritual parallel?</li>
 </ol>
-<p><img src="Images/MountainPineBeetle2-1306004.png"></p>
+<p><img src="./Images/Mountainpine_beetle2-1306004.png"></p>
 <a href="javascript:showhide('Q37')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q37" style="display:none;">
 <ul>
@@ -1562,7 +1732,7 @@ Answer the following questions:
 <p><br></p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>In a study conducted in the Arapaho National Forest in Colorado, researchers from the USDA Forest Service studied the effect of pine beetle outbreaks on the average number of trees in an area. <!--<cite>Klutsch09</cite>--> The researchers counted the number of established trees per hectare before a pine beetle outbreak and seven years after an outbreak. (One hectare is an area of 100 meters by 100 meters.) Data representative of their observations are given in the file <a href="./Data/PineBeetle.xlsx">PineBeetle.xlsx</a>.</p>
+<p>In a study conducted in the Arapaho National Forest in Colorado, researchers from the USDA Forest Service studied the effect of pine beetle outbreaks on the average number of trees in an area. <!--<cite>Klutsch09</cite>--> The researchers counted the number of established trees per hectare before a pine beetle outbreak and seven years after an outbreak. (One hectare is an area of 100 meters by 100 meters.) Data representative of their observations are given in the file <a href="./Data/pine_beetle.xlsx">pine_beetle.xlsx</a>.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1574,13 +1744,12 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q38')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q38" style="display:none;">
-<pre class="r"><code>summary(PineBeetle$Before)</code></pre>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  894.6   989.2  1029.8  1028.4  1060.0  1195.9 </code></pre>
-<pre class="r"><code>nrow(PineBeetle)</code></pre>
-<pre><code>[1] 170</code></pre>
-<pre class="r"><code>sd(PineBeetle$Before)</code></pre>
+<pre class="r"><code>mean(pine_beetle$before)</code></pre>
+<pre><code>[1] 1028.406</code></pre>
+<pre class="r"><code>sd(pine_beetle$before)</code></pre>
 <pre><code>[1] 57.03149</code></pre>
+<pre class="r"><code>length(pine_beetle$before)</code></pre>
+<pre><code>[1] 170</code></pre>
 <ul>
 <li>The mean, as found in the summary output above, was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare. Note that the values were rounded to two decimal places, since the data were given to one decimal place.</li>
 <li>Answers will vary regarding the description of the density. Here is one possible response.</li>
@@ -1593,13 +1762,12 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q39')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q39" style="display:none;">
-<pre class="r"><code>summary(PineBeetle$After)</code></pre>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  429.9   563.7   596.5   592.9   627.5   687.2 </code></pre>
-<pre class="r"><code>nrow(PineBeetle)</code></pre>
-<pre><code>[1] 170</code></pre>
-<pre class="r"><code>sd(PineBeetle$After)</code></pre>
+<pre class="r"><code>mean(pine_beetle$after)</code></pre>
+<pre><code>[1] 592.8712</code></pre>
+<pre class="r"><code>sd(pine_beetle$after)</code></pre>
 <pre><code>[1] 45.30785</code></pre>
+<pre class="r"><code>length(pine_beetle$after)</code></pre>
+<pre><code>[1] 170</code></pre>
 <ul>
 <li>The mean was 592.87 trees per hectare and the standard deviation was 45.31 trees per hectare.</li>
 <li>Answers will vary regarding the description of the density. Here is one possible response.</li>
@@ -1610,20 +1778,19 @@ Answer the following questions:
 <ol start="40" style="list-style-type: decimal">
 <li>Find the differences by subtracting the “before” counts from the “after” counts:</li>
 </ol>
-<p><span class="math display">\[Difference = After - Before\]</span> <strong>Be careful to match the order of subtraction.</strong></p>
+<p><span class="math display">\[difference = after - before\]</span> <strong>Be careful to match the order of subtraction.</strong></p>
 <ul>
 <li>For these differences, report the mean, the standard deviation, and the sample size.</li>
 </ul>
 <a href="javascript:showhide('Q40')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q40" style="display:none;">
-<pre class="r"><code>differences &lt;- PineBeetle$After - PineBeetle$Before
-summary(differences)</code></pre>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- -517.3  -441.5  -431.4  -435.5  -425.3  -402.6 </code></pre>
-<pre class="r"><code>length(differences)</code></pre>
-<pre><code>[1] 170</code></pre>
-<pre class="r"><code>sd(differences)</code></pre>
+<pre class="r"><code>pine_beetle$differences &lt;- pine_beetle$after - pine_beetle$before
+mean(pine_beetle$differences)</code></pre>
+<pre><code>[1] -435.5347</code></pre>
+<pre class="r"><code>sd(pine_beetle$differences)</code></pre>
 <pre><code>[1] 17.08227</code></pre>
+<pre class="r"><code>length(pine_beetle$differences)</code></pre>
+<pre><code>[1] 170</code></pre>
 <center>
 <strong>Summary Statistics:</strong>
 </center>
@@ -1657,8 +1824,8 @@ summary(differences)</code></pre>
 </ol>
 <a href="javascript:showhide('Q41')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q41" style="display:none;">
-<pre class="r"><code>hist(differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;forestgreen&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre class="r"><code>hist(pine_beetle$differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;forestgreen&quot;)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1674,18 +1841,18 @@ R Instructions
 <div class="Software">
 <p><strong>To calculate confidence intervals for the true mean of the difference in R, do the following</strong>:</p>
 <ul>
-<li>Read in the data to RStudio if you haven’t already: <a href="./Data/PineBeetle.xslx">PineBeetle</a></li>
+<li>Read in the data to RStudio if you haven’t already: <a href="./Data/pine_beetle.xslx">pine_beetle</a></li>
 <li>Compute the differences if you haven’t already:</li>
 </ul>
-<pre class="r"><code>differences &lt;- PineBeetle$After - PineBeetle$Before</code></pre>
+<pre class="r"><code>pine_beetle$differences &lt;- pine_beetle$after - pine_beetle$before</code></pre>
 <ul>
-<li>Use the code <code>t.test(differences, conf.level=0.95)</code> to set the desired confidence level and create the confidence interval.</li>
+<li>Use the code <code>t.test(pine_beetle$differences, conf.level = 0.95)</code> to set the desired confidence level and create the confidence interval.</li>
 </ul>
-<pre class="r"><code>t.test(differences, conf.level=0.95)</code></pre>
+<pre class="r"><code>t.test(pine_beetle$differences, conf.level = 0.95)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  differences
+data:  pine_beetle$differences
 t = -332.43, df = 169, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
@@ -1720,11 +1887,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q43')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q43" style="display:none;">
-<pre class="r"><code>t.test(differences, conf.level=0.95)</code></pre>
+<pre class="r"><code>t.test(pine_beetle$differences, conf.level = 0.95)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  differences
+data:  pine_beetle$differences
 t = -332.43, df = 169, p-value &lt; 2.2e-16
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
@@ -1753,130 +1920,10 @@ mean of x
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>Eleven subjects were included in the study. At the start of the study, the researchers observed the average length of time that each of the participants slept before waking. Later, each subject was given 0.6 mg of L-Hyoscyamine and the duration of uninterrupted sleep was again measured.</p>
-<p>The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug. The data are summarized in the table below.</p>
-<center>
-<strong>Mean hours of sleep</strong>
-</center>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Subject</th>
-<th align="left">Control (no drug)</th>
-<th align="left">L-Hyoscyamine</th>
-<th align="left">Difference</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">0.6</td>
-<td align="left">1.3</td>
-<td align="left">0.7</td>
-</tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">1.4</td>
-<td align="left">-1.6</td>
-</tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="left">4.7</td>
-<td align="left">4.5</td>
-<td align="left">-0.2</td>
-</tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="left">5.5</td>
-<td align="left">4.3</td>
-<td align="left">-1.2</td>
-</tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="left">6.2</td>
-<td align="left">6.1</td>
-<td align="left">-0.1</td>
-</tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="left">3.2</td>
-<td align="left">6.6</td>
-<td align="left">3.4</td>
-</tr>
-<tr class="odd">
-<td align="left">7</td>
-<td align="left">2.5</td>
-<td align="left">6.2</td>
-<td align="left">3.7</td>
-</tr>
-<tr class="even">
-<td align="left">8</td>
-<td align="left">2.8</td>
-<td align="left">3.6</td>
-<td align="left">0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">9</td>
-<td align="left">1.1</td>
-<td align="left">1.1</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="left">10</td>
-<td align="left">2.9</td>
-<td align="left">4.9</td>
-<td align="left">2</td>
-</tr>
-<tr class="odd">
-<td align="left">11</td>
-<td align="left">-</td>
-<td align="left">6.3</td>
-<td align="left">-</td>
-</tr>
-</tbody>
-</table>
-<p>Notice that the “control” data for Subject #11 is missing. It is not possible to compute a difference for this person, so their data will be omitted from our analysis. For this analysis, we will use the remaining <span class="math inline">\(n=10\)</span> observations.</p>
-<p>You may find it easier to copy and paste the data from the following table. The last row has been omitted.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Increase in hours of sleep</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0.7</td>
-</tr>
-<tr class="even">
-<td align="left">-1.6</td>
-</tr>
-<tr class="odd">
-<td align="left">-0.2</td>
-</tr>
-<tr class="even">
-<td align="left">-1.2</td>
-</tr>
-<tr class="odd">
-<td align="left">-0.1</td>
-</tr>
-<tr class="even">
-<td align="left">3.4</td>
-</tr>
-<tr class="odd">
-<td align="left">3.7</td>
-</tr>
-<tr class="even">
-<td align="left">0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="left">2</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>differences &lt;- c(0.7, -1.6, -0.2, -1.2, -0.1, 3.4, 3.7, 0.8, 0, 2)</code></pre>
+<p>The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug. The data are given in the file <a href="./Data/sleep.xlsx">sleep.xlsx</a>. After reading in these data, run the following to compute the column of differences:</p>
+<pre class="r"><code>sleep$differences = sleep$treatment - sleep$control</code></pre>
+<p>Run the command <code>View(sleep)</code> to examine the data file.</p>
+<p>Notice that the “control” data for Subject #11 is missing. It is not possible to compute a difference for this person, so their data will be omitted from our analysis. For this analysis, we will use the remaining <span class="math inline">\(n = 10\)</span> observations.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1888,9 +1935,23 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q44')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q44" style="display:none;">
-<pre class="r"><code>summary(differences)
-sd(differences)
-length(differences)</code></pre>
+<p>The missing value in the last row leads to problems. If we run these commands,</p>
+<pre class="r"><code>mean(sleep$differences)
+sd(sleep$differences)
+length(sleep$differences)</code></pre>
+<p>We get this output:</p>
+<pre class="r"><code>&gt; mean(sleep$differences)
+[1] NA
+&gt; sd(sleep$differences)
+[1] NA
+&gt; length(sleep$differences)
+[1] 11</code></pre>
+<p>We need to tell R to remove (rm) the missing (na) values. We do this with the <code>na.rm = TRUE</code> option.</p>
+<pre class="r"><code>mean(sleep$differences, na.rm = TRUE)  # Sample mean
+sd(sleep$differences, na.rm = TRUE)    # Sample standard deviation</code></pre>
+<p>It is a little trickier to get the right sample size. We start with the length of the data set and subtract off a count of the number of <code>NA</code> values.</p>
+<pre class="r"><code>length(sleep$differences) - sum(is.na(sleep$differences)) # Sample size</code></pre>
+<pre><code>## [1] 10</code></pre>
 <center>
 <strong>Summary Statistics:</strong>
 </center>
@@ -1925,12 +1986,12 @@ length(differences)</code></pre>
 <a href="javascript:showhide('Q45')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q45" style="display:none;">
 <p>Here is a boxplot of the data (just to change things up):</p>
-<pre class="r"><code>boxplot(differences, 
+<pre class="r"><code>boxplot(sleep$differences, 
         col=&quot;firebrick&quot;,
         xlab=&quot;Difference in Hours of Sleep&quot;,
         main=&quot;Slee Inducing Drugs Study&quot;,
-        horizontal=TRUE)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+        horizontal = TRUE)</code></pre>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1959,11 +2020,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q47')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q47" style="display:none;">
-<pre class="r"><code>t.test(differences, conf.level=0.90)</code></pre>
+<pre class="r"><code>t.test(sleep$differences, conf.level = 0.90)</code></pre>
 <pre><code>
     One Sample t-test
 
-data:  differences
+data:  sleep$differences
 t = 1.3257, df = 9, p-value = 0.2176
 alternative hypothesis: true mean is not equal to 0
 90 percent confidence interval:
@@ -1974,6 +2035,7 @@ mean of x
 <center>
 <span class="math inline">\((-0.287, 1.787)\)</span>
 </center>
+<p>Notice that the <code>t.text</code> function does not have a problem with the missing value. It computes the output, including the degrees of freedom (<span class="math inline">\(n-1 = 10 - 1 = 9\)</span>) correctly.</p>
 </div>
 <p> </p>
 </div>
@@ -2045,9 +2107,9 @@ Remember…
 </table>
 </div>
 <ul>
-<li><p>When conducting hypothesis tests using dependent samples, the null hypothesis is always <span class="math inline">\(\mu_d=0\)</span>, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
-<li><p>The R code to perform a paired samples t test requires two steps. First, the <code>differences</code> must be computed. Second, the <code>t.test(differences, mu=0, alternative="two.sided")</code> should be used. Be sure to match the <code>alternative=</code> statement to either <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> so that it matches whatever is stated in the actual <span class="math inline">\(H_a\)</span> statement.</p></li>
-<li><p>The R code to created a confidence interval for the true mean of the differences, <span class="math inline">\(\mu_d\)</span>, uses <code>t.test(differences, conf.level=0.95)</code> where <code>conf.level=</code> can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).</p></li>
+<li><p>When conducting hypothesis tests using dependent samples, the null hypothesis is always <span class="math inline">\(\mu_d = 0\)</span>, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
+<li><p>The R code to perform a paired samples t test requires two steps. First, the <code>differences</code> must be computed. Second, the <code>t.test(sleep$differences, mu = 0, alternative = "two.sided")</code> should be used. Be sure to match the <code>alternative =</code> statement to either <code>"less"</code>, <code>"greater"</code>, or <code>"two.sided"</code> so that it matches whatever is stated in the actual <span class="math inline">\(H_a\)</span> statement.</p></li>
+<li><p>The R code to created a confidence interval for the true mean of the differences, <span class="math inline">\(\mu_d\)</span>, uses <code>t.test(sleep$differences, conf.level = 0.95)</code> where <code>conf.level =</code> can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).</p></li>
 </ul>
 <p><br></p>
 </div>
