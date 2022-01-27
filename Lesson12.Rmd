@@ -1283,6 +1283,8 @@ We are 95% confident that the true mean change in the number of trees per hectar
 
 ### Sleep Inducing Drugs
 
+In this example, we explore how to handle missing values in the data. 
+
 <img src="./Images/Step1.png">
 
 **Summarize the relevant background information**
