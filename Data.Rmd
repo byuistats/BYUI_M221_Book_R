@@ -87,7 +87,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [dasl_waste_run_up.xlsx](./Data/dasl_waste_run_up.xlsx) </td> <td> tinyurl.com/M221-dasl-waste-run-up </td> </tr>
 
-<tr> <td> [dentist_office_bills.xlsx](./Data/dentist_office_bills.xlsx) </td> <td> tinyurl.com/M221-dentist-bills </td> </tr>
+<tr> <td> [dentist_bills.xlsx](./Data/dentist_bills.xlsx) </td> <td> tinyurl.com/M221-dentist-bills </td> </tr>
 
 <tr> <td> [diabetes_depression.xlsx](./Data/diabetes_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
 
