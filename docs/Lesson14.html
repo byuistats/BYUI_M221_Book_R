@@ -13,8 +13,8 @@
 
 <title>Lesson 14: Inference for Several Means (ANOVA)</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -447,7 +447,7 @@ $(document).ready(function () {
 </td>
 <td>
 <p>
-President Gordon B. Hinckley said, “My plea is that we stop seeking out the storms and enjoy more fully the sunlight. I am suggesting that as we go through life, we ‘accentuate the positive.’ I am asking that we look a little deeper for the good, that we still our voices of insult and sarcasm, that we more generously compliment and endorse virtue and effort” (<em>Standing for Something</em>, 2000, p.101).
+President Gordon B. Hinckley said, "My plea is that we stop seeking out the storms and enjoy more fully the sunlight. I am suggesting that as we go through life, we ‘accentuate the positive.’ I am asking that we look a little deeper for the good, that we still our voices of insult and sarcasm, that we more generously compliment and endorse virtue and effort" (<em>Standing for Something</em>, 2000, p.101).
 </p>
 </td>
 </tr>
@@ -565,27 +565,23 @@ R Instructions
 <div class="Software">
 <p><strong>To compute numerical summaries for several groups:</strong></p>
 <ul>
-<li>Read in the data: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
+<li>Read in the data: <a href="./Data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Load <code>library(mosaic)</code>. (If this fails for you, try running <code>install.packages("mosaic")</code> and then re-run the <code>library(mosaic)</code> command.)</li>
-<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>`Happiness Score`</code> and <code>`Treatment Group`</code>.</li>
+<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>happiness</code> and <code>treatment</code>.</li>
 </ul>
 <pre class="r"><code>library(mosaic) 
-favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)</code></pre>
-<pre><code>  Gratitude$`Treatment Group` min    Q1 median    Q3 max     mean        sd  n
-1                      Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65
-2                    Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64
-3                     Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63
-  missing
-1       0
-2       0
-3       0</code></pre>
+favstats(gratitude$happiness ~ gratitude$treatment)</code></pre>
+<pre><code>  gratitude$treatment min    Q1 median    Q3 max     mean        sd  n missing
+1              Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
+2            Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
+3             Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
 <li>Specify colors using either <code>col="skyblue"</code> to give all boxes the same color, or use <code>col=c("orange","skyblue","firebrick")</code> to give each box a different color. Of course, use any color names you like.</li>
 <li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
 </ul>
-<pre class="r"><code>boxplot(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`,
+<pre class="r"><code>boxplot(gratitude$happiness ~ gratitude$treatment,
         col=c(&quot;orange&quot;,&quot;skyblue&quot;,&quot;firebrick&quot;), 
         main=&quot;The Effects of Gratitude&quot;,
         xlab=&quot;Treatment Group&quot;,
@@ -594,7 +590,7 @@ favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)</code></pre>
 <p><br></p>
 </div>
 <p><br></p>
-<p>Based on the numerical summaries and boxplot, the Gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
+<p>Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
 <p><img src="Images/Step4.png"></p>
 <p><strong>Make Inference</strong></p>
 </div>
@@ -606,16 +602,16 @@ R Instructions
 <div class="Software">
 <p>To conduct a test for several means (ANOVA) in R, do the following:</p>
 <ul>
-<li>Read in the data if you haven’t already: <a href="./Data/Gratitude.xlsx">Gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
+<li>Read in the data if you haven’t already: <a href="./Data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>gratitude_aov</code>.</li>
 <li>When using the <code>aov(...)</code> function, place the quantitative data first, followed by a <code>~</code>, followed by the categorical data.</li>
 <li>Use the <code>summary(...)</code> function to view the results of the ANOVA test.</li>
 </ul>
-<pre class="r"><code>gratitude_aov &lt;- aov(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
+<pre class="r"><code>gratitude_aov &lt;- aov(gratitude$happiness ~ gratitude$treatment)
 summary(gratitude_aov)</code></pre>
-<pre><code>                             Df Sum Sq Mean Sq F value Pr(&gt;F)  
-Gratitude$`Treatment Group`   2   6.26   3.130   4.075 0.0185 *
-Residuals                   189 145.16   0.768                 
+<pre><code>                     Df Sum Sq Mean Sq F value Pr(&gt;F)  
+gratitude$treatment   2   6.26   3.130   4.075 0.0185 *
+Residuals           189 145.16   0.768                 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In the ANOVA table output summary, you will find</p>
@@ -646,10 +642,10 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <ul>
 <li><p>The data are normally distributed in each group.</p>
 <p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
-<p>In looking at the boxplot of the Gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
+<p>In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
 <li><p>The variances are equal for each group.</p>
 <p>This requirement is checked by examining the variances. To obtain the sample variances we will need to square each of the standard deviations. The rule we will use is: <em>if the largest variance is less than or equal to four times the smallest variance, then we will conclude that the variances are equal.</em></p>
-<p>For the Gratitude study, the three standard deviations were <span class="math inline">\(0.848\)</span>, <span class="math inline">\(0.944\)</span>, and <span class="math inline">\(0.832\)</span> for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as <span class="math inline">\(0.848^2 = 0.719\)</span>, <span class="math inline">\(0.944^2 = 0.891\)</span>, and <span class="math inline">\(0.832^2 = 0.692\)</span>. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of <span class="math inline">\(0.891/0.692 \approx 1.288\)</span>, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.</p></li>
+<p>For the gratitude study, the three standard deviations were <span class="math inline">\(0.848\)</span>, <span class="math inline">\(0.944\)</span>, and <span class="math inline">\(0.832\)</span> for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as <span class="math inline">\(0.848^2 = 0.719\)</span>, <span class="math inline">\(0.944^2 = 0.891\)</span>, and <span class="math inline">\(0.832^2 = 0.692\)</span>. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of <span class="math inline">\(0.891/0.692 \approx 1.288\)</span>, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.</p></li>
 </ul>
 <br>
 <div class="message Tip">
