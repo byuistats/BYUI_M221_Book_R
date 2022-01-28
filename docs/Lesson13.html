@@ -13,8 +13,8 @@
 
 <title>Lesson 13: Inference for Two Means: Independent Samples</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -660,7 +660,7 @@ R Instructions
 
 data:  ReadingPractices$Nights by ReadingPractices$Group
 t = 1.4546, df = 228.43, p-value = 0.1472
-alternative hypothesis: true difference in means is not equal to 0
+alternative hypothesis: true difference in means between group DEV and group GEN is not equal to 0
 95 percent confidence interval:
  -0.148658  0.987019
 sample estimates:
@@ -867,7 +867,7 @@ Answer the following questions:
 
 data:  WorldCupHeartAttacks$HeartAttacks by WorldCupHeartAttacks$TimePeriod
 t = -4.6172, df = 106.43, p-value = 1.093e-05
-alternative hypothesis: true difference in means is not equal to 0
+alternative hypothesis: true difference in means between group Control and group World Cup is not equal to 0
 95 percent confidence interval:
  -7.084029 -2.828059
 sample estimates:
@@ -1039,7 +1039,7 @@ R Instructions
 
 data:  ReadingPractices$Nights by ReadingPractices$Group
 t = 1.4546, df = 228.43, p-value = 0.1472
-alternative hypothesis: true difference in means is not equal to 0
+alternative hypothesis: true difference in means between group DEV and group GEN is not equal to 0
 95 percent confidence interval:
  -0.148658  0.987019
 sample estimates:
@@ -1063,7 +1063,7 @@ t.test(ReadingPractices$Nights ~ ReadingPractices$GroupReversed)</code></pre>
 
 data:  ReadingPractices$Nights by ReadingPractices$GroupReversed
 t = -1.4546, df = 228.43, p-value = 0.1472
-alternative hypothesis: true difference in means is not equal to 0
+alternative hypothesis: true difference in means between group GEN and group DEV is not equal to 0
 95 percent confidence interval:
  -0.987019  0.148658
 sample estimates:
