@@ -145,19 +145,19 @@ Gratitude
 
 **To compute numerical summaries for several groups:**
 
-* Read in the data: [Gratitude.xlsx](./Data/Gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+* Read in the data: [gratitude.xlsx](./Data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Load `library(mosaic)`. (If this fails for you, try running `install.packages("mosaic")` and then re-run the `library(mosaic)` command.)
-* Use the `favstats(...)` function with the quantitative data column listed first, followed by a `~`, followed by the categorical data column. Use the back tick mark `` ` `` to surround column names that have spaces in them, like `` `Happiness Score` `` and `` `Treatment Group` ``. 
+* Use the `favstats(...)` function with the quantitative data column listed first, followed by a `~`, followed by the categorical data column. Use the back tick mark `` ` `` to surround column names that have spaces in them, like `` happiness `` and `` treatment ``. 
 
 ```{r, include=FALSE}
 library(readxl)
 library(pander)
-Gratitude <- read_excel("./Data/Gratitude.xlsx")
+gratitude <- read_excel("./Data/gratitude.xlsx")
 ```
 
 ```{r, message=FALSE, warning=FALSE, comment=NA}
 library(mosaic) 
-favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
+favstats(gratitude$happiness ~ gratitude$treatment)
 ```
 
 **To make an appropriate graph to illustrate the data:**
@@ -167,7 +167,7 @@ favstats(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
 * Specify axes labeling with `main="A main title"`, `xlab="An x-axis label"`, and `ylab="A y-axis label"`.
 
 ```{r}
-boxplot(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`,
+boxplot(gratitude$happiness ~ gratitude$treatment,
         col=c("orange","skyblue","firebrick"), 
         main="The Effects of Gratitude",
         xlab="Treatment Group",
@@ -178,7 +178,7 @@ boxplot(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`,
 </div>
 <br>
 
-Based on the numerical summaries and boxplot, the Gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first **make inference** before we decide if the data really warrants this conclusion.
+Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first **make inference** before we decide if the data really warrants this conclusion.
 
 
 
@@ -193,13 +193,13 @@ Based on the numerical summaries and boxplot, the Gratitude group had a higher l
 
 To conduct a test for several means (ANOVA) in R, do the following: 
 
-* Read in the data if you haven't already: [Gratitude.xlsx](./Data/Gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+* Read in the data if you haven't already: [gratitude.xlsx](./Data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Use the `aov(...)` function and the assignment operator `<-` to perform and save the results of the test to any name you want to create for the test. Here we use the name `gratitude_aov`. 
 * When using the `aov(...)` function, place the quantitative data first, followed by a `~`, followed by the categorical data.
 * Use the `summary(...)` function to view the results of the ANOVA test.
 
 ```{r, comment=NA}
-gratitude_aov <- aov(Gratitude$`Happiness Score` ~ Gratitude$`Treatment Group`)
+gratitude_aov <- aov(gratitude$happiness ~ gratitude$treatment)
 summary(gratitude_aov)
 ```
 
@@ -240,14 +240,14 @@ There are two requirements of ANOVA that must be checked:
 
     We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements. 
     
-    In looking at the boxplot of the Gratitude data above, we see the median is in the center of each box (it isn't pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the "Grateful" group is longer than its bottom whisker, this would be considered a very "normally distributed" set of boxplots.
+    In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn't pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the "Grateful" group is longer than its bottom whisker, this would be considered a very "normally distributed" set of boxplots.
 
 
 - The variances are equal for each group.
 
     This requirement is checked by examining the variances. To obtain the sample variances we will need to square each of the standard deviations. The rule we will use is: *if the largest variance is less than or equal to four times the smallest variance, then we will conclude that the variances are equal.* 
     
-    For the Gratitude study, the three standard deviations were $0.848$, $0.944$, and $0.832$ for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as $0.848^2 = 0.719$, $0.944^2 = 0.891$, and $0.832^2 = 0.692$. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of $0.891/0.692 \approx 1.288$, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.
+    For the gratitude study, the three standard deviations were $0.848$, $0.944$, and $0.832$ for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as $0.848^2 = 0.719$, $0.944^2 = 0.891$, and $0.832^2 = 0.692$. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of $0.891/0.692 \approx 1.288$, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.
 
 
 <br>

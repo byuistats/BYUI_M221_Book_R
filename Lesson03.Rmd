@@ -35,8 +35,8 @@ Use ZincForColds, zinc group to demonstrate
 
 ```{r, include = FALSE}
 #read in required packages
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(curl)
+library(curl)
+library(readxl)
 ```
 
 -->

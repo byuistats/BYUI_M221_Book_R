@@ -1068,7 +1068,7 @@ mydata2 &lt;- data.frame(name, gender, age, height_cm)</code></pre>
 <p><strong>Method 2: Read in data from a file</strong></p>
 <p>To read in a data file in R, do the following:</p>
 <ul>
-<li><p>Read in the dataset. For this example, open the data file by right clicking on this link: <a href="./Data/wrong_site_wrong_patient.xlsx">wrong_site_wrong_patient.xlsx</a> and then selecting “Copy link address”.</p></li>
+<li><p>Read in the dataset. For this example, open the data file by right clicking on this link: <a href="./Data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a> and then selecting “Copy link address”.</p></li>
 <li><p>In RStudio, select the “Environment” window, click on “Import Dataset”, and then choose “From Excel…” from the menu that appears. Like this:</p></li>
 </ul>
 <center>
@@ -1081,11 +1081,11 @@ mydata2 &lt;- data.frame(name, gender, age, height_cm)</code></pre>
 <img src="Images/rstudio_import_excel2.png" width="500">
 </center>
 <ul>
-<li>We can calculate the average (mean) of any quantitative column of the data frame <code>wrong_site_wrong_patient</code> using the <code>mean(...)</code> function and the selection operator <code>$</code> as follows. If we want the mean of the <code>wrong_site</code> column, we enter the following in the Console:</li>
+<li>We can calculate the average (mean) of any quantitative column of the data frame <code>surgery_lawsuits</code> using the <code>mean(...)</code> function and the selection operator <code>$</code> as follows. If we want the mean of the <code>wrong_site</code> column, we enter the following in the Console:</li>
 </ul>
-<pre class="r"><code>mean(wrong_site_wrong_patient$wrong_site)</code></pre>
+<pre class="r"><code>mean(surgery_lawsuits$wrong_site)</code></pre>
 <pre><code>## [1] 80041.24</code></pre>
-<p>Note: as soon as you type in the name of the data set, <code>wrong_site_wrong_patient</code>, and then add the selection operator <code>$</code> (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as “buying an item” from a dataset with “your money: <code>$</code>.”)</p>
+<p>Note: as soon as you type in the name of the data set, <code>surgery_lawsuits</code>, and then add the selection operator <code>$</code> (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as “buying an item” from a dataset with “your money: <code>$</code>.”)</p>
 <p><img src="Images/rstudio_selection_operator.png" width="500"></p>
 <p>Now, try computing the mean of the <code>wrong_patient</code> data.</p>
 </div>

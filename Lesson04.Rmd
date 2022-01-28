@@ -45,8 +45,8 @@ output:
 
 ```{r, include = FALSE}
 #read in required packages
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(curl, readxl)
+library(curl)
+library(readxl)
 ```
 
 <br>
@@ -859,25 +859,25 @@ Percentiles can be used to describe the center and spread of any distribution an
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
 <br />
 
-- Read in the dataset [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx). If needed, you can review the instructions on reading in data from [Lesson 2: Reading Data into R](Lesson02.html#Reading-Data-into-R).
+- Read in the dataset [surgery_lawsuits.xlsx](./Data/surgery_lawsuits.xlsx). If needed, you can review the instructions on reading in data from [Lesson 2: Reading Data into R](Lesson02.html#Reading-Data-into-R).
 
 ```{r, include=FALSE, label = w_s_w_p_data}
 #Read the data into this document so that we can use it here as well.
-url <- "https://byuistats.github.io/BYUI_M221_Book_R/Data/wrong_site_wrong_patient.xlsx"
-destfile <- "wrong_site_wrong_patient.xlsx"
+url <- "https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx"
+destfile <- "surgery_lawsuits.xlsx"
 curl::curl_download(url, destfile)
-wrong_site_wrong_patient <- read_excel(destfile)
+surgery_lawsuits <- read_excel(destfile)
 ```
 
 - Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
 
-For the **wrong_site_wrong_patient** data set, we could compute the 25th percentile of the "Wrong Site" column of the data set by using the code:
+For the **surgery_lawsuits** data set, we could compute the 25th percentile of the "Wrong Site" column of the data set by using the code:
 
 ```{r, label = w_s_w_p_25_percentile}
-quantile(wrong_site_wrong_patient$wrong_site, 0.25)
+quantile(surgery_lawsuits$wrong_site, 0.25)
 ```
 
-Note: as soon as you type in the name of the data set, `wrong_site_wrong_patient`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
+Note: as soon as you type in the name of the data set, `surgery_lawsuits`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
 
 <img src="./Images/rstudio_selection_operator.png" width="500">
 
@@ -893,7 +893,7 @@ The first quartile ($Q_1$) or 25<sup>th</sup> percentile (calculated in R) of th
 **Other Percentiles (Calculated in R)**
 
 ```{r, label = w_s_w_p_quantile_many}
-quantile(wrong_site_wrong_patient$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
+quantile(surgery_lawsuits$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.99))
 ```
 -->
 
@@ -984,12 +984,12 @@ Statistical packages can give different results for some computations.  This is 
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 <br />
 
-- Open the data file you are using if you haven't already. For this example, continue using the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) that you opened previously in this lesson.
+- Open the data file you are using if you haven't already. For this example, continue using the file [surgery_lawsuits.xlsx](./Data/surgery_lawsuits.xlsx) that you opened previously in this lesson.
 
 - You can use the function **summary(...)** in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The `summary(...)` function also provides the value of the mean, which isn't technically part of the five-number summary, but is useful to compare against the median.)
 
 ```{r, label = w_s_w_p_summary}
-summary(wrong_site_wrong_patient$wrong_site)
+summary(surgery_lawsuits$wrong_site)
 ```
 
 
@@ -1074,12 +1074,12 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **To create a boxplot in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, continue using the [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx) data that you opened previously in this lesson.
+- Open the data file you are using. For this example, continue using the [surgery_lawsuits.xlsx](./Data/surgery_lawsuits.xlsx) data that you opened previously in this lesson.
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 
 ```{r, fig.height=3, label = w_s_w_p_boxplot1}
-boxplot(wrong_site_wrong_patient$wrong_site, horizontal=TRUE)
+boxplot(surgery_lawsuits$wrong_site, horizontal=TRUE)
 ```
 
 <!-- SIMPLIFY INSTRUCTIONS FOR BOXPLOTS ---------------------
@@ -1087,13 +1087,13 @@ boxplot(wrong_site_wrong_patient$wrong_site, horizontal=TRUE)
 If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.
 
 ```{r, fig.height=3, label=w_s_w_p_boxplot_1000_x}
-boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
 ```
 
 Also, you can give color to the graph using `col="some color name"`.
 
 ```{r, fig.height=3, label=w_s_w_p_boxplot_1000_again_x}
-boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
 ```
 
 -->
@@ -1101,7 +1101,7 @@ boxplot(wrong_site_wrong_patient$wrong_site/1000, horizontal=TRUE, xlab="Cost in
 Note that the default for `boxplot(...)` is to draw the boxplot vertically. That is why we used the command `horizontal=TRUE` to force the graph to draw the boxplot sideways. If we remove the `horizontal=TRUE` statement, we get a vertical boxplot instead It really doesn't matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.
 
 ```{r}
-boxplot(wrong_site_wrong_patient$wrong_site)
+boxplot(surgery_lawsuits$wrong_site)
 ```
 
 </div> <!-- R instructions for boxplot -->
@@ -1111,7 +1111,7 @@ boxplot(wrong_site_wrong_patient$wrong_site)
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx). What is the shape of the wrong-patient data?
+29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [surgery_lawsuits.xlsx](./Data/surgery_lawsuits.xlsx). What is the shape of the wrong-patient data?
 
 a. Skewed left
 b. Symmetric
@@ -1125,7 +1125,7 @@ e. Uniform
 To create the histogram, [read the data](RHelp.html#reading-in-data) into RStudio. Then, use the `hist(...)` function to create a histogram. If you have forgotten how to do this, review it in [Lesson 3, creating a histogram](Lesson03.html#r-Instructions-for-histograms).
 
 ```{r, label=w_s_w_p_hist}
-hist(wrong_site_wrong_patient$wrong_patient, col="skyblue", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+hist(surgery_lawsuits$wrong_patient, col="skyblue", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is 'c. Skewed right'.
@@ -1140,7 +1140,7 @@ From the histogram we clearly see most values bunched near the left and graduall
 
 
 ```{r, fig.height=3, label=w_s_w_p_boxplot_orange}
-boxplot(wrong_site_wrong_patient$wrong_patient, horizontal=TRUE, col="orange", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="orange", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 </div>
@@ -1151,7 +1151,7 @@ boxplot(wrong_site_wrong_patient$wrong_patient, horizontal=TRUE, col="orange", m
 Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.
 
 ```{r, echo=FALSE, label=w_s_w_p_boxplot_1000000}
-boxplot(wrong_site_wrong_patient$wrong_site/1000000, wrong_site_wrong_patient$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("skyblue3","firebrick"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
+boxplot(surgery_lawsuits$wrong_site/1000000, surgery_lawsuits$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("skyblue3","firebrick"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
 ```
 
 In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.
@@ -1166,19 +1166,19 @@ In the plot we can quickly see that a wrong-patient lawsuit resulted in the larg
 **To create side-by-side boxplots in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, open the file [wrong_site_wrong_patient.xlsx](./Data/wrong_site_wrong_patient.xlsx).
+- Open the data file you are using. For this example, open the file [surgery_lawsuits.xlsx](./Data/surgery_lawsuits.xlsx).
 
 - Use the `boxplot(...)` function with the first column listed, followed by a comma, then followed by the next column of data.
 
 ```{r, label=w_s_w_p_boxplot_two}
-boxplot(wrong_site_wrong_patient$wrong_site, wrong_site_wrong_patient$wrong_patient)
+boxplot(surgery_lawsuits$wrong_site, surgery_lawsuits$wrong_patient)
 ```
 
 To make the graph look nicer, we can use the `names=c(...)` command to give a name to each box in the plot. Then we can also use `col=c(...)` to give colors to each box. Then we can include a main title with `main="..."`, a y-axis label with `ylab="..."`, rotate the numbers on the y-axis with `las=1`, and change everything to be in "millions of dollars" by dividing each column by 1000000. The result looks like this.
 
 ```{r, label=w_s_w_p_boxplot_two_fancy}
-boxplot(wrong_site_wrong_patient$wrong_site/1000000, 
-       wrong_site_wrong_patient$wrong_patient/1000000, 
+boxplot(surgery_lawsuits$wrong_site/1000000, 
+       surgery_lawsuits$wrong_patient/1000000, 
         names=c("Wrong Site", "Wrong Patient"), 
         col=c("skyblue3","firebrick"), 
         main="Cost to Hospital by Lawsuit Type", 
@@ -1210,17 +1210,17 @@ Sometimes the data you are working with has missing values in it. These are reco
 **Dealing with NA or missing values:**
 <br/>
 
-Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the wrong_site_wrong_patient data) then you need to use the `na.rm=TRUE` option to remove them, like this:
+Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the surgery_lawsuits data) then you need to use the `na.rm=TRUE` option to remove them, like this:
 
 <img src="./Images/rstudio_NA.png" width="500">
 
 
 
 ```{r, comment=NA}
-mean(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
-median(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
-sd(wrong_site_wrong_patient$wrong_patient, na.rm=TRUE)
-quantile(wrong_site_wrong_patient$wrong_patient, 0.25, na.rm=TRUE)
+mean(surgery_lawsuits$wrong_patient, na.rm=TRUE)
+median(surgery_lawsuits$wrong_patient, na.rm=TRUE)
+sd(surgery_lawsuits$wrong_patient, na.rm=TRUE)
+quantile(surgery_lawsuits$wrong_patient, 0.25, na.rm=TRUE)
 ```
 
 If you leave off the `na.rm=TRUE`, you will get an `NA` answer and sometimes a warning message:
@@ -1232,7 +1232,7 @@ So be sure to use `na.rm=TRUE` whenever that happens. Happily, if the data has n
 If you want to know how many missing values there were in the data, use `summary(...)`, like this:
 
 ```{r, comment=NA}
-summary(wrong_site_wrong_patient$wrong_patient)
+summary(surgery_lawsuits$wrong_patient)
 ```
 
 In this case, there were 235 "NA's" or missing values in the wrong_patient data.
