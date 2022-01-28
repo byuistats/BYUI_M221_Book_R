@@ -457,7 +457,7 @@ $(document).ready(function () {
 <p>Is there a difference in the amount of reading done by children with problematic behavior compared to other children?</p>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->. They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home. Data representative of their results are given in the file <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
+<p>Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->. They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home. Data representative of their results are given in the file <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
 <p><strong>State the null and alternative hypotheses and the level of significance</strong></p>
 <p>The null hypothesis is that there is no difference in the mean number of nights each week in which the two groups of children participate in reading in the home (the means of both GEN and DEV groups are equal). The alternative hypothesis is that there is a difference in the mean number of nights that the children in the two groups participate in reading in the home. If we let <span class="math inline">\(\mu_1\)</span> represent the mean number of nights each week that children in the GEN Group spent reading in the home, and <span class="math inline">\(\mu_2\)</span> represent mean nights children read in the home for the DEV Group, then these hypotheses are expressed mathematically as: <span class="math display">\[
 \begin{align}
@@ -468,7 +468,7 @@ H_a: &amp;~~  \mu_1  \neq \mu_2
 <p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>A group of children were enrolled in the study. Children who were identified to have developmental or behavioral problems were labeled as Group 1 (the DEV group). Children who did not display developmental or behavioral problems were labeled as Group 2 (the GEN group). A survey was administered to a parent of each of the children. One of the questions on the survey asked the number of nights that either their child read or that they read to their child during the week. This data is found in the file <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
+<p>A group of children were enrolled in the study. Children who were identified to have developmental or behavioral problems were labeled as Group 1 (the DEV group). Children who did not display developmental or behavioral problems were labeled as Group 2 (the GEN group). A survey was administered to a parent of each of the children. One of the questions on the survey asked the number of nights that either their child read or that they read to their child during the week. This data is found in the file <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -508,7 +508,7 @@ R Instructions
 <div class="Software">
 <p><strong>To compute numerical summaries for two groups at once:</strong></p>
 <ul>
-<li><p>First, read the data into RStudio: <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p></li>
+<li><p>First, read the data into RStudio: <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p></li>
 <li><p>Second, load the <code>mosaic</code> library in RStudio that makes calculating the numerical summaries for two groups really quick.</p></li>
 </ul>
 <pre class="r"><code>library(mosaic)</code></pre>
@@ -580,7 +580,7 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To visualize the distributions of the two sample simultaneously:</strong></p>
-<p>Read the data into RStudio: <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
+<p>Read the data into RStudio: <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
 <p>Use the <code>boxplot(...)</code> function and the tilde <code>~</code> (top-left key on your keyboard) to produce a side-by-side boxplot. When using the <code>~</code> you put the quantitative variable first, followed by the <code>~</code>, then the categorical variable second, like this:</p>
 <pre class="r"><code>boxplot(ReadingPractices$Nights ~ ReadingPractices$Group)</code></pre>
 <p><img src="Lesson13_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
@@ -650,7 +650,7 @@ R Instructions
 <div class="Software">
 <p><strong>The following instructions will help you conduct a hypothesis test for two means with independent samples in R.</strong></p>
 <ul>
-<li>Import the data into RStudio: <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a></li>
+<li>Import the data into RStudio: <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a></li>
 <li>Take note of your null and alternative hypotheses, in this case <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> implies <span class="math inline">\(\mu_1 - \mu_2 = 0\)</span> and <span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span> implies <span class="math inline">\(\mu_1 - \mu_2 \neq 0\)</span>.</li>
 <li>Use the <code>t.test(...)</code> function along with the tilde <code>~</code> (top-left key on your keyboard) to test a quantitative variable that is “divided into two groups” with the <code>~</code> sign like this:</li>
 </ul>
@@ -776,7 +776,7 @@ H_a: &amp; ~~ \mu_1 &lt; \mu_2
 <p>We will use the <span class="math inline">\(\alpha = 0.01\)</span> level of significance. Remember, we are always free to choose our significance level, but since it controls the probability of a Type I Error occurring, we need to consider how problematic a Type I Error would be for our study. In this case, it isn’t terribly detrimental to commit a Type I Error (rejecting the null when the null was actually true), so we go with <span class="math inline">\(\alpha = 0.1\)</span>.</p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>The 2006 World Cup was held from June 9 to July 9, 2006. The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period. To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005. The year 2004 was avoided, due to the European Soccer Championships held in Portugal. These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file <a href="./Data/WorldCupHeartAttacks.xlsx">WorldCupHeartAttacks.xlsx</a>.</p>
+<p>The 2006 World Cup was held from June 9 to July 9, 2006. The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period. To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005. The year 2004 was avoided, due to the European Soccer Championships held in Portugal. These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file <a href="./data/WorldCupHeartAttacks.xlsx">WorldCupHeartAttacks.xlsx</a>.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -788,7 +788,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
-<li>We need to find the the following: <span class="math inline">\(\bar x_1\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(\bar x_2\)</span>, <span class="math inline">\(s_2\)</span>, and <span class="math inline">\(n_2\)</span>. So we read in the <a href="./Data/WorldCupHeartAttacks.xlsx">WorldCupHeartAttacks.xlsx</a> data into RStudio, ensure <code>library(mosaic)</code> is loaded, and then use the <code>favstats(...)</code> function.</li>
+<li>We need to find the the following: <span class="math inline">\(\bar x_1\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(\bar x_2\)</span>, <span class="math inline">\(s_2\)</span>, and <span class="math inline">\(n_2\)</span>. So we read in the <a href="./data/WorldCupHeartAttacks.xlsx">WorldCupHeartAttacks.xlsx</a> data into RStudio, ensure <code>library(mosaic)</code> is loaded, and then use the <code>favstats(...)</code> function.</li>
 </ul>
 <pre class="r"><code>library(mosaic)
 favstats(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)</code></pre>
@@ -968,7 +968,7 @@ Answer the following question:
 <p>Software can be used to compute the confidence interval for a difference of two means with independent samples.</p>
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child’s caretaker (usually a parent). This survey included questions about the child’s development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the file <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
+<p>In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child’s caretaker (usually a parent). This survey included questions about the child’s development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the file <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a>.</p>
 <p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
 <p>Using R, we compute the following:</p>
@@ -1030,7 +1030,7 @@ R Instructions
 <div class="Software">
 <p><strong>To compute a 95% confidence interval for the difference of two means from two independent samples:</strong></p>
 <ul>
-<li>Read in the data: <a href="./Data/ReadingPractices.xlsx">ReadingPractices.xlsx</a></li>
+<li>Read in the data: <a href="./data/ReadingPractices.xlsx">ReadingPractices.xlsx</a></li>
 <li>Perform an independent samples t test using the <code>t.test(..., conf.level=0.95)</code> function.</li>
 </ul>
 <pre class="r"><code>t.test(ReadingPractices$Nights ~ ReadingPractices$Group, conf.level=0.95)</code></pre>
@@ -1082,7 +1082,7 @@ mean in group GEN mean in group DEV
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>A study was conducted in the United Kingdom to determine if there is a difference in the effectiveness of community-based rehabilitation program compared to hospital-based rehabilitation <!--<cite>Waterhouse10</cite>-->. Patients suffering from COPD were randomly assigned to either the community or hospital group. Twice a week for six weeks, they participated in two-hour educational and exercise sessions. Patients were also encouraged to exercise between sessions.</p>
-<p>The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT). This was measured at the beginning of the study and again at the end of the six week rehabilitation period. Data representing the improvement of the patients in each group is given in the file <a href="./Data/COPD-Rehab.xlsx">COPD-Rehab</a>. The data represent the increased distance (in meters) that each patient could walk. Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.</p>
+<p>The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT). This was measured at the beginning of the study and again at the end of the six week rehabilitation period. Data representing the improvement of the patients in each group is given in the file <a href="./data/COPD-Rehab.xlsx">COPD-Rehab</a>. The data represent the increased distance (in meters) that each patient could walk. Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.</p>
 <p>Because hospital-based rehabilitation tends to be more expensive, the researchers wanted to assess if there is a significant difference in the patients’ improvement under the two programs. If not, then it makes sense to refer patients to the less expensive treatment option. The purpose of this study was to determine if pulmonary rehabilitation in a community setting is as effective as rehabilitation in a hospital setting.</p>
 <p><img src="Images/Step3.png"></p>
 </div>
@@ -1094,9 +1094,9 @@ R Instructions
 <div class="Software">
 <p><strong>When the data for each group is in a separate column</strong> numerical summaries are calculated one column at a time.</p>
 <ul>
-<li>First, read the data into RStudio: <a href="./Data/COPD-Rehab.xlsx">COPD-Rehab</a></li>
+<li>First, read the data into RStudio: <a href="./data/COPD-Rehab.xlsx">COPD-Rehab</a></li>
 </ul>
-<pre class="r"><code>COPD_Rehab &lt;- read_excel(&quot;./Data/COPD-Rehab.xlsx&quot;)</code></pre>
+<pre class="r"><code>COPD_Rehab &lt;- read_excel(&quot;./data/COPD-Rehab.xlsx&quot;)</code></pre>
 <ul>
 <li>Second, load the <code>mosaic</code> library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.</li>
 </ul>
@@ -1197,9 +1197,9 @@ R Instructions
 <div class="Software">
 <p><strong>When the data for each group is in a separate column</strong> the independent samples t test is performed using the comma <code>,</code> instead of the tilde <code>~</code>.</p>
 <ul>
-<li>First, read the data into RStudio: <a href="./Data/COPD-Rehab.xlsx">COPD-Rehab</a></li>
+<li>First, read the data into RStudio: <a href="./data/COPD-Rehab.xlsx">COPD-Rehab</a></li>
 </ul>
-<pre class="r"><code>COPD_Rehab &lt;- read_excel(&quot;./Data/COPD-Rehab.xlsx&quot;)</code></pre>
+<pre class="r"><code>COPD_Rehab &lt;- read_excel(&quot;./data/COPD-Rehab.xlsx&quot;)</code></pre>
 <ul>
 <li>Second, run the <code>t.test(...)</code> with the first column of data, followed by a comma <code>,</code>, and then the second column of data.</li>
 </ul>

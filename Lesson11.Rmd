@@ -163,7 +163,7 @@ $$
 
 **Describe the data collection procedures**
 
-We will use the body temperature data, [body_temp.xlsx](./Data/body_temp.xlsx), collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
+We will use the body temperature data, [body_temp.xlsx](./data/body_temp.xlsx), collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
 
 
 <img src="./Images/Step3.png">
@@ -173,7 +173,7 @@ We will use the body temperature data, [body_temp.xlsx](./Data/body_temp.xlsx), 
 
 ```{r, include = FALSE}
 library(readxl)
-body_temp <- read_excel("./Data/body_temp.xlsx")
+body_temp <- read_excel("./data/body_temp.xlsx")
 ```
 
 These could be computed in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio) using the codes:
@@ -227,7 +227,7 @@ Here are the instructions for conducting the one sample t-test in R:
 
 **Step 1.** Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: [reading data into RStudio](RHelp.html#reading-in-data).
 
-For this t test, we are using the [body_temp.xlsx](./Data/body_temp.xlsx) data.
+For this t test, we are using the [body_temp.xlsx](./data/body_temp.xlsx) data.
 
 **Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: \mu = 98.6$ and the alternative was $H_a: \mu \neq 98.6$.
 
@@ -333,7 +333,7 @@ $$ \alpha = 0.05 $$
 
 **Describe the data collection procedures**
 
-The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [baby_boom.xlsx](./Data/baby_boom.xlsx).
+The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the file [baby_boom.xlsx](./data/baby_boom.xlsx).
 
 Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
@@ -347,10 +347,10 @@ Using this data set, test the hypothesis that the mean weight of babies born in 
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 
-Once the [baby_boom.xlsx](./Data/baby_boom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
+Once the [baby_boom.xlsx](./data/baby_boom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
 
 ```{r, include = FALSE}
-baby_boom <- read_excel("./Data/baby_boom.xlsx")
+baby_boom <- read_excel("./data/baby_boom.xlsx")
 ```
 
 ```{r, eval = FALSE}
@@ -487,7 +487,7 @@ The IBM T. J. Watson Research Center developed methods to measure the quality of
 **Describe the data collection procedures**
 
 To test Pharaoh's ability to translate, Koehn took a random sample of 100 blocks of Spanish text, each of which contained 300 sentences, and used Pharaoh to translate each of these to English.  The BLEU score was calculated for each of the 100 blocks.  The data were extracted from Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>-->  The 100 BLEU scores are given in
-[bleu.xlsx](./Data/bleu.xlsx).
+[bleu.xlsx](./data/bleu.xlsx).
 
 Koehn wants to find an estimate of the true mean BLEU score for text translated by the Pharaoh computer program.  He would like to compute a confidence interval, but he does not know the true population standard deviation, $\sigma$.
 
@@ -499,11 +499,11 @@ Koehn wants to find an estimate of the true mean BLEU score for text translated 
 <div class="SoftwareHeading">R Instructions</div>
 <div class="Software">
 After reading the
-[bleu.xlsx](./Data/bleu.xlsx)
+[bleu.xlsx](./data/bleu.xlsx)
 data into R, we can compute the following.
 
 ```{r, include = FALSE}
-bleu <- read_excel("./Data/bleu.xlsx")
+bleu <- read_excel("./data/bleu.xlsx")
 ```
 
 ```{r, eval = FALSE}
@@ -559,7 +559,7 @@ We will use R to find the confidence intervals for the mean.
 
 Do the following:
 
-- Read in the [bleu.xlsx](./Data/bleu.xlsx) data if you haven't already.
+- Read in the [bleu.xlsx](./data/bleu.xlsx) data if you haven't already.
 - Run a One-sample t-test using `t.test(...)`. (Confidence intervals don't require a null hypothesis.)
 - To set the confidence level use `t.test(..., conf.level = 0.95)` or 0.99, or 0.90.
 
@@ -647,7 +647,7 @@ There are two requirements that need to be checked:
 
 We are 95% confident that the true mean BLEU score for all translations by the Pharaoh program is between 0.2824 and 0.2928.
 
-Answer the following questions using the data set [bleu.xlsx](./Data/bleu.xlsx), which gives the BLEU scores for $n = 100$ translations from Spanish to English by the computer program Pharaoh.
+Answer the following questions using the data set [bleu.xlsx](./data/bleu.xlsx), which gives the BLEU scores for $n = 100$ translations from Spanish to English by the computer program Pharaoh.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -702,7 +702,7 @@ A group of statisticians measured the weights of 2000 Belgian one Euro coins in 
 
 **Describe the data collection procedures**
 
-The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [euro.xlsx](./Data/euro.xlsx).
+The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [euro.xlsx](./data/euro.xlsx).
 
 <img src="./Images/Step3.png">
 
@@ -713,10 +713,10 @@ The coins were borrowed from a bank in Belgium, one batch at a time. The weights
 <a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 
-Read in the [euro.xlsx](./Data/euro.xlsx) data. Then, compute the summary statistics. 
+Read in the [euro.xlsx](./data/euro.xlsx) data. Then, compute the summary statistics. 
 
 ```{r, include = FALSE}
-euro <- read_excel("./Data/euro.xlsx")
+euro <- read_excel("./data/euro.xlsx")
 ```
 
 ```{r, comment = NA}

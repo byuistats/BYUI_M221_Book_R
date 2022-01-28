@@ -602,7 +602,7 @@ A distribution is right-skewed if a histogram of the distribution shows a long r
 ```{r, echo=FALSE}
 library(readxl)
 par(mai=c(1.5,1,.1,1))
-ClassSurvey <- read_excel("./Data/ClassSurvey.xlsx")
+ClassSurvey <- read_excel("./data/ClassSurvey.xlsx")
 
 CS_males <- subset(ClassSurvey, Gender=="M")
 

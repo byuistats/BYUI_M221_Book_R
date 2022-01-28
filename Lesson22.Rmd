@@ -168,7 +168,7 @@ To answer this question, paleontologist Paul Sereno teamed up with modern crocod
 
 <img src="./Images/Step2.png">
 
-We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file [EstuarineCrocodiles.xlsx](./Data/EstuarineCrocodiles.xlsx). 
+We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx). 
 
 <br/>
 
@@ -178,7 +178,7 @@ Using the information we learned in [Lesson 21](Lesson21.html#r-instructions-for
 
 ```{r, include=FALSE}
 library(readxl)
-EstuarineCrocodiles <- read_excel("./Data/EstuarineCrocodiles.xlsx")
+EstuarineCrocodiles <- read_excel("./data/EstuarineCrocodiles.xlsx")
 ```
 
 ```{r}
@@ -215,7 +215,7 @@ where $\hat Y$ represents the predicted body length of an estuarine crocodile wi
 <div class="Software">
 **To find the estimated regression coefficients ($b_0$ and $b_1$) in R, do the following:**
 
-- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./Data/EstuarineCrocodiles.xlsx)
+- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx)
 - Use the `lm( )` function to create a "linear model" for the data.
 - Put your response variable (Y) first, followed by a `~`, followed by the explanatory variable (X).
 - Use the `summary( )` function to view the results of the `lm( )` function.
@@ -271,7 +271,7 @@ Note that if a juvinile sarcosuchus has a head length of 87 cm, then the regress
 <div class="Software">
 **To add a regression line to a scatterplot in RStudio, do the following:**
 
-- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./Data/EstuarineCrocodiles.xlsx)
+- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx)
 - Perform the regression:
 
 ```{r}
@@ -380,7 +380,7 @@ We can use simple linear regression to model the relationship between the powerb
 <img src="./Images/Step2.png">
 
 
-The data set [Manatees.xlsx](./Data/Manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
+The data set [Manatees.xlsx](./data/Manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
 
 <img src="./Images/Step3.png">
 
@@ -417,7 +417,7 @@ Notice that this is the equation of a straight line. You might have written line
 The output from the commands given above will include a table similar to the one shown here:
 
 ```{r, include=FALSE}
-Manatees <- read_excel("./Data/Manatees.xlsx")
+Manatees <- read_excel("./data/Manatees.xlsx")
 ```
 
 ```{r, comment=NA}

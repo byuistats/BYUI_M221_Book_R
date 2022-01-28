@@ -125,11 +125,11 @@ This shows that 61.4% of students in our sample claim to regularly eat fresh fru
 * Use the `table(...)` function to count up how many times certain observations occur in a dataset.
 * Use the `/` symbol to divide $x$ by $n$.
 
-To practice, start by reading in the [EatingHealthy.xlsx](./Data/EatingHealthy.xlsx) data file into RStudio. (For a reminder on how to read in data, [click here](RHelp.html#reading-in-data.).
+To practice, start by reading in the [EatingHealthy.xlsx](./data/EatingHealthy.xlsx) data file into RStudio. (For a reminder on how to read in data, [click here](RHelp.html#reading-in-data.).
 
 ```{r, include=FALSE}
 library(readxl)
-EatingHealthy <- read_excel("./Data/EatingHealthy.xlsx")
+EatingHealthy <- read_excel("./data/EatingHealthy.xlsx")
 ```
 
 Next, note that the "Yes" and "No" answers to the question "Do you regularly eat fresh fruits and vegetables?" is stored in the column of the dataset called `Eathealthy`. So we use the `table(` function, followed by the name of the dataset `EatingHealthy` followed by a `$` sign, followed by the column name `Eathealthy`.
@@ -180,7 +180,7 @@ The above chart shows that the 118 students that did not respond to this questio
 
 **To make a bar chart in R:**
 
-- First, read in the data: [EatingHealthy](./Data/EatingHealthy.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+- First, read in the data: [EatingHealthy](./data/EatingHealthy.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 - Second, use the `table(...)` function, the assignment operator `<-`, and a name for the table of counts that you create (like `mytable`) to save a table of counts.
 
 <div style="padding-left:40px;">
@@ -371,12 +371,12 @@ If you just completed the two questions above, you likely got a different answer
 
 ### Creating a Sampling Distribution
 
-A true sampling distribution of a sample proportion is obtained by plotting the results from *all possible* samples from a population of size $n$. It isn't reasonable to try to create such a distribution in its entirety, but we can look at a quick example using the data file [CoinTossHeads.xlsx](./Data/CoinTossHeads.xlsx). This data file contains data representing a collection of 900 students' results, where each student tossed a coin $n=25$ times and calculated their proportion of heads. These 900 different sample proportions $\hat{p}$ represent 900 different samples (of $n=25$ coin flips in each sample) from the population of all coin flip possibilities. The goal of the sampling distribution of the sample proportion is to consider the set of all possible sample proportions that could be obtained when getting a sample from a population, and where those sample proportions would land, i.e., how they would be distributed.
+A true sampling distribution of a sample proportion is obtained by plotting the results from *all possible* samples from a population of size $n$. It isn't reasonable to try to create such a distribution in its entirety, but we can look at a quick example using the data file [CoinTossHeads.xlsx](./data/CoinTossHeads.xlsx). This data file contains data representing a collection of 900 students' results, where each student tossed a coin $n=25$ times and calculated their proportion of heads. These 900 different sample proportions $\hat{p}$ represent 900 different samples (of $n=25$ coin flips in each sample) from the population of all coin flip possibilities. The goal of the sampling distribution of the sample proportion is to consider the set of all possible sample proportions that could be obtained when getting a sample from a population, and where those sample proportions would land, i.e., how they would be distributed.
 
 The following histogram shows the distribution of the sample proportions $\hat{p}$ for each of the 900 students that participated in the coin flip experiment. It turns out that there were 134 students in the sample of $n=900$ that also flipped 12/25 heads like we did. However, there were also 137 students that flipped 13/25 heads. But notice that very few students (only 5) got as few as 5/25 heads and very few students (only 7) got as many as 19/25 heads. And no one (out of all 900 students that participated) got more than 19 heads (19/25 = 0.76) or fewer than 5 heads (5/25 = 0.2).
 
 ```{r, echo=FALSE}
-CoinTossHeads <- read_excel("./Data/CoinTossHeads.xlsx")
+CoinTossHeads <- read_excel("./data/CoinTossHeads.xlsx")
 
 hist(CoinTossHeads$ProportionHeads,
      col="wheat3",

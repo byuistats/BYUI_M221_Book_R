@@ -539,7 +539,7 @@ R Instructions
 <li>Use the <code>table(...)</code> function to count up how many times certain observations occur in a dataset.</li>
 <li>Use the <code>/</code> symbol to divide <span class="math inline">\(x\)</span> by <span class="math inline">\(n\)</span>.</li>
 </ul>
-<p>To practice, start by reading in the <a href="./Data/EatingHealthy.xlsx">EatingHealthy.xlsx</a> data file into RStudio. (For a reminder on how to read in data, <a href="RHelp.html#reading-in-data.">click here</a>.</p>
+<p>To practice, start by reading in the <a href="./data/EatingHealthy.xlsx">EatingHealthy.xlsx</a> data file into RStudio. (For a reminder on how to read in data, <a href="RHelp.html#reading-in-data.">click here</a>.</p>
 <p>Next, note that the “Yes” and “No” answers to the question “Do you regularly eat fresh fruits and vegetables?” is stored in the column of the dataset called <code>Eathealthy</code>. So we use the <code>table(</code> function, followed by the name of the dataset <code>EatingHealthy</code> followed by a <code>$</code> sign, followed by the column name <code>Eathealthy</code>.</p>
 <pre class="r"><code>#Count up the &quot;Yes&quot; and &quot;No&quot; answers:
 table(EatingHealthy$Eathealthy)</code></pre>
@@ -572,7 +572,7 @@ R Instructions
 <div class="Software">
 <p><strong>To make a bar chart in R:</strong></p>
 <ul>
-<li>First, read in the data: <a href="./Data/EatingHealthy.xlsx">EatingHealthy</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
+<li>First, read in the data: <a href="./data/EatingHealthy.xlsx">EatingHealthy</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Second, use the <code>table(...)</code> function, the assignment operator <code>&lt;-</code>, and a name for the table of counts that you create (like <code>mytable</code>) to save a table of counts.</li>
 </ul>
 <div style="padding-left:40px;">
@@ -713,7 +713,7 @@ barplot(mytable,
 </div>
 <div id="creating-a-sampling-distribution" class="section level3">
 <h3>Creating a Sampling Distribution</h3>
-<p>A true sampling distribution of a sample proportion is obtained by plotting the results from <em>all possible</em> samples from a population of size <span class="math inline">\(n\)</span>. It isn’t reasonable to try to create such a distribution in its entirety, but we can look at a quick example using the data file <a href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a>. This data file contains data representing a collection of 900 students’ results, where each student tossed a coin <span class="math inline">\(n=25\)</span> times and calculated their proportion of heads. These 900 different sample proportions <span class="math inline">\(\hat{p}\)</span> represent 900 different samples (of <span class="math inline">\(n=25\)</span> coin flips in each sample) from the population of all coin flip possibilities. The goal of the sampling distribution of the sample proportion is to consider the set of all possible sample proportions that could be obtained when getting a sample from a population, and where those sample proportions would land, i.e., how they would be distributed.</p>
+<p>A true sampling distribution of a sample proportion is obtained by plotting the results from <em>all possible</em> samples from a population of size <span class="math inline">\(n\)</span>. It isn’t reasonable to try to create such a distribution in its entirety, but we can look at a quick example using the data file <a href="./data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a>. This data file contains data representing a collection of 900 students’ results, where each student tossed a coin <span class="math inline">\(n=25\)</span> times and calculated their proportion of heads. These 900 different sample proportions <span class="math inline">\(\hat{p}\)</span> represent 900 different samples (of <span class="math inline">\(n=25\)</span> coin flips in each sample) from the population of all coin flip possibilities. The goal of the sampling distribution of the sample proportion is to consider the set of all possible sample proportions that could be obtained when getting a sample from a population, and where those sample proportions would land, i.e., how they would be distributed.</p>
 <p>The following histogram shows the distribution of the sample proportions <span class="math inline">\(\hat{p}\)</span> for each of the 900 students that participated in the coin flip experiment. It turns out that there were 134 students in the sample of <span class="math inline">\(n=900\)</span> that also flipped 12/25 heads like we did. However, there were also 137 students that flipped 13/25 heads. But notice that very few students (only 5) got as few as 5/25 heads and very few students (only 7) got as many as 19/25 heads. And no one (out of all 900 students that participated) got more than 19 heads (19/25 = 0.76) or fewer than 5 heads (5/25 = 0.2).</p>
 <p><img src="Lesson16_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <div class="QuestionsHeading">

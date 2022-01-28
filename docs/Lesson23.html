@@ -476,7 +476,7 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <h3>Scatterplot</h3>
 <p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This has been referred to as a “hot dog” shape in the data.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
-<p>Consider the scatterplot of the estuarine crocodile data <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a>:</p>
+<p>Consider the scatterplot of the estuarine crocodile data <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a>:</p>
 <p><img src="Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG"></p>
 <p>Notice how the data follow a linear shape. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
@@ -495,7 +495,7 @@ R Instructions
 <div class="Software">
 <p><strong>To find the residuals in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
 <pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
@@ -529,7 +529,7 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
 <pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
@@ -763,7 +763,7 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 <li>See the results using <code>summary( )</code>.</li>
 </ul>
@@ -811,7 +811,7 @@ df= 28-2 = 26
 <div id="manatees" class="section level3">
 <h3>Manatees</h3>
 <p><img src="Images/Step4.png"></p>
-<p>Here is an excerpt from the output for the <a href="./Data/Manatees.xlsx">Manatees.xlsx</a> data set:</p>
+<p>Here is an excerpt from the output for the <a href="./data/Manatees.xlsx">Manatees.xlsx</a> data set:</p>
 <table style="width:51%;">
 <colgroup>
 <col width="36%" />
@@ -910,7 +910,7 @@ R Instructions
 <div class="Software">
 <p><strong>To compute the confidence intervals for the regression coefficients in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./Data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
 <pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)</code></pre>

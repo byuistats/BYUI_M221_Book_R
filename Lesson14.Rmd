@@ -133,7 +133,7 @@ We will use the $\alpha = 0.05$ level of significance.
 
 The 192 students that volunteered to participate in the study were randomly assigned to one of the three treatment groups: Events, Hassles, or Gratitude.  They wrote in a weekly journal, according to their group assignment.  At the end of the semester, they completed a questionnaire that asked about their attitude toward life.  The responses on the survey were coded into a number, where higher numbers represent a more positive outlook on life.
 
-
+ 
 <img src="./Images/Step3.png">
 
 **Give the relevant summary statistics**

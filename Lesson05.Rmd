@@ -47,7 +47,7 @@ By the end of this lesson, you should be able to:
 
 <img src="./Images/Baseball.jpg">
 
-In baseball, a player called the "pitcher" throws a ball to a player called the "batter." The batter swings a wooden or metal bat and tries to hit the ball. A "hit" is made when the batter successfully hits the ball and runs to a point in the field called first base. A player's batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been "at bat." Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The file [BattingAverages.xlsx](./Data/BattingAverages.xlsx) contains his data.
+In baseball, a player called the "pitcher" throws a ball to a player called the "batter." The batter swings a wooden or metal bat and tries to hit the ball. A "hit" is made when the batter successfully hits the ball and runs to a point in the field called first base. A player's batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been "at bat." Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The file [BattingAverages.xlsx](./data/BattingAverages.xlsx) contains his data.
 
 The following histogram summarizes the batting averages for these professional baseball players:
 
@@ -383,7 +383,7 @@ For a refresher of how to make a Histogram in R, revisit [Lesson 3: R Instructio
 
 A group of researchers led by Philip A. Mackowiak, MD, conducted a study to assess the true mean body temperatures of healthy adults. They selected n = 148 subjects between the ages of 18 and 40 years old, representative of the general population.
 
-Each volunteer was given a physical to assure that they were not ill at the time of the data collection. Their axillary (under the arm) body temperature was measured and reported in a paper published in the Journal of the American Medical Association. [1] These data were extracted and are presented in the file [BodyTemp](./Data/BodyTemp.xlsx). The body temperatures are given in degrees Fahrenheit.
+Each volunteer was given a physical to assure that they were not ill at the time of the data collection. Their axillary (under the arm) body temperature was measured and reported in a paper published in the Journal of the American Medical Association. [1] These data were extracted and are presented in the file [BodyTemp](./data/BodyTemp.xlsx). The body temperatures are given in degrees Fahrenheit.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -399,7 +399,7 @@ Create a histogram in R by first [importing the data](RHelp#reading-in-data) to 
 
 ```{r, include=FALSE}
 library(readxl)
-BodyTemp <- read_excel("./Data/BodyTemp.xlsx")
+BodyTemp <- read_excel("./data/BodyTemp.xlsx")
 ```
 
 ```{r}
@@ -438,7 +438,7 @@ The sample mean is 98.23, sample standard deviation is 0.738, and sample size is
 
 ### Wages of BYU-Idaho Students
 
-The [Survey Data](./Data/SurveyData.xlsx) file contains data on hourly wages of BYU-Idaho students. Use that data to answer the following questions.
+The [Survey Data](./data/SurveyData.xlsx) file contains data on hourly wages of BYU-Idaho students. Use that data to answer the following questions.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -450,7 +450,7 @@ The [Survey Data](./Data/SurveyData.xlsx) file contains data on hourly wages of 
 First, read in the **Survey Data** into RStudio. Then, use the code
 
 ```{r}
-SurveyData <- read_excel("./Data/SurveyData.xlsx")
+SurveyData <- read_excel("./data/SurveyData.xlsx")
 ```
 
 ```{r}

@@ -531,7 +531,7 @@ This video is an hour and a half long. <strong>YOU DO NOT NEED TO WATCH THE ENTI
 </iframe>
 <p><br/></p>
 <p><img src="Images/Step2.png"></p>
-<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./Data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a>.</p>
+<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a>.</p>
 <p><br/></p>
 <p><img src="Images/Step3.png"></p>
 <p>Using the information we learned in <a href="Lesson21.html#r-instructions-for-scatterplots">Lesson 21</a> we create a scatterplot for the Estuarine Crocodile data.</p>
@@ -559,7 +559,7 @@ R Instructions
 <div class="Software">
 <p><strong>To find the estimated regression coefficients (<span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>) in R, do the following:</strong></p>
 <ul>
-<li>Import the data into RStudio: <a href="./Data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
+<li>Import the data into RStudio: <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
 <li>Use the <code>lm( )</code> function to create a “linear model” for the data.</li>
 <li>Put your response variable (Y) first, followed by a <code>~</code>, followed by the explanatory variable (X).</li>
 <li>Use the <code>summary( )</code> function to view the results of the <code>lm( )</code> function.</li>
@@ -620,7 +620,7 @@ R Instructions
 <div class="Software">
 <p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
 <ul>
-<li>Import the data into RStudio: <a href="./Data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
+<li>Import the data into RStudio: <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
 <li>Perform the regression:</li>
 </ul>
 <pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
@@ -700,7 +700,7 @@ text(160,1207, &quot;Adult Predicted Body Length of 648 cm&quot;, pos=2)</code><
 <p>Is there a relationship between the number of powerboats registered in Florida and the number of manatees killed there by powerboats each year? If the powerboats are killing the manatees, then we would expect to see a relationship between the number of powerboats and the number of manatees killed by powerboats. As the number of powerboats increases, we would expect to observe a corresponding increase in manatee deaths due to powerboats.</p>
 <p>We can use simple linear regression to model the relationship between the powerboat registrations and the manatee deaths. In the next lesson, we will be able to conduct a hypothesis test to determine if this relationship is statistically significant.</p>
 <p><img src="Images/Step2.png"></p>
-<p>The data set <a href="./Data/Manatees.xlsx">Manatees.xlsx</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--></p>
+<p>The data set <a href="./data/Manatees.xlsx">Manatees.xlsx</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--></p>
 <p><img src="Images/Step3.png"></p>
 <p>As part of a regression analysis, it is important that you first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. If you have a situation in your profession that involves a curvilinear relationship, you can consult a statistician or else a textbook on Linear Regression such as Kuntner, et. al., <em>Applied Linear Regression Models</em>.</p>
 <p>In other words, simple linear regression is not appropriate when the graph shows a “curvilinear” shape (suggesting a nonlinear relationship). We apply simple linear regression when the two variables show a “linear” shape. If the data look like a random scattering of points, we would conclude that there is no linear relationship in the data.</p>

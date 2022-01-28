@@ -73,7 +73,7 @@ The $n=139$ students from the selected Math 101 course represented a convenience
 
 ##  Describing Bivariate Data 
 
-Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx).
+Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx).
 
 Notice that we have two quantitative measurements on each participant.  We call these data **bivariate data**, since there are two (bi-) quantitative variables that we are considering simultaneously.
 
@@ -95,11 +95,11 @@ A scatterplot is an excellent way to present the bivariate relationship between 
 <div class="Software">
 **To create a scatterplot in R** use the `plot(...)` function with the `y-variable` placed first, followed by a `~`, followed by the `x-variable`.
 
-First, read in the data: [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
+First, read in the data: [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
 
 ```{r, include=FALSE}
 library(readxl)
-MathSelfEfficacy <- read_excel("./Data/MathSelfEfficacy.xlsx")
+MathSelfEfficacy <- read_excel("./data/MathSelfEfficacy.xlsx")
 ```
 
 ```{r}
@@ -563,7 +563,7 @@ The amount of time between eruptions (wait time) is random.  However, it can be 
 
 <img src="./Images/Step2.png">
 
-Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [OldFaithful.xlsx](./Data/OldFaithful.xlsx).
+Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [OldFaithful.xlsx](./data/OldFaithful.xlsx).
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -661,7 +661,7 @@ Each point in the plot represents both the actual eruption time and the wait tim
 
 <!-- ### Example: Math Self Efficacy -->
 
-<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
+<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
 <!-- $$  -->
 <!-- s_{xy} = r \cdot s_x \cdot s_y = 0.728 \cdot 0.939 \cdot 16.37 = 11.19 -->
 <!-- $$ -->

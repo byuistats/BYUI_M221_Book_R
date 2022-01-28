@@ -450,7 +450,7 @@ $(document).ready(function () {
 </div>
 <div id="describing-bivariate-data" class="section level2">
 <h2>Describing Bivariate Data</h2>
-<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./Data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>.</p>
+<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>.</p>
 <p>Notice that we have two quantitative measurements on each participant. We call these data <strong>bivariate data</strong>, since there are two (bi-) quantitative variables that we are considering simultaneously.</p>
 <p>In the past, we have summarized quantitative data by computing summary statistics. Here are a couple of statistics computed from these data:</p>
 <ul>
@@ -469,7 +469,7 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To create a scatterplot in R</strong> use the <code>plot(...)</code> function with the <code>y-variable</code> placed first, followed by a <code>~</code>, followed by the <code>x-variable</code>.</p>
-<p>First, read in the data: <a href="./Data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
+<p>First, read in the data: <a href="./data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
 <pre class="r"><code>plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean)</code></pre>
 <p><img src="Lesson21_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of</p>
@@ -1071,7 +1071,7 @@ Answer the following questions:
 
 </div>
 <p><img src="Images/Step2.png"></p>
-<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <a href="./Data/OldFaithful.xlsx">OldFaithful.xlsx</a>.</p>
+<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <a href="./data/OldFaithful.xlsx">OldFaithful.xlsx</a>.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1166,7 +1166,7 @@ Answer the following questions:
 <!-- s_{xy} = r \cdot s_x \cdot s_y -->
 <!-- $$ -->
 <!-- ### Example: Math Self Efficacy -->
-<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./Data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
+<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
 <!-- $$  -->
 <!-- s_{xy} = r \cdot s_x \cdot s_y = 0.728 \cdot 0.939 \cdot 16.37 = 11.19 -->
 <!-- $$ -->

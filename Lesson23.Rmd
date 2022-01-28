@@ -80,7 +80,7 @@ To check requirement 1, we do two things.  The first is to make a scatterplot an
 
 We want to make sure that there is no distinct curvature or other nonlinear characteristics.  This is simply a visual check of the data.
 
-Consider the scatterplot of the estuarine crocodile data [EstuarineCrocodile.xlsx](./Data/Estuarine_Crocodile.xlsx):
+Consider the scatterplot of the estuarine crocodile data [EstuarineCrocodile.xlsx](./data/Estuarine_Crocodile.xlsx):
 
 <img src="./Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG">
 
@@ -101,12 +101,12 @@ It is tedious to calculate the residuals by hand, but software can be used to fi
 <div class="Software">
 **To find the residuals in R, do the following:**
 
-- Read the data into R: [EstuarineCrocodile.xlsx](./Data/Estuarine_Crocodile.xlsx)
+- Read the data into R: [EstuarineCrocodile.xlsx](./data/Estuarine_Crocodile.xlsx)
 - Perform a linear regression using the `lm( )` function.
 
 ```{r, include=FALSE}
 library(readxl)
-EstuarineCrocodiles <- read_excel("./Data/EstuarineCrocodiles.xlsx")
+EstuarineCrocodiles <- read_excel("./data/EstuarineCrocodiles.xlsx")
 ```
 
 ```{r}
@@ -133,12 +133,12 @@ The residual is calculated for each data point, so you have one residual for eve
 
 <div class="SoftwareHeading">Excel Instructions</div>
 <div class="Software">
-- Read the data into R: [EstuarineCrocodile.xlsx](./Data/Estuarine_Crocodile.xlsx)
+- Read the data into R: [EstuarineCrocodile.xlsx](./data/Estuarine_Crocodile.xlsx)
 - Perform a linear regression using the `lm( )` function.
 
 ```{r, include=FALSE}
 library(readxl)
-EstuarineCrocodiles <- read_excel("./Data/EstuarineCrocodiles.xlsx")
+EstuarineCrocodiles <- read_excel("./data/EstuarineCrocodiles.xlsx")
 ```
 
 ```{r}
@@ -314,7 +314,7 @@ The relevant summary statistics include the sample size and the estimated regres
 
 <div class="SoftwareHeading">Excel Instructions</div>
 <div class="Software">
-- Read the data into R: [EstuarineCrocodile.xlsx](./Data/Estuarine_Crocodile.xlsx)
+- Read the data into R: [EstuarineCrocodile.xlsx](./data/Estuarine_Crocodile.xlsx)
 - Perform a linear regression using the `lm( )` function.
 - See the results using `summary( )`.
 
@@ -358,10 +358,10 @@ It was appropriate to conduct this analysis, since the requirements of simple li
 
 <img src="./Images/step4.png">
 
-Here is an excerpt from the output for the [Manatees.xlsx](./Data/Manatees.xlsx) data set:  
+Here is an excerpt from the output for the [Manatees.xlsx](./data/Manatees.xlsx) data set:  
 
 ```{r, include=FALSE}
-Manatees <- read_excel("./Data/Manatees.xlsx")
+Manatees <- read_excel("./data/Manatees.xlsx")
 Manatees <- Manatees[,c(2,3)]
 ```
 
@@ -424,7 +424,7 @@ We are often interested in the range of plausible values for the true regression
 <div class="Software">
 **To compute the confidence intervals for the regression coefficients in R, do the following:**
 
-- Read the data into R: [EstuarineCrocodile.xlsx](./Data/Estuarine_Crocodile.xlsx)
+- Read the data into R: [EstuarineCrocodile.xlsx](./data/Estuarine_Crocodile.xlsx)
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
