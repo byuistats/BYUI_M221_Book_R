@@ -755,10 +755,7 @@ To read in a data file in R, do the following:
 
 ```{r, include=FALSE}
 #Read the data into this document so that we can use it here as well.
-url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
-destfile <- "surgery_lawsuits.xlsx"
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
+surgery_lawsuits <- read_excel("./data/surgery_lawsuits.xlsx")
 ```
 
 - We can calculate the average (mean) of any quantitative column of the data frame `surgery_lawsuits` using the `mean(...)` function and the selection operator `$` as follows. If we want the mean of the `wrong_site` column, we enter the following in the Console:

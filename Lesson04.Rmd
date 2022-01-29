@@ -863,10 +863,7 @@ Percentiles can be used to describe the center and spread of any distribution an
 
 ```{r, include=FALSE, label = w_s_w_p_data}
 #Read the data into this document so that we can use it here as well.
-url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
-destfile <- "surgery_lawsuits.xlsx"
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
+surgery_lawsuits <- read_excel("./data/surgery_lawsuits.xlsx")
 ```
 
 - Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
