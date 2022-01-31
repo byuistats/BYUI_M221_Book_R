@@ -167,6 +167,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [oreos.xlsx](./data/oreos.xlsx) </td> </tr>
 
+<tr> <td> [oysters.xlsx](./data/oysters.xlsx) </td> </tr>
+
 <tr> <td> [patient_satisfaction.xlsx](./data/patient_satisfaction.xlsx) </td> <td> tinyurl.com/M221-patient-satisfaction </td> </tr>
 
 <tr> <td> [pine_beetle.xlsx](./data/pine_beetle.xlsx) </td> <td> tinyurl.com/M221-pine-beetle </td> </tr>
