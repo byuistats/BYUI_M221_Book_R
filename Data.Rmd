@@ -43,6 +43,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [bp_placebo.xlsx](./data/bp_placebo.xlsx) </td>  </tr>
 
+<tr> <td> [cannon_range.xlsx](./data/cannon_range.xlsx) </td> </tr>
+
 <tr> <td> [car_prices.xlsx](./data/car_prices.xlsx) </td> <td> tinyurl.com/M221-car-prices </td> </tr>
 
 <tr> <td> [cardiac_arrest.xlsx](./data/cardiac_arrest.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
