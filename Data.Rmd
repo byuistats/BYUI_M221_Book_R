@@ -195,6 +195,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [speed_of_light_1882.xlsx](./data/speed_of_light_1882.xlsx) </td>  </tr>
 
+<tr> <td> [stature.xlsx](./data/stature.xlsx) </td>  </tr>
+
 <tr> <td> [super_bowl_movies.xlsx](./data/super_bowl_movies.xlsx) </td> <td> tinyurl.com/M221-super-bowl-movies </td> </tr>
 
 <tr> <td> [surgery_error_lawsuits.xlsx](./data/surgery_error_lawsuits.xlsx) </td> <td> tinyurl.com/M221-site-patient </td> </tr>
