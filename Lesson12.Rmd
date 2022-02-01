@@ -220,7 +220,7 @@ To make a histogram of the differences we use the code:
 
 ```{r}
 hist(weight_loss$differences, 
-     col="wheat2",
+     col="tan3",
      xlab="Weight Change in Kilograms (Post - Pre)",
      main="Weight Loss Study") 
 ```
@@ -326,7 +326,7 @@ The women's weights were recorded at the beginning of the study.  The women were
 **Give the relevant summary statistics**
 
 ```{r, echo = FALSE}
-hist(weight_loss$differences, main="Weight Loss Study \n All 27 Women Lost Weight", xlab="Weight Change in Kilograms (Post - Pre)", col="wheat2")
+hist(weight_loss$differences, main="Weight Loss Study \n All 27 Women Lost Weight", xlab="Weight Change in Kilograms (Post - Pre)", col="tan3")
 ```
 
 From the R output demonstrated previously, we can see a histogram of the data and get the following numerical summaries:
@@ -746,7 +746,7 @@ $$
 <div id="Q19" style="display:none;">
 
 ```{r, comment = NA}
-hist(differences, main="Effect of Classical Music on Energy", xlab="Resting Energy Expenditure (Stressful - Silence", col="orchid") 
+hist(differences, main="Effect of Classical Music on Energy", xlab="Resting Energy Expenditure (Stressful - Silence", col="darkorchid") 
 ```
 
 </div>
@@ -948,7 +948,7 @@ flight_costs <- read_excel("./data/flight_costs.xlsx")
 ```{r}
 differences <- flight_costs$fourteen_days - flight_costs$ninety_days
 hist(differences, 
-     col="yellow3",
+     col="tan3",
      xlab="Difference in Dollar Cost (14 Days - 90 Days)",
      main="Direct Flight Costs",
      breaks = 30)
@@ -960,7 +960,7 @@ hist(differences,
 ```{r}
 differences <- flight_costs$ninety_days - flight_costs$fourteen_days
 hist(differences, 
-     col="yellow4",
+     col="brown3",
      xlab="Difference in Dollar Cost (90 Days - 14 Days)",
      main="Direct Flight Costs",
      breaks = 30)
@@ -1188,7 +1188,7 @@ Sample Size:           $n = 170$
 <div id="Q41" style="display:none;">
 
 ```{r}
-hist(pine_beetle$differences, main="Pine Beetle Outbreaks", xlab="Difference in Tree Density (After - Before)", col="forestgreen")
+hist(pine_beetle$differences, main="Pine Beetle Outbreaks", xlab="Difference in Tree Density (After - Before)", col="darkolivegreen4")
 ```
 
 </div>
@@ -1379,7 +1379,7 @@ Here is a boxplot of the data (just to change things up):
 
 ```{r, fig.height = 3}
 boxplot(sleep$differences, 
-        col="firebrick",
+        col="brown3",
         xlab="Difference in Hours of Sleep",
         main="Slee Inducing Drugs Study",
         horizontal = TRUE)

@@ -791,7 +791,7 @@ R Instructions
   n = 27
 \]</span> To make a histogram of the differences we use the code:</p>
 <pre class="r"><code>hist(weight_loss$differences, 
-     col=&quot;wheat2&quot;,
+     col=&quot;tan3&quot;,
      xlab=&quot;Weight Change in Kilograms (Post - Pre)&quot;,
      main=&quot;Weight Loss Study&quot;) </code></pre>
 <p><img src="Lesson12_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
@@ -1168,11 +1168,11 @@ Answer the following questions:
 <pre class="r"><code>hospital_infections$differences &lt;- hospital_infections$infected - hospital_infections$not_infected</code></pre>
 <p>The numerical summaries are then computed by</p>
 <pre class="r"><code>mean(hospital_infections$differences)</code></pre>
-<pre><code>[1] NA</code></pre>
+<pre><code>[1] 11.38462</code></pre>
 <pre class="r"><code>sd(hospital_infections$differences)</code></pre>
-<pre><code>[1] NA</code></pre>
+<pre><code>[1] 13.83255</code></pre>
 <pre class="r"><code>length(hospital_infections$differences)</code></pre>
-<pre><code>[1] 56</code></pre>
+<pre><code>[1] 52</code></pre>
 <p><span class="math display">\[
 \begin{align}
 \bar d &amp; = 11.38 \\
@@ -1381,7 +1381,7 @@ s_d &amp; = 159.5~\text{kJ/d}
 </ol>
 <a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
-<pre class="r"><code>hist(differences, main=&quot;Effect of Classical Music on Energy&quot;, xlab=&quot;Resting Energy Expenditure (Stressful - Silence&quot;, col=&quot;orchid&quot;) </code></pre>
+<pre class="r"><code>hist(differences, main=&quot;Effect of Classical Music on Energy&quot;, xlab=&quot;Resting Energy Expenditure (Stressful - Silence&quot;, col=&quot;darkorchid&quot;) </code></pre>
 <p><img src="Lesson12_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <p><br></p>
@@ -1579,7 +1579,7 @@ If you defined your difference as the 90-day price minus the 14-day price, then 
 <div id="Q29" style="display:none;">
 <pre class="r"><code>differences &lt;- flight_costs$fourteen_days - flight_costs$ninety_days
 hist(differences, 
-     col=&quot;yellow3&quot;,
+     col=&quot;tan3&quot;,
      xlab=&quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;,
      main=&quot;Direct Flight Costs&quot;,
      breaks = 30)</code></pre>
@@ -1589,7 +1589,7 @@ hist(differences,
 </ul>
 <pre class="r"><code>differences &lt;- flight_costs$ninety_days - flight_costs$fourteen_days
 hist(differences, 
-     col=&quot;yellow4&quot;,
+     col=&quot;brown3&quot;,
      xlab=&quot;Difference in Dollar Cost (90 Days - 14 Days)&quot;,
      main=&quot;Direct Flight Costs&quot;,
      breaks = 30)</code></pre>
@@ -1824,7 +1824,7 @@ mean(pine_beetle$differences)</code></pre>
 </ol>
 <a href="javascript:showhide('Q41')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q41" style="display:none;">
-<pre class="r"><code>hist(pine_beetle$differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;forestgreen&quot;)</code></pre>
+<pre class="r"><code>hist(pine_beetle$differences, main=&quot;Pine Beetle Outbreaks&quot;, xlab=&quot;Difference in Tree Density (After - Before)&quot;, col=&quot;darkolivegreen4&quot;)</code></pre>
 <p><img src="Lesson12_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <p> </p>
@@ -1988,7 +1988,7 @@ sd(sleep$differences, na.rm = TRUE)    # Sample standard deviation</code></pre>
 <div id="Q45" style="display:none;">
 <p>Here is a boxplot of the data (just to change things up):</p>
 <pre class="r"><code>boxplot(sleep$differences, 
-        col=&quot;firebrick&quot;,
+        col=&quot;brown3&quot;,
         xlab=&quot;Difference in Hours of Sleep&quot;,
         main=&quot;Slee Inducing Drugs Study&quot;,
         horizontal = TRUE)</code></pre>
