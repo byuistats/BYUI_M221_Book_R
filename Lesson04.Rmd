@@ -1090,7 +1090,7 @@ boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousan
 Also, you can give color to the graph using `col="some color name"`.
 
 ```{r, fig.height=3, label=w_s_w_p_boxplot_1000_again_x}
-boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="darkolivegreen4")
 ```
 
 -->
@@ -1122,7 +1122,7 @@ e. Uniform
 To create the histogram, [read the data](RHelp.html#reading-in-data) into RStudio. Then, use the `hist(...)` function to create a histogram. If you have forgotten how to do this, review it in [Lesson 3, creating a histogram](Lesson03.html#r-Instructions-for-histograms).
 
 ```{r, label=w_s_w_p_hist}
-hist(surgery_lawsuits$wrong_patient, col="skyblue", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+hist(surgery_lawsuits$wrong_patient, col="steelblue3", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is 'c. Skewed right'.
@@ -1137,7 +1137,7 @@ From the histogram we clearly see most values bunched near the left and graduall
 
 
 ```{r, fig.height=3, label=w_s_w_p_boxplot_orange}
-boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="orange", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="tan3", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
 ```
 
 </div>
@@ -1148,7 +1148,7 @@ boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="orange", main="Law
 Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.
 
 ```{r, echo=FALSE, label=w_s_w_p_boxplot_1000000}
-boxplot(surgery_lawsuits$wrong_site/1000000, surgery_lawsuits$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("skyblue3","firebrick"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
+boxplot(surgery_lawsuits$wrong_site/1000000, surgery_lawsuits$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("steelblue3","brown3"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
 ```
 
 In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.
@@ -1177,7 +1177,7 @@ To make the graph look nicer, we can use the `names=c(...)` command to give a na
 boxplot(surgery_lawsuits$wrong_site/1000000, 
        surgery_lawsuits$wrong_patient/1000000, 
         names=c("Wrong Site", "Wrong Patient"), 
-        col=c("skyblue3","firebrick"), 
+        col=c("steelblue3","brown3"), 
         main="Cost to Hospital by Lawsuit Type", 
         ylab="Cost in Millions of Dollars", 
         las=1)

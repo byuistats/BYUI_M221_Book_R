@@ -1773,7 +1773,7 @@ Also, you can give color to the graph using `col="some color name"`.
 
 
 ```r
-boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="seagreen")
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="darkolivegreen4")
 ```
 
 <img src="Lesson04_files/figure-html/w_s_w_p_boxplot_1000_again_x-1.png" width="672" />
@@ -1803,7 +1803,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
 <p>To create the histogram, <a href="RHelp.html#reading-in-data">read the data</a> into RStudio. Then, use the <code>hist(...)</code> function to create a histogram. If you have forgotten how to do this, review it in <a href="Lesson03.html#r-Instructions-for-histograms">Lesson 3, creating a histogram</a>.</p>
-<pre class="r"><code>hist(surgery_lawsuits$wrong_patient, col=&quot;skyblue&quot;, main=&quot;Costs of Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<pre class="r"><code>hist(surgery_lawsuits$wrong_patient, col=&quot;steelblue3&quot;, main=&quot;Costs of Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
 <p><img src="Lesson04_files/figure-html/w_s_w_p_hist-1.png" width="672" /></p>
 <p>From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is ‘c. Skewed right’.</p>
 </div>
@@ -1813,7 +1813,7 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q30')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q30" style="display:none;">
-<pre class="r"><code>boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col=&quot;orange&quot;, main=&quot;Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
+<pre class="r"><code>boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col=&quot;tan3&quot;, main=&quot;Lawsuites for Wrong Patient Operations&quot;, xlab=&quot;Cost in Dollars&quot;)</code></pre>
 <p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot_orange-1.png" width="672" /></p>
 </div>
 <p> </p>
@@ -1839,7 +1839,7 @@ R Instructions
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site/1000000, 
        surgery_lawsuits$wrong_patient/1000000, 
         names=c(&quot;Wrong Site&quot;, &quot;Wrong Patient&quot;), 
-        col=c(&quot;skyblue3&quot;,&quot;firebrick&quot;), 
+        col=c(&quot;steelblue3&quot;,&quot;brown3&quot;), 
         main=&quot;Cost to Hospital by Lawsuit Type&quot;, 
         ylab=&quot;Cost in Millions of Dollars&quot;, 
         las=1)</code></pre>
