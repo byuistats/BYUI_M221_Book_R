@@ -531,11 +531,11 @@ This video is an hour and a half long. <strong>YOU DO NOT NEED TO WATCH THE ENTI
 </iframe>
 <p><br/></p>
 <p><img src = "Images/Step2.png"></p>
-<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a>.</p>
+<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>.</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
 <p>Using the information we learned in <a href="Lesson21.html#r-instructions-for-scatterplots">Lesson 21</a> we create a scatterplot for the Estuarine Crocodile data.</p>
-<pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
@@ -543,7 +543,7 @@ This video is an hour and a half long. <strong>YOU DO NOT NEED TO WATCH THE ENTI
      pch = 16)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Also, using the information we learned in Lesson 21 about <a href="Lesson21.html#r-instructions-for-computing-correlation">computing correlation</a> we obtain the following.</p>
-<pre class="r"><code>cor(EstuarineCrocodiles$BodyLength, EstuarineCrocodiles$HeadLength)</code></pre>
+<pre class="r"><code>cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)</code></pre>
 <pre><code>## [1] 0.9898911</code></pre>
 <p>There is a strong positive linear relationship between these two measurements (<span class="math inline">\(r = 0.9899\)</span>). Because of this strong linear relationship, it seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length. In particular, we will use this line to estimate the length of SuperCroc.</p>
 <p><br/></p>
@@ -560,26 +560,26 @@ R Instructions
 <div class="Software">
 <p><strong>To find the estimated regression coefficients (<span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>) in R, do the following:</strong></p>
 <ul>
-<li>Import the data into RStudio: <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
+<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Use the <code>lm( )</code> function to create a “linear model” for the data.</li>
 <li>Put your response variable (Y) first, followed by a <code>~</code>, followed by the explanatory variable (X).</li>
 <li>Use the <code>summary( )</code> function to view the results of the <code>lm( )</code> function.</li>
 <li>The summary shows the “Estimates” for the <code>(Intercept)</code> and the slope term. The <code>(Intercept)</code> estimate is the value of <span class="math inline">\(b_0\)</span> (y-intercept), and the second Estimate is always for the slope term, <span class="math inline">\(b_1\)</span>.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 summary(estuarine.lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+lm(formula = estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -18.1302  -7.1968  -0.9602   8.2245  25.9486 
 
 Coefficients:
-                               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                    -18.2740     9.9663  -1.834   0.0782 .  
-EstuarineCrocodiles$HeadLength   7.6601     0.2152  35.588   &lt;2e-16 ***
+                                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      -18.2740     9.9663  -1.834   0.0782 .  
+estuarine_crocodiles$head_length   7.6601     0.2152  35.588   &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -621,14 +621,14 @@ R Instructions
 <div class="Software">
 <p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
 <ul>
-<li>Import the data into RStudio: <a href="./data/EstuarineCrocodiles.xlsx">EstuarineCrocodiles.xlsx</a></li>
+<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform the regression:</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)</code></pre>
 <ul>
 <li>Create the scatterplot and use <code>abline( )</code> with the name of your regression, <code>estuarine.lm</code> in this case, to graph the regression line.</li>
 </ul>
-<pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
@@ -641,7 +641,7 @@ abline(estuarine.lm)</code></pre>
 </div>
 <p><br/></p>
 <p>If you looked carefully at the scatterplot shown above you might realize that the x-axis of the graph only goes up to 60 cm. The juvenile sarcosuchus we were using to make predictions had a head lenght of 87 cm, which is way off the chart! Further, the estimated body length our regression predicts for this juvenile sarcosuchus is over six and a half meters long! That is over 21 feet! Imagine how big it might have been if it reached maturity! Further, to actually draw the prediction on our graph we would need to use the <code>xlim = c(0,90)</code> and <code>ylim = c(0,650)</code> commands inside the <code>plot( )</code> function.</p>
-<pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
@@ -669,7 +669,7 @@ Answer the following question:
 \hat Y = -18.274 + 7.660 X = -18.274 + 7.660 (160) = 1207.326
 \]</span> If you did some unit conversions, this turns out to be about 39 feet!</p>
 <p>Further, if we wanted to draw a picture of this prediction, it would look as follows.</p>
-<pre class="r"><code>plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
@@ -703,7 +703,7 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 <p>Is there a relationship between the number of powerboats registered in Florida and the number of manatees killed there by powerboats each year? If the powerboats are killing the manatees, then we would expect to see a relationship between the number of powerboats and the number of manatees killed by powerboats. As the number of powerboats increases, we would expect to observe a corresponding increase in manatee deaths due to powerboats.</p>
 <p>We can use simple linear regression to model the relationship between the powerboat registrations and the manatee deaths. In the next lesson, we will be able to conduct a hypothesis test to determine if this relationship is statistically significant.</p>
 <p><img src = "Images/Step2.png"></p>
-<p>The data set <a href="./data/Manatees.xlsx">Manatees.xlsx</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--></p>
+<p>The data set <a href="./data/manatees.xlsx">manatees.xlsx</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--></p>
 <p><img src = "Images/Step3.png"></p>
 <p>As part of a regression analysis, it is important that you first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. If you have a situation in your profession that involves a curvilinear relationship, you can consult a statistician or else a textbook on Linear Regression such as Kuntner, et. al., <em>Applied Linear Regression Models</em>.</p>
 <p>In other words, simple linear regression is not appropriate when the graph shows a “curvilinear” shape (suggesting a nonlinear relationship). We apply simple linear regression when the two variables show a “linear” shape. If the data look like a random scattering of points, we would conclude that there is no linear relationship in the data.</p>
@@ -750,20 +750,20 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 <div id="interpreting-the-regression-output-1" class="section level3">
 <h3>Interpreting the Regression Output</h3>
 <p>The output from the commands given above will include a table similar to the one shown here:</p>
-<pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
 summary(manatee.lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+lm(formula = manatees$manatees_killed ~ manatees$power_boats_1000s)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
 -15.758  -6.647  -1.239   4.349  22.344 
 
 Coefficients:
-                                     Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                        -42.541613   6.349634   -6.70 1.25e-07 ***
-Manatees$`Power Boats (in 1000&#39;s)`   0.129162   0.008338   15.49  &lt; 2e-16 ***
+                             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                -42.541613   6.349634   -6.70 1.25e-07 ***
+manatees$power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -791,7 +791,7 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div id="drawing-the-regression-line-on-a-scatterplot" class="section level3">
 <h3>Drawing the Regression Line on a Scatterplot</h3>
 <p>The following plot shows the regression line on the scatterplot.</p>
-<pre class="r"><code>plot(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`,
+<pre class="r"><code>plot(manatees$manatees_killed ~ manatees$power_boats_1000s,
      main = &quot;Manatee Deaths in Florida, 1977-2006&quot;,
      xlab = &quot;Number of Registered Power Boats that Year&quot;,
      ylab = &quot;Number of Manatees that Died that Year&quot;,
@@ -801,7 +801,7 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
 abline(manatee.lm)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data of <span class="math inline">\(0.9376\)</span>.</p>
-<pre class="r"><code>cor(Manatees$`Power Boats (in 1000&#39;s)`, Manatees$Manatees)</code></pre>
+<pre class="r"><code>cor(manatees$power_boats_1000s, manatees$manatees_killed)</code></pre>
 <pre><code>[1] 0.9376087</code></pre>
 <p><br></p>
 <p><img src = "Images/Step5.png"></p>
