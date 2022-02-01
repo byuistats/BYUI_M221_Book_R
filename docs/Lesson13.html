@@ -588,7 +588,7 @@ R Instructions
 <p><strong>To Make a Fancier Graph</strong></p>
 <p>To make the graph look a little nicer we could use the following options.</p>
 <ul>
-<li>the <code>col=...</code> statement provide colors, either one color for both boxes in the plot <code>col="skyblue"</code>, or colors for each box in the plot, <code>col=c("firebrick","skyblue")</code>.</li>
+<li>the <code>col=...</code> statement provide colors, either one color for both boxes in the plot <code>col="steelblue3"</code>, or colors for each box in the plot, <code>col=c("brown3","steelblue3")</code>.</li>
 <li>the <code>main="a nice title"</code>, allows you to specify a main title for your graph,<br />
 </li>
 <li>the <code>ylab="a nice y-axis label"</code> allows you to specify a y-axis label for your graph,</li>
@@ -596,7 +596,7 @@ R Instructions
 <li>the <code>names=c("label 1", "label 2")</code> statement can be used to give each box a label along the x-axis.</li>
 </ul>
 <pre class="r"><code>boxplot(reading$nights ~ reading$group,
-        col=c(&quot;firebrick&quot;,&quot;skyblue&quot;), 
+        col=c(&quot;brown3&quot;,&quot;steelblue3&quot;), 
         main=&quot;Reading Practices of Children&quot;, 
         ylab=&quot;Number of Nights of Reading&quot;,
         xlab=&quot;Group&quot;,
@@ -833,7 +833,7 @@ favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)</cod
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <p>Side-by-side boxplots are a great way to summarize the data.</p>
-<pre class="r"><code>boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col=c(&quot;gray&quot;, &quot;orange&quot;), main=&quot;2006 World Cup \n &quot;)</code></pre>
+<pre class="r"><code>boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col=c(&quot;darkolivegreen4&quot;, &quot;tan3&quot;), main=&quot;2006 World Cup \n &quot;)</code></pre>
 <p><img src="Lesson13_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <p> </p>
@@ -1011,7 +1011,7 @@ Answer the following question:
 <p><strong>Make an appropriate graph to illustrate the data</strong></p>
 <pre class="r"><code>boxplot(reading$nights ~ reading$group,
         main=&quot;Reading Practices of Children&quot;,
-        col=c(&quot;firebrick&quot;,&quot;skyblue&quot;), 
+        col=c(&quot;brown3&quot;,&quot;steelblue3&quot;), 
         ylab=&quot;Nights Spent Reading&quot;, 
         xlab=&quot;Group&quot;,
         names=c(&quot;Behavioral Problems&quot;, &quot;No Problems&quot;))</code></pre>

@@ -218,7 +218,7 @@ boxplot(reading$nights ~ reading$group)
 
 To make the graph look a little nicer we could use the following options.
 
-* the `col=...` statement provide colors, either one color for both boxes in the plot `col="skyblue"`, or colors for each box in the plot, `col=c("firebrick","skyblue")`.
+* the `col=...` statement provide colors, either one color for both boxes in the plot `col="steelblue3"`, or colors for each box in the plot, `col=c("brown3","steelblue3")`.
 * the `main="a nice title"`, allows you to specify a main title for your graph,  
 * the `ylab="a nice y-axis label"` allows you to specify a y-axis label for your graph,
 * the `xlab="a nice x-axis label"` allows you to label the x-axis of your graph,
@@ -226,7 +226,7 @@ To make the graph look a little nicer we could use the following options.
 
 ```{r}
 boxplot(reading$nights ~ reading$group,
-        col=c("firebrick","skyblue"), 
+        col=c("brown3","steelblue3"), 
         main="Reading Practices of Children", 
         ylab="Number of Nights of Reading",
         xlab="Group",
@@ -487,7 +487,7 @@ favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 Side-by-side boxplots are a great way to summarize the data. 
 
 ```{r}
-boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col=c("gray", "orange"), main="2006 World Cup \n ")
+boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col=c("darkolivegreen4", "tan3"), main="2006 World Cup \n ")
 ```
 
 </div>
@@ -657,7 +657,7 @@ favstats(reading$nights ~ reading$group)
 ```{r}
 boxplot(reading$nights ~ reading$group,
         main="Reading Practices of Children",
-        col=c("firebrick","skyblue"), 
+        col=c("brown3","steelblue3"), 
         ylab="Nights Spent Reading", 
         xlab="Group",
         names=c("Behavioral Problems", "No Problems"))
