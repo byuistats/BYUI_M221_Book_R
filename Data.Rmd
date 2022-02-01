@@ -193,7 +193,9 @@ Links to data files used throughout the course:
 
 <tr> <td> [singer_heights.xlsx](./data/singer_heights.xlsx) </td> <td> tinyurl.com/M221-singer-heights </td> </tr>
 
-<tr> <td> [soccer_shoes.xlsx](./data/soccer_shoes.xlsx) </td> <td> tinyurl.com/M221-soccer-shoes </td> </tr>
+<tr> <td> [soccer_shoes.xlsx](./data/soccer_shoes.xlsx) </td> </tr>
+
+<tr> <td> [soccer_shoes_wide.xlsx](./data/soccer_shoes_wide.xlsx) </td> </tr>
 
 <tr> <td> [soviet_accidents.xlsx](./data/soviet_accidents.xlsx) </td> <td> tinyurl.com/M221-soviet-accidents </td> </tr>
 

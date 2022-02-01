@@ -165,7 +165,7 @@ We can represent the various answers of the students concerning whether or not t
 
 ```{r, echo=FALSE}
 barplot(table(EatingHealthy$Eathealthy),
-        col=c("orange","firebrick","skyblue"),
+        col=c("tan3","brown3","steelblue3"),
         main="College Students were Asked \n \"Do you regularly eat fresh fruits and vegetables?\"",
         xlab="Student Answers",
         ylab="Number of Students")
@@ -210,13 +210,13 @@ Note how the above code puts a label in front of each number. That will make it 
 barplot(mytable)
 ```
 
-- Specify colors for the bar chart using either `col="skyblue"` to give all bars the same color, or use `col=c("orange","firebrick","skyblue")` to give each bar a different color. Of course, use any color names you like: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+- Specify colors for the bar chart using either `col="steelblue3"` to give all bars the same color, or use `col=c("tan3","brown3","steelblue3")` to give each bar a different color. Of course, use any color names you like: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
 - Specify axes labeling with `main="A main title"`, `xlab="An x-axis label"`, and `ylab="A y-axis label"`.
 
 ```{r, comment=NA}
 #Make a fancier graph using the options:
 barplot(mytable,
-        col=c("orange","firebrick","skyblue"),
+        col=c("tan3","brown3","steelblue3"),
         main="College Students were Asked \n \"Do you regularly eat fresh fruits and vegetables?\"",
         xlab="Student Answers",
         ylab="Number of Students")
@@ -260,7 +260,7 @@ mytable <- c(table(EatingHealthy$Barrier1)[1],
 
 #Plot the table of counts
 barplot(mytable,
-        col=c("skyblue","orange","green3","purple","red2","wheat3"), 
+        col=c("steelblue3","tan3","darkolivegreen4","darkorchid","brown3","gray"), 
         names="", #turn off the names, too long
         ylab="Number of Students", 
         main="College Student Barriers to Eating Healthy", 
@@ -270,7 +270,7 @@ barplot(mytable,
 legend("bottom", #position of the legend
        cex=0.8, #shrink words to 80% of normal size
        legend=names(mytable), #give the names to the legend
-       col=c("skyblue","orange","green3","purple","red2","wheat3"), 
+       col=c("steelblue3","tan3","darkolivegreen4","darkorchid","brown3","gray"), 
        pch=15, #add square boxes to the left of each label
        bty='n') #turn off the box drawn around the legend
 axis(side=2, at=c(0,50,100,150,200,250,300)) #add back on a y-axis at the places we want tick marks.
@@ -287,8 +287,8 @@ mytable <- c(table(EatingHealthy$Barrier1)[1],
              table(EatingHealthy$Barrier4)[1],
              table(EatingHealthy$Barrier5)[1],
              table(EatingHealthy$Barrier6)[1])
-barplot(mytable, col=c("skyblue","orange","green3","purple","red2","wheat3"), names="", ylab="Number of Students", main="College Student Barriers to Eating Healthy", ylim=c(-100,300), yaxt='n')
-legend("bottom", cex=0.8, legend=names(mytable), col=c("skyblue","orange","green3","purple","red2","wheat3"), pch=15, bty='n')
+barplot(mytable, col=c("steelblue3","tan3","darkolivegreen4","darkorchid","brown3","gray"), names="", ylab="Number of Students", main="College Student Barriers to Eating Healthy", ylim=c(-100,300), yaxt='n')
+legend("bottom", cex=0.8, legend=names(mytable), col=c("steelblue3","tan3","darkolivegreen4","darkorchid","brown3","gray"), pch=15, bty='n')
 axis(side=2, at=c(0,50,100,150,200,250,300))
 ```
 
@@ -324,7 +324,7 @@ To demonstrate, we actually flipped a coin $n=25$ times and recorded our results
 ```{r, echo=FALSE}
 mytable <- c(`Heads`=12, `Tails`=13)
 barplot(mytable, 
-        col=c("skyblue","gray"), 
+        col=c("steelblue3","darkolivegreen4"), 
         ylab="Number of Flips",
         main="My Coin Flip Results")
 ```
@@ -357,7 +357,7 @@ To create a bar chart of our heads and tails counts, we used the following code.
 ```{r}
 mytable <- c(`Heads`=12, `Tails`=13)
 barplot(mytable, 
-        col=c("skyblue","gray"), 
+        col=c("steelblue3","darkolivegreen4"), 
         ylab="Number of Flips",
         main="My Coin Flip Results")
 ```
@@ -379,7 +379,7 @@ The following histogram shows the distribution of the sample proportions $\hat{p
 CoinTossHeads <- read_excel("./data/CoinTossHeads.xlsx")
 
 hist(CoinTossHeads$ProportionHeads,
-     col="wheat3",
+     col="steelblue3",
      main="Resulting Sample Proportions from 900 Students \n Each Student Flipped a Coin 25 Times",
      ylab="Number of Students who Got the Given Proportion",
      xlab="Resulting Sample Proportion",

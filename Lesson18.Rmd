@@ -112,7 +112,7 @@ When working with data for two proportions, graphically displaying the data can 
 ```{r, eval=FALSE}
 ptc.table <- c(`Male` = 14/38, `Female` = 15/51)
 barplot(ptc.table, 
-        col=c("skyblue2","hotpink"), 
+        col=c("steelblue3","tan3"), 
         ylim=c(0,1),
         main="PTC Taste Test Results",
         ylab="Proportion Able to Taste",
@@ -125,7 +125,7 @@ barplot(ptc.table,
 ```{r, echo=FALSE}
 ptc.table <- c(`Male` = 38/52, `Female` = 51/66)
 barplot(ptc.table, 
-        col=c("skyblue2","hotpink"), 
+        col=c("steelblue3","tan3"), 
         ylim=c(0,1),
         main="PTC Taste Test Results",
         ylab="Proportion Able to Taste",
@@ -330,7 +330,7 @@ barplot(aortic.table,
         main="Death Rates of Aortic Aneurysm Patients \n An Emergency Care Facilty in Ontario, Canada",
         ylab="Proportion of Patients who Died",
         xlab="Day Patient Entered the Hospital",
-        col=c("orange","red3"))
+        col=c("tan3","brown3"))
 
 ```
 

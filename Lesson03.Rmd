@@ -11,7 +11,7 @@ output:
 Use ZincForColds, zinc group to demonstrate
 -->
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -20,10 +20,10 @@ Use ZincForColds, zinc group to demonstrate
 
 <!--
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br />
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC_w9Z1CWsBjtdmcQdJwuAay" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC_w9Z1CWsBjtdmcQdJwuAay" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 <br>
 
@@ -44,8 +44,8 @@ library(readxl)
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "oc" style = "display:none;">
 
 By the end of this lesson, you should be able to:
 
@@ -64,11 +64,11 @@ By the end of this lesson, you should be able to:
 <!-- ------------------------------------ NEED TO WRITE THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## R Instructions for Using Scripts
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_3_using_scripts')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_3_using_scripts" style="display:none;">
+<a href = "javascript:showhide('r_instr_3_using_scripts')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_3_using_scripts" style = "display:none;">
 
 Instructions go here.
 
@@ -91,7 +91,7 @@ Here is a link to the [R Script for Lesson 3](lesson03_script.R).
 
 We will use the five steps in the Statistical Process throughout the course. Recall the five steps (and the mnemonic "Daniel Can Discern More Truth") before you begin this case study.
 
-<div style="padding-left:30px;padding-right:30px;">
+<div style = "padding-left:30px;padding-right:30px;">
 
 | The Statistical Process | Mnemonic | 
 |:------------------------|:---------|
@@ -109,21 +109,21 @@ We will use the five steps in the Statistical Process throughout the course. Rec
 
 ## Case Study: Tuberculosis
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 
-<div style="float:right;padding:15px;">
+<div style = "float:right;padding:15px;">
 
 **Cost to Treat Tuberculosis in India**
 
-<img src="./Images/Market_rural-India_-Tamilword22.jpg">
+<img src = "./Images/Market_rural-India_-Tamilword22.jpg">
 
 </div>
 
 
 <br />
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 <br>
 **Step 1: Design the study.** 
 
@@ -134,7 +134,7 @@ In this activity, you will compare the average costs of treating a person who co
 
 <br />
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 <br>
 **Step 2: Collect data.** 
 
@@ -147,7 +147,7 @@ These costs include health care treatment, time missed from work, and in some ca
 
 <br />
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 <br>
 **Step 3: Describe the data.**
 
@@ -171,13 +171,13 @@ $$
 
 You may have heard people refer to the sample mean as the average. Technically, the word average refers to any number that is used to estimate the center of a distribution. The mean, median and mode are all examples of "averages." To avoid confusion, it is best to use the words mean, median, and mode instead of the word average, so that it is clear which "average" your are referencing.
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 3. Practice finding the mean, $\bar x$, for the tuberculosis treatment costs of the 10 patients in India by simplifying the following:
-$$\bar x=\frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10}=$$
+$$\bar x = \frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10} = $$
 
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
 * The mean cost to treat the 10 TB patients in India is:  $\bar x = \$14,100$.
 </div>
 &nbsp;
@@ -194,12 +194,12 @@ The median is the middle value in a sorted data set. Half of the observations in
     + If there are an odd number of values, the median is the middle value in the sorted list.
     + If there are an even number of values, the median is the mean of the two middle values in the sorted list.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 4. Practice finding the median of the tuberculosis treatment costs for the 10 patients in India. First, sort the data from smallest to largest.
 
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q4" style = "display:none;">
 * 600
 * 4800
 * 6500
@@ -213,10 +213,10 @@ The median is the middle value in a sorted data set. Half of the observations in
 </div>
 <br>
 
-5. Since there are an even number of observations (n=10), the median is computed as the mean of the middle two values. Use your answer to the previous question to find the median of the data. What is the median?
+5. Since there are an even number of observations (n = 10), the median is computed as the mean of the middle two values. Use your answer to the previous question to find the median of the data. What is the median?
 
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
+<a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q5" style = "display:none;">
 * 600
 * 4800
 * 6500
@@ -248,8 +248,8 @@ the modes are 2 and 5. Both of these values occur three times, which is more tim
 If no number occurs more than once in the data set, we say that there is no mode. For the data set representing the costs to treat tuberculosis in India, none of the values is repeated. So, there is no mode for these data.
 
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 6. For a particular data set, which of the following can occur?
 
 a. There may be no mode.
@@ -263,8 +263,8 @@ d. Only A and B can occur.
 e. A, B, and C can all occur.
 
 
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
+<a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q6" style = "display:none;">
 e. A, B, and C can all occur.
 </div>
 &nbsp;
@@ -273,11 +273,11 @@ e. A, B, and C can all occur.
 
 ### R Instructions for Mean, Median, and Mode
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_1_center" style="display:none;">
+<a href = "javascript:showhide('r_instr_1_center')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_1_center" style = "display:none;">
 
 <br>
 **To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
@@ -302,7 +302,7 @@ For the tuberculosis patient costs in India, compute the mean with the R code:
 mean(tuberc)
 ```
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 mean(tuberc)
 ```
@@ -311,7 +311,7 @@ The value given above is the output from this command and represents the mean co
 
 In RStudio this looks like:
 
-<img src="./Images/rstudio_tuberc_mean.png" width="500">
+<img src = "./Images/rstudio_tuberc_mean.png" width = "500">
 
 
 
@@ -325,7 +325,7 @@ For the tuberculosis patient costs in India, compute the median with the R code:
 median(tuberc)
 ```
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 median(tuberc)
 ```
 
@@ -344,7 +344,7 @@ For the tuberculosis patient costs in India, count up how many times each value 
 table(tuberc)
 ```
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 table(tuberc)
 ```
 
@@ -352,7 +352,7 @@ This shows us that all values occur just once in our sample, so there is no mode
 
 If the table is very large, you can use the command
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 sort(table(tuberc))
 ```
 
@@ -375,7 +375,7 @@ The following data are representative of the total costs (in US dollars) incurre
 
 To help us visualize these data, we will create a graph called a histogram. To make a histogram, we will divide the number line from 0 to 35,000 in seven equal parts. We will then count the number of data points in each of these intervals:
 
-<div style="padding-left:30px;padding-right:30px;">
+<div style = "padding-left:30px;padding-right:30px;">
 
 | Interval | Number of Observations |
 |:---------|:----------------------:|
@@ -401,13 +401,13 @@ showing that the *center* of the histogram (or average) is at \$14,100.
 **Histogram of these data created in R:**
 <br>
 
-```{r, echo=FALSE, fig.width=5}
+```{r, echo = FALSE, fig.width = 5}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 hist(tuberc, 
-#     col="steelblue3", 
-     main="Histogram of Costs to Treat Tuberculosis", 
-     xlab="Cost in Dollars",
-     ylab="Number of Individuals")
+#     col = "steelblue3", 
+     main = "Histogram of Costs to Treat Tuberculosis", 
+     xlab = "Cost in Dollars",
+     ylab = "Number of Individuals")
 ```
 
 
@@ -415,12 +415,12 @@ hist(tuberc,
 
 ### R Instructions for Histograms
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
 
-<a href="javascript:showhide('r_instr_1_hist')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_1_hist" style="display:none;">
+<a href = "javascript:showhide('r_instr_1_hist')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_1_hist" style = "display:none;">
 
 <br> 
 Follow these steps to create a histogram in R.
@@ -439,7 +439,7 @@ You need to have R and RStudio installed. This procedure was included in the rea
 Open RStudio from your Apps on your computer. It should look like this. (Using the "Search" bar is a quick way to find RStudio in your apps.)
 
 <!--
-<img src="./Images/rstudio_open.png" width="500">
+<img src = "./Images/rstudio_open.png" width = "500">
 -->
 
 <br />
@@ -454,11 +454,11 @@ If your data set is small, then you can load the data into RStudio by using the 
 * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again. 
 * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object."
 
-<div class="note">
+<div class = "note">
 If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set. For this particular example, we will just type in the data directly. In a later example we will practice reading in the data from a dataset.
 </div>
 
-<div id="enter-in-data">
+<div id = "enter-in-data">
 
 To enter in the tuberculosis data you would use:
 
@@ -470,7 +470,7 @@ Notice that numbers like "15,100" are written as just "15100" because the comma 
 
 In RStudio, it would look like this:
 
-<img src="./Images/rstudio_tuberc2.png" width="500">
+<img src = "./Images/rstudio_tuberc2.png" width = "500">
 
 
 </div>
@@ -485,16 +485,16 @@ Now that you have created an object in R called `tuberc` that contains the 10 da
 
 For the tuberculosis data, since you used the assignment operator to store the data in the `tuberc` object, you would access the data and make a histogram of it using the code:
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 hist(tuberc)
 ```
 
 In RStudio, it would look like this.
 
-<img src="./Images/rstudio_tuberc_hist.png" width="500">
+<img src = "./Images/rstudio_tuberc_hist.png" width = "500">
 
 
-</div> <!-- id="r_instr_1" style="display:none;"> -->
+</div> <!-- id = "r_instr_1" style = "display:none;"> -->
 </div>
 
 <br>
@@ -503,11 +503,11 @@ In RStudio, it would look like this.
 
 ### R Instructions for More Advanced Histograms (Optional)
 
-<div class="SoftwareHeading">R Instructions (Optional)</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions (Optional)</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_1_hist_fancy')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_1_hist_fancy" style="display:none;">
+<a href = "javascript:showhide('r_instr_1_hist_fancy')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_1_hist_fancy" style = "display:none;">
 
 <br> 
 You can use the code below as a template to create fancier histograms in R. This is not required for this course, but you may want to explore some of R's capabilities.
@@ -538,14 +538,14 @@ hist(tuberc,
      ylab = "Number of Individuals")
 ```
 
-</div> <!-- id="r_instr_1" style="display:none;"> -->
+</div> <!-- id = "r_instr_1" style = "display:none;"> -->
 </div>
 
 <br>
 <br>
 
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 <br>
 **Step 4: Make inferences.** 
 
@@ -557,18 +557,18 @@ In the past, the total average cost to society to treat a case of tuberculosis i
 
 <br>
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 <br>
 **Step 5: Take action.** 
 
 After making inferences, you take action. The motivation for conducting a study like this is usually to see if there is inflation in the costs. Actions may include seeking additional funding for the treatment of tuberculosis.
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 1. Given our conclusion in Step 4 (that the results of our random sample being at an average \$14,100 had a 46% probability of just being caused by random chance) do you think the Government of India needs to take any special action to stop the increase in the cost to treat tuberculosis?
 
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q2" style="display:none;">
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
 * Answers may vary.  -- However, we could not say that the true mean cost has really changed from $13,800.  So, there is not enough evidence of inflation.  There is no need for the Government of India to take action.
 </div>
 &nbsp;
@@ -579,12 +579,12 @@ After making inferences, you take action. The motivation for conducting a study 
 
 One benefit of using a histogram is that it allows you to visualize the distribution of the data. A histogram illustrates the overall shape of the distribution of the data. The height of the bars show how many observations fall in that range.
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 2. Which bin of the histogram of tuberculosis costs contained the most data points?
 
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
 * The bin going from \$10,000 to \$15,000 contained 3 observations (\$11,500, \$12,900, and \$14,900), which was the most of any of the bins in the histogram. This can be seen visually in the histogram by looking at the height of each bar and the starting and stopping points of the bar along the x-axis of the graph.
 </div>
 &nbsp;
@@ -599,26 +599,26 @@ A distribution is symmetric if both the left and right side of the distribution 
 
 A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 library(readxl)
-par(mai=c(1.5,1,.1,1))
+par(mai = c(1.5,1,.1,1))
 ClassSurvey <- read_excel("./data/ClassSurvey.xlsx")
 
-CS_males <- subset(ClassSurvey, Gender=="M")
+CS_males <- subset(ClassSurvey, Gender == "M")
 
-hist(CS_males$Height, xlab="Height (in inches) of \n Male BYU-Idaho Students", col="tan3", main="", breaks=8, ylab="Number of Students")
-curve(dnorm(x, mean(CS_males$Height, na.rm=TRUE), sd(CS_males$Height, na.rm=TRUE))*150, add=TRUE)
+hist(CS_males$Height, xlab = "Height (in inches) of \n Male BYU-Idaho Students", col = "tan3", main = "", breaks = 8, ylab = "Number of Students")
+curve(dnorm(x, mean(CS_males$Height, na.rm = TRUE), sd(CS_males$Height, na.rm = TRUE))*150, add = TRUE)
 ```
 
 
 
-<img src="./Images/Lesson_2_Activity_2-3.JPG" width=130%>
+<img src = "./Images/Lesson_2_Activity_2-3.JPG" width = 130%>
 
 If a distribution has only one peak, it is said to be **unimodal**. The three distributions illustrated above are all unimodal distributions. Some people might argue that there are several peaks in the GPA data, so it should not be considered unimodal. Even though there are jagged bumps in the histogram, it is important to visualize the overall shape in the data. When interpreting a histogram, it can be helpful to blur your eyes and imagine the overall shape after smoothing out the bumps. If the overall trend indicates that there is more than one bump, then we do not consider the distribution to be unimodal. We will usually only work with unimodal data sets in this course.
 
 Some distributions have no distinct peak, others have more than one peak. When there is no distinct peak, and the histogram shows a relatively flat shape, we might say the data follow a **uniform** distribution. If there are two distinct peaks, a distribution is called bimodal. If there are more than two peaks, we refer to the distribution as **multimodal**.
 
-<img src="./Images/Modal_distributions.jpg" width=50%>
+<img src = "./Images/Modal_distributions.jpg" width = 50%>
 <br />
 <br />
 
@@ -646,7 +646,7 @@ Different symbols are used to distinguish between the sample mean (a statistic) 
 
 The mean cost to treat the ten tuberculosis patients in the sample was $\bar x$ = \$14,100. This number gives us some useful information. However, if this was all we were given, we would not be able to distinguish the data above from a situation where the cost for each of the ten patients was exactly \$14,100. Notice that if the cost for each patient was \$14,100, the mean would be:
 
-$$\bar x=\frac{14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100}{10} =14,100$$
+$$\bar x = \frac{14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100 + 14100}{10} = 14,100$$
 
 Even though measures of center are important, we need to consider the shape, center and spread of a distribution of data.  When evaluating data, it is sometimes tempting to compute a mean but to avoid creating a histogram.  This can lead to errant decisions based on a misunderstanding or incorrect transcription of data.  If there is a transcription error in the data, it is sometimes easiest to detect it as an outlier in a histogram.
 
@@ -657,8 +657,8 @@ Even though measures of center are important, we need to consider the shape, cen
 
 ## Summary
 
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 
 
 - A **histogram** allows us to visually interpret data. Histograms can be left-skewed, right-skewed, or symmetrical and bell-shaped.

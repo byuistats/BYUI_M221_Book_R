@@ -385,19 +385,19 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<p>This is not designed to be a comprehensive review. There may be items on the exam that are not covered in this review. Similarly, there may be items in this review that are not tested on this exam. You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the <a href="Lesson08.html" target="_blank">Review for Exam 1</a> and the <a href="Lesson15.html" target="_blank">Review for Exam 2</a>.</p>
-<!-- Use the <span style="font-variant:small-caps"> -->
+<p>This is not designed to be a comprehensive review. There may be items on the exam that are not covered in this review. Similarly, there may be items in this review that are not tested on this exam. You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the <a href="Lesson08.html">Review for Exam 1</a>{target = “_blank”} and the <a href="Lesson15.html">Review for Exam 2</a>{target = “_blank”}.</p>
+<!-- Use the <span style = "font-variant:small-caps"> -->
 <!-- [[Index]]</span> to review definitions of important terms. 
 Index needs to be built-->
 <div id="unit-3-lesson-outcomes" class="section level2">
 <h2>Unit 3 Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>The expectation on the exam is the following outcomes. You should be able to do all of the following.</p>
 <ul>
@@ -444,7 +444,7 @@ Index needs to be built-->
 <div id="unit-3-lesson-summaries" class="section level2">
 <h2>Unit 3 Lesson Summaries</h2>
 <p>Here are the summaries for each lesson in Unit 3. Reviewing these key points from each lesson will help you in your preparation for the exam.</p>
-<a href="javascript:showhide('ls')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
+<a href = "javascript:showhide('ls')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
 <div id="ls">
 <div class="RecapHeading">
 Lesson 16 Recap
@@ -457,7 +457,7 @@ Lesson 16 Recap
 <li><p>The sampling distribution of <span class="math inline">\(\hat p\)</span> has a mean of <span class="math inline">\(p\)</span> and a standard deviation of <span class="math inline">\(\displaystyle{\sqrt{\frac{p\cdot(1-p)}{n}}}\)</span></p></li>
 <li><p>If <span class="math inline">\(np \ge 10\)</span> and <span class="math inline">\(n(1-p) \ge 10\)</span>, you can conduct <strong>probability calculations</strong> using the Normal Probability Applet. <span class="math display">\[
 \displaystyle {z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
-= \frac{\hat p - p}{\sqrt{\frac{p \cdot (1-p)}{n}}}}
+ = \frac{\hat p - p}{\sqrt{\frac{p \cdot (1-p)}{n}}}}
 \]</span> <br></p></li>
 </ul>
 </div>
@@ -470,7 +470,7 @@ Lesson 17 Recap
 <li><p>The <strong>estimator</strong> of <span class="math inline">\(p\)</span> is <span class="math inline">\(\hat p\)</span>. <span class="math inline">\(\displaystyle{ \hat p = \frac {x}{n}}\)</span> and is used for both confidence intervals and hypothesis testing.</p></li>
 <li><p>You will use the Excel spreadsheet <a href="./data/Math221StatisticsToolbox.xltx">Math 221 Statistics Toolbox</a>, to perform hypothesis testing and calculate confidence intervals for problems involving one proportion.</p></li>
 <li><p>The requirements for a confidence interval are <span class="math inline">\(n \hat p \ge 10\)</span> and <span class="math inline">\(n(1-\hat p) \ge 10\)</span>. The requirements for hypothesis tests involving one proportion are <span class="math inline">\(np\ge10\)</span> and <span class="math inline">\(n(1-p)\ge10\)</span>.</p></li>
-<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n=\left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used. <br></p></li>
+<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used. <br></p></li>
 </ul>
 </div>
 <p><br></p>
@@ -479,7 +479,7 @@ Lesson 18 Recap
 </div>
 <div class="Summary">
 <ul>
-<li><p>When conducting hypothesis tests using two proportions, the null hypothesis is always <span class="math inline">\(p_1=p_2\)</span>, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
+<li><p>When conducting hypothesis tests using two proportions, the null hypothesis is always <span class="math inline">\(p_1 = p_2\)</span>, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
 <li><p>For a hypothesis test and confidence interval of two proportions, we use the following symbols: <span class="math display">\[
 \begin{array}{lcl}
 \text{Sample proportion for group 1:} &amp; \hat p_1 = \displaystyle{\frac{x_1}{n_1}} \\
@@ -510,7 +510,7 @@ H_0: &amp; \text{The (first variable) and the (second variable) are independent.
 H_a: &amp; \text{The (first variable) and the (second variable) are not independent.}
 \end{array}
 \]</span></p></li>
-<li><p>The <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong> for a <span class="math inline">\(\chi^2\)</span> test of independence are calculated using the formula <span class="math inline">\(df=(\text{number of rows}-1)(\text{number of columns}-1)\)</span></p></li>
+<li><p>The <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong> for a <span class="math inline">\(\chi^2\)</span> test of independence are calculated using the formula <span class="math inline">\(df = (\text{number of rows}-1)(\text{number of columns}-1)\)</span></p></li>
 <li><p>In our hypothesis testing for <span class="math inline">\(\chi^2\)</span> we never conclude that two variables are <em>dependent</em>. Instead, we say that two variables are <em>not independent</em>. <br></p></li>
 </ul>
 </div>

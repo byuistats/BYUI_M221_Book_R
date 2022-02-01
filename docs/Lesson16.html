@@ -594,12 +594,12 @@ mytable</code></pre>
 barplot(mytable)</code></pre>
 <p><img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <ul>
-<li>Specify colors for the bar chart using either <code>col="skyblue"</code> to give all bars the same color, or use <code>col=c("orange","firebrick","skyblue")</code> to give each bar a different color. Of course, use any color names you like: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a></li>
+<li>Specify colors for the bar chart using either <code>col="steelblue3"</code> to give all bars the same color, or use <code>col=c("tan3","brown3","steelblue3")</code> to give each bar a different color. Of course, use any color names you like: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a></li>
 <li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
 </ul>
 <pre class="r"><code>#Make a fancier graph using the options:
 barplot(mytable,
-        col=c(&quot;orange&quot;,&quot;firebrick&quot;,&quot;skyblue&quot;),
+        col=c(&quot;tan3&quot;,&quot;brown3&quot;,&quot;steelblue3&quot;),
         main=&quot;College Students were Asked \n \&quot;Do you regularly eat fresh fruits and vegetables?\&quot;&quot;,
         xlab=&quot;Student Answers&quot;,
         ylab=&quot;Number of Students&quot;)</code></pre>
@@ -640,7 +640,7 @@ mytable &lt;- c(table(EatingHealthy$Barrier1)[1],
 
 #Plot the table of counts
 barplot(mytable,
-        col=c(&quot;skyblue&quot;,&quot;orange&quot;,&quot;green3&quot;,&quot;purple&quot;,&quot;red2&quot;,&quot;wheat3&quot;), 
+        col=c(&quot;steelblue3&quot;,&quot;tan3&quot;,&quot;darkolivegreen4&quot;,&quot;darkorchid&quot;,&quot;brown3&quot;,&quot;gray&quot;), 
         names=&quot;&quot;, #turn off the names, too long
         ylab=&quot;Number of Students&quot;, 
         main=&quot;College Student Barriers to Eating Healthy&quot;, 
@@ -650,7 +650,7 @@ barplot(mytable,
 legend(&quot;bottom&quot;, #position of the legend
        cex=0.8, #shrink words to 80% of normal size
        legend=names(mytable), #give the names to the legend
-       col=c(&quot;skyblue&quot;,&quot;orange&quot;,&quot;green3&quot;,&quot;purple&quot;,&quot;red2&quot;,&quot;wheat3&quot;), 
+       col=c(&quot;steelblue3&quot;,&quot;tan3&quot;,&quot;darkolivegreen4&quot;,&quot;darkorchid&quot;,&quot;brown3&quot;,&quot;gray&quot;), 
        pch=15, #add square boxes to the left of each label
        bty=&#39;n&#39;) #turn off the box drawn around the legend
 axis(side=2, at=c(0,50,100,150,200,250,300)) #add back on a y-axis at the places we want tick marks.</code></pre>
@@ -701,7 +701,7 @@ Answer the following questions:
 <p>To create a bar chart of our heads and tails counts, we used the following code.</p>
 <pre class="r"><code>mytable &lt;- c(`Heads`=12, `Tails`=13)
 barplot(mytable, 
-        col=c(&quot;skyblue&quot;,&quot;gray&quot;), 
+        col=c(&quot;steelblue3&quot;,&quot;darkolivegreen4&quot;), 
         ylab=&quot;Number of Flips&quot;,
         main=&quot;My Coin Flip Results&quot;)</code></pre>
 <p><img src="Lesson16_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>

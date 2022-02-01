@@ -84,7 +84,7 @@ In other words, 75.4% of the people surveyed could taste the chemical.
 mytable <- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col=c("red3","steelblue"),
+        col=c("brown3","steelblue3"),
         main="PTC Strip Taste Testing",
         xlab="Reported Result",
         ylab="Number of Participants",
@@ -98,7 +98,7 @@ barplot(mytable,
 mytable <- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col=c("red3","steelblue"),
+        col=c("brown3","steelblue3"),
         main="PTC Strip Taste Testing",
         xlab="Reported Result",
         ylab="Number of Participants",
@@ -222,7 +222,7 @@ $$
 ```{r}
 mytable <- c(`Good Health` = 19, `Poor Health` = 21)
 barplot(mytable, 
-        col=c("skyblue2","skyblue4"),
+        col=c("steelblue3","darkolivegreen4"),
         main="Health of Macroinvertebrates near Bozeman, MT",
         ylab="Number of Macroinvertebrates")
 ```
@@ -354,7 +354,7 @@ The survey results showed that 58.2% (249 people out of the 428 total that compl
 ```{r, eval=FALSE}
 barplot(c(249, 428-249), 
         names=c("Cheated at Some Point", "Always Honest"),
-        col=c("orange","skyblue"), 
+        col=c("tan3","steelblue3"), 
         ylab="Number of Students",
         main="Honesty of Medical Students")
 ```
@@ -364,7 +364,7 @@ barplot(c(249, 428-249),
 ```{r, echo=FALSE}
 barplot(c(249, 428-249), 
         names=c("Cheated at Some Point", "Always Honest"),
-        col=c("orange","skyblue"), 
+        col=c("tan3","steelblue3"), 
         ylab="Number of Students",
         main="Honesty of Medical Students")
 ```
