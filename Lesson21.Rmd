@@ -73,7 +73,7 @@ The $n = 139$ students from the selected Math 101 course represented a convenien
 
 ##  Describing Bivariate Data 
 
-Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx).
+Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx).
 
 Notice that we have two quantitative measurements on each participant.  We call these data **bivariate data**, since there are two (bi-) quantitative variables that we are considering simultaneously.
 
@@ -95,15 +95,15 @@ A scatterplot is an excellent way to present the bivariate relationship between 
 <div class = "Software">
 **To create a scatterplot in R** use the `plot(...)` function with the `y-variable` placed first, followed by a `~`, followed by the `x-variable`.
 
-First, read in the data: [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
+First, read in the data: [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
 
 ```{r, include = FALSE}
 library(readxl)
-MathSelfEfficacy <- read_excel("./data/MathSelfEfficacy.xlsx")
+math_self_efficacy <- read_excel("./data/math_self_efficacy.xlsx")
 ```
 
 ```{r}
-plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean)
+plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean)
 ```
 
 Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of 
@@ -117,7 +117,7 @@ Of course, it is good practice to provide some color and better labeling with an
 These options are demonstrated below.
 
 ```{r}
-plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean,
+plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean,
      col = "steelblue3", # specify the color
      pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
@@ -145,7 +145,7 @@ text(1:25, rep(1,25), 1:25, pos = 3, col = "steelblue3", cex = 0.5)
 Each point in the plot represents both the confidence and score of one student.  The points are plotted on the X-Y coordinate plane.  The position on the horizontal (X) axis represents the student's confidence rating. The height of the point or the value on the Y-axis, represents the student's score on the exam.  
 
 ```{r, echo = FALSE}
-plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
+plot(Score ~ ConfidenceRatingMean, data = math_self_efficacy,
      col = "steelblue3", #specify the color
      pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
@@ -165,14 +165,14 @@ The cloud of data illustrated in this scatterplot help us visualize the relation
 Notice that there is variability in the responses.  Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind's eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as a 60 on the exam to as high as a 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn't tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.
 
 ```{r, echo = FALSE}
-plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
+plot(Score ~ ConfidenceRatingMean, data = math_self_efficacy,
      col = "steelblue3", # specify the color
      pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
      ylab = "Exam Score of Each Student (Out of 100 Pts.)",
      main = "Study on Student Exam Performance in Math 101")
 lines(c(5, 5), c(60,100), col = rgb(0.1,0.1,0.1), lwd = 10)
-lm1 <- lm(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy)
+lm1 <- lm(Score ~ ConfidenceRatingMean, data = math_self_efficacy)
 preds <- predict(lm1, data.frame(ConfidenceRatingMean = 5), interval = "prediction")
 ```
 
@@ -208,13 +208,13 @@ $$r = 0.728$$
 **To compute correlation in R** use the `cor(...)` function where the x-axis variable is listed first, followed by a comma `,`, followed by the y-axis variable second. The `cor(...)` function also requires stating the name of the data set and using the `$` sign to access the desired columns of the dataset.
 
 ```{r, comment = NA}
-cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score)
+cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score)
 ```
 
 Note that if there are missing values in the data, you would need to use the `use = "pairwise.complete.obs"` option to remove those missing `NA` values.
 
 ```{r, comment = NA}
-cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score,
+cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score,
     use = "pairwise.complete.obs")
 ```
 
@@ -562,7 +562,7 @@ The amount of time between eruptions (wait time) is random.  However, it can be 
 
 <img src = "./Images/Step2.png">
 
-Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [OldFaithful.xlsx](./data/OldFaithful.xlsx).
+Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [old_faithful](./data/old_faithful).
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
@@ -660,7 +660,7 @@ Each point in the plot represents both the actual eruption time and the wait tim
 
 <!-- ### Example: Math Self Efficacy -->
 
-<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
+<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
 <!-- $$  -->
 <!-- s_{xy} = r \cdot s_x \cdot s_y = 0.728 \cdot 0.939 \cdot 16.37 = 11.19 -->
 <!-- $$ -->

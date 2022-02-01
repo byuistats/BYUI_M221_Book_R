@@ -168,7 +168,7 @@ To answer this question, paleontologist Paul Sereno teamed up with modern crocod
 
 <img src = "./Images/Step2.png">
 
-We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx). 
+We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx). 
 
 <br/>
 
@@ -178,21 +178,22 @@ Using the information we learned in [Lesson 21](Lesson21.html#r-instructions-for
 
 ```{r, include = FALSE}
 library(readxl)
-EstuarineCrocodiles <- read_excel("./data/EstuarineCrocodiles.xlsx")
+estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
 ```
 
 ```{r}
-plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = "Estuarine Crocodile Measurements",
      ylab = "Body Length (cm)",
      xlab = "Head Length (cm)",
-     col = "seagreen", pch = 16)
+     col = "darkolivegreen4", 
+     pch = 16)
 ```
 
 Also, using the information we learned in Lesson 21 about [computing correlation](Lesson21.html#r-instructions-for-computing-correlation) we obtain the following.
 
 ```{r}
-cor(EstuarineCrocodiles$BodyLength, EstuarineCrocodiles$HeadLength)
+cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)
 ```
 
 There is a strong positive linear relationship between these two measurements ($r = 0.9899$). Because of this strong linear relationship, it seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length.  In particular, we will use this line to estimate the length of SuperCroc.
@@ -215,14 +216,14 @@ where $\hat Y$ represents the predicted body length of an estuarine crocodile wi
 <div class = "Software">
 **To find the estimated regression coefficients ($b_0$ and $b_1$) in R, do the following:**
 
-- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx)
+- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
 - Use the `lm( )` function to create a "linear model" for the data.
 - Put your response variable (Y) first, followed by a `~`, followed by the explanatory variable (X).
 - Use the `summary( )` function to view the results of the `lm( )` function.
 - The summary shows the "Estimates" for the `(Intercept)` and the slope term. The `(Intercept)` estimate is the value of $b_0$ (y-intercept), and the second Estimate is always for the slope term, $b_1$.
 
 ```{r, comment = NA}
-estuarine.lm <- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 summary(estuarine.lm)
 ```
 
@@ -271,21 +272,22 @@ Note that if a juvinile sarcosuchus has a head length of 87 cm, then the regress
 <div class = "Software">
 **To add a regression line to a scatterplot in RStudio, do the following:**
 
-- Import the data into RStudio: [EstuarineCrocodiles.xlsx](./data/EstuarineCrocodiles.xlsx)
+- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
 - Perform the regression:
 
 ```{r}
-estuarine.lm <- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 ```
 
 - Create the scatterplot and use `abline( )` with the name of your regression, `estuarine.lm` in this case, to graph the regression line.
 
 ```{r}
-plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = "Estuarine Crocodile Measurements",
      ylab = "Body Length (cm)",
      xlab = "Head Length (cm)",
-     col = "seagreen", pch = 16)
+     col = "darkolivegreen4", 
+     pch = 16)
 
 abline(estuarine.lm)
 ```
@@ -299,17 +301,18 @@ abline(estuarine.lm)
 If you looked carefully at the scatterplot shown above you might realize that the x-axis of the graph only goes up to 60 cm. The juvenile sarcosuchus we were using to make predictions had a head lenght of 87 cm, which is way off the chart! Further, the estimated body length our regression predicts for this juvenile sarcosuchus is over six and a half meters long!  That is over 21 feet! Imagine how big it might have been if it reached maturity! Further, to actually draw the prediction on our graph we would need to use the `xlim = c(0,90)` and `ylim = c(0,650)` commands inside the `plot( )` function.
 
 ```{r}
-plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = "Estuarine Crocodile Measurements",
      ylab = "Body Length (cm)",
      xlab = "Head Length (cm)",
-     col = "seagreen", pch = 16,
+     col = "darkolivegreen4", 
+     pch = 16,
      xlim = c(0,90),
      ylim = c(0,650))
 
 abline(estuarine.lm)
 
-points(87, 648, pch = 16, cex = 1.2, col = "orange")
+points(87, 648, pch = 16, cex = 1.2, col = "tan3")
 text(87,648, "Predicted Body Length of 648 cm", pos = 2)
 ```
 
@@ -332,24 +335,23 @@ If you did some unit conversions, this turns out to be about 39 feet!
 Further, if we wanted to draw a picture of this prediction, it would look as follows.
 
 ```{r}
-plot(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength,
+plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
      main = "Estuarine Crocodile Measurements",
      ylab = "Body Length (cm)",
      xlab = "Head Length (cm)",
-     col = "seagreen", pch = 16,
+     col = "darkolivegreen4", pch = 16,
      xlim = c(0,165),
      ylim = c(0,1210))
 
 abline(estuarine.lm)
 
 #Predictions for Juvenile
-points(87, 648, pch = 16, cex = 1.2, col = "orange")
+points(87, 648, pch = 16, cex = 1.2, col = "tan3")
 text(87,648, "Juvenile Predicted Body Length of 648 cm", pos = 2)
 
 #Predictions for Adult
-points(160, 1207, pch = 16, cex = 1.2, col = "orange")
-text(160,1207, "Adult Predicted Body Length of 648 cm", pos = 2)
-
+points(160, 1207, pch = 16, cex = 1.2, col = "tan3")
+text(160,1207, "Adult Predicted Body Length of 1207 cm", pos = 2)
 ```
 
 </div>
@@ -380,7 +382,7 @@ We can use simple linear regression to model the relationship between the powerb
 <img src = "./Images/Step2.png">
 
 
-The data set [Manatees.xlsx](./data/Manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
+The data set [manatees.xlsx](./data/manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
 
 <img src = "./Images/Step3.png">
 
@@ -417,11 +419,11 @@ Notice that this is the equation of a straight line. You might have written line
 The output from the commands given above will include a table similar to the one shown here:
 
 ```{r, include = FALSE}
-Manatees <- read_excel("./data/Manatees.xlsx")
+manatees <- read_excel("./data/manatees.xlsx")
 ```
 
 ```{r, comment = NA}
-manatee.lm <- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000's)`)
+manatee.lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
 summary(manatee.lm)
 ```
 
@@ -458,11 +460,12 @@ Note that if there are 850 thousand powerboats registered, then the regression e
 The following plot shows the regression line on the scatterplot.
 
 ```{r}
-plot(Manatees$Manatees ~ Manatees$`Power Boats (in 1000's)`,
+plot(manatees$manatees_killed ~ manatees$power_boats_1000s,
      main = "Manatee Deaths in Florida, 1977-2006",
      xlab = "Number of Registered Power Boats that Year",
      ylab = "Number of Manatees that Died that Year",
-     col = "darkgray")
+     col = "steelblue3", 
+     pch = 16)
 
 abline(manatee.lm)
 ```
@@ -470,7 +473,7 @@ abline(manatee.lm)
 You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data of $0.9376$.
 
 ```{r, comment = NA}
-cor(Manatees$`Power Boats (in 1000's)`, Manatees$Manatees)
+cor(manatees$power_boats_1000s, manatees$manatees_killed)
 ```
 
 <br>

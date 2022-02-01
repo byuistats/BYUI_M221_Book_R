@@ -539,7 +539,8 @@ This video is an hour and a half long. <strong>YOU DO NOT NEED TO WATCH THE ENTI
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;seagreen&quot;, pch = 16)</code></pre>
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Also, using the information we learned in Lesson 21 about <a href="Lesson21.html#r-instructions-for-computing-correlation">computing correlation</a> we obtain the following.</p>
 <pre class="r"><code>cor(EstuarineCrocodiles$BodyLength, EstuarineCrocodiles$HeadLength)</code></pre>
@@ -631,7 +632,8 @@ R Instructions
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;seagreen&quot;, pch = 16)
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16)
 
 abline(estuarine.lm)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -643,13 +645,14 @@ abline(estuarine.lm)</code></pre>
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;seagreen&quot;, pch = 16,
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16,
      xlim = c(0,90),
      ylim = c(0,650))
 
 abline(estuarine.lm)
 
-points(87, 648, pch = 16, cex = 1.2, col = &quot;orange&quot;)
+points(87, 648, pch = 16, cex = 1.2, col = &quot;tan3&quot;)
 text(87,648, &quot;Predicted Body Length of 648 cm&quot;, pos = 2)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div class="QuestionsHeading">
@@ -670,19 +673,19 @@ Answer the following question:
      main = &quot;Estuarine Crocodile Measurements&quot;,
      ylab = &quot;Body Length (cm)&quot;,
      xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;seagreen&quot;, pch = 16,
+     col = &quot;darkolivegreen4&quot;, pch = 16,
      xlim = c(0,165),
      ylim = c(0,1210))
 
 abline(estuarine.lm)
 
 #Predictions for Juvenile
-points(87, 648, pch = 16, cex = 1.2, col = &quot;orange&quot;)
+points(87, 648, pch = 16, cex = 1.2, col = &quot;tan3&quot;)
 text(87,648, &quot;Juvenile Predicted Body Length of 648 cm&quot;, pos = 2)
 
 #Predictions for Adult
-points(160, 1207, pch = 16, cex = 1.2, col = &quot;orange&quot;)
-text(160,1207, &quot;Adult Predicted Body Length of 648 cm&quot;, pos = 2)</code></pre>
+points(160, 1207, pch = 16, cex = 1.2, col = &quot;tan3&quot;)
+text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <p><br/></p>
@@ -792,7 +795,8 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
      main = &quot;Manatee Deaths in Florida, 1977-2006&quot;,
      xlab = &quot;Number of Registered Power Boats that Year&quot;,
      ylab = &quot;Number of Manatees that Died that Year&quot;,
-     col = &quot;darkgray&quot;)
+     col = &quot;steelblue3&quot;, 
+     pch = 16)
 
 abline(manatee.lm)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
