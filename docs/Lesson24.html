@@ -385,7 +385,7 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -394,7 +394,7 @@ $(document).ready(function () {
 <p><br /></p>
 <div id="unit-4-lesson-outcomes" class="section level2">
 <h2>Unit 4 Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>The expectation on the exam is the following outcomes. You should be able to do:</p>
 <ul>
@@ -430,7 +430,7 @@ $(document).ready(function () {
 <div id="unit-4-lesson-summaries" class="section level2">
 <h2>Unit 4 Lesson Summaries</h2>
 <p>Here are the summaries for each lesson in unit 4. Reviewing these key points from each lesson will help you in your preparation for the exam.</p>
-<a href="javascript:showhide('su')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
+<a href = "javascript:showhide('su')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
 <div id="su">
 <div class="RecapHeading">
 Lesson 21 Recap
@@ -450,7 +450,7 @@ Lesson 22 Recap
 </div>
 <div class="Summary">
 <ul>
-<li><p>In statistics, we write the <strong>linear regression equation</strong> as <span class="math inline">\(\hat Y=b_0+b_1X\)</span> where <span class="math inline">\(b_0\)</span> is the <strong>Y-intercept</strong> of the line and <span class="math inline">\(b_1\)</span> is the <strong>slope</strong> of the line.</p></li>
+<li><p>In statistics, we write the <strong>linear regression equation</strong> as <span class="math inline">\(\hat Y = b_0+b_1X\)</span> where <span class="math inline">\(b_0\)</span> is the <strong>Y-intercept</strong> of the line and <span class="math inline">\(b_1\)</span> is the <strong>slope</strong> of the line.</p></li>
 <li><p>To calculate the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> in R use the <code>lm( )</code> function and the <code>summary( )</code> function as <a href="Lesson22.html#r-instructions-for-performing-a-linear-regression">shown here</a>.</p></li>
 <li><p>To add the regression line to a scatterplot, use the <code>abline( )</code> function as <a href="Lesson22.html#r-instructions-for-graphing-the-regression-line">shown here</a>.</p></li>
 <li><p>Linear regression allows us to predict values of <span class="math inline">\(Y\)</span> for a given <span class="math inline">\(X\)</span>. This is done by first calculating the coefficients <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> and then plugging in the desired value of <span class="math inline">\(X\)</span> and solving for <span class="math inline">\(Y\)</span>.</p></li>
@@ -466,15 +466,15 @@ Lesson 23 Recap
 </div>
 <div class="Summary">
 <ul>
-<li><p>The unknown <strong>true linear regression line</strong> is <span class="math inline">\(Y=\beta_0+\beta_1X\)</span> where <span class="math inline">\(\beta_0\)</span> is the true y-intercept of the line and <span class="math inline">\(\beta_1\)</span> is the true slope of the line.</p></li>
+<li><p>The unknown <strong>true linear regression line</strong> is <span class="math inline">\(Y = \beta_0+\beta_1X\)</span> where <span class="math inline">\(\beta_0\)</span> is the true y-intercept of the line and <span class="math inline">\(\beta_1\)</span> is the true slope of the line.</p></li>
 <li><p>A <strong>residual</strong> is the difference between the observed value of <span class="math inline">\(Y\)</span> for a given <span class="math inline">\(X\)</span> and the predicted value of <span class="math inline">\(Y\)</span> on the regression line for the same <span class="math inline">\(X\)</span>. It can be expressed as: <span class="math display">\[
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p></li>
 <li><p>Residuals can be obtained in R using <code>lmObjectName$residuals</code>, <a href="Lesson23.html#r-instructions-for-computing-residuals">see here</a> for details.</p></li>
-<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>. These plots can be created in R using <code>plot(lmObjectName, which=1)</code> and <code>hist(lmObjectName$residuals)</code>, <a href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for an example.</p></li>
+<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>. These plots can be created in R using <code>plot(lmObjectName, which = 1)</code> and <code>hist(lmObjectName$residuals)</code>, <a href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for an example.</p></li>
 <li><p>We conduct a hypothesis test on bivariate data to know if there is a linear relationship between the two variables. To determine this, we test the slope (<span class="math inline">\(\beta_1\)</span>) on whether or not it equals zero. The appropriate hypotheses for this test are: <span class="math display">\[
 \begin{array}{1cl}
-H_0: &amp; \beta_1=0 \\
+H_0: &amp; \beta_1 = 0 \\
 H_a: &amp; \beta_1\ne0
 \end{array}
 \]</span></p></li>

@@ -7,23 +7,23 @@ output:
     toc_float: false
 ---
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC-IBvd2b9pmQfpkNSphQ4Sl" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-IBvd2b9pmQfpkNSphQ4Sl" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "oc" style = "display:none;">
 By the end of this lesson, you should be able to:
 
 - Create a scatterplot of bivariate data.
@@ -33,18 +33,18 @@ By the end of this lesson, you should be able to:
 </div>
 <br>
 
-<div style="clear:both;"></div>
+<div style = "clear:both;"></div>
 <br/>
 
 ## Case Study: How Confident are You?
 
-<div style="float:right;padding:10px;width=80%;">
-<img src="./Images/Testtaking-exam.jpg">
+<div style = "float:right;padding:10px;width = 80%;">
+<img src = "./Images/Testtaking-exam.jpg">
 </div>
 
 Think about a time when you walked into an exam, having prepared carefully, *knowing* that you would do well.  On the other hand, have you ever entered an exam feeling unprepared?  How have your exam scores compared to your confidence?
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 Shane Goodwin and other researchers examined this question.  They studied factors that affect a student's confidence on a multiple-choice mathematics exam<!--<cite>Goodwin09</cite>-->. A group of n = 139 students in an Intermediate Algebra course (MATH 101) at BYU-Idaho participated in the study. As students completed the exam, they were required to both answer each question on the exam as well as rate their confidence for each of their answers being correct on a scale of 1 to 6, where confidence ratings of 1 meant "No Clue" and confidence ratings of 6 meant the student was "Certain" they had entered the correct answer to that question. 
 
@@ -64,11 +64,11 @@ Shane Goodwin and other researchers examined this question.  They studied factor
 
 At the end of the exam, two values were recorded for each student. First, the final score was computed as a percentage of questions answered correctly for that student. Second, the final confidence rating was computed by taking the average confidence score from all of the confidence scores that the student had recorded for each question. Confidence ratings were not relayed to the instructor, and they did not affect the grade on the exam.  
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
-The $n=139$ students from the selected Math 101 course represented a convenience sample of students. They were the students of teachers who elected to have their students participate in this study.
+The $n = 139$ students from the selected Math 101 course represented a convenience sample of students. They were the students of teachers who elected to have their students participate in this study.
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 
 ##  Describing Bivariate Data 
@@ -91,13 +91,13 @@ A scatterplot is an excellent way to present the bivariate relationship between 
 
 ### R Instructions for Scatterplots
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 **To create a scatterplot in R** use the `plot(...)` function with the `y-variable` placed first, followed by a `~`, followed by the `x-variable`.
 
 First, read in the data: [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 library(readxl)
 MathSelfEfficacy <- read_excel("./data/MathSelfEfficacy.xlsx")
 ```
@@ -108,33 +108,33 @@ plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean)
 
 Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of 
 
-* `col=` a name of a color to specify the color of the points in the graph,
-* `pch=` a number 1 to 25 to specify the plotting character used for each point in the graph, 
-* `xlab=` to specify in quotations the words to print below the x-axis, 
-* `ylab=` to specify in quotations the words to print next to the y-axis, and 
-* `main=` to specify in quotations the main title of the graph.
+* `col = ` a name of a color to specify the color of the points in the graph,
+* `pch = ` a number 1 to 25 to specify the plotting character used for each point in the graph, 
+* `xlab = ` to specify in quotations the words to print below the x-axis, 
+* `ylab = ` to specify in quotations the words to print next to the y-axis, and 
+* `main = ` to specify in quotations the main title of the graph.
 
 These options are demonstrated below.
 
 ```{r}
 plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean,
-     col="skyblue", #specify the color
-     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
-     xlab="Mean Confidence Rating for Each Student",
-     ylab="Exam Score of Each Student (Out of 100 Pts.)",
-     main="Study on Student Exam Performance in Math 101")
+     col = "skyblue", #specify the color
+     pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab = "Mean Confidence Rating for Each Student",
+     ylab = "Exam Score of Each Student (Out of 100 Pts.)",
+     main = "Study on Student Exam Performance in Math 101")
 ```
 
 <br/>
 
 **Options for Plotting Characters** 
 
-If you were curious, here are the `pch=` options you can pick from by selecting the number corresponding to the symbol you want.
+If you were curious, here are the `pch = ` options you can pick from by selecting the number corresponding to the symbol you want.
 
-```{r, fig.height=.8, echo=FALSE}
-par(mai=c(0,0,0,0))
-plot(1:25, rep(1,25), pch=1:25)
-text(1:25, rep(1,25), 1:25, pos=3, col="gray", cex=0.5)
+```{r, fig.height = .8, echo = FALSE}
+par(mai = c(0,0,0,0))
+plot(1:25, rep(1,25), pch = 1:25)
+text(1:25, rep(1,25), 1:25, pos = 3, col = "gray", cex = 0.5)
 ```
 
 
@@ -144,19 +144,19 @@ text(1:25, rep(1,25), 1:25, pos=3, col="gray", cex=0.5)
 
 Each point in the plot represents both the confidence and score of one student.  The points are plotted on the X-Y coordinate plane.  The position on the horizontal (X) axis represents the student's confidence rating. The height of the point or the value on the Y-axis, represents the student's score on the exam.  
 
-```{r, echo=FALSE}
-plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
-     col="skyblue", #specify the color
-     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
-     xlab="Mean Confidence Rating for Each Student",
-     ylab="Exam Score of Each Student (Out of 100 Pts.)",
-     main="Study on Student Exam Performance in Math 101")
-lines(c(2.35, 2), c(53.3,80), col="darkgray")
-points(2.35, 53.3, pch=16, cex=1.3, col="skyblue3")
-lines(c(5.70, 5.75), c(86.7,60), col="darkgray")
-points(5.7, 86.7, pch=16, cex=1.3, col="skyblue3")
-text(2.15,80, "This student had \n a confidence score of 2.35 \n and earned a 53.3 on the exam", pos=3, col="darkgray", cex=0.7)
-text(5.50,60, "This student had \n a confidence score of 5.70 \n and earned a 86.7 on the exam", pos=1, col="darkgray", cex=0.65)
+```{r, echo = FALSE}
+plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
+     col = "skyblue", #specify the color
+     pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab = "Mean Confidence Rating for Each Student",
+     ylab = "Exam Score of Each Student (Out of 100 Pts.)",
+     main = "Study on Student Exam Performance in Math 101")
+lines(c(2.35, 2), c(53.3,80), col = "darkgray")
+points(2.35, 53.3, pch = 16, cex = 1.3, col = "skyblue3")
+lines(c(5.70, 5.75), c(86.7,60), col = "darkgray")
+points(5.7, 86.7, pch = 16, cex = 1.3, col = "skyblue3")
+text(2.15,80, "This student had \n a confidence score of 2.35 \n and earned a 53.3 on the exam", pos = 3, col = "darkgray", cex = 0.7)
+text(5.50,60, "This student had \n a confidence score of 5.70 \n and earned a 86.7 on the exam", pos = 1, col = "darkgray", cex = 0.65)
 ```
 
 
@@ -165,28 +165,28 @@ The cloud of data illustrated in this scatterplot help us visualize the relation
 
 Notice that there is variability in the responses.  Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind's eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as a 60 on the exam to as high as a 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn't tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.
 
-```{r, echo=FALSE}
-plot(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy,
-     col="skyblue", #specify the color
-     pch=16, #choose a plotting symbol, options are 1, 2, ..., 25.
-     xlab="Mean Confidence Rating for Each Student",
-     ylab="Exam Score of Each Student (Out of 100 Pts.)",
-     main="Study on Student Exam Performance in Math 101")
-lines(c(5, 5), c(60,100), col=rgb(0.1,0.1,0.1,0.1), lwd=10)
-lm1 <- lm(Score ~ ConfidenceRatingMean, data=MathSelfEfficacy)
-preds <- predict(lm1, data.frame(ConfidenceRatingMean=5), interval="prediction")
+```{r, echo = FALSE}
+plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
+     col = "skyblue", #specify the color
+     pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     xlab = "Mean Confidence Rating for Each Student",
+     ylab = "Exam Score of Each Student (Out of 100 Pts.)",
+     main = "Study on Student Exam Performance in Math 101")
+lines(c(5, 5), c(60,100), col = rgb(0.1,0.1,0.1,0.1), lwd = 10)
+lm1 <- lm(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy)
+preds <- predict(lm1, data.frame(ConfidenceRatingMean = 5), interval = "prediction")
 ```
 
 When the points in a scatterplot follow a straight pattern, we say that there is a *linear relationship* in the data.  Data are considered linearly related if the points in the scatterplot follow a straight line.  The points do not have to be aligned tightly to represent a linear relationship. Both broadly scattered and narrow clouds of data can be considered linear. Here are some examples that all would be considered linear relationships.
 
-```{r, fig.height=1.5, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, fig.height = 1.5, echo = FALSE, message = FALSE, warning = FALSE}
 library(car)
-par(mfrow=c(1,5), mai=c(.1,.1,.1,.1))
-plot(Wind ~ Temp, data=airquality, yaxt='n', xaxt='n')
-plot(dist ~ speed, data=cars, yaxt='n', xaxt='n')
-plot(weight ~ repwt, data=Davis[-12,], yaxt='n', xaxt='n')
-plot(circumference ~ age, data=Orange, yaxt='n', xaxt='n')
-plot(height^1.3 ~ age, data=Loblolly, yaxt='n', xaxt='n')
+par(mfrow = c(1,5), mai = c(.1,.1,.1,.1))
+plot(Wind ~ Temp, data = airquality, yaxt = 'n', xaxt = 'n')
+plot(dist ~ speed, data = cars, yaxt = 'n', xaxt = 'n')
+plot(weight ~ repwt, data = Davis[-12,], yaxt = 'n', xaxt = 'n')
+plot(circumference ~ age, data = Orange, yaxt = 'n', xaxt = 'n')
+plot(height^1.3 ~ age, data = Loblolly, yaxt = 'n', xaxt = 'n')
 ```
 
 In the examples above, even though each plot could be considered a *linear relationship*, they each differ in how much the dots are spread out along that linear relationship. We need to be able to describe the not only the **shape** of the relationship, but also the the **direction** and **strength** of a linear relationship in bivariate data.  We use the correlation coefficient to quantify the direction and strength of the relationship.  This idea is discussed below.
@@ -204,17 +204,17 @@ $$r = 0.728$$
 
 ### R Instructions for Computing Correlation
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 **To compute correlation in R** use the `cor(...)` function where the x-axis variable is listed first, followed by a comma `,`, followed by the y-axis variable second. The `cor(...)` function also requires stating the name of the data set and using the `$` sign to access the desired columns of the dataset.
 
-```{r, comment=NA}
+```{r, comment = NA}
 cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score)
 ```
 
 Note that if there are missing values in the data, you would need to use the `use = "pairwise.complete.obs"` option to remove those missing `NA` values.
 
-```{r, comment=NA}
+```{r, comment = NA}
 cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score,
     use = "pairwise.complete.obs")
 ```
@@ -238,7 +238,7 @@ The correlation coefficient $r$ is always a value between $-1$ and $1$.  If ther
 
 Similarly, if the correlation coefficient is close to $-1$, we say there is a strong negative association.  A weak negative association results in a correlation coefficient that is negative but close to 0. But if the correlation is negative and really close to zero, then we say there is no correlation in the data.
 
-It is difficult to establish definite cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong.  This depends a great deal upon the context of the data and how much is known about the situation already. In some contexts, a correlation of $r=0.2$ could be considered strong. But typically in this class, we only consider correlations above $r=0.7$ to be strong correlations (and similary for $r=-0.7$ and below). In this course, we also typically call anything between $r=-0.3$ and $r=0.3$ a weak correlation. But again, in a different course or in a different type of research, these cut-offs could completely change as to what we consider to be a *strong* or *weak* or *moderate* correlation.
+It is difficult to establish definite cut-off values to determine when a correlation goes from being weak to moderate or from moderate to strong.  This depends a great deal upon the context of the data and how much is known about the situation already. In some contexts, a correlation of $r = 0.2$ could be considered strong. But typically in this class, we only consider correlations above $r = 0.7$ to be strong correlations (and similary for $r = -0.7$ and below). In this course, we also typically call anything between $r = -0.3$ and $r = 0.3$ a weak correlation. But again, in a different course or in a different type of research, these cut-offs could completely change as to what we consider to be a *strong* or *weak* or *moderate* correlation.
 
 Several scatterplots have been created, and the correlation coefficient summarizing the relationship between the two variables is presented.  Study these graphs to see if you can infer some of the properties of the correlation coefficient.
 
@@ -246,19 +246,19 @@ Several scatterplots have been created, and the correlation coefficient summariz
 <center>
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 1</p></th>
 <th><p>Figure 2</p></th>
 <th><p>Figure 3</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrR-100.png"></p></td>
-<td><p><img src="./Images/CorrR-96.png"></p></td>
-<td><p><img src="./Images/CorrR-80.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrR-100.png"></p></td>
+<td><p><img src = "./Images/CorrR-96.png"></p></td>
+<td><p><img src = "./Images/CorrR-80.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = -1.00$</p></td>
 <td><p>$r = -0.96$</p></td>
 <td><p>$r = -0.80$</p></td>
@@ -268,21 +268,21 @@ Several scatterplots have been created, and the correlation coefficient summariz
 <br><br> 
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 4</p></th>
 <th><p>Figure 5</p></th>
 <th><p>Figure 6</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrR-50.png"></p></td>
-<td><p><img src="./Images/CorrR00.png"></p></td>
-<td><p><img src="./Images/CorrR50.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrR-50.png"></p></td>
+<td><p><img src = "./Images/CorrR00.png"></p></td>
+<td><p><img src = "./Images/CorrR50.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = -0.50$</p></td>
-<td><p>$r=0$</p></td>
+<td><p>$r = 0$</p></td>
 <td><p>$r = 0.50$</p></td>
 </tr>
 </tbody>
@@ -290,24 +290,24 @@ Several scatterplots have been created, and the correlation coefficient summariz
 <br><br>
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 7</p></th>
 <th><p>Figure 8</p></th>
 <th><p>Figure 9</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrR80.png"></p></td>
-<td><p><img src="./Images/CorrR96.png"></p></td>
-<td><p><img src="./Images/CorrR100.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrR80.png"></p></td>
+<td><p><img src = "./Images/CorrR96.png"></p></td>
+<td><p><img src = "./Images/CorrR100.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = 0.80$</p></td>
 <td><p>$r = 0.96$</p></td>
 <td><p>$r = 1.00$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td></td>
 <td></td>
 <td></td>
@@ -317,67 +317,67 @@ Several scatterplots have been created, and the correlation coefficient summariz
 </center>
 <br>
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 1. If $r$ is positive, and $X$ increases, what do we expect will happen with $Y$?  Does this represent a positive or negative association?
 
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
 - When $r$ is positive, if $X$ increases then $Y$ will also increase.  This represents a positive association.
 </div>
 <br>
 
 2. If $r$ is negative, and $X$ increases, what do we expect will happen with $Y$?  Does this represent a positive or negative association?
 
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q2" style="display:none;">
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
 - When $r$ is negative, if $X$ increases then $Y$ will decrease.  This represents a negative association.
 </div>
 <br>
 
 3. If $r \approx 0$, what can we conclude about the strength of the relationship between $X$ and $Y$?
 
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
 - We can conclude that there is no relationship between $X$ and $Y$ or that it there is a very weak relationship. 
 </div>
 <br>
 
 4. If $r \approx 1$, what can we conclude about the strength of the relationship between $X$ and $Y$?
 
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q4" style = "display:none;">
 - We can conclude that the relationship between $X$ and $Y$ is very strong and positive.  
 </div>
 <br>
 
 5. If $r \approx -1$, what can we conclude about the strength of the relationship between $X$ and $Y$?
 
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
+<a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q5" style = "display:none;">
 - We can conclude that the relationship between $X$ and $Y$ is very strong.  The reason it is negative is because it is negatively associated, not because it is a weak association.
 </div>
 <br>
 
 6. If $r = 1$, what can we conclude about the strength of the relationship between $X$ and $Y$?
 
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
+<a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q6" style = "display:none;">
 - If $r = 1$, there is a perfect positive linear relationship between $X$ and $Y$. All the points are in an upward-sloping line.
 </div>
 <br>
 
 7. If $r = -1$, what can we conclude about the strength of the relationship between $X$ and $Y$?
 
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q7" style="display:none;">
+<a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q7" style = "display:none;">
 - If $r = -1$, there is a perfect negative linear relationship between $X$ and $Y$.  All the points are exactly on a line that slopes downward.
 </div>
 &nbsp;
 </div>
 <br>
 
-<img src="./Images/Phd1641.png">
+<img src = "./Images/Phd1641.png">
 
 <br>
 
@@ -390,19 +390,19 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 10</p></th>
 <th><p>Figure 11</p></th>
 <th><p>Figure 12</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrOutliersR-37.png"></p></td>
-<td><p><img src="./Images/CorrOutliersR62.png"></p></td>
-<td><p><img src="./Images/CorrOutliersR88.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrOutliersR-37.png"></p></td>
+<td><p><img src = "./Images/CorrOutliersR62.png"></p></td>
+<td><p><img src = "./Images/CorrOutliersR88.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = -0.37$</p></td>
 <td><p>$r = +0.62$</p></td>
 <td><p>$r = +0.88$</p></td>
@@ -410,7 +410,7 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 </tbody>
 </table>
 
-<!-- {| class="wikitable" style="text-align:center" width="80%" -->
+<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
 <!-- ! Figure 10 !! Figure 11 !! Figure 12 -->
 <!-- |- -->
 <!-- |[[File:CorrOutliersR-37.png"> -->
@@ -419,12 +419,12 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 <!-- |} -->
 </center>
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 8. What can you say about the effect of outliers on the correlation coefficient?
 
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
+<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q8" style = "display:none;">
 - Outliers can dramatically affect the value of the correlation coefficient.  It is possible for one outlier to change a correlation coefficient from a strong positive value to a negative value, like in Figure 10.  It is possible for one outlier to change uncorrelated data to a data set that has a very high correlation, like in Figure 12.
 </div>
 &nbsp;
@@ -439,17 +439,17 @@ The following figures illustrate possible situations where the relationship betw
 <center>
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 13</p></th>
 <th><p>Figure 14</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrNonlinStrongRelWeakCorr.png"></p></td>
-<td><p><img src="./Images/CorrNonlinStrongRelStrongCorr.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrNonlinStrongRelWeakCorr.png"></p></td>
+<td><p><img src = "./Images/CorrNonlinStrongRelStrongCorr.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = +0.01$</p></td>
 <td><p>$r = +0.86$</p></td>
 </tr>
@@ -461,17 +461,17 @@ The following figures illustrate possible situations where the relationship betw
 <br>
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Figure 15</p></th>
 <th><p>Figure 16</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><p><img src="./Images/CorrNonlinModRelWeakCorr.png"></p></td>
-<td><p><img src="./Images/CorrNonlinModRelStrongCorr.png"></p></td>
+<tr class = "odd">
+<td><p><img src = "./Images/CorrNonlinModRelWeakCorr.png"></p></td>
+<td><p><img src = "./Images/CorrNonlinModRelStrongCorr.png"></p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$r = +0.04$</p></td>
 <td><p>$r = +0.74$</p></td>
 </tr>
@@ -481,7 +481,7 @@ The following figures illustrate possible situations where the relationship betw
 <br />
 </center>
 <!-- <center> -->
-<!-- {| class="wikitable" style="text-align:center" width="80%" -->
+<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
 <!-- ! Figure 13 !! Figure 14 -->
 <!-- |- -->
 <!-- |[[File:CorrNonlinStrongRelWeakCorr.png">  -->
@@ -489,7 +489,7 @@ The following figures illustrate possible situations where the relationship betw
 <!-- |$r = +0.01$ || $r = +0.86$   -->
 <!-- |} -->
 <!-- <br><br> -->
-<!-- {| class="wikitable" style="text-align:center" width="80%" -->
+<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
 <!-- ! Figure 15 !! Figure 16 -->
 <!-- |- -->
 <!-- |[[File:CorrNonlinModRelWeakCorr.png"> -->
@@ -498,28 +498,28 @@ The following figures illustrate possible situations where the relationship betw
 <!-- |} -->
 <!-- </center> -->
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 9. Out of Figures 13-16, which scatterplots show a very strong nonlinear relationship?
 
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q9" style="display:none;">
+<a href = "javascript:showhide('Q9')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q9" style = "display:none;">
 - All four figures show distinct nonlinear relations.  Figures 13 and 14 show very strong nonlinear relationships.
 </div>
 <br>
 
 10. Out of Figures 13-16, which scatterplots illustrate data with the highest correlation coefficient?
 
-<a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q10" style="display:none;">
+<a href = "javascript:showhide('Q10')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q10" style = "display:none;">
 - Figures 14 and 16 both have relatively high correlation coefficient, $r = 0.86$ and $r = 0.74$, respectively.
 </div>
 <br>
 
 11. How well does the correlation coefficient measure the strength of the *nonlinear* relationship between two variables?
 
-<a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q11" style="display:none;">
+<a href = "javascript:showhide('Q11')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q11" style = "display:none;">
 - The correlation coefficient does not measure the strength of nonlinear relationships.  It only measures the strength of the linear association.
 </div>
 &nbsp;
@@ -533,7 +533,7 @@ We will summarize the properties of the correlation coefficient, $r$:
 - $r$ is a number between $-1$ and $1$
 - positive values of $r$ imply a positive linear relationship between the two variables
 - negative values of $r$ imply a negative linear relationship between the two variables
-- a value of $r=0$ implies no correlation.
+- a value of $r = 0$ implies no correlation.
 - values of $r$ close to zero suggest there is a weak linear relationship between the two variables
 - if $r$ is close to $1$, it is evidence of a strong positive linear relationship between the two variables
 - if $r$ is close to $-1$, there is evidence of a strong negative linear relationship between the two variables
@@ -549,28 +549,28 @@ The correlation coefficient, $r$, is a sample statistic. It is sometimes called 
 ## Case Study: Predicting Old Faithful
 
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
-<div style="float:right;">
-<img src="./Images/OldFaithful-NPS-05232.png">
+<div style = "float:right;">
+<img src = "./Images/OldFaithful-NPS-05232.png">
 </div>
 
 A geyser is a hot spring that periodically erupts a mixture of hot water and steam.  Old Faithful in Yellowstone National Park is the world's most famous geyser.  This geyser earned its name from the predictability of the waiting time between its eruptions.  At the Old Faithful Visitors Center, there is a sign predicting when the next eruption will occur.  Rangers observing the behavior of the geyser maintain this sign for the convenience of park visitors.
 
 The amount of time between eruptions (wait time) is random.  However, it can be predicted, give-or-take a reasonable error bound.
 
-<div style="clear:both;"></div>
+<div style = "clear:both;"></div>
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [OldFaithful.xlsx](./data/OldFaithful.xlsx).
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 12. Suppose the U.S.Park Service has asked you to improve the way they predict eruptions of Old Faithful.  What analyses would you conduct to better predict the wait time until the next eruption?
 
-<a href="javascript:showhide('Q12')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q12" style="display:none;">
+<a href = "javascript:showhide('Q12')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q12" style = "display:none;">
 - Answers will vary.
 - One way to guess wait times until the next eruption, is to just compute the mean or median amount of time people have had to wait for the next eruption to occur. We could also compute the standard deviation of the waiting times, and even make a 95% confidence interval for the true mean waiting time.
 </div>
@@ -582,18 +582,18 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 13. Conduct the analysis you proposed in Question 1.  What is your prediction for the waiting time between eruptions?
 
-<a href="javascript:showhide('Q13')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q13" style="display:none;">
-- The mean waiting times for the $n=272$ observations in the data set is $\bar x = 70.9$ minutes.  A 95% confidence interval for the true mean waiting time is: $(69.3,72.5)$ minutes.  We are 95% confident the true mean waiting time between eruptions is between $69.3$ and $72.5$ minutes.  This is a true statement, but does it provide a good prediction?  To assess this, we create a histogram of the waiting times: 
+<a href = "javascript:showhide('Q13')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q13" style = "display:none;">
+- The mean waiting times for the $n = 272$ observations in the data set is $\bar x = 70.9$ minutes.  A 95% confidence interval for the true mean waiting time is: $(69.3,72.5)$ minutes.  We are 95% confident the true mean waiting time between eruptions is between $69.3$ and $72.5$ minutes.  This is a true statement, but does it provide a good prediction?  To assess this, we create a histogram of the waiting times: 
 <center>
-<img src="./Images/OldFaithfulHistogram.png">
+<img src = "./Images/OldFaithfulHistogram.png">
 </center>
 
 - Since this distribution is bimodal, the mean of the waiting times does not provide the most useful prediction tool.
@@ -602,8 +602,8 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 
 14. How would you describe the shape of the distribution of the waiting times?
 
-<a href="javascript:showhide('Q14')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q14" style="display:none;">
+<a href = "javascript:showhide('Q14')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q14" style = "display:none;">
 - The shape of the distribution is bimodal.  This can be seen in the histogram computed as part of the solution to question 2.
 </div>
 &nbsp;
@@ -617,24 +617,24 @@ This can be explored using a scatterplot.
 
 For the Old Faithful data, we plot the eruption duration on the $X$-axis and the waiting time before the next eruption on the $Y$-axis of a scatterplot.
 
-<img src="./Images/OldFaithfulEruptions-Scatterplot-Excel.png">
+<img src = "./Images/OldFaithfulEruptions-Scatterplot-Excel.png">
 
 Each point in the plot represents both the actual eruption time and the wait time until the next eruption of Old Faithful.  The position of the point on the horizontal (X) axis represents the duration of the eruption, and the height of the point on the vertical (Y) axis represents the wait time for the next eruption.  This helps us to visualize the relationship between the wait time and the duration of the eruption.  Notice that when the wait time increases, so does the eruption duration.  
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 15. What do you observe in the scatterplot?  Are there any features that draw your attention?
 
-<a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q19" style="display:none;">
+<a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q19" style = "display:none;">
 - The scatter-plot shows that there are two groups of data points and that the points are going up and to the right, showing that they are positively associated.  
 </div>
 <br>
 
 16. Based on the scatterplot, does $\bar x = 70.9$ minutes seem like a good estimate of the mean waiting time between eruptions?  
 
-<a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q16" style="display:none;">
+<a href = "javascript:showhide('Q16')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q16" style = "display:none;">
 - 70.9 minutes is right in the middle of the two groups of data, so it might be a good "average", but it looks like it is very rare for the waiting time to actually be 70.9 minutes.
 </div>
 &nbsp;
@@ -668,12 +668,12 @@ Each point in the plot represents both the actual eruption time and the wait tim
 
 <!-- The covariance of $X$ and $Y$ will be positive if increasing values of $X$ correspond to increasing values of $Y$.  This is exactly what happened in Goodwin's data.  On the other hand, the covariance will be negative if an increase in $X$ tends to correspond with a decrease in $Y$.   -->
 
-<!-- <div class="QuestionsHeading">Answer the following question:</div> -->
-<!-- <div class="Questions"> -->
+<!-- <div class = "QuestionsHeading">Answer the following question:</div> -->
+<!-- <div class = "Questions"> -->
 <!-- 17. Is it possible for the covariance of $X$ and $Y$ to be negative when the correlation coefficient is positive?  If so, how could this occur? -->
 
-<!-- <a href="javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a> -->
-<!-- <div id="Q17" style="display:none;"> -->
+<!-- <a href = "javascript:showhide('Q17')"><span style = "font-size:8pt;">Show/Hide Solution</span></a> -->
+<!-- <div id = "Q17" style = "display:none;"> -->
 <!-- - It is impossible for the covariance of $X$ and $Y$ to be negative when the correlation coefficient is positive.  The covariance is the correlation coefficient multiplied by the standard deviations.  Since the standard deviation of any variable cannot be negative, the sign of the correlation coefficient will be the same as the sign of the covariance. -->
 <!-- </div> -->
 <!-- &nbsp; -->
@@ -712,8 +712,8 @@ Each point in the plot represents both the actual eruption time and the wait tim
 
 ## Summary
 
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 
 - Creating **scatterplots** of bivariate data allows us to visualize the data by helping us understand its **shape** (linear or nonlinear), **direction** (positive, negative, or neither), and **strength** (strong, moderate, or weak). 
 
@@ -724,7 +724,7 @@ Each point in the plot represents both the actual eruption time and the wait tim
 - To compute the correlation in R, use the [`cor(...)`](Lesson21.html#r-instructions-for-computing-correlation) function.
 
 
-<!-- - The **covariance** is a measure of how two variables vary together. The formula for the covariance is $s_{xy}=r \cdot s_x \cdot s_y$. -->
+<!-- - The **covariance** is a measure of how two variables vary together. The formula for the covariance is $s_{xy} = r \cdot s_x \cdot s_y$. -->
 
 <br>
 </div>

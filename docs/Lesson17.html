@@ -402,23 +402,23 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width=40%;">
+<div style="float:right;width = 40%;">
 <br/>
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC99-0c9nxhmZPIyT7Fy594V" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC99-0c9nxhmZPIyT7Fy594V" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>By the end of this lesson you should be able to do the following.</p>
 <p><strong>Regarding Confidence Intervals for a single proportion:</strong></p>
@@ -450,35 +450,35 @@ $(document).ready(function () {
 <div id="case-study-can-you-taste-ptc" class="section level3">
 <h3>Case Study: Can You Taste PTC?</h3>
 <div style="float:right;padding:10px;">
-<p><img src="Images/ptc.jpeg" width="300px"></p>
+<p><img src = "Images/ptc.jpeg" width = "300px"></p>
 </div>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <p>The ability to taste the chemical Phenylthiocarbamide (PTC) is hereditary. Some people can taste it, while others cannot. The ability to taste PTC is typically assessed using paper test strips. When a PTC test strip is placed on the tongue, it will either taste like regular paper or else have a bitter taste. It is believed that 70% of all people are able to taste PTC.</p>
-<p><img src="Images/Step2.png"></p>
-<p>Data were collected by a student Elise Johnson to investigate this claim. Volunteers were provided with PTC test strips and asked if they could taste anything besides paper. A total of <span class="math inline">\(n=118\)</span> inviduals participated in the study.</p>
-<p><img src="Images/Step3.png"></p>
+<p><img src = "Images/Step2.png"></p>
+<p>Data were collected by a student Elise Johnson to investigate this claim. Volunteers were provided with PTC test strips and asked if they could taste anything besides paper. A total of <span class="math inline">\(n = 118\)</span> inviduals participated in the study.</p>
+<p><img src = "Images/Step3.png"></p>
 <p>Out of the 118 people who participated in the research, 89 indicated that they can taste PTC. The proportion of people in the sample who could taste PTC is <span class="math display">\[
 \widehat p = \frac{89}{118} = 0.754
 \]</span></p>
 <p>In other words, 75.4% of the people surveyed could taste the chemical.</p>
-<a href="javascript:showhide('ptcbarplot')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
+<a href = "javascript:showhide('ptcbarplot')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
 <div id="ptcbarplot" style="display:none;">
 <pre class="r"><code>mytable &lt;- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col=c(&quot;brown3&quot;,&quot;steelblue3&quot;),
-        main=&quot;PTC Strip Taste Testing&quot;,
-        xlab=&quot;Reported Result&quot;,
-        ylab=&quot;Number of Participants&quot;,
-        ylim=c(0,100))</code></pre>
+        col = c(&quot;brown3&quot;,&quot;steelblue3&quot;),
+        main = &quot;PTC Strip Taste Testing&quot;,
+        xlab = &quot;Reported Result&quot;,
+        ylab = &quot;Number of Participants&quot;,
+        ylim = c(0,100))</code></pre>
 </div>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <br>
 <div class="message Tip">
-<strong>Review:</strong> For a review of how to bar charts in R, read <a href="Lesson16.html" target="_blank">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.
+<strong>Review:</strong> For a review of how to bar charts in R, read <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>{target = “_blank”}. When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.
 </div>
 <p><br> <br></p>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <p>This particular research study suggested that the proportion of people who can taste PTC is <span class="math inline">\(\frac{89}{118} = 0.754\)</span>, or 75.4%. Is this significantly different from the assumed value of 0.70 (i.e., 70%)? We can test this question using a hypothesis test.</p>
 <p>If the following conditions are satisfied:</p>
 <ul>
@@ -492,12 +492,12 @@ np = 118 \cdot 0.70 = 82.6 \ge 10                &amp; \surd \\
 n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 &amp; \surd
 \end{array}
 \]</span></p>
-<p>We can use a procedure that mimics the test for a single mean with <span class="math inline">\(\sigma\)</span> known from the lesson titled <a href="Lesson09.html" target="_blank">Inference for One Mean: Sigma Known (Hypothesis Test)</a> to conduct a test for a single proportion.</p>
+<p>We can use a procedure that mimics the test for a single mean with <span class="math inline">\(\sigma\)</span> known from the lesson titled <a href="Lesson09.html">Inference for One Mean: Sigma Known (Hypothesis Test)</a>{target = “_blank”} to conduct a test for a single proportion.</p>
 <p>It is assumed that the true proportion of people who can taste PTC is 0.70. This is the null hypothesis. The alternative hypothesis is that the true proportion is different from 0.70. <span class="math display">\[
 H_0:  p = 0.70 \\
 H_a:  p \ne 0.70
 \]</span></p>
-<p>We will use the <span class="math inline">\(\alpha=0.05\)</span> level of significance in this test.</p>
+<p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance in this test.</p>
 <p>If the requirements are satisfied, then <span class="math inline">\(\widehat p\)</span> is approximately normal with mean <span class="math inline">\(p\)</span> and standard deviation <span class="math inline">\(\sqrt{\frac{p \cdot (1-p)}{n}}\)</span>. The test can be based on the standard normal (<span class="math inline">\(z\)</span>) distribution.</p>
 <div class="myemphasis">
 <p>The test statistic for the test of one proportion is:</p>
@@ -510,10 +510,10 @@ z = \frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}
 <p><span class="math display">\[
 z = \frac{\textrm{value}-\textrm{mean}}{\textrm{standard deviation}} = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}} = \frac{\frac{89}{118} - 0.70}{\sqrt{\frac{0.70(1-0.70)}{118}}} = 1.286
 \]</span></p>
-<p>Remember, we assume that the null hypothesis is true, so we use the value given in the null hypothesis for <span class="math inline">\(p\)</span>, which was <span class="math inline">\(p=0.7\)</span> for this study. Using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>, you can find the <span class="math inline">\(P\)</span>-value of the test. This is a two-tailed test, since the alternative hypothesis used “not equals to”, specifying that values either above 0.70 or below 0.70 (<span class="math inline">\(H_0: p \neq 0.7\)</span>) were possible if the null hypothesis is rejected. In the applet, make sure both tails are shaded, then enter the <span class="math inline">\(z\)</span>-score of 1.286.</p>
-<p><img src="Images/ZShadeBothTails-1-286.png"></p>
-<p>The combined area in the two tails gives the <span class="math inline">\(P\)</span>-value <span class="math inline">\(= 0.1984\)</span>, which is greater than <span class="math inline">\(\alpha = 0.05\)</span>. Therefore, we fail to reject the null hypothesis.</p>
-<p><img src="Images/Step5.png"></p>
+<p>Remember, we assume that the null hypothesis is true, so we use the value given in the null hypothesis for <span class="math inline">\(p\)</span>, which was <span class="math inline">\(p = 0.7\)</span> for this study. Using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>, you can find the <span class="math inline">\(P\)</span>-value of the test. This is a two-tailed test, since the alternative hypothesis used “not equals to”, specifying that values either above 0.70 or below 0.70 (<span class="math inline">\(H_0: p \neq 0.7\)</span>) were possible if the null hypothesis is rejected. In the applet, make sure both tails are shaded, then enter the <span class="math inline">\(z\)</span>-score of 1.286.</p>
+<p><img src = "Images/ZShadeBothTails-1-286.png"></p>
+<p>The combined area in the two tails gives the <span class="math inline">\(P\)</span>-value $ = 0.1984$, which is greater than <span class="math inline">\(\alpha = 0.05\)</span>. Therefore, we fail to reject the null hypothesis.</p>
+<p><img src = "Images/Step5.png"></p>
 <p>We conclude that there is insufficient evidence to suggest that the true proportion of the population that can taste PTC is different from 0.70. There is no reason to revise existing perspectives on the prevalence of the ability to taste PTC.</p>
 <div class="QuestionsHeading">
 Answer the following question:
@@ -522,7 +522,7 @@ Answer the following question:
 <ol start="14" style="list-style-type: decimal">
 <li>Compare and contrast the test for one mean with <span class="math inline">\(\sigma\)</span> known and the test for one proportion. Give at least two similarities and two differences.</li>
 </ol>
-<a href="javascript:showhide('Q14')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q14')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q14" style="display:none;">
 <ul>
 <li><p>Similarities: There is one population. Both test are based on the <span class="math inline">\(z\)</span> statistic. Both tests require the use of the normal probability applet.</p></li>
@@ -536,15 +536,15 @@ Answer the following question:
 <div id="case-study-water-quality" class="section level3">
 <h3>Case Study: Water Quality</h3>
 <div style="float:right;padding:10px;">
-<p><img src="Images/Gorges_du_Verdon_River_from_Bottom_0364.jpg"></p>
+<p><img src = "Images/Gorges_du_Verdon_River_from_Bottom_0364.jpg"></p>
 </div>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <p>Macroinvertebrates are small insects (without an internal skeleton) that live on the bottom of a stream. These insects are ideal for monitoring changes in water quality, because they (1) live nearly all their life in the water, (2) are easy to collect and identify, (3) often live for several years, (4) have a limited ability to migrate, and (5) they are influenced by environmental conditions.</p>
 <p>In any population of macroinvertebrates, there will be indicators of good health and indicators of poor health. Data are collected by capturing macroinvertebrates and recording whether they indicate good health or poor health for the river. In particular sections of a small river near Bozeman, Montana, about 60% of the indicators observed have historically been associated with good health.</p>
-<p><img src="Images/Step2.png"></p>
+<p><img src = "Images/Step2.png"></p>
 <p>Researchers suspect that the water quality in the area has decreased, suggesting that less than 60% of the indicators will show good health. A random sample of macroinvertebrates were captured from the river.</p>
-<p><img src="Images/Step3.png"></p>
-<p>Among the <span class="math inline">\(n=40\)</span> observed indicators of health, <span class="math inline">\(x=19\)</span> suggested good health. Use this information to answer the following question.</p>
+<p><img src = "Images/Step3.png"></p>
+<p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. Use this information to answer the following question.</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
@@ -552,23 +552,23 @@ Answer the following question:
 <ol start="15" style="list-style-type: decimal">
 <li>What is the proportion of the observed indicators that suggested good health? Express your answer as a decimal and a percentage.</li>
 </ol>
-<a href="javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q15" style="display:none;">
 <p><span class="math display">\[
 \widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~\text{or}~47.5\%
 \]</span></p>
 <pre class="r"><code>mytable &lt;- c(`Good Health` = 19, `Poor Health` = 21)
 barplot(mytable, 
-        col=c(&quot;steelblue3&quot;,&quot;darkolivegreen4&quot;),
-        main=&quot;Health of Macroinvertebrates near Bozeman, MT&quot;,
-        ylab=&quot;Number of Macroinvertebrates&quot;)</code></pre>
+        col = c(&quot;steelblue3&quot;,&quot;darkolivegreen4&quot;),
+        main = &quot;Health of Macroinvertebrates near Bozeman, MT&quot;,
+        ylab = &quot;Number of Macroinvertebrates&quot;)</code></pre>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Step4.png"></p>
-<p>The following questions will guide you through the process of conducting a hypothesis test to determine if the water quality has decreased. Use <span class="math inline">\(\alpha=0.05\)</span> for this test.</p>
+<p><img src = "Images/Step4.png"></p>
+<p>The following questions will guide you through the process of conducting a hypothesis test to determine if the water quality has decreased. Use <span class="math inline">\(\alpha = 0.05\)</span> for this test.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -587,7 +587,7 @@ n(1-p) \ge 10
 <ul>
 <li>Are these requirements satisfied?</li>
 </ul>
-<a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
 <ul>
 <li>Yes, the requirements are satisfied.
@@ -605,7 +605,7 @@ n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  &amp; \surd
 <ol start="17" style="list-style-type: decimal">
 <li>The null hypothesis is <span class="math inline">\(H_0: p = 0.6\)</span> What is the alternative hypothesis?</li>
 </ol>
-<a href="javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q17" style="display:none;">
 <center>
 <span class="math inline">\(H_a: p &lt; 0.6\)</span>
@@ -618,17 +618,17 @@ n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  &amp; \surd
 <span class="math display">\[
 \displaystyle{
 z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
-= \frac{()-0.60}{\sqrt{\frac{0.60(1-0.60)}{40}}}
-= -1.614}
+ = \frac{()-0.60}{\sqrt{\frac{0.60(1-0.60)}{40}}}
+ = -1.614}
 \]</span>
 </center></li>
 </ol>
-<a href="javascript:showhide('Q18')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q18')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q18" style="display:none;">
 <ul>
 <li>The missing value is: <br />
 <center>
-<span class="math inline">\(\displaystyle{\widehat p = \frac{19}{40}=0.475}\)</span>
+<span class="math inline">\(\displaystyle{\widehat p = \frac{19}{40} = 0.475}\)</span>
 </center></li>
 </ul>
 </div>
@@ -636,7 +636,7 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <ol start="19" style="list-style-type: decimal">
 <li>The <span class="math inline">\(P\)</span>-value will be the area under the normal curve to the left of <span class="math inline">\(z\)</span>. Why will you only shade the left tail?</li>
 </ol>
-<a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
 <ul>
 <li>We want to test if the water quality has <em>decreased</em>.</li>
@@ -645,11 +645,11 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 </div>
 <p><br></p>
 <ol start="20" style="list-style-type: decimal">
-<li>Using the Normal Probability Applet, it is determined that the area to the left of <span class="math inline">\(z=-1.614\)</span> is 0.053.</li>
+<li>Using the Normal Probability Applet, it is determined that the area to the left of <span class="math inline">\(z = -1.614\)</span> is 0.053.</li>
 </ol>
-<p><img src="Images/ShadeLeftZ-1-614.png"></p>
+<p><img src = "Images/ShadeLeftZ-1-614.png"></p>
 <p>The shaded area in this figure (0.053) represents the <span class="math inline">\(P\)</span>-value for this test. What is the decision for this test, do we reject the null hypothesis or fail to reject the null hypothesis? Give an English sentence summarizing the conclusion.</p>
-<a href="javascript:showhide('Q20')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q20')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q20" style="display:none;">
 <ul>
 <li><span class="math inline">\(P\textrm{-value} = 0.053 &gt; 0.05 = \alpha\)</span>.</li>
@@ -660,7 +660,7 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Step5.png"></p>
+<p><img src = "Images/Step5.png"></p>
 <p>Even though the proportion of indicators that suggested good health was less that 60%, it was not statistically significantly less than 60%. Unless future research indicates to the contrary, we cannot say that the water quality in this river has decreased.</p>
 <p><br></p>
 </div>
@@ -669,51 +669,51 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <h2>Confidence Interval for One Proportion</h2>
 <div id="case-study-honesty-at-medical-school" class="section level3">
 <h3>Case Study: Honesty at Medical School</h3>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <div style="float:right;padding:15px;">
-<p><img src="Images/Medical_Symbol.png"></p>
+<p><img src = "Images/Medical_Symbol.png"></p>
 </div>
 <p>Frederick Sierles and his colleagues were interested in studying the honesty of students in medical school.</p>
-<p><img src="Images/Step2.png"></p>
+<p><img src = "Images/Step2.png"></p>
 <p>They distributed an anonymous survey to students at two American medical schools. The questionnaire was given during class without any prior announcement to students. The authors of the study personally supervised the distribution and collection of the surveys. 95% of the students completed the survey, and students from all four years of medical school training were represented. A total of 428 individuals participated in the survey.</p>
-<p><img src="Images/Step3.png"></p>
+<p><img src = "Images/Step3.png"></p>
 <p>The survey results showed that 58.2% (249 people out of the 428 total that completed the survey) indicated that they had cheated in some way during medical school. The results were published in a journal article in 1980.</p>
-<a href="javascript:showhide('medbarplot')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
+<a href = "javascript:showhide('medbarplot')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
 <div id="medbarplot" style="display:none;">
 <pre class="r"><code>barplot(c(249, 428-249), 
-        names=c(&quot;Cheated at Some Point&quot;, &quot;Always Honest&quot;),
-        col=c(&quot;tan3&quot;,&quot;steelblue3&quot;), 
-        ylab=&quot;Number of Students&quot;,
-        main=&quot;Honesty of Medical Students&quot;)</code></pre>
+        names = c(&quot;Cheated at Some Point&quot;, &quot;Always Honest&quot;),
+        col = c(&quot;tan3&quot;,&quot;steelblue3&quot;), 
+        ylab = &quot;Number of Students&quot;,
+        main = &quot;Honesty of Medical Students&quot;)</code></pre>
 </div>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students in the U.S.</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, <span class="math inline">\(p\)</span>. <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span> is just a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
 <p>A point estimate like <span class="math inline">\(\hat p\)</span> is helpful, but it does not give us direct information on <em>how close</em> it is to the true parameter, <span class="math inline">\(p\)</span>. We use a confidence interval to find a range of plausible values for the parameter.</p>
 </div>
 </div>
 <div id="confidence-interval-for-the-true-proportion" class="section level2">
 <h2>Confidence Interval for the True Proportion</h2>
-<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html" target="_blank">Inference for One Mean: Sigma Known (Confidence Interval)</a>. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
-<p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html" target="_blank">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
+<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>{target = “_blank”}. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
+<p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>{target = “_blank”}. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
 <div class="myemphasis">
 <p>The formula for the confidence interval for one proportion is: <span class="math display">\[
 \underbrace{\widehat p}_\text{point estimate} \pm \ \ \  \underbrace{z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}}_\text{margin of error}
 \]</span></p>
 <p><span class="math display">\[\text{where }\displaystyle{ \widehat p = \frac{x}{n} }\]</span>.</p>
 </div>
-<p>You can use the normal probability applet to compute <span class="math inline">\(z^*\)</span>. Please see the lesson on <a href="Lesson10.html" target="_blank">Inference for One Mean: Sigma Known (Confidence Interval)</a> if you need to review this procedure.</p>
+<p>You can use the normal probability applet to compute <span class="math inline">\(z^*\)</span>. Please see the lesson on <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>{target = “_blank”} if you need to review this procedure.</p>
 <p>Be sure that you do not round any values until the very last step. Perform this entire computation without rounding.</p>
 <p>Remember that for a 95% confidence interval, <span class="math inline">\(z^* = 1.96\)</span>. So, the lower bound for the 95% confidence interval for the true proportion <span class="math inline">\(p\)</span> is: <span class="math display">\[
 \displaystyle {
 \widehat p - z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
-= \frac{249}{428} - 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
-= 0.535 }
+ = \frac{249}{428} - 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
+ = 0.535 }
 \]</span> The upper bound for the 95% confidence interval for the true proportion <span class="math inline">\(p\)</span> is: <span class="math display">\[
 \displaystyle {
 \widehat p + z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
-= \frac{249}{428} + 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
-= 0.629 }
+ = \frac{249}{428} + 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
+ = 0.629 }
 \]</span></p>
 <p>The 95% confidence interval for the true proportion of medical students who cheat is: <span class="math inline">\((0.535, 0.629)\)</span>. To interpret this interval, we say that we are 95% confident that the true proportion of people who cheat in medical school is between 0.535 and 0.629. This represents the range of plausible values for the true proportion of students who cheat at these medical schools.</p>
 <div id="requirement" class="section level4">
@@ -722,7 +722,7 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 </div>
 <div id="another-study-on-honesty-at-medical-school" class="section level3">
 <h3>Another Study on Honesty at Medical School</h3>
-<p>DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespread cheating is in medical schools. Elected class officers at 40 schools were invited to distribute a survey to their second-year classmates. Surveys were completed by students from 31 of the 40 schools. Among all students attending the 31 schools, 62% participated in the survey, yielding a total of <span class="math inline">\(n=2426\)</span> surveys. Out of this group, <span class="math inline">\(x=114\)</span> admitted to cheating in medical school. These results were published in <em>Academic Medicine</em> in 1996.</p>
+<p>DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespread cheating is in medical schools. Elected class officers at 40 schools were invited to distribute a survey to their second-year classmates. Surveys were completed by students from 31 of the 40 schools. Among all students attending the 31 schools, 62% participated in the survey, yielding a total of <span class="math inline">\(n = 2426\)</span> surveys. Out of this group, <span class="math inline">\(x = 114\)</span> admitted to cheating in medical school. These results were published in <em>Academic Medicine</em> in 1996.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -730,7 +730,7 @@ Answer the following questions:
 <ol style="list-style-type: decimal">
 <li>Are the requirements for creating a confidence interval satisfied?</li>
 </ol>
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <ul>
 <li>Yes, <span class="math inline">\(2426*0.047 = 114\)</span> and <span class="math inline">\(2426*(1-0.047) = 2312\)</span>, so it is appropriate to use this procedure to estimate the true proportion of students who cheat in medical school.</li>
@@ -740,7 +740,7 @@ Answer the following questions:
 <ol start="2" style="list-style-type: decimal">
 <li>What is the value of <span class="math inline">\(\widehat p\)</span> in this study?</li>
 </ol>
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <center>
 <span class="math display">\[
@@ -752,25 +752,25 @@ Answer the following questions:
 <ol start="3" style="list-style-type: decimal">
 <li>Co calculate the lower bound for the 95% confidence interval for the true proportion <span class="math inline">\(p\)</span>.</li>
 </ol>
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <p><span class="math display">\[
 \displaystyle{\widehat p - z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
-= \frac{114}{2426} - 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
-= 0.039}
+ = \frac{114}{2426} - 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
+ = 0.039}
 \]</span></p>
 </div>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Calculate the 95% confidence interval for the true proportion of medical students who cheat based on the data from this larger study.</li>
 </ol>
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
 <li>The upper bound for the 95% confidence interval for the true proportion of students who cheat in medical school is: <span class="math display">\[
 \widehat p + z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
-= \frac{114}{2426} + 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
-= 0.055
+ = \frac{114}{2426} + 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
+ = 0.055
 \]</span></li>
 <li>So, the 95% confidence interval for the true proportion of students who cheat at medical school is: <span class="math inline">\((0.039, 0.055)\)</span></li>
 </ul>
@@ -779,7 +779,7 @@ Answer the following questions:
 <ol start="5" style="list-style-type: decimal">
 <li>Compare the confidence intervals obtained from the Sierles study to the confidence interval from Baldwin’s study. How do the results compare to each other?</li>
 </ol>
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
 <li>The first study concluded that the true proportion of cheaters in medical school is in the range (0.535,0.629), while the second study concluded a much lower range of possible proportions of cheaters (0.039,0.055). It seems quite likely that at least one of the studies is not accurate.</li>
@@ -789,7 +789,7 @@ Answer the following questions:
 <ol start="6" style="list-style-type: decimal">
 <li>What are some possible factors that might explain the discrepancy in these two studies?</li>
 </ol>
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <ul>
 <li>Possible factors could include: Elected class officers giving the surveys may have skewed results, perhaps the 31 schools have less cheating than the original 2, the non-participating schools may have skewed results. Another possibility is that cheating is more prevalent in the later years of medical school,since the second study only examined second-year students.</li>
@@ -799,7 +799,7 @@ Answer the following questions:
 <ol start="7" style="list-style-type: decimal">
 <li>How would you feel if you knew that your doctor cheated in medical school?</li>
 </ol>
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
 <li>Any thoughtful answer is sufficient, but we would likely not be happy!</li>
@@ -809,7 +809,7 @@ Answer the following questions:
 <ol start="8" style="list-style-type: decimal">
 <li>Write a paragraph explaining why it is important to you to be honest in all your dealings with your fellow men–including your academic pursuits. Be sure to include a discussion of your future plans with regard to this issue.</li>
 </ol>
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <ul>
 <li>Any thoughtful paragraph is sufficient.</li>
@@ -841,11 +841,11 @@ n = \left( \frac{z^*}{2m} \right)^2
 <p>No matter what value you obtain for the sample size, if it is not a whole number <strong>round it up</strong> to the nearest whole number.</p>
 <div id="example" class="section level3">
 <h3>Example</h3>
-<p>If you want to find the sample size required to get a margin of error of <span class="math inline">\(m=0.03\)</span> with 95% confidence, and previous studies have shown that the true proportion is approximately equal to <span class="math inline">\(p^*=0.82\)</span>, then the sample size required would be: <span class="math display">\[
+<p>If you want to find the sample size required to get a margin of error of <span class="math inline">\(m = 0.03\)</span> with 95% confidence, and previous studies have shown that the true proportion is approximately equal to <span class="math inline">\(p^* = 0.82\)</span>, then the sample size required would be: <span class="math display">\[
 \displaystyle {
 n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*) = \left( \frac{1.96}{0.03} \right)^2 (0.82) (1-0.82) = 630.02
 }
-\]</span> We need to round this answer up to the next larger whole number. So, you would need to collect <span class="math inline">\(n=631\)</span> observations to obtain the desired margin of error.</p>
+\]</span> We need to round this answer up to the next larger whole number. So, you would need to collect <span class="math inline">\(n = 631\)</span> observations to obtain the desired margin of error.</p>
 <p><br></p>
 </div>
 </div>
@@ -857,10 +857,10 @@ Remember…
 <div class="Summary">
 <ul>
 <li><p>The <strong>estimator</strong> of <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. <span class="math inline">\(\displaystyle{ \widehat p = \frac {x}{n}}\)</span> and is used for both confidence intervals and hypothesis testing.</p></li>
-<li><p>The test statistic for a hypothesis test of one proportion is <span class="math inline">\(z=\frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}\)</span>. The p-value is computed using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>.</p></li>
+<li><p>The test statistic for a hypothesis test of one proportion is <span class="math inline">\(z = \frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}\)</span>. The p-value is computed using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>.</p></li>
 <li><p>The equation for a confidence interval for the true proportion <span class="math inline">\(p\)</span> is <span class="math inline">\(\hat{p} \pm z*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></p></li>
 <li><p>The requirements for a confidence interval are <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>. The requirements for hypothesis tests involving one proportion are <span class="math inline">\(np\ge10\)</span> and <span class="math inline">\(n(1-p)\ge10\)</span>.</p></li>
-<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n=\left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used instead. In either case, we need to <em>round our answer up</em> to the next highest whole number.</p></li>
+<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used instead. In either case, we need to <em>round our answer up</em> to the next highest whole number.</p></li>
 </ul>
 <p><br></p>
 </div>

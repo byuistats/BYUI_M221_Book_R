@@ -408,24 +408,24 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width=40%;">
+<div style="float:right;width = 40%;">
 <br/>
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC8-A6W3DcLXUyoR8x0dpTgs" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC8-A6W3DcLXUyoR8x0dpTgs" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <p><br></p>
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
@@ -451,7 +451,7 @@ $(document).ready(function () {
 </div>
 <div id="theory-of-simple-linear-regression" class="section level2">
 <h2>Theory of Simple Linear Regression</h2>
-<p><img src="Images/Line_on_coordinate_plane.jpg"></p>
+<p><img src = "Images/Line_on_coordinate_plane.jpg"></p>
 <p>When we compute an estimated regression equation, we assume that there is some true equation that describes the relationship between the <span class="math inline">\(X\)</span>-variable and the mean value of <span class="math inline">\(Y\)</span>. This equation is unknown to us. In particular, we don’t know what the coefficients are in this equation. In the estimated regression equation, we used <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> to represent the <span class="math inline">\(Y\)</span>-intercept and slope, respectively. These two coefficients are estimates of the unknown regression coefficients in the true equation. We will use the Greek letter <span class="math inline">\(\beta\)</span> (pronounced “beta”) to denote these true unknown coefficients.</p>
 <p>The true regression line is written as: <span class="math display">\[
 \textrm{Expected value of }~Y = \beta_0 + \beta_1 X
@@ -464,11 +464,11 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <h2>Checking Requirements of Simple Linear Regression</h2>
 <p>In order to do hypothesis tests and confidence intervals using a regression line, we need to be sure that certain conditions are satisfied. There are five requirements for a linear regression model:</p>
 <ol style="list-style-type: decimal">
-<li><span id='linear'><span> There is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
-<li><span id='normal'><span> The error term (<span class="math inline">\(\epsilon\)</span>) is normally distributed.</li>
-<li><span id='const'><span> The variance of the error terms is constant for all values of <span class="math inline">\(X\)</span>.</li>
-<li><span id='fixed'><span> The <span class="math inline">\(X\)</span>’s are fixed and measured without error. (In other words, the <span class="math inline">\(X\)</span>’s can be considered as known constants.)</li>
-<li><span id='indep'><span> The observations are independent.</li>
+<li><span id = 'linear'><span> There is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+<li><span id = 'normal'><span> The error term (<span class="math inline">\(\epsilon\)</span>) is normally distributed.</li>
+<li><span id = 'const'><span> The variance of the error terms is constant for all values of <span class="math inline">\(X\)</span>.</li>
+<li><span id = 'fixed'><span> The <span class="math inline">\(X\)</span>’s are fixed and measured without error. (In other words, the <span class="math inline">\(X\)</span>’s can be considered as known constants.)</li>
+<li><span id = 'indep'><span> The observations are independent.</li>
 </ol>
 <p>These must be satisfied in order to conduct a hypothesis test or create confidence intervals involving regression lines.</p>
 <p>We will illustrate the process of checking requirements using the estuarine crocodile data.</p>
@@ -477,7 +477,7 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This has been referred to as a “hot dog” shape in the data.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
 <p>Consider the scatterplot of the estuarine crocodile data <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a>:</p>
-<p><img src="Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG"></p>
+<p><img src = "Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG"></p>
 <p>Notice how the data follow a linear shape. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
 <div id="residuals" class="section level3">
@@ -534,9 +534,9 @@ Excel Instructions
 </ul>
 <pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
 <ul>
-<li>Use the name of the lm that you created and the <code>plot()</code> function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use <code>plot(  , which=1)</code> to obtain just the first plot.</li>
+<li>Use the name of the lm that you created and the <code>plot()</code> function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use <code>plot(  , which = 1)</code> to obtain just the first plot.</li>
 </ul>
-<pre class="r"><code>plot(estuarine.lm, which=1)</code></pre>
+<pre class="r"><code>plot(estuarine.lm, which = 1)</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don’t worry about whether or not it is flat.</p>
 <p><br></p>
@@ -740,7 +740,7 @@ Knowing the value of one of the <span class="math inline">\(Y\)</span>’s<br />
 </div>
 <div id="hypothesis-test-for-regression-coefficients" class="section level2">
 <h2>Hypothesis Test for Regression Coefficients</h2>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <div id="estuarine-crocodiles" class="section level3">
 <h3>Estuarine Crocodiles</h3>
 <p>We want to know if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. To test for this, we need to determine if the slope is different from zero. If the slope is zero, then that suggests that there is no linear relationship between the two variables. If the slope is not zero, that suggests that there is a linear relationship between the two variables.</p>
@@ -749,7 +749,7 @@ Knowing the value of one of the <span class="math inline">\(Y\)</span>’s<br />
 <p>In other words, the independent variable <span class="math inline">\(X\)</span> does not affect the value of the dependent variable <span class="math inline">\(Y\)</span>.</p>
 <p>The null and alternative hypotheses for this test are: <span class="math display">\[
 \begin{array}{ll}
-H_0: &amp; \beta_1  =  0\\
+H_0: &amp; \beta_1 = 0\\
 H_a: &amp; \beta_1 \ne 0\\
 \end{array}
 \]</span></p>
@@ -793,24 +793,24 @@ F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The output above shows that</p>
 <p><span class="math display">\[
 \begin{array}{c}
-n=28 \\
+n = 28 \\
 \hat Y = -18.274 + 7.660 X \\
 \end{array}
 \]</span></p>
 <p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution. We are conducting a test for the slope. The information related to the slope is given in the second row of the “Estimate” table, which is labeled “EstuarineCrocodiles$HeadLength”. Looking across the second row, we find the value of <span class="math inline">\(t\)</span> is given as 35.588. <span class="math display">\[
-t=35.588
+t = 35.588
 \]</span></p>
 <p>This is a tremendously large value for t. This indicates that there is a lot of evidence against the null hypothesis.</p>
 <p>Remember, the <span class="math inline">\(t\)</span> distribution has one number describing its degrees of freedom. The degrees of freedom for this test is shown towards the bottom of the output where it states “26 degrees of freedom”. It is also easy to calculate the degrees of freedom by hand. Because we used the dataset to estimate two population parameters (a slope and a y-intercept) we have used two degrees of freedom. There are 28 observations in our dataset. The degrees of freedom equals <span class="math inline">\(28-2 = 26\)</span> for the estuarine crocodile data. <span class="math display">\[
-df= 28-2 = 26
+df = 28-2 = 26
 \]</span></p>
-<p>With a test statistic of <span class="math inline">\(t=35.588\)</span>, we get a very small <span class="math inline">\(P\)</span>-value, “0.000” as shown in the column of the output titled “Pr(&gt;|t|)”. That stands for “the probability” (Pr) of being “more extreme” (&gt;) than the observed test statistic (t).</p>
-<p>Assuming <span class="math inline">\(\alpha=0.05\)</span>, we reject the null hypothesis since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the head length and the body length of estuarine crocodiles.</p>
+<p>With a test statistic of <span class="math inline">\(t = 35.588\)</span>, we get a very small <span class="math inline">\(P\)</span>-value, “0.000” as shown in the column of the output titled “Pr(&gt;|t|)”. That stands for “the probability” (Pr) of being “more extreme” (&gt;) than the observed test statistic (t).</p>
+<p>Assuming <span class="math inline">\(\alpha = 0.05\)</span>, we reject the null hypothesis since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the head length and the body length of estuarine crocodiles.</p>
 <p>It was appropriate to conduct this analysis, since the requirements of simple linear regression were satisfied.</p>
 </div>
 <div id="manatees" class="section level3">
 <h3>Manatees</h3>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <p>Here is an excerpt from the output for the <a href="./data/Manatees.xlsx">Manatees.xlsx</a> data set:</p>
 <table style="width:51%;">
 <colgroup>
@@ -852,13 +852,13 @@ df= 28-2 = 26
 </table>
 <p>The null and alternative hypotheses for this test are: <span class="math display">\[
 \begin{array}{ll}
-H_0: &amp; \beta_1  =  0\\
+H_0: &amp; \beta_1 = 0\\
 H_a: &amp; \beta_1 \ne 0\\
 \end{array}
 \]</span></p>
 <p>The relevant summary statistics include the sample size and the estimated regression equation (<span class="math inline">\(\hat Y = b_0 + b_1 X\)</span>). <span class="math display">\[
 \begin{array}{c}
-n=35 \\
+n = 35 \\
 \hat Y = -42.542 + 0.129 X \\
 \end{array}
 \]</span></p>
@@ -884,15 +884,15 @@ Residual standard error: 9.239 on 33 degrees of freedom
 Multiple R-squared:  0.8791,    Adjusted R-squared:  0.8754 
 F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Remember, we are conducting a test for the slope, so the information we need is given in the second row of output. We find the value of <span class="math inline">\(t\)</span> is given as 15.49. <span class="math display">\[
-t=15.49
+t = 15.49
 \]</span></p>
 <p>Think about this result. Is this a large or a small value for <span class="math inline">\(t\)</span>? What does this say about the conclusion to our test?</p>
 <p>Remember, the <span class="math inline">\(t\)</span> has one number describing its degrees of freedom. For this test, the degrees of freedom <span class="math inline">\(35-2 = 33\)</span>. We subtract two from the total number of observations because we estimated 2 population parameters for the line: a y-intercept and a slope.<br />
 <span class="math display">\[
-df=33
+df = 33
 \]</span></p>
-<p>With a test statistic of <span class="math inline">\(t=15.49\)</span> and <span class="math inline">\(33\)</span> degrees of freedom, we get a very small <span class="math inline">\(P\)</span>-value. The value is so small that when we round to just three decimal places, the <span class="math inline">\(P\)</span>-value appears to be zero. In the output the p-value is listed as “&lt;2e-16” which means it is so small that it is less than <span class="math inline">\(2\times10^{-16}\)</span>!</p>
-<p>Assuming <span class="math inline">\(\alpha=0.05\)</span>, our decision rule is to reject the null hypothesis, since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the number of powerboats registered in Florida and the number of manatees killed by powerboats. This conclusion fits our intuition. If there are more boats on the water, it seems plausible that this will affect the number of manatees killed. If any statistical conclusion is counterintuitive, you should always be very wary!</p>
+<p>With a test statistic of <span class="math inline">\(t = 15.49\)</span> and <span class="math inline">\(33\)</span> degrees of freedom, we get a very small <span class="math inline">\(P\)</span>-value. The value is so small that when we round to just three decimal places, the <span class="math inline">\(P\)</span>-value appears to be zero. In the output the p-value is listed as “&lt;2e-16” which means it is so small that it is less than <span class="math inline">\(2\times10^{-16}\)</span>!</p>
+<p>Assuming <span class="math inline">\(\alpha = 0.05\)</span>, our decision rule is to reject the null hypothesis, since the <span class="math inline">\(P\)</span>-value is less than the level of significance. There is sufficient evidence to suggest that there is a linear relationship between the number of powerboats registered in Florida and the number of manatees killed by powerboats. This conclusion fits our intuition. If there are more boats on the water, it seems plausible that this will affect the number of manatees killed. If any statistical conclusion is counterintuitive, you should always be very wary!</p>
 <p><br></p>
 </div>
 </div>
@@ -915,9 +915,9 @@ R Instructions
 </ul>
 <pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)</code></pre>
 <ul>
-<li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level=0.95)</code> to control the confidence level.</li>
+<li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level = 0.95)</code> to control the confidence level.</li>
 </ul>
-<pre class="r"><code>confint(manatee.lm, level=0.95)</code></pre>
+<pre class="r"><code>confint(manatee.lm, level = 0.95)</code></pre>
 <pre><code>                                         2.5 %      97.5 %
 (Intercept)                        -55.4600405 -29.6231851
 Manatees$`Power Boats (in 1000&#39;s)`   0.1121986   0.1461254</code></pre>
@@ -939,10 +939,10 @@ Answer the following questions:
 <ol style="list-style-type: decimal">
 <li>Find a 95% confidence interval for the slope of the regression line relating the head lengths and body lengths of estuarine crocodiles.</li>
 </ol>
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
-confint(estuarine.lm, level=0.95)</code></pre>
+confint(estuarine.lm, level = 0.95)</code></pre>
 <pre><code>                                    2.5 %   97.5 %
 (Intercept)                    -38.760103 2.212044
 EstuarineCrocodiles$HeadLength   7.217669 8.102540</code></pre>
@@ -956,7 +956,7 @@ EstuarineCrocodiles$HeadLength   7.217669 8.102540</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Interpret the confidence interval you created in the previous problem.</li>
 </ol>
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
 <li>We are 95% confident that the true slope of the regression line relating the head length and the body length of estuarine crocodiles is between 7.218 and 8.103. So, we are 95% confident that if the length of the head increases by 1 cm, then the increase in the mean body length is expected to be between 7.218 and 8.103.</li>
@@ -974,15 +974,15 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p>The unknown <strong>true linear regression line</strong> is <span class="math inline">\(Y=\beta_0+\beta_1X\)</span> where <span class="math inline">\(\beta_0\)</span> is the true y-intercept of the line and <span class="math inline">\(\beta_1\)</span> is the true slope of the line.</p></li>
+<li><p>The unknown <strong>true linear regression line</strong> is <span class="math inline">\(Y = \beta_0+\beta_1X\)</span> where <span class="math inline">\(\beta_0\)</span> is the true y-intercept of the line and <span class="math inline">\(\beta_1\)</span> is the true slope of the line.</p></li>
 <li><p>A <strong>residual</strong> is the difference between the observed value of <span class="math inline">\(Y\)</span> for a given <span class="math inline">\(X\)</span> and the predicted value of <span class="math inline">\(Y\)</span> on the regression line for the same <span class="math inline">\(X\)</span>. It can be expressed as: <span class="math display">\[
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p></li>
 <li><p>Residuals can be obtained in R using <code>lmObjectName$residuals</code>, <a href="Lesson23.html#r-instructions-for-computing-residuals">see here</a> for details.</p></li>
-<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>. These plots can be created in R using <code>plot(lmObjectName, which=1)</code> and <code>hist(lmObjectName$residuals)</code>, <a href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for an example.</p></li>
+<li><p>To check all the requirements for bivariate inference you will need to create a <strong>scatterplot</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and a <strong>histogram of the residuals</strong>. These plots can be created in R using <code>plot(lmObjectName, which = 1)</code> and <code>hist(lmObjectName$residuals)</code>, <a href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for an example.</p></li>
 <li><p>We conduct a hypothesis test on bivariate data to know if there is a linear relationship between the two variables. To determine this, we test the slope (<span class="math inline">\(\beta_1\)</span>) on whether or not it equals zero. The appropriate hypotheses for this test are: <span class="math display">\[
 \begin{array}{1cl}
-H_0: &amp; \beta_1=0 \\
+H_0: &amp; \beta_1 = 0 \\
 H_a: &amp; \beta_1\ne0
 \end{array}
 \]</span></p></li>
