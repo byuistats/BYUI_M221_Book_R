@@ -68,7 +68,7 @@ Is there a difference in the amount of reading done by children with problematic
 
 **Summarize the relevant background information**
 
-Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->.  They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home.  Data representative of their results are given in the file [ReadingPractices.xlsx](./data/ReadingPractices.xlsx).
+Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->.  They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home.  Data representative of their results are given in the file [reading.xlsx](./data/reading.xlsx).
 
 **State the null and alternative hypotheses and the level of significance**
 
@@ -87,7 +87,7 @@ We will use the $\alpha = 0.05$ level of significance.
 
 **Describe the data collection procedures**
 
-A group of children were enrolled in the study.  Children who were identified to have developmental or behavioral problems were labeled as Group 1 (the DEV group).  Children who did not display developmental or behavioral problems were labeled as Group 2 (the GEN group).  A survey was administered to a parent of each of the children.  One of the questions on the survey asked the number of nights that either their child read or that they read to their child during the week. This data is found in the file [ReadingPractices.xlsx](./data/ReadingPractices.xlsx).
+A group of children were enrolled in the study.  Children who were identified to have developmental or behavioral problems were labeled as Group 1 (the DEV group).  Children who did not display developmental or behavioral problems were labeled as Group 2 (the GEN group).  A survey was administered to a parent of each of the children.  One of the questions on the survey asked the number of nights that either their child read or that they read to their child during the week. This data is found in the file [reading.xlsx](./data/reading.xlsx).
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
@@ -126,11 +126,11 @@ We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ an
 <div class="Software">
 **To compute numerical summaries for two groups at once:**
 
-* First, read the data into RStudio: [ReadingPractices.xlsx](./data/ReadingPractices.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+* First, read the data into RStudio: [reading.xlsx](./data/reading.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 
 ```{r, include=FALSE}
 library(readxl)
-ReadingPractices <- read_excel("./data/ReadingPractices.xlsx")
+reading <- read_excel("./data/reading.xlsx")
 ```
 
 * Second, load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick.
@@ -149,11 +149,11 @@ You'll only ever need to "install" this package once. But you'll need to run "li
 Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
 
 ```{r, comment=NA}
-favstats(ReadingPractices$Nights ~ ReadingPractices$Group)
+favstats(reading$nights ~ reading$group)
 ```
 
 <div class="note">
-If you get the error message <span style="color:red;">Error in favstats(Nights ~ Group, data = ReadingPractices) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
+If you get the error message <span style="color:red;">Error in favstats(Nights ~ Group, data = reading) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
 </div>
 
 
@@ -199,17 +199,17 @@ There are two populations, and it is important to illustrate both of them separa
 <div class="Software">
 **To visualize the distributions of the two sample simultaneously:**
 
-Read the data into RStudio: [ReadingPractices.xlsx](./data/ReadingPractices.xlsx).
+Read the data into RStudio: [reading.xlsx](./data/reading.xlsx).
 
 ```{r, include=FALSE}
 library(readxl)
-ReadingPractices <- read_excel("./data/ReadingPractices.xlsx")
+reading <- read_excel("./data/reading.xlsx")
 ```
 
 Use the `boxplot(...)` function and the tilde `~` (top-left key on your keyboard) to produce a side-by-side boxplot. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
 
 ```{r}
-boxplot(ReadingPractices$Nights ~ ReadingPractices$Group)
+boxplot(reading$nights ~ reading$group)
 ```
 
 <br/>
@@ -225,7 +225,7 @@ To make the graph look a little nicer we could use the following options.
 * the `names=c("label 1", "label 2")` statement can be used to give each box a label along the x-axis.
 
 ```{r}
-boxplot(ReadingPractices$Nights ~ ReadingPractices$Group,
+boxplot(reading$nights ~ reading$group,
         col=c("firebrick","skyblue"), 
         main="Reading Practices of Children", 
         ylab="Number of Nights of Reading",
@@ -293,12 +293,12 @@ The test statistic for a hypothesis test comparing two means with independent sa
 <div class="Software">
 **The following instructions will help you conduct a hypothesis test for two means with independent samples in R.**
 
-* Import the data into RStudio: [ReadingPractices.xlsx](./data/ReadingPractices.xlsx)
+* Import the data into RStudio: [reading.xlsx](./data/reading.xlsx)
 * Take note of your null and alternative hypotheses, in this case $H_0: \mu_1 = \mu_2$ implies $\mu_1 - \mu_2 = 0$ and $H_a: \mu_1 \neq \mu_2$ implies $\mu_1 - \mu_2 \neq 0$.
 * Use the `t.test(...)` function along with the tilde `~` (top-left key on your keyboard) to test a quantitative variable that is "divided into two groups" with the `~` sign like this:
 
 ```{r, comment=NA}
-t.test(ReadingPractices$Nights ~ ReadingPractices$Group, mu=0, alternative="two.sided")
+t.test(reading$nights ~ reading$group, mu=0, alternative="two.sided")
 ```
 
 Notice the quantitative variable "Nights" was first, followed by the `~`, followed by the categorical variable "Group" containing the two groups. It is important that the categorical variable contain *exactly* two groups or the `t.test` will not work.
@@ -412,7 +412,7 @@ $$
 
 <img src="./Images/StepsAll.png">
 
-### Case Study: World Cup Heart Attacks
+### Case Study: FIFA World Cup Heart Attacks
 
 Do intense sporting events increase the probability of a person having a heart attack?  We will consider this question in the next example.
 
@@ -445,7 +445,7 @@ We will use the $\alpha = 0.01$ level of significance. Remember, we are always f
 
 **Describe the data collection procedures**
 
-The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file [WorldCupHeartAttacks.xlsx](./data/WorldCupHeartAttacks.xlsx).
+The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx).
 
 
 <img src="./Images/Step3.png">
@@ -457,15 +457,15 @@ The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients
 
 <a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
-* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$. So we read in the [WorldCupHeartAttacks.xlsx](./data/WorldCupHeartAttacks.xlsx) data into RStudio, ensure `library(mosaic)` is loaded, and then use the `favstats(...)` function.
+* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$. So we read in the [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx) data into RStudio, ensure `library(mosaic)` is loaded, and then use the `favstats(...)` function.
 
 ```{r, include=FALSE}
-WorldCupHeartAttacks <- read_excel("./data/WorldCupHeartAttacks.xlsx")
+fifa_heart_attacks <- read_excel("./data/fifa_heart_attacks.xlsx")
 ```
 
 ```{r, message=FALSE, warning=FALSE, comment=NA}
 library(mosaic)
-favstats(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)
+favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 ```
 
 <center>
@@ -487,7 +487,7 @@ favstats(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)
 Side-by-side boxplots are a great way to summarize the data. 
 
 ```{r}
-boxplot(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod, col=c("gray", "orange"), main="2006 World Cup \n ")
+boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col=c("gray", "orange"), main="2006 World Cup \n ")
 ```
 
 </div>
@@ -515,7 +515,7 @@ boxplot(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod, col
 <div id="Q8" style="display:none;">
 
 ```{r, comment=NA}
-t.test(WorldCupHeartAttacks$HeartAttacks ~ WorldCupHeartAttacks$TimePeriod)
+t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 ```
 
 * The test statistic is a $t$ and its value is
@@ -623,7 +623,7 @@ Software can be used to compute the confidence interval for a difference of two 
 
 **Describe the data collection procedures**
 
-In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child's caretaker (usually a parent).  This survey included questions about the child's development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the file [ReadingPractices.xlsx](./data/ReadingPractices.xlsx).
+In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child's caretaker (usually a parent).  This survey included questions about the child's development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the file [reading.xlsx](./data/reading.xlsx).
 
 
 <img src="./Images/Step3.png">
@@ -633,7 +633,7 @@ In the study by Arlene Butz, et.al., on the reading practices of children, the r
 Using R, we compute the following:
 
 ```{r, comment=NA}
-favstats(ReadingPractices$Nights ~ ReadingPractices$Group)
+favstats(reading$nights ~ reading$group)
 ```
 
 +---------------------+------------------+------------------+
@@ -655,7 +655,7 @@ favstats(ReadingPractices$Nights ~ ReadingPractices$Group)
 **Make an appropriate graph to illustrate the data**
 
 ```{r}
-boxplot(ReadingPractices$Nights ~ ReadingPractices$Group,
+boxplot(reading$nights ~ reading$group,
         main="Reading Practices of Children",
         col=c("firebrick","skyblue"), 
         ylab="Nights Spent Reading", 
@@ -681,11 +681,11 @@ In this example, we compute the 95% confidence interval for the difference in th
 <div class="Software">
 **To compute a 95% confidence interval for the difference of two means from two independent samples:**
 
-- Read in the data: [ReadingPractices.xlsx](./data/ReadingPractices.xlsx)
+- Read in the data: [reading.xlsx](./data/reading.xlsx)
 - Perform an independent samples t test using the `t.test(..., conf.level=0.95)` function.
 
 ```{r, comment=NA}
-t.test(ReadingPractices$Nights ~ ReadingPractices$Group, conf.level=0.95)
+t.test(reading$nights ~ reading$group, conf.level=0.95)
 ```
 
 The lower bound and upper bound of the 95% confidence interval for the *difference between the two means* ($\mu_1 - \mu_2$) is given in the output above as (-0.149, 0.987). 
@@ -706,8 +706,8 @@ Note that this confidence interval contains zero, so it is plausible that there 
 When creating the confidence interval in R, it is important to remember that R splits the data into two groups alphabetically. So the "DEV" group is the first group and the "GEN" group is the second group. If this order were reversed, it would result in a confidence interval with the opposite sign. If we assign the GEN group as the first group and the DEV group as the second, we would get a confidence interval of $(-0.987, 0.149)$. We could do this with the code:
 
 ```{r, comment=NA}
-ReadingPractices$GroupReversed <- factor(ReadingPractices$Group, levels=c("GEN", "DEV"), ordered=TRUE)
-t.test(ReadingPractices$Nights ~ ReadingPractices$GroupReversed)
+reading$groupReversed <- factor(reading$group, levels=c("GEN", "DEV"), ordered=TRUE)
+t.test(reading$nights ~ reading$groupReversed)
 ```
 
 
@@ -736,7 +736,7 @@ Cigarette smoking is the leading cause of COPD. Most people who have COPD smoke 
 
 A study was conducted in the United Kingdom to determine if there is a difference in the effectiveness of community-based rehabilitation program compared to hospital-based rehabilitation <!--<cite>Waterhouse10</cite>-->. Patients suffering from COPD were randomly assigned to either the community or hospital group. Twice a week for six weeks, they participated in two-hour educational and exercise sessions.  Patients were also encouraged to exercise between sessions.
 
-The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file [COPD-Rehab](./data/COPD-Rehab.xlsx).  The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
+The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file [copd_rehab.xlsx](./data/copd_rehab.xlsx).  The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
 
 Because hospital-based rehabilitation tends to be more expensive, the researchers wanted to assess if there is a significant difference in the patients' improvement under the two programs.  If not, then it makes sense to refer patients to the less expensive treatment option.  The purpose of this study was to determine if pulmonary rehabilitation in a community setting is as effective as rehabilitation in a hospital setting.
 
@@ -749,10 +749,10 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 <div class="Software">
 **When the data for each group is in a separate column** numerical summaries are calculated one column at a time.
 
-* First, read the data into RStudio: [COPD-Rehab](./data/COPD-Rehab.xlsx)
+* First, read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx)
 
-```{r}
-COPD_Rehab <- read_excel("./data/COPD-Rehab.xlsx")
+```{r, include = FALSE}
+copd_rehab <- read_excel("./data/copd_rehab.xlsx")
 ```
 
 * Second, load the `mosaic` library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.
@@ -768,8 +768,8 @@ If you get the error message <span style="color:red;">Error in library(mosaic) :
 Use the `favstats(...)` function to produce numerical summaries for each group separately.
 
 ```{r, comment=NA}
-favstats(COPD_Rehab$Community)
-favstats(COPD_Rehab$Hospital)
+favstats(copd_rehab$community)
+favstats(copd_rehab$hospital)
 ```
 
 <div class="note">
@@ -779,7 +779,7 @@ If you get the error message <span style="color:red;">Error in favstats(...) : c
 **Boxplots can be created by using the `,` instead of the `~`:**
 
 ```{r}
-boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital,
+boxplot(copd_rehab$community, copd_rehab$hospital,
         names=c("Community", "Hospital"), 
         main="Chronic Obstructive Pulmonary Disease", 
         ylab="Increased Distance Patients Could Walk (meters)",
@@ -823,7 +823,11 @@ boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital,
 <br>
 
 ```{r}
-boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital, names=c("Community", "Hospital"), main="Chronic Obstructive Pulmonary Disease", ylab="Increased Distance Patients Could Walk (meters)", col=c("steelblue","steelblue3"))
+boxplot(copd_rehab$community, copd_rehab$hospital, 
+        names=c("Community", "Hospital"), 
+        main="Chronic Obstructive Pulmonary Disease", 
+        ylab="Increased Distance Patients Could Walk (meters)", 
+        col=c("steelblue","steelblue3"))
 ```
 
 <br>
@@ -853,16 +857,16 @@ boxplot(COPD_Rehab$Community, COPD_Rehab$Hospital, names=c("Community", "Hospita
 <div class="Software">
 **When the data for each group is in a separate column** the independent samples t test is performed using the comma `,` instead of the tilde `~`.
 
-* First, read the data into RStudio: [COPD-Rehab](./data/COPD-Rehab.xlsx)
+* First, read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx)
 
-```{r}
-COPD_Rehab <- read_excel("./data/COPD-Rehab.xlsx")
+```{r, include = FALSE}
+copd_rehab <- read_excel("./data/copd_rehab.xlsx")
 ```
 
 * Second, run the `t.test(...)` with the first column of data, followed by a comma `,`, and then the second column of data.
 
 ```{r, comment=NA}
-t.test(COPD_Rehab$Community, COPD_Rehab$Hospital, conf.level=0.95)
+t.test(copd_rehab$community, copd_rehab$hospital, conf.level=0.95)
 ```
 
 <br>
@@ -930,9 +934,9 @@ t.test(COPD_Rehab$Community, COPD_Rehab$Hospital, conf.level=0.95)
 
 <a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q22" style="display:none;">
-- If we subtract: $Community - Hospital$, we get: $(-158.5,~24.0)$
+- If we subtract: $community - Hospital$, we get: $(-158.5,~24.0)$
 
-- If we subtract: $Hospital - Community$, we get: $(-24.0,~158.5)$
+- If we subtract: $hospital - Community$, we get: $(-24.0,~158.5)$
 </div>
 <br>
 
