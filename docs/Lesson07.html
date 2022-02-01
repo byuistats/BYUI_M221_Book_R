@@ -388,24 +388,24 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width=40%;">
+<div style="float:right;width = 40%;">
 <br/>
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC9Vm2oOb7MbspQvlvrkQba1" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC9Vm2oOb7MbspQvlvrkQba1" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <p><br></p>
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
@@ -428,7 +428,7 @@ $(document).ready(function () {
 </ul>
 <p>Previously, you learned how to use the normal probability applet to convert a <span class="math inline">\(z\)</span>-score to a corresponding area under the curve. These skills will be applied again in this activity. The following questions will help you brush up on how to use the applet.</p>
 <center>
-<img src="Images/L04_A06_Graph.jpg">
+<img src = "Images/L04_A06_Graph.jpg">
 </center>
 <p><br></p>
 <div class="QuestionsHeading">
@@ -438,7 +438,7 @@ Answer the following questions:
 <ol style="list-style-type: decimal">
 <li>Look at the output from the applet, given above. What is the probability that a standard normal random variable will be below 1.25?</li>
 </ol>
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <center>
 <span class="math inline">\(0.8944\)</span>
@@ -448,7 +448,7 @@ Answer the following questions:
 <ol start="2" style="list-style-type: decimal">
 <li>Look at the output from the applet, given above. What is the probability that a standard normal random variable will be above 1.25?</li>
 </ol>
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <center>
 <span class="math inline">\(1 - 0.8944 = 0.1056\)</span>
@@ -458,7 +458,7 @@ Answer the following questions:
 <ol start="3" style="list-style-type: decimal">
 <li>Challenge problem: Use the output from the applet above to determine the probability that a standard normal random variable will be between -1.25 and 1.25.</li>
 </ol>
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <ul>
 <li>Since the probability in the right tail above 1.25 is 0.106, the probability in the left tail is also 0.106. So, the probability in the middle, between -1.25 and 1.25 must be <span class="math inline">\(1 – 2(0.106) = 1 – 0.212 = 0.788\)</span>.</li>
@@ -468,7 +468,7 @@ Answer the following questions:
 <ol start="4" style="list-style-type: decimal">
 <li>Use the normal probability applet to find the probability that a standard normal random variable will be greater than -0.75.</li>
 </ol>
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
 <li>Using the normal probability applet, we find that the area to the right of <span class="math inline">\(z\)</span> = -0.75 is <span class="math inline">\(0.773\)</span>.</li>
@@ -478,7 +478,7 @@ Answer the following questions:
 <ol start="5" style="list-style-type: decimal">
 <li>If the mean of a normally distributed random variable is -23 and the standard deviation is 7, what is the probability that the random variable will have a value that is less than -25?</li>
 </ol>
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
 <li>The <span class="math inline">\(z\)</span>-score is: <br>
@@ -496,34 +496,34 @@ Answer the following questions:
 <div id="probabilities-involving-a-mean" class="section level2">
 <h2>Probabilities Involving a Mean</h2>
 <p>If the sample mean is normally distributed, then we can consider the sample mean, <span class="math inline">\(\bar x\)</span>, as one observation from a normal distribution with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\displaystyle{\frac{\sigma}{\sqrt{n}}}\)</span>. With this in mind, we can compute the <span class="math inline">\(z\)</span>-score for any value of this random variable:</p>
-<p><span class="math display">\[z = \frac{\text{value} - \text{mean}}{\text{standard deviation}}=\frac{\bar x-\mu}{\sigma / \sqrt{n} }\]</span></p>
+<p><span class="math display">\[z = \frac{\text{value} - \text{mean}}{\text{standard deviation}} = \frac{\bar x-\mu}{\sigma / \sqrt{n} }\]</span></p>
 <p>Notice that we just replaced the “value” with the normal random variable, the “mean” with its mean and “standard deviation” with its standard deviation.</p>
 <p>The <span class="math inline">\(z\)</span>-score follows a standard normal distribution. That is, it has a mean of 0 and a standard deviation of 1. After we compute the <span class="math inline">\(z\)</span>-score, we can use the applet to find the probability that a randomly selected mean will be above or below a given value of <span class="math inline">\(\bar x\)</span>.</p>
 <p><strong>Worked Example: Finding the Area under a Normal Curve (Based on a Sample Mean)</strong></p>
 <p>After finding the <span class="math inline">\(z\)</span>-score, we can use the normal probability applet to find the area under the curve (i.e. the probability.) Suppose that a sample of size <span class="math inline">\(n = 4\)</span> has been drawn from a normal population with mean <span class="math inline">\(\mu = 7\)</span> and standard deviation <span class="math inline">\(\sigma = 3\)</span>. Since the parent population is normal, we know the sampling distribution of the sample mean <span class="math inline">\(\bar x\)</span> will be normal with mean <span class="math inline">\(\mu = 7\)</span> and standard deviation <span class="math inline">\(\displaystyle{ \frac{\sigma}{\sqrt{n}} = \frac{3}{\sqrt{4}} = 1.5}\)</span>. We can use this information to find the probability that <span class="math inline">\(\bar x\)</span> will be greater than 10.</p>
 <p>The <span class="math inline">\(z\)</span>-score is</p>
-<p><span class="math display">\[z=\frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{10 - 7}{3 / \sqrt{4} }=2.0\]</span></p>
+<p><span class="math display">\[z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{10 - 7}{3 / \sqrt{4} } = 2.0\]</span></p>
 <p>The probability that <span class="math inline">\(z\)</span> will be greater than <span class="math inline">\(2.00\)</span> is the area under the standard normal distribution to the right of <span class="math inline">\(2.00\)</span>. We find this area using the normal probability applet.</p>
-<p><img src="Images/L04_A06_Graph_2.jpg"></p>
+<p><img src = "Images/L04_A06_Graph_2.jpg"></p>
 <p>The area to the right of <span class="math inline">\(z = 2.00\)</span> is <span class="math inline">\(0.02275\)</span>. This is the probability that the random sample of <span class="math inline">\(n = 4\)</span> items will have a mean that is greater than <span class="math inline">\(10\)</span>.</p>
 <p>In this example, the sample mean was automatically normally distributed because the parent population was normally distributed. This will always be true, no matter what size sample is drawn.</p>
 <p><strong>Worked Example: Finding the Area under a Normal Curve (Based on a Sample Mean)</strong></p>
 <p>What do we do if the parent population is not normally distributed? If the sample size is large, then the Central Limit Theorem guarantees that the sample mean will be approximately normally distributed. Based on this, we can still do normal probability calculations for the mean of a random sample.</p>
 <p>The distribution of the weekly costs incurred by Global Solutions Unlimited is right skewed. The population mean of the costs is $26,400 and the standard deviation is $23,200. A random sample of <span class="math inline">\(n = 40\)</span> weeks is to be selected, what is the probability that the mean weekly costs will be less than $20,000?</p>
-<p>Since the number of observations is large, the Central Limit Theorem assures that the sample mean will follow a normal distribution. The <span class="math inline">\(z\)</span>-score for <span class="math inline">\(\bar x =\)</span> $20,000 is:</p>
+<p>Since the number of observations is large, the Central Limit Theorem assures that the sample mean will follow a normal distribution. The <span class="math inline">\(z\)</span>-score for $x = $ $20,000 is:</p>
 <p><span class="math display">\[z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{20,000-26,400}{23,200 / \sqrt{40}} = -1.745 \]</span></p>
 <p>Using the normal probability applet, we can find the area to the left of this <span class="math inline">\(z\)</span>-score:</p>
-<p><img src="Images/L04_A06_Graph_3.jpg"></p>
-<p>The area to the left of <span class="math inline">\(z= -1.745\)</span> is <span class="math inline">\(0.04049\)</span>. This is the probability that the mean costs for the <span class="math inline">\(n = 40\)</span> weeks will be less than $20,000.</p>
+<p><img src = "Images/L04_A06_Graph_3.jpg"></p>
+<p>The area to the left of <span class="math inline">\(z = -1.745\)</span> is <span class="math inline">\(0.04049\)</span>. This is the probability that the mean costs for the <span class="math inline">\(n = 40\)</span> weeks will be less than $20,000.</p>
 <p><br></p>
 <div id="example-environmental-clean-up" class="section level4">
 <h4>Example: Environmental Clean Up</h4>
 <!-- This picture comes from http://happeningstock.deviantart.com/art/Grass-Hill-Area-Closed-Sign-255592183 and has an open license -->
-<p><img src="Images/L07_AREA_CLOSED_sign.jpg"></p>
+<p><img src = "Images/L07_AREA_CLOSED_sign.jpg"></p>
 <p>We will now consider a complete example that shows how these probabilities are used in practice.</p>
 <p>The United States Government decided to open some land near a uranium enrichment facility to public use. After a few years of the public hiking, biking, and sometimes even hunting on this land, workers from the facility noticed that there were several unnatural-looking mounds in the earth near the area. Because this land was once used by the facility and nobody knew the origin of these piles, the government closed public access to the land until they could assess if the mounds were safe.</p>
 <p><br></p>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <p><strong>Step 1: Design the study.</strong></p>
 <p>Measurements were taken from the mounds to assess one of the contaminants, lead. The tests involved are very expensive. Each sample costs about $600 to process. The Environmental Protection Agency (EPA) has set a “No Action Level” (NAL) for lead. If the mean concentration in the soil of the contaminant is less than the NAL, then the area can be declared safe for public use. If the concentration of the contaminant reaches or exceeds the NAL, the site must be cleaned additionally before it is declared safe. The NAL for lead is 50 milligrams of lead per kilogram of soil (mg/kg).</p>
 <p>The hypothesis for this test are:</p>
@@ -531,11 +531,11 @@ Answer the following questions:
 <p><span class="math inline">\(H_a:~~\mu &lt; 50 \frac{\text{mg}}{\text{kg}}\)</span></p>
 <p>In environmental testing, we always assume the site is dirty. That is, our null hypothesis is that the mean level of contamination is at the NAL. We gather data to determine if there is sufficient evidence to support rejecting the null hypothesis.</p>
 <p><br></p>
-<p><img src="Images/Step2.png"></p>
+<p><img src = "Images/Step2.png"></p>
 <p><strong>Step 2: Collect Data</strong></p>
-<p>Scientists collected <span class="math inline">\(n = 61\)</span> measurements of the lead concentration in the soil, measured in mg/kg. The data are given in the file <a href="http://statistics.byuimath.com/index.php?title=Data" target="&quot;_blank">Uranium Plant Data-Lead</a>.</p>
+<p>Scientists collected <span class="math inline">\(n = 61\)</span> measurements of the lead concentration in the soil, measured in mg/kg. The data are given in the file <a href="http://statistics.byuimath.com/index.php?title%20=%20Data">Uranium Plant Data-Lead</a>{target = “_blank}.</p>
 <p><br></p>
-<p><img src="Images/Step3.png"></p>
+<p><img src = "Images/Step3.png"></p>
 <p><strong>Step 3: Describe the Data</strong></p>
 <div class="QuestionsHeading">
 Answer the following question:
@@ -544,15 +544,15 @@ Answer the following question:
 <ol start="6" style="list-style-type: decimal">
 <li>Create a histogram of the lead contamination data.</li>
 </ol>
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-<p><img src="Images/LeadContamination-Histogram.png"></p>
+<p><img src = "Images/LeadContamination-Histogram.png"></p>
 </div>
 <p><br></p>
 <ol start="7" style="list-style-type: decimal">
 <li>What is the shape of the distribution of the data?</li>
 </ol>
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
 <li>The lead concentration data are right skewed.</li>
@@ -562,7 +562,7 @@ Answer the following question:
 <ol start="8" style="list-style-type: decimal">
 <li>Are any of the measured values above the NAL (50 mg/kg)? What might this suggest?</li>
 </ol>
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <ul>
 <li>Yes, there are several observations that are above the NAL. This may suggest that the lead concentrations are very high in some isolated soil samples. It may also be an indication of variability in the test results.</li>
@@ -572,7 +572,7 @@ Answer the following question:
 <ol start="9" style="list-style-type: decimal">
 <li>Visually, does it look like the mean lead concentration is less than 50 mg/kg?</li>
 </ol>
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
 <li>Answers may vary.</li>
@@ -582,7 +582,7 @@ Answer the following question:
 <ol start="10" style="list-style-type: decimal">
 <li>What is the value of the sample mean?</li>
 </ol>
-<a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
 <li>The sample mean is 29.13 mg/kg.</li>
@@ -591,18 +591,18 @@ Answer the following question:
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <p><strong>Step 4: Make Inferences</strong></p>
 <p>We assume the null hypothesis is true and we gather evidence against this requirement. We will find the probability that the mean lead concentration is less than <span class="math inline">\(\bar x\)</span> = 29.13 mg/kg, assuming that the true mean lead concentration is <span class="math inline">\(\mu\)</span> = 50 mg/kg. This probability is called the <span class="math inline">\(P\)</span>-value.</p>
 <p>Since the sample size is large (<span class="math inline">\(n = 61\)</span>), we can conclude that the sample mean is normally distributed. So, we can use the normal probability applet to find the probability that the sample mean will be less than 29.13. Historical analyses show that the population standard deviation is <span class="math inline">\(\sigma\)</span> = 24 mg/kg.</p>
 <p>First, we compute the <span class="math inline">\(z\)</span>-score.</p>
-<p><span class="math display">\[z=\frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{29.13 - 50}{24 / \sqrt{61} }=-6.79\]</span></p>
+<p><span class="math display">\[z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{29.13 - 50}{24 / \sqrt{61} } = -6.79\]</span></p>
 <p>Using the applet, we find the area to the left of <span class="math inline">\(z = -6.79\)</span>. This is the <span class="math inline">\(P\)</span>-value. It is not clear from the image of the applet, but the area to the left was shaded before the <span class="math inline">\(z\)</span>-score was entered.</p>
-<p><img src="Images/L04_A06_Graph_4.jpg"></p>
+<p><img src = "Images/L04_A06_Graph_4.jpg"></p>
 <p>The <span class="math inline">\(P\)</span>-value for this test is <span class="math inline">\(5.6 \times 10^{-12} = 0.000~000~000~005~6\)</span>. This is a very small probability. Assuming the null hypothesis is true-that is, the site is unacceptably contaminated-it is very unlikely that we would find such a low mean contamination level among the <span class="math inline">\(n = 61\)</span> randomly selected soil samples.</p>
 <p>Since the <span class="math inline">\(P\)</span>-value is low, we reject the null hypothesis.</p>
 <p><br></p>
-<p><img src="Images/Step5.png"></p>
+<p><img src = "Images/Step5.png"></p>
 <p><strong>Step 5: Take Action</strong></p>
 <p>There is sufficient evidence to suggest that the mean lead level is less than 50 mg/kg. We conclude that the lead concentration in the soil is low enough that it is not a danger to the public. Based on the results of this and other similar test results, the government has reopened public access to this area.</p>
 <p><br></p>

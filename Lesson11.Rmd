@@ -7,23 +7,23 @@ output:
     toc_float: false
 ---
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('outcomes')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="outcomes" style="display:none;">
+<a href = "javascript:showhide('outcomes')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "outcomes" style = "display:none;">
 By the end of this lesson, you should be able to do the following with regards to confidence intervals and hypothesis testing.
 
 **Regarding Confidence Intervals for a single mean with $\sigma$ unknown:**
@@ -46,7 +46,7 @@ By the end of this lesson, you should be able to do the following with regards t
 
 ## What If We Don't Know $\sigma$?
 
-<img src="./Images/WilliamSealyGosset-NoCopyright.png">
+<img src = "./Images/WilliamSealyGosset-NoCopyright.png">
 
 In practice, we almost never know the population standard deviation, $\sigma$.  So, it is generally not appropriate to use the formula
 $$
@@ -62,60 +62,60 @@ $$
 
 The $t$-distribution is bell-shaped and symmetrical.  The $t$-distribution has a mean of 0, but it has more area in the tails than the standard normal distribution.    The exact shape of the $t$-distribution depends on a parameter called the **degrees of freedom** (abbreviated $df$).  The degrees of freedom is related to the sample size.  As the sample size goes up, the degrees of freedom increase accordingly.  For the procedures discussed in this lesson, the degrees of freedom is one less than the sample size: $df = n-1$.
 
-[Click here](http://byuimath.com/apps/normprobwitht.html){target="_blank"} to explore how the shape of the $t$-distribution changes with the degrees of freedom.  Notice that as the degrees of freedom increases, the shape of the $t$-distribution (dark curve) gets closer to the standard normal distribution (lighter curve).  The lighter gray curve is identical (always normal) in the three images below, while the darker curve changes shape as the degrees of freedom increase.
+[Click here](http://byuimath.com/apps/normprobwitht.html){target = "_blank"} to explore how the shape of the $t$-distribution changes with the degrees of freedom.  Notice that as the degrees of freedom increases, the shape of the $t$-distribution (dark curve) gets closer to the standard normal distribution (lighter curve).  The lighter gray curve is identical (always normal) in the three images below, while the darker curve changes shape as the degrees of freedom increase.
 
 <center>
-<table style="table-layout: fixed; width: 100%;">
+<table style = "table-layout: fixed; width: 100%;">
 <thead>
-<tr class="header">
-<th style="text-align:center;"><p>$t$-distribution<br />
+<tr class = "header">
+<th style = "text-align:center;"><p>$t$-distribution<br />
 with $df = 1$</p></th>
-<th style="text-align:center;"><p>$t$-distribution<br />
+<th style = "text-align:center;"><p>$t$-distribution<br />
 with $df = 5$</p></th>
-<th style="text-align:center;"><p>$t$-distribution<br />
+<th style = "text-align:center;"><p>$t$-distribution<br />
 with $df = 15$</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="width:33.3%;">
+<tr class = "odd">
+<td style = "width:33.3%;">
 
-```{r, echo = FALSE, fig.width=4, fig.height = 4}
+```{r, echo = FALSE, fig.width = 4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
-curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 1), add = TRUE, col="darkolivegreen4", lwd = 4)
-abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
+curve(dnorm(x), xlim = c(-3.2,3.2), col = "gray", lwd = 3, xlab = "", ylab = "")
+curve(dt(x, 1), add = TRUE, col = "darkolivegreen4", lwd = 4)
+abline(h = 0, lty = 1, col = "gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty = "n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
 </td>
-<td style="width:33.3%;">
+<td style = "width:33.3%;">
 
-```{r, echo = FALSE, fig.width=4, fig.height = 4}
+```{r, echo = FALSE, fig.width = 4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
-curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 5), add = TRUE, col="darkolivegreen4", lwd = 4)
-abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
+curve(dnorm(x), xlim = c(-3.2,3.2), col = "gray", lwd = 3, xlab = "", ylab = "")
+curve(dt(x, 5), add = TRUE, col = "darkolivegreen4", lwd = 4)
+abline(h = 0, lty = 1, col = "gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty = "n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
 </td>
-<td style="width:33.3%;">
+<td style = "width:33.3%;">
 
-```{r, echo = FALSE, fig.width=4, fig.height = 4}
+```{r, echo = FALSE, fig.width = 4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
-curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 15), add = TRUE, col="darkolivegreen4", lwd = 4)
-abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
+curve(dnorm(x), xlim = c(-3.2,3.2), col = "gray", lwd = 3, xlab = "", ylab = "")
+curve(dt(x, 15), add = TRUE, col = "darkolivegreen4", lwd = 4)
+abline(h = 0, lty = 1, col = "gray")
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty = "n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = 0.3)
 ```
 
 </td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td></td>
 <td></td>
 <td></td>
@@ -130,7 +130,7 @@ mtext(side = 2, las = 2, "density", at = 0.43, line = 0.3)
 ## Hypothesis Tests
 
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Body Temperatures Revisited
 
@@ -139,7 +139,7 @@ We will apply the $t$-distribution to the body temperature data we explored prev
 This hypothesis test is conducted in a manner similar to a test for a single mean where $\sigma$ is known, except that instead of using the population standard deviation, $\sigma$, in the calculations, we estimate this value using the sample standard deviation, $s$.  This leads to a $t$-distribution, rather than a normal distribution for the test statistic. We will not need to compute the value of this test statistic by hand, it will be calculated using software.
 
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 **Summarize the relevant background information**
 
@@ -159,14 +159,14 @@ $$
 $$
 
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 **Describe the data collection procedures**
 
 We will use the body temperature data, [body_temp.xlsx](./data/body_temp.xlsx), collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 **Give the relevant summary statistics**
 
@@ -200,15 +200,15 @@ A histogram of the Body Temperatures could be created in R with the code
 
 ```{r}
 hist(body_temp$temperature, #select the data to use for the graph
-     col="tan3", #set the color
-     xlab="Body Temperature (Degrees Fahrenheight)",
-     main="Body Temperatures of 148 Healthy Adults")
+     col = "tan3", #set the color
+     xlab = "Body Temperature (Degrees Fahrenheight)",
+     main = "Body Temperatures of 148 Healthy Adults")
 ```
 
 
 </br>
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 
 **Verify the requirements have been met**
 
@@ -221,8 +221,8 @@ We will need to conduct the analysis using software, so we can report this value
 
 ### R Instructions for One Sample t Test
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 Here are the instructions for conducting the one sample t-test in R:
 
 **Step 1.** Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: [reading data into RStudio](RHelp.html#reading-in-data).
@@ -236,11 +236,11 @@ For this t test, we are using the [body_temp.xlsx](./data/body_temp.xlsx) data.
 A few notes about using `t.test(...)`.
 
 * The null hypothesis is established by **mu = 98.6** 
-* The alternative hypothesis is established by **alternative="two.sided"**. Other options for the alternative hypothesis are **alternative="less"** and **alternative="greater"**.
+* The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative = "less"** and **alternative = "greater"**.
 * We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
 
 ```{r, eval = FALSE}
-t.test(body_temp$temperature, mu = 98.6, alternative="two.sided")
+t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
 ```
 
 Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level = 0.99)` or `t.test(..., conf.level = 0.90)`.
@@ -248,7 +248,7 @@ Note, by default the `t.test(...)` function uses a 95% Confidence Level in creat
 When, the above `t.test(...)` code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.
 
 ```{r, echo = FALSE, comment = NA}
-t.test(body_temp$temperature, mu = 98.6, alternative="two.sided")
+t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
 ```
 
 **Identifying the various elements of the t test summary ouput.**
@@ -300,18 +300,18 @@ The interpretation of the results will follow the pattern established in the pre
 Since the $P$-value was less than $\alpha$, we reject the null hypothesis.
 
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 
 **Present your conclusion in an easy to understand sentence, relating the result to the context of the problem**
 
 There is sufficient evidence to suggest that the alternative hypothesis is true, i.e., that the mean body temperature is not 98.6&deg; Fahrenheit.
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Baby Boom
 
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 **Summarize the relevant background information**
 
@@ -329,7 +329,7 @@ $$
 $$ \alpha = 0.05 $$
 
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 **Describe the data collection procedures**
 
@@ -338,14 +338,14 @@ The birth weights of all children born on December 18, 1997 at the Mater Mothers
 Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 1. **Give the relevant summary statistics**
 
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
 
 Once the [baby_boom.xlsx](./data/baby_boom.xlsx) dataset is [read into RStudio](RHelp.html#reading-in-data), the relevant summary statistics for the "Weight" column are computed by:
 
@@ -373,17 +373,17 @@ $$
 
 2. **Make an appropriate graph to illustrate the data**
 
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q2" style="display:none;">
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
 
 The histogram is created by
 
 ```{r}
 hist(baby_boom$weight, 
-     col="steelblue3",
-     xlab="Weights in grams", 
-     ylab="Number of Children", 
-     main="Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
+     col = "steelblue3",
+     xlab = "Weights in grams", 
+     ylab = "Number of Children", 
+     main = "Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
 ```
 
 </div>
@@ -391,22 +391,22 @@ hist(baby_boom$weight,
 </div>
 <br>
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 
 **Verify the requirements have been met**
 
 The data show a left-skewed shape, however the sample size is large ($n = 44$).  Using the Central Limit Theorem, we can conclude that the sample mean is normally distributed and the requirements are satisfied.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 3. **Give the test statistic and its value**
 
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
 We perform the one sample t-test in RStudio using the code:
 
 ```{r, comment = NA}
-t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
+t.test(baby_boom$weight, mu = 3373, alternative = "two.sided")
 ```
 
 - The test statistic is a $t$.  The value of the test statistic is $-1.219$.  This was taken from the output above.
@@ -415,8 +415,8 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 4. **State the degrees of freedom**
 
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q4" style = "display:none;">
 - The degrees of freedom are given in the output above:
 
 $$
@@ -433,7 +433,7 @@ $$
 
 The $P$-value is shaded in green:
 
-<img src="./Images/baby_boom-JSE-TwoSidedT1-2.png">
+<img src = "./Images/baby_boom-JSE-TwoSidedT1-2.png">
 
 **Find the $P$-value and compare it to the level of significance**
 
@@ -445,7 +445,7 @@ $$P\text{-value} = 0.2295 > 0.05 = \alpha$$
 Since the $P$-value is greater than the level of significance, we fail to reject the null hypothesis. It seems reasonable to continue believing the null hypothesis is true.
 
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 
 **Present your conclusion in an easy to understand sentence, relating the result to the context of the problem**
 
@@ -466,12 +466,12 @@ where $t^*$ is the $t$-score corresponding to the confidence level and $s$ is th
 These confidence intervals are automatically produced in R with the `t.test(...)` command. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
 
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Automatic Language Translation Programs
 
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 **Summarize the relevant background information**
 
@@ -482,7 +482,7 @@ The quality of the translation can vary.  A good translation system should match
 The IBM T. J. Watson Research Center developed methods to measure the quality of a translation from one language to another. <!--<cite>Brown90</cite>-->  One of these is the BiLingual Evaluation Understudy (BLEU). <!--<cite>Papineni02</cite>--> BLEU is a score ranging from 0 to 1 that indicates how well a computer translation matches a professional human translation of the same text.  Higher scores indicate a better match. BLEU helps companies who develop translation software "to monitor the effect of daily changes to their systems in order to weed out bad ideas from good ideas". <!--<cite>Papineni02</cite>-->
 
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 **Describe the data collection procedures**
 
@@ -492,12 +492,12 @@ To test Pharaoh's ability to translate, Koehn took a random sample of 100 blocks
 Koehn wants to find an estimate of the true mean BLEU score for text translated by the Pharaoh computer program.  He would like to compute a confidence interval, but he does not know the true population standard deviation, $\sigma$.
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 **Give the relevant summary statistics**
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 After reading the
 [bleu.xlsx](./data/bleu.xlsx)
 data into R, we can compute the following.
@@ -520,9 +520,9 @@ $$
 
 ```{r}
 hist(bleu$score, 
-     col="steelblue3",
-     xlab="Score",
-     main="BLEU Scores")
+     col = "steelblue3",
+     xlab = "Score",
+     main = "BLEU Scores")
 ```
 
 
@@ -546,7 +546,7 @@ $$
 The histogram is included in the image above.
 
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 
 **Make Inference**
 
@@ -554,8 +554,8 @@ The histogram is included in the image above.
 
 We will use R to find the confidence intervals for the mean.  
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 
 Do the following:
 
@@ -580,10 +580,10 @@ The 95% confidence interval for the true mean BLEU score is:
 $$(0.282, 0.293)$$
 where 0.282 is the lower-bound and 0.293 is the upper-bound of the confidence interval.
 
-<a href="javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations (Optional)</span></a>
+<a href = "javascript:showhide('hc')"><span style = "font-size:8pt;">Show Hand Calculations (Optional)</span></a>
 <br>
 
-<div id="hc" style="display:none;">
+<div id = "hc" style = "display:none;">
 The formula for the confidence interval where $\sigma$ is known was given in the reading titled
 [Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html) as
 $$
@@ -641,7 +641,7 @@ There are two requirements that need to be checked:
 
 
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 
 **Present your observations in an easy to understand sentence, relating the result to the context of the problem**
 
@@ -649,12 +649,12 @@ We are 95% confident that the true mean BLEU score for all translations by the P
 
 Answer the following questions using the data set [bleu.xlsx](./data/bleu.xlsx), which gives the BLEU scores for $n = 100$ translations from Spanish to English by the computer program Pharaoh.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 5. Use R to find a 90% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Present this confidence interval in a complete sentence.
 
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
+<a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q5" style = "display:none;">
 
 ```{r, comment = NA}
 t.test(bleu$score, mu = 0, conf.level = 0.90)
@@ -666,8 +666,8 @@ t.test(bleu$score, mu = 0, conf.level = 0.90)
 
 6. Use R to find a 99% confidence interval for the true mean BLEU score for translations by the Pharaoh program. Give your answer accurate to 3 decimal places. Interpret this confidence interval in a complete sentence.
 
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
+<a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q6" style = "display:none;">
 
 ```{r, comment = NA}
 t.test(bleu$score, mu = 0, conf.level = 0.99)
@@ -679,39 +679,39 @@ t.test(bleu$score, mu = 0, conf.level = 0.99)
 
 7. What do you notice about the width of the confidence interval as the confidence level increased from 90% to 99%?
 
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q7" style="display:none;">
+<a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q7" style = "display:none;">
 - As the confidence level increases, the width of the confidence interval increases.  We could also say, as the confidence level increases, the margin of error increases.  The center of the confidence interval (the sample mean) is unchanged.
 </div>
 &nbsp;
 </div>
 <br>
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Euro Weights
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 **Summarize the relevant background information**
 
 A group of statisticians measured the weights of 2000 Belgian one Euro coins in eight batches.  Each batch contains coins that were all minted together. <!--<cite>JSEeuros</cite>--> You can learn more about these data at:
-[http://www.amstat.org/publications/jse/](http://www.amstat.org/publications/jse/datasets/euroweight.txt){target="_blank"}
+[http://www.amstat.org/publications/jse/](http://www.amstat.org/publications/jse/datasets/euroweight.txt){target = "_blank"}
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 **Describe the data collection procedures**
 
 The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the file [euro.xlsx](./data/euro.xlsx).
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 8. **Give the relevant summary statistics**.
 
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
+<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q8" style = "display:none;">
 
 Read in the [euro.xlsx](./data/euro.xlsx) data. Then, compute the summary statistics. 
 
@@ -742,8 +742,8 @@ $$
 
 9. **Make an appropriate graph to illustrate the data**
 
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q9" style="display:none;">
+<a href = "javascript:showhide('Q9')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q9" style = "display:none;">
 
 Either a histogram or boxplot would be appropriate for graphing this data. 
 
@@ -751,9 +751,9 @@ Note that when creating a histogram, the exact number of bins you use is up to y
 
 ```{r}
 hist(euro$weight, 
-     col="brown3",
-     xlab="Weight in grams", 
-     main="Coins from a Bank in Belgium",
+     col = "brown3",
+     xlab = "Weight in grams", 
+     main = "Coins from a Bank in Belgium",
      breaks = 50)
 #since the sampe size was large, 
 #we can use a lot of "bins" or "breaks" in the graph.
@@ -762,7 +762,7 @@ hist(euro$weight,
 With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
 
 ```{r, fig.height = 3}
-boxplot(euro$weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="brown3", horizontal = TRUE)
+boxplot(euro$weight, xlab = "Weight in grams", main = "Coins from a Bank in Belgium", col = "brown3", horizontal = TRUE)
 ```
 
 You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.
@@ -772,7 +772,7 @@ You can see the data is relatively normal, with just a couple of potential outli
 </div>
 <br>
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 
 **Verify the requirements have been met**
 
@@ -791,12 +791,12 @@ We need to check the following two requirements:
 
 
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 10. **Find the confidence interval**:  Use R to create a 99% confidence interval for the true mean.
 
-<a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q10" style="display:none;">
+<a href = "javascript:showhide('Q10')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q10" style = "display:none;">
 
 ```{r, comment = NA}
 t.test(euro$weight, mu = 0, conf.level = 0.99)
@@ -813,14 +813,14 @@ $$
 </div>
 <br>
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 11. **Present your observations in a sentence, relating the result to the context of the problem**.
 
-<a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q11" style="display:none;">
+<a href = "javascript:showhide('Q11')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q11" style = "display:none;">
 - We are 99% confident that the true mean weight of all Belgian Euros is between 7.519 grams and 7.523 grams.
 </div>
 &nbsp;
@@ -828,8 +828,8 @@ $$
 <br>
 
 ## Summary
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 - In practice we rarely know the true standard deviation $\sigma$ and will therefore be unable to calculate a z-score. **Student's t-distribution** gives us a new test statistic, $t$, that is calculated using the sample standard deviation ($s$) instead.
 $$\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }$$
 You will never need to compute the $t$-statistic by hand, because R will provide it.

@@ -7,24 +7,24 @@ output:
     toc_float: false
 ---
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC9Vm2oOb7MbspQvlvrkQba1" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC9Vm2oOb7MbspQvlvrkQba1" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 <br>
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "oc" style = "display:none;">
 
 By the end of this lesson, you should be able to:
 
@@ -47,48 +47,48 @@ For the mean of draws from a random variable with mean $\mu$ and standard deviat
 Previously, you learned how to use the normal probability applet to convert a $z$-score to a corresponding area under the curve.  These skills will be applied again in this activity.  The following questions will help you brush up on how to use the applet.
 
 <center>
-<img src="./Images/L04_A06_Graph.jpg">
+<img src = "./Images/L04_A06_Graph.jpg">
 </center>
 <br>
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 1. Look at the output from the applet, given above. What is the probability that a standard normal random variable will be below 1.25?
 
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
 <center>$0.8944$</center>
 </div>
 <br>
 
 2. Look at the output from the applet, given above.  What is the probability that a standard normal random variable will be above 1.25?
 
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q2" style="display:none;">
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
 <center>$1 - 0.8944 = 0.1056$</center>
 </div>
 <br>
 
 3. Challenge problem:  Use the output from the applet above to determine the probability that a standard normal random variable will be between -1.25 and 1.25.
 
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
 * Since the probability in the right tail above 1.25 is 0.106, the probability in the left tail is also 0.106.  So, the probability in the middle, between -1.25 and 1.25 must be $1 – 2(0.106) = 1 – 0.212 = 0.788$.
 </div>
 <br>
 
 4. Use the normal probability applet to find the probability that a standard normal random variable will be greater than -0.75.
 
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q4" style = "display:none;">
 * Using the normal probability applet, we find that the area to the right of $z$ = -0.75 is $0.773$.
 </div>
 <br>
 
 5. If the mean of a normally distributed random variable is -23 and the standard deviation is 7, what is the probability that the random variable will have a value that is less than -25?
 
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
+<a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q5" style = "display:none;">
 * The $z$-score is:
 <br>
 <center>
@@ -105,7 +105,7 @@ $\displaystyle{z = \frac{-25 - (-23)}{7} = -0.2857}$
 
 If the sample mean is normally distributed, then we can consider the sample mean, $\bar x$, as one observation from a normal distribution with mean $\mu$ and standard deviation $\displaystyle{\frac{\sigma}{\sqrt{n}}}$. With this in mind, we can compute the $z$-score for any value of this random variable:
 
-$$z = \frac{\text{value} - \text{mean}}{\text{standard deviation}}=\frac{\bar x-\mu}{\sigma / \sqrt{n} }$$
+$$z = \frac{\text{value} - \text{mean}}{\text{standard deviation}} = \frac{\bar x-\mu}{\sigma / \sqrt{n} }$$
 
 Notice that we just replaced the "value" with the normal random variable, the "mean" with its mean and "standard deviation" with its standard deviation.
 
@@ -117,11 +117,11 @@ After finding the $z$-score, we can use the normal probability applet to find th
 
 The $z$-score is
 
-$$z=\frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{10 - 7}{3 / \sqrt{4} }=2.0$$
+$$z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{10 - 7}{3 / \sqrt{4} } = 2.0$$
 
 The probability that $z$ will be greater than $2.00$ is the area under the standard normal distribution to the right of $2.00$.  We find this area using the normal probability applet.
 
-<img src="./Images/L04_A06_Graph_2.jpg">
+<img src = "./Images/L04_A06_Graph_2.jpg">
 
 The area to the right of $z = 2.00$ is $0.02275$.  This is the probability that the random sample of $n = 4$ items will have a mean that is greater than $10$.
 
@@ -133,15 +133,15 @@ What do we do if the parent population is not normally distributed?  If the samp
 
 The distribution of the weekly costs incurred by Global Solutions Unlimited is right skewed.  The population mean of the costs is \$26,400 and the standard deviation is \$23,200.  A random sample of $n = 40$ weeks is to be selected, what is the probability that the mean weekly costs will be less than \$20,000?
 
-Since the number of observations  is large, the Central Limit Theorem assures that the sample mean will follow a normal distribution.  The $z$-score for $\bar x =$ \$20,000 is:
+Since the number of observations  is large, the Central Limit Theorem assures that the sample mean will follow a normal distribution.  The $z$-score for $\bar x = $ \$20,000 is:
 
 $$z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{20,000-26,400}{23,200 / \sqrt{40}} = -1.745 $$
 
 Using the normal probability applet, we can find the area to the left of this $z$-score:
 
-<img src="./Images/L04_A06_Graph_3.jpg">
+<img src = "./Images/L04_A06_Graph_3.jpg">
 
-The area to the left of $z= -1.745$ is $0.04049$.  This is the probability that the mean costs for the $n = 40$ weeks will be less than \$20,000.
+The area to the left of $z = -1.745$ is $0.04049$.  This is the probability that the mean costs for the $n = 40$ weeks will be less than \$20,000.
 
 <br>
 
@@ -149,7 +149,7 @@ The area to the left of $z= -1.745$ is $0.04049$.  This is the probability that 
 
 <!-- This picture comes from http://happeningstock.deviantart.com/art/Grass-Hill-Area-Closed-Sign-255592183 and has an open license -->
 
-<img src="./Images/L07_AREA_CLOSED_sign.jpg">
+<img src = "./Images/L07_AREA_CLOSED_sign.jpg">
 
 We will now consider a complete example that shows how these probabilities are used in practice.
 
@@ -158,7 +158,7 @@ The United States Government decided to open some land near a uranium enrichment
 
 <br>
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 **Step 1: Design the study.**
 
@@ -176,66 +176,66 @@ In environmental testing, we always assume the site is dirty.  That is, our null
 
 <br>
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 **Step 2: Collect Data**
 
-Scientists collected $n = 61$ measurements of the lead concentration in the soil, measured in mg/kg.  The data are given in the file [Uranium Plant Data-Lead](http://statistics.byuimath.com/index.php?title=Data){target="_blank}.
+Scientists collected $n = 61$ measurements of the lead concentration in the soil, measured in mg/kg.  The data are given in the file [Uranium Plant Data-Lead](http://statistics.byuimath.com/index.php?title = Data){target = "_blank}.
 
 
 <br>
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 **Step 3: Describe the Data**
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 6. Create a histogram of the lead contamination data.
 
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
+<a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q6" style = "display:none;">
 
-<img src="./Images/LeadContamination-Histogram.png">
+<img src = "./Images/LeadContamination-Histogram.png">
 
 </div>
 <br>
 
 7. What is the shape of the distribution of the data?
 
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q7" style="display:none;">
+<a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q7" style = "display:none;">
 * The lead concentration data are right skewed.
 </div>
 <br>
 
 8. Are any of the measured values above the NAL (50 mg/kg)?  What might this suggest?
 
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
+<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q8" style = "display:none;">
 * Yes, there are several observations that are above the NAL.  This may suggest that the lead concentrations are very high in some isolated soil samples.  It may also be an indication of variability in the test results.
 </div>
 <br>
 
 9. Visually, does it look like the mean lead concentration is less than 50 mg/kg?
 
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q9" style="display:none;">
+<a href = "javascript:showhide('Q9')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q9" style = "display:none;">
 * Answers may vary.
 </div>
 <br>
 
 10. What is the value of the sample mean?
 
-<a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q10" style="display:none;">
+<a href = "javascript:showhide('Q10')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q10" style = "display:none;">
 * The sample mean is 29.13 mg/kg.
 </div>
 &nbsp;
 </div>
 <br>
 
-<img src="./Images/Step4.png">
+<img src = "./Images/Step4.png">
 
 **Step 4: Make Inferences**
 
@@ -245,11 +245,11 @@ Since the sample size is large ($n = 61$), we can conclude that the sample mean 
 
 First, we compute the $z$-score.
 
-$$z=\frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{29.13 - 50}{24 / \sqrt{61} }=-6.79$$
+$$z = \frac{\bar x-\mu}{\sigma / \sqrt{n} } = \frac{29.13 - 50}{24 / \sqrt{61} } = -6.79$$
 
 Using the applet, we find the area to the left of $z = -6.79$.  This is the $P$-value.  It is not clear from the image of the applet, but the area to the left was shaded before the $z$-score was entered.
 
-<img src="./Images/L04_A06_Graph_4.jpg">
+<img src = "./Images/L04_A06_Graph_4.jpg">
 
 The $P$-value for this test is $5.6 \times 10^{-12} = 0.000~000~000~005~6$.  This is a very small probability.  Assuming the null hypothesis is true-that is, the site is unacceptably contaminated-it is very unlikely that we would find such a low mean contamination level among the $n = 61$ randomly selected soil samples.
 
@@ -258,7 +258,7 @@ Since the $P$-value is low, we reject the null hypothesis.
 
 <br>
 
-<img src="./Images/Step5.png">
+<img src = "./Images/Step5.png">
 
 **Step 5: Take Action**
 
@@ -282,8 +282,8 @@ There is sufficient evidence to suggest that the mean lead level is less than 50
 
 ## Summary
 
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 
 - When the distribution of sample means is normally distributed, we can use **z-scores** and the **probability applet** to calculate proportions and probabilities. A z-score is calculated as: $\displaystyle{z = \frac{\text{value}-\text{mean}}{\text{standard deviation}} = \frac{\bar x-\mu}{\sigma/\sqrt{n}}}$
 

@@ -6,10 +6,10 @@ output:
     toc: true
     toc_float: false
 ---
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
-    e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+    e.style.display = (e.style.display ==A  'block') ? 'none' : 'block';
  }
 </script>
 
@@ -19,9 +19,9 @@ This is not designed to be a comprehensive review.  There may be items on the ex
 
 ## Unit 1 Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
 
-<div id="oc" style="display:none;">
+<div id = "oc" style = "display:none;">
 The expectation on the exam is that you should be able to do the following:
 
 - Distinguish between a categorical and a quantitative variable.
@@ -59,12 +59,12 @@ The expectation on the exam is that you should be able to do the following:
 
 ## Unit 1 Lesson Summaries
 
-<a href="javascript:showhide('su')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
-<div id="su">
+<a href = "javascript:showhide('su')"><span style = "font-size:8pt;">Show/Hide Summaries</span></a>
+<div id = "su">
 <br>
 
-<div class="SummaryHeading">Lesson 1 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 1 Summary</div>
+<div class = "Summary">
 
 - In this class you will use the online textbook that has been written for you by your statistics teachers. All of the assignments and quizzes will be based on the readings, so study it well.
 - Most weeks will cover two lessons
@@ -84,8 +84,8 @@ $$P(\text{not}~X) = 1 - P(X)$$
 <br>
 <br>
 
-<div class="SummaryHeading">Lesson 2 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 2 Summary</div>
+<div class = "Summary">
 
 - The **Statistical Process** has five steps: **D**esign the study, **C**ollect the data, **D**escribe the data, **M**ake inferences, **T**ake action.
 
@@ -107,8 +107,8 @@ $$P(\text{not}~X) = 1 - P(X)$$
 
 
 
-<div class="SummaryHeading">Lesson 3 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 3 Summary</div>
+<div class = "Summary">
 
 
 - A **histogram** allows us to visually interpret data. Histograms can be left-skewed, right-skewed, or symmetrical and bell-shaped.
@@ -131,8 +131,8 @@ $$P(\text{not}~X) = 1 - P(X)$$
 
 
 
-<div class="SummaryHeading">Lesson 4 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 4 Summary</div>
+<div class = "Summary">
 
 - The **standard deviation** is a number that describes how spread out the data are. A larger standard deviation means the data are more spread out than data with a smaller standard deviation. The smallest the standard deviation can be is zero, in which case all of the data is exactly the same.
 
@@ -154,7 +154,7 @@ $$P(\text{not}~X) = 1 - P(X)$$
     - how to use [`quantile(..., 0.2)`](Lesson04.html#r-instructions-for-computing-percentiles) to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile. 
     - how to use [`summary(...)`](Lesson04.html#r-instructions-for-computing-quartiles-and-the-five-number-summary) to obtain the five-number summary in R. 
     - how to use [`boxplot(...)`](Lesson04.html#r-instructions-for-creating-boxplots) to create a boxplot in R.
-    - how to use the option `na.rm=TRUE` to [remove `NA` or missing values](Lesson04.html#r-instructions-for-na-or-missing-values) from the data when using any of the functions `mean(..., na.rm=TRUE)`, `median(..., na.rm=TRUE)`, `sd(..., na.rm=TRUE)`, `quantile(..., na.rm=TRUE)`.
+    - how to use the option `na.rm = TRUE` to [remove `NA` or missing values](Lesson04.html#r-instructions-for-na-or-missing-values) from the data when using any of the functions `mean(..., na.rm = TRUE)`, `median(..., na.rm = TRUE)`, `sd(..., na.rm = TRUE)`, `quantile(..., na.rm = TRUE)`.
 
 <br/>
 
@@ -165,18 +165,18 @@ $$P(\text{not}~X) = 1 - P(X)$$
 
 
 
-<div class="SummaryHeading">Lesson 5 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 5 Summary</div>
+<div class = "Summary">
 
 - A **normal density curve** is symmetric and bell-shaped. The curve lies above the horizontal axis and the total area under the curve is equal to 1. 
 
-- A **standard normal distribution** has a mean of 0 and a standard deviation of 1. The **68-95-99.7% rule** states that when data are normally distributed, approximately 68% of the data lie within $z=1$ standard deviation ($\sigma$) from the mean, approximately 95% of the data lie within $z=2$ standard deviations from the mean, and approximately 99.7% of the data lie within $z=3$ standard deviations from the mean. 
+- A **standard normal distribution** has a mean of 0 and a standard deviation of 1. The **68-95-99.7% rule** states that when data are normally distributed, approximately 68% of the data lie within $z = 1$ standard deviation ($\sigma$) from the mean, approximately 95% of the data lie within $z = 2$ standard deviations from the mean, and approximately 99.7% of the data lie within $z = 3$ standard deviations from the mean. 
 
 - A **z-score** tells us how many standard deviations away from the mean a given value is. It is calculated as: $\displaystyle{z = \frac{\text{value}-\text{mean}}{\text{standard deviation}} = \frac{x-\mu}{\sigma}}$
 
 - The [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) allows us to use z-scores to calculate proportions, probabilities, and percentiles of being "above," "below," or "between" certain values.
 
-- Percentiles can be calculated using the [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) by (1) shading the left tail only, (2) entering the desired percentile in the "Area" box, and (3) using the z-score from where the blue shaded region ends solve for $x$ in the equation $z=\frac{x-\mu}{\sigma}$.
+- Percentiles can be calculated using the [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) by (1) shading the left tail only, (2) entering the desired percentile in the "Area" box, and (3) using the z-score from where the blue shaded region ends solve for $x$ in the equation $z = \frac{x-\mu}{\sigma}$.
 
 <br/>
 
@@ -187,8 +187,8 @@ $$P(\text{not}~X) = 1 - P(X)$$
 
 
 
-<div class="SummaryHeading">Lesson 6 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 6 Summary</div>
+<div class = "Summary">
 
 - The **distribution of sample means** is a distribution of all possible sample means ($\bar x$) for a particular sample size. 
 
@@ -207,8 +207,8 @@ $$P(\text{not}~X) = 1 - P(X)$$
 
 
 
-<div class="SummaryHeading">Lesson 7 Summary</div>
-<div class="Summary">
+<div class = "SummaryHeading">Lesson 7 Summary</div>
+<div class = "Summary">
 
 - When the distribution of sample means is normally distributed, we can use **z-scores** and the **probability applet** to calculate proportions and probabilities. A z-score is calculated as: $\displaystyle{z = \frac{\text{value}-\text{mean}}{\text{standard deviation}} = \frac{\bar x-\mu}{\sigma/\sqrt{n}}}$
 

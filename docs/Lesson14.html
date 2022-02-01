@@ -394,23 +394,23 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width=40%;">
+<div style="float:right;width = 40%;">
 <br/>
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC8BeDBR9mQR2d8nnqK_iQ0j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC8BeDBR9mQR2d8nnqK_iQ0j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>By the end of this lesson, you should be able to do the following for a hypothesis test for several means (ANOVA):</p>
 <ul>
@@ -427,7 +427,7 @@ $(document).ready(function () {
 
 </div>
 <p><br/> <br/></p>
-<p><img src="Images/StepsAll.png"></p>
+<p><img src = "Images/StepsAll.png"></p>
 </div>
 <div id="case-study-the-effects-of-gratitude" class="section level2">
 <h2>Case Study: The Effects of Gratitude</h2>
@@ -437,7 +437,7 @@ $(document).ready(function () {
 <tr class="odd">
 <td>
 <p>
-<img src="Images/GordonBHinckley.png">
+<img src = "Images/GordonBHinckley.png">
 </p>
 </td>
 <td>
@@ -461,12 +461,12 @@ President Gordon B. Hinckley said, "My plea is that we stop seeking out the stor
 </tr>
 </tbody>
 </table>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <div style="float:right; padding:10px;">
-<p><img src="Images/Midnight_sun.jpg"></p>
+<p><img src = "Images/Midnight_sun.jpg"></p>
 </div>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Robert Emmons and Michael McCullough investigated the effects of gratitude on people’s perception of life as a whole<!--<cite>Emmons03</cite>-->. In a study of <span class="math inline">\(n=192\)</span> undergraduates, the people were randomly assigned to one of three groups.</p>
+<p>Robert Emmons and Michael McCullough investigated the effects of gratitude on people’s perception of life as a whole<!--<cite>Emmons03</cite>-->. In a study of <span class="math inline">\(n = 192\)</span> undergraduates, the people were randomly assigned to one of three groups.</p>
 <ul>
 <li>Group 1 (Gratitude): The participants in this group were asked to record five things each week for which they were grateful or thankful.</li>
 <li>Group 2 (Hassles): The volunteers in this group recorded five irritants that had occurred to them in the previous week.</li>
@@ -551,10 +551,10 @@ H_a: &amp; ~ \textrm{At least one of treatments has a different population mean 
 \end{align}
 \]</span></p>
 <p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</p>
-<p><img src="Images/Step2.png"></p>
+<p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>The 192 students that volunteered to participate in the study were randomly assigned to one of the three treatment groups: Events, Hassles, or Gratitude. They wrote in a weekly journal, according to their group assignment. At the end of the semester, they completed a questionnaire that asked about their attitude toward life. The responses on the survey were coded into a number, where higher numbers represent a more positive outlook on life.</p>
-<p><img src="Images/Step3.png"></p>
+<p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
 <div id="r-instructions-for-describing-anova-data" class="section level3">
 <h3>R Instructions for Describing ANOVA Data</h3>
@@ -578,20 +578,20 @@ favstats(gratitude$happiness ~ gratitude$treatment)</code></pre>
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
-<li>Specify colors using either <code>col="steelblue3"</code> to give all boxes the same color, or use <code>col=c("brown3","steelblue3","tan3")</code> to give each box a different color. Of course, use any color names you like.</li>
-<li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
+<li>Specify colors using either <code>col = "steelblue3"</code> to give all boxes the same color, or use <code>col = c("brown3","steelblue3","tan3")</code> to give each box a different color. Of course, use any color names you like.</li>
+<li>Specify axes labeling with <code>main = "A main title"</code>, <code>xlab = "An x-axis label"</code>, and <code>ylab = "A y-axis label"</code>.</li>
 </ul>
 <pre class="r"><code>boxplot(gratitude$happiness ~ gratitude$treatment,
-        col=c(&quot;brown3&quot;,&quot;steelblue3&quot;,&quot;tan3&quot;),
-        main=&quot;The Effects of Gratitude&quot;,
-        xlab=&quot;Treatment Group&quot;,
-        ylab=&quot;Happiness Score (Higher is More Positive)&quot;)</code></pre>
+        col = c(&quot;brown3&quot;,&quot;steelblue3&quot;,&quot;tan3&quot;),
+        main = &quot;The Effects of Gratitude&quot;,
+        xlab = &quot;Treatment Group&quot;,
+        ylab = &quot;Happiness Score (Higher is More Positive)&quot;)</code></pre>
 <p><img src="Lesson14_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
 <p>Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <p><strong>Make Inference</strong></p>
 </div>
 <div id="r-instructions-to-conduct-an-anova-test" class="section level3">
@@ -620,14 +620,14 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>the <span class="math inline">\(P\)</span>-value (Pr(&gt;F)),</li>
 <li>and the two separate degrees of freedoms (Df) for the <span class="math inline">\(F\)</span> statistic.</li>
 </ul>
-<p>Note that there are two numbers specifying the degrees of freedom. These are given as the “Treatment Group” and “Residuals” degrees of freedom, respectively. The degrees of freedom for the “Treatment Group” are one less than the number of groups, in this case there are three groups (Events, Hassles, and Grateful) so there are 2 degrees of freedom. The “Residuals” degrees of freedom is equal to the total sample size (<span class="math inline">\(n=192\)</span> in this study) minus 1, then minus the Df for the “Treatment Group”, which is 2 in this case. That leaves us with <span class="math inline">\(192 - 1 - 2 = 189\)</span> “residual” degrees of freedom (or leftover degrees of freedom).</p>
+<p>Note that there are two numbers specifying the degrees of freedom. These are given as the “Treatment Group” and “Residuals” degrees of freedom, respectively. The degrees of freedom for the “Treatment Group” are one less than the number of groups, in this case there are three groups (Events, Hassles, and Grateful) so there are 2 degrees of freedom. The “Residuals” degrees of freedom is equal to the total sample size (<span class="math inline">\(n = 192\)</span> in this study) minus 1, then minus the Df for the “Treatment Group”, which is 2 in this case. That leaves us with <span class="math inline">\(192 - 1 - 2 = 189\)</span> “residual” degrees of freedom (or leftover degrees of freedom).</p>
 <p>More advanced statistics courses will go deeper into explaining these degrees of freedom and why they matter. For now, just recognize that the “Df” values are used to obtain the “Mean Sq” values by dividing the “Sum Sq” values by the “Df” values. Then, the “F value” is obtained by dividing the two “Mean Sq” values. These “Mean Sq” values are essentially <em>variances</em> and thus the name of the method is called “Analaysis of Variance” or ANOVA because the F-statistic is the ratio of two variances. When the F-statistic is large, that tells us that the means are farther apart than we would expect if all samples were from the same population of data.</p>
 </div>
 <p><br/></p>
 </div>
 <div id="the-f-distribution" class="section level3">
 <h3>The <span class="math inline">\(F\)</span>-distribution</h3>
-<p><img src="Images/Gratitude-F.png"> The test statistic in ANOVA follows an <span class="math inline">\(F\)</span>-distribution. This is the first time we have encountered this distribution. In previous tests, we have used the test statistics <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. For the ANOVA test, we use the <span class="math inline">\(F\)</span>-statistic.</p>
+<p><img src = "Images/Gratitude-F.png"> The test statistic in ANOVA follows an <span class="math inline">\(F\)</span>-distribution. This is the first time we have encountered this distribution. In previous tests, we have used the test statistics <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. For the ANOVA test, we use the <span class="math inline">\(F\)</span>-statistic.</p>
 <p>Here is a brief summary of the characteristics of the <span class="math inline">\(F\)</span>-distribution:</p>
 <ul>
 <li>It is right skewed.</li>
@@ -659,12 +659,12 @@ The variance is the square of the standard deviation. The sample variance is den
 <p>The order in which these are stated is important. For an F-test, it is not the same to have 2 and 189 degrees of freedom as it is to have 189 and 2 degrees of freedom.</p>
 <p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
 <p>While this is not something that you have to do in this course, it is good to remember that the <span class="math inline">\(P\)</span>-value provided to you in the output of the ANOVA test in R is the “probability of obtaining a test statistic as extreme or more extreme than the one observed, assuming the null hypothesis is true.” That is why the notation for it in the summary output is <code>Pr(&gt;F)</code>. If we drew a picture of the F-distribution we would see that it starts at zero, is strongly right-skewed, and goes to infinity. Marking the observed test statistic on the graph and shading the area to the right would give the p-value.</p>
-<p><img src="Images/Gratitude-F.png"></p>
+<p><img src = "Images/Gratitude-F.png"></p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
-<p>The <span class="math inline">\(P\)</span>-value of the ANOVA test can be found in the output summary of the test. <span class="math display">\[P\textrm{-value}=0.019 &lt; 0.05 = \alpha\]</span></p>
+<p>The <span class="math inline">\(P\)</span>-value of the ANOVA test can be found in the output summary of the test. <span class="math display">\[P\textrm{-value} = 0.019 &lt; 0.05 = \alpha\]</span></p>
 <p><strong>State your decision</strong></p>
-<p>Since <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.019 &lt; 0.05 = \alpha\)</span>, we reject the null hypothesis.</p>
-<p><img src="Images/Step5.png"></p>
+<p>Since <span class="math inline">\(P\)</span>-value$ = 0.019 &lt; 0.05 = $, we reject the null hypothesis.</p>
+<p><img src = "Images/Step5.png"></p>
 <p><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></p>
 <p>There is sufficient evidence to suggest that at least one of the three groups has a mean level of satisfaction with life that differs from the others. In short, the mean level of satisfaction with life in general is not the same for all three groups.</p>
 <p>If we take a closer look, we see that the Hassles and Events groups had means that were fairly close together. However, the Grateful group appears to have a significantly higher mean level of satisfaction than the other two groups.</p>
@@ -673,8 +673,8 @@ The variance is the square of the standard deviation. The sample variance is den
 <div id="worked-example-soccer-shoes" class="section level2">
 <h2>Worked Example: Soccer Shoes</h2>
 <p><span id="21:soccer_shoesExplanation"></span></p>
-<p><img src="Images/StepsAll.png"></p>
-<p><img src="Images/Step1.png"></p>
+<p><img src = "Images/StepsAll.png"></p>
+<p><img src = "Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>--> The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.</p>
 <p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
@@ -684,11 +684,11 @@ H_a: &amp; \textrm{At least one of the means differs}
 \end{align}
 \]</span></p>
 <p>We will use the <span class="math inline">\(\alpha = 0.10\)</span> level of significance.</p>
-<p><img src="Images/Step2.png"></p>
+<p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>As part of the research, they asked trained soccer players to kick a ball at a target. The target was placed 115 cm above the ground and at a distance of 10 m from the players. Using electronic equipment, the researchers recorded the distance from the center of the target to the point where the ball hit. The objective of the research was to assess if footwear could affect the accuracy of a soccer player.</p>
 <p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Data representing the results of this study are given in the file <a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a>. Use these data to answer the following questions.</p>
-<p><img src="Images/Step3.png"></p>
+<p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -696,7 +696,7 @@ Answer the following questions:
 <ol style="list-style-type: decimal">
 <li><strong>Give the relevant summary statistics</strong></li>
 </ol>
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>library(mosaic)
 favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
@@ -754,18 +754,18 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Make an appropriate graph to illustrate the data</strong></li>
 </ol>
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <pre class="r"><code>boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
-        col=&quot;tan3&quot;, 
-        main=&quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;)</code></pre>
+        col = &quot;tan3&quot;, 
+        main = &quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;)</code></pre>
 <p><img src="Lesson14_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Based on what you have seen so far, does it appear that there is a significant difference between the mean accuracy of the kicks using the six types of footwear?</li>
 </ol>
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <ul>
 <li>Just by looking at the boxplots we can see that there is a difference, but we do not know if there is a statistically significant difference between the mean accuracy of the kicks using the six different types of footwear until we perform an hypothesis test for several means.<br />
@@ -776,7 +776,7 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Which types of footwear seem to be giving the greatest accuracy?</li>
 </ol>
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
 <li>Based on the boxplot, it appears that Footware “A” and “Socks” seem to give the greatest accuracy. This is also the case when looking at the sample means in the numerical summary where “A” has a mean accuracy of 33.10 and “Socks” has a mean accuracy of 35.25.</li>
@@ -785,7 +785,7 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Step4.png"></p>
+<p><img src = "Images/Step4.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -793,7 +793,7 @@ Answer the following questions:
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Verify the requirements have been met</strong></li>
 </ol>
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
 <li>The boxplots all look fairly symmetric in the graph above. The median line isn’t exactly in the middle of each box, but there are not any outliers and there isn’t any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.<br />
@@ -805,7 +805,7 @@ Answer the following questions:
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Give the test statistic and its value</strong></li>
 </ol>
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <pre class="r"><code>soccer_aov &lt;- aov(soccer_shoes$accuracy ~ soccer_shoes$footwear)
 summary(soccer_aov)</code></pre>
@@ -822,7 +822,7 @@ summary(soccer_aov)</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li><strong>State the degrees of freedom</strong></li>
 </ol>
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
 <li>There are 5 and 114 degrees of freedom</li>
@@ -832,17 +832,17 @@ summary(soccer_aov)</code></pre>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></li>
 </ol>
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <p>This is included just to remind you that the p-value is the area to the right of the F-statistic in the F-distribution.</p>
-<p><img src="Images/SoccerShoes-SamplingDist.png"></p>
+<p><img src = "Images/SoccerShoes-SamplingDist.png"></p>
 <!--
 If you are curious, this could be done in R using the code
 
 
 ```r
-curve(df(x, 5, 114), from=0, to=10)
-abline(v=2.02, h=0)
+curve(df(x, 5, 114), from = 0, to = 10)
+abline(v = 2.02, h = 0)
 ```
 
 <img src="Lesson14_files/figure-html/unnamed-chunk-9-1.png" width="672" />
@@ -852,26 +852,26 @@ abline(v=2.02, h=0)
 <ol start="9" style="list-style-type: decimal">
 <li><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></li>
 </ol>
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
-<li><span class="math inline">\(P\text{-value} =0.0809 &lt; 0.1 = \alpha\)</span></li>
+<li><span class="math inline">\(P\text{-value} = 0.0809 &lt; 0.1 = \alpha\)</span></li>
 </ul>
 </div>
 <p><br></p>
 <ol start="10" style="list-style-type: decimal">
 <li><strong>State your decision</strong></li>
 </ol>
-<a href="javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
-<li>Since <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.0809 &lt; 0.1 = \alpha\)</span> we reject the null hypothesis.</li>
+<li>Since <span class="math inline">\(P\)</span>-value$ = 0.0809 &lt; 0.1 = $ we reject the null hypothesis.</li>
 </ul>
 </div>
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Step5.png"></p>
+<p><img src = "Images/Step5.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -879,7 +879,7 @@ Answer the following questions:
 <ol start="11" style="list-style-type: decimal">
 <li><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></li>
 </ol>
-<a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
 <ul>
 <li>There is sufficient evidence to suggest that there is a difference in the mean accuracy of the kicks for the various types of footwear.<br />

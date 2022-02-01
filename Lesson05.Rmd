@@ -7,7 +7,7 @@ output:
     toc_float: false
 ---
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -16,10 +16,10 @@ output:
 
 <!--
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC94-G9-36oCixDqF97LTx6S" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC94-G9-36oCixDqF97LTx6S" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 -->
@@ -28,8 +28,8 @@ output:
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "oc" style = "display:none;">
 
 By the end of this lesson, you should be able to:
 * State the properties of a normal density curve.
@@ -45,19 +45,19 @@ By the end of this lesson, you should be able to:
 
 ### Baseball Batting Averages
 
-<img src="./Images/Baseball.jpg">
+<img src = "./Images/Baseball.jpg">
 
 In baseball, a player called the "pitcher" throws a ball to a player called the "batter." The batter swings a wooden or metal bat and tries to hit the ball. A "hit" is made when the batter successfully hits the ball and runs to a point in the field called first base. A player's batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been "at bat." Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The file [BattingAverages.xlsx](./data/BattingAverages.xlsx) contains his data.
 
 The following histogram summarizes the batting averages for these professional baseball players:
 
-<img src="./Images/Lesson_03_Activity_06_Reading_1.jpg">
+<img src = "./Images/Lesson_03_Activity_06_Reading_1.jpg">
 
 Notice the bell-shaped distribution of the data.
 
 Suppose we want to estimate the probability that a randomly selected player will have a batting average that is greater than 0.280. One way to do this would be to find the proportion of players in the data set who have a batting average above 0.280. We can do this by finding the number of players who fall into each of the red-colored bins below and dividing this number by the total number of players.
 
-<img src="./Images/L03_A06_R02.jpg">
+<img src = "./Images/L03_A06_R02.jpg">
 
 In other words, we could find the proportion of the total area of the bars that is shaded red out of the combined area of all the bars. This gives us the proportion of players whose batting averages are greater than 0.280.
 
@@ -84,7 +84,7 @@ All density curves, including normal density curves, have two basic properties:
 
 Because of these two properties, the area under the curve can be treated as a probability. If we want to find the probability that a randomly selected baseball player will have a batting average between some range of values, we only need to find the area under the curve in that range. This is illustrated by the region shaded in blue in the figure below.
 
-<img src="./Images/L03_A06_R03.jpg">
+<img src = "./Images/L03_A06_R03.jpg">
 
 A normal density curve is uniquely determined by its mean, $\mu$, and its standard deviation, $\sigma$. So, if random variables follow a normal distribution with a known mean and standard deviation, then we can calculate any probabilities related to that variable by finding the area under the curve.
 
@@ -100,13 +100,13 @@ In Ghana, the mean height of young adult women is normally distributed with mean
 
 The heights of men are also normally distributed. The mean height of young adult men in Brazil is $173.0$ cm ("Oramento," 2010), and the standard deviation for the population is $6.3$ cm. (Castilho & Lahr, 2001) A Brazilian BYU-Idaho student, Gustavo, is $182.5$ cm tall. Compared to other Brazilians, he is taller than the mean height of Brazilian men.
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 1. Approximately how many standard deviations above the mean is Gustavo's height?
 
-<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
--  Gustavo's height is $182.5 - 173.0 = 9.5 \text{ cm  }$    above the mean. The standard deviation of the height of Brazilian men is 6.3 cm, so his height is   $\displaystyle{ \frac{9.5}{6.3} =1.508 }$  standard deviations above the mean.
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
+-  Gustavo's height is $182.5 - 173.0 = 9.5 \text{ cm  }$    above the mean. The standard deviation of the height of Brazilian men is 6.3 cm, so his height is   $\displaystyle{ \frac{9.5}{6.3} = 1.508 }$  standard deviations above the mean.
 </div>
 &nbsp;
 </div>
@@ -133,7 +133,7 @@ The $z$-score can be computed for data from any distribution, but it is most com
 
 Heights of women (or men) in a particular population follow a normal distribution. Most people's heights are close to the mean. A few are very tall or very short. We would like to make a more precise statement than this.
 
-<div class="Emphasis">
+<div class = "Emphasis">
 For any bell-shaped distribution,
 - 68% of the data will lie within 1 standard deviation of the mean,
 - 95% of the data will lie within 2 standard deviations of the mean, and
@@ -144,7 +144,7 @@ This is called the 68-95-99.7% Rule for Bell-shaped Distributions. Some statisti
 </div>
 <br>
 
-<img src="./Images/L03_A06_R04.jpg">
+<img src = "./Images/L03_A06_R04.jpg">
 
 Approximately 68% of the observations from a bell-shaped distribution will be between the values of $\mu -~\sigma~$and $\mu +~\sigma$. Consider the heights of young adult women in Ghana. We expect that about 68% of Ghanaian women have a height between the values of
 $$\mu -~\sigma = 159.0 - 4.9 = 154.1~\text{cm}$$
@@ -167,28 +167,28 @@ If a $z$-score is extreme (either a large positive number or a large negative nu
 
 We define an **unusual observation** to be something that happens less than 5% of the time. For normally distributed data, we determine if an observation is unusual based on its $z$-score. We call an observation unusual if $z < -2$ or if $z > 2$.  In other words, we will call an event unusual if the absolute value of its $z$-score is greater than 2.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 2. Out of Serwa and Gustavo, who is physically taller?
  
-<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q2" style="display:none;">
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
 -  Gustavo is taller.  He is 182.5 cm tall, and Serwa is 169.0 cm tall.
 </div>
 <br>
 
 3. Relative to their own gender and nationality, who is relatively taller?
 
-<a href="javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
 -  Relative to other Ghanaian women, Serwa is very tall.  Gustavo is tall relative to Brazilian men, but relative to people of his gender and nationality, he is not relatively taller than Serwa.  Serwa has a higher $z$-score.
 </div>
 <br>
 
 4. Are either of these heights unusual?
 
-<a href="javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q4" style = "display:none;">
 -  Serwa's height is unusual.  Her $z$-score is: $z = 2.041$ This is more than two standard deviations away from the mean. Gustavo's height is not unusual.  His $z$-score is less than two standard deviations away from the mean.
 </div>
 &nbsp;
@@ -198,7 +198,7 @@ We define an **unusual observation** to be something that happens less than 5% o
 <center>"Piled Higher and Deeper" by Jorge Cham</center> 
 <br>
 
-<img src="./Images/Phd1030.png">
+<img src = "./Images/Phd1030.png">
 
 ## Normal Probability Computations
 
@@ -217,17 +217,17 @@ To use this applet, follow these instructions:
 
 <br>
 <center>
-<div width="90%">
+<div width = "90%">
 
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 htmltools::includeHTML("https://byuimath.com/apps/normprob.html")
 ```
 </div>
 </center>
 ### Converting a $z$-score to a Probability
 
-Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the [Normal Probability Applet](https://byuimath.com/apps/normprob.html){target="_blank"} and practice using it to find areas under the curve.
+Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the [Normal Probability Applet](https://byuimath.com/apps/normprob.html){target = "_blank"} and practice using it to find areas under the curve.
 
 #### Heights of Ghanaian Women
 
@@ -243,7 +243,7 @@ To find the area under a normal curve corresponding to a $z$-score of $2.041$, d
 - Click on the areas under the curve until only the areas left of the $z$-score are shaded blue.
 - The total shaded area under the normal distribution, 0.979\*, is given above the graph. This is the proportion of young Ghanaian women who are shorter than Serwa.
 
-<img src="./Images/Serwa_z-score.PNG">
+<img src = "./Images/Serwa_z-score.PNG">
 
 The area to the left of our chosen $z$-score is also the probability that a randomly selected woman will be shorter than Serwa. The probability that a randomly selected Ghanaian woman will be shorter than Serwa is $0.979$, or $97.9\%$.
 
@@ -257,7 +257,7 @@ $$z = \frac{x -\mu}{\sigma} = \frac{0.280 - 0.261}{0.034} = 0.559$$
 
 Type the $z$-score of $0.559$ in one of the boxes below the horizontal axis in the applet. Click on the areas under the curve until only the region on the right is highlighted in blue.
 
-<img src="./Images/Batting_average_z-score.PNG">
+<img src = "./Images/Batting_average_z-score.PNG">
 
 The area under the curve to the right of $z = 0.559$ is $0.288$. This is the probability that a randomly selected player will have a batting average that is greater than 0.280. (Note: It is a coincidence that the area, 0.288, is close to the batting average of 0.280. There is no significance in this.)
 
@@ -269,16 +269,16 @@ The normal probability applet allows us to find the probability of being between
 
 #### Heights of Ghanaian Women
 
-We illustrate the procedure for finding the probability that the height of a randomly selected young Ghanaian woman is between two values. For example, "What is the probability that a randomly selected young Ghanaian women will be between 155.0 cm and 163.0 cm tall?" Recall that for the height of young Ghanaian women, the population mean is $\mu=159.0$ cm and the population standard deviation is $\sigma=4.9$ cm. We want to find the probability that a randomly selected woman's height is between $155.0$ cm and $163.0$ cm. To do this we find the $z$-score for both values:
+We illustrate the procedure for finding the probability that the height of a randomly selected young Ghanaian woman is between two values. For example, "What is the probability that a randomly selected young Ghanaian women will be between 155.0 cm and 163.0 cm tall?" Recall that for the height of young Ghanaian women, the population mean is $\mu = 159.0$ cm and the population standard deviation is $\sigma = 4.9$ cm. We want to find the probability that a randomly selected woman's height is between $155.0$ cm and $163.0$ cm. To do this we find the $z$-score for both values:
 
 $$z_1 = \frac{x- \mu}{\sigma} = \frac{155.0 - 159.0}{4.9} = -0.82$$
 $$z_2 = \frac{x - \mu}{\sigma} = \frac{163.0 -159.0}{4.9} = 0.82$$
 
 Notice that both z-scores give the same value, just one is positive and one is negative. Had the two values given different z-scores, we would have to take a more complicated approach to finding the area between them. (See the link below if you are interested, but this is bonus knowledge, and is not required for the course.)
 
-<div style="float:right;">
-<a href="javascript:showhide('asymetric')"><span style="font-size:8pt;">Show/Hide Asymetric Probability Calculations</span></a>
-<div id="asymetric" style="display:none;">
+<div style = "float:right;">
+<a href = "javascript:showhide('asymetric')"><span style = "font-size:8pt;">Show/Hide Asymetric Probability Calculations</span></a>
+<div id = "asymetric" style = "display:none;">
 
 The applet does not allow us to find the probability of being between two asymetric values directly, but we can calculate these probabilities with the applet as follows.
 
@@ -295,13 +295,13 @@ So the probability that the height of a randomly selected young Ghanaian woman w
 
 </div>
 </div>
-<div style="clear:both;"></div>
+<div style = "clear:both;"></div>
 
 <br/>
 
-We now answer the question by finding the area under the normal density curve (i.e. the probability) between the z-scores of $z=-0.82$ and $z=0.82$. To find the area between $z = -0.82$ and $z = 0.82$, we simply type in our z-scores (or just one of them is all you need) and shade the middle area:
+We now answer the question by finding the area under the normal density curve (i.e. the probability) between the z-scores of $z = -0.82$ and $z = 0.82$. To find the area between $z = -0.82$ and $z = 0.82$, we simply type in our z-scores (or just one of them is all you need) and shade the middle area:
 
-<a href="https://byuimath.com/apps/normprob.html?z=0.82&left=0&right=0&mid=1" target="_blank"><img src="./Images/betweenProbNormalApp.png" width=500px></a>
+<a href = "https://byuimath.com/apps/normprob.html?z = 0.82&left = 0&right = 0&mid = 1" target = "_blank"><img src = "./Images/betweenProbNormalApp.png" width = 500px></a>
 
 
 So the probability that the height of a randomly selected young Ghanaian woman will be between 155.0 cm and 163.0 cm is 0.5878. We found this answer from the "Area" box in the Normal Probability Applet as shown above. Another way to word this is to say that the proportion of all young Ghanaian women who are between 155.0 and 163.0 cm tall is $0.5878$, or that 58.78\% of Ghanaian women are between 1550. and 163.0 cm tall.
@@ -312,10 +312,10 @@ So the probability that the height of a randomly selected young Ghanaian woman w
 
 A percentile is a number such that a specified percentage of the data are at or below this number. For example, the 25<sup>th</sup> percentile is the number in a data set that is greater than or equal to 25% of all the values in the data set. (For a more complete definition of percentiles, see 
 <!-- Lesson_3#Percentiles_and_Quartiles| need to figure out how to link content between pages -->
-[Lesson 3](Lesson03){target="_blank"}.) We can find the values of percentiles for a normal distribution by using the applet to calculate the $z$-score corresponding to a specified area and then plugging that $z$-score into our $z$-score equation and solving for $x$. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.
+[Lesson 3](Lesson03){target = "_blank"}.) We can find the values of percentiles for a normal distribution by using the applet to calculate the $z$-score corresponding to a specified area and then plugging that $z$-score into our $z$-score equation and solving for $x$. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.
 
 
-First, we need to find the $z$-score that corresponds to the 90<sup>th</sup> percentile using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html?area=0.9&left=1&right=0&mid=1){target="_blank"}.
+First, we need to find the $z$-score that corresponds to the 90<sup>th</sup> percentile using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html?area = 0.9&left = 1&right = 0&mid = 1){target = "_blank"}.
 
 
 - Click on the areas under the curve until only the areas *left* of the positive $z$-score are shaded blue.
@@ -324,11 +324,11 @@ First, we need to find the $z$-score that corresponds to the 90<sup>th</sup> per
 
 For example, to find the $z$-score corresponding to the 90<sup>th</sup> percentile, click on the regions of the graph so that the area to the left of one of the bars is shaded and nothing is shaded to the right. Then, type the number 0.9 in the box at the top of the applet and press `Enter`. The value 1.282 is the $z$-score such that 90% of the area is to the left.
 
-<img src="./Images/Batting_average_percentiles.PNG">
+<img src = "./Images/Batting_average_percentiles.PNG">
 
 So, $z = 1.282$ is the $z$-score that corresponds to the 90th percentile of a normal distribution. How do we find the batting average that corresponds to the 90<sup>th</sup> percentile? We can solve for $x$ in the equation for the $z$-score.
 
-$$\displaystyle{z=\frac{x - \mu}{\sigma}}$$
+$$\displaystyle{z = \frac{x - \mu}{\sigma}}$$
 
 We know $z = 1.282$, $\mu = 0.261$, and $\sigma = 0.034$. Substituting these values into the equation for the $z$-score, we have:
 
@@ -340,19 +340,19 @@ Solve for $x$:
 
 |                                          |                                             |     |                                                                |
 |------------------------------------------|--------------------------------------------:|-----|----------------------------------------------------------------|
-| Original Equation                        |            $\displaystyle{ 1.282 }\space$   | $=$ | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                     |
+| Original Equation                        |            $\displaystyle{ 1.282 }\space$   | $ = $ | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                     |
 | $~$                                      |                                             |     |                                                                |
-| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | $=$ | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$      |
+| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$      |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | $=$ | $\displaystyle{ x - 0.261 }$                                   |
+| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ x - 0.261 }$                                   |
 | $~$                                      |                                             |     |                                                                |
-| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $=$ | $\displaystyle{ 0.261 + (x - 0.261) }$                         |
+| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ 0.261 + (x - 0.261) }$                         |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $=$ | $\displaystyle{ x }$                                           |
+| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ x }$                                           |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | $=$ | $\displaystyle{ x }$                                           |
+| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | $ = $ | $\displaystyle{ x }$                                           |
 | $~$                                      |                                             |     |                                                                |
-| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | $=$ | $\displaystyle{ 0.305 }$                                       |
+| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | $ = $ | $\displaystyle{ 0.305 }$                                       |
 |                                          |                                             |     |                                                                |
 
 <br>
@@ -369,9 +369,9 @@ The ability to use the Normal Probability Applet to find probabilities is very i
 
 Recall the data on the batting averages of Major League Baseball players. The histogram of the batting averages showed a distinct bell-shaped curve.
 
-<img src="./Images/Picture6.jpg">
+<img src = "./Images/Picture6.jpg">
 
-<div class="note">
+<div class = "note">
 For a refresher of how to make a Histogram in R, revisit [Lesson 3: R Instructions for Histograms](./docs/Lesson03.html#r-instructions-for-histograms).
 </div>
 
@@ -385,25 +385,25 @@ A group of researchers led by Philip A. Mackowiak, MD, conducted a study to asse
 
 Each volunteer was given a physical to assure that they were not ill at the time of the data collection. Their axillary (under the arm) body temperature was measured and reported in a paper published in the Journal of the American Medical Association. [1] These data were extracted and are presented in the file [BodyTemp](./data/BodyTemp.xlsx). The body temperatures are given in degrees Fahrenheit.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 5. Make a histogram of the body temperature data. 
 
-<a href="javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q5" style="display:none;">
+<a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q5" style = "display:none;">
 
 <!--
-{{Course_Filter_Two|A=[[File:BodyTemperatures-Histogram.png|link=|400 px]]|B=[[File:Histogram Example.jpg|link=|400px]]}}
+{{Course_Filter_Two|A = [[File:BodyTemperatures-Histogram.png|link = |400 px]]|B = [[File:Histogram Example.jpg|link = |400px]]}}
 -->
 Create a histogram in R by first [importing the data](RHelp#reading-in-data) to RStudio. Then, use code similar to:
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 library(readxl)
 BodyTemp <- read_excel("./data/BodyTemp.xlsx")
 ```
 
 ```{r}
-hist(BodyTemp$BodyTemp, main="Body Temperatures", xlab="Degrees Fahrenheit", col="steelblue3")
+hist(BodyTemp$BodyTemp, main = "Body Temperatures", xlab = "Degrees Fahrenheit", col = "steelblue3")
 ```
 
 
@@ -412,16 +412,16 @@ hist(BodyTemp$BodyTemp, main="Body Temperatures", xlab="Degrees Fahrenheit", col
 
 6. Based on your histogram, what is the shape of the distribution of these data?
 
-<a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q6" style="display:none;">
+<a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q6" style = "display:none;">
 -  The data appear to be normally distributed. 
 </div>
 <br>
 
 7. Calculate the following numerical summaries of the data: sample mean, sample standard deviation, and sample size.
 
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q7" style="display:none;">
+<a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q7" style = "display:none;">
 
 ```{r}
 mean(BodyTemp$BodyTemp) #sample mean
@@ -440,12 +440,12 @@ The sample mean is 98.23, sample standard deviation is 0.738, and sample size is
 
 The [Survey Data](./data/SurveyData.xlsx) file contains data on hourly wages of BYU-Idaho students. Use that data to answer the following questions.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 8. Make a histogram of the data contained in the Wage column. *Note*: there are gaps in the dataset, be sure you highlight all the way down to the last value in that column
 
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
+<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q8" style = "display:none;">
 
 First, read in the **Survey Data** into RStudio. Then, use the code
 
@@ -454,7 +454,7 @@ SurveyData <- read_excel("./data/SurveyData.xlsx")
 ```
 
 ```{r}
-hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Results", col="tan3")
+hist(SurveyData$Wage, xlab = "Hourly Wages", main = "BYU-Idaho Student Survey Results", col = "tan3")
 ```
 
 </div>
@@ -462,8 +462,8 @@ hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Result
 
 9. Based on your histogram, what is the shape of the distribution of these data?
 
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q9" style="display:none;">
+<a href = "javascript:showhide('Q9')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q9" style = "display:none;">
 -  The data appear to be skewed right.
 </div>
 <br>
@@ -471,18 +471,18 @@ hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Result
 
 ## Summary
 
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 
 - A **normal density curve** is symmetric and bell-shaped. The curve lies above the horizontal axis and the total area under the curve is equal to 1. 
 
-- A **standard normal distribution** has a mean of 0 and a standard deviation of 1. The **68-95-99.7% rule** states that when data are normally distributed, approximately 68% of the data lie within $z=1$ standard deviation ($\sigma$) from the mean, approximately 95% of the data lie within $z=2$ standard deviations from the mean, and approximately 99.7% of the data lie within $z=3$ standard deviations from the mean. 
+- A **standard normal distribution** has a mean of 0 and a standard deviation of 1. The **68-95-99.7% rule** states that when data are normally distributed, approximately 68% of the data lie within $z = 1$ standard deviation ($\sigma$) from the mean, approximately 95% of the data lie within $z = 2$ standard deviations from the mean, and approximately 99.7% of the data lie within $z = 3$ standard deviations from the mean. 
 
 - A **z-score** tells us how many standard deviations away from the mean a given value is. It is calculated as: $\displaystyle{z = \frac{\text{value}-\text{mean}}{\text{standard deviation}} = \frac{x-\mu}{\sigma}}$
 
 - The [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) allows us to use z-scores to calculate proportions, probabilities, and percentiles of being "above," "below," or "between" certain values.
 
-- Percentiles can be calculated using the [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) by (1) shading the left tail only, (2) entering the desired percentile in the "Area" box, and (3) using the z-score from where the blue shaded region ends solve for $x$ in the equation $z=\frac{x-\mu}{\sigma}$.
+- Percentiles can be calculated using the [**Normal Probability Applet**](https://byuimath.com/apps/normprob.html) by (1) shading the left tail only, (2) entering the desired percentile in the "Area" box, and (3) using the z-score from where the blue shaded region ends solve for $x$ in the equation $z = \frac{x-\mu}{\sigma}$.
 
 <br/>
 
@@ -494,12 +494,12 @@ hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Result
 ## Alumni Spotlight: Adam Andersen
 
 <center>
-<img src="./Images/AdamAndersen-Portrait.png">
+<img src = "./Images/AdamAndersen-Portrait.png">
 </center>
 <!-- Adam has a copyright release for these photos -->
 
-<div style="clear:both"></div>
-<div class="mw-collapsible mw-collapsed" data-collapsetext="Hide this Optional Section" data-expandtext="Click Here to Learn How one BYU-Idaho Alumnus Uses Statistics Professionally">
+<div style = "clear:both"></div>
+<div class = "mw-collapsible mw-collapsed" data-collapsetext = "Hide this Optional Section" data-expandtext = "Click Here to Learn How one BYU-Idaho Alumnus Uses Statistics Professionally">
 
 Statistics have been useful in multiple aspects of my work in Human Resources and Diversity.  I created a dynamic spreadsheet model for analyzing workforce salaries, both company-wide and for discrete job functions within various levels of the organization.  This model utilizes averages and sets thresholds that trigger flags for anomalies in proposed salary offer decisions, including those beyond two standard deviations of the internal peer average.  These flags prompt review, discussion, and provide opportunities to vet offer decisions and to substantiate and document the basis for any outlier salary decisions.  This has proved to promote and maintain salary equity among women and minorities and their majority peers.
 
@@ -507,7 +507,7 @@ I also use statistics in developing metrics for our management team to assess th
 
 Despite having studied statistics at BYU-Idaho several years ago (in fact, I nearly took the course twice), I have felt the Holy Ghost bring these basic concepts to my remembrance and teach me how to apply them at work.  And for that, I am grateful.
 
-<div style="font-size:75%">
+<div style = "font-size:75%">
 Biography:<br>
 Adam D. Andersen is the Human Capital Management System Lead for Battelle Energy Alliance, LLC at the U.S. Department of Energy's Idaho National Laboratory in Idaho Falls, Idaho.  He is responsible for creating and revising employment policies and procedures; coordinating human capital assurance; leading measurement and reporting; managing contract and regulatory requirements; and assisting in-house legal counsel in employee disciplinary advisory groups and in representing the company in disputes involving its five labor unions.
 <br>

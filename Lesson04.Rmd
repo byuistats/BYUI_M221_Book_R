@@ -7,7 +7,7 @@ output:
     toc_float: false
 ---
 
-<script type="text/javascript">
+<script type = "text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -35,10 +35,10 @@ output:
 
 <!--
 
-<div style="float:right;width=40%;">
+<div style = "float:right;width = 40%;">
 <br />
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC-a7rYECFUKhL6yMzvOIwCO" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-a7rYECFUKhL6yMzvOIwCO" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 -->
@@ -54,8 +54,8 @@ library(readxl)
 
 ## Lesson Outcomes
 
-<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
+<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id = "oc" style = "display:none;">
 
 By the end of this lesson, you should be able to:
 
@@ -90,20 +90,20 @@ In the previous lesson, we introduced two important characteristics of a distrib
 
 This activity introduces two measures of spread: the standard deviation and the variance.
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 
 **Bird Flu Fever **
 
-<img src="./Images/Peuquito.jpg">
+<img src = "./Images/Peuquito.jpg">
 
 Avian Influenza A H5N1, commonly called the bird flu, is a deadly illness that is currently only passed to humans from infected birds. This illness is particularly dangerous because at some point it is likely to mutate to allow human-to-human transmission. Health officials worldwide are preparing for the possibility of a bird flu pandemic.
 
-<img src="./Images/Step1.png">
+<img src = "./Images/Step1.png">
 
 Dr. K. Y. Yuen led a team of researchers who reported the body temperatures of people admitted to Chinese hospitals with confirmed cases of Avian Influenza.
 Their research team collected data on the body temperature at the time that people with the bird flu were admitted to the hospital. In the article, they reported on two groups of people, those with relatively uncomplicated cases of the bird flu and those with severe cases.
 
-<img src="./Images/Step2.png">
+<img src = "./Images/Step2.png">
 
 The table below presents the data representative of the body temperatures for the two groups of bird flu patients:
 
@@ -118,18 +118,18 @@ The table below presents the data representative of the body temperatures for th
 |      | 39.0 |
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 Let us focus on the relatively uncomplicated cases. Creating a histogram of such a small dataset does not provide much benefit. With only a handful of values, there is not much shape to the distribution.
 
 We can, however, use numerical summaries to give an indication of the center of the distribution.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 7. What is the median of the body temperatures for the relatively uncomplicated cases?  <!--Draw a vertical line on your number line to represent this point. -->
 
-<a href="javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q7" style="display:none;">
+<a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q7" style = "display:none;">
 * The median body temperature for the relatively uncomplicated cases is 38.4 degrees Centigrade.
 
 ```{r, label = body_temp_median}
@@ -142,8 +142,8 @@ median(bodytemp_uncomp)
 
 8. What is the mean of the body temperatures for the relatively uncomplicated cases?  <!--Draw a vertical line on your number line to represent this point. -->
 
-<a href="javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
+<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q8" style = "display:none;">
 * The mean body temperature for the relatively uncomplicated cases is 38.8 degrees Centigrade.
 
 ```{r, label = body_temp_mean}
@@ -171,18 +171,18 @@ At this point, you probably do not have much intuition regarding the standard de
 
 ### R Instructions for Computing the Standard Deviation
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 
-<a href="javascript:showhide('r_instr_4_sd')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_sd" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_sd')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_sd" style = "display:none;">
 
 <br>
 &nbsp;&nbsp;**To calculate the sample standard deviation and variance in R, follow these steps:**
 &nbsp;&nbsp;
 <br />
 
-<div style="padding-left:20px;">
+<div style = "padding-left:20px;">
 
 **Step 1.** Either [read in a data set](RHelp.html#read-in-data), or enter the data manually using the assignment operator `<-` and combine function `c(...)`. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:
 
@@ -198,7 +198,7 @@ sd(bodytemp_uncomp)
 
 The value showing above is the standard deviation of the body temperature data for the relatively uncomplicated cases. In RStudio, it would look like this:
 
-<img src="./Images/rstudio_bodytemp_uncomp_sd.png" width="500">
+<img src = "./Images/rstudio_bodytemp_uncomp_sd.png" width = "500">
 
 
 </div> <!-- R instructions for std dev -->
@@ -208,7 +208,7 @@ The value showing above is the standard deviation of the body temperature data f
 
 <br>
 
-<div class="message Tip">**Rounding:** As a general rule, when reporting your answers in this class, round to three decimal places unless otherwise specified.</div>
+<div class = "message Tip">**Rounding:** As a general rule, when reporting your answers in this class, round to three decimal places unless otherwise specified.</div>
 <br>
 <br>
 
@@ -220,11 +220,11 @@ It is a little tedious to compute the standard deviation by hand. You will usual
 
 First, observe the number line below, where each x represents the temperature of a patient with a relatively uncomplicated case of bird flu. As mentioned earlier, there is not a huge spread in the temperatures.
 
-<img src="./Images/BirdFlu-DotPlotAnswer.png">
+<img src = "./Images/BirdFlu-DotPlotAnswer.png">
 
 On your sketch of the number line, we draw a vertical line at 38.8 degrees, the sample mean.  Now, draw horizontal lines from the mean to each of your $\times$'s.  These horizontal line segments represent the spread of the data about the mean.  Your plot should look something like this:
 
-<img src="./Images/BirdFlu-DotPlotAnswer-Lines.png">
+<img src = "./Images/BirdFlu-DotPlotAnswer-Lines.png">
 
 The length of each of the line segments represents how far each observation is from the mean.  If the data are close together, these lines will be fairly short.  If the distribution has a large spread, the line segments will be longer. The standard deviation is a measure of how long these lines are, as a whole.
 
@@ -250,7 +250,7 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 | $38.4$ | | |
 | $39.5$ | | |
 | $39.7$ | | |
-| <span style="background-color:yellow;">$\bar x = 38.8$</span> | | |
+| <span style = "background-color:yellow;">$\bar x = 38.8$</span> | | |
 
 
 **Step 2**: The second column of the table contains the deviations from the mean. Each deviation is computed by subtracting the mean $\bar{x}$ from the observed data value. Since the mean $\bar{x} = 38.8$, that value is subtraced from each data point to fill in the second column of the table.
@@ -258,31 +258,31 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 
 | Observation ($x$) | Deviation from the Mean ($x-\bar x$) | Squared Deviation from the Mean $(x - \bar{x})^2$ |
 |:-----------------:|:------------------------------------:|:--------------------------------------------------:|
-| $38.1$ | <span style="background-color:yellow;">$38.1-38.8=-0.7$</span> | |
-| $38.3$ | <span style="background-color:yellow;">$38.3-38.8=-0.5$</span> | |
-| $38.4$ | <span style="background-color:yellow;">$38.4-38.8=-0.4$</span> | |
-| $39.5$ | <span style="background-color:yellow;">$39.5-38.8= 0.7$</span> | |
-| $39.7$ | <span style="background-color:yellow;">$39.7-38.8= 0.9$</span>| |
+| $38.1$ | <span style = "background-color:yellow;">$38.1-38.8 = -0.7$</span> | |
+| $38.3$ | <span style = "background-color:yellow;">$38.3-38.8 = -0.5$</span> | |
+| $38.4$ | <span style = "background-color:yellow;">$38.4-38.8 = -0.4$</span> | |
+| $39.5$ | <span style = "background-color:yellow;">$39.5-38.8 = 0.7$</span> | |
+| $39.7$ | <span style = "background-color:yellow;">$39.7-38.8 = 0.9$</span>| |
 | $\bar x = 38.8$ | | |
 
 
 <br />
 <br />
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 9. How could we use this table to find the "typical" distance from each point to the mean? Think carefully about this, and then write down your answer before continuing.
 
-<a href="javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q9" style="display:none;">
+<a href = "javascript:showhide('Q9')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q9" style = "display:none;">
 
 * You may have suggested that we compute the mean of these values. This seems like a good idea.  If we compute the mean, it will tell us the average deviation from the mean.
 <br>
 <br>
 9b. Compute the mean of Column 2. What do you get?
 
-<a href="javascript:showhide('Q9b')"><span style="font-size:8pt;">Click Here to Continue</span></a>
-<div id="Q9b" style="display:none;">
+<a href = "javascript:showhide('Q9b')"><span style = "font-size:8pt;">Click Here to Continue</span></a>
+<div id = "Q9b" style = "display:none;">
 
 * You should have found that the mean of the deviations is zero.  This is true for *every* data set. If you add up the deviations from the mean, the positive values will cancel with the negative values. The sum of the deviations from the mean will be zero, so the mean also must equal zero.
 * The good news is that you can use this fact to check if you are on the right track.  If the deviations from the mean do not add up to zero, then you have made a mistake in the calculations. However, the bad news is that because the deviations always add up to 0 (when you have done the calculations correctly), computing the average of the deviations will not be useful because it makes it look like the "average deviation" from the data to the mean is 0. Nonsense! So we need a better way.
@@ -294,8 +294,8 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 
 10. We need a way to work with the negative deviations from the mean, so they do not cancel with the positive ones.  What could we do?  (Choose one of the four options below.)
 
-<a href="javascript:showhide('Q10a')"><span style="font-size:8pt;">Option #1: Take the absolute value of the deviations</span></a>
-<div id="Q10a" style="display:none;">
+<a href = "javascript:showhide('Q10a')"><span style = "font-size:8pt;">Option #1: Take the absolute value of the deviations</span></a>
+<div id = "Q10a" style = "display:none;">
 * Option #1:
 
 * This is an excellent suggestion.  This is probably one of the first things statisticians used to estimate the spread in the data.  
@@ -306,24 +306,24 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 </div>
 <br>
 
-<a href="javascript:showhide('Q10b')"><span style="font-size:8pt;">Option #2: Square the deviations from the mean</span></a>
-<div id="Q10b" style="display:none;">
+<a href = "javascript:showhide('Q10b')"><span style = "font-size:8pt;">Option #2: Square the deviations from the mean</span></a>
+<div id = "Q10b" style = "display:none;">
 * Option #2:
 
 * If we square the deviations from the mean, the values that were negative will become positive.  This leads to an estimator of the spread that has excellent theoretical properties.  This is the best of the four options.  You will apply this idea in Step 3.
 </div>
 <br>
 
-<a href="javascript:showhide('Q10c')"><span style="font-size:8pt;">Option #3: Delete all the negative deviations</span></a>
-<div id="Q10c" style="display:none;">
+<a href = "javascript:showhide('Q10c')"><span style = "font-size:8pt;">Option #3: Delete all the negative deviations</span></a>
+<div id = "Q10c" style = "display:none;">
 * Option #3:
 
 * Sorry, you can't make your troubles go away by deleting things you don't like.  Please try again.
 </div>
 <br>
 
-<a href="javascript:showhide('Q10d')"><span style="font-size:8pt;">Option #4: Do something entirely different</span></a>
-<div id="Q10d" style="display:none;">
+<a href = "javascript:showhide('Q10d')"><span style = "font-size:8pt;">Option #4: Do something entirely different</span></a>
+<div id = "Q10d" style = "display:none;">
 * Option #4:
 
 * You probably have an ingenious idea.  Surprisingly enough, there *is* a right answer to the question.  Please choose a different option.
@@ -338,7 +338,7 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 <center>
 "Piled Higher and Deeper" by Jorge Cham
 <br>
-<img src="./Images/Phd062307s.png">
+<img src = "./Images/Phd062307s.png">
 </center>
 
 
@@ -346,12 +346,12 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 
 | Observation ($x$) | Deviation from the Mean ($x-\bar x$) | Squared Deviation from the Mean $(x - \bar{x})^2$ |
 |:-----------------:|:------------------------------------:|:--------------------------------------------------:|
-| $38.1$ | $38.1-38.8=-0.7$ | <span style="background-color:yellow;">$(-0.7)^2=0.49$</span> |
-| $38.3$ | $38.3-38.8=-0.5$ | <span style="background-color:yellow;">$(-0.5)^2=0.25$</span> |
-| $38.4$ | $38.4-38.8=-0.4$ | <span style="background-color:yellow;">$(-0.4)^2=0.16$</span> |
-| $39.5$ | $39.5-38.8= 0.7$ | <span style="background-color:yellow;">$(0.7)^2=0.49$</span> |
-| $39.7$ | $39.7-38.8= 0.9$ | <span style="background-color:yellow;">$(0.9)^2=0.81$</span> |
-| $\bar x = 38.8$ | Sum $=0$ | |
+| $38.1$ | $38.1-38.8 = -0.7$ | <span style = "background-color:yellow;">$(-0.7)^2 = 0.49$</span> |
+| $38.3$ | $38.3-38.8 = -0.5$ | <span style = "background-color:yellow;">$(-0.5)^2 = 0.25$</span> |
+| $38.4$ | $38.4-38.8 = -0.4$ | <span style = "background-color:yellow;">$(-0.4)^2 = 0.16$</span> |
+| $39.5$ | $39.5-38.8 = 0.7$ | <span style = "background-color:yellow;">$(0.7)^2 = 0.49$</span> |
+| $39.7$ | $39.7-38.8 = 0.9$ | <span style = "background-color:yellow;">$(0.9)^2 = 0.81$</span> |
+| $\bar x = 38.8$ | Sum $ = 0$ | |
 
 
 <br>
@@ -360,23 +360,23 @@ The standard deviation is a complicated sort of average of the deviations. Makin
 
 | Observation ($x$) | Deviation from the Mean ($x-\bar x$) | Squared Deviation from the Mean $(x - \bar{x})^2$ |
 |:-----------------:|:------------------------------------:|:--------------------------------------------------:|
-| $38.1$ | $38.1-38.8=-0.7$ | $(-0.7)^2=0.49$ |
-| $38.3$ | $38.3-38.8=-0.5$ | $(-0.5)^2=0.25$ |
-| $38.4$ | $38.4-38.8=-0.4$ | $(-0.4)^2=0.16$ |
-| $39.5$ | $39.5-38.8= 0.7$ | $(0.7)^2=0.49$ |
-| $39.7$ | $39.7-38.8= 0.9$ | $(0.9)^2=0.81$ |
-| $\bar x = 38.8$ | Sum $=0$ | <span style="background-color:yellow;">**Sum $=2.20$**</span> |
+| $38.1$ | $38.1-38.8 = -0.7$ | $(-0.7)^2 = 0.49$ |
+| $38.3$ | $38.3-38.8 = -0.5$ | $(-0.5)^2 = 0.25$ |
+| $38.4$ | $38.4-38.8 = -0.4$ | $(-0.4)^2 = 0.16$ |
+| $39.5$ | $39.5-38.8 = 0.7$ | $(0.7)^2 = 0.49$ |
+| $39.7$ | $39.7-38.8 = 0.9$ | $(0.9)^2 = 0.81$ |
+| $\bar x = 38.8$ | Sum $ = 0$ | <span style = "background-color:yellow;">**Sum $ = 2.20$**</span> |
 
 The sum of the squared deviations is 2.20.
 
 <br>
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 11. Suppose that the researchers had collected body temperature data on 500 bird flu patients instead of 5.  What would happen to the sum of the squared deviations, if the distribution of the data is the same for the 500 patients as the 5 patients?
 
-<a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q11" style="display:none;">
+<a href = "javascript:showhide('Q11')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q11" style = "display:none;">
 * We would expect the sum of the squared deviations to be a lot larger than it is now.  We would be adding squared deviations for 500 observations instead of 5. So, the sum of the squared deviations would be about 100 times larger.  
 * Remember, we are trying to find a measure of the spread of a data set.  Our final measure should not be dependent on the sample size.   We need to do something else.
 </div>
@@ -384,25 +384,25 @@ The sum of the squared deviations is 2.20.
 
 12. What could we do to make sure the sample size does not inflate our estimate of the spread of the data?
 
-<a href="javascript:showhide('Q12a')"><span style="font-size:8pt;">Option #1: Divide by n</span></a>
-<div id="Q12a" style="display:none;">
+<a href = "javascript:showhide('Q12a')"><span style = "font-size:8pt;">Option #1: Divide by n</span></a>
+<div id = "Q12a" style = "display:none;">
 * Option #1:
 
 * This is an excellent suggestion.  There are good reasons to choose this option.  Unfortunately, dividing by $n$ to estimate the spread of data gives estimates that are too low, on average. There is a surprising, yet simple fix: divide by $n-1$ instead of $n$.  Please examine Option #2.
 </div>
 <br>
 
-<a href="javascript:showhide('Q12b')"><span style="font-size:8pt;">Option #2: Divide by n-1</span></a>
-<div id="Q12b" style="display:none;">
+<a href = "javascript:showhide('Q12b')"><span style = "font-size:8pt;">Option #2: Divide by n-1</span></a>
+<div id = "Q12b" style = "display:none;">
 * Option #2:
 
 * This seems very odd, but it avoids the problem of underestimating the spread in the data, a problem that dividing by $n$ has. Ultimately, dividing by $n-1$ will lead us to the standard deviation you computed using
-<!--{{Course_Filter|course=B C|content=SPSS}}-->
+<!--{{Course_Filter|course = B C|content = SPSS}}-->
 earlier. In Step 5, you will divide the sum of the squared deviations by $n-1$.  Here is how your table should look so far.
 
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Observation $x$</p></th>
 <th><p>Deviation<br />
 from the Mean<br />
@@ -413,39 +413,39 @@ $\left(x-\bar x\right)^2$</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="even">
+<tr class = "even">
 <td><p>$38.1$</p></td>
-<td><p>$38.1-38.8=-0.7$</p></td>
-<td><p>$(-0.7)^2=0.49$</p></td>
+<td><p>$38.1-38.8 = -0.7$</p></td>
+<td><p>$(-0.7)^2 = 0.49$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$38.3$</p></td>
-<td><p>$38.3-38.8=-0.5$</p></td>
-<td><p>$(-0.5)^2=0.25$</p></td>
+<td><p>$38.3-38.8 = -0.5$</p></td>
+<td><p>$(-0.5)^2 = 0.25$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$38.4$</p></td>
-<td><p>$38.4-38.8=-0.4$</p></td>
-<td><p>$(-0.4)^2=0.16$</p></td>
+<td><p>$38.4-38.8 = -0.4$</p></td>
+<td><p>$(-0.4)^2 = 0.16$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$39.5$</p></td>
-<td><p>$39.5-38.8=0.7$</p></td>
-<td><p>$(0.7)^2=0.49$</p></td>
+<td><p>$39.5-38.8 = 0.7$</p></td>
+<td><p>$(0.7)^2 = 0.49$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$39.7$</p></td>
-<td><p>$39.7-38.8=0.9$</p></td>
-<td><p>$(0.9)^2=0.81$</p></td>
+<td><p>$39.7-38.8 = 0.9$</p></td>
+<td><p>$(0.9)^2 = 0.81$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$\bar x = 38.8$</p></td>
-<td><p>Sum $=0$</p></td>
-<td><p>Sum $=2.20$</p></td>
+<td><p>Sum $ = 0$</p></td>
+<td><p>Sum $ = 2.20$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td></td>
-<td><p>$\displaystyle{s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=0.55}$</p></td>
+<td><p>$\displaystyle{s^2 = \frac{sum}{n-1} = \frac{2.20}{5-1} = 0.55}$</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -453,8 +453,8 @@ $\left(x-\bar x\right)^2$</p></th>
 </div>
 <br>
 
-<a href="javascript:showhide('Q12c')"><span style="font-size:8pt;">Option #3: Neither of these</span></a>
-<div id="Q12c" style="display:none;">
+<a href = "javascript:showhide('Q12c')"><span style = "font-size:8pt;">Option #3: Neither of these</span></a>
+<div id = "Q12c" style = "display:none;">
 * Option #3:
 
 * You probably have an ingenious idea.  Nevertheless, please choose a different option.
@@ -467,13 +467,13 @@ $\left(x-\bar x\right)^2$</p></th>
 
 **Step 5**: Take the value of the sum of the squared deviations that was computed in **Step 4** and divide it by $n - 1$. The value of $n$ is the sample size (the number of observed data values). The value of $n-1$ is called the degrees of freedom.
 
-The sum of the squared deviations computed in **Step 4** was 2.20. Dividing $2.20$ by the number of observed data points ($5$) minus $1$, $n-1=5-1=4$, we get the value of the sample variance, $s^2$:
+The sum of the squared deviations computed in **Step 4** was 2.20. Dividing $2.20$ by the number of observed data points ($5$) minus $1$, $n-1 = 5-1 = 4$, we get the value of the sample variance, $s^2$:
 
 $$
-  \underbrace{s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=\frac{2.20}{4} = 0.55}_\text{sample variance}
+  \underbrace{s^2 = \frac{sum}{n-1} = \frac{2.20}{5-1} = \frac{2.20}{4} = 0.55}_\text{sample variance}
 $$
 
-The number computed in Step 5 is called the <span id="Sample Variance">**sample variance**</span>. It is a measure of the spread in a data set. It has very nice theoretical properties, but is not very useful for interpretation or an intuitive undstanding of the data. While the variance plays an important role in statistics, it is not a measurement that will be used very often in this introductory course.  The sample variance is denoted by the symbol $s^2$.  
+The number computed in Step 5 is called the <span id = "Sample Variance">**sample variance**</span>. It is a measure of the spread in a data set. It has very nice theoretical properties, but is not very useful for interpretation or an intuitive undstanding of the data. While the variance plays an important role in statistics, it is not a measurement that will be used very often in this introductory course.  The sample variance is denoted by the symbol $s^2$.  
 
 It can be shown that the sample variance is an unbiased estimator of the true population variance (which is denoted $\sigma^2$.) This means that the sample variance can be considered a reasonable estimator of the population variance.  If the sample size is large, this estimator tends to be very good.
 
@@ -481,12 +481,12 @@ It can be shown that the sample variance is an unbiased estimator of the true po
 <br>
 
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 13. The temperature data for the bird flu patients are in degrees Centigrade. What are the units of the variance?
 
-<a href="javascript:showhide('Q13')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q13" style="display:none;">
+<a href = "javascript:showhide('Q13')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q13" style = "display:none;">
 * The data in Column 1 of the table is in degrees Centigrade.  The mean also is in degrees Centigrade.
 * To get the numbers in Column 2, we subtracted the mean from each of the values in Column 1.
 * We squared the values in Column 2 to get Column 3. The units for this column are degrees Centigrade squared.  
@@ -497,8 +497,8 @@ It can be shown that the sample variance is an unbiased estimator of the true po
 
 14. What operation can we do to the variance to get a quantity with units degrees Centigrade?
 
-<a href="javascript:showhide('Q14')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q14" style="display:none;">
+<a href = "javascript:showhide('Q14')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q14" style = "display:none;">
 * If we take the square root of the variance, we get a quantity that has units of degrees Centigrade. This quantity is the standard deviation.
 </div>
 &nbsp;
@@ -515,23 +515,23 @@ The standard deviation has the same units as the original observations.  We use 
 
 The sample standard deviation ($s$) is an estimate of the true population standard deviation ($\sigma$).
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 15. What is the sample standard deviation, $s$, of the temperatures of the five patients with relatively uncomplicated cases of the bird flu?
 
-<a href="javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q15" style="display:none;">
-* The sum of the squared deviations is the sum of the values in Column 3.  This sum equals 2.20. We divide the sum of Column 3 ($2.20$) by $n-1=5-1=4$ to get the sample variance, $s^2$:
+<a href = "javascript:showhide('Q15')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q15" style = "display:none;">
+* The sum of the squared deviations is the sum of the values in Column 3.  This sum equals 2.20. We divide the sum of Column 3 ($2.20$) by $n-1 = 5-1 = 4$ to get the sample variance, $s^2$:
 
 <center>
-$s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=0.55$
+$s^2 = \frac{sum}{n-1} = \frac{2.20}{5-1} = 0.55$
 </center>
 
 * This is the sample variance.  
 
 <table>
 <thead>
-<tr class="header">
+<tr class = "header">
 <th><p>Observation $x$</p></th>
 <th><p>Deviation<br />
 from the Mean<br />
@@ -542,44 +542,44 @@ $\left(x-\bar x\right)^2$</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="even">
+<tr class = "even">
 <td><p>$38.1$</p></td>
-<td><p>$38.1-38.8=-0.7$</p></td>
-<td><p>$(-0.7)^2=0.49$</p></td>
+<td><p>$38.1-38.8 = -0.7$</p></td>
+<td><p>$(-0.7)^2 = 0.49$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$38.3$</p></td>
-<td><p>$38.3-38.8=-0.5$</p></td>
-<td><p>$(-0.5)^2=0.25$</p></td>
+<td><p>$38.3-38.8 = -0.5$</p></td>
+<td><p>$(-0.5)^2 = 0.25$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$38.4$</p></td>
-<td><p>$38.4-38.8=-0.4$</p></td>
-<td><p>$(-0.4)^2=0.16$</p></td>
+<td><p>$38.4-38.8 = -0.4$</p></td>
+<td><p>$(-0.4)^2 = 0.16$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$39.5$</p></td>
-<td><p>$39.5-38.8=0.7$</p></td>
-<td><p>$(0.7)^2=0.49$</p></td>
+<td><p>$39.5-38.8 = 0.7$</p></td>
+<td><p>$(0.7)^2 = 0.49$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>$39.7$</p></td>
-<td><p>$39.7-38.8=0.9$</p></td>
-<td><p>$(0.9)^2=0.81$</p></td>
+<td><p>$39.7-38.8 = 0.9$</p></td>
+<td><p>$(0.9)^2 = 0.81$</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>$\bar x = 38.8$</p></td>
-<td><p>Sum $=0$</p></td>
-<td><p>Sum $=2.20$</p></td>
+<td><p>Sum $ = 0$</p></td>
+<td><p>Sum $ = 2.20$</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>Variance:</p></td>
-<td><p>$\displaystyle{s^2=\frac{sum}{n-1}=\frac{2.20}{5-1}=0.55}$</p></td>
+<td><p>$\displaystyle{s^2 = \frac{sum}{n-1} = \frac{2.20}{5-1} = 0.55}$</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>Standard Deviation:</p></td>
-<td><p>$\displaystyle{s = \sqrt{s^2}=\sqrt{0.55} \approx 0.742}$</p></td>
+<td><p>$\displaystyle{s = \sqrt{s^2} = \sqrt{0.55} \approx 0.742}$</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -595,7 +595,7 @@ $\left(x-\bar x\right)^2$</p></th>
 
 **Summary**
 
-<div class="Emphasis">
+<div class = "Emphasis">
 &nbsp;&nbsp;**Standard Deviation**
 
 &nbsp;&nbsp;The **standard deviation** is one number that describes the spread in a set of data.  If the data points are close together the standard deviation will be smaller than if they are spread out.
@@ -616,18 +616,18 @@ The variance is the square of the standard deviation.  The sample variance is de
 
 ### R Instructions for Computing the Sample Variance
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 
-<a href="javascript:showhide('r_instr_4_var')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_var" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_var')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_var" style = "display:none;">
 
 <br>
 &nbsp;&nbsp;**To calculate the sample variance in R, follow these steps:**
 &nbsp;&nbsp;
 <br />
 
-<div style="padding-left:20px;">
+<div style = "padding-left:20px;">
 
 **Step 1.** Either [read in a data set](RHelp.html#read-in-data), or enter the data manually using the assignment operator `<-` and combine function `c(...)`. Since the body temperature data for the relatively uncomplicated cases is a small data set, it is easiest to type it in directly like this:
 
@@ -643,7 +643,7 @@ var(bodytemp_uncomp)
 
 The value showing above is the sample variance of the body temperature data for the relatively uncomplicated cases. In RStudio, it would look like this:
 
-<img src="./Images/rstudio_bodytemp_uncomp_var.png" width="500">
+<img src = "./Images/rstudio_bodytemp_uncomp_var.png" width = "500">
 
 </div> <!-- R instructions for variance -->
 </div>
@@ -662,16 +662,16 @@ The variance has excellent theoretical properties.  It is an unbiased estimator 
 
 Because we take the square root of the variance to get the standard deviation, the standard deviation is in the same units as the original data.  This is a great advantage, and is one of the reasons that the standard deviation is commonly used to describe the spread of data.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 Enter the patient temperature data for the severe cases of bird flu into R. Then use R to calculate the numerical summaries you have learned so far. As a reminder, the temperatures of patients with a severe case of bird flu are:
 
 <center> 39.1, 39.5, 38.9, 39.2, 39.9, 39.7, 39 </center>
 
 16. What is the mean, median, standard deviation and variance of the sample?
 
-<a href="javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q16" style="display:none;">
+<a href = "javascript:showhide('Q16')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q16" style = "display:none;">
 
 ```{r, label = bird_flu}
 birdflu_severe <- c( 39.1, 39.5, 38.9, 39.2, 39.9, 39.7, 39)
@@ -687,23 +687,23 @@ For the next two questions, consider the histograms below comparing weight (in k
 
 <br>
 
-<div style="padding-left:35px;">
+<div style = "padding-left:35px;">
 Weight of Men Compared to Weight of Seals<br>
-<img src="./Images/DiveSealsVsMenWeights-Hist.png" width=80%>
+<img src = "./Images/DiveSealsVsMenWeights-Hist.png" width = 80%>
 </div>
 
 17. Based on the histograms, who has a greater sample mean weight, men or elephant seals?
 
-<a href="javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q17" style="display:none;">
+<a href = "javascript:showhide('Q17')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q17" style = "display:none;">
 * The mean is a measure of the center of a distribution. The mean weight of the men is less than the mean weight of the seals. We can see this because the bulk of the data in the histogram for the men’s weight is to the left of the seals'. The center of the distribution of elephant seals is about 195 kg. The center of the distribution of men's weight is located below 100 kg on the number line.
 </div>
 <br>
 
 18. Based on the histograms, do the weights of men or elephant seals have a larger sample standard deviation?
 
-<a href="javascript:showhide('Q18')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q18" style="display:none;">
+<a href = "javascript:showhide('Q18')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q18" style = "display:none;">
 
 * Standard deviation is a measure of spread. You will note that the weights of the seals are more spread out than the weights of the men. Therefore, we conclude that the sample standard deviation of elephant seal weights is larger than the sample standard deviation of men's weights.
 </div>
@@ -730,8 +730,8 @@ In each case, the sample statistic estimates the population parameter.
 
 **Optional Reading: Formulas for $s$ and $s^2$ (Hidden)**
 
-<a href="javascript:showhide('s2')"><span style="font-size:8pt;">Click Here if you love Math</span></a>
-<div id="s2" style="display:none;">
+<a href = "javascript:showhide('s2')"><span style = "font-size:8pt;">Click Here if you love Math</span></a>
+<div id = "s2" style = "display:none;">
 
 **Formulas**
 
@@ -740,13 +740,13 @@ For those who like formulas, the equation for the sample variance and sample sta
 
 **Sample variance**:
 
-$$\displaystyle{ s^2=\frac{\sum\limits_{i=1}^n (x_i-\bar x)^2}{n-1} }$$
+$$\displaystyle{ s^2 = \frac{\sum\limits_{i = 1}^n (x_i-\bar x)^2}{n-1} }$$
 
 **Sample standard deviation**:
 
-$$\displaystyle{ s=\sqrt{s^2}=\sqrt{\frac{\sum\limits_{i=1}^n (x_i-\bar x)^2}{n-1}} }$$
+$$\displaystyle{ s = \sqrt{s^2} = \sqrt{\frac{\sum\limits_{i = 1}^n (x_i-\bar x)^2}{n-1}} }$$
 
-where $x_i$ is the $i^{th}$ observed data value, and  $i=1, 2, \ldots, n$.
+where $x_i$ is the $i^{th}$ observed data value, and  $i = 1, 2, \ldots, n$.
 
 Unless otherwise specified, we will always use R to find the sample variance and sample mean.
 
@@ -767,27 +767,27 @@ Recall the five steps of the Statistical Process (and the mnemonic "Daniel Can D
 <center>
 <table>
 <tbody>
-<tr class="odd">
+<tr class = "odd">
 <td><p>Step 1:</p></td>
 <td><p>**D**aniel</p></td>
 <td><p>**D**esign the study</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>Step 2:</p></td>
 <td><p>**C**an</p></td>
 <td><p>**C**ollect data</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>Step 3:</p></td>
 <td><p>**D**iscern</p></td>
 <td><p>**D**escribe the data</p></td>
 </tr>
-<tr class="even">
+<tr class = "even">
 <td><p>Step 4:</p></td>
 <td><p>**M**ore</p></td>
 <td><p>**M**ake inferences</p></td>
 </tr>
-<tr class="odd">
+<tr class = "odd">
 <td><p>Step 5:</p></td>
 <td><p>**T**ruth</p></td>
 <td><p>**T**ake action</p></td>
@@ -795,13 +795,13 @@ Recall the five steps of the Statistical Process (and the mnemonic "Daniel Can D
 </tbody>
 </table>
 
-<img src="./Images/StepsAll.png">
+<img src = "./Images/StepsAll.png">
 </center>
 
 **Step 3** of this process is "**Describe the data**." You have already learned about the mean, median, mode, standard deviation, variance and histograms. These can be good ways to describe the data. The following information on percentiles, quartiles, 5-number summaries, and boxplots will help you learn other common ways to describe data, especially if the data are skewed or contain outliers.
 
 
-<img src="./Images/Step3.png">
+<img src = "./Images/Step3.png">
 
 For symmetric, bell-shaped data, the mean and standard deviation provide a good description of the center and shape of the distribution.  The mean and standard deviation are not sufficient to describe a distribution that is skewed or has outliers. An **outlier** is any observation that is very far from the others.  The mean is pulled in the direction of the outlier.  Also, the standard deviation is inflated by points that are very far from the mean.
 
@@ -813,12 +813,12 @@ Now, you have probably had some experience with percentiles in the past especial
 
 Imagine students in a classroom on campus lining up in a line from shortest to tallest.  The students are organized with the shortest student on the left and the tallest student on the right.
 
-<div class="QuestionsHeading">Answer the following question:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following question:</div>
+<div class = "Questions">
 19. If there are 100 students in line, and we draw a line on the floor between each student, how many lines are needed to separate the 100 students?
 
-<a href="javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q19" style="display:none;">
+<a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q19" style = "display:none;">
 * In order to separate the 100 students, 99 lines would have to be drawn between them.
 </div>
 &nbsp;
@@ -831,12 +831,12 @@ So, if there were 100 students in a line from shortest to tallest, the height of
 
 **Quartiles** are special percentiles. The word quartile is from the Latin *quartus*, which means "fourth." The quartiles divide the data into four equal groups. The quartiles correspond to specific percentiles.  The first quartile, Q<sub>1</sub>, is the 25<sup>th</sup> percentile. The second quartile, Q<sub>2</sub>, is the same as the 50<sup>th</sup> percentile or the median.  The third quartile, Q<sub>3</sub>, is equivalent to the 75<sup>th</sup> percentile.
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 20. How many quartiles are there?
 
-<a href="javascript:showhide('Q20')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q20" style="display:none;">
+<a href = "javascript:showhide('Q20')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q20" style = "display:none;">
 * There are 3 quartiles!  To divide the data into 100 equal groups, we needed 99 percentiles.  To divide the data into 4 equal groups, we need 3 quartiles.
 </div>
 &nbsp;
@@ -849,11 +849,11 @@ Percentiles can be used to describe the center and spread of any distribution an
 
 ### R Instructions for Computing Percentiles
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 
-<a href="javascript:showhide('r_instr_4_percentiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_percentiles" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_percentiles')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_percentiles" style = "display:none;">
 
 <br>
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
@@ -861,7 +861,7 @@ Percentiles can be used to describe the center and spread of any distribution an
 
 - Read in the dataset [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx). If needed, you can review the instructions on reading in data from [Lesson 2: Reading Data into R](Lesson02.html#Reading-Data-into-R).
 
-```{r, include=FALSE, label = w_s_w_p_data}
+```{r, include = FALSE, label = w_s_w_p_data}
 #Read the data into this document so that we can use it here as well.
 surgery_lawsuits <- read_excel("./data/surgery_lawsuits.xlsx")
 ```
@@ -876,7 +876,7 @@ quantile(surgery_lawsuits$wrong_site, 0.25)
 
 Note: as soon as you type in the name of the data set, `surgery_lawsuits`, and then add the selection operator `$` (a dollar sign) to the end of the data set, you are able to access any column from that dataset. (Think of it as "buying an item" from a dataset with "your money: `$`.")
 
-<img src="./Images/rstudio_selection_operator.png" width="500">
+<img src = "./Images/rstudio_selection_operator.png" width = "500">
 
 </div> <!-- R instructions for percentiles -->
 
@@ -896,14 +896,14 @@ quantile(surgery_lawsuits$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.9
 
 <br>
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 21. What is the 13<sup>th</sup> percentile of the wrong site data?
 
-<a href="javascript:showhide('Q21')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q21" style="display:none;">
+<a href = "javascript:showhide('Q21')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q21" style = "display:none;">
 * $6343.40
-<!--::{{Course_Filter|course=B C|content=?5946.72}}-->
+<!--::{{Course_Filter|course = B C|content = ?5946.72}}-->
 </div>
 <br>
 
@@ -913,50 +913,50 @@ quantile(surgery_lawsuits$wrong_site, c(0.01, 0.10, 0.2, 0.4, 0.6, 0.8, 0.9, 0.9
 * c. In 13% of the wrong-site lawsuits, hospitals had to pay $6343.40 or less.
 * d. For 13% of the wrong-site lawsuits, the hospitals had to pay $6343.40 to the patient.
 
-<a href="javascript:showhide('Q22')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q22" style="display:none;">
+<a href = "javascript:showhide('Q22')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q22" style = "display:none;">
 * Correct Answer: C
 </div>
 <br>
 
 23. Find P<sub>90</sub>.
 
-<a href="javascript:showhide('Q23')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q23" style="display:none;">
+<a href = "javascript:showhide('Q23')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q23" style = "display:none;">
 * $149,963.00
-<!--::{{Course_Filter|course=B C|content=?149,992.60}}-->
+<!--::{{Course_Filter|course = B C|content = ?149,992.60}}-->
 </div>
 <br>
 
 24. The quartiles divide a sorted list of data into four equal groups. So, each group contains 25% of the data. The first quartile is the value that is greater than or equal to 25% of the data.  What is another name for this number?
 
-<a href="javascript:showhide('Q24')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q24" style="display:none;">
+<a href = "javascript:showhide('Q24')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q24" style = "display:none;">
 * The 25th percentile.
 </div>
 <br>
 
 25. What is the value of the third quartile?
 
-<a href="javascript:showhide('Q25')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q25" style="display:none;">
+<a href = "javascript:showhide('Q25')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q25" style = "display:none;">
 * $124,280.00
-<!--::{{Course_Filter|course=B C|content=?124,513.00}}-->
+<!--::{{Course_Filter|course = B C|content = ?124,513.00}}-->
 </div>
 <br>
 
 26. Half of the wrong-site lawsuits judgments were less than or equal to what value?
 
-<a href="javascript:showhide('Q26')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q26" style="display:none;">
+<a href = "javascript:showhide('Q26')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q26" style = "display:none;">
 * $68,552.00
 </div>
 <br>
 
 27. The median is the middle observation in a sorted list of data. What percentile is always equal to the median?
 
-<a href="javascript:showhide('Q27')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q27" style="display:none;">
+<a href = "javascript:showhide('Q27')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q27" style = "display:none;">
 * The 50th percentile
 </div>
 &nbsp;
@@ -971,11 +971,11 @@ Statistical packages can give different results for some computations.  This is 
 
 ### R Instructions for Computing Quartiles and the Five-number Summary
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
 
-<a href="javascript:showhide('r_instr_4_quartiles')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_quartiles" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_quartiles')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_quartiles" style = "display:none;">
 
 <br>
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
@@ -996,15 +996,15 @@ summary(surgery_lawsuits$wrong_site)
 <br>
 
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 28. Give the five-number summary for the Wrong Site data. (Remember that the mean is not part of the five-number summary.)
 
-<a href="javascript:showhide('Q28')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q28" style="display:none;">
+<a href = "javascript:showhide('Q28')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q28" style = "display:none;">
 <center>
 $$\displaystyle{\$0,~~\$29,496;~~\$68,552;~~\$124,280;~~\$780,575}$$
-<!--::{{Course_Filter|course=B C|content=$ \displaystyle{\$0,~~\$29,379,~~\$68,552,~~\$124,513,~~\$780,575} $}}-->
+<!--::{{Course_Filter|course = B C|content = $ \displaystyle{\$0,~~\$29,379,~~\$68,552,~~\$124,513,~~\$780,575} $}}-->
 </center>
 </div>
 &nbsp;
@@ -1012,7 +1012,7 @@ $$\displaystyle{\$0,~~\$29,496;~~\$68,552;~~\$124,280;~~\$780,575}$$
 <br>
 
 <br>
-<div class="message Caution">Some students mistakenly include the mean in the five-number summary.  The third value in the five-number summary is the median.</div>
+<div class = "message Caution">Some students mistakenly include the mean in the five-number summary.  The third value in the five-number summary is the median.</div>
 <br>
 <br>
 
@@ -1025,47 +1025,47 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **Step 1:** To draw a boxplot, start with a number line.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_1.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_1.jpg">
 
 
 
 **Step 2:** Draw a vertical line segment above each of the quartiles.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_2.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_2.jpg">
 
 
 **Step 3:** Connect the tops and bottoms of the line segments, making a box.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_3.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_3.jpg">
 
 
 **Step 4:** Make a smaller mark above the values corresponding to the minimum and the maximum.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_4.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_4.jpg">
 
 
 **Step 5:** Draw a line from the left side of the box to the minimum, and draw another line from the right side of the box the maximum.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_5.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_5.jpg">
 
 **Step 6:** These last two lines look like whiskers, so this is sometimes called a box-and-whisker plot.
 
 
-<img src="./Images/Lesson_2_Activity_6_BoxPlot_6.jpg">
+<img src = "./Images/Lesson_2_Activity_6_BoxPlot_6.jpg">
 
 <br>
 
 ### R Instructions for Creating Boxplots
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_4_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_boxplots" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_boxplots')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_boxplots" style = "display:none;">
 
 <br>
 **To create a boxplot in R, do the following**
@@ -1075,27 +1075,27 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 
-```{r, fig.height=3, label = w_s_w_p_boxplot1}
-boxplot(surgery_lawsuits$wrong_site, horizontal=TRUE)
+```{r, fig.height = 3, label = w_s_w_p_boxplot1}
+boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)
 ```
 
 <!-- SIMPLIFY INSTRUCTIONS FOR BOXPLOTS ---------------------
 
 If you prefer to not have the x-axis be in scientific notation, you can divide the numbers by 1,000 and change your axis label accordingly.
 
-```{r, fig.height=3, label=w_s_w_p_boxplot_1000_x}
-boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars")
+```{r, fig.height = 3, label = w_s_w_p_boxplot_1000_x}
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal = TRUE, xlab = "Cost in Thousands of Dollars")
 ```
 
-Also, you can give color to the graph using `col="some color name"`.
+Also, you can give color to the graph using `col = "some color name"`.
 
-```{r, fig.height=3, label=w_s_w_p_boxplot_1000_again_x}
-boxplot(surgery_lawsuits$wrong_site/1000, horizontal=TRUE, xlab="Cost in Thousands of Dollars", col="darkolivegreen4")
+```{r, fig.height = 3, label = w_s_w_p_boxplot_1000_again_x}
+boxplot(surgery_lawsuits$wrong_site/1000, horizontal = TRUE, xlab = "Cost in Thousands of Dollars", col = "darkolivegreen4")
 ```
 
 -->
 
-Note that the default for `boxplot(...)` is to draw the boxplot vertically. That is why we used the command `horizontal=TRUE` to force the graph to draw the boxplot sideways. If we remove the `horizontal=TRUE` statement, we get a vertical boxplot instead It really doesn't matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.
+Note that the default for `boxplot(...)` is to draw the boxplot vertically. That is why we used the command `horizontal = TRUE` to force the graph to draw the boxplot sideways. If we remove the `horizontal = TRUE` statement, we get a vertical boxplot instead It really doesn't matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.
 
 ```{r}
 boxplot(surgery_lawsuits$wrong_site)
@@ -1106,8 +1106,8 @@ boxplot(surgery_lawsuits$wrong_site)
 </div>
 <br>
 
-<div class="QuestionsHeading">Answer the following questions:</div>
-<div class="Questions">
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
 29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx). What is the shape of the wrong-patient data?
 
 a. Skewed left
@@ -1117,12 +1117,12 @@ d. Multi-modal
 e. Uniform
 
 
-<a href="javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q29" style="display:none;">
+<a href = "javascript:showhide('Q29')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q29" style = "display:none;">
 To create the histogram, [read the data](RHelp.html#reading-in-data) into RStudio. Then, use the `hist(...)` function to create a histogram. If you have forgotten how to do this, review it in [Lesson 3, creating a histogram](Lesson03.html#r-Instructions-for-histograms).
 
-```{r, label=w_s_w_p_hist}
-hist(surgery_lawsuits$wrong_patient, col="steelblue3", main="Costs of Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+```{r, label = w_s_w_p_hist}
+hist(surgery_lawsuits$wrong_patient, col = "steelblue3", main = "Costs of Lawsuites for Wrong Patient Operations", xlab = "Cost in Dollars")
 ```
 
 From the histogram we clearly see most values bunched near the left and gradually fewer values as we move to the right along the number line, so the correct answer is 'c. Skewed right'.
@@ -1132,12 +1132,12 @@ From the histogram we clearly see most values bunched near the left and graduall
 
 30. Create a boxplot of the **wrong-patient** lawsuit data.
 
-<a href="javascript:showhide('Q30')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q30" style="display:none;">
+<a href = "javascript:showhide('Q30')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q30" style = "display:none;">
 
 
-```{r, fig.height=3, label=w_s_w_p_boxplot_orange}
-boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="tan3", main="Lawsuites for Wrong Patient Operations", xlab="Cost in Dollars")
+```{r, fig.height = 3, label = w_s_w_p_boxplot_orange}
+boxplot(surgery_lawsuits$wrong_patient, horizontal = TRUE, col = "tan3", main = "Lawsuites for Wrong Patient Operations", xlab = "Cost in Dollars")
 ```
 
 </div>
@@ -1147,17 +1147,17 @@ boxplot(surgery_lawsuits$wrong_patient, horizontal=TRUE, col="tan3", main="Lawsu
 
 Side-by-side boxplots are a powerful way to compare data from different samples visually. For example, we may be interested in comparing the results of wrong-site lawsuits and wrong-patient lawsuits.
 
-```{r, echo=FALSE, label=w_s_w_p_boxplot_1000000}
-boxplot(surgery_lawsuits$wrong_site/1000000, surgery_lawsuits$wrong_patient/1000000, names=c("Wrong Site", "Wrong Patient"), col=c("steelblue3","brown3"), main="Cost to Hospital by Lawsuit Type", ylab="Cost in Millions of Dollars", las=1)
+```{r, echo = FALSE, label = w_s_w_p_boxplot_1000000}
+boxplot(surgery_lawsuits$wrong_site/1000000, surgery_lawsuits$wrong_patient/1000000, names = c("Wrong Site", "Wrong Patient"), col = c("steelblue3","brown3"), main = "Cost to Hospital by Lawsuit Type", ylab = "Cost in Millions of Dollars", las = 1)
 ```
 
 In the plot we can quickly see that a wrong-patient lawsuit resulted in the largest cost to the hospital, more than $1.2 million. However, in general, wrong-patient lawsuits tend to result in a lower cost to the hospital than wrong-site lawsuits.
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_4_sidebyside_boxplots')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_sidebyside_boxplots" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_sidebyside_boxplots')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_sidebyside_boxplots" style = "display:none;">
 
 <br>
 **To create side-by-side boxplots in R, do the following**
@@ -1167,20 +1167,20 @@ In the plot we can quickly see that a wrong-patient lawsuit resulted in the larg
 
 - Use the `boxplot(...)` function with the first column listed, followed by a comma, then followed by the next column of data.
 
-```{r, label=w_s_w_p_boxplot_two}
+```{r, label = w_s_w_p_boxplot_two}
 boxplot(surgery_lawsuits$wrong_site, surgery_lawsuits$wrong_patient)
 ```
 
-To make the graph look nicer, we can use the `names=c(...)` command to give a name to each box in the plot. Then we can also use `col=c(...)` to give colors to each box. Then we can include a main title with `main="..."`, a y-axis label with `ylab="..."`, rotate the numbers on the y-axis with `las=1`, and change everything to be in "millions of dollars" by dividing each column by 1000000. The result looks like this.
+To make the graph look nicer, we can use the `names = c(...)` command to give a name to each box in the plot. Then we can also use `col = c(...)` to give colors to each box. Then we can include a main title with `main = "..."`, a y-axis label with `ylab = "..."`, rotate the numbers on the y-axis with `las = 1`, and change everything to be in "millions of dollars" by dividing each column by 1000000. The result looks like this.
 
-```{r, label=w_s_w_p_boxplot_two_fancy}
+```{r, label = w_s_w_p_boxplot_two_fancy}
 boxplot(surgery_lawsuits$wrong_site/1000000, 
        surgery_lawsuits$wrong_patient/1000000, 
-        names=c("Wrong Site", "Wrong Patient"), 
-        col=c("steelblue3","brown3"), 
-        main="Cost to Hospital by Lawsuit Type", 
-        ylab="Cost in Millions of Dollars", 
-        las=1)
+        names = c("Wrong Site", "Wrong Patient"), 
+        col = c("steelblue3","brown3"), 
+        main = "Cost to Hospital by Lawsuit Type", 
+        ylab = "Cost in Millions of Dollars", 
+        las = 1)
 ```
 
 </div> <!-- R instructions for side-by-side boxplots -->
@@ -1195,40 +1195,40 @@ boxplot(surgery_lawsuits$wrong_site/1000000,
 
 ### R Instructions for *NA* or Missing Values 
 
-Sometimes the data you are working with has missing values in it. These are recorded in R as `NA` values. Missing values can cause problems with calculations, but usually the `na.rm=TRUE` option can be used to remove the missing values and fix the calculations.
+Sometimes the data you are working with has missing values in it. These are recorded in R as `NA` values. Missing values can cause problems with calculations, but usually the `na.rm = TRUE` option can be used to remove the missing values and fix the calculations.
 
-<div class="SoftwareHeading">R Instructions</div>
-<div class="Software" style="padding:10px;">
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software" style = "padding:10px;">
 
-<a href="javascript:showhide('r_instr_4_missing')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
-<div id="r_instr_4_missing" style="display:none;">
+<a href = "javascript:showhide('r_instr_4_missing')"><span style = "font-size:8pt;">Show/Hide R Instructions</span></a>
+<div id = "r_instr_4_missing" style = "display:none;">
 
 <br>
 **Dealing with NA or missing values:**
 <br/>
 
-Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the surgery_lawsuits data) then you need to use the `na.rm=TRUE` option to remove them, like this:
+Caution: if the data you are using has `NA` or missing values in it (like the "wrong-patient" column of the surgery_lawsuits data) then you need to use the `na.rm = TRUE` option to remove them, like this:
 
-<img src="./Images/rstudio_NA.png" width="500">
+<img src = "./Images/rstudio_NA.png" width = "500">
 
 
 
-```{r, comment=NA}
-mean(surgery_lawsuits$wrong_patient, na.rm=TRUE)
-median(surgery_lawsuits$wrong_patient, na.rm=TRUE)
-sd(surgery_lawsuits$wrong_patient, na.rm=TRUE)
-quantile(surgery_lawsuits$wrong_patient, 0.25, na.rm=TRUE)
+```{r, comment = NA}
+mean(surgery_lawsuits$wrong_patient, na.rm = TRUE)
+median(surgery_lawsuits$wrong_patient, na.rm = TRUE)
+sd(surgery_lawsuits$wrong_patient, na.rm = TRUE)
+quantile(surgery_lawsuits$wrong_patient, 0.25, na.rm = TRUE)
 ```
 
-If you leave off the `na.rm=TRUE`, you will get an `NA` answer and sometimes a warning message:
+If you leave off the `na.rm = TRUE`, you will get an `NA` answer and sometimes a warning message:
 
-<span style="color:red;">Error in ... missing values and NaN's not allowed if 'na.rm' is FALSE</span>
+<span style = "color:red;">Error in ... missing values and NaN's not allowed if 'na.rm' is FALSE</span>
 
-So be sure to use `na.rm=TRUE` whenever that happens. Happily, if the data has no missing values, then we don't have to worry about this `na.rm=TRUE` option.
+So be sure to use `na.rm = TRUE` whenever that happens. Happily, if the data has no missing values, then we don't have to worry about this `na.rm = TRUE` option.
 
 If you want to know how many missing values there were in the data, use `summary(...)`, like this:
 
-```{r, comment=NA}
+```{r, comment = NA}
 summary(surgery_lawsuits$wrong_patient)
 ```
 
@@ -1254,8 +1254,8 @@ In this case, there were 235 "NA's" or missing values in the wrong_patient data.
 
 ## Summary
 
-<div class="SummaryHeading">Remember...</div>
-<div class="Summary">
+<div class = "SummaryHeading">Remember...</div>
+<div class = "Summary">
 
 - The **standard deviation** is a number that describes how spread out the data are. A larger standard deviation means the data are more spread out than data with a smaller standard deviation. The smallest the standard deviation can be is zero, in which case all of the data is exactly the same.
 
@@ -1275,7 +1275,7 @@ In this case, there were 235 "NA's" or missing values in the wrong_patient data.
     - how to use [`quantile(..., 0.2)`](Lesson04.html#r-instructions-for-computing-percentiles) to compute the 20<sup>th</sup> percentile in R. Change 0.2 to any other number between 0 and 1 to compute any other percentile. 
     - how to use [`summary(...)`](Lesson04.html#r-instructions-for-computing-quartiles-and-the-five-number-summary) to obtain the five-number summary in R. 
     - how to use [`boxplot(...)`](Lesson04.html#r-instructions-for-creating-boxplots) to create a boxplot in R.
-    - how to use the option `na.rm=TRUE` to [remove `NA` or missing values](Lesson04.html#r-instructions-for-na-or-missing-values) from the data when using any of the functions `mean(..., na.rm=TRUE)`, `median(..., na.rm=TRUE)`, `sd(..., na.rm=TRUE)`, `quantile(..., na.rm=TRUE)`.
+    - how to use the option `na.rm = TRUE` to [remove `NA` or missing values](Lesson04.html#r-instructions-for-na-or-missing-values) from the data when using any of the functions `mean(..., na.rm = TRUE)`, `median(..., na.rm = TRUE)`, `sd(..., na.rm = TRUE)`, `quantile(..., na.rm = TRUE)`.
 
 <br />
 
