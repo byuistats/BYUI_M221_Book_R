@@ -118,8 +118,8 @@ These options are demonstrated below.
 
 ```{r}
 plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean,
-     col = "skyblue", #specify the color
-     pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     col = "steelblue3", # specify the color
+     pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
      ylab = "Exam Score of Each Student (Out of 100 Pts.)",
      main = "Study on Student Exam Performance in Math 101")
@@ -134,7 +134,7 @@ If you were curious, here are the `pch = ` options you can pick from by selectin
 ```{r, fig.height = .8, echo = FALSE}
 par(mai = c(0,0,0,0))
 plot(1:25, rep(1,25), pch = 1:25)
-text(1:25, rep(1,25), 1:25, pos = 3, col = "gray", cex = 0.5)
+text(1:25, rep(1,25), 1:25, pos = 3, col = "steelblue3", cex = 0.5)
 ```
 
 
@@ -146,19 +146,18 @@ Each point in the plot represents both the confidence and score of one student. 
 
 ```{r, echo = FALSE}
 plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
-     col = "skyblue", #specify the color
+     col = "steelblue3", #specify the color
      pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
      ylab = "Exam Score of Each Student (Out of 100 Pts.)",
      main = "Study on Student Exam Performance in Math 101")
 lines(c(2.35, 2), c(53.3,80), col = "darkgray")
-points(2.35, 53.3, pch = 16, cex = 1.3, col = "skyblue3")
+points(2.35, 53.3, pch = 16, cex = 1.3, col = "steelblue3")
 lines(c(5.70, 5.75), c(86.7,60), col = "darkgray")
-points(5.7, 86.7, pch = 16, cex = 1.3, col = "skyblue3")
+points(5.7, 86.7, pch = 16, cex = 1.3, col = "steelblue3")
 text(2.15,80, "This student had \n a confidence score of 2.35 \n and earned a 53.3 on the exam", pos = 3, col = "darkgray", cex = 0.7)
 text(5.50,60, "This student had \n a confidence score of 5.70 \n and earned a 86.7 on the exam", pos = 1, col = "darkgray", cex = 0.65)
 ```
-
 
 
 The cloud of data illustrated in this scatterplot help us visualize the relationship between the student's confidence rating and their score on the exam. Notice that the points tend to be higher as you move to the right.  Students who have a high confidence rating (points further to the right) tend to have higher exam scores (higher vertical position).  Similarly, students with lower confidence typically have lower exam scores.  Notice that as a students' confidence increases, their exam score tends to increase.  We call this a *positive association* or a *positive correlation*.
@@ -167,12 +166,12 @@ Notice that there is variability in the responses.  Consider how the plot below 
 
 ```{r, echo = FALSE}
 plot(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy,
-     col = "skyblue", #specify the color
-     pch = 16, #choose a plotting symbol, options are 1, 2, ..., 25.
+     col = "steelblue3", # specify the color
+     pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
      ylab = "Exam Score of Each Student (Out of 100 Pts.)",
      main = "Study on Student Exam Performance in Math 101")
-lines(c(5, 5), c(60,100), col = rgb(0.1,0.1,0.1,0.1), lwd = 10)
+lines(c(5, 5), c(60,100), col = rgb(0.1,0.1,0.1), lwd = 10)
 lm1 <- lm(Score ~ ConfidenceRatingMean, data = MathSelfEfficacy)
 preds <- predict(lm1, data.frame(ConfidenceRatingMean = 5), interval = "prediction")
 ```
