@@ -83,7 +83,7 @@ with $df = 15$</p></th>
 ```{r, echo = FALSE, fig.width=4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
 curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 1), add = TRUE, col="green3", lwd = 4)
+curve(dt(x, 1), add = TRUE, col="darkolivegreen4", lwd = 4)
 abline(h = 0, lty = 1, col="gray")
 legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
@@ -95,9 +95,9 @@ mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```{r, echo = FALSE, fig.width=4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
 curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 5), add = TRUE, col="green3", lwd = 4)
+curve(dt(x, 5), add = TRUE, col="darkolivegreen4", lwd = 4)
 abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
@@ -109,7 +109,7 @@ par(mai = c(.6,.6,.3,.1))
 curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
 curve(dt(x, 15), add = TRUE, col="green3", lwd = 4)
 abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = 0.3)
 ```
 
@@ -200,7 +200,7 @@ A histogram of the Body Temperatures could be created in R with the code
 
 ```{r}
 hist(body_temp$temperature, #select the data to use for the graph
-     col="wheat", #set the color
+     col="tan3", #set the color
      xlab="Body Temperature (Degrees Fahrenheight)",
      main="Body Temperatures of 148 Healthy Adults")
 ```
@@ -380,7 +380,7 @@ The histogram is created by
 
 ```{r}
 hist(baby_boom$weight, 
-     col="lightblue",
+     col="steelblue3",
      xlab="Weights in grams", 
      ylab="Number of Children", 
      main="Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
@@ -520,7 +520,7 @@ $$
 
 ```{r}
 hist(bleu$score, 
-     col="skyblue3",
+     col="steelblue3",
      xlab="Score",
      main="BLEU Scores")
 ```
@@ -751,7 +751,7 @@ Note that when creating a histogram, the exact number of bins you use is up to y
 
 ```{r}
 hist(euro$weight, 
-     col="coral",
+     col="brown3",
      xlab="Weight in grams", 
      main="Coins from a Bank in Belgium",
      breaks = 50)
@@ -762,7 +762,7 @@ hist(euro$weight,
 With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
 
 ```{r, fig.height = 3}
-boxplot(euro$weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="coral", horizontal = TRUE)
+boxplot(euro$weight, xlab="Weight in grams", main="Coins from a Bank in Belgium", col="brown3", horizontal = TRUE)
 ```
 
 You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.

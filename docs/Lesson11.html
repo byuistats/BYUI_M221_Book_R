@@ -534,7 +534,7 @@ n = 148
 <p><strong>Make an appropriate graph (e.g. a histogram) to illustrate the data</strong></p>
 <p>A histogram of the Body Temperatures could be created in R with the code</p>
 <pre class="r"><code>hist(body_temp$temperature, #select the data to use for the graph
-     col=&quot;wheat&quot;, #set the color
+     col=&quot;tan3&quot;, #set the color
      xlab=&quot;Body Temperature (Degrees Fahrenheight)&quot;,
      main=&quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -663,7 +663,7 @@ n &amp; = 44
 <div id="Q2" style="display:none;">
 <p>The histogram is created by</p>
 <pre class="r"><code>hist(baby_boom$weight, 
-     col=&quot;lightblue&quot;,
+     col=&quot;steelblue3&quot;,
      xlab=&quot;Weights in grams&quot;, 
      ylab=&quot;Number of Children&quot;, 
      main=&quot;Babies Born December 18, 1997 \n Mater Mothers&#39; Hospital in Brisbane, Australia&quot;)</code></pre>
@@ -768,7 +768,7 @@ length(bleu$score) # sample size (n)</code></pre>
  n = 100 
 \]</span></p>
 <pre class="r"><code>hist(bleu$score, 
-     col=&quot;skyblue3&quot;,
+     col=&quot;steelblue3&quot;,
      xlab=&quot;Score&quot;,
      main=&quot;BLEU Scores&quot;)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
@@ -968,7 +968,7 @@ n = &amp; 2000
 <p>Either a histogram or boxplot would be appropriate for graphing this data.</p>
 <p>Note that when creating a histogram, the exact number of bins you use is up to you. The only rule to follow is to have enough bins to get a good feel for the distribution.</p>
 <pre class="r"><code>hist(euro$weight, 
-     col=&quot;coral&quot;,
+     col=&quot;brown3&quot;,
      xlab=&quot;Weight in grams&quot;, 
      main=&quot;Coins from a Bank in Belgium&quot;,
      breaks = 50)</code></pre>
@@ -976,7 +976,7 @@ n = &amp; 2000
 <pre class="r"><code>#since the sampe size was large, 
 #we can use a lot of &quot;bins&quot; or &quot;breaks&quot; in the graph.</code></pre>
 <p>With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.</p>
-<pre class="r"><code>boxplot(euro$weight, xlab=&quot;Weight in grams&quot;, main=&quot;Coins from a Bank in Belgium&quot;, col=&quot;coral&quot;, horizontal = TRUE)</code></pre>
+<pre class="r"><code>boxplot(euro$weight, xlab=&quot;Weight in grams&quot;, main=&quot;Coins from a Bank in Belgium&quot;, col=&quot;brown3&quot;, horizontal = TRUE)</code></pre>
 <p><img src="Lesson11_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.</p>
 </div>
