@@ -85,7 +85,7 @@ par(mai = c(.6,.6,.3,.1))
 curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
 curve(dt(x, 1), add = TRUE, col="darkolivegreen4", lwd = 4)
 abline(h = 0, lty = 1, col="gray")
-legend("topright", legend = c("Normal", "t"), col = c("gray","green3"), lwd = c(2,4), bty="n", cex = .8)
+legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```
 
@@ -107,7 +107,7 @@ mtext(side = 2, las = 2, "density", at = 0.43, line = .3)
 ```{r, echo = FALSE, fig.width=4, fig.height = 4}
 par(mai = c(.6,.6,.3,.1))
 curve(dnorm(x), xlim = c(-3.2,3.2), col="gray", lwd = 3, xlab="", ylab="")
-curve(dt(x, 15), add = TRUE, col="green3", lwd = 4)
+curve(dt(x, 15), add = TRUE, col="darkolivegreen4", lwd = 4)
 abline(h = 0, lty = 1, col="gray")
 legend("topright", legend = c("Normal", "t"), col = c("gray","darkolivegreen4"), lwd = c(2,4), bty="n", cex = .8)
 mtext(side = 2, las = 2, "density", at = 0.43, line = 0.3)
