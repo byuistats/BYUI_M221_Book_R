@@ -567,7 +567,7 @@ R Instructions
 <ul>
 <li>Read in the data: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Load <code>library(mosaic)</code>. (If this fails for you, try running <code>install.packages("mosaic")</code> and then re-run the <code>library(mosaic)</code> command.)</li>
-<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a <code>~</code>, followed by the categorical data column. Use the back tick mark <code>`</code> to surround column names that have spaces in them, like <code>happiness</code> and <code>treatment</code>.</li>
+<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a tilde, <code>~</code>, which is followed by the categorical data column.</li>
 </ul>
 <pre class="r"><code>library(mosaic) 
 favstats(gratitude$happiness ~ gratitude$treatment)</code></pre>
@@ -578,11 +578,11 @@ favstats(gratitude$happiness ~ gratitude$treatment)</code></pre>
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
-<li>Specify colors using either <code>col="skyblue"</code> to give all boxes the same color, or use <code>col=c("orange","skyblue","firebrick")</code> to give each box a different color. Of course, use any color names you like.</li>
+<li>Specify colors using either <code>col="steelblue3"</code> to give all boxes the same color, or use <code>col=c("brown3","steelblue3","tan3")</code> to give each box a different color. Of course, use any color names you like.</li>
 <li>Specify axes labeling with <code>main="A main title"</code>, <code>xlab="An x-axis label"</code>, and <code>ylab="A y-axis label"</code>.</li>
 </ul>
 <pre class="r"><code>boxplot(gratitude$happiness ~ gratitude$treatment,
-        col=c(&quot;orange&quot;,&quot;skyblue&quot;,&quot;firebrick&quot;), 
+        col=c(&quot;brown3&quot;,&quot;steelblue3&quot;,&quot;tan3&quot;),
         main=&quot;The Effects of Gratitude&quot;,
         xlab=&quot;Treatment Group&quot;,
         ylab=&quot;Happiness Score (Higher is More Positive)&quot;)</code></pre>
@@ -672,7 +672,7 @@ The variance is the square of the standard deviation. The sample variance is den
 </div>
 <div id="worked-example-soccer-shoes" class="section level2">
 <h2>Worked Example: Soccer Shoes</h2>
-<p><span id="21:SoccerShoesExplanation"></span></p>
+<p><span id="21:soccer_shoesExplanation"></span></p>
 <p><img src="Images/StepsAll.png"></p>
 <p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
@@ -687,8 +687,7 @@ H_a: &amp; \textrm{At least one of the means differs}
 <p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>As part of the research, they asked trained soccer players to kick a ball at a target. The target was placed 115 cm above the ground and at a distance of 10 m from the players. Using electronic equipment, the researchers recorded the distance from the center of the target to the point where the ball hit. The objective of the research was to assess if footwear could affect the accuracy of a soccer player.</p>
-<p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Data representing the results of this study are given in the file <a href="./data/SoccerShoes.xlsx">SoccerShoes.xlsx</a>.</p>
-<p>Use the <a href="./data/SoccerShoes.xlsx">SoccerShoes.xlsx</a> data to answer the following questions.</p>
+<p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Data representing the results of this study are given in the file <a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a>. Use these data to answer the following questions.</p>
 <p><img src="Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -700,7 +699,7 @@ Answer the following questions:
 <a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>library(mosaic)
-favstats(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)</code></pre>
+favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 <p>Using the code above, we can pull out the important values.</p>
 <table>
 <thead>
@@ -757,8 +756,8 @@ favstats(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)</code></pre>
 </ol>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
-<pre class="r"><code>boxplot(SoccerShoes$Accuracy ~ SoccerShoes$Footwear, 
-        col=&quot;yellow2&quot;, 
+<pre class="r"><code>boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
+        col=&quot;tan3&quot;, 
         main=&quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;)</code></pre>
 <p><img src="Lesson14_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
@@ -808,11 +807,11 @@ Answer the following questions:
 </ol>
 <a href="javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-<pre class="r"><code>soccer_aov &lt;- aov(SoccerShoes$Accuracy ~ SoccerShoes$Footwear)
+<pre class="r"><code>soccer_aov &lt;- aov(soccer_shoes$accuracy ~ soccer_shoes$footwear)
 summary(soccer_aov)</code></pre>
-<pre><code>##                       Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## SoccerShoes$Footwear   5    352   70.36    2.02 0.0809 .
-## Residuals            114   3970   34.82                 
+<pre><code>##                        Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## soccer_shoes$footwear   5    352   70.36    2.02 0.0809 .
+## Residuals             114   3970   34.82                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>
@@ -837,10 +836,17 @@ summary(soccer_aov)</code></pre>
 <div id="Q8" style="display:none;">
 <p>This is included just to remind you that the p-value is the area to the right of the F-statistic in the F-distribution.</p>
 <p><img src="Images/SoccerShoes-SamplingDist.png"></p>
-<p>If you are curious, this could be done in R using the code</p>
-<pre class="r"><code>curve(df(x, 5, 114), from=0, to=10)
-abline(v=2.02, h=0)</code></pre>
-<p><img src="Lesson14_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<!--
+If you are curious, this could be done in R using the code
+
+
+```r
+curve(df(x, 5, 114), from=0, to=10)
+abline(v=2.02, h=0)
+```
+
+<img src="Lesson14_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+-->
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">

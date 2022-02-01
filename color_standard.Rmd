@@ -1,0 +1,26 @@
+---
+title: "Color Template"
+author: "Craig Johnson"
+date: "2/1/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Color template
+
+Here are the colors: `col=c("brown3","darkolivegreen4","tan3","darkorchid", "steelblue3")`
+
+```{r}
+group <- sample(1:5,200, replace=TRUE)
+value <- runif(200,0,10)
+mydat <- data.frame(group, value)
+boxplot(mydat$value ~ mydat$group,
+        # col=c("lightgoldenrod","#d39433","darkgoldenrod3"), 
+        col=c("brown3","darkolivegreen4","tan3","darkorchid", "steelblue3"),
+        main="The Effects of Gratitude",
+        xlab="Treatment Group",
+        ylab="Happiness Score (Higher is More Positive)")
+```
