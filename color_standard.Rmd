@@ -18,7 +18,6 @@ group <- sample(1:5,200, replace=TRUE)
 value <- runif(200,0,10)
 mydat <- data.frame(group, value)
 boxplot(mydat$value ~ mydat$group,
-        # col=c("lightgoldenrod","#d39433","darkgoldenrod3"), 
         col=c("brown3","darkolivegreen4","tan3","darkorchid", "steelblue3"),
         main="The Effects of Gratitude",
         xlab="Treatment Group",
