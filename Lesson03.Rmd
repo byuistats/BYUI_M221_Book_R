@@ -404,7 +404,7 @@ showing that the *center* of the histogram (or average) is at \$14,100.
 ```{r, echo=FALSE, fig.width=5}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
 hist(tuberc, 
-#     col="skyblue", 
+#     col="steelblue3", 
      main="Histogram of Costs to Treat Tuberculosis", 
      xlab="Cost in Dollars",
      ylab="Number of Individuals")
@@ -524,7 +524,7 @@ For the Tuberculosis data we could use the code
 
 ```{}
 hist(tuberc, 
-      col = "skyblue", 
+      col = "steelblue3", 
       main = "Histogram of Costs to Treat Tuberculosis", 
       xlab = "Cost in Dollars", 
       ylab = "Number of Individuals")
@@ -532,7 +532,7 @@ hist(tuberc,
 
 ```{r, echo = FALSE}
 hist(tuberc, 
-     col = "skyblue", 
+     col = "steelblue3", 
      main = "Histogram of Costs to Treat Tuberculosis", 
      xlab = "Cost in Dollars", 
      ylab = "Number of Individuals")
@@ -606,7 +606,7 @@ ClassSurvey <- read_excel("./data/ClassSurvey.xlsx")
 
 CS_males <- subset(ClassSurvey, Gender=="M")
 
-hist(CS_males$Height, xlab="Height (in inches) of \n Male BYU-Idaho Students", col="wheat3", main="", breaks=8, ylab="Number of Students")
+hist(CS_males$Height, xlab="Height (in inches) of \n Male BYU-Idaho Students", col="tan3", main="", breaks=8, ylab="Number of Students")
 curve(dnorm(x, mean(CS_males$Height, na.rm=TRUE), sd(CS_males$Height, na.rm=TRUE))*150, add=TRUE)
 ```
 
