@@ -476,8 +476,8 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <h3>Scatterplot</h3>
 <p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This has been referred to as a “hot dog” shape in the data.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
-<p>Consider the scatterplot of the estuarine crocodile data <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a>:</p>
-<p><img src = "Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG"></p>
+<p>Consider the scatterplot of the estuarine crocodile data <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>:</p>
+<p><img src = "./Images/estuarine_crocodiles-Scatterplot-RegLine-Excel.PNG"></p>
 <p>Notice how the data follow a linear shape. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
 <div id="residuals" class="section level3">
@@ -495,10 +495,10 @@ R Instructions
 <div class="Software">
 <p><strong>To find the residuals in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)</code></pre>
 <ul>
 <li>Use the name of the lm that you created and the <code>$</code> to access the residuals.</li>
 </ul>
@@ -529,10 +529,10 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)</code></pre>
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)</code></pre>
 <ul>
 <li>Use the name of the lm that you created and the <code>plot()</code> function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use <code>plot(  , which = 1)</code> to obtain just the first plot.</li>
 </ul>
@@ -763,24 +763,24 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 <li>See the results using <code>summary( )</code>.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 summary(estuarine.lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+lm(formula = estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -18.1302  -7.1968  -0.9602   8.2245  25.9486 
 
 Coefficients:
-                               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                    -18.2740     9.9663  -1.834   0.0782 .  
-EstuarineCrocodiles$HeadLength   7.6601     0.2152  35.588   &lt;2e-16 ***
+                                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      -18.2740     9.9663  -1.834   0.0782 .  
+estuarine_crocodiles$head_length   7.6601     0.2152  35.588   &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -797,7 +797,7 @@ n = 28 \\
 \hat Y = -18.274 + 7.660 X \\
 \end{array}
 \]</span></p>
-<p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution. We are conducting a test for the slope. The information related to the slope is given in the second row of the “Estimate” table, which is labeled “EstuarineCrocodiles$HeadLength”. Looking across the second row, we find the value of <span class="math inline">\(t\)</span> is given as 35.588. <span class="math display">\[
+<p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution. We are conducting a test for the slope. The information related to the slope is given in the second row of the “Estimate” table, which is labeled “estuarine_crocodiles$head_length”. Looking across the second row, we find the value of <span class="math inline">\(t\)</span> is given as 35.588. <span class="math display">\[
 t = 35.588
 \]</span></p>
 <p>This is a tremendously large value for t. This indicates that there is a lot of evidence against the null hypothesis.</p>
@@ -811,16 +811,16 @@ df = 28-2 = 26
 <div id="manatees" class="section level3">
 <h3>Manatees</h3>
 <p><img src = "Images/Step4.png"></p>
-<p>Here is an excerpt from the output for the <a href="./data/Manatees.xlsx">Manatees.xlsx</a> data set:</p>
-<table style="width:51%;">
+<p>Here is an excerpt from the output for the <a href="./data/manatees.xlsx">manatees.xlsx</a> data set:</p>
+<table style="width:56%;">
 <colgroup>
-<col width="36%" />
-<col width="15%" />
+<col width="27%" />
+<col width="27%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center">Power Boats (in 1000’s)</th>
-<th align="center">Manatees</th>
+<th align="center">power_boats_1000s</th>
+<th align="center">manatees_killed</th>
 </tr>
 </thead>
 <tbody>
@@ -863,20 +863,20 @@ n = 35 \\
 \end{array}
 \]</span></p>
 <p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution.</p>
-<pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
 summary(manatee.lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)
+lm(formula = manatees$manatees_killed ~ manatees$power_boats_1000s)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
 -15.758  -6.647  -1.239   4.349  22.344 
 
 Coefficients:
-                                     Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                        -42.541613   6.349634   -6.70 1.25e-07 ***
-Manatees$`Power Boats (in 1000&#39;s)`   0.129162   0.008338   15.49  &lt; 2e-16 ***
+                             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                -42.541613   6.349634   -6.70 1.25e-07 ***
+manatees$power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -910,17 +910,17 @@ R Instructions
 <div class="Software">
 <p><strong>To compute the confidence intervals for the regression coefficients in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./data/Estuarine_Crocodile.xlsx">EstuarineCrocodile.xlsx</a></li>
+<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>manatee.lm &lt;- lm(Manatees$Manatees ~ Manatees$`Power Boats (in 1000&#39;s)`)</code></pre>
+<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)</code></pre>
 <ul>
 <li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level = 0.95)</code> to control the confidence level.</li>
 </ul>
 <pre class="r"><code>confint(manatee.lm, level = 0.95)</code></pre>
-<pre><code>                                         2.5 %      97.5 %
-(Intercept)                        -55.4600405 -29.6231851
-Manatees$`Power Boats (in 1000&#39;s)`   0.1121986   0.1461254</code></pre>
+<pre><code>                                 2.5 %      97.5 %
+(Intercept)                -55.4600405 -29.6231851
+manatees$power_boats_1000s   0.1121986   0.1461254</code></pre>
 <p>The first row of the output gives the confidence interval for <span class="math inline">\(\beta_0\)</span>, the y-intercept. The second row of the output gives the confidence interval for <span class="math inline">\(\beta_1\)</span>, the slope.</p>
 <p><br></p>
 </div>
@@ -941,11 +941,11 @@ Answer the following questions:
 </ol>
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<pre class="r"><code>estuarine.lm &lt;- lm(EstuarineCrocodiles$BodyLength ~ EstuarineCrocodiles$HeadLength)
+<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
 confint(estuarine.lm, level = 0.95)</code></pre>
-<pre><code>                                    2.5 %   97.5 %
-(Intercept)                    -38.760103 2.212044
-EstuarineCrocodiles$HeadLength   7.217669 8.102540</code></pre>
+<pre><code>                                      2.5 %   97.5 %
+(Intercept)                      -38.760103 2.212044
+estuarine_crocodiles$head_length   7.217669 8.102540</code></pre>
 <center>
 <span class="math display">\[
 (7.218,~8.103)
