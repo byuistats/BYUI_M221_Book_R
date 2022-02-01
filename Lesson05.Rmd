@@ -403,7 +403,7 @@ BodyTemp <- read_excel("./data/BodyTemp.xlsx")
 ```
 
 ```{r}
-hist(BodyTemp$BodyTemp, main="Body Temperatures", xlab="Degrees Fahrenheit", col="steelblue")
+hist(BodyTemp$BodyTemp, main="Body Temperatures", xlab="Degrees Fahrenheit", col="steelblue3")
 ```
 
 
@@ -454,7 +454,7 @@ SurveyData <- read_excel("./data/SurveyData.xlsx")
 ```
 
 ```{r}
-hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Results", col="yellow3")
+hist(SurveyData$Wage, xlab="Hourly Wages", main="BYU-Idaho Student Survey Results", col="tan3")
 ```
 
 </div>
