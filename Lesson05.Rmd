@@ -340,21 +340,20 @@ Solve for $x$:
 
 |                                          |                                             |     |                                                                |
 |------------------------------------------|--------------------------------------------:|-----|----------------------------------------------------------------|
-| Original Equation                        |            $\displaystyle{ 1.282 }\space$   | $ = $ | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                     |
+| Original Equation                        |            $\displaystyle{ 1.282 }\space$   | $ = $ | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                   |
 | $~$                                      |                                             |     |                                                                |
-| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$      |
+| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$     |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ x - 0.261 }$                                   |
+| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ x - 0.261 }$                                 |
 | $~$                                      |                                             |     |                                                                |
-| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ 0.261 + (x - 0.261) }$                         |
+| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ 0.261 + (x - 0.261) }$                       |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ x }$                                           |
+| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ x }$                                         |
 | $~$                                      |                                             |     |                                                                |
-| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | $ = $ | $\displaystyle{ x }$                                           |
+| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | $ = $ | $\displaystyle{ x }$                                         |
 | $~$                                      |                                             |     |                                                                |
-| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | $ = $ | $\displaystyle{ 0.305 }$                                       |
+| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | $ = $ | $\displaystyle{ 0.305 }$                                     |
 |                                          |                                             |     |                                                                |
-
 <br>
 
 The 90<sup>th</sup> percentile of the batting averages is 0.305. That means that 90% of the players have a batting average that is 0.305 or less.
