@@ -145,6 +145,8 @@ Links to data files used throughout the course:
 
 <tr> <td> [kindness.xlsx](./data/kindness.xlsx) </td> </tr>
 
+<tr> <td> [lapd_searches.xlsx](./data/lapd_searches.xlsx) </td> </tr>
+
 <tr> <td> [lead_behavior.xlsx](./data/lead_behavior.xlsx) </td> <td> tinyurl.com/M221-lead-exposure </td> </tr>
 
 <tr> <td> [madison_county_real_estate.xlsx](./data/madison_county_real_estate.xlsx) </td> <td> tinyurl.com/M221-madison-real-estate </td> </tr>
