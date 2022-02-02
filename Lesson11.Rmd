@@ -17,7 +17,7 @@ output:
 <div style = "float:right;width = 40%;">
 <br/>
 <div style = "padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width = "90%" align = "right" src = "https://youtu.be/vc2MAsSrwwU?list=PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Lesson Outcomes
@@ -433,7 +433,7 @@ $$
 
 The $P$-value is shaded in green:
 
-<img src = "./Images/baby_boom-JSE-TwoSidedT1-2.png">
+<img src = "./Images/BabyBoom-JSE-TwoSidedT1-2.png">
 
 **Find the $P$-value and compare it to the level of significance**
 
@@ -463,7 +463,10 @@ $$
 $$
 where $t^*$ is the $t$-score corresponding to the confidence level and $s$ is the sample standard deviation.
 
-These confidence intervals are automatically produced in R with the `t.test(...)` command. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.
+These confidence intervals are automatically produced in R with the `t.test(...)` command. The values of $t^*$ and $s$ will be computed for us. Examples of this are given below. 
+<!--
+You can see the details by clicking on [Show Hand Calculations] in Step 4.
+-->
 
 
 <img src = "./Images/StepsAll.png">
@@ -580,6 +583,8 @@ The 95% confidence interval for the true mean BLEU score is:
 $$(0.282, 0.293)$$
 where 0.282 is the lower-bound and 0.293 is the upper-bound of the confidence interval.
 
+<!-- DEMO OF HAND CALCULATIONS
+
 <a href = "javascript:showhide('hc')"><span style = "font-size:8pt;">Show Hand Calculations (Optional)</span></a>
 <br>
 
@@ -624,6 +629,9 @@ $$
 $$
 </div>
 <br>
+
+-- END DEMO OF HAND CALCULATIONS -->
+
 
 #### Verify Requirements Are Met
 

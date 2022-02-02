@@ -409,7 +409,7 @@ $(document).ready(function () {
 <div style="padding-left:10%;">
 <strong>Optional Lesson Video</strong>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
+<iframe width="90%" align="right" src="https://youtu.be/vc2MAsSrwwU?list=PLaZryQtbPQC-eXvWi8id9S0NiKSyGYr6j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
 <div id="lesson-outcomes" class="section level2">
@@ -722,7 +722,7 @@ df = 43
 <p><br></p>
 <p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
 <p>The <span class="math inline">\(P\)</span>-value is shaded in green:</p>
-<p><img src = "./Images/baby_boom-JSE-TwoSidedT1-2.png"></p>
+<p><img src = "Images/BabyBoom-JSE-TwoSidedT1-2.png"></p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
 <p><span class="math display">\[P\text{-value} = 0.2295 &gt; 0.05 = \alpha\]</span></p>
 <p><strong>State your decision</strong></p>
@@ -739,7 +739,9 @@ df = 43
 <p>To construct the confidence interval when <span class="math inline">\(\sigma\)</span> is not known, we replace the population standard deviation, <span class="math inline">\(\sigma\)</span>, with its point estimate, <span class="math inline">\(s\)</span>. The appropriate distribution is a <span class="math inline">\(t\)</span>, rather than a <span class="math inline">\(z\)</span>. So, we replace <span class="math inline">\(z^*\)</span> with <span class="math inline">\(t^*\)</span>. So the confidence interval when <span class="math inline">\(\sigma\)</span> is not known is <span class="math display">\[
 \left( \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , \ ~ \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} \right)
 \]</span> where <span class="math inline">\(t^*\)</span> is the <span class="math inline">\(t\)</span>-score corresponding to the confidence level and <span class="math inline">\(s\)</span> is the sample standard deviation.</p>
-<p>These confidence intervals are automatically produced in R with the <code>t.test(...)</code> command. The values of <span class="math inline">\(t^*\)</span> and <span class="math inline">\(s\)</span> will be computed for us. Examples of this are given below. You can see the details by clicking on [Show Hand Calculations] in Step 4.</p>
+<p>These confidence intervals are automatically produced in R with the <code>t.test(...)</code> command. The values of <span class="math inline">\(t^*\)</span> and <span class="math inline">\(s\)</span> will be computed for us. Examples of this are given below. <!--
+You can see the details by clicking on [Show Hand Calculations] in Step 4.
+--></p>
 <p><img src = "Images/StepsAll.png"></p>
 <div id="case-study-automatic-language-translation-programs" class="section level3">
 <h3>Case Study: Automatic Language Translation Programs</h3>
@@ -819,32 +821,59 @@ mean of x
 <p><br></p>
 <p>The 95% confidence interval for the true mean BLEU score is:</p>
 <p><span class="math display">\[(0.282, 0.293)\]</span> where 0.282 is the lower-bound and 0.293 is the upper-bound of the confidence interval.</p>
-<p><a href = "javascript:showhide('hc')"><span style="font-size:8pt;">Show Hand Calculations (Optional)</span></a> <br></p>
-<div id="hc" style="display:none;">
-<p>The formula for the confidence interval where <span class="math inline">\(\sigma\)</span> is known was given in the reading titled <a href="Lesson10.html">Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)</a> as <span class="math display">\[
+<!-- DEMO OF HAND CALCULATIONS
+
+<a href = "javascript:showhide('hc')"><span style = "font-size:8pt;">Show Hand Calculations (Optional)</span></a>
+<br>
+
+<div id = "hc" style = "display:none;">
+The formula for the confidence interval where $\sigma$ is known was given in the reading titled
+[Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html) as
+$$
 \left( \bar x - z^* \frac{\sigma}{\sqrt{n}}, ~ \bar x + z^* \frac{\sigma}{\sqrt{n}} \right)
-\]</span> It is impossible to know the true standard deviation of the BLEU scores for a new translation program like Pharaoh. Replacing <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s\)</span> and replacing <span class="math inline">\(z^*\)</span> with <span class="math inline">\(t^*\)</span>, we get: <span class="math display">\[
+$$
+It is impossible to know the true standard deviation of the BLEU scores for a new translation program like Pharaoh. Replacing $\sigma$ with $s$ and replacing $z^*$ with $t^*$, we get:
+$$
 \left( \bar x - t^* \frac{s}{\sqrt{n}}, ~ \bar x + t^* \frac{s}{\sqrt{n}} \right)
-\]</span> The value of <span class="math inline">\(t^*\)</span> depends on the level of confidence and the sample size. It must be computed using software or looked up on a table. If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of <span class="math inline">\(t^*\)</span> can be calculated with</p>
-<pre class="r"><code>qt(1-0.05/2, df = 99)</code></pre>
-<pre><code>## [1] 1.984217</code></pre>
-<p>where the <code>0.05</code> is the significance level <span class="math inline">\(\alpha\)</span>, and the <code>df =</code> is the degrees of freedom, which is <span class="math inline">\(n-1\)</span>.</p>
-<p>The other numbers (<span class="math inline">\(\bar x\)</span>, <span class="math inline">\(s\)</span>, and <span class="math inline">\(n\)</span>) can all be obtained directly from your data.</p>
-<p>If we want to create a 95% confidence interval for <span class="math inline">\(\mu\)</span>, with 99 degrees of freedom, then <span class="math inline">\(t^* = 1.9842\)</span>.</p>
-<p>Using the sample statistics: <span class="math display">\[
+$$
+The value of $t^*$ depends on the level of confidence and the sample size.  It must be computed using software or looked up on a table.  If you are asked to compute a confidence interval for a mean where the population standard deviation is unknown, the value of $t^*$ can be calculated with
+
+
+```r
+qt(1-0.05/2, df = 99)
+```
+
+```
+## [1] 1.984217
+```
+
+where the `0.05` is the significance level $\alpha$, and the `df = ` is the degrees of freedom, which is $n-1$.
+
+The other numbers ($\bar x$, $s$, and $n$) can all be obtained directly from your data.
+
+If we want to create a 95% confidence interval for $\mu$, with 99 degrees of freedom, then $t^* = 1.9842$.
+
+Using the sample statistics:
+$$
 \begin{align}
-\bar x = &amp; 0.2876 \\
-s = &amp; 0.0264 \\
-n = &amp; 100
+\bar x = & 0.2876 \\
+s = & 0.0264 \\
+n = & 100
 \end{align}
-\]</span></p>
-<p>The 95% confidence interval for <span class="math inline">\(\mu\)</span> is: <span class="math display">\[
+$$
+
+The 95% confidence interval for $\mu$ is:
+$$
 \left( 0.2876 - 1.9842 \frac{0.0264}{\sqrt{100}}, ~ 0.2876 + 1.9842 \frac{0.0264}{\sqrt{100}} \right)
-\]</span> which reduces to: <span class="math display">\[
+$$
+which reduces to:
+$$
 \left( 0.2824, ~ 0.2928 \right)
-\]</span></p>
+$$
 </div>
-<p><br></p>
+<br>
+
+-- END DEMO OF HAND CALCULATIONS -->
 <div id="verify-requirements-are-met" class="section level4">
 <h4>Verify Requirements Are Met</h4>
 <p>The requirements for creating a confidence interval for a mean with <span class="math inline">\(\sigma\)</span> unknown are the same as the requirements for this procedure when <span class="math inline">\(\sigma\)</span> is known:</p>
