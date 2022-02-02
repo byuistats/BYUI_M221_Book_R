@@ -1,20 +1,13 @@
 # MATH 221D
-# Lesson 11
+# Lesson 11: One mean, sigma unknown
 # Sample R code
 # https://byuistats.github.io/M221R
 
-# --------------------------------------------------
-# Conduct a Hypothesis Test for a single mean with sigma unknown
-# --------------------------------------------------
-
-
-# --------------------------------------------------
-# Data sets used in this script:
-#    Body temperatures:          https://byuistats.github.io/M221R/data/body_temp.xlsx
-#    Baby birth weights:         https://byuistats.github.io/M221R/data/baby_boom.xlsx
-#    Bleu (translation) scores:  https://byuistats.github.io/M221R/data/bleu.xlsx
-#    Weights of one Euro coins:  https://byuistats.github.io/M221R/data/euro.xlsx
-# --------------------------------------------------
+# Data used in this script:
+#    Body temperatures           https://byuistats.github.io/M221R/data/body_temp.xlsx
+#    Baby birth weights          https://byuistats.github.io/M221R/data/baby_boom.xlsx
+#    Bleu (translation) scores   https://byuistats.github.io/M221R/data/bleu.xlsx
+#    Weights of one Euro coins   https://byuistats.github.io/M221R/data/euro.xlsx
 
 
 
