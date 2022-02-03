@@ -1,5 +1,5 @@
 ---
-title: "Lesson 14: Inference for Several Means (ANOVA)"
+title: "Inference using ANOVA (Several Independent Samples)"
 output: 
   html_document:
     theme: cerulean

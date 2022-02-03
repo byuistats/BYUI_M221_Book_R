@@ -1,5 +1,5 @@
 ---
-title: "Lesson 10: Inference for One Mean: Sigma Known (Confidence Interval)"
+title: "Lesson 10: Confidence Interval for One Mean (Sigma Known)"
 output:
   html_document:
     theme: cerulean
