@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
+      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
+      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
+      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -450,7 +450,7 @@ $(document).ready(function () {
 </div>
 <div id="describing-bivariate-data" class="section level2">
 <h2>Describing Bivariate Data</h2>
-<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>.</p>
+<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>.</p>
 <p>Notice that we have two quantitative measurements on each participant. We call these data <strong>bivariate data</strong>, since there are two (bi-) quantitative variables that we are considering simultaneously.</p>
 <p>In the past, we have summarized quantitative data by computing summary statistics. Here are a couple of statistics computed from these data:</p>
 <ul>
@@ -469,8 +469,8 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To create a scatterplot in R</strong> use the <code>plot(...)</code> function with the <code>y-variable</code> placed first, followed by a <code>~</code>, followed by the <code>x-variable</code>.</p>
-<p>First, read in the data: <a href="./data/MathSelfEfficacy.xlsx">MathSelfEfficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
-<pre class="r"><code>plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean)</code></pre>
+<p>First, read in the data: <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
+<pre class="r"><code>plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean)</code></pre>
 <p><img src="Lesson21_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of</p>
 <ul>
@@ -481,7 +481,7 @@ R Instructions
 <li><code>main =</code> to specify in quotations the main title of the graph.</li>
 </ul>
 <p>These options are demonstrated below.</p>
-<pre class="r"><code>plot(MathSelfEfficacy$Score ~ MathSelfEfficacy$ConfidenceRatingMean,
+<pre class="r"><code>plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean,
      col = &quot;steelblue3&quot;, # specify the color
      pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = &quot;Mean Confidence Rating for Each Student&quot;,
@@ -517,10 +517,10 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To compute correlation in R</strong> use the <code>cor(...)</code> function where the x-axis variable is listed first, followed by a comma <code>,</code>, followed by the y-axis variable second. The <code>cor(...)</code> function also requires stating the name of the data set and using the <code>$</code> sign to access the desired columns of the dataset.</p>
-<pre class="r"><code>cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score)</code></pre>
+<pre class="r"><code>cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score)</code></pre>
 <pre><code>[1] 0.7278648</code></pre>
 <p>Note that if there are missing values in the data, you would need to use the <code>use = "pairwise.complete.obs"</code> option to remove those missing <code>NA</code> values.</p>
-<pre class="r"><code>cor(MathSelfEfficacy$ConfidenceRatingMean, MathSelfEfficacy$Score,
+<pre class="r"><code>cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score,
     use = &quot;pairwise.complete.obs&quot;)</code></pre>
 <pre><code>[1] 0.7278648</code></pre>
 </div>
@@ -1071,7 +1071,7 @@ Answer the following questions:
 
 </div>
 <p><img src = "Images/Step2.png"></p>
-<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <a href="./data/OldFaithful.xlsx">OldFaithful.xlsx</a>.</p>
+<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <a href="./data/old_faithful">old_faithful</a>.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1166,7 +1166,7 @@ Answer the following questions:
 <!-- s_{xy} = r \cdot s_x \cdot s_y -->
 <!-- $$ -->
 <!-- ### Example: Math Self Efficacy -->
-<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [MathSelfEfficacy.xlsx](./data/MathSelfEfficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
+<!-- As an example, we will compute the covariance for Goodwin's data.  The correlation coefficient was determined to be $r = 0.728$.  Using the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx), we compute the standard deviation of the mean confidence rating ($X$) to be $s_x = 0.939$ and the standard deviation of the test scores ($Y$) to be $s_y = 16.37$.  Applying the equation for the covariance of a collection of data, we get -->
 <!-- $$  -->
 <!-- s_{xy} = r \cdot s_x \cdot s_y = 0.728 \cdot 0.939 \cdot 16.37 = 11.19 -->
 <!-- $$ -->

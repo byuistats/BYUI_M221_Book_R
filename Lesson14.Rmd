@@ -373,7 +373,7 @@ Using the code above, we can pull out the important values.
 boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
         col = "tan3", 
         main = "Soccer Shoes vs. Socks and Shooting Accuracy")
-````
+```
 
 
 </div>
