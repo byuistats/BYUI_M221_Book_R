@@ -508,15 +508,33 @@ R Instructions
 <div class="Software">
 <p><strong>To compute numerical summaries for two groups at once:</strong></p>
 <ul>
-<li><p>First, read the data into RStudio: <a href="./data/reading.xlsx">reading.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p></li>
-<li><p>Second, load the <code>mosaic</code> library in RStudio that makes calculating the numerical summaries for two groups really quick.</p></li>
+<li>First, read the data into RStudio: <a href="./data/reading.xlsx">reading.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 </ul>
 <pre class="r"><code>library(mosaic)</code></pre>
-<div class="note">
-<p>If you get the error message <span style="color:red;">Error in library(mosaic) : there is no package called ‘mosaic’</span> then you will need to install the <code>mosiac</code> package using the code: <code>install.packages("mosaic")</code></p>
-<p>You’ll only ever need to “install” this package once. But you’ll need to run “library(mosaic)” every time you reopen RStudio and want to use the <code>mosaic</code> package. As long as you keep RStudio open, you won’t have to re-load the mosaic library.</p>
-</div>
-<p>Use the <code>favstats(...)</code> function and the tilde <code>~</code> (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the <code>~</code> you put the quantitative variable first, followed by the <code>~</code>, then the categorical variable second, like this:</p>
+<pre><code>Registered S3 method overwritten by &#39;mosaic&#39;:
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2</code></pre>
+<pre><code>
+The &#39;mosaic&#39; package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.</code></pre>
+<pre><code>
+Attaching package: &#39;mosaic&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:dplyr&#39;:
+
+    count, do, tally</code></pre>
+<pre><code>The following object is masked from &#39;package:Matrix&#39;:
+
+    mean</code></pre>
+<pre><code>The following object is masked from &#39;package:ggplot2&#39;:
+
+    stat</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    max, mean, min, prod, range, sample, sum</code></pre>
 <pre class="r"><code>favstats(reading$nights ~ reading$group)</code></pre>
 <pre><code>  reading$group min Q1 median Q3 max     mean       sd   n missing
 1           DEV   0  2      4  6   7 4.102941 2.376857 204       0
@@ -583,7 +601,7 @@ R Instructions
 <p>Read the data into RStudio: <a href="./data/reading.xlsx">reading.xlsx</a>.</p>
 <p>Use the <code>boxplot(...)</code> function and the tilde <code>~</code> (top-left key on your keyboard) to produce a side-by-side boxplot. When using the <code>~</code> you put the quantitative variable first, followed by the <code>~</code>, then the categorical variable second, like this:</p>
 <pre class="r"><code>boxplot(reading$nights ~ reading$group)</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><br/></p>
 <p><strong>To Make a Fancier Graph</strong></p>
 <p>To make the graph look a little nicer we could use the following options.</p>
@@ -601,7 +619,7 @@ R Instructions
         ylab = &quot;Number of Nights of Reading&quot;,
         xlab = &quot;Group&quot;,
         names = c(&quot;Behavioral Problems&quot;, &quot;No Problems&quot;))</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><strong>Tip</strong></p>
 <p>To copy and paste a graph from R into a document, do the following:</p>
 <ul>
@@ -834,7 +852,7 @@ favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)</cod
 <div id="Q6" style="display:none;">
 <p>Side-by-side boxplots are a great way to summarize the data.</p>
 <pre class="r"><code>boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col = c(&quot;darkolivegreen4&quot;, &quot;tan3&quot;), main = &quot;2006 World Cup \n &quot;)</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1015,7 +1033,7 @@ Answer the following question:
         ylab = &quot;Nights Spent Reading&quot;, 
         xlab = &quot;Group&quot;,
         names = c(&quot;Behavioral Problems&quot;, &quot;No Problems&quot;))</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
 <p>The sample size is large enough in both groups respectively, so we can be assured the sampling distribution of the mean for each group is normal.</p>
@@ -1117,7 +1135,7 @@ R Instructions
         main = &quot;Chronic Obstructive Pulmonary Disease&quot;, 
         ylab = &quot;Increased Distance Patients Could Walk (meters)&quot;,
         col = c(&quot;steelblue&quot;,&quot;steelblue3&quot;))</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <div class="QuestionsHeading">
@@ -1169,7 +1187,7 @@ Answer the following questions:
         main = &quot;Chronic Obstructive Pulmonary Disease&quot;, 
         ylab = &quot;Increased Distance Patients Could Walk (meters)&quot;, 
         col = c(&quot;steelblue&quot;,&quot;steelblue3&quot;))</code></pre>
-<p><img src="Lesson13_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Lesson13_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><br></p>
 <ul>
 <li>Notice that a descriptive title has been added to the plot. Adding more descriptive titles and axes labels is always a good idea. Furthermore, some changes to the formatting were made to make the chart more attractive. Feel free to experiment with labeling and formatting the graph when using a graph for your own presentation. <br></li>

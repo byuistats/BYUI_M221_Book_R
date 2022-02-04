@@ -285,7 +285,27 @@ e. A, B, and C can all occur.
 
 1. Open RStudio.
 
-2. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
+2. Load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick.
+
+```{r, warning = FALSE, message = FALSE}
+install.packages("mosaic")
+library(mosaic)
+```
+
+You only need to run the code `install.packages("mosaic")` once. After that, this package will be "installed" on your computer.
+
+
+<!--
+
+    NEED TO CHANGE THIS FILE TO USE favstats()...
+
+-->
+
+</div>
+
+Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
+
+3. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
 
 ```{}
 tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)

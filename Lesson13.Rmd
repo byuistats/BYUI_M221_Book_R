@@ -133,22 +133,8 @@ library(readxl)
 reading <- read_excel("./data/reading.xlsx")
 ```
 
-* Second, load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick.
-
-```{r, warning = FALSE, message = FALSE}
-library(mosaic)
-```
-
-<div class = "note">
-If you get the error message <span style = "color:red;">Error in library(mosaic) : there is no package called ‘mosaic’</span> then you will need to install the `mosiac` package using the code: `install.packages("mosaic")`
-
-You'll only ever need to "install" this package once. But you'll need to run "library(mosaic)" every time you reopen RStudio and want to use the `mosaic` package. As long as you keep RStudio open, you won't have to re-load the mosaic library.
-
-</div>
-
-Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
-
 ```{r, comment = NA}
+library(mosaic)
 favstats(reading$nights ~ reading$group)
 ```
 

@@ -23,8 +23,8 @@ library(readxl)
 url <- "https://byuistats.github.io/M221R/data/weight_loss.xlsx"
 destfile <- "weight_loss.xlsx"
 curl::curl_download(url, destfile)
-body_temp <- read_excel(destfile)
-View(body_temp)
+weight_loss <- read_excel(destfile)
+View(weight_loss)
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
