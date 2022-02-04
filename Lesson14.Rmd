@@ -1,5 +1,5 @@
 ---
-title: "Inference using ANOVA (Several Independent Samples)"
+title: "Lesson 14: Inference using ANOVA (Several Independent Samples)"
 output: 
   html_document:
     theme: cerulean
