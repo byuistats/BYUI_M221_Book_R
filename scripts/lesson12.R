@@ -36,10 +36,11 @@ favstats(weight_loss$difference)
 hist(weight_loss$difference)
 boxplot(weight_loss$difference, horizontal=TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(weight_loss$difference,   # Data
-       mu = 0,                   # Value from null hypothesis
-       alternative="two.sided")  # Could be "two.sided", "greater" or "less"
+# Hypothesis Test -----------------------------------------
+t.test(weight_loss$difference,     # Data
+       mu = 0,                     # Value from null hypothesis
+       alternative = "two.sided",  # Could be "two.sided", "greater" or "less"
+       conf.level = 0.95)          # Confidence level for a confidence interval
 
 
 
@@ -60,8 +61,11 @@ favstats(hospital_infections$difference)
 hist(hospital_infections$difference)
 boxplot(hospital_infections$difference, horizontal=TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(hospital_infections$difference, mu = 0, alternative = "greater")
+# Hypothesis Test -----------------------------------------
+t.test(hospital_infections$difference, 
+       mu = 0, 
+       alternative = "greater",
+       conf.level = 0.95)
 
 
 
@@ -81,8 +85,11 @@ favstats(ree$difference)
 hist(ree$difference)
 boxplot(ree$difference, horizontal = TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(ree$difference, mu = 0, alternative = "greater")
+# Hypothesis Test -----------------------------------------
+t.test(ree$difference, 
+       mu = 0, 
+       alternative = "greater",
+       conf.level = 0.95)
 
 
 
@@ -103,8 +110,11 @@ favstats(flight_costs$difference)
 hist(flight_costs$difference)
 boxplot(flight_costs$difference, horizontal = TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(flight_costs$difference, mu = 0, alternative = "two.sided")
+# Hypothesis Test -----------------------------------------
+t.test(flight_costs$difference, 
+       mu = 0, 
+       alternative = "two.sided",
+       conf.level = 0.95)
 
 
 
@@ -128,7 +138,7 @@ favstats(pine_beetle$difference)
 hist(pine_beetle$difference)
 boxplot(pine_beetle$difference, horizontal=TRUE)
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
+# Confidence Interval -------------------------------------
 t.test(pine_beetle$difference, conf.level = 0.95)
 
 
@@ -149,5 +159,5 @@ favstats(sleep$difference)
 hist(sleep$difference) 
 boxplot(sleep$difference, horizontal=TRUE)
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
+# Confidence Interval -------------------------------------
 t.test(sleep$difference, conf.level = 0.90)

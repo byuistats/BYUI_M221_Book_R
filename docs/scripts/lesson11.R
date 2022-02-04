@@ -33,7 +33,7 @@ favstats(body_temp$temperature)
 hist(body_temp$temperature)
 boxplot(body_temp$temperature, horizontal=TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
+# Hypothesis Test -----------------------------------------
 t.test(body_temp$temperature,    # Data
        mu = 98.6,                # Value from null hypothesis
        alternative="two.sided")  # Could be "two.sided", "greater" or "less"
@@ -53,7 +53,7 @@ favstats(baby_boom$weight)
 hist(baby_boom$weight)
 boxplot(baby_boom$weight, horizontal=TRUE)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
+# Hypothesis Test -----------------------------------------
 t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
@@ -75,7 +75,7 @@ favstats(bleu$score)
 hist(bleu$score)
 boxplot(bleu$score, horizontal=TRUE)
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
+# Confidence Interval -------------------------------------
 t.test(bleu$score, conf.level=0.95)
 
 
@@ -93,5 +93,5 @@ favstats(euro$weight)
 hist(euro$weight) 
 boxplot(euro$weight, horizontal=TRUE)
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
+# Confidence Interval -------------------------------------
 t.test(euro$weight, conf.level=0.99)

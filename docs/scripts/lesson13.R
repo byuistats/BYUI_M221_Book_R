@@ -1,25 +1,5 @@
-# Script file template
-# Delete the first 20 rows
-
-# Main headings are 70 characters long:
 # ===================================================================
-# Hypothesis Tests ==================================================
-# Confidence Intervals ==============================================
-
-# New example headings and sub-headings in examples are 60 characters long:
-# Body Temperatures Example -------------------------------
-# Numerical Summaries -------------------------------------
-# Graphical Summaries -------------------------------------
-
-# 3 blank lines before each new section or new example
-# 2 blank lines where import code can be inserted
-# 1 blank line between subsections in each example
-# A space follows the "#" as the start of each comment
-# Comments at the end of a line are rare
-
-
-# ===================================================================
-# Lesson xx: xxxxxxxxxxxx_DESCRIPTION_xxxxxxxxxxx
+# Lesson 13: Inference for the Difference of Means (Two Independent Samples)
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho
@@ -31,50 +11,56 @@ library(mosaic)
 
 
 
+# Long Data: One Column of Data, One Column Indicates the Group ===============
+
+
+
 # Hypothesis Tests ==================================================
 
 
 
-# Body Temperatures Example -------------------------------
+# Reading Practices Example -------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/body_temp.xlsx
+# https://byuistats.github.io/M221R/data/reading.xlsx
 # (The "Import Dataset" code was pasted here:)
 library(readxl)
-url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"
-destfile <- "body_temp.xlsx"
+url <- "https://byuistats.github.io/M221R/data/reading.xlsx"
+destfile <- "reading.xlsx"
 curl::curl_download(url, destfile)
-body_temp <- read_excel(destfile)
-View(body_temp)
+reading <- read_excel(destfile)
+View(reading)
 
 # Numerical Summaries -------------------------------------
-favstats(body_temp$temperature) 
+favstats(reading$nights ~ reading$group)
 
 # Graphical Summaries -------------------------------------
-hist(body_temp$temperature)
-boxplot(body_temp$temperature, horizontal=TRUE)
+boxplot(reading$nights ~ reading$group)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(body_temp$temperature,    # Data
-       mu = 98.6,                # Value from null hypothesis
-       alternative="two.sided")  # Could be "two.sided", "greater" or "less"
+# Hypothesis Test -----------------------------------------
+t.test(reading$nights ~ reading$group, 
+       mu = 0, 
+       alternative = "two.sided", 
+       conf.level = 0.95)
 
 
 
-# Baby Boom Data ------------------------------------------
+# FIFA World Cup Heart Attack Data ------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/baby_boom.xlsx
+# https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
 # (You may want to paste the code here)
 
 
 # Numerical Summaries -------------------------------------
-favstats(baby_boom$weight) 
+favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 
 # Graphical Summaries -------------------------------------
-hist(baby_boom$weight)
-boxplot(baby_boom$weight, horizontal=TRUE)
+boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 
-# One-Sample t-Test, Sigma Unknown ------------------------
-t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
+# Hypothesis Test -----------------------------------------
+t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, 
+       mu = 0,
+       alternative = "two.sided",
+       conf.level = 0.95)
 
 
 
@@ -82,36 +68,43 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
 
-# BLEU Scores ---------------------------------------------
+# Reading Practices Example -------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/bleu.xlsx
+# https://byuistats.github.io/M221R/data/reading.xlsx
 # (You may want to paste the code here)
 
 
 # Numerical Summaries -------------------------------------
-favstats(bleu$score)
+favstats(reading$nights ~ reading$group)
 
 # Graphical Summaries -------------------------------------
-hist(bleu$score)
-boxplot(bleu$score, horizontal=TRUE)
+boxplot(reading$nights ~ reading$group)
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
-t.test(bleu$score, conf.level=0.95)
-
+# Confidence Interval -------------------------------------
+t.test(reading$nights ~ reading$group, conf.level = 0.95)
 
 
-# Euro Weights --------------------------------------------
+
+# Wide Data: Data Stored in Separate Columns ========================
+
+
+
+# COPD ----------------------------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/euro.xlsx
+# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
 # (You may want to paste the code here)
 
 
 # Numerical Summaries -------------------------------------
-favstats(euro$weight)
+favstats(copd_rehab$community)
+favstats(copd_rehab$hospital)
 
 # Graphical Summaries -------------------------------------
-hist(euro$weight) 
-boxplot(euro$weight, horizontal=TRUE)
+boxplot(copd_rehab$community, copd_rehab$hospital,
+        names = c("Community", "Hospital"))
 
-# Confidence Interval for One Mean, Sigma Unknown ---------
-t.test(euro$weight, conf.level=0.99)
+# Confidence Interval -------------------------------------
+t.test(copd_rehab$community, copd_rehab$hospital, 
+       mu = 0,
+       alternative = "two.sided",
+       conf.level = 0.90)

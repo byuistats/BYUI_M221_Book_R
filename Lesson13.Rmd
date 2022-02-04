@@ -44,6 +44,7 @@ By the end of this lesson, you should be able to do the following.
 </div>
 <br>
 
+
 ## Independent Samples Versus Paired Data
 
 In the previous reading [Lesson 12: Inference for Two Means: Paired Data](Lesson12.html){target = "_blank"} we studied hypothesis tests and confidence intervals for the true mean of the differences $\mu_d$, where the data are paired.  One example of paired data is pre- and post-test scores, such as Mahon's weight loss study. <!--<cite>Mahon07</cite>-->  Another example is matched-pairs comparisons, like the nosocomial infection study. <!--<cite>Vegas93</cite>-->  How can you tell if data are paired?  The key characteristic of dependent samples (or matched pairs, or paired data) is that knowing which subjects will be in Group 1 determines which subjects will be in Group 2.  The data for each subject in Group 1 is *paired* with the data for a corresponding subject in Group 2.  In the case of the weight loss study, the same subject provided weight data for both groups: once in the pre-test (group 1) and once in the post-test (group 2).
@@ -53,6 +54,13 @@ In contrast to dependent samples, two samples are independent if knowing which s
 We can compare the mean income of men to the mean income of women using the procedures of this section.  We will conduct hypothesis tests and compute confidence intervals for the difference in the true population means of two groups ($\mu_\text{DEV Group} - \mu_\text{GEN Group}$).  
 
 Some students make the association that samples are independent if they do not affect each other.  This is a false notion.  Instead, remember that *samples are independent if knowing who was selected for Group A tells you nothing about who will be selected for group B.*
+
+
+
+
+## Long Data: One Column of Data, One Column Indicates the Group
+
+
 
 ## Hypothesis Tests
 <a name = "Sec20:HypTestTwoMeansIndep"></a>
@@ -132,6 +140,10 @@ We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ an
 library(readxl)
 reading <- read_excel("./data/reading.xlsx")
 ```
+
+We next compute our "favorite" summary statistics for each of the two groups in the data file: DEV (children with developmental problems) and GEN (children without developmental problems). We want the summary statistics for these groups separately. 
+
+We will use the tilde symbol (`~`) for this next command. This character is located on the top-left key on your keyboard. Using this symbol, we can run the `favstats` command separately for the two groups. The basic form of the command is `favstats(quantitative_data_variable ~ group_variable)`. The quantitative (numerical) data values are in the column `reading$nights` and the grouping variable is in the column `reading$group`. We enter the command in R as:
 
 ```{r, comment = NA}
 library(mosaic)
@@ -284,10 +296,13 @@ The test statistic for a hypothesis test comparing two means with independent sa
 * Use the `t.test(...)` function along with the tilde `~` (top-left key on your keyboard) to test a quantitative variable that is "divided into two groups" with the `~` sign like this:
 
 ```{r, comment = NA}
-t.test(reading$nights ~ reading$group, mu = 0, alternative = "two.sided")
+t.test(reading$nights ~ reading$group, 
+       mu = 0, 
+       alternative = "two.sided", 
+       conf.level = 0.95)
 ```
 
-Notice the quantitative variable "Nights" was first, followed by the `~`, followed by the categorical variable "Group" containing the two groups. It is important that the categorical variable contain *exactly* two groups or the `t.test` will not work.
+Notice the quantitative variable "nights" was first, followed by the `~`, followed by the categorical variable "group" containing the two groups. It is important that the categorical variable contain *exactly* two groups or the `t.test` will not work.
 
 A few other things to note:
 
@@ -473,7 +488,11 @@ favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 Side-by-side boxplots are a great way to summarize the data. 
 
 ```{r}
-boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col = c("darkolivegreen4", "tan3"), main = "2006 World Cup \n ")
+boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, 
+        col = c("darkolivegreen4", "tan3"),
+        xlab = "Time Period",
+        ylab = "Number of Heart Attacks per Day",
+        main = "2006 World Cup")
 ```
 
 </div>
@@ -501,7 +520,10 @@ boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, col =
 <div id = "Q8" style = "display:none;">
 
 ```{r, comment = NA}
-t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
+t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, 
+       mu = 0,
+       alternative = "two.sided",
+       conf.level = 0.95)
 ```
 
 * The test statistic is a $t$ and its value is
@@ -584,6 +606,10 @@ If the variances observed in the sample data are very different from each other,
 So, if the variances differ significantly, we should not assume equal variances.  If the variances do not differ significantly, it doesn't really matter if you assume equal variances or not.  So, for this course, we will never assume the variances are equal.  Stated, differently, we always assume unequal variances in this course.  This provides a consistent framework for your learning.
 
 <br>
+
+
+
+
 
 ## Confidence Intervals
 <a name = "Sec19:CITwoMeansIndep"></a>
@@ -687,6 +713,12 @@ The lower bound and upper bound of the 95% confidence interval for the *differen
 We are 95% confident that the true difference in the means is between $-0.149$ and $0.987$ days.
 Note that this confidence interval contains zero, so it is plausible that there is no difference in the mean number of nights the children in the two groups participate in reading. It is only when both values in the confidence interval are positive, or both values are negative, that we can conclude that one mean is different from the other.
 
+
+
+
+
+<!--
+
 ### Reversing the Order of Groups
 
 When creating the confidence interval in R, it is important to remember that R splits the data into two groups alphabetically. So the "DEV" group is the first group and the "GEN" group is the second group. If this order were reversed, it would result in a confidence interval with the opposite sign. If we assign the GEN group as the first group and the DEV group as the second, we would get a confidence interval of $(-0.987, 0.149)$. We could do this with the code:
@@ -695,6 +727,9 @@ When creating the confidence interval in R, it is important to remember that R s
 reading$groupReversed <- factor(reading$group, levels = c("GEN", "DEV"), ordered = TRUE)
 t.test(reading$nights ~ reading$groupReversed)
 ```
+
+-->
+
 
 
 
@@ -729,7 +764,9 @@ Because hospital-based rehabilitation tends to be more expensive, the researcher
 
 <img src = "./Images/Step3.png">
 
-### R Instructions for Describing Data in Two Different Columns
+## Wide Data: Data Stored in Separate Columns
+
+### R Instructions for Describing Data in Separate Columns
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
@@ -746,10 +783,6 @@ copd_rehab <- read_excel("./data/copd_rehab.xlsx")
 ```{r, warning = FALSE, message = FALSE}
 library(mosaic)
 ```
-
-<div class = "note">
-If you get the error message <span style = "color:red;">Error in library(mosaic) : there is no package called ‘mosaic’</span> then you will need to install the `mosiac` package using the code: `install.packages("mosaic")`
-</div>
 
 Use the `favstats(...)` function to produce numerical summaries for each group separately.
 
@@ -837,7 +870,7 @@ boxplot(copd_rehab$community, copd_rehab$hospital,
 <img src = "./Images/Step4.png">
 
 
-### R Instructions for t Tests with Data in Two Different Columns
+## R Instructions for t Tests with Data in Two Different Columns
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
