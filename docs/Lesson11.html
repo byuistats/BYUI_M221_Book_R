@@ -519,11 +519,12 @@ H_a: \mu \ne 98.6\\
 <p>We will use the body temperature data, <a href="./data/body_temp.xlsx">body_temp.xlsx</a>, collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> --></p>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p>These could be computed in RStudio after importing the data (<a href="RHelp.html#reading-in-data">click here</a> for a reminder how to import data into RStudio) using the codes:</p>
-<pre class="r"><code>mean(body_temp$temperature)   # sample mean (x-bar)
-sd(body_temp$temperature)     # sample standard deviation (s)
-length(body_temp$temperature) # sample size (n)</code></pre>
-<p>These codes result in the values:</p>
+<p>We calculate summary statistics in RStudio after importing the data (<a href="RHelp.html#reading-in-data">click here</a> for a reminder how to import data into RStudio). We can get the mean (<span class="math inline">\(\bar x\)</span>), standard deviation (<span class="math inline">\(s\)</span>), and sample size (<span class="math inline">\(n\)</span>) using the code:</p>
+<pre class="r"><code>library(mosaic)
+favstats(body_temp$temperature) </code></pre>
+<pre><code>##   min   Q1 median   Q3   max     mean        sd   n missing
+##  96.2 97.8   98.3 98.7 100.8 98.23446 0.7375924 148       0</code></pre>
+<p>From this output, we extract the following:</p>
 <p><span class="math display">\[
 \begin{array}{l}
 \bar x = 98.23\\
@@ -537,7 +538,14 @@ n = 148
      col = &quot;tan3&quot;, #set the color
      xlab = &quot;Body Temperature (Degrees Fahrenheight)&quot;,
      main = &quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Similarly, we can create a boxplot. Boxplots can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.</p>
+<pre class="r"><code>boxplot(body_temp$temperature,       # Select the data to use for the graph
+        horizontal = TRUE,           # Rotates the plot horizontally
+        col = &quot;tan3&quot;,                # Set the color
+        xlab = &quot;Body Temperature (Degrees Fahrenheight)&quot;,
+        main = &quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-8-1.png" width="672" /> In both these plots, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample <span class="math inline">\(t\)</span>-test.</p>
 <p></br></p>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
@@ -643,9 +651,10 @@ Answer the following questions:
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <p>Once the <a href="./data/baby_boom.xlsx">baby_boom.xlsx</a> dataset is <a href="RHelp.html#reading-in-data">read into RStudio</a>, the relevant summary statistics for the “Weight” column are computed by:</p>
-<pre class="r"><code>mean(baby_boom$weight)   # sample mean of the weights (x-bar)
-sd(baby_boom$weight)     # sample standard deviation (s)
-length(baby_boom$weight) # sample size (n)</code></pre>
+<pre class="r"><code>favstats(baby_boom$weight)</code></pre>
+<pre><code>##   min     Q1 median      Q3  max     mean       sd  n missing
+##  1745 3141.5   3404 3571.75 4162 3275.955 528.0325 44       0</code></pre>
+<p>We extract the key summary statistics from this output:</p>
 <span class="math display">\[
 \begin{align}
 \bar x &amp; = 3275.955 \textrm{g}\\
@@ -667,7 +676,15 @@ n &amp; = 44
      xlab = &quot;Weights in grams&quot;, 
      ylab = &quot;Number of Children&quot;, 
      main = &quot;Babies Born December 18, 1997 \n Mater Mothers&#39; Hospital in Brisbane, Australia&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We can also make a boxplot of these data:</p>
+<pre class="r"><code>boxplot(baby_boom$weight,
+        horizontal=TRUE,
+        col = &quot;steelblue3&quot;,
+        xlab = &quot;Weights in grams&quot;,
+        ylab = &quot;Number of Children&quot;,
+        main = &quot;Babies Born December 18, 1997 \n Mater Mothers&#39; Hospital in Brisbane, Australia&quot;)</code></pre>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -737,7 +754,11 @@ df = 43
 <h2>Confidence Intervals</h2>
 <p>The procedure for finding confidence intervals when <span class="math inline">\(\sigma\)</span> is not known is very similar to the process when <span class="math inline">\(\sigma\)</span> is known. As a reminder, here is the confidence interval (from Lesson 10) when <span class="math inline">\(\sigma\)</span> is known: <span class="math inline">\(\left( \bar x - z^* \frac{\sigma}{\sqrt{n}}, ~ \bar x + z^* \frac{\sigma}{\sqrt{n}} \right)\)</span>.</p>
 <p>To construct the confidence interval when <span class="math inline">\(\sigma\)</span> is not known, we replace the population standard deviation, <span class="math inline">\(\sigma\)</span>, with its point estimate, <span class="math inline">\(s\)</span>. The appropriate distribution is a <span class="math inline">\(t\)</span>, rather than a <span class="math inline">\(z\)</span>. So, we replace <span class="math inline">\(z^*\)</span> with <span class="math inline">\(t^*\)</span>. So the confidence interval when <span class="math inline">\(\sigma\)</span> is not known is <span class="math display">\[
-\left( \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , \ ~ \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} \right)
+\left( 
+  \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , 
+    \ ~ 
+  \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} 
+\right)
 \]</span> where <span class="math inline">\(t^*\)</span> is the <span class="math inline">\(t\)</span>-score corresponding to the confidence level and <span class="math inline">\(s\)</span> is the sample standard deviation.</p>
 <p>These confidence intervals are automatically produced in R with the <code>t.test(...)</code> command. The values of <span class="math inline">\(t^*\)</span> and <span class="math inline">\(s\)</span> will be computed for us. Examples of this are given below. <!--
 You can see the details by clicking on [Show Hand Calculations] in Step 4.
@@ -761,9 +782,9 @@ R Instructions
 </div>
 <div class="Software">
 <p>After reading the <a href="./data/bleu.xlsx">bleu.xlsx</a> data into R, we can compute the following.</p>
-<pre class="r"><code>mean(bleu$score)   # sample mean (x-bar)
-sd(bleu$score)     # sample standard deviation (s)
-length(bleu$score) # sample size (n)</code></pre>
+<pre class="r"><code>favstats(bleu$score)</code></pre>
+<pre><code>##    min     Q1 median      Q3   max    mean         sd   n missing
+##  0.211 0.2715 0.2865 0.30525 0.373 0.28761 0.02636415 100       0</code></pre>
 <p><span class="math display">\[
  \bar{x} = 0.288 \\
  s = 0.026 \\
@@ -773,7 +794,13 @@ length(bleu$score) # sample size (n)</code></pre>
      col = &quot;steelblue3&quot;,
      xlab = &quot;Score&quot;,
      main = &quot;BLEU Scores&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(bleu$score,
+        horizontal=TRUE,
+        col = &quot;steelblue3&quot;,
+        xlab = &quot;Score&quot;,
+        main = &quot;BLEU Scores&quot;)</code></pre>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -970,12 +997,9 @@ Answer the following questions:
 <a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <p>Read in the <a href="./data/euro.xlsx">euro.xlsx</a> data. Then, compute the summary statistics.</p>
-<pre class="r"><code>mean(euro$weight)   # sample mean (x-bar)</code></pre>
-<pre><code>[1] 7.521232</code></pre>
-<pre class="r"><code>sd(euro$weight)     # sample standard deviation (s)</code></pre>
-<pre><code>[1] 0.03437914</code></pre>
-<pre class="r"><code>length(euro$weight) # sample size (n)</code></pre>
-<pre><code>[1] 2000</code></pre>
+<pre class="r"><code>favstats(euro$weight)</code></pre>
+<pre><code>   min    Q1 median      Q3   max     mean         sd    n missing
+ 7.201 7.498   7.52 7.54425 7.752 7.521232 0.03437914 2000       0</code></pre>
 <p><br></p>
 <ul>
 <li>This gives the following summary statistics:</li>
@@ -1001,12 +1025,15 @@ n = &amp; 2000
      xlab = &quot;Weight in grams&quot;, 
      main = &quot;Coins from a Bank in Belgium&quot;,
      breaks = 50)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-<pre class="r"><code>#since the sampe size was large, 
-#we can use a lot of &quot;bins&quot; or &quot;breaks&quot; in the graph.</code></pre>
-<p>With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.</p>
-<pre class="r"><code>boxplot(euro$weight, xlab = &quot;Weight in grams&quot;, main = &quot;Coins from a Bank in Belgium&quot;, col = &quot;brown3&quot;, horizontal = TRUE)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<pre class="r"><code># Since the sampe size was large, 
+# we can use a lot of &quot;bins&quot; or &quot;breaks&quot; in the graph.</code></pre>
+<pre class="r"><code>boxplot(euro$weight,
+        horizontal = TRUE,
+        xlab = &quot;Weight in grams&quot;, 
+        main = &quot;Coins from a Bank in Belgium&quot;, 
+        col = &quot;brown3&quot;)</code></pre>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.</p>
 </div>
 <p> </p>
@@ -1030,7 +1057,7 @@ Answer the following question:
 </ol>
 <a href = "javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
-<pre class="r"><code>t.test(euro$weight, mu = 0, conf.level = 0.99)</code></pre>
+<pre class="r"><code>t.test(euro$weight, conf.level = 0.99)</code></pre>
 <pre><code>
     One Sample t-test
 

@@ -172,19 +172,23 @@ We will use the body temperature data, [body_temp.xlsx](./data/body_temp.xlsx), 
 
 
 ```{r, include = FALSE}
+library(mosaic)
 library(readxl)
 body_temp <- read_excel("./data/body_temp.xlsx")
 ```
 
-These could be computed in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio) using the codes:
+We calculate summary statistics in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio). We can get the mean ($\bar x$), standard deviation ($s$), and sample size ($n$) using the code:
 
 ```{r, eval = FALSE}
-mean(body_temp$temperature)   # sample mean (x-bar)
-sd(body_temp$temperature)     # sample standard deviation (s)
-length(body_temp$temperature) # sample size (n)
+library(mosaic)
+favstats(body_temp$temperature) 
 ```
 
-These codes result in the values:
+```{r, echo = FALSE}
+favstats(body_temp$temperature) 
+```
+
+From this output, we extract the following:
 
 $$
 \begin{array}{l}
@@ -204,6 +208,19 @@ hist(body_temp$temperature, #select the data to use for the graph
      xlab = "Body Temperature (Degrees Fahrenheight)",
      main = "Body Temperatures of 148 Healthy Adults")
 ```
+
+Similarly, we can create a boxplot. Boxplots can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
+
+
+
+```{r}
+boxplot(body_temp$temperature,       # Select the data to use for the graph
+        horizontal = TRUE,           # Rotates the plot horizontally
+        col = "tan3",                # Set the color
+        xlab = "Body Temperature (Degrees Fahrenheight)",
+        main = "Body Temperatures of 148 Healthy Adults")
+```
+In both these plots, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample $t$-test.
 
 
 </br>
@@ -353,12 +370,11 @@ Once the [baby_boom.xlsx](./data/baby_boom.xlsx) dataset is [read into RStudio](
 baby_boom <- read_excel("./data/baby_boom.xlsx")
 ```
 
-```{r, eval = FALSE}
-mean(baby_boom$weight)   # sample mean of the weights (x-bar)
-sd(baby_boom$weight)     # sample standard deviation (s)
-length(baby_boom$weight) # sample size (n)
+```{r}
+favstats(baby_boom$weight)
 ```
 
+We extract the key summary statistics from this output:
 
 $$
 \begin{align}
@@ -385,6 +401,18 @@ hist(baby_boom$weight,
      ylab = "Number of Children", 
      main = "Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
 ```
+
+We can also make a boxplot of these data:
+
+```{r}
+boxplot(baby_boom$weight,
+        horizontal=TRUE,
+        col = "steelblue3",
+        xlab = "Weights in grams",
+        ylab = "Number of Children",
+        main = "Babies Born December 18, 1997 \n Mater Mothers' Hospital in Brisbane, Australia")
+```
+
 
 </div>
 &nbsp;
@@ -459,7 +487,11 @@ The procedure for finding confidence intervals when $\sigma$ is not known is ver
 
 To construct the confidence interval when $\sigma$ is not known, we replace the population standard deviation, $\sigma$, with its point estimate, $s$. The appropriate distribution is a $t$, rather than a $z$.  So, we replace $z^*$ with $t^*$. So the confidence interval when $\sigma$ is not known is
 $$
-\left( \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , \ ~ \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} \right)
+\left( 
+  \underbrace{\bar x - t^* \frac{s}{\sqrt{n}}}_\text{lower bound} \ , 
+    \ ~ 
+  \underbrace{\bar x + t^* \frac{s}{\sqrt{n}}}_\text{upper bound} 
+\right)
 $$
 where $t^*$ is the $t$-score corresponding to the confidence level and $s$ is the sample standard deviation.
 
@@ -509,10 +541,8 @@ data into R, we can compute the following.
 bleu <- read_excel("./data/bleu.xlsx")
 ```
 
-```{r, eval = FALSE}
-mean(bleu$score)   # sample mean (x-bar)
-sd(bleu$score)     # sample standard deviation (s)
-length(bleu$score) # sample size (n)
+```{r}
+favstats(bleu$score)
 ```
 
 $$
@@ -526,6 +556,14 @@ hist(bleu$score,
      col = "steelblue3",
      xlab = "Score",
      main = "BLEU Scores")
+```
+
+```{r}
+boxplot(bleu$score,
+        horizontal=TRUE,
+        col = "steelblue3",
+        xlab = "Score",
+        main = "BLEU Scores")
 ```
 
 
@@ -728,9 +766,7 @@ euro <- read_excel("./data/euro.xlsx")
 ```
 
 ```{r, comment = NA}
-mean(euro$weight)   # sample mean (x-bar)
-sd(euro$weight)     # sample standard deviation (s)
-length(euro$weight) # sample size (n)
+favstats(euro$weight)
 ```
 
 <br>
@@ -763,14 +799,16 @@ hist(euro$weight,
      xlab = "Weight in grams", 
      main = "Coins from a Bank in Belgium",
      breaks = 50)
-#since the sampe size was large, 
-#we can use a lot of "bins" or "breaks" in the graph.
+# Since the sampe size was large, 
+# we can use a lot of "bins" or "breaks" in the graph.
 ```
 
-With boxplots, they can be presented either vertically or horizontally. Often, when presenting a single boxplot, they look better visually when presented horizontally. They also match up with histograms better when presented horizontally.
-
 ```{r, fig.height = 3}
-boxplot(euro$weight, xlab = "Weight in grams", main = "Coins from a Bank in Belgium", col = "brown3", horizontal = TRUE)
+boxplot(euro$weight,
+        horizontal = TRUE,
+        xlab = "Weight in grams", 
+        main = "Coins from a Bank in Belgium", 
+        col = "brown3")
 ```
 
 You can see the data is relatively normal, with just a couple of potential outliers that could be investigated further.
@@ -807,7 +845,7 @@ We need to check the following two requirements:
 <div id = "Q10" style = "display:none;">
 
 ```{r, comment = NA}
-t.test(euro$weight, mu = 0, conf.level = 0.99)
+t.test(euro$weight, conf.level = 0.99)
 ```
 
 The lower and upper bounds of the confidence interval are given by
