@@ -1,5 +1,25 @@
+# Script file template
+# Delete the first 20 rows
+
+# Main headings are 70 characters long:
 # ===================================================================
-# Lesson 11: Inference for One Mean (Sigma Unknown)
+# Hypothesis Tests ==================================================
+# Confidence Intervals ==============================================
+
+# New example headings and sub-headings in examples are 60 characters long:
+# Body Temperatures Example -------------------------------
+# Numerical Summaries -------------------------------------
+# Graphical Summaries -------------------------------------
+
+# 3 blank lines before each new section or new example
+# 2 blank lines where import code can be inserted
+# 1 blank line between subsections in each example
+# A space follows the "#" as the start of each comment
+# Comments at the end of a line are rare
+
+
+# ===================================================================
+# Lesson xx: xxxxxxxxxxxx_DESCRIPTION_xxxxxxxxxxx
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho

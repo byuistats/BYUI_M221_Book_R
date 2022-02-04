@@ -1,5 +1,5 @@
 # ===================================================================
-# Lesson xx: xxxxxxxxxxxx_DESCRIPTION_xxxxxxxxxxx
+# Lesson 11: Inference for One Mean (Sigma Unknown)
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho
