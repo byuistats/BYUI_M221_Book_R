@@ -9,15 +9,15 @@ output:
 
 <script type = "text/javascript">
  function showhide(id) {
-    var e  =document.getElementById(id);
-    e.style.display  =(e.style.display = ='block') ? 'none' : 'block';
+    var e = document.getElementById(id);
+    e.style.display = (e.style.display =='block') ? 'none' : 'block';
  }
 </script>
 
 <div style = "float:right;width = 40%;">
 <br/>
 <div style = "padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list  =PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Lesson Outcomes
@@ -62,7 +62,7 @@ We will first explore an application of pre- and post-testing in a weight loss s
 
 **Background**
 
-Annie Mahon and other researchers in Wayne Campbell's nutrition lab studied the weight loss of $n  =27$ middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>-->  The women's weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file [weight_loss.xlsx](./data/weight_loss.xlsx).  An excerpt of the data is shown below.
+Annie Mahon and other researchers in Wayne Campbell's nutrition lab studied the weight loss of $n = 27$ middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>-->  The women's weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the file [weight_loss.xlsx](./data/weight_loss.xlsx).  An excerpt of the data is shown below.
 
 <table>
 <thead>
@@ -129,7 +129,7 @@ Notice the structure of the data.  The weight of each subject was measured befor
 ### R Instructions for Computing Paired Differences
 
 The researchers are not interested in the weights of the women, they are more interested in the *change* in the women's weights.  This will give them a measure of the effectiveness of the low-calorie diet. In other words, they are interested in the difference of the weights after the study compared with before:
-$$\text{Difference}  =\text{Post Weight} - \text{Pre Weight}$$
+$$\text{Difference} = \text{Post Weight} - \text{Pre Weight}$$
 
 We can calculate the difference (or change) in weight for each woman in the study:
 
@@ -147,19 +147,19 @@ We can calculate the difference (or change) in weight for each woman in the stud
 <td><p>1</p></td>
 <td><p>56.1</p></td>
 <td><p>62.5</p></td>
-<td><p>56.1 $-$ 62.5  =-6.4</p></td>
+<td><p>56.1 $-$ 62.5 = -6.4</p></td>
 </tr>
 <tr class = "even">
 <td><p>2</p></td>
 <td><p>80.2</p></td>
 <td><p>88.8</p></td>
-<td><p>80.2 $-$ 88.8  =-8.6</p></td>
+<td><p>80.2 $-$ 88.8 = -8.6</p></td>
 </tr>
 <tr class = "odd">
 <td><p>3</p></td>
 <td><p>70.8</p></td>
 <td><p>74.7</p></td>
-<td><p>70.8 $-$ 74.7  =-3.9</p></td>
+<td><p>70.8 $-$ 74.7 = -3.9</p></td>
 </tr>
 <tr class = "even">
 <td><p>$\vdots$</p></td>
@@ -171,13 +171,13 @@ We can calculate the difference (or change) in weight for each woman in the stud
 <td><p>26</p></td>
 <td><p>73.8</p></td>
 <td><p>76.3</p></td>
-<td><p>73.8 $-$ 76.3  =-2.5</p></td>
+<td><p>73.8 $-$ 76.3 = -2.5</p></td>
 </tr>
 <tr class = "even">
 <td><p>27</p></td>
 <td><p>77.9</p></td>
 <td><p>82.1</p></td>
-<td><p>77.9 $-$ 82.1  =-4.2</p></td>
+<td><p>77.9 $-$ 82.1 = -4.2</p></td>
 </tr>
 </tbody>
 </table>
@@ -190,39 +190,49 @@ To compute the *differences* within each paired set of measurements in R, begin 
 
 Then, calculate the *differences* using the assignment operator `<-` and the selection operator `$`:
 
-```{r, include  =FALSE}
+```{r, include = FALSE}
 library(readxl)
 weight_loss <- read_excel("./data/weight_loss.xlsx")
 ```
 
 ```{r}
-weight_loss$differences <- weight_loss$post - weight_loss$pre
+weight_loss$difference <- weight_loss$post - weight_loss$pre
 ```
 
 Here we chose the order Post - Pre so that a positive difference would show an increase in weight (kg) from Pre-Weight to Post-Weight and a negative difference would show a decrease in weight (kg) from Pre-Weight to Post-Weight. Thus, a negative difference means the woman lost weight. This is usually the preferred order of subtraction with "Post vs. Pre" studies. 
 
 Once the differences are computed, we can compute the mean, median, standard deviation and so on using codes like the following.
 
-```{r, comment  =NA}
-mean(weight_loss$differences)   # sample mean 
-sd(weight_loss$differences)     # sample standard deviation
-length(weight_loss$differences) # sample size
+```{r, comment = NA}
+library(mosaic)
+favstats(weight_loss$difference)
 ```
 
 So we find that
 
 $$
-  \bar{d}  =-6.804 \\
-  s_d  =3.172 \\
-  n  =27
+  \bar{d} = -6.804 \\
+  s_d = 3.172 \\
+  n = 27
 $$
-To make a histogram of the differences we use the code:
+
+Notice that we use $\bar d$ to represent the mean of the difference where $d = post-pre$. We use a subscript of $d$ to indicate that the standard deviation we computed is the standard deviation of the differences.
+
+We make a histogram and boxplot of the differences:
 
 ```{r}
-hist(weight_loss$differences, 
+hist(weight_loss$difference,
      col = "tan3",
      xlab = "Weight Change in Kilograms (Post - Pre)",
      main = "Weight Loss Study") 
+```
+
+```{r}
+boxplot(weight_loss$difference,
+        horizontal=TRUE,
+        col = "tan3",
+        xlab = "Weight Change in Kilograms (Post - Pre)",
+        main = "Weight Loss Study") 
 ```
 
 </div>
@@ -237,15 +247,10 @@ hist(weight_loss$differences,
 <div id = "Q2" style = "display:none;">
 The first difference is found by printing the differences to the screen and looking at the first value. Do this by simply typing the name of the object "differences."
 
-```{r, echo  =FALSE, warning  =FALSE, message  =FALSE}
+```{r, echo = FALSE, comment = NA, warning = FALSE, message = FALSE}
 library(tidyverse)
-weight_loss <- weight_loss %>% select(-comments)
-```
-
-
-```{r, comment  =NA}
 library(knitr)
-kable(weight_loss)
+kable(weight_loss %>% select(-comments), align = "cccc")
 ```
 
 The first difference is $-6.4$. So, the first woman included in the study lost 6.4 kg during the course of the study.
@@ -262,7 +267,7 @@ As shown in the output above,
 
 <center>
 $$
-\bar{d}  =-6.804 \ \text{kg}
+\bar{d} = -6.804 \ \text{kg}
 $$
 </center>
 </div>
@@ -283,11 +288,11 @@ $$
 
 **Relationship to a One Sample t-test**
 
-After you have subtracted the pre-study weights from the post-study weights, you are left with a column of differences.  We will denote the pre-study weights by $x_1$ and the post-study weights by $x_2$.  Then, the differences can be denoted as $d  =x_2 - x_1$.  The difference, $d$, is defined as the change in the volunteer's weight during the study.  
+After you have subtracted the pre-study weights from the post-study weights, you are left with a column of differences.  We will denote the pre-study weights by $x_1$ and the post-study weights by $x_2$.  Then, the differences can be denoted as $d = x_2 - x_1$.  The difference, $d$, is defined as the change in the volunteer's weight during the study.  
 
 After computing the differences, we do not use the data for the individual groups anymore. The researchers are not interested in the values of the women's weights at the beginning of the study or at the end of the study.  They are interested in the difference in the weights after the participants complete the study.
 
-After we subtract, we can conduct a hypothesis test to determine if the mean of the differences is less than zero.  We use the symbol $\mu_d$ to represent the true mean difference in the weights of women who follow the diet prescribed in this study. The null hypotheses is that the true mean difference is zero  ($\mu_d  =0$). In other words, the null hypothesis states that the prescribed diet does not influence the weights of women.  The alternative hypothesis is that there is a decrease in the weights of the women, in other words, that the true mean difference is less than zero ($\mu_d < 0$).
+After we subtract, we can conduct a hypothesis test to determine if the mean of the differences is less than zero.  We use the symbol $\mu_d$ to represent the true mean difference in the weights of women who follow the diet prescribed in this study. The null hypotheses is that the true mean difference is zero  ($\mu_d = 0$). In other words, the null hypothesis states that the prescribed diet does not influence the weights of women.  The alternative hypothesis is that there is a decrease in the weights of the women, in other words, that the true mean difference is less than zero ($\mu_d < 0$).
 
 Notice that this is essentially a one-sample t-test where the data are the *differences in the women's weights*.  We have one column of data, the differences.  We are testing whether the true mean difference is less than zero (or not equal to zero, or greater than zero).  So, a test for the *differences of matched pairs* with dependent samples is just like a test for one mean with $\sigma$ unknown.
 
@@ -306,12 +311,12 @@ Twenty-seven women participated in a nine week weight loss study. During the stu
 
 $$
 \begin{align}
-H_0: &~~ \mu_d  =0 \\
+H_0: &~~ \mu_d = 0 \\
 H_a: &~~ \mu_d < 0
 \end{align}
 $$
 
-We will use the $\alpha  =0.05$ level of significance.
+We will use the $\alpha = 0.05$ level of significance.
 
 
 <img src = "./Images/Step2.png">
@@ -325,17 +330,28 @@ The women's weights were recorded at the beginning of the study.  The women were
 
 **Give the relevant summary statistics**
 
-```{r, echo  =FALSE}
-hist(weight_loss$differences, main = "Weight Loss Study \n All 27 Women Lost Weight", xlab = "Weight Change in Kilograms (Post - Pre)", col = "tan3")
+```{r, echo = FALSE}
+hist(weight_loss$difference, 
+     main = "Weight Loss Study \n All 27 Women Lost Weight", 
+     xlab = "Weight Change in Kilograms (Post - Pre)", 
+     col = "tan3")
+```
+
+```{r, echo = FALSE}
+boxplot(weight_loss$difference,
+        horizontal=TRUE,
+        main = "Weight Loss Study \n All 27 Women Lost Weight",
+        xlab = "Weight Change in Kilograms (Post - Pre)",
+        col = "tan3")
 ```
 
 From the R output demonstrated previously, we can see a histogram of the data and get the following numerical summaries:
 
 $$
 \begin{align}
-\bar d &  =-6.804 \\
-s_d &  =3.172 \\
-n &  =27
+\bar d & = -6.804 \\
+s_d & = 3.172 \\
+n & = 27
 \end{align}
 $$
 
@@ -356,7 +372,7 @@ The requirements for this procedure are the same as the requirements for a one-s
 
 - **the mean of the differences $\bar{d}$ follows a normal distribution**    
 
-    We will assume the requirement of normality of $\bar{d}$ is satisfied for Mahon's data. Though the sample size (n  =27) is not quite up to 30, the histogram of differences looks fairly normal, so $\bar d$ will be approximately normal and the requirement is satisfied. If the data had been highly skewed, or there was a more pronounced bimodal pattern in the histogram, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test. 
+    We will assume the requirement of normality of $\bar{d}$ is satisfied for Mahon's data. Though the sample size (n = 27) is not quite up to 30, the histogram of differences looks fairly normal, so $\bar d$ will be approximately normal and the requirement is satisfied. If the data had been highly skewed, or there was a more pronounced bimodal pattern in the histogram, then we would be worried about the results of the test and would have recommended they redo the study with a larger sample size in order to have confidence in the results of the t-test. 
 
 
 **Give the test statistic and its value**
@@ -367,10 +383,10 @@ The requirements for this procedure are the same as the requirements for a one-s
 <div class = "Software">
 To perform a paired samples t test in R, first compute the *differences* within each paired set of measurements in R as was [shown previously](Lesson12.html#r-instructions-for-computing-paired-differences).
 
-Then, run a t test on the differences. Since the null hypothesis for the Mahon Weight Loss study was $H_0: \mu_d  =0$, we use `t.test(..., mu  =0)`. Since the alternative hypothesis was that $H_a: \mu_d < 0$, we use the code `t.test(..., alternative  ="less")`. Putting this all together we have the following.
+Then, run a t test on the differences. Since the null hypothesis for the Mahon Weight Loss study was $H_0: \mu_d = 0$, we use `t.test(..., mu = 0)`. Since the alternative hypothesis was that $H_a: \mu_d < 0$, we use the code `t.test(..., alternative = "less")`. Putting this all together we have the following.
 
-```{r, comment  =NA}
-t.test(weight_loss$differences, mu  =0, alternative  ="less")
+```{r, comment = NA}
+t.test(weight_loss$difference, mu = 0, alternative = "less")
 ```
 
 </div>
@@ -378,19 +394,19 @@ t.test(weight_loss$differences, mu  =0, alternative  ="less")
 
 
 The test statistic for a test involving paired data when $\sigma$ is unknown is a $t$.  For this situation, the value is:
-$$t  =\frac{-6.804 - 0}{3.17/\sqrt{27}}  =-11.145$$
+$$t = \frac{-6.804 - 0}{3.17/\sqrt{27}} = -11.145$$
 See that this calculation matches the test statistic given in the R output. The degrees of freedom and p-value can also be found in the R output.
 
 **State the degrees of freedom**
 
 The degrees of freedom are one less than the sample size. They are also shown automatically in the output of the test results.
 
-$$df  =n - 1  =27 - 1  =26$$
+$$df = n - 1 = 27 - 1 = 26$$
 
 **Find the $P$-value and compare it to the level of significance**
 
 $$
-P\text{-value}  =1.059 \times 10^{-11} < 0.05  =\alpha
+P\text{-value} = 1.059 \times 10^{-11} < 0.05 = \alpha
 $$
 
 **State your decision**
@@ -405,11 +421,14 @@ Since the $P$-value is less than the level of significance, we reject the null h
 There is sufficient evidence to suggest that the reduced calorie diet used in this study results in weight loss for middle-aged women with the average weight loss around 6.804 kg.
 <br>
 
+
+
+
 <img src = "./Images/StepsAll.png">
 
 ### Nosocomial Infections
 
-<span id  ='17:IntroTohospital_infections'></span>
+<span id = '17:IntroToNosocomialInfections'></span>
 
 <img src = "./Images/Step1.png">
 
@@ -429,11 +448,11 @@ By pairing the patients according to specific characteristics, the researchers c
 
 The difference, $d$, is defined as the duration of the hospital stay of the individual in the pair with the nosocomial infection minus the duration of the stay for the individual who did not get a nosocomial infection:
 $$
-difference  =infected - not_infected
+difference = infected - not_infected
 $$
 After computing the differences, we do not use the data for the individual groups anymore.  In fact, after we subtract, the hypothesis test is conducted (essentially) like a one-sample test for a single mean with $\sigma$ unknown.
 
-```{r, include  =FALSE}
+```{r, include = FALSE}
 hospital_infections <- read_excel("./data/hospital_infections.xlsx")
 ```
 
@@ -445,17 +464,17 @@ hospital_infections <- read_excel("./data/hospital_infections.xlsx")
 <a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q5" style = "display:none;">
 
-The null hypothesis for paired data will always use $\mu_d  =0$. In this study, we want to know if the nosocomial infections are *increasing* the length of stay of patients. Since we defined the differences as $infected - not_infected$ then the alternative hypothesis needs to show $infected$ having longer durations than those who are $not_infected$, leading to the Differences being positive, i.e., $\mu_d > 0$. 
+The null hypothesis for paired data will always use $\mu_d = 0$. In this study, we want to know if the nosocomial infections are *increasing* the length of stay of patients. Since we defined the differences as $infected - not_infected$ then the alternative hypothesis needs to show $infected$ having longer durations than those who are $not_infected$, leading to the Differences being positive, i.e., $\mu_d > 0$. 
 
 <center>
 $$
 \begin{align}
-H_0: &~~ \mu_d  =0 \\
+H_0: &~~ \mu_d = 0 \\
 H_a: &~~ \mu_d > 0 \\
 \end{align}
 $$
 </center>
-* The level of significance was not specified in the problem.  You can choose any value you wish.  The most common choices are 0.05, 0.01 and 0.1.  We will illustrate this example with $\alpha  =0.05$.
+* The level of significance was not specified in the problem.  You can choose any value you wish.  The most common choices are 0.05, 0.01 and 0.1.  We will illustrate this example with $\alpha = 0.05$.
 
 
 </div>
@@ -492,25 +511,23 @@ In order to get the correct $P$-value, we need to indicate the proper alternativ
 <a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q7" style = "display:none;">
 
-Recall that the differences $d$ in the duration of the patient's stay in the hospital were decided to be computed in the order, $differences  =infected - not_infected$.
+Recall that the differences $d$ in the duration of the patient's stay in the hospital were decided to be computed in the order, $difference = infected - not_infected$.
 
-```{r, comment  =NA}
-hospital_infections$differences <- hospital_infections$infected - hospital_infections$not_infected
+```{r, comment = NA}
+hospital_infections$difference <- hospital_infections$infected - hospital_infections$not_infected
 ```
 
-The numerical summaries are then computed by
+The numerical summaries are computed using the command:
 
-```{r, comment  =NA}
-mean(hospital_infections$differences)
-sd(hospital_infections$differences)
-length(hospital_infections$differences)
+```{r, comment = NA}
+favstats(hospital_infections$difference)
 ```
 
 $$
 \begin{align}
-\bar d &  =11.38 \\
-s_d &  =13.83 \\
-n &  =52
+\bar d & = 11.38 \\
+s_d & = 13.83 \\
+n & = 52
 \end{align}
 $$
 
@@ -524,7 +541,16 @@ $$
 - Present a graph showing the differences.
 
 ```{r}
-hist(hospital_infections$differences, main = "Matched Pairs Study \n Nosocomial Infections", xlab = "Difference in Hospital Stay (infected - not_infected)")
+hist(hospital_infections$difference, 
+     main = "Matched Pairs Study \n Nosocomial Infections", 
+     xlab = "Difference in Hospital Stay (infected - not_infected)")
+```
+
+```{r}
+boxplot(hospital_infections$difference,
+        horizontal=TRUE,
+        main = "Matched Pairs Study \n Nosocomial Infections",
+        xlab = "Difference in Hospital Stay (infected - not_infected)")
 ```
 
 </div>
@@ -549,7 +575,7 @@ hist(hospital_infections$differences, main = "Matched Pairs Study \n Nosocomial 
 * Requirement: **The sample mean ($\bar{d}$) is normally distributed.**    
 
     
-    The sample size is large ($n  =52$), so the mean of the differences $\bar d$ will be approximately normally distributed by virtue of the Central Limit Theorem.
+    The sample size is large ($n = 52$), so the mean of the differences $\bar d$ will be approximately normally distributed by virtue of the Central Limit Theorem.
 
 
 </div>
@@ -562,10 +588,10 @@ hist(hospital_infections$differences, main = "Matched Pairs Study \n Nosocomial 
 * The test statistic for a test for two means with paired data is a $t$.
 
 ```{r}
-t.test(hospital_infections$differences, mu  =0, alternative  ="greater")
+t.test(hospital_infections$difference, mu = 0, alternative = "greater")
 ```
 
-$$t  =5.935$$
+$$t = 5.935$$
 </div>
 <br>
 
@@ -575,7 +601,7 @@ $$t  =5.935$$
 <div id = "Q11" style = "display:none;">
 <center>
 $$
-df  =51
+df = 51
 $$
 </center>
 </div>
@@ -590,7 +616,7 @@ The p-value can be found in the R output. As a reminder, scientific notation of 
 
 <center>
 $$
-P\textrm{-value}  =1.296e^{-7}  =0.0000001296 < 0.05  =\alpha
+P\textrm{-value} = 1.296e^{-7} = 0.0000001296 < 0.05 = \alpha
 $$
 </center>
 
@@ -646,19 +672,23 @@ REE accounts for approximately 70 to 80% of all energy that a person will expend
 
 Ebba Carlsson and other researchers in Sweden investigated whether listening to stressful classical music increases a person's REE. <!--<cite>Carlsson05</cite>-->  Each subject's REE was measuring during silence and again while listening to stressful classical music.  Data representing their results are given in the file [ree.xlsx](./data/ree.xlsx).  
 
-Notice that this is not a pre- and post-test, but it is still a test involving paired data.  Two REE measurements were made for each subject:  (1) in silence ($REE_1$) and (2) while listening to stressful classical music ($REE_2$).
+Notice that this is not a pre- and post-test, but it is still a test involving paired data.  Two REE measurements were made for each subject:  (1) in silence ($silence$) and (2) while listening to stressful classical music ($stressful$).
+
+```{r, include = FALSE}
+ree <- read_excel("./data/ree.xlsx")
+```
 
 **State the null and alternative hypotheses and the level of significance**
 
-Since we are testing for an increase in the mean REE, we let $d  =REE_2 - REE_1$. Our alternative hypothesis will be that $\mu_d > 0$.  The null and alternative hypotheses are:
+Since we are testing for an increase in the mean REE, we let $d = stressful - silence$. Our alternative hypothesis will be that $\mu_d > 0$.  The null and alternative hypotheses are:
 $$
 \begin{align}
-H_0: &~~ \mu_d  =0 \\
+H_0: &~~ \mu_d = 0 \\
 H_a: &~~ \mu_d > 0
 \end{align}
 $$
 
-We will use the $\alpha  =0.1$ level of significance.
+We will use the $\alpha = 0.1$ level of significance.
 
 
 
@@ -693,20 +723,20 @@ $$
 
 First, read in the [ree.xlsx](./data/ree.xlsx) data into RStudio.
 
-```{r, include  =FALSE}
-REE_ClassicalMusic <- read_excel("./data/ree.xlsx")
+```{r, include = FALSE}
+ree <- read_excel("./data/ree.xlsx")
 ```
 
 Then, compute the differences by
 
 ```{r}
-differences <- REE_ClassicalMusic$stressful - REE_ClassicalMusic$silence
+ree$difference <- ree$stressful - ree$silence
 ```
 
 To look at the differences, simply type
 
-```{r, comment  =NA} 
-differences
+```{r, comment = NA} 
+ree$difference
 ```
 
 The first observed difference is 50 kJ/d.
@@ -722,17 +752,15 @@ The first observed difference is 50 kJ/d.
 <a href = "javascript:showhide('Q18')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q18" style = "display:none;">
 
-```{r, comment  =NA}
-mean(differences)
-length(differences) #sample size
-sd(differences)
+```{r, comment = NA}
+favstats(ree$difference)
 ```
 
 $$
 \begin{align}
-n&  =40\\
-\bar d &  =20~\text{kJ/d}\\
-s_d &  =159.5~\text{kJ/d}
+n& = 40\\
+\bar d & = 20~\text{kJ/d}\\
+s_d & = 159.5~\text{kJ/d}
 \end{align}
 $$
 </div>
@@ -740,13 +768,24 @@ $$
 
 **Visualize the data**
 
-19. Create a histogram of the differences.
+19. Create a histogram and boxplot of the differences.
 
 <a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q19" style = "display:none;">
 
-```{r, comment  =NA}
-hist(differences, main = "Effect of Classical Music on Energy", xlab = "Resting Energy Expenditure (Stressful - Silence", col = "darkorchid") 
+```{r, comment = NA}
+hist(ree$difference, 
+     main = "Effect of Classical Music on Energy", 
+     xlab = "Resting Energy Expenditure (Stressful - Silence)", 
+     col = "darkorchid") 
+```
+
+```{r, comment = NA}
+boxplot(ree$difference,
+        horizontal = TRUE,
+        main = "Effect of Classical Music on Energy",
+        xlab = "Resting Energy Expenditure (Stressful - Silence)",
+        col = "darkorchid") 
 ```
 
 </div>
@@ -766,7 +805,7 @@ hist(differences, main = "Effect of Classical Music on Energy", xlab = "Resting 
 * Requirement: **The sample mean ($\bar{d}$) is normally distributed.**    
 
 
-    Because our sample size ($n  =40$) of differences is greater than 30, we can be sure the sampling distribution of $\bar d$ will be normal by the Central Limit Theorem.
+    Because our sample size ($n = 40$) of differences is greater than 30, we can be sure the sampling distribution of $\bar d$ will be normal by the Central Limit Theorem.
 
 The requirements for this test appear to have been satisfied.
 
@@ -779,11 +818,11 @@ The requirements for this test appear to have been satisfied.
 
 * The test statistic for a test for two means with paired data is a $t$.
 
-```{r, comment  =NA}
-t.test(differences, mu  =0, alternative  ="greater")
+```{r, comment = NA}
+t.test(ree$difference, mu = 0, alternative = "greater")
 ```
 
-$$t  =0.793$$
+$$t = 0.793$$
 </div>
 <br>
 
@@ -793,7 +832,7 @@ $$t  =0.793$$
 <div id = "Q21" style = "display:none;">
 <center>
 $$
-df  =39
+df = 39
 $$
 </center>
 </div>
@@ -816,7 +855,7 @@ $$
 <a href = "javascript:showhide('Q23')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q23" style = "display:none;">
 <center>
-$P\textrm{-value}  =0.2163 > 0.1  =\alpha$
+$P\textrm{-value} = 0.2163 > 0.1 = \alpha$
 </center>
 * Notice that the $P$-value is half as large for a one-tailed test as it would have been for a two-tailed test.  Since we have a one-sided alternative hypothesis, we are only interested in the right tail of the $t$-distribution.
 </div>
@@ -877,9 +916,9 @@ We will conduct a hypothesis test to determine if there is a difference in the c
 <center>
 $$
 \begin{array}{1cl}
-H_0:\mu_d  =0 \\
+H_0:\mu_d = 0 \\
 H_a:\mu_d \ne 0 \\
-\alpha  =0.01
+\alpha = 0.01
 \end{array}
 $$
 </center>
@@ -915,21 +954,21 @@ $$
 <div id = "Q28" style = "display:none;">
 * The differences were computed by subtracting the 90-day price from the 14-day price.  For example, for the Adnan Menderes Airport, we have
 
-$$202.09 - 234.19  =-32.10$$
+$$202.09 - 234.19 = -32.10$$
 
 * You may have chosen to subtract in the opposite order.  If so, you would have obtained a value of $32.10$ dollars.
 
 $$
 \begin{align}
-n&  =87\\
-\bar d &  =24.612\\
-s_d &  =136.267
+n& = 87\\
+\bar d & = 24.612\\
+s_d & = 136.267
 \end{align}
 $$
 
 
 <br>
-<div class = "message Note">If you defined your difference as the 90-day price minus the 14-day price, then you would have observed a value of $\bar d  =-24.612$ dollars for the mean of the differences.  You were not instructed on the order in which to subtract, so this is a correct response.  The value for the standard deviation of the difference and the number of observations (pairs) will be the same as is given above.</div>
+<div class = "message Note">If you defined your difference as the 90-day price minus the 14-day price, then you would have observed a value of $\bar d = -24.612$ dollars for the mean of the differences.  You were not instructed on the order in which to subtract, so this is a correct response.  The value for the standard deviation of the difference and the number of observations (pairs) will be the same as is given above.</div>
 <br>
 <br>
 </div>
@@ -941,29 +980,29 @@ $$
 <div id = "Q29" style = "display:none;">
 
 
-```{r, include  =FALSE}
+```{r, include = FALSE}
 flight_costs <- read_excel("./data/flight_costs.xlsx")
 ```
 
 ```{r}
-differences <- flight_costs$fourteen_days - flight_costs$ninety_days
-hist(differences, 
+flight_costs$difference <- flight_costs$fourteen_days - flight_costs$ninety_days
+hist(flight_costs$difference, 
      col = "tan3",
      xlab = "Difference in Dollar Cost (14 Days - 90 Days)",
      main = "Direct Flight Costs",
-     breaks  =30)
+     breaks = 30)
 ```
 
 
 * If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram instead:
 
 ```{r}
-differences <- flight_costs$ninety_days - flight_costs$fourteen_days
-hist(differences, 
+flight_costs$difference2 <- flight_costs$ninety_days - flight_costs$fourteen_days
+hist(flight_costs$difference2, 
      col = "brown3",
      xlab = "Difference in Dollar Cost (90 Days - 14 Days)",
      main = "Direct Flight Costs",
-     breaks  =30)
+     breaks = 30)
 ```
 
 </div>
@@ -991,7 +1030,7 @@ hist(differences,
 <div id = "Q31" style = "display:none;">
 * The test statistic for a test for two means with paired data is a $t$.
 
-$$t  =1.685$$
+$$t = 1.685$$
 
 * If you computed the difference as the 90-day price minus the 14-day price, the value of your test statistic is $-1.685$.
 </div>
@@ -1003,7 +1042,7 @@ $$t  =1.685$$
 <div id = "Q32" style = "display:none;">
 <center>
 $$
-df  =86
+df = 86
 $$
 </center>
 </div>
@@ -1027,7 +1066,7 @@ $$
 <div id = "Q34" style = "display:none;">
 <center>
 $$
-P\textrm{-value}  =0.096 > 0.01  =\alpha
+P\textrm{-value} = 0.096 > 0.01 = \alpha
 $$
 </center>
  The $P$-value will be 0.096, no matter what order you subtracted the values.
@@ -1117,19 +1156,17 @@ In a study conducted in the Arapaho National Forest in Colorado, researchers fro
 <a href = "javascript:showhide('Q38')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q38" style = "display:none;">
 
-```{r, include  =FALSE}
+```{r, include = FALSE}
 pine_beetle <- read_excel("./data/pine_beetle.xlsx")
 ```
 
-```{r, comment  =NA}
-mean(pine_beetle$before)
-sd(pine_beetle$before)
-length(pine_beetle$before)
+```{r, comment = NA}
+favstats(pine_beetle$before)
 ```
 
-* The mean, as found in the summary output above, was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare.  Note that the values were rounded to two decimal places, since the data were given to one decimal place.
+* The mean, given in the summary output above, was 1028.41 trees per hectare and the standard deviation was 57.03 trees per hectare.  Note that the values were rounded to two decimal places, since the data were given to one decimal place.
 * Answers will vary regarding the description of the density.  Here is one possible response.
-* There is roughly one tree every $\frac{100 \times 100}{1028.41}  =9.7$ square meters.  In other words, on average, each tree would have a space of about $\sqrt{9.7}  =3.1$ meters long and 3.1 meters wide in which to grow.
+* There is roughly one tree every $\frac{100 \times 100}{1028.41} = 9.7$ square meters.  In other words, on average, each tree would have a space of about $\sqrt{9.7} = 3.1$ meters long and 3.1 meters wide in which to grow.
 </div>
 <br>
 
@@ -1138,21 +1175,19 @@ length(pine_beetle$before)
 <a href = "javascript:showhide('Q39')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q39" style = "display:none;">
 
-```{r, comment  =NA}
-mean(pine_beetle$after)
-sd(pine_beetle$after)
-length(pine_beetle$after)
+```{r, comment = NA}
+favstats(pine_beetle$after)
 ```
 
 * The mean was 592.87 trees per hectare and the standard deviation was 45.31 trees per hectare.
 * Answers will vary regarding the description of the density.  Here is one possible response.
-* The trees are about half as dense as they were before the pine beetle infestation.  About $\frac{592.87}{1028.41}  =0.58  =58\%$ of the trees remained, so $100\% - 58\%  =42\%$ of the trees were killed by the pine beetles!
+* The trees are about half as dense as they were before the pine beetle infestation.  About $\frac{592.87}{1028.41} = 0.58 = 58\%$ of the trees remained, so $100\% - 58\% = 42\%$ of the trees were killed by the pine beetles!
 </div>
 <br>
 
 40. Find the differences by subtracting the "before" counts from the "after" counts:
 
-$$difference  =after - before$$
+$$difference = after - before$$
 **Be careful to match the order of subtraction.**
 
 * For these differences, report the mean, the standard deviation, and the sample size.
@@ -1160,11 +1195,9 @@ $$difference  =after - before$$
 <a href = "javascript:showhide('Q40')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q40" style = "display:none;">
 
-```{r, comment  =NA}
-pine_beetle$differences <- pine_beetle$after - pine_beetle$before
-mean(pine_beetle$differences)
-sd(pine_beetle$differences)
-length(pine_beetle$differences)
+```{r, comment = NA}
+pine_beetle$difference <- pine_beetle$after - pine_beetle$before
+favstats(pine_beetle$difference)
 ```
 
 <center>
@@ -1173,22 +1206,33 @@ length(pine_beetle$differences)
 
  &nbsp;                   &nbsp;
 --------------------- ------------------
-Mean:                  $\bar d  =-435.535$
-Standard Deviation:    $s_d  =17.082$
-Sample Size:           $n  =170$
+Mean:                  $\bar d = -435.535$
+Standard Deviation:    $s_d = 17.082$
+Sample Size:           $n = 170$
 
 </div>
 <br>
 
 **Make an appropriate graph to illustrate the data**
 
-41. Create a histogram of the differences in the density of the trees.
+41. Create a histogram and boxplot of the differences in the density of the trees.
 
 <a href = "javascript:showhide('Q41')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q41" style = "display:none;">
 
 ```{r}
-hist(pine_beetle$differences, main = "Pine Beetle Outbreaks", xlab = "Difference in Tree Density (After - Before)", col = "darkolivegreen4")
+hist(pine_beetle$difference, 
+     main = "Pine Beetle Outbreaks", 
+     xlab = "Difference in Tree Density (After - Before)", 
+     col = "darkolivegreen4")
+```
+
+```{r}
+boxplot(pine_beetle$difference,
+        horizontal = TRUE,
+        main = "Pine Beetle Outbreaks",
+        xlab = "Difference in Tree Density (After - Before)",
+        col = "darkolivegreen4")
 ```
 
 </div>
@@ -1211,13 +1255,13 @@ To create a confidence interval for the true mean of the differences $\mu_d$ in 
 * Compute the differences if you haven't already:
 
 ```{r}
-pine_beetle$differences <- pine_beetle$after - pine_beetle$before
+pine_beetle$difference <- pine_beetle$after - pine_beetle$before
 ```
 
-* Use the code `t.test(pine_beetle$differences, conf.level  =0.95)` to set the desired confidence level and create the confidence interval.
+* Use the code `t.test(pine_beetle$difference, conf.level = 0.95)` to set the desired confidence level and create the confidence interval.
 
-```{r, comment  =NA}
-t.test(pine_beetle$differences, conf.level  =0.95)
+```{r, comment = NA}
+t.test(pine_beetle$difference, conf.level = 0.95)
 ```
 
 The row of the output shown above called "95 percent confidence interval:" shows the **lower bound** as -438.1211 and the **upper bound** as -432.9483.
@@ -1243,7 +1287,7 @@ The row of the output shown above called "95 percent confidence interval:" shows
 * Requirement: **The sample mean ($\bar{d}$) is normally distributed.**    
 
 
-    For the pine beetle data, the histogram indicates that the data are not normally distributed.  However, since the sample size is large ($n  =170$), we can know by the Central Limit Theorem that the sample mean $\bar{d}$ is normally distributed despite the skew in the data.
+    For the pine beetle data, the histogram indicates that the data are not normally distributed.  However, since the sample size is large ($n = 170$), we can know by the Central Limit Theorem that the sample mean $\bar{d}$ is normally distributed despite the skew in the data.
 
 The requirements for creating the confidence interval seem to be satisfied.
 </div>
@@ -1254,8 +1298,8 @@ The requirements for creating the confidence interval seem to be satisfied.
 <a href = "javascript:showhide('Q43')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q43" style = "display:none;">
 
-```{r, comment  =NA}
-t.test(pine_beetle$differences, conf.level  =0.95)
+```{r, comment = NA}
+t.test(pine_beetle$difference, conf.level = 0.95)
 ```
 
 <center>
@@ -1281,7 +1325,7 @@ We are 95% confident that the true mean change in the number of trees per hectar
 
 
 
-### Sleep Inducing Drugs
+### Sleep-Inducing Drugs
 
 In this example, we explore how to handle missing values in the data. 
 
@@ -1300,18 +1344,18 @@ Eleven subjects were included in the study.  At the start of the study, the rese
 
 The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug.  The data are given in the file [sleep.xlsx](./data/sleep.xlsx). After reading in these data, run the following to compute the column of differences:
 
-```{r, echo  =FALSE}
+```{r, echo = FALSE}
 sleep <- read_excel("./data/sleep.xlsx") %>% select(-comments)
 ```
 
 
 ```{r}
-sleep$differences  =sleep$treatment - sleep$control
+sleep$difference = sleep$treatment - sleep$control
 ```
 
 Run the command `View(sleep)` to examine the data file.
 
-Notice that the "control" data for Subject #11 is missing.  It is not possible to compute a difference for this person, so their data will be omitted from our analysis.  For this analysis, we will use the remaining $n  =10$ observations.
+Notice that the "control" data for Subject #11 is missing.  It is not possible to compute a difference for this person, so their data will be omitted from our analysis.  For this analysis, we will use the remaining $n = 10$ observations.
 
 
 <img src = "./Images/Step3.png">
@@ -1325,35 +1369,10 @@ Notice that the "control" data for Subject #11 is missing.  It is not possible t
 <a href = "javascript:showhide('Q44')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q44" style = "display:none;">
 
-The missing value in the last row leads to problems. If we run these commands, 
-
-```{r, eval  =FALSE}
-mean(sleep$differences)
-sd(sleep$differences)
-length(sleep$differences)
-```
-
-We get this output:
-```{r, eval  =FALSE}
-> mean(sleep$differences)
-[1] NA
-> sd(sleep$differences)
-[1] NA
-> length(sleep$differences)
-[1] 11
-```
-
-We need to tell R to remove (rm) the missing (na) values. We do this with the `na.rm  =TRUE` option.
-
-```{r, eval  =FALSE}
-mean(sleep$differences, na.rm  =TRUE)  # Sample mean
-sd(sleep$differences, na.rm  =TRUE)    # Sample standard deviation
-```
-
-It is a little trickier to get the right sample size. We start with the length of the data set and subtract off a count of the number of `NA` values.
+We use the following command
 
 ```{r}
-length(sleep$differences) - sum(is.na(sleep$differences)) # Sample size
+favstats(sleep$difference)
 ```
 
 <center>
@@ -1362,9 +1381,9 @@ length(sleep$differences) - sum(is.na(sleep$differences)) # Sample size
 
  &nbsp;                   &nbsp;
 --------------------- -----------------------
-Mean:                  $\bar d  =0.750$ hours
-Standard Deviation:    $s_d  =1.789$ hours
-Sample Size:           $n  =10$
+Mean:                  $\bar d = 0.750$ hours
+Standard Deviation:    $s_d = 1.789$ hours
+Sample Size:           $n = 10$
 
 </div>
 <br>
@@ -1375,14 +1394,21 @@ Sample Size:           $n  =10$
 
 <a href = "javascript:showhide('Q45')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q45" style = "display:none;">
-Here is a boxplot of the data (just to change things up):
+Here is a histogram and a boxplot of the data:
 
-```{r, fig.height  =3}
-boxplot(sleep$differences, 
+```{r, fig.height = 3}
+hist(sleep$difference,
+     col = "brown3",
+     xlab = "Difference in Hours of Sleep",
+     main = "Slee Inducing Drugs Study")
+```
+
+```{r, fig.height = 3}
+boxplot(sleep$difference, 
         col = "brown3",
         xlab = "Difference in Hours of Sleep",
         main = "Slee Inducing Drugs Study",
-        horizontal  =TRUE)
+        horizontal = TRUE)
 ```
 
 
@@ -1421,15 +1447,15 @@ Remember, just like the hypothesis test, this confidence interval for a mean of 
 <a href = "javascript:showhide('Q47')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q47" style = "display:none;">
 
-```{r, comment  =NA}
-t.test(sleep$differences, conf.level  =0.90)
+```{r, comment = NA}
+t.test(sleep$difference, conf.level = 0.90)
 ```
 
 <center>
 $(-0.287, 1.787)$
 </center>
 
-Notice that the `t.text` function does not have a problem with the missing value. It computes the output, including the degrees of freedom ($n-1  =10 - 1  =9$) correctly. 
+Notice that the `t.text` function does not have a problem with the missing value. It computes the output, including the degrees of freedom ($n-1 = 10 - 1 = 9$) correctly. 
 
 </div>
 &nbsp;
@@ -1467,18 +1493,18 @@ Notice that the `t.text` function does not have a problem with the missing value
 |---------|-------------|
 | $x_1$   | Group 1 Values | 
 | $x_2$   | Group 2 Values | 
-| $d  =x_2 - x_1$ | Differences | 
+| $d = x_2 - x_1$ | Differences | 
 | $\bar{d}$ | Sample Mean of the Differences |
 | $\mu_d$ | True Population Mean of the Differences |
 | $s_d$ | Sample Standard Deviation of the Differences |
 
 </div>
 
-- When conducting hypothesis tests using dependent samples, the null hypothesis is always $\mu_d  =0$, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed ($<$), right-tailed($>$), or two-tailed($\ne$).
+- When conducting hypothesis tests using dependent samples, the null hypothesis is always $\mu_d = 0$, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed ($<$), right-tailed($>$), or two-tailed($\ne$).
 
-- The R code to perform a paired samples t test requires two steps. First, the `differences` must be computed. Second, the `t.test(sleep$differences, mu  =0, alternative  ="two.sided")` should be used. Be sure to match the `alternative  =` statement to either `"less"`, `"greater"`, or `"two.sided"` so that it matches whatever is stated in the actual $H_a$ statement. 
+- The R code to perform a paired samples t test requires two steps. First, the `differences` must be computed. Second, the `t.test(sleep$difference, mu = 0, alternative = "two.sided")` should be used. Be sure to match the `alternative = ` statement to either `"less"`, `"greater"`, or `"two.sided"` so that it matches whatever is stated in the actual $H_a$ statement. 
 
-- The R code to created a confidence interval for the true mean of the differences, $\mu_d$, uses `t.test(sleep$differences, conf.level  =0.95)` where `conf.level  =` can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).
+- The R code to created a confidence interval for the true mean of the differences, $\mu_d$, uses `t.test(sleep$difference, conf.level = 0.95)` where `conf.level = ` can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).
 
 <br>
 </div>

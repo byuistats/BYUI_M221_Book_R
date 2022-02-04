@@ -1,25 +1,5 @@
-# Script file template
-# Delete the first 20 rows
-
-# Main headings are 70 characters long:
 # ===================================================================
-# Hypothesis Tests ==================================================
-# Confidence Intervals ==============================================
-
-# New example headings and sub-headings in examples are 60 characters long:
-# Body Temperatures Example -------------------------------
-# Numerical Summaries -------------------------------------
-# Graphical Summaries -------------------------------------
-
-# 3 blank lines before each new section or new example
-# 2 blank lines where import code can be inserted
-# 1 blank line between subsections in each example
-# A space follows the "#" as the start of each comment
-# Comments at the end of a line are rare
-
-
-# ===================================================================
-# Lesson xx: xxxxxxxxxxxx_DESCRIPTION_xxxxxxxxxxx
+# Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho
@@ -35,46 +15,96 @@ library(mosaic)
 
 
 
-# Body Temperatures Example -------------------------------
+# Weight Loss Example -------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/body_temp.xlsx
+# https://byuistats.github.io/M221R/data/weight_loss.xlsx
 # (The "Import Dataset" code was pasted here:)
 library(readxl)
-url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"
-destfile <- "body_temp.xlsx"
+url <- "https://byuistats.github.io/M221R/data/weight_loss.xlsx"
+destfile <- "weight_loss.xlsx"
 curl::curl_download(url, destfile)
 body_temp <- read_excel(destfile)
 View(body_temp)
 
+# Compute Column of Differences
+weight_loss$difference <- weight_loss$post - weight_loss$pre
+
 # Numerical Summaries -------------------------------------
-favstats(body_temp$temperature) 
+favstats(weight_loss$difference) 
 
 # Graphical Summaries -------------------------------------
-hist(body_temp$temperature)
-boxplot(body_temp$temperature, horizontal=TRUE)
+hist(weight_loss$difference)
+boxplot(weight_loss$difference, horizontal=TRUE)
 
 # One-Sample t-Test, Sigma Unknown ------------------------
-t.test(body_temp$temperature,    # Data
-       mu = 98.6,                # Value from null hypothesis
+t.test(weight_loss$difference,   # Data
+       mu = 0,                   # Value from null hypothesis
        alternative="two.sided")  # Could be "two.sided", "greater" or "less"
 
 
 
-# Baby Boom Data ------------------------------------------
+# Hospital Infections Data --------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/baby_boom.xlsx
+# https://byuistats.github.io/M221R/data/hospital_infections.xlsx
 # (You may want to paste the code here)
 
 
+# Compute Column of Differences
+hospital_infections$difference <- 
+  hospital_infections$infected - hospital_infections$not_infected
+
 # Numerical Summaries -------------------------------------
-favstats(baby_boom$weight) 
+favstats(hospital_infections$difference) 
 
 # Graphical Summaries -------------------------------------
-hist(baby_boom$weight)
-boxplot(baby_boom$weight, horizontal=TRUE)
+hist(hospital_infections$difference)
+boxplot(hospital_infections$difference, horizontal=TRUE)
 
 # One-Sample t-Test, Sigma Unknown ------------------------
-t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
+t.test(hospital_infections$difference, mu = 0, alternative = "greater")
+
+
+
+# REE -----------------------------------------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/ree.xlsx
+# (You may want to paste the code here)
+
+
+# Compute Column of Differences
+ree$difference <- ree$stressful - ree$silence
+
+# Numerical Summaries -------------------------------------
+favstats(ree$difference)
+
+# Graphical Summaries -------------------------------------
+hist(ree$difference)
+boxplot(ree$difference, horizontal = TRUE)
+
+# One-Sample t-Test, Sigma Unknown ------------------------
+t.test(ree$difference, mu = 0, alternative = "greater")
+
+
+
+# Flight Costs --------------------------------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/flight_costs.xlsx
+# (You may want to paste the code here)
+
+
+# Compute Column of Differences
+flight_costs$difference <- 
+  flight_costs$fourteen_days - flight_costs$ninety_days
+
+# Numerical Summaries -------------------------------------
+favstats(flight_costs$difference)
+
+# Graphical Summaries -------------------------------------
+hist(flight_costs$difference)
+boxplot(flight_costs$difference, horizontal = TRUE)
+
+# One-Sample t-Test, Sigma Unknown ------------------------
+t.test(flight_costs$difference, mu = 0, alternative = "two.sided")
 
 
 
@@ -82,36 +112,42 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
 
-# BLEU Scores ---------------------------------------------
+# Pine Beetles --------------------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/bleu.xlsx
+# https://byuistats.github.io/M221R/data/pine_beetle.xlsx
 # (You may want to paste the code here)
 
 
+# Compute Column of Differences
+pine_beetle$difference <- pine_beetle$after - pine_beetle$before
+
 # Numerical Summaries -------------------------------------
-favstats(bleu$score)
+favstats(pine_beetle$difference)
 
 # Graphical Summaries -------------------------------------
-hist(bleu$score)
-boxplot(bleu$score, horizontal=TRUE)
+hist(pine_beetle$difference)
+boxplot(pine_beetle$difference, horizontal=TRUE)
 
 # Confidence Interval for One Mean, Sigma Unknown ---------
-t.test(bleu$score, conf.level=0.95)
+t.test(pine_beetle$difference, conf.level = 0.95)
 
 
 
-# Euro Weights --------------------------------------------
+# Sleep-Inducing Drugs ------------------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/euro.xlsx
+# https://byuistats.github.io/M221R/data/sleep.xlsx
 # (You may want to paste the code here)
 
 
+# Compute Column of Differences
+sleep$difference = sleep$treatment - sleep$control
+
 # Numerical Summaries -------------------------------------
-favstats(euro$weight)
+favstats(sleep$difference)
 
 # Graphical Summaries -------------------------------------
-hist(euro$weight) 
-boxplot(euro$weight, horizontal=TRUE)
+hist(sleep$difference) 
+boxplot(sleep$difference, horizontal=TRUE)
 
 # Confidence Interval for One Mean, Sigma Unknown ---------
-t.test(euro$weight, conf.level=0.99)
+t.test(sleep$difference, conf.level = 0.90)
