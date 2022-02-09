@@ -11,7 +11,7 @@ library(mosaic)
 
 
 
-# Hypothesis Tests ==================================================
+# Hypothesis Tests and Confidence Intervals =========================
 
 
 

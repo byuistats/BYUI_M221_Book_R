@@ -79,7 +79,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [dasl_helium_football.xlsx](./data/dasl_helium_football.xlsx) </td> <td> tinyurl.com/M221-dasl-he-football </td> </tr>
 
-<tr> <td> [dasl_hot_dog_nutrition.xlsx](./data/dasl_hot_dog_nutrition.xlsx) </td> <td> tinyurl.com/M221-dasl-hotdog </td> </tr>
+<tr> <td> [dasl_hot_dog.xlsx](./data/dasl_hot_dog.xlsx) </td> </tr>
 
 <tr> <td> [dasl_hubble.xlsx](./data/dasl_hubble.xlsx) </td> <td> tinyurl.com/M221-dasl-hubble </td> </tr>
 
@@ -95,7 +95,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [diabetes_depression.xlsx](./data/diabetes_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
 
-<tr> <td> [direct_flight_costs.xlsx](./data/direct_flight_costs.xlsx) </td> <td> tinyurl.com/M221-direct-flight-costs </td> </tr>
+<tr> <td> [flight_costs.xlsx](./data/flight_costs.xlsx) </td>  </tr>
 
 <tr> <td> [dissolved_organic_carbon.xlsx](./data/dissolved_organic_carbon.xlsx) </td> <td> tinyurl.com/M221-dissolved-carbon </td> </tr>
 
@@ -113,7 +113,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [exercised_bone_density.xlsx](./data/exercised_bone_density.xlsx) </td> <td> tinyurl.com/M221-exercised-bone-density </td> </tr>
 
-<tr> <td> [factory_assembly_times_sim.xlsx](./data/factory_assembly_times_sim.xlsx) </td> <td> tinyurl.com/M221-assembly-times </td> </tr>
+<tr> <td> [factory_assembly_times_sim.xlsx](./data/factory_assembly_times_sim.xlsx) </td>  </tr>
 
 <tr> <td> [fev.xlsx](./data/fev.xlsx) </td> </tr>
 
@@ -129,7 +129,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [hubbles_constant_supernovas_up_to_250_mpc.xlsx](./data/hubbles_constant_supernovas_up_to_250_mpc.xlsx) &nbsp; </td> <td> tinyurl.com/M221-hubbles-const-250mpc </td> </tr>
 
-<tr> <td> [hubbles_data.xlsx](./data/hubbles_constant_hubbles_data.xlsx) </td> <td> tinyurl.com/M221-hubbles-const </td> </tr>
+<tr> <td> [hubbles_data.xlsx](./data/hubbles_data.xlsx) </td>  </tr>
 
 <tr> <td> [hubbles_constant_supernovas.xlsx](./data/hubbles_constant_supernovas.xlsx) </td> <td> tinyurl.com/M221-hubbles-supernovas </td> </tr>
 
@@ -207,7 +207,7 @@ Links to data files used throughout the course:
 
 <tr> <td> [super_bowl_movies.xlsx](./data/super_bowl_movies.xlsx) </td> <td> tinyurl.com/M221-super-bowl-movies </td> </tr>
 
-<tr> <td> [surgery_error_lawsuits.xlsx](./data/surgery_error_lawsuits.xlsx) </td> <td> tinyurl.com/M221-site-patient </td> </tr>
+<tr> <td> [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx) </td> </tr>
 
 <tr> <td> [survey_data.xlsx](./data/survey_data.xlsx) </td> <td> tinyurl.com/M221-survey-data </td> </tr>
 
