@@ -11,222 +11,218 @@ Links to data files used throughout the course:
 
 <div style="padding-left:15px;">
 
-<table>
+[admissions_byui.xlsx](./data/admissions_byui.xlsx)
 
-<tr> <td> [admissions_byui.xlsx](./data/admissions_byui.xlsx) </td>  </tr>
+[admissions_uofi.xlsx](./data/admissions_uofi.xlsx)
 
-<tr> <td> [admissions_uofi.xlsx](./data/admissions_uofi.xlsx) </td> </tr>
+[am_pm_heights.xlsx](./data/am_pm_heights.xlsx)
 
-<tr> <td> [am_pm_heights.xlsx](./data/am_pm_heights.xlsx) </td> <td> tinyurl.com/M221-am-pm-ht </td> </tr>
+[appt_wait_times.xlsx](./data/appt_wait_times.xlsx)
 
-<tr> <td> [appt_wait_times.xlsx](./data/appt_wait_times.xlsx) </td> <td> tinyurl.com/M221-appt-wait </td> </tr>
+[baby_boom.xlsx](./data/baby_boom.xlsx)
 
-<tr> <td> [baby_boom.xlsx](./data/baby_boom.xlsx) </td> <td> tinyurl.com/M221-baby-boom </td> </tr>
+[baby_boom_jse.xlsx](./data/baby_boom_jse.xlsx)
 
-<tr> <td> [baby_boom_jse.xlsx](./data/baby_boom_jse.xlsx) </td> <td> tinyurl.com/M221-baby-boom-jse </td> </tr>
+[batting_averages.xlsx](./data/batting_averages.xlsx)
 
-<tr> <td> [batting_averages.xlsx](./data/batting_averages.xlsx) </td> <td> tinyurl.com/M221-batting-avg </td> </tr>
+[biggest_loser.xlsx](./data/biggest_loser.xlsx)
 
-<tr> <td> [biggest_loser.xlsx](./data/biggest_loser.xlsx) </td> <td> tinyurl.com/M221-biggest-loser </td> </tr>
+[bleu.xlsx](./data/bleu.xlsx)
 
-<tr> <td> [bleu.xlsx](./data/bleu.xlsx) </td>  </tr>
+[body_measurements.xlsx](./data/body_measurements.xlsx)
 
-<tr> <td> [body_measurements.xlsx](./data/body_measurements.xlsx) </td> <td> tinyurl.com/M221-body-measure </td> </tr>
+[body_measurements_corrected.xlsx](./data/body_measurements_corrected.xlsx)
 
-<tr> <td> [body_measurements_corrected.xlsx](./data/body_measurements_corrected.xlsx) </td> <td> tinyurl.com/M221-body-measure-corrected </td> </tr>
+[body_temp.xlsx](./data/body_temp.xlsx)
 
-<tr> <td> [body_temp.xlsx](./data/body_temp.xlsx) </td> <td> tinyurl.com/M221-body-temp </td> </tr>
+[bofm_wordprint.xlsx](./data/bofm_wordprint.xlsx)
 
-<tr> <td> [bofm_wordprint.xlsx](./data/bofm_wordprint.xlsx) </td> </tr>
+[bone_mineral.xlsx](./data/bone_mineral.xlsx)
 
-<tr> <td> [bone_mineral.xlsx](./data/bone_mineral.xlsx) </td> </tr>
+[bp_placebo.xlsx](./data/bp_placebo.xlsx)
 
-<tr> <td> [bp_placebo.xlsx](./data/bp_placebo.xlsx) </td>  </tr>
+[cannon_range.xlsx](./data/cannon_range.xlsx)
 
-<tr> <td> [cannon_range.xlsx](./data/cannon_range.xlsx) </td> </tr>
+[car_prices.xlsx](./data/car_prices.xlsx)
 
-<tr> <td> [car_prices.xlsx](./data/car_prices.xlsx) </td> <td> tinyurl.com/M221-car-prices </td> </tr>
+[cardiac_arrest.xlsx](./data/cardiac_arrest.xlsx)
 
-<tr> <td> [cardiac_arrest.xlsx](./data/cardiac_arrest.xlsx) </td> <td> tinyurl.com/M221-cardiac-arrest </td> </tr>
+[cause_of_death.xlsx](./data/cause_of_death.xlsx)
 
-<tr> <td> [cause_of_death.xlsx](./data/cause_of_death.xlsx) </td> </tr>
+[chiropractic_care.xlsx](./data/chiropractic_care.xlsx)
 
-<tr> <td> [chiropractic_care.xlsx](./data/chiropractic_care.xlsx) </td> </tr>
+[class_survey.xlsx](./data/class_survey.xlsx)
 
-<tr> <td> [class_survey.xlsx](./data/class_survey.xlsx) </td> <td> tinyurl.com/M221-class-survey </td> </tr>
+[coin_heads.xlsx](./data/coin_heads.xlsx)
 
-<tr> <td> [coin_heads.xlsx](./data/coin_heads.xlsx) </td> <td> tinyurl.com/M221-coin-toss-heads </td> </tr>
+[cold_treatments.xlsx](./data/cold_treatments.xlsx)
 
-<tr> <td> [cold_treatments.xlsx](./data/cold_treatments.xlsx) </td> <td> tinyurl.com/M221-zinc-colds </td> </tr>
+[comet.xlsx](./data/comet.xlsx)
 
-<tr> <td> [comet.xlsx](./data/comet.xlsx) </td> <td> tinyurl.com/M221-comet-water </td> </tr>
+[conjugated_linoleic_acid.xlsx](./data/conjugated_linoleic_acid.xlsx)
 
-<tr> <td> [conjugated_linoleic_acid.xlsx](./data/conjugated_linoleic_acid.xlsx) </td> <td> tinyurl.com/M221-conjugated-linoleic-acid </td> </tr>
+[contamination.xlsx](./data/contamination.xlsx)
 
-<tr> <td> [contamination.xlsx](./data/contamination.xlsx) </td> <td> tinyurl.com/M221-uranium-lead </td> </tr>
+[copd_rehab.xlsx](./data/copd_rehab.xlsx)
 
-<tr> <td> [copd_rehab.xlsx](./data/copd_rehab.xlsx) </td> <td> tinyurl.com/M221-copd-rehab </td> </tr>
+[crossroads_purchases.xlsx](./data/crossroads_purchases.xlsx)
 
-<tr> <td> [crossroads_purchases.xlsx](./data/crossroads_purchases.xlsx) </td> <td> tinyurl.com/M221-crossroads-purchases </td> </tr>
+[cuckoo_eggs.xlsx](./data/cuckoo_eggs.xlsx)
 
-<tr> <td> [cuckoo_eggs.xlsx](./data/cuckoo_eggs.xlsx) </td> <td> tinyurl.com/M221-cuckoo-eggs </td> </tr>
+[dart_expert_dow_6_month.xlsx](./data/dart_expert_dow_6_month.xlsx)
 
-<tr> <td> [dart_expert_dow_6_month.xlsx](./data/dart_expert_dow_6_month.xlsx) </td> <td> tinyurl.com/M221-dow-darts </td> </tr>
+[dasl_cheese.xlsx](./data/dasl_cheese.xlsx)
 
-<tr> <td> [dasl_cheese.xlsx](./data/dasl_cheese.xlsx) </td> <td> tinyurl.com/M221-dasl-cheese </td> </tr>
+[dasl_fiber.xlsx](./data/dasl_fiber.xlsx)
 
-<tr> <td> [dasl_fiber.xlsx](./data/dasl_fiber.xlsx) </td> <td> tinyurl.com/M221-dasl-fiber </td> </tr>
+[dasl_helium_football.xlsx](./data/dasl_helium_football.xlsx)
 
-<tr> <td> [dasl_helium_football.xlsx](./data/dasl_helium_football.xlsx) </td> <td> tinyurl.com/M221-dasl-he-football </td> </tr>
+[dasl_hot_dog.xlsx](./data/dasl_hot_dog.xlsx)
 
-<tr> <td> [dasl_hot_dog.xlsx](./data/dasl_hot_dog.xlsx) </td> </tr>
+[dasl_hubble.xlsx](./data/dasl_hubble.xlsx)
 
-<tr> <td> [dasl_hubble.xlsx](./data/dasl_hubble.xlsx) </td> <td> tinyurl.com/M221-dasl-hubble </td> </tr>
+[dasl_stepping.xlsx](./data/dasl_stepping.xlsx)
 
-<tr> <td> [dasl_stepping.xlsx](./data/dasl_stepping.xlsx) </td> <td> tinyurl.com/M221-dasl-stepping </td> </tr>
+[dasl_student_dat.xlsx](./data/dasl_student_dat.xlsx)
 
-<tr> <td> [dasl_student_dat.xlsx](./data/dasl_student_dat.xlsx) </td> <td> tinyurl.com/M221-dasl-student </td> </tr>
+[dasl_taste_test_scores.xlsx](./data/dasl_taste_test_scores.xlsx)
 
-<tr> <td> [dasl_taste_test_scores.xlsx](./data/dasl_taste_test_scores.xlsx) </td> <td> tinyurl.com/M221-dasl-taste-test </td> </tr>
+[dasl_waste_run_up.xlsx](./data/dasl_waste_run_up.xlsx)
 
-<tr> <td> [dasl_waste_run_up.xlsx](./data/dasl_waste_run_up.xlsx) </td> <td> tinyurl.com/M221-dasl-waste-run-up </td> </tr>
+[dentist_bills.xlsx](./data/dentist_bills.xlsx)
 
-<tr> <td> [dentist_bills.xlsx](./data/dentist_bills.xlsx) </td> <td> tinyurl.com/M221-dentist-bills </td> </tr>
+[diabetes_depression.xlsx](./data/diabetes_depression.xlsx)
 
-<tr> <td> [diabetes_depression.xlsx](./data/diabetes_depression.xlsx) </td> <td> tinyurl.com/M221-insulin-res-dep </td> </tr>
+[dissolved_organic_carbon.xlsx](./data/dissolved_organic_carbon.xlsx)
 
-<tr> <td> [flight_costs.xlsx](./data/flight_costs.xlsx) </td>  </tr>
+[eating_healthy.xlsx](./data/eating_healthy.xlsx)
 
-<tr> <td> [dissolved_organic_carbon.xlsx](./data/dissolved_organic_carbon.xlsx) </td> <td> tinyurl.com/M221-dissolved-carbon </td> </tr>
+[estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
 
-<tr> <td> [eating_healthy.xlsx](./data/eating_healthy.xlsx) </td> <td> tinyurl.com/M221-eating-healthy </td> </tr>
+[ethanallen.xlsx](./data/ethanallen.xlsx)
 
-<tr> <td> [ethanallen.xlsx](./data/ethanallen.xlsx) </td> <td> tinyurl.com/M221-ethan-allen </td> </tr>
+[euro.xlsx](./data/euro.xlsx)
 
-<tr> <td> [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx) </td> <td> tinyurl.com/M221-estuarine-crocs </td> </tr>
+[euro_wide.xlsx](./data/euro_wide.xlsx)
 
-<tr> <td> [euro.xlsx](./data/euro.xlsx) </td> </tr>
+[exam_scores.xlsx](./data/exam_scores.xlsx)
 
-<tr> <td> [euro_wide.xlsx](./data/euro_wide.xlsx) </td>  </tr>
+[exercised_bone_density.xlsx](./data/exercised_bone_density.xlsx)
 
-<tr> <td> [exam_scores.xlsx](./data/exam_scores.xlsx) </td>  </tr>
+[factory_assembly_times_sim.xlsx](./data/factory_assembly_times_sim.xlsx)
 
-<tr> <td> [exercised_bone_density.xlsx](./data/exercised_bone_density.xlsx) </td> <td> tinyurl.com/M221-exercised-bone-density </td> </tr>
+[fev.xlsx](./data/fev.xlsx)
 
-<tr> <td> [factory_assembly_times_sim.xlsx](./data/factory_assembly_times_sim.xlsx) </td>  </tr>
+[fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx)
 
-<tr> <td> [fev.xlsx](./data/fev.xlsx) </td> </tr>
+[flight_costs.xlsx](./data/flight_costs.xlsx)
 
-<tr> <td> [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx) </td> </tr>
+[freshmen_dinner.xlsx](./data/freshmen_dinner.xlsx)
 
-<tr> <td> [freshmen_dinner.xlsx](./data/freshmen_dinner.xlsx) </td> <td> tinyurl.com/M221-freshmen-dinner </td> </tr>
+[gharial_crocodiles.xlsx](./data/gharial_crocodiles.xlsx)
 
-<tr> <td> [gharial_crocodiles.xlsx](./data/gharial_crocodiles.xlsx) </td> <td> tinyurl.com/M221-gharial-crocs </td> </tr>
+[gratitude.xlsx](./data/gratitude.xlsx)
 
-<tr> <td> [gratitude.xlsx](./data/gratitude.xlsx) </td> </tr>
+[hospital_infections.xlsx](./data/hospital_infections.xlsx)
 
-<tr> <td> [hospital_infections.xlsx](./data/hospital_infections.xlsx) </td> </tr>
+[hubbles_constant_supernovas.xlsx](./data/hubbles_constant_supernovas.xlsx)
 
-<tr> <td> [hubbles_constant_supernovas_up_to_250_mpc.xlsx](./data/hubbles_constant_supernovas_up_to_250_mpc.xlsx) &nbsp; </td> <td> tinyurl.com/M221-hubbles-const-250mpc </td> </tr>
+[hubbles_constant_supernovas_up_to_250_mpc.xlsx](./data/hubbles_constant_supernovas_up_to_250_mpc.xlsx)
 
-<tr> <td> [hubbles_data.xlsx](./data/hubbles_data.xlsx) </td>  </tr>
+[hubbles_data.xlsx](./data/hubbles_data.xlsx)
 
-<tr> <td> [hubbles_constant_supernovas.xlsx](./data/hubbles_constant_supernovas.xlsx) </td> <td> tinyurl.com/M221-hubbles-supernovas </td> </tr>
+[hurricane.xlsx](./data/hurricane.xlsx)
 
-<tr> <td> [hurricane.xlsx](./data/hurricane.xlsx) </td> <td> tinyurl.com/M221-hurricane-data </td> </tr>
+[illinois_birth_weights.xlsx](./data/illinois_birth_weights.xlsx)
 
-<tr> <td> [illinois_birth_weights.xlsx](./data/illinois_birth_weights.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt </td> </tr>
+[illinois_birth_weights_two_var.xlsx](./data/illinois_birth_weights_two_var.xlsx)
 
-<tr> <td> [illinois_birth_weights_two_var.xlsx](./data/illinois_birth_weights_two_var.xlsx) </td> <td> tinyurl.com/M221-illinois-birth-wt-2 </td> </tr>
+[jse_hats.xlsx](./data/jse_hats.xlsx)
 
-<tr> <td> [jse_hats.xlsx](./data/jse_hats.xlsx) </td> <td> tinyurl.com/M221-jse-hats </td> </tr>
+[junk_food.xlsx](./data/junk_food.xlsx)
 
-<tr> <td> [junk_food.xlsx](./data/junk_food.xlsx) </td> <td> tinyurl.com/M221-junk-food </td> </tr>
+[kindness.xlsx](./data/kindness.xlsx)
 
-<tr> <td> [kindness.xlsx](./data/kindness.xlsx) </td> </tr>
+[lapd_searches.xlsx](./data/lapd_searches.xlsx)
 
-<tr> <td> [lapd_searches.xlsx](./data/lapd_searches.xlsx) </td> </tr>
+[lead_behavior.xlsx](./data/lead_behavior.xlsx)
 
-<tr> <td> [lead_behavior.xlsx](./data/lead_behavior.xlsx) </td> <td> tinyurl.com/M221-lead-exposure </td> </tr>
+[madison_county_real_estate.xlsx](./data/madison_county_real_estate.xlsx)
 
-<tr> <td> [madison_county_real_estate.xlsx](./data/madison_county_real_estate.xlsx) </td> <td> tinyurl.com/M221-madison-real-estate </td> </tr>
+[math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx)
 
-<tr> <td> [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx) </td> <td> tinyurl.com/M221-math-self-efficacy </td> </tr>
+[mla_data.xlsx](./data/mla_data.xlsx)
 
-<tr> <td> [mla_data.xlsx](./data/mla_data.xlsx) </td> <td> tinyurl.com/M221-mla-data </td> </tr>
+[mystery_investment_opportunities.xlsx](./data/mystery_investment_opportunities.xlsx)
 
-<tr> <td> [mystery_investment_opportunities.xlsx](./data/mystery_investment_opportunities.xlsx) </td> <td> tinyurl.com/M221-mystery-investments </td> </tr>
+[nasdaq_price_and_volume.xlsx](./data/nasdaq_price_and_volume.xlsx)
 
-<tr> <td> [nasdaq_price_and_volume.xlsx](./data/nasdaq_price_and_volume.xlsx) </td> <td> tinyurl.com/M221-nasdaq-price-volume </td> </tr>
+[nba_salaries.xlsx](./data/nba_salaries.xlsx)
 
-<tr> <td> [nba_salaries.xlsx](./data/nba_salaries.xlsx) </td> <td> tinyurl.com/M221-nba-salaries </td> </tr>
+[no_click_query.xlsx](./data/no_click_query.xlsx)
 
-<tr> <td> [no_click_query.xlsx](./data/no_click_query.xlsx) </td> <td> tinyurl.com/M221-no-click-query </td> </tr>
+[no_click_query_summary.xlsx](./data/no_click_query_summary.xlsx)
 
-<tr> <td> [no_click_query_summary.xlsx](./data/no_click_query_summary.xlsx) </td> <td> tinyurl.com/M221-no-click-query-summary </td> </tr>
+[old_faithful.xlsx](./data/old_faithful.xlsx)
 
-<tr> <td> [old_faithful.xlsx](./data/old_faithful.xlsx) </td></tr>
+[old_faithful_eras.xlsx](./data/old_faithful_eras.xlsx)
 
-<tr> <td> [old_faithful_eras.xlsx](./data/old_faithful_eras.xlsx) </td></tr>
+[oreos.xlsx](./data/oreos.xlsx)
 
-<tr> <td> [oreos.xlsx](./data/oreos.xlsx) </td> </tr>
+[oysters.xlsx](./data/oysters.xlsx)
 
-<tr> <td> [oysters.xlsx](./data/oysters.xlsx) </td> </tr>
+[patient_satisfaction.xlsx](./data/patient_satisfaction.xlsx)
 
-<tr> <td> [patient_satisfaction.xlsx](./data/patient_satisfaction.xlsx) </td> <td> tinyurl.com/M221-patient-satisfaction </td> </tr>
+[pine_beetle.xlsx](./data/pine_beetle.xlsx)
 
-<tr> <td> [pine_beetle.xlsx](./data/pine_beetle.xlsx) </td> <td> tinyurl.com/M221-pine-beetle </td> </tr>
+[protein.xlsx](./data/protein.xlsx)
 
-<tr> <td> [protein.xlsx](./data/protein.xlsx) </td> <td> tinyurl.com/M221-protein-requirement </td> </tr>
+[ptc_tasting.xlsx](./data/ptc_tasting.xlsx)
 
-<tr> <td> [ptc_tasting.xlsx](./data/ptc_tasting.xlsx) </td> <td> tinyurl.com/M221-ptc-tasting </td> </tr>
+[rates_of_return.xlsx](./data/rates_of_return.xlsx)
 
-<tr> <td> [rates_of_return.xlsx](./data/rates_of_return.xlsx) </td> <td> tinyurl.com/M221-rates-of-return </td> </tr>
+[reading.xlsx](./data/reading.xlsx)
 
-<tr> <td> [reading.xlsx](./data/reading.xlsx) </td> <td> tinyurl.com/M221-reading-practices </td> </tr>
+[redbox.xlsx](./data/redbox.xlsx)
 
-<tr> <td> [redbox.xlsx](./data/redbox.xlsx) </td> <td> tinyurl.com/M221-redbox-times </td> </tr>
+[ree.xlsx](./data/ree.xlsx)
 
-<tr> <td> [ree.xlsx](./data/ree.xlsx) </td> <td> tinyurl.com/M221-ree-classical-music </td> </tr>
+[seals.xlsx](./data/seals.xlsx)
 
-<tr> <td> [seals.xlsx](./data/seals.xlsx) </td> <td> tinyurl.com/M221-diving-elephant-seals </td> </tr>
+[singer_heights.xlsx](./data/singer_heights.xlsx)
 
-<tr> <td> [singer_heights.xlsx](./data/singer_heights.xlsx) </td> <td> tinyurl.com/M221-singer-heights </td> </tr>
+[soccer_shoes.xlsx](./data/soccer_shoes.xlsx)
 
-<tr> <td> [soccer_shoes.xlsx](./data/soccer_shoes.xlsx) </td> </tr>
+[soccer_shoes_wide.xlsx](./data/soccer_shoes_wide.xlsx)
 
-<tr> <td> [soccer_shoes_wide.xlsx](./data/soccer_shoes_wide.xlsx) </td> </tr>
+[soviet_accidents.xlsx](./data/soviet_accidents.xlsx)
 
-<tr> <td> [soviet_accidents.xlsx](./data/soviet_accidents.xlsx) </td> <td> tinyurl.com/M221-soviet-accidents </td> </tr>
+[speed_of_light_1879.xlsx](./data/speed_of_light_1879.xlsx)
 
-<tr> <td> [speed_of_light_1879.xlsx](./data/speed_of_light_1879.xlsx) </td>  </tr>
+[speed_of_light_1882.xlsx](./data/speed_of_light_1882.xlsx)
 
-<tr> <td> [speed_of_light_1882.xlsx](./data/speed_of_light_1882.xlsx) </td>  </tr>
+[stature.xlsx](./data/stature.xlsx)
 
-<tr> <td> [stature.xlsx](./data/stature.xlsx) </td>  </tr>
+[super_bowl_movies.xlsx](./data/super_bowl_movies.xlsx)
 
-<tr> <td> [super_bowl_movies.xlsx](./data/super_bowl_movies.xlsx) </td> <td> tinyurl.com/M221-super-bowl-movies </td> </tr>
+[surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx)
 
-<tr> <td> [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx) </td> </tr>
+[survey_data.xlsx](./data/survey_data.xlsx)
 
-<tr> <td> [survey_data.xlsx](./data/survey_data.xlsx) </td> <td> tinyurl.com/M221-survey-data </td> </tr>
+[toyota_prius_2005.xlsx](./data/toyota_prius_2005.xlsx)
 
-<tr> <td> [toyota_prius_2005.xlsx](./data/toyota_prius_2005.xlsx) </td> <td> tinyurl.com/M221-prius-2005 </td> </tr>
+[twin_heights.xlsx](./data/twin_heights.xlsx)
 
-<tr> <td> [twin_heights.xlsx](./data/twin_heights.xlsx) </td> <td> tinyurl.com/M221-twins-diabetes </td> </tr>
+[used_hummers_ny_and_la.xlsx](./data/used_hummers_ny_and_la.xlsx)
 
-<tr> <td> [used_hummers_ny_and_la.xlsx](./data/used_hummers_ny_and_la.xlsx) </td> <td> tinyurl.com/M221-used-hummers </td> </tr>
+[vertebral_heights.xlsx](./data/vertebral_heights.xlsx)
 
-<tr> <td> [vertebral_heights.xlsx](./data/vertebral_heights.xlsx) </td> <td> tinyurl.com/M221-vertebral-heights </td> </tr>
+[weight_loss.xlsx](./data/weight_loss.xlsx)
 
-<tr> <td> [weight_loss.xlsx](./data/weight_loss.xlsx) </td></tr>
+[weight_loss_incentives.xlsx](./data/weight_loss_incentives.xlsx)
 
-<tr> <td> [weight_loss_incentives.xlsx](./data/weight_loss_incentives.xlsx) </td></tr>
+[women_poet_mortality.xlsx](./data/women_poet_mortality.xlsx)
 
-<tr> <td> [women_poet_mortality.xlsx](./data/women_poet_mortality.xlsx) </td> <td> tinyurl.com/M221-women-poet </td> </tr>
-
-<tr> <td> [zung_sim.xlsx](./data/zung_sim.xlsx) </td> <td> tinyurl.com/M221-zung-sim </td> </tr>
-
-</table>
+[zung_sim.xlsx](./data/zung_sim.xlsx)
 
 </div>
