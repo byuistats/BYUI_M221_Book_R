@@ -862,7 +862,9 @@ R Instructions
 <li><p>Second, run the <code>t.test(...)</code> with the first column of data, followed by a comma <code>,</code>, and then the second column of data.</p></li>
 </ul>
 <p><strong>When the data for each group is in a separate column</strong> the t test for the difference of two means is performed by separating the two vectors of data with a comma (<code>,</code>).</p>
-<pre class="r"><code>t.test(copd_rehab$community, copd_rehab$hospital, alternative = &quot;two.sided&quot;)</code></pre>
+<pre class="r"><code>t.test(copd_rehab$community, copd_rehab$hospital, 
+       mu = 0, 
+       alternative = &quot;two.sided&quot;)</code></pre>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 

@@ -376,7 +376,9 @@ copd_rehab <- read_excel("./data/copd_rehab.xlsx")
 **When the data for each group is in a separate column** the t test for the difference of two means is performed by separating the two vectors of data with a comma (`,`).
 
 ```{r}
-t.test(copd_rehab$community, copd_rehab$hospital, alternative = "two.sided")
+t.test(copd_rehab$community, copd_rehab$hospital, 
+       mu = 0, 
+       alternative = "two.sided")
 ```
 
 <br>
