@@ -48,53 +48,44 @@ $$
 $$
 That suggests that 55.2% of the people polled plan to vote for the Republican.  This does not mean that this candidate will win the election.  However, it looks like they might be in the lead at this point.
 
-#### Grades of BYU-Idaho Students
+#### Religious Affiliation in the United States
 
-Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data file [grades_gender.xlsx](./Data/grades_gender.xlsx). R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file
-[grades_tally.xlsx](./Data/grades_tally.xlsx). Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
+<!-- [student_grades.xlsx](./Data/student_grades.xlsx) -->
 
-Read the data in the file [grades_tally.xlsx](./Data/grades_tally.xlsx) into R. These data are summarized in the table below.
+A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 1811 people were surveyed. Among other things, each person was asked to report their gender, religious affiliation, and how often they attend. These values are given in the data file [religion_survey.xlsx](./Data/religion_survey.xlsx). R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file
+[religion_tally.xlsx](./Data/religion_tally.xlsx). Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
+
+Read the data in the file [religion_tally.xlsx](./Data/religion_tally.xlsx) into R. These data are summarized in the table below.
 
 ```{r, include = FALSE}
 library(readxl)
 library(kableExtra)
 library(tidyverse)
-grades_tally <- read_excel("./data/grades_tally.xlsx")
+religion_tally <- read_excel("./data/religion_tally.xlsx")
 ```
 
 ```{r, echo = FALSE}
-n_grades <- grades_tally %>% 
-  summarize(n = sum(count)) %>% 
-  pull()
-
-grades_tally %>% 
-  select(-comments) %>% 
-  bind_rows(data.frame(grade = "Total", count = n_grades)) %>%
-  kable(align=c("c", "c")) %>% 
+religion_tally %>% 
+  select(-source) %>% 
+  bind_rows(data.frame(religion = "Total", religion_code = " ", count = 1811)) %>% 
+  kable() %>% 
   kable_styling(full_width = F)
 ```
 
-For example, of the 272 students, 79 earned an A in the course.
+For example, of the 1811 respondents, 51 reported belonging to The Church of Jesus Christ of Latter-day Saints.
 
-We can compute the sample proportion for each group by taking the number of responses in each group and dividing this value by the total number of responses, 272. The proportion of who earned an A is
-$$ \frac{79}{272} = 0.145$$
+We can compute the sample proportion for each group by taking the number of responses in each group and dividing this value by the total number of responses, 1811. The proportion of people in the sample who are members of The Church of Jesus Christ of Latter-day Saints is
+$$ \frac{51}{1811} = 0.028$$
 We can compute the sample proportions for all religions:
 
 ```{r, echo = FALSE}
-grades_tally %>% 
-  select(-comments) %>% 
+religion_tally %>% 
+  select(-source) %>% 
   mutate(total = sum(count)) %>% 
-  mutate(
-    temp = round(count / total * 1000)/1000,
-    prop = if_else(
-      round(temp,2) == round(temp,3), 
-      paste0(temp,"0"), 
-      as.character(temp))
-    ) %>% 
-  select(-temp) %>% 
+  mutate(prop = round(count / total * 1000)/1000) %>% 
   mutate(proportion = paste(count,"/",total,"=",prop)) %>% 
   select(-total, -prop) %>% 
-  kable(align=c("c", "c", "c")) %>% 
+  kable(align=c("l", "l", "c", "c")) %>% 
   kable_styling(full_width = F)
 ```
 
@@ -103,13 +94,13 @@ grades_tally %>%
 
 It will be increasingly important for you to distinguish between quantitative and categorical variables. One of the first things you will want to do when you encounter a question in statistics is to determine whether the data are quantitative or categorical. Up to this point in the course, we have discussed methods that are appropriate when we have quantitative data. In this unit, we will learn how to describe categorical data and make inferences from them. Here are some tips to help you distinguish between quantitative and categorical data.
 
-We can do arithmetic on quantitative data. For example, it makes sense to talk about one person being one centimeter taller than another person. It also makes sense to say that a child doubled in height over four years.
+We can do arithmetic on quantitative data. For example, it makes sense to talk about one person being one centimeter taller than another person. It also makes sense to say that one person is twice as tall as another person. 
 
-Categorical data represent labels or categories, rather than quantitative responses. It does not make sense to do arithmetic on categorical data. For example, colors and phone numbers are categorical. We would not say that "red" is double "blue". A phone number is a categorical variable. It is a label for the phone that rings when that number is dialed. It does not make sense to talk about doubling phone numbers or adding to phone numbers together.
+Categorical data represent labels or categories, rather than quantitative responses. It does not make sense to do arithmetic on these. For example, colors and phone numbers are categorical. We would not say that "red" is double "blue". A phone number is a categorical variable. It is a label for the phone that rings when that number is dialed. It does not make sense to talk about doubling phone numbers or adding to phone numbers together.
 
-Note that the students' final letter grades are categorical. For example, it does not make sense to add two "F" grades together or to multiply a grade of "B" by 2. Each of the individuals' responses is a categorization of their performance in the class. Even though we summarize the data by counting the number of each type of grade, the individual grades are categorical, not quantitative.
+Note that the data reported from the Pew Research Center's study are categorical.  Each of the individuals' responses is a categorization of their religious affiliation.  Even though we can summarize the data by counting the number of each type of response, the religions reported by each individual are categorical, not quantitative.
 
-As a caution, every problem in this course will deal with numbers in some way. It is not sufficient to use the presence of numbers to determine if a situation involves quantitative or categorical data. To determine whether data are quantitative or categorical, think about one subject (participant) in the study. What was measured on that one person? Is it quantitative, like their height, income, or age? Or, is it something categorical like a final letter grade, their favorite color, or whether they are an adult (yes or no)?
+As a caution, every problem in this course will deal with numbers in some way. It is not sufficient to use the presence of numbers to determine if a situation involves quantitative or categorical data. To determine whether data are quantitative or categorical, think about one subject (participant) in the study. What was measured on that one person? Is it something quantitative, like their height, income, or age? Or, is it something categorical like a religion, their favorite color, or whether they are an adult (yes or no)?
 
 
 
@@ -117,29 +108,31 @@ As a caution, every problem in this course will deal with numbers in some way. I
 
 Pie charts are a popular way to display categorical data.  These are used extensively in practice, but they can be deceptive. For this reason, we will not use pie charts in this course. Typically, people use pie charts when they want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole. Larger slices represent larger proportions of the whole.
 
-```{r, echo = FALSE}
-pie_tally <- grades_tally %>% 
-  group_by(grade) %>% 
+```{r}
+library(RColorBrewer)
+pie_tally <- religion_tally %>% 
+  mutate(
+    religion_code = if_else(count > 50, religion_code, "Other")
+  ) %>% 
+  group_by(religion_code) %>% 
   summarize(count = sum(count)) %>% 
   ungroup %>% 
-  mutate(
-    temp = round(count/sum(count)*100,1),
-    percent = if_else(temp == round(temp), paste0(temp,".0"), as.character(temp))
-    ) %>% 
-  select(-temp) %>% 
-  arrange(grade)
+  mutate(percent = round(count/sum(count)*100,1)) %>% 
+  arrange(religion_code)
+
+pie_tally2 <- pie_tally %>% 
+  arrange(desc(count))
 
 pie(
-  pie_tally$count, 
-  label = paste0(pie_tally$grade, " (",pie_tally$percent,"%)"),
-  clockwise = TRUE,
-  main = "Final Letter Grade",
-  col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3")
+  pie_tally2$count, 
+  label = pie_tally2$religion_code,
+  main = "Religious Affiliation",
+  col = brewer.pal(7, "Set3")
   )
 ```
 
 
-The grades earned by the students are summarized in this pie chart. The most common grade was a "B," which corresponds to the largest slice. 
+The religions specified by the respondents is summarized using this pie chart. Most of the respondents indicated their religion as "Protestant," which corresponds to the largest slice. 
 
 In this course, you will never create a pie chart. However, it is good to be aware of them, as you are likely to see several in your lifetime.
 
@@ -154,93 +147,127 @@ It is important for you to know how to create a bar chart. These are heavily use
 
 **To make a bar chart in R:**
 
-We will use the students' grades to create a bar chart.
-
-Read in the data: [grades_tally.xlsx](./Data/grades_tally.xlsx) into R. 
+Read in the data:  [religion_tally.xlsx](./Data/religion_tally.xlsx) into R. 
 (Review of [reading in data](RHelp.html#reading-in-the-data).)
 
 Then, use the `barplot(...)` function to create a bar chart of the values.
 
 <div style = "padding-left:40px;">
 
-```{r, comment = NA}
+```{r, comment = NA,                eval=FALSE}
 #Create a plot of the counts:
-barplot(count ~ grade, data = grades_tally)
+library(RColorBrewer)
+barplot(height = pie_tally$count, legend.text = pie_tally$religion_code, las = 2, col = brewer.pal(n = 12, name = "Set3"), args.legend = list(x = "topleft"))
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = "")
+#barplot(pie_tally$religion_code, horiz = TRUE)
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = "",args.legend = list(x = "topleft"))
+par(mar=c(11,4,4,4))
+barplot(count ~ religion_code, data = pie_tally, las=2, xlab = "")
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = "")
+par(mar = c(5.1, 4.1, 4.1, 2.1))
+
+
+
+# create dummy data
+data <- data.frame(
+  name=letters[1:5],
+  value=sample(seq(4,15),5)
+)
+
+# Increase margin size
+par(mar=c(11,4,4,4))
+
+# Uniform color
+barplot(height=data$value,
+        col="#69b3a2",
+        names.arg=c("very long group name 1","very long group name 2","very long group name 3","very long group name 4","very long group name 5"), 
+        las=2 
+)
 ```
 
-- The argument `count ~ grade` tells R to define the groups by the `grade` values and to set the heights of the bars using the value in the variable `count`. These refer to variable names in the data frame specified in `data = grades_tally`.
-- Specify colors for the bar chart using one color like `col = "steelblue3"` to give all bars the same color, or use the option `col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3"),` to give each bar a different color. Of course, use any color names you like: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+- Specify colors for the bar chart using either `col = "steelblue3"` to give all bars the same color, or use `col = c("tan3","brown3","steelblue3")` to give each bar a different color. Of course, use any color names you like: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
 - Specify axes labeling with `main = "A main title"`, `xlab = "An x-axis label"`, and `ylab = "A y-axis label"`.
 
-
-```{r, comment = NA}
+```{r, comment = NA,               eval = FALSE}
 #Make a fancier graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = "steelblue3", 
-  main = "Final Letter Grades",
-  xlab = "Grade", 
-  ylab = "Number of Students"
-  )
-```
-
-
-```{r, comment = NA}
-#Make a more colorful graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3"),
-  main = "Final Letter Grades",
-  xlab = "Grade", 
-  ylab = "Number of Students"
-  )
+barplot(mytable,
+        col = c("tan3","brown3","steelblue3"),
+        main = "College Students were Asked \n \"Do you regularly eat fresh fruits and vegetables?\"",
+        xlab = "Student Answers",
+        ylab = "Number of Students")
 ```
 
 </div>
 <br>
 </div>
+
 <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Bar charts can be considered a companion plot to the pie chart. They present the same basic information but the two plots are not interchangeable. We typically use bar charts if our data represent counts. In contrast, pie charts are used to represent parts of a whole or percentages.
 
-### Pareto Charts
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=BarCharts }} -->
 
-A Pareto chart (named for Wilfredo Pareto) is a bar chart where the bars are given either in descending or ascending order. 
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
 
-```{r, include = FALSE}
-library(readxl)
-library(kableExtra)
-library(tidyverse)
-religion_tally <- read_excel("./data/religion_tally.xlsx") %>% 
-  arrange(desc(count))
-```
+**To make a bar chart in Excel:**
 
-A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 
-`r religion_tally %>% summarize(n = sum(count)) %>% pull()` 
-people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file [religion_tally.xlsx](./Data/religion_tally.xlsx). 
-
-```{r, echo = FALSE}
-par(mar=c(8,4,1,4))
-barplot(
-  height = religion_tally$count, 
-  names.arg = religion_tally$religion_code, 
-  col = "steelblue3", 
-  las=2, 
-  cex.names = 0.75, 
-  main = "Religious Affiliation", 
-  xlab = ""
-  )
-par(mar = c(5.1, 4.1, 4.1, 2.1))
-```
+- Highlight the categorical column and the count column.
+- Click on the Insert tab and then click on column chart button.
+- Again, please choose the simple 2D column chart.
 
 
-We conclude that Protestants comprise the largest religious category among the United States residents surveyed.
+Your bar chart will look like this:
 
-Pareto charts are often used to display causes of problems in an industry.  For example, in health care administration, it may be causes of patient deaths.  In business, it may be used to display common reasons employees are terminated. This can give you an idea of where you should focus your energy in your business or organization.
+<img src="./Images/NoClickQuery-Bar-Excel.png">
+<br>
+</div>
+<br>
 
-There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes.  Many Pareto charts display a few very tall columns with several much shorter ones. This is exactly what we observed in our Pareto chart.
+A Pareto chart is a bar chart where the bars are presented in descending order.
 
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ParetoCharts }} -->
 
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+
+**To make a Pareto chart in Excel:**
+
+- Begin by creating a bar chart.  You can use the one you created above.
+- Highlight the "Count" column.
+- Click on the Sort and Filter tab in the right hand corner of the screen.
+- Click on Sort Largest to Smallest (A little window will pop up, select "Expand the Selection" then "Sort".)
+- The bars in your chart should now be resorted to create a Pareto chart.
+
+Your Pareto chart will look like this:
+
+<img src="./Images/NoClickQuery-Pareto-Excel.png">
+<br>
+</div>
+<br>
+
+We conclude that the main reason that people do not click on any of the search results is that the results were not relevant.  The next two most common reasons were that they did not find any new results or they made a spelling error in their search query.
+
+Pareto charts are often used to display causes of problems in an industry.  For example, in health care administration, it may be causes of patient deaths.  In business, it may be used to display common reasons employees are terminated.
+
+There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes.  Many Pareto charts display a few very tall columns with several much shorter ones.  This can give you an idea of where you should focus your energy in your business or organization.
 
 ## Sampling Distribution of the Sample Proportion
 
@@ -494,8 +521,7 @@ This calculation was done in the same way we have done normal calculations in th
 
 - **Bar charts** present the same information as pie charts and are used when our data represent counts. A **Pareto chart** is a bar chart where the height of the bars is presented in descending order.
 
-- $\widehat p$ is a point estimator for true proportion $p$. We compute $\widehat p$ as: 
-$$\displaystyle{\widehat p = \frac{x}{n} = \frac{\text{Number of successes}}{\text{Number of trials}} }$$
+- $\widehat p$ is a point estimator for true proportion $p$. $\displaystyle{\widehat p = \frac{x}{n}}$
 
 - The sampling distribution of $\widehat p$ has a mean of $\mu_{\widehat{p}} = p$ and a standard deviation of $\sigma_{\widehat{p}} = \displaystyle{\sqrt{\frac{p\cdot(1-p)}{n}}}$
 

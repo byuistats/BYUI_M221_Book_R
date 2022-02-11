@@ -387,7 +387,6 @@ $(document).ready(function () {
 <li><a href="#proportions">Proportions</a></li>
 <li><a href="#pie-charts">Pie charts</a></li>
 <li><a href="#r-instructions-for-bar-charts">R Instructions for Bar Charts</a></li>
-<li><a href="#pareto-charts">Pareto Charts</a></li>
 </ul></li>
 <li><a href="#sampling-distribution-of-the-sample-proportion">Sampling Distribution of the Sample Proportion</a>
 <ul>
@@ -440,79 +439,202 @@ $(document).ready(function () {
 \widehat p = \frac{x}{n} = \frac{565}{1024} = 0.552
 \]</span> That suggests that 55.2% of the people polled plan to vote for the Republican. This does not mean that this candidate will win the election. However, it looks like they might be in the lead at this point.</p>
 </div>
-<div id="grades-of-byu-idaho-students" class="section level4">
-<h4>Grades of BYU-Idaho Students</h4>
-<p>Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data file <a href="./Data/grades_gender.xlsx">grades_gender.xlsx</a>. R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a>. Notice that each row in the “tally” data file represents responses from several individuals. The <em>count</em> column tells how many times each response was given. We will used this summarized data for our analysis.</p>
-<p>Read the data in the file <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a> into R. These data are summarized in the table below.</p>
+<div id="religious-affiliation-in-the-united-states" class="section level4">
+<h4>Religious Affiliation in the United States</h4>
+<!-- [student_grades.xlsx](./Data/student_grades.xlsx) -->
+<p>A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 1811 people were surveyed. Among other things, each person was asked to report their gender, religious affiliation, and how often they attend. These values are given in the data file <a href="./Data/religion_survey.xlsx">religion_survey.xlsx</a>. R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file <a href="./Data/religion_tally.xlsx">religion_tally.xlsx</a>. Notice that each row in the “tally” data file represents responses from several individuals. The <em>count</em> column tells how many times each response was given. We will used this summarized data for our analysis.</p>
+<p>Read the data in the file <a href="./Data/religion_tally.xlsx">religion_tally.xlsx</a> into R. These data are summarized in the table below.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;">
-grade
+<th style="text-align:left;">
+religion
 </th>
-<th style="text-align:center;">
+<th style="text-align:left;">
+religion_code
+</th>
+<th style="text-align:right;">
 count
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-A
+<td style="text-align:left;">
+Agnostic (not sure if there is a God)
 </td>
-<td style="text-align:center;">
-79
+<td style="text-align:left;">
+Agnostic
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-B
-</td>
-<td style="text-align:center;">
-94
+<td style="text-align:right;">
+58
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-C
+<td style="text-align:left;">
+Atheist (do not believe in God)
 </td>
-<td style="text-align:center;">
-61
+<td style="text-align:left;">
+Atheist
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-D
-</td>
-<td style="text-align:center;">
-22
+<td style="text-align:right;">
+55
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-F
+<td style="text-align:left;">
+Buddhist
 </td>
-<td style="text-align:center;">
-16
+<td style="text-align:left;">
+Buddhist
+</td>
+<td style="text-align:right;">
+8
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:left;">
+Don’t know/refused
+</td>
+<td style="text-align:left;">
+Refused
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hindu
+</td>
+<td style="text-align:left;">
+Hindu
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jewish (Judaism)
+</td>
+<td style="text-align:left;">
+Jewish
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Muslim (Islam)
+</td>
+<td style="text-align:left;">
+Muslim
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nothing in particular
+</td>
+<td style="text-align:left;">
+Nothing in Particular
+</td>
+<td style="text-align:right;">
+291
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Orthodox (Greek, Russian, or some other Orthodox church)
+</td>
+<td style="text-align:left;">
+Orthodox
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other Christian
+</td>
+<td style="text-align:left;">
+Other
+</td>
+<td style="text-align:right;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other non-Christian
+</td>
+<td style="text-align:left;">
+Non-Christian
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Protestant
+</td>
+<td style="text-align:left;">
+Protestant
+</td>
+<td style="text-align:right;">
+737
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Roman Catholic
+</td>
+<td style="text-align:left;">
+Roman Catholic
+</td>
+<td style="text-align:right;">
+498
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Church of Jesus Christ of Latter-day Saints
+</td>
+<td style="text-align:left;">
+Church of Jesus Christ
+</td>
+<td style="text-align:right;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Total
 </td>
-<td style="text-align:center;">
-272
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+1811
 </td>
 </tr>
 </tbody>
 </table>
-<p>For example, of the 272 students, 79 earned an A in the course.</p>
-<p>We can compute the sample proportion for each group by taking the number of responses in each group and dividing this value by the total number of responses, 272. The proportion of who earned an A is <span class="math display">\[ \frac{79}{272} = 0.145\]</span> We can compute the sample proportions for all religions:</p>
+<p>For example, of the 1811 respondents, 51 reported belonging to The Church of Jesus Christ of Latter-day Saints.</p>
+<p>We can compute the sample proportion for each group by taking the number of responses in each group and dividing this value by the total number of responses, 1811. The proportion of people in the sample who are members of The Church of Jesus Christ of Latter-day Saints is <span class="math display">\[ \frac{51}{1811} = 0.028\]</span> We can compute the sample proportions for all religions:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:center;">
-grade
+<th style="text-align:left;">
+religion
+</th>
+<th style="text-align:left;">
+religion_code
 </th>
 <th style="text-align:center;">
 count
@@ -524,58 +646,199 @@ proportion
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-A
+<td style="text-align:left;">
+Agnostic (not sure if there is a God)
+</td>
+<td style="text-align:left;">
+Agnostic
 </td>
 <td style="text-align:center;">
-79
+58
 </td>
 <td style="text-align:center;">
-79 / 272 = 0.290
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-B
-</td>
-<td style="text-align:center;">
-94
-</td>
-<td style="text-align:center;">
-94 / 272 = 0.346
+58 / 1811 = 0.032
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-C
+<td style="text-align:left;">
+Atheist (do not believe in God)
+</td>
+<td style="text-align:left;">
+Atheist
 </td>
 <td style="text-align:center;">
-61
+55
 </td>
 <td style="text-align:center;">
-61 / 272 = 0.224
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-D
-</td>
-<td style="text-align:center;">
-22
-</td>
-<td style="text-align:center;">
-22 / 272 = 0.081
+55 / 1811 = 0.03
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-F
+<td style="text-align:left;">
+Buddhist
+</td>
+<td style="text-align:left;">
+Buddhist
 </td>
 <td style="text-align:center;">
-16
+8
 </td>
 <td style="text-align:center;">
-16 / 272 = 0.059
+8 / 1811 = 0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Don’t know/refused
+</td>
+<td style="text-align:left;">
+Refused
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+7 / 1811 = 0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hindu
+</td>
+<td style="text-align:left;">
+Hindu
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+11 / 1811 = 0.006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jewish (Judaism)
+</td>
+<td style="text-align:left;">
+Jewish
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+21 / 1811 = 0.012
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Muslim (Islam)
+</td>
+<td style="text-align:left;">
+Muslim
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+14 / 1811 = 0.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nothing in particular
+</td>
+<td style="text-align:left;">
+Nothing in Particular
+</td>
+<td style="text-align:center;">
+291
+</td>
+<td style="text-align:center;">
+291 / 1811 = 0.161
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Orthodox (Greek, Russian, or some other Orthodox church)
+</td>
+<td style="text-align:left;">
+Orthodox
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+8 / 1811 = 0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other Christian
+</td>
+<td style="text-align:left;">
+Other
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+34 / 1811 = 0.019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other non-Christian
+</td>
+<td style="text-align:left;">
+Non-Christian
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+18 / 1811 = 0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Protestant
+</td>
+<td style="text-align:left;">
+Protestant
+</td>
+<td style="text-align:center;">
+737
+</td>
+<td style="text-align:center;">
+737 / 1811 = 0.407
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Roman Catholic
+</td>
+<td style="text-align:left;">
+Roman Catholic
+</td>
+<td style="text-align:center;">
+498
+</td>
+<td style="text-align:center;">
+498 / 1811 = 0.275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The Church of Jesus Christ of Latter-day Saints
+</td>
+<td style="text-align:left;">
+Church of Jesus Christ
+</td>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+51 / 1811 = 0.028
 </td>
 </tr>
 </tbody>
@@ -584,17 +847,37 @@ F
 <div id="comparison-of-quantitative-and-categorical-data" class="section level4">
 <h4>Comparison of Quantitative and Categorical Data</h4>
 <p>It will be increasingly important for you to distinguish between quantitative and categorical variables. One of the first things you will want to do when you encounter a question in statistics is to determine whether the data are quantitative or categorical. Up to this point in the course, we have discussed methods that are appropriate when we have quantitative data. In this unit, we will learn how to describe categorical data and make inferences from them. Here are some tips to help you distinguish between quantitative and categorical data.</p>
-<p>We can do arithmetic on quantitative data. For example, it makes sense to talk about one person being one centimeter taller than another person. It also makes sense to say that a child doubled in height over four years.</p>
-<p>Categorical data represent labels or categories, rather than quantitative responses. It does not make sense to do arithmetic on categorical data. For example, colors and phone numbers are categorical. We would not say that “red” is double “blue”. A phone number is a categorical variable. It is a label for the phone that rings when that number is dialed. It does not make sense to talk about doubling phone numbers or adding to phone numbers together.</p>
-<p>Note that the students’ final letter grades are categorical. For example, it does not make sense to add two “F” grades together or to multiply a grade of “B” by 2. Each of the individuals’ responses is a categorization of their performance in the class. Even though we summarize the data by counting the number of each type of grade, the individual grades are categorical, not quantitative.</p>
-<p>As a caution, every problem in this course will deal with numbers in some way. It is not sufficient to use the presence of numbers to determine if a situation involves quantitative or categorical data. To determine whether data are quantitative or categorical, think about one subject (participant) in the study. What was measured on that one person? Is it quantitative, like their height, income, or age? Or, is it something categorical like a final letter grade, their favorite color, or whether they are an adult (yes or no)?</p>
+<p>We can do arithmetic on quantitative data. For example, it makes sense to talk about one person being one centimeter taller than another person. It also makes sense to say that one person is twice as tall as another person.</p>
+<p>Categorical data represent labels or categories, rather than quantitative responses. It does not make sense to do arithmetic on these. For example, colors and phone numbers are categorical. We would not say that “red” is double “blue”. A phone number is a categorical variable. It is a label for the phone that rings when that number is dialed. It does not make sense to talk about doubling phone numbers or adding to phone numbers together.</p>
+<p>Note that the data reported from the Pew Research Center’s study are categorical. Each of the individuals’ responses is a categorization of their religious affiliation. Even though we can summarize the data by counting the number of each type of response, the religions reported by each individual are categorical, not quantitative.</p>
+<p>As a caution, every problem in this course will deal with numbers in some way. It is not sufficient to use the presence of numbers to determine if a situation involves quantitative or categorical data. To determine whether data are quantitative or categorical, think about one subject (participant) in the study. What was measured on that one person? Is it something quantitative, like their height, income, or age? Or, is it something categorical like a religion, their favorite color, or whether they are an adult (yes or no)?</p>
 </div>
 </div>
 <div id="pie-charts" class="section level3">
 <h3>Pie charts</h3>
 <p>Pie charts are a popular way to display categorical data. These are used extensively in practice, but they can be deceptive. For this reason, we will not use pie charts in this course. Typically, people use pie charts when they want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole. Larger slices represent larger proportions of the whole.</p>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>The grades earned by the students are summarized in this pie chart. The most common grade was a “B,” which corresponds to the largest slice.</p>
+<pre class="r"><code>library(RColorBrewer)
+pie_tally &lt;- religion_tally %&gt;% 
+  mutate(
+    religion_code = if_else(count &gt; 50, religion_code, &quot;Other&quot;)
+  ) %&gt;% 
+  group_by(religion_code) %&gt;% 
+  summarize(count = sum(count)) %&gt;% 
+  ungroup %&gt;% 
+  mutate(percent = round(count/sum(count)*100,1)) %&gt;% 
+  arrange(religion_code)
+
+pie_tally2 &lt;- pie_tally %&gt;% 
+  arrange(desc(count))
+
+pie(
+  pie_tally2$count, 
+  label = pie_tally2$religion_code,
+  main = &quot;Religious Affiliation&quot;,
+  col = brewer.pal(7, &quot;Set3&quot;)
+  )</code></pre>
+<p><img src="Lesson16b_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The religions specified by the respondents is summarized using this pie chart. Most of the respondents indicated their religion as “Protestant,” which corresponds to the largest slice.</p>
 <p>In this course, you will never create a pie chart. However, it is good to be aware of them, as you are likely to see several in your lifetime.</p>
 </div>
 <div id="r-instructions-for-bar-charts" class="section level3">
@@ -605,50 +888,90 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To make a bar chart in R:</strong></p>
-<p>We will use the students’ grades to create a bar chart.</p>
-<p>Read in the data: <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a> into R. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>Read in the data: <a href="./Data/religion_tally.xlsx">religion_tally.xlsx</a> into R. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
 <p>Then, use the <code>barplot(...)</code> function to create a bar chart of the values.</p>
 <div style="padding-left:40px;">
 <pre class="r"><code>#Create a plot of the counts:
-barplot(count ~ grade, data = grades_tally)</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+library(RColorBrewer)
+barplot(height = pie_tally$count, legend.text = pie_tally$religion_code, las = 2, col = brewer.pal(n = 12, name = &quot;Set3&quot;), args.legend = list(x = &quot;topleft&quot;))
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = &quot;&quot;)
+#barplot(pie_tally$religion_code, horiz = TRUE)
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = &quot;&quot;,args.legend = list(x = &quot;topleft&quot;))
+par(mar=c(11,4,4,4))
+barplot(count ~ religion_code, data = pie_tally, las=2, xlab = &quot;&quot;)
+barplot(count ~ religion_code, data = pie_tally, las=2, cex.names = 0.45, xlab = &quot;&quot;)
+par(mar = c(5.1, 4.1, 4.1, 2.1))
+
+
+
+# create dummy data
+data &lt;- data.frame(
+  name=letters[1:5],
+  value=sample(seq(4,15),5)
+)
+
+# Increase margin size
+par(mar=c(11,4,4,4))
+
+# Uniform color
+barplot(height=data$value,
+        col=&quot;#69b3a2&quot;,
+        names.arg=c(&quot;very long group name 1&quot;,&quot;very long group name 2&quot;,&quot;very long group name 3&quot;,&quot;very long group name 4&quot;,&quot;very long group name 5&quot;), 
+        las=2 
+)</code></pre>
 <ul>
-<li>The argument <code>count ~ grade</code> tells R to define the groups by the <code>grade</code> values and to set the heights of the bars using the value in the variable <code>count</code>. These refer to variable names in the data frame specified in <code>data = grades_tally</code>.</li>
-<li>Specify colors for the bar chart using one color like <code>col = "steelblue3"</code> to give all bars the same color, or use the option <code>col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3"),</code> to give each bar a different color. Of course, use any color names you like: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a></li>
+<li>Specify colors for the bar chart using either <code>col = "steelblue3"</code> to give all bars the same color, or use <code>col = c("tan3","brown3","steelblue3")</code> to give each bar a different color. Of course, use any color names you like: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Color Options</a></li>
 <li>Specify axes labeling with <code>main = "A main title"</code>, <code>xlab = "An x-axis label"</code>, and <code>ylab = "A y-axis label"</code>.</li>
 </ul>
 <pre class="r"><code>#Make a fancier graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = &quot;steelblue3&quot;, 
-  main = &quot;Final Letter Grades&quot;,
-  xlab = &quot;Grade&quot;, 
-  ylab = &quot;Number of Students&quot;
-  )</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="r"><code>#Make a more colorful graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = c(&quot;darkolivegreen4&quot;, &quot;steelblue3&quot;, &quot;darkorchid&quot;, &quot;tan3&quot; , &quot;brown3&quot;),
-  main = &quot;Final Letter Grades&quot;,
-  xlab = &quot;Grade&quot;, 
-  ylab = &quot;Number of Students&quot;
-  )</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+barplot(mytable,
+        col = c(&quot;tan3&quot;,&quot;brown3&quot;,&quot;steelblue3&quot;),
+        main = &quot;College Students were Asked \n \&quot;Do you regularly eat fresh fruits and vegetables?\&quot;&quot;,
+        xlab = &quot;Student Answers&quot;,
+        ylab = &quot;Number of Students&quot;)</code></pre>
 </div>
 <p><br></p>
 </div>
 <p><br/></p>
 <p>Bar charts can be considered a companion plot to the pie chart. They present the same basic information but the two plots are not interchangeable. We typically use bar charts if our data represent counts. In contrast, pie charts are used to represent parts of a whole or percentages.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=BarCharts }} -->
+<div class="SoftwareHeading">
+Excel Instructions
 </div>
-<div id="pareto-charts" class="section level3">
-<h3>Pareto Charts</h3>
-<p>A Pareto chart (named for Wilfredo Pareto) is a bar chart where the bars are given either in descending or ascending order.</p>
-<p>A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 1811 people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file <a href="./Data/religion_tally.xlsx">religion_tally.xlsx</a>.</p>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>We conclude that Protestants comprise the largest religious category among the United States residents surveyed.</p>
-<p>Pareto charts are often used to display causes of problems in an industry. For example, in health care administration, it may be causes of patient deaths. In business, it may be used to display common reasons employees are terminated. This can give you an idea of where you should focus your energy in your business or organization.</p>
-<p>There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes. Many Pareto charts display a few very tall columns with several much shorter ones. This is exactly what we observed in our Pareto chart.</p>
+<div class="Summary">
+<p><strong>To make a bar chart in Excel:</strong></p>
+<ul>
+<li>Highlight the categorical column and the count column.</li>
+<li>Click on the Insert tab and then click on column chart button.</li>
+<li>Again, please choose the simple 2D column chart.</li>
+</ul>
+<p>Your bar chart will look like this:</p>
+<p><img src="Images/NoClickQuery-Bar-Excel.png"> <br></p>
+</div>
+<p><br></p>
+<p>A Pareto chart is a bar chart where the bars are presented in descending order.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ParetoCharts }} -->
+<div class="SoftwareHeading">
+Excel Instructions
+</div>
+<div class="Summary">
+<p><strong>To make a Pareto chart in Excel:</strong></p>
+<ul>
+<li>Begin by creating a bar chart. You can use the one you created above.</li>
+<li>Highlight the “Count” column.</li>
+<li>Click on the Sort and Filter tab in the right hand corner of the screen.</li>
+<li>Click on Sort Largest to Smallest (A little window will pop up, select “Expand the Selection” then “Sort”.)</li>
+<li>The bars in your chart should now be resorted to create a Pareto chart.</li>
+</ul>
+<p>Your Pareto chart will look like this:</p>
+<p><img src="Images/NoClickQuery-Pareto-Excel.png"> <br></p>
+</div>
+<p><br></p>
+<p>We conclude that the main reason that people do not click on any of the search results is that the results were not relevant. The next two most common reasons were that they did not find any new results or they made a spelling error in their search query.</p>
+<p>Pareto charts are often used to display causes of problems in an industry. For example, in health care administration, it may be causes of patient deaths. In business, it may be used to display common reasons employees are terminated.</p>
+<p>There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes. Many Pareto charts display a few very tall columns with several much shorter ones. This can give you an idea of where you should focus your energy in your business or organization.</p>
 </div>
 </div>
 <div id="sampling-distribution-of-the-sample-proportion" class="section level2">
@@ -908,7 +1231,7 @@ Remember…
 <ul>
 <li><p><strong>Pie charts</strong> are used when you want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole.</p></li>
 <li><p><strong>Bar charts</strong> present the same information as pie charts and are used when our data represent counts. A <strong>Pareto chart</strong> is a bar chart where the height of the bars is presented in descending order.</p></li>
-<li><p><span class="math inline">\(\widehat p\)</span> is a point estimator for true proportion <span class="math inline">\(p\)</span>. We compute <span class="math inline">\(\widehat p\)</span> as: <span class="math display">\[\displaystyle{\widehat p = \frac{x}{n} = \frac{\text{Number of successes}}{\text{Number of trials}} }\]</span></p></li>
+<li><p><span class="math inline">\(\widehat p\)</span> is a point estimator for true proportion <span class="math inline">\(p\)</span>. <span class="math inline">\(\displaystyle{\widehat p = \frac{x}{n}}\)</span></p></li>
 <li><p>The sampling distribution of <span class="math inline">\(\widehat p\)</span> has a mean of <span class="math inline">\(\mu_{\widehat{p}} = p\)</span> and a standard deviation of <span class="math inline">\(\sigma_{\widehat{p}} = \displaystyle{\sqrt{\frac{p\cdot(1-p)}{n}}}\)</span></p></li>
 <li><p>If <span class="math inline">\(np \ge 10\)</span> and <span class="math inline">\(n(1-p) \ge 10\)</span>, you can conduct <strong>probability calculations</strong> using the Normal Probability Applet. <span class="math display">\[
 \displaystyle {z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
