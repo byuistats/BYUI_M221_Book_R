@@ -567,14 +567,14 @@ R Instructions
 <ul>
 <li>Read in the data: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Load <code>library(mosaic)</code>. (If this fails for you, try running <code>install.packages("mosaic")</code> and then re-run the <code>library(mosaic)</code> command.)</li>
-<li>Use the <code>favstats(...)</code> function with the quantitative data column listed first, followed by a tilde, <code>~</code>, which is followed by the categorical data column.</li>
+<li>Use the <code>favstats(...)</code> function with the quantitative data column name listed first, followed by a tilde, <code>~</code>, which is followed by the categorical data column name. We indicate that these columns are part of the <code>gratitude</code> data frame using the command <code>data = gratitude</code>.</li>
 </ul>
 <pre class="r"><code>library(mosaic) 
-favstats(gratitude$happiness ~ gratitude$treatment)</code></pre>
-<pre><code>  gratitude$treatment min    Q1 median    Q3 max     mean        sd  n missing
-1              Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
-2            Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
-3             Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
+favstats(happiness ~ treatment, data = gratitude)</code></pre>
+<pre><code>  treatment min    Q1 median    Q3 max     mean        sd  n missing
+1    Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
+2  Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
+3   Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
@@ -604,14 +604,14 @@ R Instructions
 <ul>
 <li>Read in the data if you haven’t already: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
 <li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>gratitude_aov</code>.</li>
-<li>When using the <code>aov(...)</code> function, place the quantitative data first, followed by a <code>~</code>, followed by the categorical data.</li>
-<li>Use the <code>summary(...)</code> function to view the results of the ANOVA test.</li>
+<li>When using the <code>aov(...)</code> function, place the quantitative variable first, followed by a <code>~</code>, followed by the categorical variable. As in other examples, we indicate the data frame using the <code>data =</code> argument.</li>
+<li>Use the <code>summary(...)</code> function to view the results of the ANOVA test in a nice format.</li>
 </ul>
-<pre class="r"><code>gratitude_aov &lt;- aov(gratitude$happiness ~ gratitude$treatment)
+<pre class="r"><code>gratitude_aov &lt;- aov(happiness ~ treatment, data = gratitude)
 summary(gratitude_aov)</code></pre>
-<pre><code>                     Df Sum Sq Mean Sq F value Pr(&gt;F)  
-gratitude$treatment   2   6.26   3.130   4.075 0.0185 *
-Residuals           189 145.16   0.768                 
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)  
+treatment     2   6.26   3.130   4.075 0.0185 *
+Residuals   189 145.16   0.768                 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In the ANOVA table output summary, you will find</p>
@@ -638,7 +638,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="requirements-of-anova" class="section level3">
 <h3>Requirements of ANOVA</h3>
 <p><strong>Verify the requirements have been met.</strong></p>
-<p>There are two requirements of ANOVA that must be checked:</p>
+<p>There are two requirements of ANOVA that we can verify directly:</p>
+<!-- 
+- The data represent a simple random sample.
+
+    We cannot check this requirement by looking at the data. As long as the data are representative of the population, the intent of this requirement is satisfied. 
+-->
 <ul>
 <li><p>The data are normally distributed in each group.</p>
 <p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
@@ -865,7 +870,7 @@ abline(v = 2.02, h = 0)
 <a href = "javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
-<li>Since <span class="math inline">\(P\)</span>-value$ = 0.0809 &lt; 0.1 = $ we reject the null hypothesis.</li>
+<li>Since the <span class="math inline">\(P\)</span>-value <span class="math inline">\(= 0.0809 &lt; 0.1 = \alpha\)</span>, we reject the null hypothesis.</li>
 </ul>
 </div>
 <p> </p>
@@ -904,7 +909,7 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 \end{align}
 \]</span></p></li>
 <li><p>For ANOVA testing we use an <strong><span class="math inline">\(F\)</span>-distribution</strong>, which is right-skewed. The <span class="math inline">\(P\)</span>-value of an ANOVA test is always the area to the right of the <span class="math inline">\(F\)</span>-statistic.</p></li>
-<li><p>We can conduct ANOVA testing when the following three requirements are satisfied:</p>
+<li><p>We can conduct ANOVA testing when the following requirements are satisfied:</p>
 <ol style="list-style-type: decimal">
 <li>The data come from a simple random sample.</li>
 <li>The data are normally distributed within each group.

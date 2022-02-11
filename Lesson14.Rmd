@@ -147,7 +147,7 @@ Gratitude
 
 * Read in the data: [gratitude.xlsx](./data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Load `library(mosaic)`. (If this fails for you, try running `install.packages("mosaic")` and then re-run the `library(mosaic)` command.)
-* Use the `favstats(...)` function with the quantitative data column listed first, followed by a tilde, `~`, which is followed by the categorical data column.
+* Use the `favstats(...)` function with the quantitative data column name listed first, followed by a tilde, `~`, which is followed by the categorical data column name. We indicate that these columns are part of the `gratitude` data frame using the command `data = gratitude`.
 
 ```{r, include = FALSE}
 library(readxl)
@@ -157,8 +157,10 @@ gratitude <- read_excel("./data/gratitude.xlsx")
 
 ```{r, message = FALSE, warning = FALSE, comment = NA}
 library(mosaic) 
-favstats(gratitude$happiness ~ gratitude$treatment)
+favstats(happiness ~ treatment, data = gratitude)
 ```
+
+
 
 **To make an appropriate graph to illustrate the data:**
 
@@ -195,11 +197,11 @@ To conduct a test for several means (ANOVA) in R, do the following:
 
 * Read in the data if you haven't already: [gratitude.xlsx](./data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 * Use the `aov(...)` function and the assignment operator `<-` to perform and save the results of the test to any name you want to create for the test. Here we use the name `gratitude_aov`. 
-* When using the `aov(...)` function, place the quantitative data first, followed by a `~`, followed by the categorical data.
-* Use the `summary(...)` function to view the results of the ANOVA test.
+* When using the `aov(...)` function, place the quantitative variable first, followed by a `~`, followed by the categorical variable. As in other examples, we indicate the data frame using the `data = ` argument.
+* Use the `summary(...)` function to view the results of the ANOVA test in a nice format.
 
 ```{r, comment = NA}
-gratitude_aov <- aov(gratitude$happiness ~ gratitude$treatment)
+gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
 summary(gratitude_aov)
 ```
 
@@ -233,8 +235,13 @@ Here is a brief summary of the characteristics of the $F$-distribution:
 
 **Verify the requirements have been met.**
 
+There are two requirements of ANOVA that we can verify directly:
 
-There are two requirements of ANOVA that must be checked:
+<!-- 
+- The data represent a simple random sample.
+
+    We cannot check this requirement by looking at the data. As long as the data are representative of the population, the intent of this requirement is satisfied. 
+-->
 
 - The data are normally distributed in each group.
 
@@ -466,7 +473,7 @@ abline(v = 2.02, h = 0)
 
 <a href = "javascript:showhide('Q10')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q10" style = "display:none;">
-* Since $P$-value$ = 0.0809 < 0.1 = \alpha$ we reject the null hypothesis.
+* Since the $P$-value $= 0.0809 < 0.1 = \alpha$, we reject the null hypothesis.
 </div>
 &nbsp;
 </div>
@@ -503,7 +510,7 @@ $$
 
 - For ANOVA testing we use an **$F$-distribution**, which is right-skewed. The $P$-value of an ANOVA test is always the area to the right of the $F$-statistic.
 
-- We can conduct ANOVA testing when the following three requirements are satisfied:
+- We can conduct ANOVA testing when the following requirements are satisfied:
     1. The data come from a simple random sample.
     2. The data are normally distributed within each group.
         - This is considered met unless one or more of the groups has a *strongly* skewed distribution.
