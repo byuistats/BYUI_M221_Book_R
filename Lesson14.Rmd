@@ -172,7 +172,7 @@ favstats(happiness ~ treatment, data = gratitude)
 boxplot(gratitude$happiness ~ gratitude$treatment,
         col = c("brown3","steelblue3","tan3"),
         main = "The Effects of Gratitude",
-        xlab = "Treatment Group",
+        xlab = "Treatment Groups",
         ylab = "Happiness Score (Higher is More Positive)")
 ```
 
