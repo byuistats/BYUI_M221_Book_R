@@ -185,17 +185,6 @@ barplot(
 ```
 
 
-```{r, comment = NA}
-#Make a more colorful graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3"),
-  main = "Final Letter Grades",
-  xlab = "Grade", 
-  ylab = "Number of Students"
-  )
-```
-
 </div>
 <br>
 </div>
