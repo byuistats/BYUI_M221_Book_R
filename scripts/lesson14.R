@@ -32,12 +32,6 @@ favstats(happiness ~ treatment, data = gratitude)
 # Graphical Summaries -------------------------------------
 boxplot(gratitude$happiness ~ gratitude$treatment)
 
-boxplot(gratitude$happiness ~ gratitude$treatment,
-        col = c("brown3","steelblue3","tan3"),
-        main = "The Effects of Gratitude",
-        xlab = "Treatment Groups",
-        ylab = "Happiness Score (Higher is More Positive)")
-
 # Hypothesis Test -----------------------------------------
 gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
 summary(gratitude_aov)
@@ -59,12 +53,6 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)
 
 # Graphical Summaries -------------------------------------
 boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear)
-
-boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
-        col = "tan3", 
-        main = "Soccer Shoes vs. Socks and Shooting Accuracy",
-        xlab = "Footwear",
-        ylab = "Accuracy")
 
 # Hypothesis Test -----------------------------------------
 soccer_aov <- aov(soccer_shoes$accuracy ~ soccer_shoes$footwear)
