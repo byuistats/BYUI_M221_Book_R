@@ -379,7 +379,9 @@ Using the code above, we can pull out the important values.
 ```{r}
 boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
         col = "tan3", 
-        main = "Soccer Shoes vs. Socks and Shooting Accuracy")
+        main = "Soccer Shoes vs. Socks and Shooting Accuracy",
+        xlab = "Footwear",
+        ylab = "Accuracy")
 ```
 
 
