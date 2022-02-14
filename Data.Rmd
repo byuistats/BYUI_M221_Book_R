@@ -115,7 +115,7 @@ Links to data files used throughout the course:
 
 [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx)
 
-[flight_costs.xlsx](./data/flight_costs.xlsx)
+[direct_flight_costs.xlsx](./data/direct_flight_costs.xlsx)
 
 [freshmen_dinner.xlsx](./data/freshmen_dinner.xlsx)
 
