@@ -193,8 +193,6 @@ Links to data files used throughout the course:
 
 [soccer_shoes.xlsx](./data/soccer_shoes.xlsx)
 
-[soccer_shoes_wide.xlsx](./data/soccer_shoes_wide.xlsx)
-
 [soviet_accidents.xlsx](./data/soviet_accidents.xlsx)
 
 [speed_of_light_1879.xlsx](./data/speed_of_light_1879.xlsx)
