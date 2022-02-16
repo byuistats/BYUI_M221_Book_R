@@ -301,7 +301,7 @@ There is sufficient evidence to suggest that at least one of the three groups ha
 
 If we take a closer look, we see that the Hassles and Events groups had means that were fairly close together.  However, the Grateful group appears to have a significantly higher mean level of satisfaction than the other two groups.
 
-## Worked Example: Soccer Shoes
+## Wide Data: Soccer Shoes
 <span id = '21:soccer_shoesExplanation'></span>
 
 <img src = "./Images/StepsAll.png">
@@ -359,12 +359,12 @@ Using the code above, we can pull out the important values.
 
   Group   N    Mean    Std. Deviation
   ------- ---- ------- ----------------
-  A       20   33.10   5.230
-  B       20   32.70   5.430
-  C       20   29.45   5.216
-  D       20   32.00   7.291
-  E       20   32.20   5.569
-  Socks   20   35.25   6.382
+  shoe_a  20   33.10   5.230
+  shoe_b  20   32.70   5.430
+  shoe_c  20   29.45   5.216
+  shoe_d  20   32.00   7.291
+  shoe_e  20   32.20   5.569
+  socks   20   35.25   6.382
 
 
 </div>
