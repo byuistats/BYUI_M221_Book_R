@@ -5,10 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-library(mosaic)
-
 
 
 # Hypothesis Tests and Confidence Intervals =========================
@@ -30,6 +26,7 @@ View(weight_loss)
 weight_loss$difference <- weight_loss$post - weight_loss$pre
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(weight_loss$difference) 
 
 # Graphical Summaries -------------------------------------
@@ -55,6 +52,7 @@ hospital_infections$difference <-
   hospital_infections$infected - hospital_infections$not_infected
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(hospital_infections$difference) 
 
 # Graphical Summaries -------------------------------------
@@ -79,6 +77,7 @@ t.test(hospital_infections$difference,
 ree$difference <- ree$stressful - ree$silence
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(ree$difference)
 
 # Graphical Summaries -------------------------------------
@@ -104,6 +103,7 @@ flight_costs$difference <-
   flight_costs$fourteen_days - flight_costs$ninety_days
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(flight_costs$difference)
 
 # Graphical Summaries -------------------------------------
@@ -132,6 +132,7 @@ t.test(flight_costs$difference,
 pine_beetle$difference <- pine_beetle$after - pine_beetle$before
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(pine_beetle$difference)
 
 # Graphical Summaries -------------------------------------
@@ -153,6 +154,7 @@ t.test(pine_beetle$difference, conf.level = 0.95)
 sleep$difference = sleep$treatment - sleep$control
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(sleep$difference)
 
 # Graphical Summaries -------------------------------------

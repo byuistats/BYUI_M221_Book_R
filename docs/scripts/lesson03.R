@@ -3,46 +3,41 @@
 # Sample R code
 # https://byuistats.github.io/BYUI_M221_Book_R
 
-# Read in tuberculosis data (Note: this is a vector)
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
-
-# --------------------------------------------------
-# Numerical Summaries: Measures of center
-#                      Mean, Median, and Mode
-# --------------------------------------------------
-
-# Compute the mean
-mean(tuberc)
-
-# Compute the median
-median(tuberc)
-
-# Find the mode
-table(tuberc)
 
 
-# --------------------------------------------------
-# Histograms  
-# --------------------------------------------------
-
-# Basic histogram of the tuberculosis data
-hist(tuberc)
-
-# Optional nicer histogram of the tuberculosis data
-hist(tuberc, 
-     col = "skyblue", 
-     main = "Histogram of Costs to Treat Tuberculosis", 
-     xlab = "Cost in Dollars", 
-     ylab = "Number of Individuals")
+# Install required packages for the course ----------------
+# (You only need to run this once!)
+install.packages("librarian")
+librarian::shelf(curl, readxl, tidyverse, mosaic)
 
 
-# --------------------------------------------------
-# Example of Reading Data from a Web Page
-# --------------------------------------------------
 
-# Read in required packages
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(curl, readxl)
+# Tuberculosis Example ------------------------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/tuberculosis.xlsx
+# (The "Import Dataset" code was pasted here:)
+library(readxl)
+url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
+destfile <- "tuberculosis.xlsx"
+curl::curl_download(url, destfile)
+tuberculosis <- read_excel(destfile)
+View(tuberculosis)
+
+# Numerical Summaries -------------------------------------
+library(mosaic)
+favstats(tuberculosis$costs)
+
+# Graphical Summaries -------------------------------------
+hist(tuberculosis$costs)
+
+
+
+
+
+
+
+
+
 
 # To download an Excel file from the web, update the URL below:
 url <- "https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx"

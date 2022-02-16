@@ -5,10 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-library(mosaic)
-
 
 
 # Hypothesis Tests and Confidence Intervals (Wide Data) =============
@@ -27,6 +23,7 @@ copd_rehab <- read_excel(destfile)
 View(copd_rehab)
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(copd_rehab$community)
 favstats(copd_rehab$hospital)
 
@@ -55,6 +52,7 @@ t.test(copd_rehab$community, copd_rehab$hospital,
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(reading$nights ~ reading$group)
 
 # Graphical Summaries -------------------------------------
@@ -77,6 +75,7 @@ t.test(reading$nights ~ reading$group,
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
 
 # Graphical Summaries -------------------------------------

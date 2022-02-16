@@ -5,10 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-library(mosaic)
-
 
 
 # Hypothesis Tests ==================================================
@@ -27,6 +23,7 @@ gratitude <- read_excel(destfile)
 View(gratitude)
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(happiness ~ treatment, data = gratitude)
 
 # Graphical Summaries -------------------------------------
@@ -49,6 +46,7 @@ summary(gratitude_aov)
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)
 
 # Graphical Summaries -------------------------------------

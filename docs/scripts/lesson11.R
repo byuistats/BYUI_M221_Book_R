@@ -5,10 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-library(mosaic)
-
 
 
 # Hypothesis Tests ==================================================
@@ -27,6 +23,7 @@ body_temp <- read_excel(destfile)
 View(body_temp)
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(body_temp$temperature) 
 
 # Graphical Summaries -------------------------------------
@@ -47,6 +44,7 @@ t.test(body_temp$temperature,    # Data
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(baby_boom$weight) 
 
 # Graphical Summaries -------------------------------------
@@ -69,6 +67,7 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(bleu$score)
 
 # Graphical Summaries -------------------------------------
@@ -87,6 +86,7 @@ t.test(bleu$score, conf.level=0.95)
 
 
 # Numerical Summaries -------------------------------------
+library(mosaic)
 favstats(euro$weight)
 
 # Graphical Summaries -------------------------------------
