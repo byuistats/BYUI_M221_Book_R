@@ -27,11 +27,11 @@ library(mosaic)
 favstats(happiness ~ treatment, data = gratitude)
 
 # Graphical Summaries -------------------------------------
-boxplot(gratitude$happiness ~ gratitude$treatment)
+boxplot(happiness ~ treatment, data = gratitude)
 
 # Hypothesis Test -----------------------------------------
-gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
-summary(gratitude_aov)
+aov_output <- aov(happiness ~ treatment, data = gratitude)
+summary(aov_output)
 
 
 
@@ -45,13 +45,17 @@ summary(gratitude_aov)
 # (You may want to paste the code here)
 
 
+# Convert Data from Wide to Long Format -------------------
+soccer_shoes$comments <- NULL
+soccer <- stack(soccer_shoes)
+
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)
+favstats(values ~ ind, data = soccer)
 
 # Graphical Summaries -------------------------------------
-boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear)
+boxplot(values ~ ind, data = soccer)
 
 # Hypothesis Test -----------------------------------------
-soccer_aov <- aov(soccer_shoes$accuracy ~ soccer_shoes$footwear)
-summary(soccer_aov)
+aov_output <- aov(values ~ ind, data = soccer)
+summary(aov_output)

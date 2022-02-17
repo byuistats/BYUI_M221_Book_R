@@ -920,17 +920,14 @@ NA
 <li><p>Examine the data. We can either do this with either the <code>View(soccer_shoes)</code> or <code>head(soccer_shoes)</code> commands.</p></li>
 <li><p>Remove columns that do not contain data. In this case, we want to eliminate the column titled <code>comments</code>. One way to do this is by running the command:</p></li>
 </ol>
-<pre class="r"><code>  soccer_shoes$comments &lt;- NULL </code></pre>
+<pre class="r"><code>soccer_shoes$comments &lt;- NULL</code></pre>
 <p>This command removes the column <code>comments</code> from the data set. The only way to restore the column is to start over by reading in the data again.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>We will use the <code>stack()</code> command to create a new data set called <code>soccer</code> that is in “long” format:</li>
 </ol>
-<pre class="r"><code>  soccer &lt;- stack(soccer_shoes)</code></pre>
+<pre class="r"><code>soccer &lt;- stack(soccer_shoes)</code></pre>
 <p>Use <code>View(soccer)</code> to explore these data. Notice that R has transformed the data, so that it is now in “long” format, where the accuracy values are in a column called <code>values</code> and the label indicating (“ind”) the type of footwear is in a second column called <code>ind</code>.</p>
 <p>After making this change, the techniques for performing ANOVA on long data can be applied to the data set <code>soccer</code>.</p>
-<!-- ```{r} -->
-<!-- knitr::knit_exit()  -->
-<!-- ``` -->
 <p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
 \begin{align}
 H_0: &amp; \textrm{All the means are equal} \\

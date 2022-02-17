@@ -336,7 +336,7 @@ soccer_shoes <- read_excel("./data/soccer_shoes.xlsx")
 Here are the first eight rows:
 
 ```{r, echo = FALSE}
-  soccer_shoes %>% 
+soccer_shoes %>% 
     head(8) %>%  
     kable(align = c("c", "c", "c", "c", "c", "c", "l")) %>% 
     kable_styling(full_width = F)
@@ -350,57 +350,18 @@ In order to conduct an ANOVA analysis to determine if the mean accuracy is the s
   
   2. Remove columns that do not contain data. In this case, we want to eliminate the column titled `comments`. One way to do this is by running the command:
 ```{r}
-  soccer_shoes$comments <- NULL 
+soccer_shoes$comments <- NULL
 ```
 This command removes the column `comments` from the data set. The only way to restore the column is to start over by reading in the data again.
 
   3. We will use the `stack()` command to create a new data set called `soccer` that is in "long" format:
 ```{r}
-  soccer <- stack(soccer_shoes)
+soccer <- stack(soccer_shoes)
 ```
 
 Use `View(soccer)` to explore these data. Notice that R has transformed the data, so that it is now in "long" format, where the accuracy values are in a column called `values` and the label indicating ("ind") the type of footwear is in a second column called `ind`.
 
 After making this change, the techniques for performing ANOVA on long data can be applied to the data set `soccer`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ```{r} -->
-<!-- knitr::knit_exit()  -->
-<!-- ``` -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
