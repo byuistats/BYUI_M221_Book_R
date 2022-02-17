@@ -14,11 +14,13 @@ output:
  }
 </script>
 
+<!--
 <div style = "float:right;width = 40%;">
 <br/>
 <div style = "padding-left:10%;">**Optional Lesson Video**</div>
 <iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC99-0c9nxhmZPIyT7Fy594V" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+-->
 
 ## Lesson Outcomes
 
@@ -106,7 +108,7 @@ barplot(mytable,
 ```
 
 <br>
-<div class = "message Tip">**Review:**  For a review of how to bar charts in R, read [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html){target = "_blank"}. When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.</div>
+<div class = "message Tip">**Review:**  For a review of how to bar charts in R, read [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html). When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.</div>
 <br>
 <br>
 
@@ -131,7 +133,7 @@ n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 & \surd
 \end{array}
 $$
 
-We can use a procedure that mimics the test for a single mean with $\sigma$ known from the lesson titled [Inference for One Mean: Sigma Known (Hypothesis Test)](Lesson09.html){target = "_blank"} to conduct a test for a single proportion.
+We can use a procedure that mimics the test for a single mean with $\sigma$ known from the lesson titled [Inference for One Mean: Sigma Known (Hypothesis Test)](Lesson09.html) to conduct a test for a single proportion.
 
 It is assumed that the true proportion of people who can taste PTC is 0.70.  This is the null hypothesis.  The alternative hypothesis is that the true proportion is different from 0.70.
 $$
@@ -377,9 +379,9 @@ A point estimate like $\hat p$ is helpful, but it does not give us direct inform
 
 ## Confidence Interval for the True Proportion
 
-To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html){target = "_blank"}.  We start with the point estimate of $p$ and we add and subtract a certain number of standard deviations from this value.
+To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html).  We start with the point estimate of $p$ and we add and subtract a certain number of standard deviations from this value.
 
-The point estimate for $p$ is $\widehat p$.  You might want to review the mean and standard deviation of the random variable $\widehat p$ in the lesson on [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html){target = "_blank"}. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, $p$.
+The point estimate for $p$ is $\widehat p$.  You might want to review the mean and standard deviation of the random variable $\widehat p$ in the lesson on [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html). We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, $p$.
 
 <div class = "myemphasis">
 
@@ -392,7 +394,7 @@ $$\text{where }\displaystyle{ \widehat p = \frac{x}{n} }$$.
 
 </div>
 
-You can use the normal probability applet to compute $z^*$.  Please see the lesson on [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html){target = "_blank"} if you need to review this procedure.
+You can use the normal probability applet to compute $z^*$.  Please see the lesson on [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html) if you need to review this procedure.
 
 Be sure that you do not round any values until the very last step. Perform this entire computation without rounding.
 

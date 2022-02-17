@@ -407,34 +407,37 @@ $(document).ready(function () {
     e.style.display = (e.style.display =='block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width = 40%;">
+<!--
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">
-<strong>Optional Lesson Video</strong>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-</div>
+-->
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
 <a href = "javascript:showhide('outcome')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="outcome" style="display:none;">
 <p>By the end of this lesson, you should be able to do the following.</p>
-<p><strong>Regarding Confidence Intervals for the mean of differences with dependent samples: </strong></p>
 <ul>
-<li>Calculate and interpret a confidence interval for the mean of differences given a confidence level.</li>
-<li>Identify a point estimate and margin of error for the confidence interval.</li>
-<li>Show the appropriate connections between the numerical and graphical summaries that support the confidence interval.</li>
-<li>Check the requirements for the confidence interval.</li>
-</ul>
-<p><strong>Regarding Hypothesis Testing for the mean of differences with dependent samples:</strong></p>
+<li>Apply a confidence interval for the mean of differences (two dependent samples) using the following steps:
 <ul>
-<li>State the null and alternative hypothesis.</li>
-<li>Calculate the test-statistic, degrees of freedom and p-value of the hypothesis test.</li>
-<li>Assess the statistical significance by comparing the p-value to the α-level.</li>
-<li>Check the requirements for the hypothesis test.</li>
-<li>Show the appropriate connections between the numerical and graphical summaries that support the hypothesis test.</li>
-<li>Draw a correct conclusion for the hypothesis test.</li>
+<li>Determine the level of confidence</li>
+<li>Create numerical and graphical summaries of the data</li>
+<li>Create a confidence interval using software</li>
+<li>Check the requirements of the confidence interval</li>
+<li>Interpret a confidence interval for the mean of differences (two dependent samples)</li>
+</ul></li>
+<li>Perform a hypothesis test for the mean of differences (two dependent samples) using the following steps:
+<ul>
+<li>State the null and alternative hypotheses</li>
+<li>State the level of significance (α)</li>
+<li>Create numerical and graphical summaries of the data</li>
+<li>Calculate the test-statistic, degrees of freedom and P-value of the test using software</li>
+<li>Assess statistical significance by comparing the P-value to the level of significance (α)</li>
+<li>State the appropriate conclusion for the hypothesis test</li>
+<li>Check the requirements for the hypothesis test</li>
+</ul></li>
 </ul>
 </div>
 <p><br></p>
@@ -778,34 +781,10 @@ R Instructions
 <pre class="r"><code>weight_loss$difference &lt;- weight_loss$post - weight_loss$pre</code></pre>
 <p>Here we chose the order Post - Pre so that a positive difference would show an increase in weight (kg) from Pre-Weight to Post-Weight and a negative difference would show a decrease in weight (kg) from Pre-Weight to Post-Weight. Thus, a negative difference means the woman lost weight. This is usually the preferred order of subtraction with “Post vs. Pre” studies.</p>
 <p>Once the differences are computed, we can compute the mean, median, standard deviation and so on using codes like the following.</p>
-<pre class="r"><code>library(mosaic)</code></pre>
-<pre><code>Registered S3 method overwritten by &#39;mosaic&#39;:
-  method                           from   
-  fortify.SpatialPolygonsDataFrame ggplot2</code></pre>
-<pre><code>
-The &#39;mosaic&#39; package masks several functions from core packages in order to add 
-additional features.  The original behavior of these functions should not be affected by this.</code></pre>
-<pre><code>
-Attaching package: &#39;mosaic&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:dplyr&#39;:
-
-    count, do, tally</code></pre>
-<pre><code>The following object is masked from &#39;package:Matrix&#39;:
-
-    mean</code></pre>
-<pre><code>The following object is masked from &#39;package:ggplot2&#39;:
-
-    stat</code></pre>
-<pre><code>The following objects are masked from &#39;package:stats&#39;:
-
-    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
-    quantile, sd, t.test, var</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
-
-    max, mean, min, prod, range, sample, sum</code></pre>
-<pre class="r"><code>favstats(weight_loss$difference)</code></pre>
-<pre><code>   min   Q1 median   Q3  max      mean       sd  n missing
- -13.6 -8.9   -6.7 -4.2 -1.6 -6.803704 3.172051 27       0</code></pre>
+<pre class="r"><code>library(mosaic)
+favstats(weight_loss$difference)</code></pre>
+<pre><code>##    min   Q1 median   Q3  max      mean       sd  n missing
+##  -13.6 -8.9   -6.7 -4.2 -1.6 -6.803704 3.172051 27       0</code></pre>
 <p>So we find that</p>
 <p><span class="math display">\[
   \bar{d} = -6.804 \\
@@ -1546,7 +1525,7 @@ Answer the following questions:
 <p><img src = "Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Pressures of supply and demand act directly on the prices for an airline ticket. As the seats available on the plane begin to fill, airlines raise the price. If seats on a flight do not sell well, an airline may discount the tickets or even cancel the flight. Business travelers frequently demand travel booked on short notice. They must pay the current price. Typically, tourists book their flights well in advance, hoping to buy tickets before the price rises. We will consider the cost of a one-way ticket from London’s Heathrow Airport to a variety of destinations in Europe.</p>
-<p>Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe. Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance. The prices (in US dollars) are given in the file <a href="./data/flight_costs.xlsx">flight_costs.xlsx</a>. Notice that for some destinations, flights were not available.</p>
+<p>Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe. Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance. The prices (in US dollars) are given in the file <a href="./data/direct_flight_costs.xlsx">direct_flight_costs.xlsx</a>. Notice that for some destinations, flights were not available.</p>
 <p>The data are paired, because we are measuring the costs twice for each city. The 14-day ticket price is paired with the 90-day price for each city.</p>
 <p>We will conduct a hypothesis test to determine if there is a difference in the cost of the nonstop flights when tickets are purchased 14 days in advance compared to 90 days in advance. We will use the 0.01 level of significance.</p>
 <div class="QuestionsHeading">
@@ -1625,8 +1604,8 @@ If you defined your difference as the 90-day price minus the 14-day price, then 
 </ol>
 <a href = "javascript:showhide('Q29')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
-<pre class="r"><code>flight_costs$difference &lt;- flight_costs$fourteen_days - flight_costs$ninety_days
-hist(flight_costs$difference, 
+<pre class="r"><code>direct_flight_costs$difference &lt;- direct_flight_costs$fourteen_days - direct_flight_costs$ninety_days
+hist(direct_flight_costs$difference, 
      col = &quot;tan3&quot;,
      xlab = &quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;,
      main = &quot;Direct Flight Costs&quot;,
@@ -1635,8 +1614,8 @@ hist(flight_costs$difference,
 <ul>
 <li>If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram instead:</li>
 </ul>
-<pre class="r"><code>flight_costs$difference2 &lt;- flight_costs$ninety_days - flight_costs$fourteen_days
-hist(flight_costs$difference2, 
+<pre class="r"><code>direct_flight_costs$difference2 &lt;- direct_flight_costs$ninety_days - direct_flight_costs$fourteen_days
+hist(direct_flight_costs$difference2, 
      col = &quot;brown3&quot;,
      xlab = &quot;Difference in Dollar Cost (90 Days - 14 Days)&quot;,
      main = &quot;Direct Flight Costs&quot;,

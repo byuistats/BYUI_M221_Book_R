@@ -14,11 +14,13 @@ output:
  }
 </script>
 
+<!--
 <div style = "float:right;width = 40%;">
 <br/>
 <div style = "padding-left:10%;">**Optional Lesson Video**</div>
 <iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC-jykAMUjbIFLALZmXRadUa" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+-->
 
 ## Lesson Outcomes
 
@@ -203,7 +205,7 @@ Here we chose the order Post - Pre so that a positive difference would show an i
 
 Once the differences are computed, we can compute the mean, median, standard deviation and so on using codes like the following.
 
-```{r, comment = NA}
+```{r, message = FALSE, warning = FALSE}
 library(mosaic)
 favstats(weight_loss$difference)
 ```
@@ -910,7 +912,7 @@ Note that we did not say we "accept" the null hypothesis.  We do not know that l
 
 Pressures of supply and demand act directly on the prices for an airline ticket.  As the seats available on the plane begin to fill, airlines raise the price.  If seats on a flight do not sell well, an airline may discount the tickets or even cancel the flight.  Business travelers frequently demand travel booked on short notice.  They must pay the current price.  Typically, tourists book their flights well in advance, hoping to buy tickets before the price rises.  We will consider the cost of a one-way ticket from London's Heathrow Airport to a variety of destinations in Europe.
 
-Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe.  Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance.  The prices (in US dollars) are given in the file [flight_costs.xlsx](./data/flight_costs.xlsx).  Notice that for some destinations, flights were not available.
+Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe.  Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance.  The prices (in US dollars) are given in the file [direct_flight_costs.xlsx](./data/direct_flight_costs.xlsx).  Notice that for some destinations, flights were not available.
 
 The data are paired, because we are measuring the costs twice for each city.  The 14-day ticket price is paired with the 90-day price for each city.
 
@@ -990,12 +992,12 @@ $$
 
 
 ```{r, include = FALSE}
-flight_costs <- read_excel("./data/flight_costs.xlsx")
+direct_flight_costs <- read_excel("./data/direct_flight_costs.xlsx")
 ```
 
 ```{r}
-flight_costs$difference <- flight_costs$fourteen_days - flight_costs$ninety_days
-hist(flight_costs$difference, 
+direct_flight_costs$difference <- direct_flight_costs$fourteen_days - direct_flight_costs$ninety_days
+hist(direct_flight_costs$difference, 
      col = "tan3",
      xlab = "Difference in Dollar Cost (14 Days - 90 Days)",
      main = "Direct Flight Costs",
@@ -1006,8 +1008,8 @@ hist(flight_costs$difference,
 * If you defined your difference as the 90-day price minus the 14-day price, then you would have the following histogram instead:
 
 ```{r}
-flight_costs$difference2 <- flight_costs$ninety_days - flight_costs$fourteen_days
-hist(flight_costs$difference2, 
+direct_flight_costs$difference2 <- direct_flight_costs$ninety_days - direct_flight_costs$fourteen_days
+hist(direct_flight_costs$difference2, 
      col = "brown3",
      xlab = "Difference in Dollar Cost (90 Days - 14 Days)",
      main = "Direct Flight Costs",

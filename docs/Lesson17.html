@@ -408,14 +408,13 @@ $(document).ready(function () {
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width = 40%;">
+<!--
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">
-<strong>Optional Lesson Video</strong>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC99-0c9nxhmZPIyT7Fy594V" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC99-0c9nxhmZPIyT7Fy594V" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-</div>
+-->
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
 <a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
@@ -479,7 +478,7 @@ barplot(mytable,
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <br>
 <div class="message Tip">
-<strong>Review:</strong> For a review of how to bar charts in R, read <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>{target = “_blank”}. When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.
+<strong>Review:</strong> For a review of how to bar charts in R, read <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.
 </div>
 <p><br> <br></p>
 <p><img src = "Images/Step4.png"></p>
@@ -496,7 +495,7 @@ np = 118 \cdot 0.70 = 82.6 \ge 10                &amp; \surd \\
 n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 &amp; \surd
 \end{array}
 \]</span></p>
-<p>We can use a procedure that mimics the test for a single mean with <span class="math inline">\(\sigma\)</span> known from the lesson titled <a href="Lesson09.html">Inference for One Mean: Sigma Known (Hypothesis Test)</a>{target = “_blank”} to conduct a test for a single proportion.</p>
+<p>We can use a procedure that mimics the test for a single mean with <span class="math inline">\(\sigma\)</span> known from the lesson titled <a href="Lesson09.html">Inference for One Mean: Sigma Known (Hypothesis Test)</a> to conduct a test for a single proportion.</p>
 <p>It is assumed that the true proportion of people who can taste PTC is 0.70. This is the null hypothesis. The alternative hypothesis is that the true proportion is different from 0.70. <span class="math display">\[
 H_0:  p = 0.70 \\
 H_a:  p \ne 0.70
@@ -698,15 +697,15 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 </div>
 <div id="confidence-interval-for-the-true-proportion" class="section level2">
 <h2>Confidence Interval for the True Proportion</h2>
-<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>{target = “_blank”}. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
-<p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>{target = “_blank”}. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
+<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
+<p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
 <div class="myemphasis">
 <p>The formula for the confidence interval for one proportion is: <span class="math display">\[
 \underbrace{\widehat p}_\text{point estimate} \pm \ \ \  \underbrace{z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}}_\text{margin of error}
 \]</span></p>
 <p><span class="math display">\[\text{where }\displaystyle{ \widehat p = \frac{x}{n} }\]</span>.</p>
 </div>
-<p>You can use the normal probability applet to compute <span class="math inline">\(z^*\)</span>. Please see the lesson on <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>{target = “_blank”} if you need to review this procedure.</p>
+<p>You can use the normal probability applet to compute <span class="math inline">\(z^*\)</span>. Please see the lesson on <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a> if you need to review this procedure.</p>
 <p>Be sure that you do not round any values until the very last step. Perform this entire computation without rounding.</p>
 <p>Remember that for a 95% confidence interval, <span class="math inline">\(z^* = 1.96\)</span>. So, the lower bound for the 95% confidence interval for the true proportion <span class="math inline">\(p\)</span> is: <span class="math display">\[
 \displaystyle {

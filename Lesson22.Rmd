@@ -14,11 +14,13 @@ output:
  }
 </script>
 
+<!--
 <div style = "float:right;width = 40%;">
 <br/>
 <div style = "padding-left:10%;">**Optional Lesson Video**</div>
 <iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/zlX2v7F0hhY?list = PLaZryQtbPQC-cf5OWjLW7bqFjhgmQAApJ" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+-->
 
 ## Lesson Outcomes
 
