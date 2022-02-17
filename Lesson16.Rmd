@@ -192,6 +192,7 @@ barplot(
 
 Bar charts can be considered a companion plot to the pie chart. They present the same basic information but the two plots are not interchangeable. We typically use bar charts if our data represent counts. In contrast, pie charts are used to represent parts of a whole or percentages.
 
+<!--
 ### Pareto Charts
 
 A Pareto chart (named for Wilfredo Pareto) is a bar chart where the bars are given either in descending or ascending order. 
@@ -228,7 +229,7 @@ We conclude that Protestants comprise the largest religious category among the U
 Pareto charts are often used to display causes of problems in an industry.  For example, in health care administration, it may be causes of patient deaths.  In business, it may be used to display common reasons employees are terminated. This can give you an idea of where you should focus your energy in your business or organization.
 
 There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes.  Many Pareto charts display a few very tall columns with several much shorter ones. This is exactly what we observed in our Pareto chart.
-
+-->
 
 
 ## Sampling Distribution of the Sample Proportion
