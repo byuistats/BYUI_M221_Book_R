@@ -49,14 +49,12 @@ library(readxl)
 
 By the end of this lesson, you should be able to:
 
-* Determine the shape of a distribution using a histogram.
-* Interpret the mean, median, and mode for quantitative data.
-* Use R to find the mean, median, and mode.
-* Create a histogram in R.
-* Determine the location of the mean relative to the median of left-skewed, right-skewed, or bell-shaped distributions visually using a histogram.
-* Interpret a histogram.  
-* Distinguish between a parameter and a statistic.
-
+* Create histograms using software
+* Identify left-skewed, right-skewed, and symmetric distributions from a histogram
+* Calculate the mean, median, and mode for quantitative data using software
+* Compare the centers of distributions using graphical and numerical summaries
+* Describe the effect skewness has on the relationship between the mean and median
+* Distinguish between a parameter and a statistic 
 </div>
 <br>
 

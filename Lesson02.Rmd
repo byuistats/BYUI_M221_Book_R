@@ -39,16 +39,16 @@ library(readxl)
 By the end of this lesson, you should be able to:
 
 * State the five steps of the Statistical Process
-* Distinguish between an observational study and an experiment.
-* Distinguish between a population and a sample.
-* Distinguish between a categorical and a quantitative variable.
-* Distinguish and give an example of each of the following sampling schemes:
+* Distinguish between a categorical and a quantitative variable
+* Distinguish between an observational study and an experiment
+* Distinguish between a population and a sample
+* Describe each of the following sampling schemes:
   + Simple random sampling
   + Systematic sampling
   + Cluster sampling
   + Stratified sampling
   + Convenience sampling
-* Explain the significance of using a random sample.
+* Explain the significance of using a random sample
 </div>
 <br>
 

@@ -28,14 +28,18 @@ output:
 
 By the end of this lesson, you should be able to:
 
-- Conduct a Hypothesis Test for a single mean with σ known:
-  + State the null and alternative hypothesis.
-  + Calculate the test-statistic and p-value of the hypothesis test.
-  + Assess the statistical significance by comparing the p-value to the α-level.
-  + Check the requirements for the hypothesis test.
-  + Show the appropriate connections between the numerical and graphical summaries that support this hypothesis test.
-  + Draw a correct conclusion for the hypothesis test.
-  + Interpret a Type I and II error.
+* Perform a hypothesis test for a single mean with σ known using the following steps:
+  + State the null and alternative hypotheses
+  + State the level of significance (α)
+  + Create numerical and graphical summaries of the data
+  + Calculate the test-statistic by hand
+  + Determine the P-value using the normal distribution
+  + Assess statistical significance by comparing the P-value to the level of significance (α)
+  + State the appropriate conclusion for the hypothesis test
+  + Check the requirements for the hypothesis test
+* Interpret Type I and II errors in the context of a hypothesis test
+* Define the level of significance (α)
+* Explain the P-value
 </div>
 <br>
 

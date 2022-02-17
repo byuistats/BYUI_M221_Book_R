@@ -59,15 +59,11 @@ library(readxl)
 
 By the end of this lesson, you should be able to:
 
-* Approximate the standard deviation of a distribution visually from a bell-shaped histogram.
-* Calculate the standard deviation from quantitative data using R.
-* Interpret the standard deviation for symmetric distributions.
-* Properly apply the R functions `sd`, `quantile`,`min`, `max`, and `summary` to quantitative data.
-* Interpret the five-number summary for quantitative data.
-* Create a box-plot from quantitative data using R.
-* Determine the five-number summary visually from a box plot. 
-* Explain the relationship between probabilities, percentiles, and percentages.
-
+* Calculate and interpret a percentile using software
+* Calculate and interpret the standard deviation with software
+* Calculate and interpret a five-number summary using software
+* Create a boxplot using software
+* Determine and interpret the five-number summary visually from a box plot 
 </div>
 <br>
 

@@ -27,12 +27,16 @@ output:
 <div id = "out"p style = "display:none;">
 By the end of this lesson, you should be able to:
 
-* Calculate and interpret a confidence interval for a population mean given a confidence level.
-* Explain how the margin of error changes with the sample size and the level of confidence.
-* Identify a point estimate and margin of error for the confidence interval.
-* Show the appropriate connections between the numerical and graphical summaries that support this confidence interval.
-* Check the requirements of the confidence interval.
-* Calculate a desired sample size given a level of confidence and margin of error.
+* Compute a confidence interval for a single mean with σ known using the following steps:
+  + Determine the level of confidence
+  + Create numerical and graphical summaries of the data
+  + Find the point estimate
+  + Calculate the margin of error for the given level of confidence
+  + Create a confidence interval from the point estimate and the margin of error
+  + Check the requirements of the confidence interval
+  + Interpret a confidence interval for one mean with σ known
+* Calculate the sample size required to achieve a specified margin of error and level of confidence
+* Explain how the margin of error is affected by the sample size and level of confidence
 </div>
 <br>
 

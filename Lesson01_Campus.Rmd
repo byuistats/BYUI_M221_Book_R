@@ -23,9 +23,9 @@ By the end of this lesson, you should be able to:
 * Understand and explain the course policies
 * Access course resources (course outline, lesson schedule, preparation activities, reading quizzes, homework assignments, assessments, Zoom, etc.)
 * Communicate with your instructor
-* Download and install R and RStudio
+* Obtain access to software tools for statistical analysis
 * Discuss ways in which you will apply gospel principles to your work in this class
-* State and apply the three rules of probability.
+* Apply the three rules of probability for different probability scenarios
 </div>
 <br>
 
