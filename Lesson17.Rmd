@@ -117,6 +117,127 @@ barplot(mytable,
 This particular research study suggested that the proportion of people who can taste PTC is $\frac{89}{118} = 0.754$, or 75.4%.
 Is this significantly different from the assumed value of 0.70 (i.e., 70%)?  We can test this question using a hypothesis test.
 
+### R Instructions for a Hypothesis Test for One Proportion
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+Here are the instructions for conducting a hypothesis test for one proportion in R:
+
+**Step 1.** Use RStudio to run the code in the file [one_proportion_function.R](./scripts/one_proportion_function.R). This will load a function that will conduct the test for one proportion.
+
+**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: \mu = 98.6$ and the alternative was $H_a: \mu \neq 98.6$.
+
+**Step 3.** Use `t.test(...)` as follows to run the One Sample t Test in R.
+
+A few notes about using `t.test(...)`.
+
+* The null hypothesis is established by **mu = 98.6** 
+* The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative = "less"** and **alternative = "greater"**.
+* We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
+
+```{r, eval = FALSE}
+t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
+```
+
+Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level = 0.99)` or `t.test(..., conf.level = 0.90)`.
+
+When, the above `t.test(...)` code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.
+
+```{r, eval = FALSE, comment = NA}
+t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
+```
+
+**Identifying the various elements of the t test summary ouput.**
+
+* The name of the test is printed first in the output.
+* The data used for the test is printed next.
+* Then the test statistic (t), degrees of freedom (df), and p-value of the test are all printed.
+* The alternative hypothesis of either "less," "greater," or "not equal" is restated so that we know if this was a "one-sided" or "two-sided" test. Also, the value of the null hypothesis (98.6) that was used for the test is printed at the end of this sentence.
+* The confidence level (usually 95%) is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.
+* Finally, the sample mean, $\bar{x}$, is printed at the end of the summary output.
+
+
+<br>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 If the following conditions are satisfied:
 
 - $np \ge 10$
