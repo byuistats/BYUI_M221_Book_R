@@ -58,13 +58,14 @@ Some students make the association that samples are independent if they do not a
 
 
 
-## "Wide" Vs. "Long" Data
+## "Long" Vs. "Wide" Data
 
 There are two ways our data can be organized when conducting inference for the difference of means with two independent samples. We refer to these as wide or long data. A wide data set has a column for every group. Long data format has a column that indicates the value of the variables and another column to indicate the group to which each value belongs.
 
-### Wide Data Format
 
-A ward Primary president recorded the gender and age of each child in her Primary. The data are given below in a wide format.
+### Long Data Format
+
+A ward Primary president recorded the gender and age of each child in her Primary. The data are given below in a long format.
 
 ```{r, include = FALSE}
 library(knitr)
@@ -78,21 +79,6 @@ kids <- data.frame(cbind(Female, Male))
 ```
 
 ```{r, echo = FALSE}
-opts <- options(knitr.kable.NA = "") # replace NA with empty strings
-kids %>%
-  kable() %>% 
-  kable_styling(full_width = F)
-```
- 
-Notice that there is a column for each of the groups (gender) and the values in each column are the ages of the children with the given gender.
-
-
-
-### Long Data Format
-
-The data can also be organized in a "long" format. 
-
-```{r, echo = FALSE}
 kids %>%
   pivot_longer(c(Male,Female),names_to = "Gender", values_to = "Age") %>% 
   arrange(Gender, Age) %>% 
@@ -102,417 +88,23 @@ kids %>%
 ```
  
 Notice that there is a column indicating the group (gender) and another column giving the data (age). 
+
+
+### Wide Data Format
+
+The data can also be organized in a "wide" format. 
+
+```{r, echo = FALSE}
+opts <- options(knitr.kable.NA = "") # replace NA with empty strings
+kids %>%
+  kable() %>% 
+  kable_styling(full_width = F)
+```
+ 
+Notice that there is a column for each of the groups (gender) and the values in each column are the ages of the children with the given gender.
+
 There is no difference in the information presented by these two formats. Each clearly presents the ages and gender of the Primary children. 
 In this lesson, we will learn how to conduct a hypothesis to compare the means of two independent groups. We will do this for data in both wide and long formats.
-
-
-
-
-
-
-
-
-<!--
-------------------------------------------------------------------
-START WIDE DATA
-------------------------------------------------------------------
--->
-
-
-## Inference for Wide Data
-
-<a name = "Sec20:HypTestTwoMeansIndep:Wide"></a>
-
-<img src = "./Images/StepsAll.png">
-
-### Case Study: Chronic Obstructive Pulmonary Disease (COPD)
-
-<img src = "./Images/Step1.png">
-    
-**Summarize the relevant background information**
-    
-The National Heart Lung and Blood Institute gives the following explanation of COPD <!--<cite>NHLBI09</cite>-->:
-    
-COPD, or chronic obstructive pulmonary (PULL-mun-ary) disease, is a progressive disease that makes it hard to breathe. "Progressive" means the disease gets worse over time.
-  
-COPD can cause coughing that produces large amounts of mucus (a slimy substance), wheezing, shortness of breath, chest tightness, and other symptoms.
-  
-Cigarette smoking is the leading cause of COPD. Most people who have COPD smoke or used to smoke. Long-term exposure to other lung irritants, such as air pollution, chemical fumes, or dust, also may contribute to COPD.
-  
-**State the null and alternative hypotheses and the level of significance**
-
-To assess the health of COPD patients, they were asked to walk as far as they could at a particular pace. 
-The question is whether the mean distance these patients can walk is different for those who receive treatment in a 
-hospital compared to those who receive care in a community program.
-
-The null hypothesis is that there is no difference in the mean distance that patients can walk between groups receiving the two treatment programs.  The alternative hypothesis is that there is a difference in the mean distance the patients in the two programs can walk.  If we let $\mu_1$ represent the mean distance for those in the community group, and $\mu_2$ represent mean distance for those in the hospital group, then these hypotheses are expressed mathematically as:
-$$
-\begin{align}
-H_0: &~~ \mu_1 = \mu_2 \\
-H_a: &~~  \mu_1  \neq \mu_2 
-\end{align}
-$$
-
-We will use the $\alpha = 0.05$ level of significance.
-  
-  
-<img src = "./Images/Step2.png">
-    
-**Describe the data collection procedures**
-    
-A study was conducted in the United Kingdom to determine if there is a difference in the effectiveness of community-based rehabilitation program compared to hospital-based rehabilitation <!--<cite>Waterhouse10</cite>-->. Patients suffering from COPD were randomly assigned to either the community or hospital group. Twice a week for six weeks, they participated in two-hour educational and exercise sessions.  Patients were also encouraged to exercise between sessions.
-  
-The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file [copd_rehab.xlsx](./data/copd_rehab.xlsx).  The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
-  
-Because hospital-based rehabilitation tends to be more expensive, the researchers wanted to assess if there is a significant difference in the patients' improvement under the two programs.  If not, then it makes sense to refer patients to the less expensive treatment option.  The purpose of this study was to determine if pulmonary rehabilitation in a community setting is as effective as rehabilitation in a hospital setting.
-
-
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
-1. Do you think patients who receive a hospital-based treatment will be able to walk a greater or lesser distance than those who recieve a community-based treatment?
-
-<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q1" style = "display:none;">
-* Answers will vary. 
-* Many people suggest that the hospital-based treatment program, which is more expensive, will provide better outcomes.
-</div>
-<br>
-
-2. Do these data represent paired data or independent samples?  How can you tell?
-
-<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q2" style = "display:none;">
-* The data represent independent samples.  Knowing which COPD patients are in Group 1 tells you nothing about which patients will be in Group 2.
-</div>
-&nbsp;
-</div>
-<br>
-
-
-
-<img src = "./Images/Step3.png">
-
-
-### R Instructions for Numerical Summaries of Two Groups (Wide Data)
-
-**Give the relevant summary statistics**
-
-We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ and $n_1$ for the standard deviation and sample size of Group 1.  For Group 2, we indicate the mean, standard deviation and sample size with the symbols: $\bar x_2$, $s_2$, and $n_2$, respectively.
-
-
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-**To compute numerical summaries for two groups (wide data):**
-
-Read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx)
-
-```{r, include = FALSE}
-library(readxl)
-copd_rehab <- read_excel("./data/copd_rehab.xlsx")
-```
-
-
-We next compute our "favorite" summary statistics for each of the two columns of data separately. 
-
-Load the `mosaic` library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.
-
-```{r, warning = FALSE, message = FALSE}
-library(mosaic)
-```
-
-Use the `favstats(...)` function to produce numerical summaries for each group separately.
-
-```{r}
-favstats(copd_rehab$community)
-```
-
-```{r}
-favstats(copd_rehab$hospital)
-```
-
-<div class = "note">
-If you get the error message <span style = "color:red;">Error in favstats(Nights ~ Group, data = reading) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
-</div>
-
-
-<br>
-</div>
-<br>
-
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
-3. Find the mean, standard deviation and sample size for the two groups, separately.  In other words, find $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$.
-
-<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q3" style = "display:none;">
-
-
-<center>
-**Summary Statistics:**
-</center>
-  
-+------------------+--------------------+
-| Community        | Hospital           |
-| Group 1          | Group 2            |
-+==================+====================+
-| $\bar x = 216.1$ | $\bar x_2 = 283.4$ |
-+------------------+--------------------+
-| $s = 339.9$      | $s = 359.9$        |
-+------------------+--------------------+
-| $n = 76$         | $n = 85$           |
-+------------------+--------------------+
-
-<br>
-</div>
-<br>
-</div>
-
-
-**Make an appropriate graph to illustrate the data**
-
-There are two populations, and it is important to illustrate both of them separately. It is not sufficient to combine the groups and to produce a single graph.  This would obscure the differences in the groups.
-
-### R Instructions for Side-by-Side Boxplots (Wide Data)
-
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-**To visualize the distributions of the two samples simultaneously:**
-
-Read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx)
-
-Use the `boxplot(...)` function and the tilde `~` (top-left key on your keyboard) to produce a side-by-side boxplot. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
-
-```{r}
-boxplot(copd_rehab$community, copd_rehab$hospital)
-```
-
-<br/>
-
-**To Make a Fancier Graph**
-
-To make the graph look a little nicer we could use the following options.
-
-* the `col = ...` statement provide colors, either one color for both boxes in the plot `col = "steelblue3"`, or colors for each box in the plot, `col = c("brown3","steelblue3")`.
-* the `main = "a nice title"`, allows you to specify a main title for your graph,  
-* the `ylab = "a nice y-axis label"` allows you to specify a y-axis label for your graph,
-* the `xlab = "a nice x-axis label"` allows you to label the x-axis of your graph,
-* the `names = c("label 1", "label 2")` statement can be used to give each box a label along the x-axis.
-
-```{r}
-boxplot(copd_rehab$community, copd_rehab$hospital,
-        names = c("Community", "Hospital"), 
-        main = "Chronic Obstructive Pulmonary Disease", 
-        ylab = "Increased Distance Patients Could Walk (meters)",
-        col = c("brown3","steelblue3"))
-```
-
- * Notice that a descriptive title has been added to the plot. Adding more descriptive titles and axes labels is always a good idea. Furthermore, some changes to the formatting were made to make the chart more attractive. Feel free to experiment with labeling and formatting the graph when using a graph for your own presentation.
-<br>
-
-**Tip**
-
-To copy and paste a graph from R into a document, do the following:
-
-- Create the graph in R
-- Click the little "Export" button at the top of the "Plots" window
-- Choose either the "Copy" or "Save" options.
-- Then, either paste in the plot to your document, or insert the image (if you saved it).
-
-<img src = "./Images/exportImage.png">
-
-<br/>
-</div>
-
-
-<br>
-
-
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
-  17. **What do you observe in the graph you made in the previous question?  Does there appear to be a difference in the mean responses of the two groups?**
-  
-  <a href = "javascript:showhide('Q17')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-  <div id = "Q17" style = "display:none;">
-  * The two boxplots look similar, although based on the graphs it looks like the mean of the Hospital Group may be slightly higher than the Community Group.  This is just a visual observation.  We need to conduct a hypothesis test or create a confidence interval to verify it.
-</div>
-<br>
-</div>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img src = "./Images/Step4.png">
-
-
-
-## Hypothesis Tests for Wide Data
-
-### R Instructions for an Independent Samples t Test (Wide Data)
-
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-
-
-* First, read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx)
-
-```{r, include = FALSE}
-copd_rehab <- read_excel("./data/copd_rehab.xlsx")
-```
-
-* Second, run the `t.test(...)` with the first column of data, followed by a comma `,`, and then the second column of data.
-
-**When the data for each group is in a separate column** the t test for the difference of two means is performed by separating the two vectors of data with a comma (`,`).
-
-```{r}
-t.test(copd_rehab$community, copd_rehab$hospital, 
-       mu = 0, 
-       alternative = "two.sided")
-```
-
-<br>
-</div>
-
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
-18. **Verify the requirements have been met**
-
-<a href = "javascript:showhide('Q18')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q18" style = "display:none;">
-* The sample sizes are large, so the distribution of sample means from both groups are normal. Therefore, we can conclude the requirements are met.
-</div>
-&nbsp;
-</div>
-
-## Confidence Intervals for Wide Data 
-
-### R Instructions for a Confidence Interval of the Difference of Two Means (Wide Data)
-
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-
-19. **Find the confidence interval**
-
-Use the following command to create a 95% confidence interval for the difference in the mean distance walked by patients treated in the community and hospital programs.
-
-```{r, comment = NA}
-t.test(copd_rehab$community, copd_rehab$hospital, conf.level = 0.95)
-```
-
-<a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q19" style = "display:none;">
-<!--
-* Remember, we will never assume equal variances in this course. 
--->
-
-* Two different confidence intervals are possible, depending on how you defined the groups.  The order in which we subtract the means determines the sign of the results. Compare the results of the following two commands:
-`t.test(copd_rehab$community, copd_rehab$hospital, conf.level = 0.95)` 
-and
-`t.test(copd_rehab$hospital, copd_rehab$community, conf.level = 0.95)`.
-
-  + If we subtract **Community** - **Hospital**, we get:
-<center>$(-176.2,~41.7)$</center>
-
-  + If we subtract **Hospital** - **Community**, we get:
-<center>$(-41.7,~176.2)$</center>
-
-* If the problem does not specify the order in which we should subtract, either of these is acceptable.
-</div>
-&nbsp;
-</div>
-<br>
-
-
-<img src = "./Images/Step5.png">
-
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
-20. **Present your observations in an English sentence, relating the result to the context of the problem**
-
-<a href = "javascript:showhide('Q20')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q20" style = "display:none;">
-* We are 95% confident that the true mean difference in the improvement for the two groups is between -176.2 and 41.7.  
-
-<br>
-<div class = "message Note">If we had subtracted in the order **Hospital** - **Community**, we would say, we are 95% confident that the true mean difference in the improvement for the two groups is between -41.7 and 176.2.</div>
-<br>
-<br>
-</div>
-<br>
-
-21. **Does there appear to be a difference in the mean improvement observed between the two groups?  What does this suggest?**
-
-<a href = "javascript:showhide('Q21')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q21" style = "display:none;">
-* Zero is contained in the confidence interval, so zero is a plausible value for the difference in the means.  In other words, we cannot conclude that there is a difference in the mean improvement of the two groups.  
-
-* These results suggest that health care administrators should encourage community rehabilitation options for COPD whenever possible.  It is generally less expensive than the hospital experience and does not lead to significantly different patient improvement.
-</div>
-<br>
-
-
-
-22. **Create a 90% confidence interval for the difference in the mean responses of the two groups.**
-
-<a href = "javascript:showhide('Q22')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q22" style = "display:none;">
-- If we subtract: $community - Hospital$, we get: $(-158.5,~24.0)$
-
-- If we subtract: $hospital - Community$, we get: $(-24.0,~158.5)$
-</div>
-<br>
-
-23. **Interpret the confidence interval you computed in Question 22.**
-
-<a href = "javascript:showhide('Q23')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q23" style = "display:none;">
-* We are 90% confident that the true mean difference in the improvement for the two groups is between $-158.5$ and $24.0$.  A similar statement holds for $24.0$ and $-158.5$.
-</div>
-<br>
-
-24. **Why is the 95% confidence interval wider than the 90% confidence interval?**
-
-<a href = "javascript:showhide('Q24')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q24" style = "display:none;">
-* In order to be more confident that the true mean is between two values, we have to make the confidence interval wider.  
-</div>
-&nbsp;
-</div>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1207,6 +799,497 @@ t.test(reading$nights ~ reading$groupReversed)
 ```
 
 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+------------------------------------------------------------------
+START WIDE DATA
+------------------------------------------------------------------
+-->
+
+
+
+
+
+
+
+<!--
+------------------------------------------------------------------
+START WIDE DATA
+------------------------------------------------------------------
+-->
+
+
+
+
+
+
+
+<!--
+------------------------------------------------------------------
+START WIDE DATA
+------------------------------------------------------------------
+-->
+
+
+## Inference for Wide Data
+
+<a name = "Sec20:HypTestTwoMeansIndep:Wide"></a>
+
+<img src = "./Images/StepsAll.png">
+
+### Case Study: Chronic Obstructive Pulmonary Disease (COPD)
+
+<img src = "./Images/Step1.png">
+    
+**Summarize the relevant background information**
+    
+The National Heart Lung and Blood Institute gives the following explanation of COPD <!--<cite>NHLBI09</cite>-->:
+    
+COPD, or chronic obstructive pulmonary (PULL-mun-ary) disease, is a progressive disease that makes it hard to breathe. "Progressive" means the disease gets worse over time.
+  
+COPD can cause coughing that produces large amounts of mucus (a slimy substance), wheezing, shortness of breath, chest tightness, and other symptoms.
+  
+Cigarette smoking is the leading cause of COPD. Most people who have COPD smoke or used to smoke. Long-term exposure to other lung irritants, such as air pollution, chemical fumes, or dust, also may contribute to COPD.
+  
+**State the null and alternative hypotheses and the level of significance**
+
+To assess the health of COPD patients, they were asked to walk as far as they could at a particular pace. 
+The question is whether the mean distance these patients can walk is different for those who receive treatment in a 
+hospital compared to those who receive care in a community program.
+
+The null hypothesis is that there is no difference in the mean distance that patients can walk between groups receiving the two treatment programs.  The alternative hypothesis is that there is a difference in the mean distance the patients in the two programs can walk.  If we let $\mu_1$ represent the mean distance for those in the community group, and $\mu_2$ represent mean distance for those in the hospital group, then these hypotheses are expressed mathematically as:
+$$
+\begin{align}
+H_0: &~~ \mu_1 = \mu_2 \\
+H_a: &~~  \mu_1  \neq \mu_2 
+\end{align}
+$$
+
+We will use the $\alpha = 0.05$ level of significance.
+  
+  
+<img src = "./Images/Step2.png">
+    
+**Describe the data collection procedures**
+    
+A study was conducted in the United Kingdom to determine if there is a difference in the effectiveness of community-based rehabilitation program compared to hospital-based rehabilitation <!--<cite>Waterhouse10</cite>-->. Patients suffering from COPD were randomly assigned to either the community or hospital group. Twice a week for six weeks, they participated in two-hour educational and exercise sessions.  Patients were also encouraged to exercise between sessions.
+  
+The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file [copd_rehab.xlsx](./data/copd_rehab.xlsx).  The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
+  
+Because hospital-based rehabilitation tends to be more expensive, the researchers wanted to assess if there is a significant difference in the patients' improvement under the two programs.  If not, then it makes sense to refer patients to the less expensive treatment option.  The purpose of this study was to determine if pulmonary rehabilitation in a community setting is as effective as rehabilitation in a hospital setting.
+
+
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
+1. Do you think patients who receive a hospital-based treatment will be able to walk a greater or lesser distance than those who recieve a community-based treatment?
+
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
+* Answers will vary. 
+* Many people suggest that the hospital-based treatment program, which is more expensive, will provide better outcomes.
+</div>
+<br>
+
+2. Do these data represent paired data or independent samples?  How can you tell?
+
+<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q2" style = "display:none;">
+* The data represent independent samples.  Knowing which COPD patients are in Group 1 tells you nothing about which patients will be in Group 2.
+</div>
+&nbsp;
+</div>
+<br>
+
+
+
+<img src = "./Images/Step3.png">
+
+### R Instructions for Converting "Wide" Data to "Long" Format {#convert_wide_to_long}
+
+After reading in the data, examine the format in which they are presented.
+
+```{r, include = FALSE}
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+copd_rehab <- read_excel("./data/copd_rehab.xlsx")
+```
+
+Here are the first eight rows:
+
+```{r, echo = FALSE}
+copd_rehab %>% 
+    head(5) %>%  
+    kable(align = c("c", "c", "l")) %>% 
+    kable_styling(full_width = F)
+```
+
+There are three columns of data, where each column gives the additional distance the patients were able to walk after the treatment. Note that this is "wide" data, since every column gives the data for one group. The last column presents information about the study and the reference for the article summarizing this research.
+
+In order to conduct inference for the difference of two means (independent samples), it will be convenient to convert the data into "long" format.  We will do this in three steps:
+
+  1. Examine the data. We can either do this with either the `View(copd_rehab)` or `head(copd_rehab)` commands.
+  
+  2. Remove columns that do not contain data. In this case, we want to eliminate the column titled `comments`. One way to do this is by running the command:
+```{r}
+copd_rehab$comments <- NULL
+```
+This command removes the column `comments` from the data set. The only way to restore the column is to start over by reading in the data again.
+
+  3. We will use the `stack()` command to create a new data set called `copd` that is in "long" format:
+```{r}
+copd <- stack(copd_rehab)
+```
+
+Use `View(copd)` to explore these data. Notice that R has transformed the data, so that it is now in "long" format, where the additional distance measurements are in a column called `values` and the label indicating ("ind") the type of treatment facility is in a second column called `ind`.
+
+After making this change, the techniques for performing ANOVA on long data can be applied to the data set `copd`.
+
+
+
+
+<!-- ################# END of converstion to LONG #################### -->
+
+
+
+
+### R Instructions for Numerical Summaries of Two Groups (Wide Data Converted to Long Data)
+
+**Give the relevant summary statistics**
+
+We will use $\bar x_1$ to denote the mean of Group 1. Similarly, we use $s_1$ and $n_1$ for the standard deviation and sample size of Group 1.  For Group 2, we indicate the mean, standard deviation and sample size with the symbols: $\bar x_2$, $s_2$, and $n_2$, respectively.
+
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+**To compute numerical summaries for two groups:**
+
+Read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx). Then, follow the directions to [convert the data into long format](#convert_wide_to_long). Save the results in a data frame called `copd`.
+
+We next compute our "favorite" summary statistics for each of the two columns. 
+
+Load the `mosaic` library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.
+Use the `favstats(...)` function to produce numerical summaries for each group.
+
+```{r, warning = FALSE, message = FALSE}
+library(mosaic)
+favstats(values ~ ind, data = copd)
+```
+
+<div class = "note">
+If you get the error message <span style = "color:red;">Error in favstats(values ~ ind, data = copd) : could not find function "favstats"</span> then you will need to run the code: `library(mosaic)` first, then try the `favstats(...)` code again.
+</div>
+
+
+<br>
+</div>
+<br>
+
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
+3. Find the mean, standard deviation and sample size for the two groups, separately.  In other words, find $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$.
+
+<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q3" style = "display:none;">
+
+
+<center>
+**Summary Statistics:**
+</center>
+  
++------------------+--------------------+
+| Community        | Hospital           |
+| Group 1          | Group 2            |
++==================+====================+
+| $\bar x = 216.1$ | $\bar x_2 = 283.4$ |
++------------------+--------------------+
+| $s = 339.9$      | $s = 359.9$        |
++------------------+--------------------+
+| $n = 76$         | $n = 85$           |
++------------------+--------------------+
+
+<br>
+</div>
+<br>
+</div>
+
+
+**Make an appropriate graph to illustrate the data**
+
+There are two populations, and it is important to illustrate both of them separately. It is not sufficient to combine the groups and to produce a single graph.  This would obscure the differences in the groups.
+
+### R Instructions for Side-by-Side Boxplots (Wide Data Converted to Long Data)
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+**To visualize the distributions of the two samples simultaneously:**
+
+Read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx). Then, follow the directions to [convert the data into long format](#convert_wide_to_long). Save the results in a data frame called `copd`.
+
+Use the `boxplot(...)` function and the tilde `~` (top-left key on your keyboard) to produce a side-by-side boxplot. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
+
+```{r}
+boxplot(values ~ ind, data = copd)
+```
+
+<br/>
+
+**To Make a Fancier Graph**
+
+To make the graph look a little nicer we could use the following options.
+
+* the `col = ...` statement provide colors, either one color for both boxes in the plot `col = "steelblue3"`, or colors for each box in the plot, `col = c("brown3","steelblue3")`.
+* the `main = "a nice title"`, allows you to specify a main title for your graph,  
+* the `ylab = "a nice y-axis label"` allows you to specify a y-axis label for your graph,
+* the `xlab = "a nice x-axis label"` allows you to label the x-axis of your graph,
+* the `names = c("label 1", "label 2")` statement can be used to give each box a label along the x-axis.
+
+```{r}
+boxplot(values ~ ind, data = copd,
+        names = c("Community", "Hospital"), 
+        main = "Chronic Obstructive Pulmonary Disease", 
+        xlab = "Treatment Group",
+        ylab = "Increased Distance Patients Could Walk (meters)",
+        col = c("brown3","steelblue3"))
+```
+
+ * Notice that a descriptive title has been added to the plot. Adding more descriptive titles and axes labels is always a good idea. Furthermore, some changes to the formatting were made to make the chart more attractive. Feel free to experiment with labeling and formatting the graph when using a graph for your own presentation.
+<br>
+
+**Tip**
+
+To copy and paste a graph from R into a document, do the following:
+
+- Create the graph in R
+- Click the little "Export" button at the top of the "Plots" window
+- Choose either the "Copy" or "Save" options.
+- Then, either paste in the plot to your document, or insert the image (if you saved it).
+
+<img src = "./Images/exportImage.png">
+
+<br/>
+</div>
+
+
+<br>
+
+
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
+  17. **What do you observe in the graph you made in the previous question?  Does there appear to be a difference in the mean responses of the two groups?**
+  
+  <a href = "javascript:showhide('Q17')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+  <div id = "Q17" style = "display:none;">
+  * The two boxplots look similar, although based on the graphs it looks like the mean of the Hospital Group may be slightly higher than the Community Group.  This is just a visual observation.  We need to conduct a hypothesis test or create a confidence interval to verify it.
+</div>
+<br>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img src = "./Images/Step4.png">
+
+
+
+## Hypothesis Tests for Wide Data (Converted to Long Data)
+
+### R Instructions for an Independent Samples t Test (Wide Data Converted to Long Data)
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+
+
+* First, read the data into RStudio: [copd_rehab.xlsx](./data/copd_rehab.xlsx). Then, follow the directions to [convert the data into long format](#convert_wide_to_long). Save the results in a data frame called `copd`.
+
+* Second, run the `t.test(...)` with the first column of data, followed by a comma `,`, and then the second column of data.
+
+**When the data for each group is in a separate column** the t test for the difference of two means is performed by separating the two vectors of data with a comma (`,`).
+
+```{r}
+t.test(values ~ ind, data = copd,
+       mu = 0, 
+       alternative = "two.sided")
+```
+
+<br>
+</div>
+
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
+18. **Verify the requirements have been met**
+
+<a href = "javascript:showhide('Q18')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q18" style = "display:none;">
+* The sample sizes are large, so the distribution of sample means from both groups are normal. Therefore, we can conclude the requirements are met.
+</div>
+&nbsp;
+</div>
+
+## Confidence Intervals
+
+### R Instructions for a Confidence Interval of the Difference of Two Means (Wide Data Converted to Long Data)
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+
+19. **Find the confidence interval**
+
+Use the following command to create a 95% confidence interval for the difference in the mean distance walked by patients treated in the community and hospital programs.
+
+```{r, comment = NA}
+t.test(values ~ ind, data = copd, conf.level = 0.95)
+```
+
+<a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q19" style = "display:none;">
+<!--
+* Remember, we will never assume equal variances in this course. 
+-->
+
+* Two different confidence intervals are possible, depending on how you defined the groups.  The order in which we subtract the means determines the sign of the results. Compare the results of the following two commands:
+`t.test(copd_rehab$community, copd_rehab$hospital, conf.level = 0.95)` 
+and
+`t.test(copd_rehab$hospital, copd_rehab$community, conf.level = 0.95)`.
+
+  + If we subtract **Community** - **Hospital**, we get:
+<center>$(-176.2,~41.7)$</center>
+
+  + If we subtract **Hospital** - **Community**, we get:
+<center>$(-41.7,~176.2)$</center>
+
+* If the problem does not specify the order in which we should subtract, either of these is acceptable.
+</div>
+&nbsp;
+</div>
+<br>
+
+
+<img src = "./Images/Step5.png">
+
+<div class = "QuestionsHeading">Answer the following questions:</div>
+<div class = "Questions">
+20. **Present your observations in an English sentence, relating the result to the context of the problem**
+
+<a href = "javascript:showhide('Q20')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q20" style = "display:none;">
+* We are 95% confident that the true mean difference in the improvement for the two groups is between -176.2 and 41.7.  
+
+<br>
+<div class = "message Note">If we had subtracted in the order **Hospital** - **Community**, we would say, we are 95% confident that the true mean difference in the improvement for the two groups is between -41.7 and 176.2.</div>
+<br>
+<br>
+</div>
+<br>
+
+21. **Does there appear to be a difference in the mean improvement observed between the two groups?  What does this suggest?**
+
+<a href = "javascript:showhide('Q21')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q21" style = "display:none;">
+* Zero is contained in the confidence interval, so zero is a plausible value for the difference in the means.  In other words, we cannot conclude that there is a difference in the mean improvement of the two groups.  
+
+* These results suggest that health care administrators should encourage community rehabilitation options for COPD whenever possible.  It is generally less expensive than the hospital experience and does not lead to significantly different patient improvement.
+</div>
+<br>
+
+
+
+22. **Create a 90% confidence interval for the difference in the mean responses of the two groups.**
+
+<a href = "javascript:showhide('Q22')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q22" style = "display:none;">
+- If we subtract: $community - Hospital$, we get: $(-158.5,~24.0)$
+
+- If we subtract: $hospital - Community$, we get: $(-24.0,~158.5)$
+</div>
+<br>
+
+23. **Interpret the confidence interval you computed in Question 22.**
+
+<a href = "javascript:showhide('Q23')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q23" style = "display:none;">
+* We are 90% confident that the true mean difference in the improvement for the two groups is between $-158.5$ and $24.0$.  A similar statement holds for $24.0$ and $-158.5$.
+</div>
+<br>
+
+24. **Why is the 95% confidence interval wider than the 90% confidence interval?**
+
+<a href = "javascript:showhide('Q24')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q24" style = "display:none;">
+* In order to be more confident that the true mean is between two values, we have to make the confidence interval wider.  
+</div>
+&nbsp;
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
