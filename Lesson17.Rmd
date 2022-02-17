@@ -377,7 +377,7 @@ This study only studied two medical schools in the U.S. However, we would really
 
 A point estimate like $\hat p$ is helpful, but it does not give us direct information on *how close* it is to the true parameter, $p$.  We use a confidence interval to find a range of plausible values for the parameter.
 
-## Confidence Interval for the True Proportion
+### Confidence Interval for the True Proportion
 
 To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html).  We start with the point estimate of $p$ and we add and subtract a certain number of standard deviations from this value.
 
@@ -424,7 +424,7 @@ The confidence intervals are valid whenever $n \widehat p \ge 10$ and $n(1-\wide
 
 
 
-### Another Study on Honesty at Medical School
+### Case Study: Another Study on Honesty at Medical School
 
 DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespread cheating is in medical schools.  Elected class officers at 40 schools were invited to distribute a survey to their second-year classmates.  Surveys were completed by students from 31 of the 40 schools.  Among all students attending the 31 schools, 62% participated in the survey, yielding a total of $n = 2426$ surveys.  Out of this group, $x = 114$ admitted to cheating in medical school.  These results were published in *Academic Medicine* in 1996.
 

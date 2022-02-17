@@ -388,10 +388,8 @@ $(document).ready(function () {
 <li><a href="#confidence-interval-for-one-proportion">Confidence Interval for One Proportion</a>
 <ul>
 <li><a href="#case-study-honesty-at-medical-school">Case Study: Honesty at Medical School</a></li>
-</ul></li>
-<li><a href="#confidence-interval-for-the-true-proportion">Confidence Interval for the True Proportion</a>
-<ul>
-<li><a href="#another-study-on-honesty-at-medical-school">Another Study on Honesty at Medical School</a></li>
+<li><a href="#confidence-interval-for-the-true-proportion">Confidence Interval for the True Proportion</a></li>
+<li><a href="#case-study-another-study-on-honesty-at-medical-school">Case Study: Another Study on Honesty at Medical School</a></li>
 </ul></li>
 <li><a href="#sample-size-calculations">Sample Size Calculations</a>
 <ul>
@@ -694,9 +692,8 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students in the U.S.</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, <span class="math inline">\(p\)</span>. <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span> is just a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
 <p>A point estimate like <span class="math inline">\(\hat p\)</span> is helpful, but it does not give us direct information on <em>how close</em> it is to the true parameter, <span class="math inline">\(p\)</span>. We use a confidence interval to find a range of plausible values for the parameter.</p>
 </div>
-</div>
-<div id="confidence-interval-for-the-true-proportion" class="section level2">
-<h2>Confidence Interval for the True Proportion</h2>
+<div id="confidence-interval-for-the-true-proportion" class="section level3">
+<h3>Confidence Interval for the True Proportion</h3>
 <p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
 <p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
 <div class="myemphasis">
@@ -723,8 +720,9 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <h4>Requirement</h4>
 <p>Like other procedures, there are requirements that must be checked in order for this confidence interval to be valid. The confidence intervals are valid whenever <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>. Notice that for the data on cheating in medical school, we have <span class="math inline">\(428 * 0.582 = 249\)</span> and <span class="math inline">\(428 * (1-0.582) = 179\)</span> which are both greater than 10, so this requirement is satisfied.</p>
 </div>
-<div id="another-study-on-honesty-at-medical-school" class="section level3">
-<h3>Another Study on Honesty at Medical School</h3>
+</div>
+<div id="case-study-another-study-on-honesty-at-medical-school" class="section level3">
+<h3>Case Study: Another Study on Honesty at Medical School</h3>
 <p>DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespread cheating is in medical schools. Elected class officers at 40 schools were invited to distribute a survey to their second-year classmates. Surveys were completed by students from 31 of the 40 schools. Among all students attending the 31 schools, 62% participated in the survey, yielding a total of <span class="math inline">\(n = 2426\)</span> surveys. Out of this group, <span class="math inline">\(x = 114\)</span> admitted to cheating in medical school. These results were published in <em>Academic Medicine</em> in 1996.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
