@@ -442,8 +442,8 @@ $(document).ready(function () {
 </div>
 <div id="grades-of-byu-idaho-students" class="section level4">
 <h4>Grades of BYU-Idaho Students</h4>
-<p>Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data file <a href="./Data/grades_gender.xlsx">grades_gender.xlsx</a>. R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a>. Notice that each row in the “tally” data file represents responses from several individuals. The <em>count</em> column tells how many times each response was given. We will used this summarized data for our analysis.</p>
-<p>Read the data in the file <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a> into R. These data are summarized in the table below.</p>
+<p>Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data file <a href="./data/grades_gender.xlsx">grades_gender.xlsx</a>. R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file <a href="./data/grades_tally.xlsx">grades_tally.xlsx</a>. Notice that each row in the “tally” data file represents responses from several individuals. The <em>count</em> column tells how many times each response was given. We will used this summarized data for our analysis.</p>
+<p>Read the data in the file <a href="./data/grades_tally.xlsx">grades_tally.xlsx</a> into R. These data are summarized in the table below.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -606,7 +606,7 @@ R Instructions
 <div class="Software">
 <p><strong>To make a bar chart in R:</strong></p>
 <p>We will use the students’ grades to create a bar chart.</p>
-<p>Read in the data: <a href="./Data/grades_tally.xlsx">grades_tally.xlsx</a> into R. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>Read in the data: <a href="./data/grades_tally.xlsx">grades_tally.xlsx</a> into R. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
 <p>Then, use the <code>barplot(...)</code> function to create a bar chart of the values.</p>
 <div style="padding-left:40px;">
 <pre class="r"><code>#Create a plot of the counts:
@@ -640,7 +640,7 @@ A Pareto chart (named for Wilfredo Pareto) is a bar chart where the bars are giv
 
 A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 
 1811 
-people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file [religion_tally.xlsx](./Data/religion_tally.xlsx). 
+people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file [religion_tally.xlsx](./data/religion_tally.xlsx). 
 
 <img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
@@ -673,18 +673,18 @@ Answer the following questions:
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
-<li>The data file <a href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> contains data representing a collection of 900 students’ results, where each tossed a coin <span class="math inline">\(n=25\)</span> times and calculated the proportion of heads. The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?</li>
+<li>The data file <a href="./data/coin_heads.xlsx">coin_heads.xlsx</a> contains data representing a collection of 900 students’ results, where each tossed a coin <span class="math inline">\(n=25\)</span> times and calculated the proportion of heads. The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?</li>
 </ol>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
-<li>Judging just from the histogram it shows that the observed sample proportions are normally distributed.</li>
+<li>The histogram shows that the observed sample proportions are normally distributed.</li>
 </ul>
 </div>
 <p> </p>
 </div>
 <p><br></p>
-<p><img src="Images/Histogram-PropHeadsIn25CoinTosses.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -837,7 +837,7 @@ z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
 <p>Then, we can enter this <span class="math inline">\(z\)</span>-score in the Normal Probability Applet to find the area more extreme than the <span class="math inline">\(z\)</span>-score.</p>
 <div id="worked-example" class="section level4">
 <h4>Worked Example</h4>
-<p>If a coin is tossed <span class="math inline">\(n=25\)</span> times, and heads is observed 17 times, the sample proportion of heads is <span class="math inline">\(\displaystyle{\widehat p = \frac{x}{n} = \frac{17}{25} = 0.68}\)</span> The proportion of heads tossed by the first student in the file <a href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> is <span class="math inline">\(\widehat p = 0.68\)</span>. We will find the probability that a sample proportion will exceed 0.68.</p>
+<p>If a coin is tossed <span class="math inline">\(n=25\)</span> times, and heads is observed 17 times, the sample proportion of heads is <span class="math inline">\(\displaystyle{\widehat p = \frac{x}{n} = \frac{17}{25} = 0.68}\)</span> The proportion of heads tossed by the first student in the file <a href="./data/coin_heads.xlsx">coin_heads.xlsx</a> is <span class="math inline">\(\widehat p = 0.68\)</span>. We will find the probability that a sample proportion will exceed 0.68.</p>
 <p>First, we compute the <span class="math inline">\(z\)</span>-score corresponding to <span class="math inline">\(\widehat p = 0.68\)</span>. We can use the mean and standard deviation, which were given in questions 9 and 10, or simply substitute the values of <span class="math inline">\(p=0.5\)</span> and <span class="math inline">\(n=25\)</span> in the equation for the <span class="math inline">\(z\)</span>-score.</p>
 <p><span class="math display">\[
 z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
@@ -854,7 +854,7 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="11" style="list-style-type: decimal">
-<li>The second student with data listed in the file <a href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> had <span class="math inline">\(\widehat p = 0.44\)</span>, or 44% of their coin tosses resulted in heads. Find the <span class="math inline">\(z\)</span>-score corresponding to this value.</li>
+<li>The second student with data listed in the file <a href="./data/coin_heads.xlsx">coin_heads.xlsx</a> had <span class="math inline">\(\widehat p = 0.44\)</span>, or 44% of their coin tosses resulted in heads. Find the <span class="math inline">\(z\)</span>-score corresponding to this value.</li>
 </ol>
 <a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
