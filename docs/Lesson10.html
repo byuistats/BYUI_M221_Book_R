@@ -654,10 +654,11 @@ P\left( \bar X - 2 \frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \bar X + 2 \frac{\sigma
 <p>A confidence interval is actually a point estimate <span class="math inline">\(\left( \bar x \right)\)</span> plus or minus the margin of error <span class="math inline">\(\left( 2 \frac{\sigma}{\sqrt{n}} \right)\)</span>.</p>
 <p>We use the letter <span class="math inline">\(m\)</span> to denote the margin of error: <span class="math display">\[m = 2 \frac{\sigma}{\sqrt{n}}\]</span> Using this definition for <span class="math inline">\(m\)</span>, our confidence interval can be written as <span class="math display">\[( \bar x - m, ~ \bar x + m )\]</span> or <span class="math display">\[\bar x \pm m\]</span> This pattern will be repeated throughout the course as we create confidence intervals of the form: <span class="math display">\[
 \left(
-\begin{align}
-point~ ~ ~ &amp;      &amp; margin~  &amp;        &amp; point~ ~ ~ &amp;      &amp; margin~  \\
-estimate   &amp; ~ ~- &amp; of~error &amp; ~ ~,   &amp; estimate   &amp; ~ ~+ &amp; of~error
-\end{align}
+\begin{array}{cccccc}
+the      &amp;   &amp; margin &amp;   &amp; the      &amp;    &amp; margin  \\
+point    &amp; - &amp; of     &amp;   &amp; point    &amp;  + &amp; of      \\
+estimate &amp;   &amp; error  &amp; , &amp; estimate &amp;    &amp; error
+\end{array}
 \right)
 \]</span> or <span class="math display">\[(\text{point estimate}) \pm (\text{margin of error})\]</span> </br> <a id = "z"></a></p>
 <div id="a-little-more-precision" class="section level3">
@@ -698,7 +699,7 @@ Answer the following question:
 </div>
 <p><br></p>
 <p>The actual formula for a 95% confidence interval for <span class="math inline">\(\mu\)</span> (when <span class="math inline">\(\sigma\)</span> is known) is: <span class="math display">\[
-\left( \bar x - 1.96 \frac{\sigma}{\sqrt{n}}, \bar x + 1.96 \frac{\sigma}{\sqrt{n}} \right)
+\left( \bar x - 1.96 \frac{\sigma}{\sqrt{n}}, ~ \bar x + 1.96 \frac{\sigma}{\sqrt{n}} \right)
 \]</span> Please notice that the number 2 was used as an approximation for the actual value of 1.96. When computing a 95% confidence interval for a mean with <span class="math inline">\(\sigma\)</span> known, please use 1.96 in the equation.</p>
 </div>
 <div id="worked-example-rolling-a-die-25-times" class="section level4">

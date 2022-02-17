@@ -241,10 +241,11 @@ $$\bar x \pm m$$
 This pattern will be repeated throughout the course as we create confidence intervals of the form:
 $$
 \left(
-\begin{align}
-point~ ~ ~ &      & margin~  &        & point~ ~ ~ &      & margin~  \\
-estimate   & ~ ~- & of~error & ~ ~,   & estimate   & ~ ~+ & of~error
-\end{align}
+\begin{array}{cccccc}
+the      &   & margin &   & the      &    & margin  \\
+point    & - & of     &   & point    &  + & of      \\
+estimate &   & error  & , & estimate &    & error
+\end{array}
 \right)
 $$
 or
@@ -287,7 +288,7 @@ The 68-95-99.7% Rule for bell-shaped distribution is just a quick approximation.
 
 The actual formula for a 95% confidence interval for $\mu$ (when $\sigma$ is known) is:
 $$
-\left( \bar x - 1.96 \frac{\sigma}{\sqrt{n}}, \bar x + 1.96 \frac{\sigma}{\sqrt{n}} \right)
+\left( \bar x - 1.96 \frac{\sigma}{\sqrt{n}}, ~ \bar x + 1.96 \frac{\sigma}{\sqrt{n}} \right)
 $$
 Please notice that the number 2 was used as an approximation for the actual value of 1.96. When computing a 95% confidence interval for a mean with $\sigma$ known, please use 1.96 in the equation.
 
