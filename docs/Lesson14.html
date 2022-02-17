@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -383,12 +385,16 @@ $(document).ready(function () {
 <li><a href="#case-study-the-effects-of-gratitude">Case Study: The Effects of Gratitude</a></li>
 <li><a href="#analysis-of-variance-anova">Analysis of Variance (ANOVA)</a>
 <ul>
-<li><a href="#r-instructions-for-describing-anova-data">R Instructions for Describing ANOVA Data</a></li>
-<li><a href="#r-instructions-to-conduct-an-anova-test">R Instructions to Conduct an ANOVA Test</a></li>
+<li><a href="#r-instructions-for-numerical-summaries-of-several-groups-long-data">R Instructions for Numerical Summaries of Several Groups (Long Data)</a></li>
+<li><a href="#r-instructions-for-side-by-side-boxplots-of-several-groups-long-data">R Instructions for Side-by-Side Boxplots of Several Groups (Long Data)</a></li>
+<li><a href="#r-instructions-for-conducting-an-anova-test-long-data">R Instructions for Conducting an ANOVA Test (Long Data)</a></li>
 <li><a href="#the-f-distribution">The <span class="math inline">\(F\)</span>-distribution</a></li>
 <li><a href="#requirements-of-anova">Requirements of ANOVA</a></li>
 </ul></li>
-<li><a href="#worked-example-soccer-shoes">Worked Example: Soccer Shoes</a></li>
+<li><a href="#anova-with-wide-data-soccer-shoes">ANOVA with Wide Data: Soccer Shoes</a>
+<ul>
+<li><a href="#r-instructions-for-converting-wide-data-to-long-format">R Instructions for Converting “Wide” Data to “Long” Format</a></li>
+</ul></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
 </ul>
@@ -400,14 +406,13 @@ $(document).ready(function () {
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<div style="float:right;width = 40%;">
+<!--
+<div style = "float:right;width = 40%;">
 <br/>
-<div style="padding-left:10%;">
-<strong>Optional Lesson Video</strong>
+<div style = "padding-left:10%;">**Optional Lesson Video**</div>
+<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC8BeDBR9mQR2d8nnqK_iQ0j" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC8BeDBR9mQR2d8nnqK_iQ0j" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen>
-</iframe>
-</div>
+-->
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
 <a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
@@ -426,7 +431,7 @@ $(document).ready(function () {
 <div style="clear:both;">
 
 </div>
-<p><br/> <br/></p>
+<p><br/></p>
 <p><img src = "Images/StepsAll.png"></p>
 </div>
 <div id="case-study-the-effects-of-gratitude" class="section level2">
@@ -556,9 +561,8 @@ H_a: &amp; ~ \textrm{At least one of treatments has a different population mean 
 <p>The 192 students that volunteered to participate in the study were randomly assigned to one of the three treatment groups: Events, Hassles, or Gratitude. They wrote in a weekly journal, according to their group assignment. At the end of the semester, they completed a questionnaire that asked about their attitude toward life. The responses on the survey were coded into a number, where higher numbers represent a more positive outlook on life.</p>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<div id="r-instructions-for-describing-anova-data" class="section level3">
-<h3>R Instructions for Describing ANOVA Data</h3>
-Gratitude
+<div id="r-instructions-for-numerical-summaries-of-several-groups-long-data" class="section level3">
+<h3>R Instructions for Numerical Summaries of Several Groups (Long Data)</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -575,6 +579,16 @@ favstats(happiness ~ treatment, data = gratitude)</code></pre>
 1    Events 3.0 4.100   4.70 5.100 6.8 4.660000 0.8483071 65       0
 2  Grateful 3.5 4.275   5.05 5.625 7.5 5.050000 0.9443231 64       0
 3   Hassles 3.3 3.850   4.60 5.400 6.2 4.674603 0.8320143 63       0</code></pre>
+<p><br></p>
+</div>
+<p><br></p>
+</div>
+<div id="r-instructions-for-side-by-side-boxplots-of-several-groups-long-data" class="section level3">
+<h3>R Instructions for Side-by-Side Boxplots of Several Groups (Long Data)</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
 <p><strong>To make an appropriate graph to illustrate the data:</strong></p>
 <ul>
 <li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
@@ -594,8 +608,8 @@ favstats(happiness ~ treatment, data = gratitude)</code></pre>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Make Inference</strong></p>
 </div>
-<div id="r-instructions-to-conduct-an-anova-test" class="section level3">
-<h3>R Instructions to Conduct an ANOVA Test</h3>
+<div id="r-instructions-for-conducting-an-anova-test-long-data" class="section level3">
+<h3>R Instructions for Conducting an ANOVA Test (Long Data)</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
@@ -603,12 +617,12 @@ R Instructions
 <p>To conduct a test for several means (ANOVA) in R, do the following:</p>
 <ul>
 <li>Read in the data if you haven’t already: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
-<li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>gratitude_aov</code>.</li>
+<li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>aov_output</code>.</li>
 <li>When using the <code>aov(...)</code> function, place the quantitative variable first, followed by a <code>~</code>, followed by the categorical variable. As in other examples, we indicate the data frame using the <code>data =</code> argument.</li>
 <li>Use the <code>summary(...)</code> function to view the results of the ANOVA test in a nice format.</li>
 </ul>
-<pre class="r"><code>gratitude_aov &lt;- aov(happiness ~ treatment, data = gratitude)
-summary(gratitude_aov)</code></pre>
+<pre class="r"><code>aov_output &lt;- aov(happiness ~ treatment, data = gratitude)
+summary(aov_output)</code></pre>
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 treatment     2   6.26   3.130   4.075 0.0185 *
 Residuals   189 145.16   0.768                 
@@ -649,8 +663,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
 <p>In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
 <li><p>The variances are equal for each group.</p>
-<p>This requirement is checked by examining the variances. To obtain the sample variances we will need to square each of the standard deviations. The rule we will use is: <em>if the largest variance is less than or equal to four times the smallest variance, then we will conclude that the variances are equal.</em></p>
-<p>For the gratitude study, the three standard deviations were <span class="math inline">\(0.848\)</span>, <span class="math inline">\(0.944\)</span>, and <span class="math inline">\(0.832\)</span> for the Events, Grateful, and Hassles groups, respectively. Squaring these gives the variances as <span class="math inline">\(0.848^2 = 0.719\)</span>, <span class="math inline">\(0.944^2 = 0.891\)</span>, and <span class="math inline">\(0.832^2 = 0.692\)</span>. The largest of these variances is 0.891 and the smallest is 0.692. Dividing the largest by the smallest gives us the value of <span class="math inline">\(0.891/0.692 \approx 1.288\)</span>, which is smaller than 4, so the requirement of equal variances is considered to be satisfied.</p></li>
+<p>This requirement is checked by examining the standard deviations. Remember, the variance is the square of the standard deviation. If the variances are equal, the standard deviations will be equal. The rule we will use is: <em>if the largest standard deviation is more than twice as big as the smallest standard deviation, we will conclude that the variances are equal.</em></p>
+<p>For the gratitude study, the three standard deviations were 0.848, 0.944, and 0.832 for the Events, Grateful, and Hassles groups, respectively. The largest of these variances is 0.944 and the smallest is 0.832. Notice that the largest standard deviation is not more than twice as big as the smallest standard deviation. So, we conclude the assumption is satisfied.</p></li>
 </ul>
 <br>
 <div class="message Tip">
@@ -675,13 +689,248 @@ The variance is the square of the standard deviation. The sample variance is den
 <p>If we take a closer look, we see that the Hassles and Events groups had means that were fairly close together. However, the Grateful group appears to have a significantly higher mean level of satisfaction than the other two groups.</p>
 </div>
 </div>
-<div id="worked-example-soccer-shoes" class="section level2">
-<h2>Worked Example: Soccer Shoes</h2>
+<div id="anova-with-wide-data-soccer-shoes" class="section level2">
+<h2>ANOVA with Wide Data: Soccer Shoes</h2>
 <p><span id="21:soccer_shoesExplanation"></span></p>
 <p><img src = "Images/StepsAll.png"></p>
 <p><img src = "Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>--> The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.</p>
+<p>Data representing the results of this study are given in the file <a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a>. <a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<div id="r-instructions-for-converting-wide-data-to-long-format" class="section level3">
+<h3>R Instructions for Converting “Wide” Data to “Long” Format</h3>
+<p>After reading in the data, examine the format in which they are presented.</p>
+<p>Here are the first eight rows:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+shoe_a
+</th>
+<th style="text-align:center;">
+shoe_b
+</th>
+<th style="text-align:center;">
+shoe_c
+</th>
+<th style="text-align:center;">
+shoe_d
+</th>
+<th style="text-align:center;">
+shoe_e
+</th>
+<th style="text-align:center;">
+socks
+</th>
+<th style="text-align:left;">
+comments
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:left;">
+These data are based on Figure 5 in the article:
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:left;">
+The influence of soccer shoe design on playing performance: a series of
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:left;">
+biomechanical studies
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:left;">
+Ewald M. Hennig and Thorsten Sterzing
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:left;">
+Hennig, Ewald M. and Sterzing, Thorsten(2010) ’The influence of soccer shoe design on playing
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:left;">
+performance: a series of biomechanical studies’, Footwear Science, 2: 1, 3 — 11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>There are six columns of data, where each column gives the accuracy rating for a different type of footwear. Note that this is wide data, since every column gives the data for one group. The last column provides the reference for the articles from which the data were derived.</p>
+<p>In order to conduct an ANOVA analysis to determine if the mean accuracy is the same for the six types of footwear, we need to convert the data into “long” format. We will do this in three steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Examine the data. We can either do this with either the <code>View(soccer_shoes)</code> or <code>head(soccer_shoes)</code> commands.</p></li>
+<li><p>Remove columns that do not contain data. In this case, we want to eliminate the column titled <code>comments</code>. One way to do this is by running the command:</p></li>
+</ol>
+<pre class="r"><code>  soccer_shoes$comments &lt;- NULL </code></pre>
+<p>This command removes the column <code>comments</code> from the data set. The only way to restore the column is to start over by reading in the data again.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>We will use the <code>stack()</code> command to create a new data set called <code>soccer</code> that is in “long” format:</li>
+</ol>
+<pre class="r"><code>  soccer &lt;- stack(soccer_shoes)</code></pre>
+<p>Use <code>View(soccer)</code> to explore these data. Notice that R has transformed the data, so that it is now in “long” format, where the accuracy values are in a column called <code>values</code> and the label indicating (“ind”) the type of footwear is in a second column called <code>ind</code>.</p>
+<p>After making this change, the techniques for performing ANOVA on long data can be applied to the data set <code>soccer</code>.</p>
+<!-- ```{r} -->
+<!-- knitr::knit_exit()  -->
+<!-- ``` -->
 <p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
 \begin{align}
 H_0: &amp; \textrm{All the means are equal} \\
@@ -692,7 +941,7 @@ H_a: &amp; \textrm{At least one of the means differs}
 <p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>As part of the research, they asked trained soccer players to kick a ball at a target. The target was placed 115 cm above the ground and at a distance of 10 m from the players. Using electronic equipment, the researchers recorded the distance from the center of the target to the point where the ball hit. The objective of the research was to assess if footwear could affect the accuracy of a soccer player.</p>
-<p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Data representing the results of this study are given in the file <a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a>. Use these data to answer the following questions.</p>
+<p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Use the soccer shoes to answer the following questions.</p>
 <p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -704,12 +953,12 @@ Answer the following questions:
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>library(mosaic)
-favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
+favstats(values ~ ind, data = soccer)</code></pre>
 <p>Using the code above, we can pull out the important values.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Group</th>
+<th align="left">ind</th>
 <th align="left">N</th>
 <th align="left">Mean</th>
 <th align="left">Std. Deviation</th>
@@ -717,37 +966,37 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">A</td>
+<td align="left">shoe_a</td>
 <td align="left">20</td>
 <td align="left">33.10</td>
 <td align="left">5.230</td>
 </tr>
 <tr class="even">
-<td align="left">B</td>
+<td align="left">shoe_b</td>
 <td align="left">20</td>
 <td align="left">32.70</td>
 <td align="left">5.430</td>
 </tr>
 <tr class="odd">
-<td align="left">C</td>
+<td align="left">shoe_c</td>
 <td align="left">20</td>
 <td align="left">29.45</td>
 <td align="left">5.216</td>
 </tr>
 <tr class="even">
-<td align="left">D</td>
+<td align="left">shoe_d</td>
 <td align="left">20</td>
 <td align="left">32.00</td>
 <td align="left">7.291</td>
 </tr>
 <tr class="odd">
-<td align="left">E</td>
+<td align="left">shoe_e</td>
 <td align="left">20</td>
 <td align="left">32.20</td>
 <td align="left">5.569</td>
 </tr>
 <tr class="even">
-<td align="left">Socks</td>
+<td align="left">socks</td>
 <td align="left">20</td>
 <td align="left">35.25</td>
 <td align="left">6.382</td>
@@ -761,12 +1010,12 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 </ol>
 <a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
-<pre class="r"><code>boxplot(soccer_shoes$accuracy ~ soccer_shoes$footwear, 
+<pre class="r"><code>boxplot(values ~ ind, data = soccer,
         col = &quot;tan3&quot;, 
         main = &quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;,
         xlab = &quot;Footwear&quot;,
         ylab = &quot;Accuracy&quot;)</code></pre>
-<p><img src="Lesson14_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -786,7 +1035,7 @@ favstats(soccer_shoes$accuracy ~ soccer_shoes$footwear)</code></pre>
 <a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
-<li>Based on the boxplot, it appears that Footware “A” and “Socks” seem to give the greatest accuracy. This is also the case when looking at the sample means in the numerical summary where “A” has a mean accuracy of 33.10 and “Socks” has a mean accuracy of 35.25.</li>
+<li>Based on the boxplot, it appears that “socks” seem to give the greatest accuracy. This is substantiated by looking at the sample means in the numerical summary where “socks” has a mean accuracy of 35.25, which is bigger than any other mean.</li>
 </ul>
 </div>
 <p> </p>
@@ -805,7 +1054,7 @@ Answer the following questions:
 <ul>
 <li>The boxplots all look fairly symmetric in the graph above. The median line isn’t exactly in the middle of each box, but there are not any outliers and there isn’t any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.<br />
 </li>
-<li>The largest variance (53.159) is not four times the smallest (27.207)</li>
+<li>The largest standard deviation (7.291) is not four times the smallest (5.216), so the assumption of equal variances is satisfied.</li>
 </ul>
 </div>
 <p><br></p>
@@ -814,11 +1063,11 @@ Answer the following questions:
 </ol>
 <a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
-<pre class="r"><code>soccer_aov &lt;- aov(soccer_shoes$accuracy ~ soccer_shoes$footwear)
-summary(soccer_aov)</code></pre>
-<pre><code>##                        Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## soccer_shoes$footwear   5    352   70.36    2.02 0.0809 .
-## Residuals             114   3970   34.82                 
+<pre class="r"><code>aov_output &lt;- aov(values ~ ind, data = soccer)
+summary(aov_output)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## ind           5    352   70.36    2.02 0.0809 .
+## Residuals   114   3970   34.82                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>
@@ -852,7 +1101,7 @@ curve(df(x, 5, 114), from = 0, to = 10)
 abline(v = 2.02, h = 0)
 ```
 
-<img src="Lesson14_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="Lesson14_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 -->
 </div>
 <p><br></p>
@@ -897,6 +1146,7 @@ Answer the following questions:
 </div>
 <p><br></p>
 </div>
+</div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <div class="SummaryHeading">
@@ -920,11 +1170,13 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 </ul></li>
 <li>The variance is constant.
 <ul>
-<li>This is satisfied when the largest variance is not more than four times the smallest variance.</li>
+<li>This is satisfied when the largest standard deviation is not more than four times the smallest.</li>
 </ul></li>
 </ol></li>
-<li><p>To perform an ANOVA in R, use the code <code>myaov &lt;- aov(...)</code> to run the test, then the code <code>summary(myaov)</code> to view the results. <br></p></li>
+<li><p>To perform an ANOVA in R, use the code <code>aov_output &lt;- aov(...)</code> to run the test, then the code <code>summary(aov_output)</code> to view the results.</p></li>
+<li><p>If data are provided in “wide” format, they must first be converted to “long” format before performing the ANOVA analysis.</p></li>
 </ul>
+<p><br></p>
 </div>
 <p><br></p>
 </div>
