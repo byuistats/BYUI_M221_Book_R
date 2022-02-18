@@ -444,9 +444,10 @@ $(document).ready(function () {
 <table>
 <tbody>
 <tr class="odd">
+<!-- <td><p><img src = "Images/GordonBHinckley.png"></p></td> -->
 <td>
 <p>
-<img src = "Images/GordonBHinckley.png">
+<img src = "Images/gordon_b_hinckley_small.png">
 </p>
 </td>
 <td>
@@ -608,7 +609,7 @@ R Instructions
 <p><br></p>
 </div>
 <p><br></p>
-<p>Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
+<p>Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared to the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Make Inference</strong></p>
 </div>
@@ -667,9 +668,13 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
 <p>In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
 <li><p>The variances are equal for each group.</p>
-<p>This requirement is checked by examining the standard deviations. Remember, the variance is the square of the standard deviation. If the variances are equal, the standard deviations will be equal. The rule we will use is: <em>if the largest standard deviation is more than twice as big as the smallest standard deviation, we will conclude that the variances are equal.</em></p>
-<p>For the gratitude study, the three standard deviations were 0.848, 0.944, and 0.832 for the Events, Grateful, and Hassles groups, respectively. The largest of these variances is 0.944 and the smallest is 0.832. Notice that the largest standard deviation is not more than twice as big as the smallest standard deviation. So, we conclude the assumption is satisfied.</p></li>
+<p>This requirement is checked by examining the variances. Remember, the variance is the square of the standard deviation. The rule we will use is: <em>if the largest variance is more than four times as big as the smallest variance, we will conclude that the variances are equal.</em></p>
+<p>We can find the variance using the following R command:</p></li>
 </ul>
+<pre class="r"><code>var(happiness ~ treatment, data=gratitude)</code></pre>
+<pre><code>##    Events  Grateful   Hassles 
+## 0.7196250 0.8917460 0.6922478</code></pre>
+<pre><code>For the gratitude study, the variances of the Events, Grateful, and Hassles groups were 0.720, 0.892, and 0.692, respectively. The largest of these variances is 0.892 and the smallest is 0.692. Notice that the largest variance is not more than four times as big as the smallest variance. So, we conclude the assumption is satisfied.</code></pre>
 <br>
 <div class="message Tip">
 The variance is the square of the standard deviation. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>.
@@ -1016,7 +1021,7 @@ favstats(values ~ ind, data = soccer)</code></pre>
         main = &quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;,
         xlab = &quot;Footwear&quot;,
         ylab = &quot;Accuracy&quot;)</code></pre>
-<p><img src="Lesson14_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -1055,8 +1060,12 @@ Answer the following questions:
 <ul>
 <li>The boxplots all look fairly symmetric in the graph above. The median line isn’t exactly in the middle of each box, but there are not any outliers and there isn’t any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.<br />
 </li>
-<li>The largest standard deviation (7.291) is not four times the smallest (5.216), so the assumption of equal variances is satisfied.</li>
+<li>We compute the variance of the groups using the following command:</li>
 </ul>
+<pre class="r"><code>var(values ~ ind, data=soccer)</code></pre>
+<pre><code>##   shoe_a   shoe_b   shoe_c   shoe_d   shoe_e    socks 
+## 27.35789 29.48421 27.20789 53.15789 31.01053 40.72368</code></pre>
+<p>The largest variance (53.158) is not more than four times the smallest (27.208), so the assumption of equal variances is satisfied.</p>
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
@@ -1102,7 +1111,7 @@ curve(df(x, 5, 114), from = 0, to = 10)
 abline(v = 2.02, h = 0)
 ```
 
-<img src="Lesson14_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="Lesson14_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 -->
 </div>
 <p><br></p>
@@ -1171,7 +1180,7 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 </ul></li>
 <li>The variance is constant.
 <ul>
-<li>This is satisfied when the largest standard deviation is not more than four times the smallest.</li>
+<li>This is satisfied when the largest variance is not more than four times the smallest.</li>
 </ul></li>
 </ol></li>
 <li><p>To perform an ANOVA in R, use the code <code>aov_output &lt;- aov(...)</code> to run the test, then the code <code>summary(aov_output)</code> to view the results.</p></li>

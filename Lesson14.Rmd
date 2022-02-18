@@ -53,7 +53,8 @@ By the end of this lesson, you should be able to do the following for a hypothes
 <table>
 <tbody>
 <tr class = "odd">
-<td><p><img src = "./Images/GordonBHinckley.png"></p></td>
+<!-- <td><p><img src = "./Images/GordonBHinckley.png"></p></td> -->
+<td><p><img src = "./Images/gordon_b_hinckley_small.png"></p></td>
 <td><p>$~ ~$</p></td>
 <td><p>President Gordon B. Hinckley said, &quot;My plea is that we stop seeking out the storms and enjoy more fully the sunlight. I am suggesting that as we go through life, we 'accentuate the positive.' I am asking that we look a little deeper for the good, that we still our voices of insult and sarcasm, that we more generously compliment and endorse virtue and effort&quot; (*Standing for Something*, 2000, p.101).</p></td>
 </tr>
@@ -189,7 +190,7 @@ boxplot(gratitude$happiness ~ gratitude$treatment,
 </div>
 <br>
 
-Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared ot the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first **make inference** before we decide if the data really warrants this conclusion.
+Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared to the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first **make inference** before we decide if the data really warrants this conclusion.
 
 
 
@@ -259,11 +260,17 @@ There are two requirements of ANOVA that we can verify directly:
     In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn't pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the "Grateful" group is longer than its bottom whisker, this would be considered a very "normally distributed" set of boxplots.
 
 
+
 - The variances are equal for each group.
 
-    This requirement is checked by examining the standard deviations. Remember, the variance is the square of the standard deviation. If the variances are equal, the standard deviations will be equal. The rule we will use is: *if the largest standard deviation is more than twice as big as the smallest standard deviation, we will conclude that the variances are equal.* 
-    
-    For the gratitude study, the three standard deviations were 0.848, 0.944, and 0.832 for the Events, Grateful, and Hassles groups, respectively. The largest of these variances is 0.944 and the smallest is 0.832. Notice that the largest standard deviation is not more than twice as big as the smallest standard deviation. So, we conclude the assumption is satisfied.
+    This requirement is checked by examining the variances. Remember, the variance is the square of the standard deviation. The rule we will use is: *if the largest variance is more than four times as big as the smallest variance, we will conclude that the variances are equal.* 
+
+    We can find the variance using the following R command:
+```{r}
+var(happiness ~ treatment, data=gratitude)
+```
+
+    For the gratitude study, the variances of the Events, Grateful, and Hassles groups were 0.720, 0.892, and 0.692, respectively. The largest of these variances is 0.892 and the smallest is 0.692. Notice that the largest variance is not more than four times as big as the smallest variance. So, we conclude the assumption is satisfied.
 
 
 <br>
@@ -469,7 +476,12 @@ boxplot(values ~ ind, data = soccer,
 <a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q5" style = "display:none;">
 * The boxplots all look fairly symmetric in the graph above. The median line isn't exactly in the middle of each box, but there are not any outliers and there isn't any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.  
-* The largest standard deviation (7.291) is not four times the smallest (5.216), so the assumption of equal variances is satisfied.
+* We compute the variance of the groups using the following command:
+```{r}
+var(values ~ ind, data=soccer)
+```
+
+The largest variance (53.158) is not more than four times the smallest (27.208), so the assumption of equal variances is satisfied.
 </div>
 <br>
 
@@ -569,7 +581,7 @@ $$
     2. The data are normally distributed within each group.
         - This is considered met unless one or more of the groups has a *strongly* skewed distribution.
     3. The variance is constant.
-        - This is satisfied when the largest standard deviation is not more than four times the smallest.
+        - This is satisfied when the largest variance is not more than four times the smallest.
         
 - To perform an ANOVA in R, use the code `aov_output <- aov(...)` to run the test, then the code `summary(aov_output)` to view the results.
 
