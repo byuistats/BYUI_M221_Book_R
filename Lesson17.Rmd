@@ -125,116 +125,38 @@ Here are the instructions for conducting a hypothesis test for one proportion in
 
 **Step 1.** Use RStudio to run the code in the file [one_proportion_function.R](./scripts/one_proportion_function.R). This will load a function that will conduct the test for one proportion.
 
-**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: \mu = 98.6$ and the alternative was $H_a: \mu \neq 98.6$.
 
-**Step 3.** Use `t.test(...)` as follows to run the One Sample t Test in R.
 
-A few notes about using `t.test(...)`.
+**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: p = 0.70$ and the alternative was $H_a: p \neq 0.70$.
 
-* The null hypothesis is established by **mu = 98.6** 
+**Step 3.** Use `one_prop_test(...)` as follows to run the One Sample t Test in R.
+
+A few notes about using this function:
+
+* The number of successes is entered using the parameter **x**
+* The total number of trials is specified using the parameter **n**
+* The null hypothesis is established by the parameter **p**. The default value is **p = 0.5** 
 * The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative = "less"** and **alternative = "greater"**.
-* We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
+<!--
+* Note, by default the `one_prop_test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one_prop_test(..., conf.level = 0.99)` or `one_prop_test(..., conf.level = 0.90)`.
+-->
 
-```{r, eval = FALSE}
-t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
+When, the above `one_prop_test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
+
+
+```{r, include = FALSE, code = readLines("./scripts/one_proportion_function.R")}
+# This chunk reads in the function to do a one-proportion t-test.
 ```
 
-Note, by default the `t.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `t.test(..., conf.level = 0.99)` or `t.test(..., conf.level = 0.90)`.
-
-When, the above `t.test(...)` code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.
-
-```{r, eval = FALSE, comment = NA}
-t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
+```{r}
+one_prop_test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
 ```
 
-**Identifying the various elements of the t test summary ouput.**
-
-* The name of the test is printed first in the output.
-* The data used for the test is printed next.
-* Then the test statistic (t), degrees of freedom (df), and p-value of the test are all printed.
-* The alternative hypothesis of either "less," "greater," or "not equal" is restated so that we know if this was a "one-sided" or "two-sided" test. Also, the value of the null hypothesis (98.6) that was used for the test is printed at the end of this sentence.
-* The confidence level (usually 95%) is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.
-* Finally, the sample mean, $\bar{x}$, is printed at the end of the summary output.
 
 
 <br>
 </div>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -244,12 +166,12 @@ If the following conditions are satisfied:
 - $n(1-p) \ge 10$
 
 then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, $\widehat p$, is approximately normal.
-Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$.
+<!-- Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$. -->
 
-Notice that the requirements are satisfied for the PTC data:
+As you can see from the output above, the requirements are satisfied for the PTC data:
 $$
 \begin{array}{ll}
-np = 118 \cdot 0.70 = 82.6 \ge 10 				 & \surd \\
+np = 118 \cdot 0.70 = 82.6 \ge 10 				& \surd \\
 n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 & \surd
 \end{array}
 $$
@@ -263,6 +185,13 @@ H_a:  p \ne 0.70
 $$
 
 We will use the $\alpha = 0.05$ level of significance in this test.
+
+<br>
+
+**Optional Reading: Computation of z for One Proportion (Hidden)**
+  
+<a href = "javascript:showhide('propZ')"><span style = "font-size:8pt;">Click Here if you love Math</span></a>
+<div id = "propZ" style = "display:none;">
 
 If the requirements are satisfied, then $\widehat p$ is approximately normal with mean $p$ and standard deviation $\sqrt{\frac{p \cdot (1-p)}{n}}$.  The test can be based on the standard normal ($z$) distribution. 
 
@@ -289,7 +218,14 @@ Using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html), 
 
 <img src = "./Images/ZShadeBothTails-1-286.png">
 
-The combined area in the two tails gives the $P$-value $ = 0.1984$, which is greater than $\alpha = 0.05$.  Therefore, we fail to reject the null hypothesis.
+The combined area in the two tails is approximately $0.198$. This is the $P$-value.
+      
+     
+</div>
+<br>
+
+From the output above, we note that $z = 1.2857$. and the $P$-value is 0.1986. 
+Since the $P$-value is greater than $\alpha = 0.05$, we fail to reject the null hypothesis.
 
 
 <img src = "./Images/Step5.png">
@@ -331,7 +267,14 @@ Researchers suspect that the water quality in the area has decreased, suggesting
 
 <img src = "./Images/Step3.png">
 
-Among the $n = 40$ observed indicators of health, $x = 19$ suggested good health. Use this information to answer the following question.
+Among the $n = 40$ observed indicators of health, $x = 19$ suggested good health. 
+We enter this information into the `one_prop_test(...)` function:
+
+```{r}
+one_prop_test(x = 19, n = 40, p = 0.60, alternative = "less")
+```
+
+Use this information to answer the following question.
 
 <div class = "QuestionsHeading">Answer the following question:</div>
 <div class = "Questions">
@@ -340,8 +283,9 @@ Among the $n = 40$ observed indicators of health, $x = 19$ suggested good health
 <a href = "javascript:showhide('Q15')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q15" style = "display:none;">
 $$
-\widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~\text{or}~47.5\%
+\widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~~\text{or}~~47.5\%
 $$
+<!--
 ```{r}
 mytable <- c(`Good Health` = 19, `Poor Health` = 21)
 barplot(mytable, 
@@ -349,7 +293,7 @@ barplot(mytable,
         main = "Health of Macroinvertebrates near Bozeman, MT",
         ylab = "Number of Macroinvertebrates")
 ```
-
+-->
 
 
 </div>
@@ -363,22 +307,11 @@ The following questions will guide you through the process of conducting a hypot
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
-16.  The two requirements required to conduct a hypothesis test for one proportion are
-<center>
-$$
-\begin{array}{l}
-np \ge 10  \\
-n(1-p) \ge 10
-\end{array}
-$$
-</center>
-* Are these requirements satisfied?
+16.  Are the requirements for conducting a hypothesis test for one proportion satisfied?
 
 <a href = "javascript:showhide('Q16')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q16" style = "display:none;">
-* Yes, the requirements are satisfied.
 <center>
-
 $$
 \begin{array}{ll}
 np = 40 \cdot 0.6 = 24 \ge 10 & \surd  \\
@@ -386,52 +319,56 @@ n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  & \surd
 \end{array}
 $$
 </center>
+
+* Yes, the requirements are satisfied.
+
 </div>
 <br>
 
-17. The null hypothesis is $H_0: p = 0.6$ What is the alternative hypothesis?
+17. State the null and alternative hypotheses.
 
 <a href = "javascript:showhide('Q17')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q17" style = "display:none;">
 <center>
+$H_0: p = 0.6$
+
 $H_a: p < 0.6$
 </center>
 </div>
 <br>
 
-18. Fill in the blanks to compute the $z$-score.<br />
-<center>
-$$
-\displaystyle{
-z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
- = \frac{()-0.60}{\sqrt{\frac{0.60(1-0.60)}{40}}}
- = -1.614}
-$$
-</center>
+18. Find the $z$-score.<br />
 
 <a href = "javascript:showhide('Q18')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q18" style = "display:none;">
-* The missing value is: <br />
+You could compute this by hand, as you did in [Lesson 16](Lesson16.html):
 <center>
-$\displaystyle{\widehat p = \frac{19}{40} = 0.475}$
+$$
+z = \frac{\hat p-p}{\sqrt{\frac{p(1-p)}{n}}} = \frac{\frac{19}{40}-0.6}{\sqrt{\frac{0.6(1-0.6)}{40}}} = -1.6137
+$$
+</center>
+However, this is not necessary, since the $z$-score is given in the output:
+<center>
+$$
+z = -1.6137
+$$
 </center>
 </div>
 <br>
 
-19. The $P$-value will be the area under the normal curve to the left of $z$. Why will you only shade the left tail?
+19. What is the $P$-value?
 
 <a href = "javascript:showhide('Q19')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q19" style = "display:none;">
-* We want to test if the water quality has *decreased*.
-* The alternative hypothesis is that the proportion of healthy indicators is less than 0.6.
+<center>
+$$
+P\text{-value} = 0.0533
+$$
+</center>
 </div>
 <br>
 
-20. Using the Normal Probability Applet, it is determined that the area to the left of $z = -1.614$ is 0.053.
-
-<img src = "./Images/ShadeLeftZ-1-614.png">
-
-The shaded area in this figure (0.053) represents the $P$-value for this test. What is the decision for this test, do we reject the null hypothesis or fail to reject the null hypothesis? Give an English sentence summarizing the conclusion.
+20. What is the conclusion of this test? How would you state the conclusion in an English sentence?
 
 <a href = "javascript:showhide('Q20')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q20" style = "display:none;">
@@ -449,6 +386,34 @@ The shaded area in this figure (0.053) represents the $P$-value for this test. W
 Even though the proportion of indicators that suggested good health was less that 60%, it was not statistically significantly less than 60%.  Unless future research indicates to the contrary, we cannot say that the water quality in this river has decreased.
 
 <br>
+
+
+
+
+
+
+
+
+
+
+
+## Working Here
+
+## Working Here
+
+## Working Here
+
+## Working Here
+
+
+
+
+
+
+
+
+
+
 
 
 ## Confidence Interval for One Proportion
@@ -494,7 +459,9 @@ barplot(c(249, 428-249),
 
 <img src = "./Images/Step4.png">
 
-This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of *all medical students in the U.S.*.  While it is interesting to know that 58.2% of students at *these two medical schools that were sampled* had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, $p$.  $\hat p$ is called a **point estimate** of $p$.  The sample proportion, $\hat p$ is just a single *point* on the number line that estimates the value of the true proportion, $p$.
+This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of *all medical students in the U.S.*.  While it is interesting to know that 58.2% of students at *these two medical schools that were sampled* had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, $p$. 
+
+The statistic $\hat p$ is called a **point estimate** of $p$.  The sample proportion, $\hat p$ is just a single *point* on the number line that estimates the value of the true proportion, $p$.
 
 A point estimate like $\hat p$ is helpful, but it does not give us direct information on *how close* it is to the true parameter, $p$.  We use a confidence interval to find a range of plausible values for the parameter.
 

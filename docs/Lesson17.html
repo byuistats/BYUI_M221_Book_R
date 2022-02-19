@@ -386,6 +386,10 @@ $(document).ready(function () {
 <li><a href="#r-instructions-for-a-hypothesis-test-for-one-proportion">R Instructions for a Hypothesis Test for One Proportion</a></li>
 <li><a href="#case-study-water-quality">Case Study: Water Quality</a></li>
 </ul></li>
+<li><a href="#working-here">Working Here</a></li>
+<li><a href="#working-here-1">Working Here</a></li>
+<li><a href="#working-here-2">Working Here</a></li>
+<li><a href="#working-here-3">Working Here</a></li>
 <li><a href="#confidence-interval-for-one-proportion">Confidence Interval for One Proportion</a>
 <ul>
 <li><a href="#case-study-honesty-at-medical-school">Case Study: Honesty at Medical School</a></li>
@@ -491,27 +495,38 @@ R Instructions
 <div class="Software">
 <p>Here are the instructions for conducting a hypothesis test for one proportion in R:</p>
 <p><strong>Step 1.</strong> Use RStudio to run the code in the file <a href="./scripts/one_proportion_function.R">one_proportion_function.R</a>. This will load a function that will conduct the test for one proportion.</p>
-<p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: \mu = 98.6\)</span> and the alternative was <span class="math inline">\(H_a: \mu \neq 98.6\)</span>.</p>
-<p><strong>Step 3.</strong> Use <code>t.test(...)</code> as follows to run the One Sample t Test in R.</p>
-<p>A few notes about using <code>t.test(...)</code>.</p>
+<p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: p = 0.70\)</span> and the alternative was <span class="math inline">\(H_a: p \neq 0.70\)</span>.</p>
+<p><strong>Step 3.</strong> Use <code>one_prop_test(...)</code> as follows to run the One Sample t Test in R.</p>
+<p>A few notes about using this function:</p>
 <ul>
-<li>The null hypothesis is established by <strong>mu = 98.6</strong></li>
-<li>The alternative hypothesis is established by <strong>alternative = “two.sided”</strong>. Other options for the alternative hypothesis are <strong>alternative = “less”</strong> and <strong>alternative = “greater”</strong>.</li>
-<li>We access the data we will use for the test by using the name of the dataset, followed by a <code>$</code> sign, followed by the name of the column we want to use for the test.</li>
+<li>The number of successes is entered using the parameter <strong>x</strong></li>
+<li>The total number of trials is specified using the parameter <strong>n</strong></li>
+<li>The null hypothesis is established by the parameter <strong>p</strong>. The default value is <strong>p = 0.5</strong></li>
+<li>The alternative hypothesis is established by <strong>alternative = “two.sided”</strong>. Other options for the alternative hypothesis are <strong>alternative = “less”</strong> and <strong>alternative = “greater”</strong>. <!--
+* Note, by default the `one_prop_test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one_prop_test(..., conf.level = 0.99)` or `one_prop_test(..., conf.level = 0.90)`.
+--></li>
 </ul>
-<pre class="r"><code>t.test(body_temp$temperature, mu = 98.6, alternative = &quot;two.sided&quot;)</code></pre>
-<p>Note, by default the <code>t.test(...)</code> function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use <code>t.test(..., conf.level = 0.99)</code> or <code>t.test(..., conf.level = 0.90)</code>.</p>
-<p>When, the above <code>t.test(...)</code> code is run in RStudio, it produces the following results. These results look a little messy at first, but after you study them for a moment, you should recognize the various important pieces we are looking for.</p>
-<pre class="r"><code>t.test(body_temp$temperature, mu = 98.6, alternative = &quot;two.sided&quot;)</code></pre>
-<p><strong>Identifying the various elements of the t test summary ouput.</strong></p>
-<ul>
-<li>The name of the test is printed first in the output.</li>
-<li>The data used for the test is printed next.</li>
-<li>Then the test statistic (t), degrees of freedom (df), and p-value of the test are all printed.</li>
-<li>The alternative hypothesis of either “less,” “greater,” or “not equal” is restated so that we know if this was a “one-sided” or “two-sided” test. Also, the value of the null hypothesis (98.6) that was used for the test is printed at the end of this sentence.</li>
-<li>The confidence level (usually 95%) is stated, followed by the lower-bound of the confidence interval and then the upper-bound of the confidence interval.</li>
-<li>Finally, the sample mean, <span class="math inline">\(\bar{x}\)</span>, is printed at the end of the summary output.</li>
-</ul>
+<p>When, the above <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
+<pre class="r"><code>one_prop_test(x = 89, n = 118, p = 0.70, alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>## 
+## 
+##     Check for normality of p^:    
+##  
+## Hypothesis Test: 
+## np =  82.6 
+## n(1-p) =  35.4 
+## Confidence Interval:  
+## np^ =  89 
+## n(1-p^) =  29
+## 
+##     One Proportion z-Test    
+## 
+## z = 1.2857, p-value = 0.1986
+## Alternative hypothesis: True population proportion is not equal to 0.7
+## 95 percent confidence interval: 
+##   0.677, 0.832
+## Sample Estimates: 
+## p^ = 0.754</code></pre>
 <p><br></p>
 </div>
 <p><br></p>
@@ -520,10 +535,10 @@ R Instructions
 <li><span class="math inline">\(np \ge 10\)</span></li>
 <li><span class="math inline">\(n(1-p) \ge 10\)</span></li>
 </ul>
-<p>then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, <span class="math inline">\(\widehat p\)</span>, is approximately normal. Also, the true mean of <span class="math inline">\(\widehat p\)</span> is <span class="math inline">\(p\)</span>, and the standard deviation is <span class="math inline">\(\sqrt{\frac{p \cdot (1-p)}{n}}\)</span>.</p>
-<p>Notice that the requirements are satisfied for the PTC data: <span class="math display">\[
+<p>then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, <span class="math inline">\(\widehat p\)</span>, is approximately normal. <!-- Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$. --></p>
+<p>As you can see from the output above, the requirements are satisfied for the PTC data: <span class="math display">\[
 \begin{array}{ll}
-np = 118 \cdot 0.70 = 82.6 \ge 10                &amp; \surd \\
+np = 118 \cdot 0.70 = 82.6 \ge 10               &amp; \surd \\
 n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 &amp; \surd
 \end{array}
 \]</span></p>
@@ -533,6 +548,10 @@ H_0:  p = 0.70 \\
 H_a:  p \ne 0.70
 \]</span></p>
 <p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance in this test.</p>
+<p><br></p>
+<p><strong>Optional Reading: Computation of z for One Proportion (Hidden)</strong></p>
+<a href = "javascript:showhide('propZ')"><span style="font-size:8pt;">Click Here if you love Math</span></a>
+<div id="propZ" style="display:none;">
 <p>If the requirements are satisfied, then <span class="math inline">\(\widehat p\)</span> is approximately normal with mean <span class="math inline">\(p\)</span> and standard deviation <span class="math inline">\(\sqrt{\frac{p \cdot (1-p)}{n}}\)</span>. The test can be based on the standard normal (<span class="math inline">\(z\)</span>) distribution.</p>
 <div class="myemphasis">
 <p>The test statistic for the test of one proportion is:</p>
@@ -547,7 +566,10 @@ z = \frac{\textrm{value}-\textrm{mean}}{\textrm{standard deviation}} = \frac{\wi
 \]</span></p>
 <p>Remember, we assume that the null hypothesis is true, so we use the value given in the null hypothesis for <span class="math inline">\(p\)</span>, which was <span class="math inline">\(p = 0.7\)</span> for this study. Using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>, you can find the <span class="math inline">\(P\)</span>-value of the test. This is a two-tailed test, since the alternative hypothesis used “not equals to”, specifying that values either above 0.70 or below 0.70 (<span class="math inline">\(H_0: p \neq 0.7\)</span>) were possible if the null hypothesis is rejected. In the applet, make sure both tails are shaded, then enter the <span class="math inline">\(z\)</span>-score of 1.286.</p>
 <p><img src = "Images/ZShadeBothTails-1-286.png"></p>
-<p>The combined area in the two tails gives the <span class="math inline">\(P\)</span>-value $ = 0.1984$, which is greater than <span class="math inline">\(\alpha = 0.05\)</span>. Therefore, we fail to reject the null hypothesis.</p>
+<p>The combined area in the two tails is approximately <span class="math inline">\(0.198\)</span>. This is the <span class="math inline">\(P\)</span>-value.</p>
+</div>
+<p><br></p>
+<p>From the output above, we note that <span class="math inline">\(z = 1.2857\)</span>. and the <span class="math inline">\(P\)</span>-value is 0.1986. Since the <span class="math inline">\(P\)</span>-value is greater than <span class="math inline">\(\alpha = 0.05\)</span>, we fail to reject the null hypothesis.</p>
 <p><img src = "Images/Step5.png"></p>
 <p>We conclude that there is insufficient evidence to suggest that the true proportion of the population that can taste PTC is different from 0.70. There is no reason to revise existing perspectives on the prevalence of the ability to taste PTC.</p>
 <div class="QuestionsHeading">
@@ -579,7 +601,28 @@ Answer the following question:
 <p><img src = "Images/Step2.png"></p>
 <p>Researchers suspect that the water quality in the area has decreased, suggesting that less than 60% of the indicators will show good health. A random sample of macroinvertebrates were captured from the river.</p>
 <p><img src = "Images/Step3.png"></p>
-<p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. Use this information to answer the following question.</p>
+<p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. We enter this information into the <code>one_prop_test(...)</code> function:</p>
+<pre class="r"><code>one_prop_test(x = 19, n = 40, p = 0.60, alternative = &quot;less&quot;)</code></pre>
+<pre><code>## 
+## 
+##     Check for normality of p^:    
+##  
+## Hypothesis Test: 
+## np =  24 
+## n(1-p) =  16 
+## Confidence Interval:  
+## np^ =  19 
+## n(1-p^) =  21
+## 
+##     One Proportion z-Test    
+## 
+## z = -1.6137, p-value = 0.0533
+## Alternative hypothesis: True population proportion is less than 0.6
+## 95 percent confidence interval: 
+##   -INF, 0.63
+## Sample Estimates: 
+## p^ = 0.475</code></pre>
+<p>Use this information to answer the following question.</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
@@ -590,14 +633,19 @@ Answer the following question:
 <a href = "javascript:showhide('Q15')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q15" style="display:none;">
 <p><span class="math display">\[
-\widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~\text{or}~47.5\%
-\]</span></p>
-<pre class="r"><code>mytable &lt;- c(`Good Health` = 19, `Poor Health` = 21)
+\widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~~\text{or}~~47.5\%
+\]</span> <!--
+
+```r
+mytable <- c(`Good Health` = 19, `Poor Health` = 21)
 barplot(mytable, 
-        col = c(&quot;steelblue3&quot;,&quot;darkolivegreen4&quot;),
-        main = &quot;Health of Macroinvertebrates near Bozeman, MT&quot;,
-        ylab = &quot;Number of Macroinvertebrates&quot;)</code></pre>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+        col = c("steelblue3","darkolivegreen4"),
+        main = "Health of Macroinvertebrates near Bozeman, MT",
+        ylab = "Number of Macroinvertebrates")
+```
+
+<img src="Lesson17_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+--></p>
 </div>
 <p> </p>
 </div>
@@ -609,25 +657,11 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="16" style="list-style-type: decimal">
-<li>The two requirements required to conduct a hypothesis test for one proportion are
-<center>
-<span class="math display">\[
-\begin{array}{l}
-np \ge 10  \\
-n(1-p) \ge 10
-\end{array}
-\]</span>
-</center></li>
+<li>Are the requirements for conducting a hypothesis test for one proportion satisfied?</li>
 </ol>
-<ul>
-<li>Are these requirements satisfied?</li>
-</ul>
 <a href = "javascript:showhide('Q16')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
-<ul>
-<li>Yes, the requirements are satisfied.
-<center></li>
-</ul>
+<center>
 <span class="math display">\[
 \begin{array}{ll}
 np = 40 \cdot 0.6 = 24 \ge 10 &amp; \surd  \\
@@ -635,55 +669,56 @@ n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  &amp; \surd
 \end{array}
 \]</span>
 </center>
+<ul>
+<li>Yes, the requirements are satisfied.</li>
+</ul>
 </div>
 <p><br></p>
 <ol start="17" style="list-style-type: decimal">
-<li>The null hypothesis is <span class="math inline">\(H_0: p = 0.6\)</span> What is the alternative hypothesis?</li>
+<li>State the null and alternative hypotheses.</li>
 </ol>
 <a href = "javascript:showhide('Q17')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q17" style="display:none;">
 <center>
+<p><span class="math inline">\(H_0: p = 0.6\)</span></p>
 <span class="math inline">\(H_a: p &lt; 0.6\)</span>
 </center>
 </div>
 <p><br></p>
 <ol start="18" style="list-style-type: decimal">
-<li>Fill in the blanks to compute the <span class="math inline">\(z\)</span>-score.<br />
-<center>
-<span class="math display">\[
-\displaystyle{
-z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
- = \frac{()-0.60}{\sqrt{\frac{0.60(1-0.60)}{40}}}
- = -1.614}
-\]</span>
-</center></li>
+<li>Find the <span class="math inline">\(z\)</span>-score.<br /></li>
 </ol>
 <a href = "javascript:showhide('Q18')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q18" style="display:none;">
-<ul>
-<li>The missing value is: <br />
+You could compute this by hand, as you did in <a href="Lesson16.html">Lesson 16</a>:
 <center>
-<span class="math inline">\(\displaystyle{\widehat p = \frac{19}{40} = 0.475}\)</span>
-</center></li>
-</ul>
+<span class="math display">\[
+z = \frac{\hat p-p}{\sqrt{\frac{p(1-p)}{n}}} = \frac{\frac{19}{40}-0.6}{\sqrt{\frac{0.6(1-0.6)}{40}}} = -1.6137
+\]</span>
+</center>
+However, this is not necessary, since the <span class="math inline">\(z\)</span>-score is given in the output:
+<center>
+<span class="math display">\[
+z = -1.6137
+\]</span>
+</center>
 </div>
 <p><br></p>
 <ol start="19" style="list-style-type: decimal">
-<li>The <span class="math inline">\(P\)</span>-value will be the area under the normal curve to the left of <span class="math inline">\(z\)</span>. Why will you only shade the left tail?</li>
+<li>What is the <span class="math inline">\(P\)</span>-value?</li>
 </ol>
 <a href = "javascript:showhide('Q19')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
-<ul>
-<li>We want to test if the water quality has <em>decreased</em>.</li>
-<li>The alternative hypothesis is that the proportion of healthy indicators is less than 0.6.</li>
-</ul>
+<center>
+<span class="math display">\[
+P\text{-value} = 0.0533
+\]</span>
+</center>
 </div>
 <p><br></p>
 <ol start="20" style="list-style-type: decimal">
-<li>Using the Normal Probability Applet, it is determined that the area to the left of <span class="math inline">\(z = -1.614\)</span> is 0.053.</li>
+<li>What is the conclusion of this test? How would you state the conclusion in an English sentence?</li>
 </ol>
-<p><img src = "Images/ShadeLeftZ-1-614.png"></p>
-<p>The shaded area in this figure (0.053) represents the <span class="math inline">\(P\)</span>-value for this test. What is the decision for this test, do we reject the null hypothesis or fail to reject the null hypothesis? Give an English sentence summarizing the conclusion.</p>
 <a href = "javascript:showhide('Q20')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q20" style="display:none;">
 <ul>
@@ -699,6 +734,18 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
 <p>Even though the proportion of indicators that suggested good health was less that 60%, it was not statistically significantly less than 60%. Unless future research indicates to the contrary, we cannot say that the water quality in this river has decreased.</p>
 <p><br></p>
 </div>
+</div>
+<div id="working-here" class="section level2">
+<h2>Working Here</h2>
+</div>
+<div id="working-here-1" class="section level2">
+<h2>Working Here</h2>
+</div>
+<div id="working-here-2" class="section level2">
+<h2>Working Here</h2>
+</div>
+<div id="working-here-3" class="section level2">
+<h2>Working Here</h2>
 </div>
 <div id="confidence-interval-for-one-proportion" class="section level2">
 <h2>Confidence Interval for One Proportion</h2>
@@ -721,9 +768,10 @@ z = \frac{\widehat p - p}{\sqrt{\frac{p(1-p)}{n}}}
         ylab = &quot;Number of Students&quot;,
         main = &quot;Honesty of Medical Students&quot;)</code></pre>
 </div>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><img src = "Images/Step4.png"></p>
-<p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students in the U.S.</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, <span class="math inline">\(p\)</span>. <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span> is just a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
+<p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students in the U.S.</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, <span class="math inline">\(p\)</span>.</p>
+<p>The statistic <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span> is just a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
 <p>A point estimate like <span class="math inline">\(\hat p\)</span> is helpful, but it does not give us direct information on <em>how close</em> it is to the true parameter, <span class="math inline">\(p\)</span>. We use a confidence interval to find a range of plausible values for the parameter.</p>
 </div>
 <div id="confidence-interval-for-the-true-proportion" class="section level3">
