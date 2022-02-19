@@ -386,19 +386,17 @@ $(document).ready(function () {
 <li><a href="#r-instructions-for-a-hypothesis-test-for-one-proportion">R Instructions for a Hypothesis Test for One Proportion</a></li>
 <li><a href="#case-study-water-quality">Case Study: Water Quality</a></li>
 </ul></li>
-<li><a href="#working-here">Working Here</a></li>
-<li><a href="#working-here-1">Working Here</a></li>
-<li><a href="#working-here-2">Working Here</a></li>
-<li><a href="#working-here-3">Working Here</a></li>
 <li><a href="#confidence-interval-for-one-proportion">Confidence Interval for One Proportion</a>
 <ul>
 <li><a href="#case-study-honesty-at-medical-school">Case Study: Honesty at Medical School</a></li>
 <li><a href="#confidence-interval-for-the-true-proportion">Confidence Interval for the True Proportion</a></li>
+<li><a href="#r-instructions-for-computing-a-confidence-interval-for-one-proportion">R Instructions for Computing a Confidence Interval for One Proportion</a></li>
 <li><a href="#case-study-another-study-on-honesty-at-medical-school">Case Study: Another Study on Honesty at Medical School</a></li>
 </ul></li>
 <li><a href="#sample-size-calculations">Sample Size Calculations</a>
 <ul>
-<li><a href="#example">Example</a></li>
+<li><a href="#example-prior-estimate-of-p-is-available">Example: Prior Estimate of <span class="math inline">\(p\)</span> is Available</a></li>
+<li><a href="#example-no-prior-estimate-of-p-is-available">Example: No Prior Estimate of <span class="math inline">\(p\)</span> is Available</a></li>
 </ul></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#navigation">Navigation</a></li>
@@ -496,7 +494,7 @@ R Instructions
 <p>Here are the instructions for conducting a hypothesis test for one proportion in R:</p>
 <p><strong>Step 1.</strong> Use RStudio to run the code in the file <a href="./scripts/one_proportion_function.R">one_proportion_function.R</a>. This will load a function that will conduct the test for one proportion.</p>
 <p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: p = 0.70\)</span> and the alternative was <span class="math inline">\(H_a: p \neq 0.70\)</span>.</p>
-<p><strong>Step 3.</strong> Use <code>one_prop_test(...)</code> as follows to run the One Sample t Test in R.</p>
+<p><strong>Step 3.</strong> Use <code>one_prop_test(...)</code> as follows to run the test for one proportion in R.</p>
 <p>A few notes about using this function:</p>
 <ul>
 <li>The number of successes is entered using the parameter <strong>x</strong></li>
@@ -508,10 +506,12 @@ R Instructions
 </ul>
 <p>When, the above <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
 <pre class="r"><code>one_prop_test(x = 89, n = 118, p = 0.70, alternative = &quot;two.sided&quot;)</code></pre>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre><code>## 
 ## 
-##     Check for normality of p^:    
+##     One Proportion z-Test    
 ##  
+##    Check for normality of p^:     
 ## Hypothesis Test: 
 ## np =  82.6 
 ## n(1-p) =  35.4 
@@ -519,8 +519,7 @@ R Instructions
 ## np^ =  89 
 ## n(1-p^) =  29
 ## 
-##     One Proportion z-Test    
-## 
+##   Hypothesis Test and Confidence Intervals
 ## z = 1.2857, p-value = 0.1986
 ## Alternative hypothesis: True population proportion is not equal to 0.7
 ## 95 percent confidence interval: 
@@ -536,7 +535,7 @@ R Instructions
 <li><span class="math inline">\(n(1-p) \ge 10\)</span></li>
 </ul>
 <p>then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, <span class="math inline">\(\widehat p\)</span>, is approximately normal. <!-- Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$. --></p>
-<p>As you can see from the output above, the requirements are satisfied for the PTC data: <span class="math display">\[
+<p>As you can see from the output above, the requirements for conducting a hypotehsis test for one proportion are satisfied for the PTC data: <span class="math display">\[
 \begin{array}{ll}
 np = 118 \cdot 0.70 = 82.6 \ge 10               &amp; \surd \\
 n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 &amp; \surd
@@ -603,10 +602,12 @@ Answer the following question:
 <p><img src = "Images/Step3.png"></p>
 <p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. We enter this information into the <code>one_prop_test(...)</code> function:</p>
 <pre class="r"><code>one_prop_test(x = 19, n = 40, p = 0.60, alternative = &quot;less&quot;)</code></pre>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre><code>## 
 ## 
-##     Check for normality of p^:    
+##     One Proportion z-Test    
 ##  
+##    Check for normality of p^:     
 ## Hypothesis Test: 
 ## np =  24 
 ## n(1-p) =  16 
@@ -614,8 +615,7 @@ Answer the following question:
 ## np^ =  19 
 ## n(1-p^) =  21
 ## 
-##     One Proportion z-Test    
-## 
+##   Hypothesis Test and Confidence Intervals
 ## z = -1.6137, p-value = 0.0533
 ## Alternative hypothesis: True population proportion is less than 0.6
 ## 95 percent confidence interval: 
@@ -634,7 +634,9 @@ Answer the following question:
 <div id="Q15" style="display:none;">
 <p><span class="math display">\[
 \widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~~\text{or}~~47.5\%
-\]</span> <!--
+\]</span></p>
+<p>This value is given in the output of the function <code>one_prop_test</code> above.</p>
+<!--
 
 ```r
 mytable <- c(`Good Health` = 19, `Poor Health` = 21)
@@ -645,7 +647,7 @@ barplot(mytable,
 ```
 
 <img src="Lesson17_files/figure-html/unnamed-chunk-6-1.png" width="672" />
---></p>
+-->
 </div>
 <p> </p>
 </div>
@@ -735,18 +737,6 @@ P\text{-value} = 0.0533
 <p><br></p>
 </div>
 </div>
-<div id="working-here" class="section level2">
-<h2>Working Here</h2>
-</div>
-<div id="working-here-1" class="section level2">
-<h2>Working Here</h2>
-</div>
-<div id="working-here-2" class="section level2">
-<h2>Working Here</h2>
-</div>
-<div id="working-here-3" class="section level2">
-<h2>Working Here</h2>
-</div>
 <div id="confidence-interval-for-one-proportion" class="section level2">
 <h2>Confidence Interval for One Proportion</h2>
 <div id="case-study-honesty-at-medical-school" class="section level3">
@@ -770,14 +760,17 @@ P\text{-value} = 0.0533
 </div>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><img src = "Images/Step4.png"></p>
-<p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students in the U.S.</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, <span class="math inline">\(p\)</span>.</p>
-<p>The statistic <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span> is just a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
+<p>This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of <em>all medical students who are like these</em>. While it is interesting to know that 58.2% of students at <em>these two medical schools that were sampled</em> had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students that had cheated at some point, <span class="math inline">\(p\)</span>.</p>
+<p>The sample statistic <span class="math inline">\(\hat p\)</span> is called a <strong>point estimate</strong> of the population parameter <span class="math inline">\(p\)</span>. The sample proportion, <span class="math inline">\(\hat p\)</span>, is a single <em>point</em> on the number line that estimates the value of the true proportion, <span class="math inline">\(p\)</span>.</p>
 <p>A point estimate like <span class="math inline">\(\hat p\)</span> is helpful, but it does not give us direct information on <em>how close</em> it is to the true parameter, <span class="math inline">\(p\)</span>. We use a confidence interval to find a range of plausible values for the parameter.</p>
 </div>
 <div id="confidence-interval-for-the-true-proportion" class="section level3">
 <h3>Confidence Interval for the True Proportion</h3>
-<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract a certain number of standard deviations from this value.</p>
+<p>To find a confidence interval for the population proportion, <span class="math inline">\(p\)</span>, we follow the same pattern as was done in the estimates for <span class="math inline">\(\mu\)</span> in the lesson titled <a href="Lesson10.html">Inference for One Mean: Sigma Known (Confidence Interval)</a>. We start with the point estimate of <span class="math inline">\(p\)</span> and we add and subtract the margin of error (a certain number of standard deviations) from this value.</p>
 <p>The point estimate for <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. You might want to review the mean and standard deviation of the random variable <span class="math inline">\(\widehat p\)</span> in the lesson on <a href="Lesson16.html">Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion</a>. We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, <span class="math inline">\(p\)</span>.</p>
+<p><strong>Optional Reading: Computation of a Confidence Interval for One Proportion (Hidden)</strong></p>
+<a href = "javascript:showhide('propZci')"><span style="font-size:8pt;">Click Here if you love Math</span></a>
+<div id="propZci" style="display:none;">
 <div class="myemphasis">
 <p>The formula for the confidence interval for one proportion is: <span class="math display">\[
 \underbrace{\widehat p}_\text{point estimate} \pm \ \ \  \underbrace{z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}}_\text{margin of error}
@@ -797,10 +790,56 @@ P\text{-value} = 0.0533
  = \frac{249}{428} + 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
  = 0.629 }
 \]</span></p>
-<p>The 95% confidence interval for the true proportion of medical students who cheat is: <span class="math inline">\((0.535, 0.629)\)</span>. To interpret this interval, we say that we are 95% confident that the true proportion of people who cheat in medical school is between 0.535 and 0.629. This represents the range of plausible values for the true proportion of students who cheat at these medical schools.</p>
+<p>The 95% confidence interval for <span class="math inline">\(p\)</span> is <span class="math inline">\((0.535, ~ 0.629)\)</span>.</p>
+<p><br></p>
+</div>
+<p><br></p>
+</div>
+<div id="r-instructions-for-computing-a-confidence-interval-for-one-proportion" class="section level3">
+<h3>R Instructions for Computing a Confidence Interval for One Proportion</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p>Here are the instructions for finding a confidence interval for one proportion in R:</p>
+<p><strong>Step 1.</strong> Use RStudio to run the code in the file <a href="./scripts/one_proportion_function.R">one_proportion_function.R</a>. This will load a function that will allow you to compute the confidence interval for one proportion.</p>
+<p><strong>Step 2.</strong> Use <code>one_prop_test(...)</code> as follows to compute the confidence interval for one proportion in R.</p>
+<p>A few notes about using this function:</p>
+<ul>
+<li>The number of successes is entered using the parameter <strong>x</strong></li>
+<li>The total number of trials is specified using the parameter <strong>n</strong></li>
+<li>By default the <code>one_prop_test(...)</code> function uses a 95% confidence level. If you wanted to use a different confidence level, you can specify your level of significance using the argument <code>conf.level =</code> as follows: <code>one_prop_test(..., conf.level = 0.99)</code> or <code>one_prop_test(..., conf.level = 0.90)</code>.</li>
+</ul>
+<p>When, the <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
+<pre class="r"><code>one_prop_test(x = 89, n = 118, conf.level = 0.95)</code></pre>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre><code>## 
+## 
+##     One Proportion z-Test    
+##  
+##    Check for normality of p^:     
+## Hypothesis Test: 
+## np =  59 
+## n(1-p) =  59 
+## Confidence Interval:  
+## np^ =  89 
+## n(1-p^) =  29
+## 
+##   Hypothesis Test and Confidence Intervals
+## z = 5.5234, p-value = 3.32e-08
+## Alternative hypothesis: True population proportion is not equal to 0.5
+## 95 percent confidence interval: 
+##   0.677, 0.832
+## Sample Estimates: 
+## p^ = 0.754</code></pre>
+<p><br></p>
+</div>
+<p><br></p>
+<p>The 95% confidence interval for the true proportion of medical students who cheat is: <span class="math inline">\((0.535, 0.629)\)</span>.</p>
+<p>To interpret this interval, we say that we are 95% confident that the true proportion of people who cheat in medical school is between 0.535 and 0.629. This represents the range of plausible values for the true proportion of students who cheat at these medical schools.</p>
 <div id="requirement" class="section level4">
 <h4>Requirement</h4>
-<p>Like other procedures, there are requirements that must be checked in order for this confidence interval to be valid. The confidence intervals are valid whenever <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>. Notice that for the data on cheating in medical school, we have <span class="math inline">\(428 * 0.582 = 249\)</span> and <span class="math inline">\(428 * (1-0.582) = 179\)</span> which are both greater than 10, so this requirement is satisfied.</p>
+<p>Like other procedures, there are requirements that must be checked in order for this confidence interval to be valid. The confidence intervals are valid whenever <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>. Notice that for the data on cheating in medical school, we have <span class="math inline">\(428 \cdot 0.582 = 249\)</span> and <span class="math inline">\(428 \cdot (1-0.582) = 179\)</span> which are both greater than 10, so this requirement is satisfied.</p>
 </div>
 </div>
 <div id="case-study-another-study-on-honesty-at-medical-school" class="section level3">
@@ -811,13 +850,37 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol style="list-style-type: decimal">
-<li>Are the requirements for creating a confidence interval satisfied?</li>
+<li>Use R to compute a 99% confidence interval for the true proportion of medical students who cheat, based on this study.</li>
 </ol>
-<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q1" style="display:none;">
-<ul>
-<li>Yes, <span class="math inline">\(2426*0.047 = 114\)</span> and <span class="math inline">\(2426*(1-0.047) = 2312\)</span>, so it is appropriate to use this procedure to estimate the true proportion of students who cheat in medical school.</li>
-</ul>
+<a href = "javascript:showhide('Q0')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q0" style="display:none;">
+<pre class="r"><code>one_prop_test(x = 114, n = 2426, conf.level = 0.99)</code></pre>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre><code>## 
+## 
+##     One Proportion z-Test    
+##  
+##    Check for normality of p^:     
+## Hypothesis Test: 
+## np =  1213 
+## n(1-p) =  1213 
+## Confidence Interval:  
+## np^ =  114 
+## n(1-p^) =  2312
+## 
+##   Hypothesis Test and Confidence Intervals
+## z = -44.6254, p-value = 0
+## Alternative hypothesis: True population proportion is not equal to 0.5
+## 99 percent confidence interval: 
+##   0.036, 0.058
+## Sample Estimates: 
+## p^ = 0.047</code></pre>
+The 99% confidence interval for the true proportion of medical school students who cheat is
+<center>
+<span class="math display">\[
+(0.036, ~ 0.058)
+\]</span>
+</center>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -833,71 +896,55 @@ Answer the following questions:
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Co calculate the lower bound for the 95% confidence interval for the true proportion <span class="math inline">\(p\)</span>.</li>
+<li>Are the requirements for creating a confidence interval satisfied?</li>
 </ol>
-<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q3" style="display:none;">
-<p><span class="math display">\[
-\displaystyle{\widehat p - z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
- = \frac{114}{2426} - 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
- = 0.039}
-\]</span></p>
-</div>
-<p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Calculate the 95% confidence interval for the true proportion of medical students who cheat based on the data from this larger study.</li>
-</ol>
-<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q4" style="display:none;">
+<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q1" style="display:none;">
+<center>
+<span class="math display">\[
+\begin{array}{ll}
+n \hat p = 12426 \cdot 0.047 = 114 \ge 10               &amp; \surd \\
+n (1-\hat p) = 2426 \cdot (1-0.047) = 2312 \ge 10 &amp; \surd
+\end{array}
+\]</span>
+</center>
 <ul>
-<li>The upper bound for the 95% confidence interval for the true proportion of students who cheat in medical school is: <span class="math display">\[
-\widehat p + z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
- = \frac{114}{2426} + 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
- = 0.055
-\]</span></li>
-<li>So, the 95% confidence interval for the true proportion of students who cheat at medical school is: <span class="math inline">\((0.039, 0.055)\)</span></li>
+<li>Yes, so it is appropriate to compute a confidence interval to estimate the true proportion of students who cheat in medical school.</li>
 </ul>
 </div>
 <p><br></p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="4" style="list-style-type: decimal">
 <li>Compare the confidence intervals obtained from the Sierles study to the confidence interval from Baldwin’s study. How do the results compare to each other?</li>
 </ol>
 <a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
-<li>The first study concluded that the true proportion of cheaters in medical school is in the range (0.535,0.629), while the second study concluded a much lower range of possible proportions of cheaters (0.039,0.055). It seems quite likely that at least one of the studies is not accurate.</li>
+<li>The first study concluded that the true proportion of cheaters in medical school is in the range <span class="math inline">\((0.535, ~ 0.629)\)</span>, while the second study concluded a much lower range of possible proportions of cheaters <span class="math inline">\((0.036, ~ 0.058)\)</span>.<br />
+</li>
 </ul>
 </div>
 <p><br></p>
-<ol start="6" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>What are some possible factors that might explain the discrepancy in these two studies?</li>
 </ol>
 <a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <ul>
-<li>Possible factors could include: Elected class officers giving the surveys may have skewed results, perhaps the 31 schools have less cheating than the original 2, the non-participating schools may have skewed results. Another possibility is that cheating is more prevalent in the later years of medical school,since the second study only examined second-year students.</li>
+<li>Some possible factors might include: There may have been differences in the way the questions were worded that affected the results. Elected class officers giving the surveys may have skewed results. Perhaps cheating is less prevalent in the 31 schools compared with the original 2. Perhaps cheating is more prevalent in the later years of medical school, since the second study only examined second-year students.</li>
 </ul>
 </div>
 <p><br></p>
-<ol start="7" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li>How would you feel if you knew that your doctor cheated in medical school?</li>
 </ol>
 <a href = "javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
-<li>Any thoughtful answer is sufficient, but we would likely not be happy!</li>
+<li>Any thoughtful answer is sufficient, but you would probably not be happy about it!</li>
 </ul>
 </div>
 <p><br></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Write a paragraph explaining why it is important to you to be honest in all your dealings with your fellow men–including your academic pursuits. Be sure to include a discussion of your future plans with regard to this issue.</li>
-</ol>
-<a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q8" style="display:none;">
-<ul>
-<li>Any thoughtful paragraph is sufficient.</li>
-</ul>
-</div>
+<p>Why it is important to you to be honest in all your dealings with your fellow men–including your academic pursuits?</p>
 <p> </p>
 </div>
 <p><br></p>
@@ -916,19 +963,35 @@ m = z^* \sqrt{\frac{\widehat{p} (1- \widehat{p})}{n}}
 \]</span> If we solve this equation for <span class="math inline">\(n\)</span>, we get: <span class="math display">\[
 n = \left( \frac{z^*}{m} \right)^2 \widehat{p} (1-\widehat{p})
 \]</span> Note that this equation requires us to know the value of <span class="math inline">\(\widehat{p}\)</span>. Unless we do a study, we do not know the value of <span class="math inline">\(\widehat{p}\)</span>. Sometimes we have a prior estimate of the true proportion of successes, denoted <span class="math inline">\(p^*\)</span>.</p>
-<p><strong>If we have a prior estimate for <span class="math inline">\(\widehat{p}\)</span>,</strong> (namely <span class="math inline">\(p^*\)</span>,) we can plug this value into the equation above to compute the sample size required to obtain our desired margin of error: <span class="math display">\[
+<p><strong>If we have a prior estimate for <span class="math inline">\(\widehat{p}\)</span>,</strong> (let’s called it <span class="math inline">\(p^*\)</span>,) we can plug this value into the equation above to compute the sample size required to obtain our desired margin of error: <span class="math display">\[
 n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*)
 \]</span> where <span class="math inline">\(z^*\)</span> is determined by your confidence level, <span class="math inline">\(m\)</span> is your desired margin of error, and <span class="math inline">\(p^*\)</span> is an estimate of the true proportion of successes. <strong>If no prior estimate for <span class="math inline">\(p\)</span> is available</strong>, we can use the following formula to compute our sample size: <span class="math display">\[
 n = \left( \frac{z^*}{2m} \right)^2
 \]</span> The latter formula (where no prior estimate for <span class="math inline">\(p\)</span> is available) will result in excessively large sample sizes if <span class="math inline">\(p\)</span> is small (say, less than 0.3) or large (say, greater than 0.7.) Otherwise, the results for the two equations will be fairly similar.</p>
-<p>No matter what value you obtain for the sample size, if it is not a whole number <strong>round it up</strong> to the nearest whole number.</p>
-<div id="example" class="section level3">
-<h3>Example</h3>
+<p>No matter what value you obtain for the sample size, if it is not a whole number <strong>round it up</strong> to the nearest whole number. It doesn’t matter if the decimal part of the number of very small. Round it up anyway.</p>
+<p>For example, if you compute <span class="math inline">\(n = 96.11\)</span>, then the sample size required is <span class="math inline">\(97\)</span>.</p>
+<br>
+<div class="message Tip">
+<p><strong>Tip:</strong> When performing sample size calculations, if the value you compute for <span class="math inline">\(n\)</span> is not a whole number, round your <span class="math inline">\(n\)</span> up to the next highest whole number.</p>
+</div>
+<p><br> <br></p>
+<div id="example-prior-estimate-of-p-is-available" class="section level3">
+<h3>Example: Prior Estimate of <span class="math inline">\(p\)</span> is Available</h3>
 <p>If you want to find the sample size required to get a margin of error of <span class="math inline">\(m = 0.03\)</span> with 95% confidence, and previous studies have shown that the true proportion is approximately equal to <span class="math inline">\(p^* = 0.82\)</span>, then the sample size required would be: <span class="math display">\[
 \displaystyle {
 n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*) = \left( \frac{1.96}{0.03} \right)^2 (0.82) (1-0.82) = 630.02
 }
-\]</span> We need to round this answer up to the next larger whole number. So, you would need to collect <span class="math inline">\(n = 631\)</span> observations to obtain the desired margin of error.</p>
+\]</span> We need to round this answer up to the next larger whole number. You would need to collect <span class="math inline">\(n = 631\)</span> observations to obtain the desired margin of error. Notice that even though the decimal part of <span class="math inline">\(n\)</span> was small (<span class="math inline">\(0.02\)</span>,) we rounded <span class="math inline">\(n\)</span> up to the next largest integer.</p>
+<p><br></p>
+</div>
+<div id="example-no-prior-estimate-of-p-is-available" class="section level3">
+<h3>Example: No Prior Estimate of <span class="math inline">\(p\)</span> is Available</h3>
+<p>If you want to find the sample size required to get a margin of error of <span class="math inline">\(m = 0.03\)</span> with 95% confidence, but you have no way to estimate the value of <span class="math inline">\(p\)</span>, then the sample size required would be: <span class="math display">\[
+\displaystyle {
+n = \left( \frac{z^*}{2m} \right)^2 = \left( \frac{1.96}{2 \cdot 0.03} \right)^2  = 1067.111
+}
+\]</span> We need to round this answer up to the next larger whole number. You would need to collect <span class="math inline">\(n = 1068\)</span> observations to obtain the desired margin of error.</p>
+<p>The sample size required to provide the desired margin of error of <span class="math inline">\(m=0.03\)</span> can be much larger when we do not have an estimate of the true proportion. This is exactly what we observe in this case. If we estimate the value of <span class="math inline">\(p\)</span> to be <span class="math inline">\(p^* = 0.82\)</span>, we need <span class="math inline">\(n=631\)</span> observations to obtain a margin of error of <span class="math inline">\(0.03\)</span> with 95% confidence. However, if we have no prior estimate for <span class="math inline">\(p\)</span>, the sample size required to guarantee that we a margin of error of <span class="math inline">\(0.03\)</span> or less is <span class="math inline">\(1068\)</span>. This is a huge increase.</p>
 <p><br></p>
 </div>
 </div>
@@ -938,12 +1001,19 @@ n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*) = \left( \frac{1.96}{0.03} \right
 Remember…
 </div>
 <div class="Summary">
+<p><br></p>
 <ul>
-<li><p>The <strong>estimator</strong> of <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat p\)</span>. <span class="math inline">\(\displaystyle{ \widehat p = \frac {x}{n}}\)</span> and is used for both confidence intervals and hypothesis testing.</p></li>
-<li><p>The test statistic for a hypothesis test of one proportion is <span class="math inline">\(z = \frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}\)</span>. The p-value is computed using the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>.</p></li>
-<li><p>The equation for a confidence interval for the true proportion <span class="math inline">\(p\)</span> is <span class="math inline">\(\hat{p} \pm z*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></p></li>
-<li><p>The requirements for a confidence interval are <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>. The requirements for hypothesis tests involving one proportion are <span class="math inline">\(np\ge10\)</span> and <span class="math inline">\(n(1-p)\ge10\)</span>.</p></li>
-<li><p>We can determine the sample size we need to obtain a desired margin of error using the formula <span class="math inline">\(\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}\)</span> where <span class="math inline">\(p^*\)</span> is a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span>. If no prior estimate is available, the formula <span class="math inline">\(\displaystyle{ \left(\frac{z^*}{2m}\right)^2}\)</span> is used instead. In either case, we need to <em>round our answer up</em> to the next highest whole number.</p></li>
+<li><p>The <strong>estimator</strong> of <span class="math inline">\(p\)</span> is <span class="math inline">\(\displaystyle{ \widehat p = \frac {x}{n}}\)</span>.</p></li>
+<li><p>The test statistic for a hypothesis test of one proportion is <span class="math inline">\(z\)</span>. You can use the function <code>one_prop_test()</code> to perform the hypothesis test in R.</p></li>
+<li><p>The requirements for a hypothesis test involving one proportion are <span class="math inline">\(np\ge10\)</span> and <span class="math inline">\(n(1-p)\ge10\)</span>, where <span class="math inline">\(p\)</span> is the value given in the null hypothesis.</p></li>
+<li><p>A confidence interval for the true proportion <span class="math inline">\(p\)</span> can be computed in R using the function <code>one_prop_test()</code>.</p></li>
+<li><p>The requirements for a confidence interval are <span class="math inline">\(n \widehat p \ge 10\)</span> and <span class="math inline">\(n(1-\widehat p) \ge 10\)</span>.</p></li>
+<li><p>We can determine the sample size we need to obtain a desired margin of error using the following formulas:</p>
+<ul>
+<li><p>If a <strong>prior estimate</strong> of <span class="math inline">\(p\)</span> (called <span class="math inline">\(p^*\)</span>) is available: <span class="math display">\[\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*) }\]</span></p></li>
+<li><p>If no prior estimate is available, we use the formula <span class="math display">\[\displaystyle{ n = \left(\frac{z^*}{2m}\right)^2 \phantom{p^*(1-p^*)} }\]</span></p></li>
+<li><p>In either case, if the value you get for <span class="math inline">\(n\)</span> is not a whole number, <em>round up</em> to the next highest whole number.</p></li>
+</ul></li>
 </ul>
 <p><br></p>
 </div>

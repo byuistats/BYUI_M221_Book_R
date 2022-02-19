@@ -26,25 +26,35 @@ two_prop_test <- function(x1, x2, n1, n2, p1 = .5, p2 = .5, alternative = "two.s
     highconf <- "INF"
   }
   
-  cat("\n\n    Check for normality of p\U0302s:    \n",
+  plot_data <- cbind("Proportion 1" = c(x1, n1 - x1),
+                     "Proportion 2" = c(x2, n2 - x2))
+  barplot(plot_data, 
+          main = "Plot of Proportions", 
+          ylim = range(pretty(c(0,max(n1,n2)))),
+          col = c("darkolivegreen4","tan3"))
+  
+  
+  cat("\n  \n    Two Proportion z-Test  \n      \n",
+      "\nCheck for normality of p\U0302s:    ",
       "\nHypothesis Test:",
       "\nn\U2081p\U2081 = ", n1 * p1, "n\U2082p\U2082 = ", n2 * p2,
       "\nn\U2081(1-p\U2081) = ", n1 * (1 - p1), "n\U2082(1-p\U2082) = ", n2 * (1 - p2),
       "\nConfidence Interval: ",
-      "\n\U2081np\U0302\U2081 = ", n1 * phat1, "n\U2082p\U0302\U2082 = ", n2 * phat2,
-      "\nn\U2082(1-p\U0302\U2081) = ", (n1 * (1 - phat1)), "\nn\U2082(1-p\U0302\U2082) = ", (n2 * (1 - phat2)))
+      "\nn\U2081p\U0302\U2081 = ", n1 * phat1, "n\U2081(1-p\U0302\U2081) = ", (n1 * (1 - phat1)),
+      "\nn\U2082p\U0302\U2082 = ", n2 * phat2,  "n\U2082(1-p\U0302\U2082) = ", (n2 * (1 - phat2)))
   if (n1 * p1 < 10 || n1 * (1 - p1) < 10 || n2 * p2 < 10 || n2 * (1 - p2) < 10 ) {
     cat("\nTesting requirements are not met.")
   }
   
+  
   cat( 
-    "\n\n    Two Proportion z-Test    \n",
+    "\n\nHypothesis Test and Confidence Interval",
     "\nz = ", round(z.score,4),", p-value = ", pval,
     "\nAlternative hypothesis: True population proportion is ", test, (p1-p2), 
     "\n", (100 * conf.level), " percent confidence interval: ",
     "\n  ",lowconf, ", ", highconf,
     "\nSample Estimates: ",
-    "\np\U0302\U2081 = ", signif(phat1, 3), " p\U0302\U2082 = ", signif(phat2, 3),
+    "\np\U0302\U2081 = ", signif(phat1, 3), ", p\U0302\U2082 = ", signif(phat2, 3),
     "\n", sep = ""
   )
 }

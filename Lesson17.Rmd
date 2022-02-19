@@ -129,7 +129,7 @@ Here are the instructions for conducting a hypothesis test for one proportion in
 
 **Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: p = 0.70$ and the alternative was $H_a: p \neq 0.70$.
 
-**Step 3.** Use `one_prop_test(...)` as follows to run the One Sample t Test in R.
+**Step 3.** Use `one_prop_test(...)` as follows to run the test for one proportion in R.
 
 A few notes about using this function:
 
@@ -168,7 +168,7 @@ If the following conditions are satisfied:
 then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, $\widehat p$, is approximately normal.
 <!-- Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$. -->
 
-As you can see from the output above, the requirements are satisfied for the PTC data:
+As you can see from the output above, the requirements for conducting a hypotehsis test for one proportion are satisfied for the PTC data:
 $$
 \begin{array}{ll}
 np = 118 \cdot 0.70 = 82.6 \ge 10 				& \surd \\
@@ -285,6 +285,9 @@ Use this information to answer the following question.
 $$
 \widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~~\text{or}~~47.5\%
 $$
+
+This value is given in the output of the function `one_prop_test` above.
+
 <!--
 ```{r}
 mytable <- c(`Good Health` = 19, `Poor Health` = 21)
@@ -294,8 +297,6 @@ barplot(mytable,
         ylab = "Number of Macroinvertebrates")
 ```
 -->
-
-
 </div>
 &nbsp;
 </div>
@@ -389,33 +390,6 @@ Even though the proportion of indicators that suggested good health was less tha
 
 
 
-
-
-
-
-
-
-
-
-## Working Here
-
-## Working Here
-
-## Working Here
-
-## Working Here
-
-
-
-
-
-
-
-
-
-
-
-
 ## Confidence Interval for One Proportion
 
 ### Case Study: Honesty at Medical School
@@ -459,17 +433,27 @@ barplot(c(249, 428-249),
 
 <img src = "./Images/Step4.png">
 
-This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of *all medical students in the U.S.*.  While it is interesting to know that 58.2% of students at *these two medical schools that were sampled* had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students in the U.S. that had cheated at some point, $p$. 
+This study only studied two medical schools in the U.S. However, we would really like to use the data from this study to generalize to the larger population of *all medical students who are like these*.  While it is interesting to know that 58.2% of students at *these two medical schools that were sampled* had cheated at some point in their education, the reason the study was conducted is to provide an estimate of the true proportion of medical students that had cheated at some point, $p$. 
 
-The statistic $\hat p$ is called a **point estimate** of $p$.  The sample proportion, $\hat p$ is just a single *point* on the number line that estimates the value of the true proportion, $p$.
+The sample statistic $\hat p$ is called a **point estimate** of the population parameter $p$.  The sample proportion, $\hat p$, is a single *point* on the number line that estimates the value of the true proportion, $p$.
 
 A point estimate like $\hat p$ is helpful, but it does not give us direct information on *how close* it is to the true parameter, $p$.  We use a confidence interval to find a range of plausible values for the parameter.
 
 ### Confidence Interval for the True Proportion
 
-To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html).  We start with the point estimate of $p$ and we add and subtract a certain number of standard deviations from this value.
+To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html).  We start with the point estimate of $p$ and we add and subtract the margin of error (a certain number of standard deviations) from this value.
 
 The point estimate for $p$ is $\widehat p$.  You might want to review the mean and standard deviation of the random variable $\widehat p$ in the lesson on [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html). We use the equations for the mean and standard deviation of the sample proportion to create a confidence interval for the true population proportion, $p$.
+
+
+
+
+
+**Optional Reading: Computation of a Confidence Interval for One Proportion (Hidden)**
+  
+<a href = "javascript:showhide('propZci')"><span style = "font-size:8pt;">Click Here if you love Math</span></a>
+<div id = "propZci" style = "display:none;">
+
 
 <div class = "myemphasis">
 
@@ -481,6 +465,8 @@ $$
 $$\text{where }\displaystyle{ \widehat p = \frac{x}{n} }$$.
 
 </div>
+
+
 
 You can use the normal probability applet to compute $z^*$.  Please see the lesson on [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html) if you need to review this procedure.
 
@@ -501,14 +487,58 @@ $$
  = \frac{249}{428} + 1.96 \sqrt{\frac{\frac{249}{428} \left(1-\frac{249}{428}\right)}{428}}
  = 0.629 }
 $$
+     
+The 95% confidence interval for $p$ is $(0.535, ~ 0.629)$.
+
+<br>
+</div>
+<br>
+
+
+
+
+
+
+
+
+### R Instructions for Computing a Confidence Interval for One Proportion
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+Here are the instructions for finding a confidence interval for one proportion in R:
+
+**Step 1.** Use RStudio to run the code in the file [one_proportion_function.R](./scripts/one_proportion_function.R). This will load a function that will allow you to compute the confidence interval for one proportion.
+
+
+**Step 2.** Use `one_prop_test(...)` as follows to compute the confidence interval for one proportion in R.
+
+A few notes about using this function:
+
+* The number of successes is entered using the parameter **x**
+* The total number of trials is specified using the parameter **n**
+* By default the `one_prop_test(...)` function uses a 95% confidence level. If you wanted to use a different confidence level, you can specify your level of significance using the argument `conf.level = ` as follows:
+`one_prop_test(..., conf.level = 0.99)` or `one_prop_test(..., conf.level = 0.90)`.
+
+When, the `one_prop_test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
+
+```{r}
+one_prop_test(x = 89, n = 118, conf.level = 0.95)
+```
+
+<br>
+</div>
+<br>
+
 
 The 95% confidence interval for the true proportion of medical students who cheat is: $(0.535, 0.629)$.
+
 To interpret this interval, we say that we are 95% confident that the true proportion of people who cheat in medical school is between 0.535 and 0.629.  This represents the range of plausible values for the true proportion of students who cheat at these medical schools.
+
 
 #### Requirement
 
 Like other procedures, there are requirements that must be checked in order for this confidence interval to be valid.
-The confidence intervals are valid whenever $n \widehat p \ge 10$ and $n(1-\widehat p) \ge 10$. Notice that for the data on cheating in medical school, we have $428 * 0.582 = 249$ and $428 * (1-0.582) = 179$ which are both greater than 10, so this requirement is satisfied.
+The confidence intervals are valid whenever $n \widehat p \ge 10$ and $n(1-\widehat p) \ge 10$. Notice that for the data on cheating in medical school, we have $428 \cdot 0.582 = 249$ and $428 \cdot (1-0.582) = 179$ which are both greater than 10, so this requirement is satisfied.
 
 
 
@@ -518,11 +548,21 @@ DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespr
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
-1. Are the requirements for creating a confidence interval satisfied?
+1. Use R to compute a 99% confidence interval for the true proportion of medical students who cheat, based on this study.
 
-<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q1" style = "display:none;">
-* Yes, $2426*0.047 = 114$ and $2426*(1-0.047) = 2312$, so it is appropriate to use this procedure to estimate the true proportion of students who cheat in medical school.
+<a href = "javascript:showhide('Q0')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q0" style = "display:none;">
+
+```{r}
+one_prop_test(x = 114, n = 2426, conf.level = 0.99)
+```
+
+The 99% confidence interval for the true proportion of medical school students who cheat is
+<center>
+$$
+(0.036, ~ 0.058)
+$$
+</center>
 </div>
 <br>
 
@@ -538,65 +578,49 @@ $$
 </div>
 <br>
 
-3. Co calculate the lower bound for the 95% confidence interval for the true proportion $p$.
+3. Are the requirements for creating a confidence interval satisfied?
 
-<a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q3" style = "display:none;">
-
-
+<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q1" style = "display:none;">
+<center>
 $$
-\displaystyle{\widehat p - z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
- = \frac{114}{2426} - 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
- = 0.039}
+\begin{array}{ll}
+n \hat p = 12426 \cdot 0.047 = 114 \ge 10 				& \surd \\
+n (1-\hat p) = 2426 \cdot (1-0.047) = 2312 \ge 10 & \surd
+\end{array}
 $$
-
+</center>
+* Yes, so it is appropriate to compute a confidence interval to estimate the true proportion of students who cheat in medical school.
 </div>
 <br>
 
-4. Calculate the 95% confidence interval for the true proportion of medical students who cheat based on the data from this larger study.
 
-<a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q4" style = "display:none;">
-* The upper bound for the 95% confidence interval for the true proportion of students who cheat in medical school is:
-$$
-\widehat p + z^* \sqrt{\frac{\widehat p (1-\widehat p)}{n}}
- = \frac{114}{2426} + 1.96 \sqrt{\frac{\frac{114}{2426} \left(1-\frac{114}{2426}\right)}{2426}}
- = 0.055
-$$
-* So, the 95% confidence interval for the true proportion of students who cheat at medical school is: $(0.039, 0.055)$
-</div>
-<br>
-
-5. Compare the confidence intervals obtained from the Sierles study to the confidence interval from Baldwin's study.  How do the results compare to each other?
+4. Compare the confidence intervals obtained from the Sierles study to the confidence interval from Baldwin's study.  How do the results compare to each other?
 
 <a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q5" style = "display:none;">
-* The first study concluded that the true proportion of cheaters in medical school is in the range (0.535,0.629), while the second study concluded a much lower range of possible proportions of cheaters (0.039,0.055).  It seems quite likely that at least one of the studies is not accurate.
+* The first study concluded that the true proportion of cheaters in medical school is in the range $(0.535, ~ 0.629)$, while the second study concluded a much lower range of possible proportions of cheaters $(0.036, ~ 0.058)$.  
 </div>
 <br>
 
-6. What are some possible factors that might explain the discrepancy in these two studies?
+5. What are some possible factors that might explain the discrepancy in these two studies?
 
 <a href = "javascript:showhide('Q6')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q6" style = "display:none;">
-* Possible factors could include:  Elected class officers giving the surveys may have skewed results, perhaps the 31 schools have less cheating than the original 2, the non-participating schools may have skewed results.  Another possibility is that cheating is more prevalent in the later years of medical school,since the second study only examined second-year students.
+* Some possible factors might include:  There may have been differences in the way the questions were worded that affected the results. Elected class officers giving the surveys may have skewed results. Perhaps cheating is less prevalent in the 31 schools compared with the original 2.  Perhaps cheating is more prevalent in the later years of medical school, since the second study only examined second-year students.
 </div>
 <br>
 
-7. How would you feel if you knew that your doctor cheated in medical school?
+6. How would you feel if you knew that your doctor cheated in medical school?
 
 <a href = "javascript:showhide('Q7')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q7" style = "display:none;">
-* Any thoughtful answer is sufficient, but we would likely not be happy!
+* Any thoughtful answer is sufficient, but you would probably not be happy about it!
 </div>
 <br>
 
-8. Write a paragraph explaining why it is important to you to be honest in all your dealings with your fellow men--including your academic pursuits.  Be sure to include a discussion of your future plans with regard to this issue.
+Why it is important to you to be honest in all your dealings with your fellow men--including your academic pursuits?
 
-<a href = "javascript:showhide('Q8')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q8" style = "display:none;">
-* Any thoughtful paragraph is sufficient.
-</div>
 &nbsp;
 </div>
 <br>
@@ -621,7 +645,7 @@ $$
 Note that this equation requires us to know the value of $\widehat{p}$.  Unless we do a study, we do not know the value of $\widehat{p}$.
 Sometimes we have a prior estimate of the true proportion of successes, denoted $p^*$.
 
-**If we have a prior estimate for $\widehat{p}$,** (namely $p^*$,) we can plug this value into the equation above to compute the sample size required to obtain our desired margin of error:
+**If we have a prior estimate for $\widehat{p}$,** (let's called it $p^*$,) we can plug this value into the equation above to compute the sample size required to obtain our desired margin of error:
 $$
 n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*)
 $$
@@ -632,9 +656,18 @@ n = \left( \frac{z^*}{2m} \right)^2
 $$
 The latter formula (where no prior estimate for $p$ is available) will result in excessively large sample sizes if $p$ is small (say, less than 0.3) or large (say, greater than 0.7.)  Otherwise, the results for the two equations will be fairly similar.
 
-No matter what value you obtain for the sample size, if it is not a whole number **round it up** to the nearest whole number.
+No matter what value you obtain for the sample size, if it is not a whole number **round it up** to the nearest whole number. It doesn't matter if the decimal part of the number of very small. Round it up anyway. 
 
-### Example
+For example, if you compute $n = 96.11$, then the sample size required is $97$.
+
+<br>
+<div class = "message Tip">**Tip:**  When performing sample size calculations, if the value you compute for $n$ is not a whole number, round your $n$ up to the next highest whole number. 
+</div>
+<br>
+<br>
+
+
+### Example: Prior Estimate of $p$ is Available
 
 If you want to find the sample size required to get a margin of error of $m = 0.03$ with 95% confidence, and previous studies have shown that the true proportion is approximately equal to $p^* = 0.82$, then the sample size required would be:
 $$
@@ -642,7 +675,22 @@ $$
 n = \left( \frac{z^*}{m} \right)^2 p^* (1-p^*) = \left( \frac{1.96}{0.03} \right)^2 (0.82) (1-0.82) = 630.02
 }
 $$
-We need to round this answer up to the next larger whole number.  So, you would need to collect $n = 631$ observations to obtain the desired margin of error.
+We need to round this answer up to the next larger whole number. You would need to collect $n = 631$ observations to obtain the desired margin of error. Notice that even though the decimal part of $n$ was small ($0.02$,) we rounded $n$ up to the next largest integer.
+
+<br>
+
+
+### Example: No Prior Estimate of $p$ is Available
+
+If you want to find the sample size required to get a margin of error of $m = 0.03$ with 95% confidence, but you have no way to estimate the value of $p$, then the sample size required would be:
+$$
+\displaystyle {
+n = \left( \frac{z^*}{2m} \right)^2 = \left( \frac{1.96}{2 \cdot 0.03} \right)^2  = 1067.111
+}
+$$
+We need to round this answer up to the next larger whole number. You would need to collect $n = 1068$ observations to obtain the desired margin of error.
+
+The sample size required to provide the desired margin of error of $m=0.03$ can be much larger when we do not have an estimate of the true proportion. This is exactly what we observe in this case. If we estimate the value of $p$ to be $p^* = 0.82$, we need $n=631$ observations to obtain a margin of error of $0.03$ with 95% confidence. However, if we have no prior estimate for $p$, the sample size required to guarantee that we a margin of error of $0.03$ or less is $1068$. This is a huge increase.
 
 <br>
 
@@ -653,15 +701,27 @@ We need to round this answer up to the next larger whole number.  So, you would 
 <div class = "SummaryHeading">Remember...</div>
 <div class = "Summary">
 
-- The **estimator** of $p$ is $\widehat p$. $\displaystyle{ \widehat p = \frac {x}{n}}$ and is used for both confidence intervals and hypothesis testing.
+<br>
 
-- The test statistic for a hypothesis test of one proportion is $z = \frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}$. The p-value is computed using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html).
+- The **estimator** of $p$ is $\displaystyle{ \widehat p = \frac {x}{n}}$.
 
-- The equation for a confidence interval for the true proportion $p$ is $\hat{p} \pm z*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
+- The test statistic for a hypothesis test of one proportion is $z$. You can use the function `one_prop_test()` to perform the hypothesis test in R.
 
-- The requirements for a confidence interval are $n \widehat p \ge 10$ and $n(1-\widehat p) \ge 10$. The requirements for hypothesis tests involving one proportion are $np\ge10$ and $n(1-p)\ge10$.
+- The requirements for a hypothesis test involving one proportion are $np\ge10$ and $n(1-p)\ge10$, where $p$ is the value given in the null hypothesis.
 
-- We can determine the sample size we need to obtain a desired margin of error using the formula $\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}$ where $p^*$ is a **prior estimate** of $p$. If no prior estimate is available, the formula $\displaystyle{ \left(\frac{z^*}{2m}\right)^2}$ is used instead. In either case, we need to *round our answer up* to the next highest whole number.
+- A confidence interval for the true proportion $p$ can be computed in R using the function `one_prop_test()`.
+
+- The requirements for a confidence interval are $n \widehat p \ge 10$ and $n(1-\widehat p) \ge 10$. 
+
+- We can determine the sample size we need to obtain a desired margin of error using the following formulas:
+
+  + If a **prior estimate** of $p$ (called $p^*$) is available:
+    $$\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*) }$$
+    
+  + If no prior estimate is available, we use the formula 
+    $$\displaystyle{ n = \left(\frac{z^*}{2m}\right)^2 \phantom{p^*(1-p^*)} }$$
+    
+  + In either case, if the value you get for $n$ is not a whole number, *round up* to the next highest whole number.
 
 <br>
 

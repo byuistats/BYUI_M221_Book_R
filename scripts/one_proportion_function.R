@@ -25,27 +25,26 @@ one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
     highconf <- "INF"
   }
   
-  if (n * p < 10 || n * (1 - p) < 10) {
-    cat("\n\n    Check for normality of p\U0302:    \n",
-        "\nHypothesis Test:",
-        "\nnp = ", n * p,
-        "\nn(1-p) = ", n * (1 - p),
-        "\nConfidence Interval: ",
-        "\nnp\U0302 = ", n * phat,
-        "\nn(1-p\U0302) = ", n * (1 - phat),
-        "\nTesting requirements are not met.")
-  } else {
-    cat("\n\n    Check for normality of p\U0302:    \n",
-        "\nHypothesis Test:",
-        "\nnp = ", n * p,
-        "\nn(1-p) = ", n * (1 - p),
-        "\nConfidence Interval: ",
-        "\nnp\U0302 = ", n * phat,
-        "\nn(1-p\U0302) = ", n * (1 - phat))
+  barplot(c(x, n - x), 
+          names.arg = c("Success", "Failure"), 
+          ylim = range(pretty(c(0,n))), 
+          main = "Plot of Proportions",
+          col = c("darkolivegreen4", "tan3"))
+  cat( "\n\n    One Proportion z-Test    \n",
+       "\n   Check for normality of p\U0302:    ",
+       "\nHypothesis Test:",
+       "\nnp = ", n * p,
+       "\nn(1-p) = ", n * (1 - p),
+       "\nConfidence Interval: ",
+       "\nnp\U0302 = ", n * phat,
+       "\nn(1-p\U0302) = ", n * (1 - phat))
+  if (n * p <10 || n * (1 - p) < 10) {
+    cat("\nTesting requirements are not met.")
   }
   
+  
   cat( 
-    "\n\n    One Proportion z-Test    \n",
+    "\n\n  Hypothesis Test and Confidence Intervals",
     "\nz = ", round(z.score,4),", p-value = ", pval,
     "\nAlternative hypothesis: True population proportion is ", test, p, 
     "\n", (100 *conf.level), " percent confidence interval: ",
