@@ -144,21 +144,24 @@ curl::curl_download(url, destfile)
 copd_rehab <- read_excel(destfile)
 View(copd_rehab)
 
+# Convert Data from Wide to Long Format (if necessary) ----
+copd_rehab$comments <- NULL     # Eliminate additional columns
+copd <- stack(copd_rehab)
+
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(copd_rehab$community)
-favstats(copd_rehab$hospital)
+favstats(values ~ ind, data = copd)
 
 # Graphical Summaries -------------------------------------
-boxplot(copd_rehab$community, copd_rehab$hospital)
+boxplot(values ~ ind, data = copd)
 
 # Hypothesis Test -----------------------------------------
-t.test(copd_rehab$community, copd_rehab$hospital,
+t.test(values ~ ind, data = copd,
        mu = 0,  
        alternative = "two.sided")
 
 # Confidence Interval -------------------------------------
-t.test(copd_rehab$community, copd_rehab$hospital, 
+t.test(values ~ ind, data = copd,
        conf.level = 0.95)
 
 
@@ -178,12 +181,19 @@ curl::curl_download(url, destfile)
 gratitude <- read_excel(destfile)
 View(gratitude)
 
+# # Convert Data from Wide to Long Format (if necessary) ----
+# gratitude$comments <- NULL     # Eliminate additional columns
+# gratitude <- stack(gratitude)
+
 # Numerical Summaries -------------------------------------
 library(mosaic)
 favstats(happiness ~ treatment, data = gratitude)
 
+# Checking ANOVA requirements -----------------------------
+var(happiness ~ treatment, data = gratitude)
+
 # Graphical Summaries -------------------------------------
-boxplot(gratitude$happiness ~ gratitude$treatment)
+boxplot(happiness ~ treatment, data = gratitude)
 
 # Hypothesis Test -----------------------------------------
 gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
