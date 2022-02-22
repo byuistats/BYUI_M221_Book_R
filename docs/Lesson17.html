@@ -470,7 +470,7 @@ $(document).ready(function () {
 <pre class="r"><code>mytable &lt;- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col = c(&quot;brown3&quot;,&quot;steelblue3&quot;),
+        col = c(&quot;steelblue3&quot;, &quot;brown3&quot;),
         main = &quot;PTC Strip Taste Testing&quot;,
         xlab = &quot;Reported Result&quot;,
         ylab = &quot;Number of Participants&quot;,
@@ -507,9 +507,7 @@ R Instructions
 <p>When, the above <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
 <pre class="r"><code>one_prop_test(x = 89, n = 118, p = 0.70, alternative = &quot;two.sided&quot;)</code></pre>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre><code>## 
-## 
-##     One Proportion z-Test    
+<pre><code>##     One Proportion z-Test    
 ##  
 ##    Check for normality of p^:     
 ## Hypothesis Test: 
@@ -603,9 +601,7 @@ Answer the following question:
 <p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. We enter this information into the <code>one_prop_test(...)</code> function:</p>
 <pre class="r"><code>one_prop_test(x = 19, n = 40, p = 0.60, alternative = &quot;less&quot;)</code></pre>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre><code>## 
-## 
-##     One Proportion z-Test    
+<pre><code>##     One Proportion z-Test    
 ##  
 ##    Check for normality of p^:     
 ## Hypothesis Test: 
@@ -813,9 +809,7 @@ R Instructions
 <p>When, the <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
 <pre class="r"><code>one_prop_test(x = 89, n = 118, conf.level = 0.95)</code></pre>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<pre><code>## 
-## 
-##     One Proportion z-Test    
+<pre><code>##     One Proportion z-Test    
 ##  
 ##    Check for normality of p^:     
 ## Hypothesis Test: 
@@ -856,9 +850,7 @@ Answer the following questions:
 <div id="Q0" style="display:none;">
 <pre class="r"><code>one_prop_test(x = 114, n = 2426, conf.level = 0.99)</code></pre>
 <p><img src="Lesson17_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## 
-## 
-##     One Proportion z-Test    
+<pre><code>##     One Proportion z-Test    
 ##  
 ##    Check for normality of p^:     
 ## Hypothesis Test: 

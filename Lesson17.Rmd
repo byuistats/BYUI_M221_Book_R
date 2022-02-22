@@ -86,7 +86,7 @@ In other words, 75.4% of the people surveyed could taste the chemical.
 mytable <- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col = c("brown3","steelblue3"),
+        col = c("steelblue3", "brown3"),
         main = "PTC Strip Taste Testing",
         xlab = "Reported Result",
         ylab = "Number of Participants",
@@ -100,7 +100,7 @@ barplot(mytable,
 mytable <- c(`Tasted PTC` = 89, `No Taste` = 29)
 
 barplot(mytable, 
-        col = c("brown3","steelblue3"),
+        col = c("steelblue3", "brown3"),
         main = "PTC Strip Taste Testing",
         xlab = "Reported Result",
         ylab = "Number of Participants",
