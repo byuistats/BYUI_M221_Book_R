@@ -1,9 +1,9 @@
-# ===================================================================
+# =============================================================================
 # Lesson 15: Unit 2 Review
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho
-# ===================================================================
+# =============================================================================
 
 
 
@@ -133,7 +133,35 @@ t.test(weight_loss$difference,     # Data
 
 
 
-# COPD Example --------------------------------------------
+# FIFA Heart Attacks Example (Long Data) ------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
+# (The "Import Dataset" code was pasted here:)
+library(readxl)
+url <- "https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx"
+destfile <- "fifa_heart_attacks.xlsx"
+curl::curl_download(url, destfile)
+fifa_heart_attacks <- read_excel(destfile)
+View(fifa_heart_attacks)
+
+# Numerical Summaries -------------------------------------
+library(mosaic)
+favstats(heart_attacks ~ time_period, data = fifa_heart_attacks)
+
+# Graphical Summaries -------------------------------------
+boxplot(heart_attacks ~ time_period, data = fifa_heart_attacks)
+
+# Hypothesis Test -----------------------------------------
+t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
+       alternative = "less")
+
+# Confidence Interval -------------------------------------
+t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
+       conf.level = 0.95)
+
+
+
+# COPD Example (Wide Data) --------------------------------
 # Use "Import Dataset" to read the data into R
 # https://byuistats.github.io/M221R/data/copd_rehab.xlsx
 # (The "Import Dataset" code was pasted here:)
@@ -157,7 +185,6 @@ boxplot(values ~ ind, data = copd)
 
 # Hypothesis Test -----------------------------------------
 t.test(values ~ ind, data = copd,
-       mu = 0,  
        alternative = "two.sided")
 
 # Confidence Interval -------------------------------------
@@ -170,7 +197,7 @@ t.test(values ~ ind, data = copd,
 
 
 
-# Gratitude Example ---------------------------------------
+# Gratitude Example (Long Data) ---------------------------
 # Use "Import Dataset" to read the data into R
 # https://byuistats.github.io/M221R/data/gratitude.xlsx
 # (The "Import Dataset" code was pasted here:)
@@ -181,16 +208,14 @@ curl::curl_download(url, destfile)
 gratitude <- read_excel(destfile)
 View(gratitude)
 
-# # Convert Data from Wide to Long Format (if necessary) ----
-# gratitude$comments <- NULL     # Eliminate additional columns
-# gratitude <- stack(gratitude)
-
 # Numerical Summaries -------------------------------------
 library(mosaic)
 favstats(happiness ~ treatment, data = gratitude)
 
 # Checking ANOVA requirements -----------------------------
 var(happiness ~ treatment, data = gratitude)
+max(var(happiness ~ treatment, data = gratitude))
+min(var(happiness ~ treatment, data = gratitude))
 
 # Graphical Summaries -------------------------------------
 boxplot(happiness ~ treatment, data = gratitude)
@@ -198,3 +223,36 @@ boxplot(happiness ~ treatment, data = gratitude)
 # Hypothesis Test -----------------------------------------
 gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
 summary(gratitude_aov)
+
+
+
+# Euro Weights Example (Wide Data) ------------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/euro_wide.xlsx
+# (The "Import Dataset" code was pasted here:)
+library(readxl)
+url <- "https://byuistats.github.io/M221R/data/euro_wide.xlsx"
+destfile <- "euro_wide.xlsx"
+curl::curl_download(url, destfile)
+euro_wide <- read_excel(destfile)
+View(euro_wide)
+
+# Convert Data from Wide to Long Format (if necessary) ----
+euro_wide$comments <- NULL     # Eliminate additional columns
+euro <- stack(euro_wide)
+
+# Numerical Summaries -------------------------------------
+library(mosaic)
+favstats(values ~ ind, data = euro)
+
+# Checking ANOVA requirements -----------------------------
+var(values ~ ind, data = euro)
+max(var(values ~ ind, data = euro))
+min(var(values ~ ind, data = euro))
+
+# Graphical Summaries -------------------------------------
+boxplot(values ~ ind, data = euro)
+
+# Hypothesis Test -----------------------------------------
+euro_aov <- aov(values ~ ind, data = euro)
+summary(euro_aov)
