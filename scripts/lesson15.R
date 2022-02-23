@@ -226,33 +226,33 @@ summary(gratitude_aov)
 
 
 
-# Euro Weights Example (Wide Data) ------------------------
+# Soccer Shoes Example (Wide Data) ------------------------
 # Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/euro_wide.xlsx
-# (The "Import Dataset" code was pasted here:)
+# https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
+# (You may want to paste the code here)
 library(readxl)
-url <- "https://byuistats.github.io/M221R/data/euro_wide.xlsx"
-destfile <- "euro_wide.xlsx"
+url <- "https://byuistats.github.io/M221R/data/soccer_shoes.xlsx"
+destfile <- "soccer_shoes.xlsx"
 curl::curl_download(url, destfile)
-euro_wide <- read_excel(destfile)
-View(euro_wide)
+soccer_shoes <- read_excel(destfile)
+View(soccer_shoes)
 
-# Convert Data from Wide to Long Format (if necessary) ----
-euro_wide$comments <- NULL     # Eliminate column of comments
-euro <- stack(euro_wide)
+# Convert Data from Wide to Long Format -------------------
+soccer_shoes$comments <- NULL
+soccer <- stack(soccer_shoes)
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(values ~ ind, data = euro)
+favstats(values ~ ind, data = soccer)
 
 # Checking ANOVA requirements -----------------------------
-var(values ~ ind, data = euro)
-max( var(values ~ ind, data = euro) ) # Max variance
-min( var(values ~ ind, data = euro) ) # Min variance
+var(values ~ ind, data = soccer)
+max( var(values ~ ind, data = soccer) ) # Max variance
+min( var(values ~ ind, data = soccer) ) # Min variance
 
 # Graphical Summaries -------------------------------------
-boxplot(values ~ ind, data = euro)
+boxplot(values ~ ind, data = soccer)
 
 # Hypothesis Test -----------------------------------------
-euro_aov <- aov(values ~ ind, data = euro)
-summary(euro_aov)
+aov_output <- aov(values ~ ind, data = soccer)
+summary(aov_output)

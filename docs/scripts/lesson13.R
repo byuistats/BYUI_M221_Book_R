@@ -7,40 +7,6 @@
 
 
 
-# Hypothesis Tests and Confidence Intervals (Wide Data) =============
-
-
-
-# COPD Example --------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/copd_rehab.xlsx"
-destfile <- "copd_rehab.xlsx"
-curl::curl_download(url, destfile)
-copd_rehab <- read_excel(destfile)
-View(copd_rehab)
-
-# Numerical Summaries -------------------------------------
-library(mosaic)
-favstats(copd_rehab$community)
-favstats(copd_rehab$hospital)
-
-# Graphical Summaries -------------------------------------
-boxplot(copd_rehab$community, copd_rehab$hospital)
-
-# Hypothesis Test -----------------------------------------
-t.test(copd_rehab$community, copd_rehab$hospital,
-       mu = 0,  
-       alternative = "two.sided")
-
-# Confidence Interval -------------------------------------
-t.test(copd_rehab$community, copd_rehab$hospital, 
-       conf.level = 0.95)
-
-
-
 # Hypothesis Tests and Confidence Intervals (Long Data) =============
 
 
@@ -53,22 +19,21 @@ t.test(copd_rehab$community, copd_rehab$hospital,
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(reading$nights ~ reading$group)
+favstats(nights ~ group, data = reading)
 
 # Graphical Summaries -------------------------------------
-boxplot(reading$nights ~ reading$group)
+boxplot(nights ~ group, data = reading)
 
 # Hypothesis Test -----------------------------------------
-t.test(reading$nights ~ reading$group, 
-       mu = 0, 
+t.test(nights ~ group, data = reading,
        alternative = "two.sided")
 
 # Confidence Interval -------------------------------------
-t.test(reading$nights ~ reading$group, 
+t.test(nights ~ group, data = reading,
        conf.level = 0.95)
 
 
-# FIFA Heart Attacks Example ------------------------------
+# FIFA Heart Attacks Example (Long Data) ------------------
 # Use "Import Dataset" to read the data into R
 # https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
 # (You may want to paste the code here)
@@ -76,16 +41,46 @@ t.test(reading$nights ~ reading$group,
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
+favstats(heart_attacks ~ time_period, data = fifa_heart_attacks)
 
 # Graphical Summaries -------------------------------------
-boxplot(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)
+boxplot(heart_attacks ~ time_period, data = fifa_heart_attacks)
 
-# Hypothesis Test (Wide Data) -----------------------------
-t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, 
-       mu = 0,
+# Hypothesis Test -----------------------------------------
+t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
+       alternative = "less")
+
+# Confidence Interval -------------------------------------
+t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
+       conf.level = 0.95)
+
+
+
+# Hypothesis Tests and Confidence Intervals (Wide Data) =============
+
+
+
+# COPD Example (Wide Data) --------------------------------
+# Use "Import Dataset" to read the data into R
+# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
+# (You may want to paste the code here)
+
+
+# Convert Data from Wide to Long Format (if necessary) ----
+copd_rehab$comments <- NULL     # Eliminate column of comments
+copd <- stack(copd_rehab)
+
+# Numerical Summaries -------------------------------------
+library(mosaic)
+favstats(values ~ ind, data = copd)
+
+# Graphical Summaries -------------------------------------
+boxplot(values ~ ind, data = copd)
+
+# Hypothesis Test -----------------------------------------
+t.test(values ~ ind, data = copd,
        alternative = "two.sided")
 
-# Confidence Interval (Wide Data) -------------------------
-t.test(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period, 
+# Confidence Interval -------------------------------------
+t.test(values ~ ind, data = copd,
        conf.level = 0.95)
