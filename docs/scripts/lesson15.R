@@ -214,8 +214,8 @@ favstats(happiness ~ treatment, data = gratitude)
 
 # Checking ANOVA requirements -----------------------------
 var(happiness ~ treatment, data = gratitude)
-max(var(happiness ~ treatment, data = gratitude))
-min(var(happiness ~ treatment, data = gratitude))
+max( var(happiness ~ treatment, data = gratitude) )
+min( var(happiness ~ treatment, data = gratitude) )
 
 # Graphical Summaries -------------------------------------
 boxplot(happiness ~ treatment, data = gratitude)
@@ -247,8 +247,8 @@ favstats(values ~ ind, data = euro)
 
 # Checking ANOVA requirements -----------------------------
 var(values ~ ind, data = euro)
-max(var(values ~ ind, data = euro))
-min(var(values ~ ind, data = euro))
+max( var(values ~ ind, data = euro) )
+min( var(values ~ ind, data = euro) )
 
 # Graphical Summaries -------------------------------------
 boxplot(values ~ ind, data = euro)
