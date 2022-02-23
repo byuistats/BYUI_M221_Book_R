@@ -173,7 +173,7 @@ copd_rehab <- read_excel(destfile)
 View(copd_rehab)
 
 # Convert Data from Wide to Long Format (if necessary) ----
-copd_rehab$comments <- NULL     # Eliminate additional columns
+copd_rehab$comments <- NULL     # Eliminate column of comments
 copd <- stack(copd_rehab)
 
 # Numerical Summaries -------------------------------------
@@ -238,7 +238,7 @@ euro_wide <- read_excel(destfile)
 View(euro_wide)
 
 # Convert Data from Wide to Long Format (if necessary) ----
-euro_wide$comments <- NULL     # Eliminate additional columns
+euro_wide$comments <- NULL     # Eliminate column of comments
 euro <- stack(euro_wide)
 
 # Numerical Summaries -------------------------------------
