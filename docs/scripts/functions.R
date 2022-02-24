@@ -1,6 +1,6 @@
 # R Function for a Hypothesis Test and Confidence Interval for One Proportion
 
-one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 0.95, display = "all") {
+one.prop.test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 0.95, display = "all") {
   
   phat <- x / n
   sd <- sqrt(p * (1 - p) / n)
@@ -79,7 +79,7 @@ one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
 
 # R Function for a Hypothesis Test and Confidence Interval for the Difference of Two Proportions
 
-two_prop_test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.sided", conf.level = 0.95, display = "all") {
+two.prop.test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.sided", conf.level = 0.95, display = "all") {
   
   phat <- (x1 + x2) / (n1 + n2)
   phat1 <- x1 / n1
