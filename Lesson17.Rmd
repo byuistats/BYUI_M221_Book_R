@@ -68,7 +68,7 @@ The ability to taste the chemical Phenylthiocarbamide (PTC) is hereditary.  Some
 
 <img src = "./Images/Step2.png">
 
-Data were collected by a student Elise Johnson to investigate this claim. Volunteers were provided with PTC test strips and asked if they could taste anything besides paper. A total of $n = 118$ inviduals participated in the study.
+Data were collected by a student, Elise Johnson, to investigate this claim. Volunteers were provided with PTC test strips and asked if they could taste anything besides paper. A total of $n = 118$ individuals participated in the study.
 
 <img src = "./Images/Step3.png">
 
@@ -108,7 +108,7 @@ barplot(mytable,
 ```
 
 <br>
-<div class = "message Tip">**Review:**  For a review of how to bar charts in R, read [Describing Categorical Data: Proportions; Sampling Distribution of a Sample Proportion](Lesson16.html). When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.</div>
+<div class = "message Tip">**Review:**  For a review of how to bar charts in R, see [Lesson 16](Lesson16.html). When making graphs, consider altering the labels in the graph to be more descriptive of your particular study.</div>
 <br>
 <br>
 
@@ -123,62 +123,65 @@ Is this significantly different from the assumed value of 0.70 (i.e., 70%)?  We 
 <div class = "Software">
 Here are the instructions for conducting a hypothesis test for one proportion in R:
 
-**Step 1.** Use RStudio to run the code in the file [one_proportion_function.R](./scripts/one_proportion_function.R). This will load a function that will conduct the test for one proportion.
-
-
+**Step 1.** Use RStudio to run the code in the file [functions.R](./scripts/functions.R). This will load a function that will allow you to compute the confidence interval for one proportion. You can do this by running the command <br>
+`source("https://byuistats.github.io/M221R/scripts/functions.R")` <br>
+in the RStudio console.
 
 **Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: p = 0.70$ and the alternative was $H_a: p \neq 0.70$.
 
-**Step 3.** Use `one_prop_test(...)` as follows to run the test for one proportion in R.
+**Step 3.** Use the function `one.prop.test(...)` to conduct the hypothesis test for one proportion in R.
 
 A few notes about using this function:
 
-* The number of successes is entered using the parameter **x**
-* The total number of trials is specified using the parameter **n**
-* The null hypothesis is established by the parameter **p**. The default value is **p = 0.5** 
-* The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative = "less"** and **alternative = "greater"**.
+* The number of successes is entered using the parameter `x`
+* The total number of trials is specified using the parameter `n`
+* The null hypothesis is established by the parameter `p`. The default value is `p = 0.5`. 
+* The alternative hypothesis is established by `alternative = "two.sided"`. Other options for the alternative hypothesis are `alternative = "less"` and `alternative = "greater"`.
 <!--
-* Note, by default the `one_prop_test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one_prop_test(..., conf.level = 0.99)` or `one_prop_test(..., conf.level = 0.90)`.
+* Note, by default the `one.prop.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one.prop.test(..., conf.level = 0.99)` or `one.prop.test(..., conf.level = 0.90)`.
 -->
 
-When, the above `one_prop_test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
+When, the above `one.prop.test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
 
-<!--
-```{r, include = FALSE, code = readLines("./scripts/functions.R")}
-# This chunk reads in the function to do a one-proportion t-test.
-```
--->
-
-```{r}
+```{r, eval = FALSE}
 source("https://byuistats.github.io/M221R/scripts/functions.R")
-one_prop_test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
+one.prop.test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
 ```
 
+```{r, echo = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 89, n = 118, p = 0.70, alternative = "two.sided", display = "test")
+```
 
+This function also generates a bar chart and a pie chart of the data.
 
+```{r, echo = FALSE}
+# source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 89, n = 118, p = 0.70, alternative = "two.sided", display = "plot")
+```
+
+Notice that these plot illustrate that there were `x = 89` successes in the `n = 118` trials, or $\hat p = \frac{89}{118} = 0.754$, which is equivalent to $75.4$%.
 <br>
 </div>
 <br>
 
-
-
-For a hypothesis test, if the following conditions are satisfied:
+For a hypothesis test for one proportion, we need to make sure the following conditions are satisfied:
 
 - $np \ge 10$
 - $n(1-p) \ge 10$
 
-then the sample size is large enough that the Central Limit Theorem suggests the sample proportion, $\widehat p$, is approximately normal.
+When these are met, the sample size is large enough that the Central Limit Theorem suggests the sample proportion, $\widehat p$, is approximately normal.
 <!-- Also, the true mean of $\widehat p$ is $p$, and the standard deviation is $\sqrt{\frac{p \cdot (1-p)}{n}}$. -->
 
-As you can see from the output above, the requirements for conducting a hypotehsis test for one proportion are satisfied for the PTC data:
+As you can see from the output above, the requirements for conducting a hypothesis test for one proportion are satisfied for the PTC data:
 $$
-\begin{array}{ll}
-np = 118 \cdot 0.70 = 82.6 \ge 10 				& \surd \\
-n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 & \surd
+\begin{array}{rcl}
+np = 118 \cdot 0.70 = 82.6 \ge 10 				&&\surd \\
+n(1-p) = 118 \cdot (1-0.70) = 35.4 \ge 10 && \surd
 \end{array}
 $$
 
-We can use a procedure that mimics the test for a single mean with $\sigma$ known from the lesson titled [Inference for One Mean: Sigma Known (Hypothesis Test)](Lesson09.html) to conduct a test for a single proportion.
+We can use a procedure that mimics the test for a single mean with $\sigma$ known from [Lesson 9](Lesson09.html) to conduct a test for a single proportion.
 
 It is assumed that the true proportion of people who can taste PTC is 0.70.  This is the null hypothesis.  The alternative hypothesis is that the true proportion is different from 0.70.
 $$
@@ -190,9 +193,9 @@ We will use the $\alpha = 0.05$ level of significance in this test.
 
 <br>
 
-**Optional Reading: Computation of z for One Proportion (Hidden)**
+**Optional Reading: Computation of $z$ for One Proportion (Hidden)**
   
-<a href = "javascript:showhide('propZ')"><span style = "font-size:8pt;">Click Here if you love Math</span></a>
+<a href = "javascript:showhide('propZ')"><span style = "font-size:8pt;">Click here if you love math</span></a>
 <div id = "propZ" style = "display:none;">
 
 If the requirements are satisfied, then $\widehat p$ is approximately normal with mean $p$ and standard deviation $\sqrt{\frac{p \cdot (1-p)}{n}}$.  The test can be based on the standard normal ($z$) distribution. 
@@ -221,14 +224,13 @@ Using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html), 
 <img src = "./Images/ZShadeBothTails-1-286.png">
 
 The combined area in the two tails is approximately $0.198$. This is the $P$-value.
-      
-     
 </div>
 <br>
 
-From the output above, we note that $z = 1.2857$. and the $P$-value is 0.1986. 
-Since the $P$-value is greater than $\alpha = 0.05$, we fail to reject the null hypothesis.
 
+
+The output above indicates that $z = 1.2857$, and the $P$-value is 0.1986. 
+Since the $P$-value is greater than $\alpha = 0.05$, we fail to reject the null hypothesis.
 
 <img src = "./Images/Step5.png">
 
@@ -237,7 +239,7 @@ There is no reason to revise existing perspectives on the prevalence of the abil
 
 <div class = "QuestionsHeading">Answer the following question:</div>
 <div class = "Questions">
-14. Compare and contrast the test for one mean with $\sigma$ known and the test for one proportion.  Give at least two similarities and two differences.
+14. Compare and contrast the test for one mean with $\sigma$ known and the test for one proportion. What similarities and differences do you observe?
 
 <a href = "javascript:showhide('Q14')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q14" style = "display:none;">
@@ -259,21 +261,22 @@ There is no reason to revise existing perspectives on the prevalence of the abil
 
 <img src = "./Images/Step1.png">
 
-Macroinvertebrates are small insects (without an internal skeleton) that live on the bottom of a stream. These insects are ideal for monitoring changes in water quality, because they (1) live nearly all their life in the water, (2) are easy to collect and identify, (3) often live for several years, (4) have a limited ability to migrate, and (5) they are influenced by environmental conditions.
+Macroinvertibrates are small insects (without an internal skeleton) that live on the bottom of a stream. These insects are ideal for monitoring changes in water quality, because they (1) live nearly all their life in the water, (2) are easy to collect and identify, (3) often live for several years, (4) have a limited ability to migrate, and (5) they are influenced by environmental conditions.
 
-In any population of macroinvertebrates, there will be indicators of good health and indicators of poor health. Data are collected by capturing macroinvertebrates and recording whether they indicate good health or poor health for the river.  In particular sections of a small river near Bozeman, Montana, about 60% of the indicators observed have historically been associated with good health.
+In any population of macroinvertibrates, there will be indicators of good health and indicators of poor health. Data are collected by capturing macroinvertibrates and recording whether they indicate good health or poor health for the river.  In particular sections of a small river near Bozeman, Montana, about 60% of the indicators observed have historically been associated with good health.
 
 <img src = "./Images/Step2.png">
 
-Researchers suspect that the water quality in the area has decreased, suggesting that less than 60% of the indicators will show good health.  A random sample of macroinvertebrates were captured from the river.
+Researchers suspect that the water quality in the area has decreased, suggesting that less than 60% of the indicators will show good health.  A random sample of macroinvertibrates were captured from the river.
 
 <img src = "./Images/Step3.png">
 
-Among the $n = 40$ observed indicators of health, $x = 19$ suggested good health. 
-We enter this information into the `one_prop_test(...)` function:
+Among the `n = 40` macroinvertibrates observed, `x = 19` demonstrated indicators of good health.
+We enter this information into the `one.prop.test(...)` function:
 
 ```{r}
-one_prop_test(x = 19, n = 40, p = 0.60, alternative = "less")
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 19, n = 40, p = 0.60, alternative = "less")
 ```
 
 Use this information to answer the following question.
@@ -288,15 +291,15 @@ $$
 \widehat p = \frac{x}{n} = \frac{19}{40} = 0.475~~\text{or}~~47.5\%
 $$
 
-This value is given in the output of the function `one_prop_test` above.
+This value is given in the output of the function `one.prop.test` above.
 
 <!--
 ```{r}
 mytable <- c(`Good Health` = 19, `Poor Health` = 21)
 barplot(mytable, 
         col = c("steelblue3","darkolivegreen4"),
-        main = "Health of Macroinvertebrates near Bozeman, MT",
-        ylab = "Number of Macroinvertebrates")
+        main = "Health of Macroinvertibrates near Bozeman, MT",
+        ylab = "Number of Macroinvertibrates")
 ```
 -->
 </div>
@@ -316,9 +319,9 @@ The following questions will guide you through the process of conducting a hypot
 <div id = "Q16" style = "display:none;">
 <center>
 $$
-\begin{array}{ll}
-np = 40 \cdot 0.6 = 24 \ge 10 & \surd  \\
-n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  & \surd
+\begin{array}{rcl}
+np = 40 \cdot 0.6 = 24 \ge 10 && \surd  \\
+n(1-p) = 40 \cdot (1-0.6) = 16  \ge 10  && \surd
 \end{array}
 $$
 </center>
@@ -386,7 +389,7 @@ $$
 
 <img src = "./Images/Step5.png">
 
-Even though the proportion of indicators that suggested good health was less that 60%, it was not statistically significantly less than 60%.  Unless future research indicates to the contrary, we cannot say that the water quality in this river has decreased.
+Even though the proportion of indicators that suggested good health was less that 60%, it was not statistically significantly less than 60%.  We cannot conclude that the water quality in this river has decreased.
 
 <br>
 
@@ -441,6 +444,8 @@ The sample statistic $\hat p$ is called a **point estimate** of the population p
 
 A point estimate like $\hat p$ is helpful, but it does not give us direct information on *how close* it is to the true parameter, $p$.  We use a confidence interval to find a range of plausible values for the parameter.
 
+<br>
+
 ### Confidence Interval for the True Proportion
 
 To find a confidence interval for the population proportion, $p$, we follow the same pattern as was done in the estimates for $\mu$ in the lesson titled [Inference for One Mean: Sigma Known (Confidence Interval)](Lesson10.html).  We start with the point estimate of $p$ and we add and subtract the margin of error (a certain number of standard deviations) from this value.
@@ -449,11 +454,12 @@ The point estimate for $p$ is $\widehat p$.  You might want to review the mean a
 
 
 
+<br>
 
 
 **Optional Reading: Computation of a Confidence Interval for One Proportion (Hidden)**
   
-<a href = "javascript:showhide('propZci')"><span style = "font-size:8pt;">Click Here if you love Math</span></a>
+<a href = "javascript:showhide('propZci')"><span style = "font-size:8pt;">Click here if you love math</span></a>
 <div id = "propZci" style = "display:none;">
 
 
@@ -500,31 +506,30 @@ The 95% confidence interval for $p$ is $(0.535, ~ 0.629)$.
 
 
 
-
-
-
 ### R Instructions for Computing a Confidence Interval for One Proportion
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
 Here are the instructions for finding a confidence interval for one proportion in R:
 
-**Step 1.** Use RStudio to run the code in the file [one_proportion_function.R](./scripts/one_proportion_function.R). This will load a function that will allow you to compute the confidence interval for one proportion.
+**Step 1.** Use RStudio to run the code in the file [functions.R](./scripts/functions.R). This will load a function that will allow you to compute the confidence interval for one proportion. You can do this by running the command <br>
+`source("https://byuistats.github.io/M221R/scripts/functions.R")` <br>
+in the RStudio console.
 
-
-**Step 2.** Use `one_prop_test(...)` as follows to compute the confidence interval for one proportion in R.
+**Step 2.** Use the function `one.prop.test(...)` to compute the confidence interval for one proportion in R.
 
 A few notes about using this function:
 
 * The number of successes is entered using the parameter **x**
 * The total number of trials is specified using the parameter **n**
-* By default the `one_prop_test(...)` function uses a 95% confidence level. If you wanted to use a different confidence level, you can specify your level of significance using the argument `conf.level = ` as follows:
-`one_prop_test(..., conf.level = 0.99)` or `one_prop_test(..., conf.level = 0.90)`.
+* By default the `one.prop.test(...)` function uses a 95% confidence level. If you wanted to use a different confidence level, you can specify your level of significance using the argument `conf.level = ` as follows:
+`one.prop.test(..., conf.level = 0.99)` or `one.prop.test(..., conf.level = 0.90)`.
 
-When, the `one_prop_test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
+When, the `one.prop.test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
 
 ```{r}
-one_prop_test(x = 89, n = 118, conf.level = 0.95)
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 249, n = 428, conf.level = 0.95)
 ```
 
 <br>
@@ -556,7 +561,8 @@ DeWitt C. Baldwin, Jr. and others conducted a larger study to assess how widespr
 <div id = "Q0" style = "display:none;">
 
 ```{r}
-one_prop_test(x = 114, n = 2426, conf.level = 0.99)
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 114, n = 2426, conf.level = 0.99)
 ```
 
 The 99% confidence interval for the true proportion of medical school students who cheat is
@@ -586,9 +592,9 @@ $$
 <div id = "Q1" style = "display:none;">
 <center>
 $$
-\begin{array}{ll}
-n \hat p = 12426 \cdot 0.047 = 114 \ge 10 				& \surd \\
-n (1-\hat p) = 2426 \cdot (1-0.047) = 2312 \ge 10 & \surd
+\begin{array}{rcl}
+n \hat p = 12426 \cdot 0.047 = 114 \ge 10 				&& \surd \\
+n (1-\hat p) = 2426 \cdot (1-0.047) = 2312 \ge 10 && \surd
 \end{array}
 $$
 </center>
@@ -707,11 +713,11 @@ The sample size required to provide the desired margin of error of $m=0.03$ can 
 
 - The **estimator** of $p$ is $\displaystyle{ \widehat p = \frac {x}{n}}$.
 
-- The test statistic for a hypothesis test of one proportion is $z$. You can use the function `one_prop_test()` to perform the hypothesis test in R.
+- The test statistic for a hypothesis test of one proportion is $z$. You can use the function `one.prop.test()` to perform the hypothesis test in R.
 
 - The requirements for a hypothesis test involving one proportion are $np\ge10$ and $n(1-p)\ge10$, where $p$ is the value given in the null hypothesis.
 
-- A confidence interval for the true proportion $p$ can be computed in R using the function `one_prop_test()`.
+- A confidence interval for the true proportion $p$ can be computed in R using the function `one.prop.test()`.
 
 - The requirements for a confidence interval are $n \widehat p \ge 10$ and $n(1-\widehat p) \ge 10$. 
 
