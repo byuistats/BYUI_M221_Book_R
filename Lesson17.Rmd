@@ -162,7 +162,7 @@ one_prop_test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
 
 
 
-If the following conditions are satisfied:
+For a hypothesis test, if the following conditions are satisfied:
 
 - $np \ge 10$
 - $n(1-p) \ge 10$
