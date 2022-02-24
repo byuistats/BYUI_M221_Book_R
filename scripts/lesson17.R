@@ -9,30 +9,35 @@
 library(readxl)
 library(mosaic)
 
+
+
+# Hypothesis Tests ==================================================
+
+
+
+# PTC Tasting Example -------------------------------------
+# Enter the data into the one.prop.test() function
+
+# Load the function and conduct the test
 source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
 
-# Sample Proportions ================================================
-
-
-
-# Student Grades Example ----------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/grades_tally.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/grades_tally.xlsx"
-destfile <- "grades_tally.xlsx"
-curl::curl_download(url, destfile)
-grades_tally <- read_excel(destfile)
-View(grades_tally)
-
-# Graphical Summaries -------------------------------------
-barplot(count ~ grade, data = grades_tally)
-
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = "steelblue3", 
-  main = "Final Letter Grades",
-  xlab = "Grade", 
-  ylab = "Number of Students"
+one.prop.test(
+  x = 89,                    # Number of successes
+  n = 118,                   # Total number of trials (observations)
+  p = 0.70,                  # True proportion, given in null hypothesis
+  alternative = "two.sided"  # Can be "two.sided", "less", or "greater"
 )
+
+
+
+# Confidence Intervals ==============================================
+
+
+
+# Honesty at Medical School Example -----------------------
+# Enter the data into the one.prop.test() function
+
+# Load the function and conduct the test
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+one.prop.test(x = 249, n = 428, conf.level = 0.95)

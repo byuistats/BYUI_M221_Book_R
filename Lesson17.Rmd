@@ -123,7 +123,7 @@ Is this significantly different from the assumed value of 0.70 (i.e., 70%)?  We 
 <div class = "Software">
 Here are the instructions for conducting a hypothesis test for one proportion in R:
 
-**Step 1.** Use RStudio to run the code in the file [functions.R](./scripts/functions.R). This will load a function that will allow you to compute the confidence interval for one proportion. You can do this by running the command <br>
+**Step 1.** Use RStudio to run the code in the file [functions.R](./scripts/functions.R). This will load a function that will allow you to compute the hypothesis test for one proportion. You can do this by running the command <br>
 `source("https://byuistats.github.io/M221R/scripts/functions.R")` <br>
 in the RStudio console.
 
@@ -138,7 +138,7 @@ A few notes about using this function:
 * The null hypothesis is established by the parameter `p`. The default value is `p = 0.5`. 
 * The alternative hypothesis is established by `alternative = "two.sided"`. Other options for the alternative hypothesis are `alternative = "less"` and `alternative = "greater"`.
 <!--
-* Note, by default the `one.prop.test(...)` function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one.prop.test(..., conf.level = 0.99)` or `one.prop.test(..., conf.level = 0.90)`.
+* Note, by default the `one.prop.test(...)` function uses a 95% confidence level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use `one.prop.test(..., conf.level = 0.99)` or `one.prop.test(..., conf.level = 0.90)`.
 -->
 
 When, the above `one.prop.test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
