@@ -30,12 +30,6 @@ one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
     highconf <- "Inf"
   }
   
-  barplot(c(x, n - x), 
-          names.arg = c("Success", "Failure"), 
-          ylim = range(pretty(c(0,n))), 
-          main = "Plot of Proportions",
-          col = c("darkolivegreen4", "tan3"))
-  
   plot_data <- cbind("Observed Data" = c(x, n - x))
   
   # Transform the data into percentages

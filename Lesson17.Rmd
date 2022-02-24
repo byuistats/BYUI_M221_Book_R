@@ -143,12 +143,14 @@ A few notes about using this function:
 
 When, the above `one_prop_test(...)` code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.
 
-
+<!--
 ```{r, include = FALSE, code = readLines("./scripts/one_proportion_function.R")}
 # This chunk reads in the function to do a one-proportion t-test.
 ```
+-->
 
 ```{r}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
 one_prop_test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
 ```
 

@@ -505,24 +505,28 @@ R Instructions
 --></li>
 </ul>
 <p>When, the above <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
-<pre class="r"><code>one_prop_test(x = 89, n = 118, p = 0.70, alternative = &quot;two.sided&quot;)</code></pre>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre><code>##     One Proportion z-Test    
+<!--
+
+-->
+<pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
+one_prop_test(x = 89, n = 118, p = 0.70, alternative = &quot;two.sided&quot;)</code></pre>
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="Lesson17_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre><code>##        One Proportion z-Test 
 ##  
-##    Check for normality of p^:     
-## Hypothesis Test: 
-## np =  82.6 
-## n(1-p) =  35.4 
-## Confidence Interval:  
-## np^ =  89 
-## n(1-p^) =  29
+## check for normality of p^: 
+##   hypothesis test: 
+##           np = 82.6 
+##       n(1-p) = 35.4 
+##   confidence interval:  
+##           np^ = 89 
+##       n(1-p^) = 29
 ## 
-##   Hypothesis Test and Confidence Intervals
-## z = 1.2857, p-value = 0.1986
-## Alternative hypothesis: True population proportion is not equal to 0.7
+## data:  x = 89, n = 118
+## z = 1.29, p-value = 0.199
+## alternative hypothesis: true proportion is not equal to 0.7
 ## 95 percent confidence interval: 
-##   0.677, 0.832
-## Sample Estimates: 
+##       0.677, 0.832
+## sample estimate: 
 ## p^ = 0.754</code></pre>
 <p><br></p>
 </div>
@@ -600,23 +604,23 @@ Answer the following question:
 <p><img src = "Images/Step3.png"></p>
 <p>Among the <span class="math inline">\(n = 40\)</span> observed indicators of health, <span class="math inline">\(x = 19\)</span> suggested good health. We enter this information into the <code>one_prop_test(...)</code> function:</p>
 <pre class="r"><code>one_prop_test(x = 19, n = 40, p = 0.60, alternative = &quot;less&quot;)</code></pre>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre><code>##     One Proportion z-Test    
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="Lesson17_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<pre><code>##        One Proportion z-Test 
 ##  
-##    Check for normality of p^:     
-## Hypothesis Test: 
-## np =  24 
-## n(1-p) =  16 
-## Confidence Interval:  
-## np^ =  19 
-## n(1-p^) =  21
+## check for normality of p^: 
+##   hypothesis test: 
+##           np = 24 
+##       n(1-p) = 16 
+##   confidence interval:  
+##           np^ = 19 
+##       n(1-p^) = 21
 ## 
-##   Hypothesis Test and Confidence Intervals
-## z = -1.6137, p-value = 0.0533
-## Alternative hypothesis: True population proportion is less than 0.6
+## data:  x = 19, n = 40
+## z = -1.61, p-value = 0.0533
+## alternative hypothesis: true proportion is less than 0.6
 ## 95 percent confidence interval: 
-##   -INF, 0.63
-## Sample Estimates: 
+##       -Inf, 0.605
+## sample estimate: 
 ## p^ = 0.475</code></pre>
 <p>Use this information to answer the following question.</p>
 <div class="QuestionsHeading">
@@ -808,23 +812,23 @@ R Instructions
 </ul>
 <p>When, the <code>one_prop_test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
 <pre class="r"><code>one_prop_test(x = 89, n = 118, conf.level = 0.95)</code></pre>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<pre><code>##     One Proportion z-Test    
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="Lesson17_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre><code>##        One Proportion z-Test 
 ##  
-##    Check for normality of p^:     
-## Hypothesis Test: 
-## np =  59 
-## n(1-p) =  59 
-## Confidence Interval:  
-## np^ =  89 
-## n(1-p^) =  29
+## check for normality of p^: 
+##   hypothesis test: 
+##           np = 59 
+##       n(1-p) = 59 
+##   confidence interval:  
+##           np^ = 89 
+##       n(1-p^) = 29
 ## 
-##   Hypothesis Test and Confidence Intervals
-## z = 5.5234, p-value = 3.32e-08
-## Alternative hypothesis: True population proportion is not equal to 0.5
+## data:  x = 89, n = 118
+## z = 5.52, p-value = 3.32e-08
+## alternative hypothesis: true proportion is not equal to 0.5
 ## 95 percent confidence interval: 
-##   0.677, 0.832
-## Sample Estimates: 
+##       0.677, 0.832
+## sample estimate: 
 ## p^ = 0.754</code></pre>
 <p><br></p>
 </div>
@@ -849,23 +853,23 @@ Answer the following questions:
 <a href = "javascript:showhide('Q0')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q0" style="display:none;">
 <pre class="r"><code>one_prop_test(x = 114, n = 2426, conf.level = 0.99)</code></pre>
-<p><img src="Lesson17_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>##     One Proportion z-Test    
+<p><img src="Lesson17_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="Lesson17_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<pre><code>##        One Proportion z-Test 
 ##  
-##    Check for normality of p^:     
-## Hypothesis Test: 
-## np =  1213 
-## n(1-p) =  1213 
-## Confidence Interval:  
-## np^ =  114 
-## n(1-p^) =  2312
+## check for normality of p^: 
+##   hypothesis test: 
+##           np = 1213 
+##       n(1-p) = 1213 
+##   confidence interval:  
+##           np^ = 114 
+##       n(1-p^) = 2312
 ## 
-##   Hypothesis Test and Confidence Intervals
-## z = -44.6254, p-value = 0
-## Alternative hypothesis: True population proportion is not equal to 0.5
+## data:  x = 114, n = 2426
+## z = -44.6, p-value = 0
+## alternative hypothesis: true proportion is not equal to 0.5
 ## 99 percent confidence interval: 
-##   0.036, 0.058
-## Sample Estimates: 
+##       0.0359, 0.0581
+## sample estimate: 
 ## p^ = 0.047</code></pre>
 The 99% confidence interval for the true proportion of medical school students who cheat is
 <center>
