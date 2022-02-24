@@ -1,6 +1,6 @@
 # R Function for a Hypothesis Test and Confidence Interval for One Proportion
 
-one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 0.95) {
+one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 0.95, display = "all") {
   
   phat <- x / n
   sd <- sqrt(p * (1 - p) / n)
@@ -30,56 +30,56 @@ one_prop_test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
     highconf <- "Inf"
   }
   
-  plot_data <- cbind("Observed Data" = c(x, n - x))
+  if (display != "test") {
+    # Prepare data for plot
+    plot_data <- cbind("Observed Data" = c(x, n - x))
+    # Transform the data into proportions
+    data_percentage <- apply(plot_data, MARGIN = 2, function(x){x/sum(x,na.rm=T)})
+    par(mfrow=c(1,2))
+    barplot(data_percentage, col=c("darkolivegreen4","tan3"), border="white",
+            legend.text = c("Successes", "Failures"), ylab = "Sample Proportions",
+            ylim = range(pretty(c(0,1))),
+            main = "Bar Chart"
+    )
+    pie(data_percentage,
+        col=c("darkolivegreen4","tan3"), border="white",
+        labels = c("Successes", "Failures"),
+        ylim = range(pretty(c(0,1))),
+        main = "Pie Chart",
+        clockwise = TRUE
+    )
+    par(mfrow=c(1,2))
+  }
   
-  # Transform the data into percentages
-  data_percentage <- apply(plot_data, MARGIN = 2, function(x){x/sum(x,na.rm=T)})
+  if (display != "plot") {
+    cat("       One Proportion z-Test \n",
+        "\ncheck for normality of p\U0302:",
+        "\n  hypothesis test:",
+        "\n          np =", n * p,
+        "\n      n(1-p) =", n * (1 - p),
+        "\n  confidence interval: ",
+        "\n          np\U0302 =", n * phat,
+        "\n      n(1-p\U0302) =", n * (1 - phat),
+        "\n\n",
+        # "Hypothesis Test and Confidence Interval",
+        "\ndata:  x = ", x, ", n = ", n,
+        "\nz = ", signif(z.score,3),", p-value = ", pval,
+        "\nalternative hypothesis: true proportion is ", test, p,
+        "\n", (100 * conf.level), " percent confidence interval: ",
+        "\n      ",lowconf, ", ", highconf,
+        "\nsample estimate: ",
+        "\np\U0302 = ", signif(phat, 3), "\n", 
+        sep = ""
+    )
+  }
   
-  par(mfrow=c(1,2))
-  # Make a barplot--> it will be in %!
-  barplot(data_percentage, col=c("darkolivegreen4","tan3"), border="white",
-          legend.text = c("Successes", "Failures"), ylab = "Sample Proportions",
-          ylim = range(pretty(c(0,1))),
-          main = "Bar Chart"
-  )
-  
-  pie(data_percentage,
-      col=c("darkolivegreen4","tan3"), border="white",
-      labels = c("Successes", "Failures"),
-      ylim = range(pretty(c(0,1))),
-      main = "Pie Chart",
-      clockwise = TRUE
-  )
-  par(mfrow=c(1,2))
-  
-  cat("       One Proportion z-Test \n",
-      "\ncheck for normality of p\U0302:",
-      "\n  hypothesis test:",
-      "\n          np =", n * p,
-      "\n      n(1-p) =", n * (1 - p),
-      "\n  confidence interval: ",
-      "\n          np\U0302 =", n * phat,
-      "\n      n(1-p\U0302) =", n * (1 - phat))
-  
-  cat( 
-    "\n\n",
-    # "Hypothesis Test and Confidence Interval \n",
-    "data:  x = ", x, ", n = ", n, "\n",
-    "z = ", signif(z.score,3),", p-value = ", pval, "\n",
-    "alternative hypothesis: true proportion is ", test, p, "\n", 
-    (100 * conf.level), " percent confidence interval: ", "\n",
-    "      ",lowconf, ", ", highconf, "\n",
-    "sample estimate: ",
-    "\np\U0302 = ", signif(phat, 3),
-    "\n", sep = ""
-  )
 }
 
 
 
 # R Function for a Hypothesis Test and Confidence Interval for the Difference of Two Proportions
 
-two_prop_test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.sided", conf.level = 0.95) {
+two_prop_test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.sided", conf.level = 0.95, display = "all") {
   
   phat <- (x1 + x2) / (n1 + n2)
   phat1 <- x1 / n1
@@ -108,36 +108,37 @@ two_prop_test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.si
     moe <- zstar * sqrt( phat1 * (1 - phat1) / n1 + phat2 * (1 - phat2) / n2 )
     lowconf  <- signif((phat1 - phat2) - moe, 3)
     highconf <- "Inf"
-  }
+  } # end if
   
-  plot_data <- cbind("Group 1" = c(x1, n1 - x1),
-                     "Group 2" = c(x2, n2 - x2))
+  if (display != "test") {
+    # Prepare data for plot
+    plot_data <- cbind("Group 1" = c(x1, n1 - x1),
+                       "Group 2" = c(x2, n2 - x2))
+    # Transform the data into proportions
+    data_percentage <- apply(plot_data, MARGIN = 2, function(x){x/sum(x,na.rm=T)})
+    # Make a stacked barplot--> it will be in %!
+    barplot(data_percentage, col=c("darkolivegreen4","tan3"), border="white",
+            legend.text = c("Successes", "Failures"), ylab = "Sample Proportions",
+            ylim = range(pretty(c(0,1))),
+            main = "Side-by-Side Bar Charts"
+    )
+  } # end if
   
-  # Transform the data into percentages
-  data_percentage <- apply(plot_data, MARGIN = 2, function(x){x/sum(x,na.rm=T)})
-  
-  # Make a stacked barplot--> it will be in %!
-  barplot(data_percentage, col=c("darkolivegreen4","tan3"), border="white",
-          legend.text = c("Successes", "Failures"), ylab = "Sample Proportions",
-          ylim = range(pretty(c(0,1))),
-          main = "Side-by-Side Bar Charts"
-  )
-  
-  cat("       Two Proportion z-Test  \n\n",
-      "check for normality of p\U0302s: \n",
-      "      n\U2081p\U0302\U2081 =", x1, "\n  n\U2081(1-p\U0302\U2081) =", (n1 - x1), "\n",
-      "      n\U2082p\U0302\U2082 =", x2, "\n  n\U2082(1-p\U0302\U2082) =", (n2 - x2))
-  
-  cat( 
-    "\n\n",
-    # "Hypothesis Test and Confidence Interval \n",
-    "data:  x\U2081 = ", x1, ", n\U2081 = ", n1, ", x\U2082 = ", x2, ", n\U2082 = ", n2, "\n",
-    "z = ", signif(z.score,3),", p-value = ", pval, "\n",
-    "alternative hypothesis: true proportion is ", test, (p1_minus_p2), "\n", 
-    (100 * conf.level), " percent confidence interval: ", "\n",
-    "      ",lowconf, ", ", highconf, "\n",
-    "sample estimates: \n",
-    "p\U0302\U2081 = ", signif(phat1, 3), ", p\U0302\U2082 = ", signif(phat2, 3), "\n", 
-    sep = ""
-  )
+  if (display != "plot") {
+    cat("       Two Proportion z-Test  \n\n",
+        "check for normality of p\U0302s: \n",
+        "      n\U2081p\U0302\U2081 =", x1, "\n  n\U2081(1-p\U0302\U2081) =", (n1 - x1), "\n",
+        "      n\U2082p\U0302\U2082 =", x2, "\n  n\U2082(1-p\U0302\U2082) =", (n2 - x2),
+        "\n\n",
+        # "Hypothesis Test and Confidence Interval \n",
+        "data:  x\U2081 = ", x1, ", n\U2081 = ", n1, ", x\U2082 = ", x2, ", n\U2082 = ", n2, "\n",
+        "z = ", signif(z.score,3),", p-value = ", pval, "\n",
+        "alternative hypothesis: true proportion is ", test, (p1_minus_p2), "\n", 
+        (100 * conf.level), " percent confidence interval: ", "\n",
+        "      ",lowconf, ", ", highconf, "\n",
+        "sample estimates: \n",
+        "p\U0302\U2081 = ", signif(phat1, 3), ", p\U0302\U2082 = ", signif(phat2, 3), "\n", 
+        sep = ""
+    )
+  } # end if
 }
