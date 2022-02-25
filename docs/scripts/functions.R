@@ -72,7 +72,6 @@ one.prop.test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
         sep = ""
     )
   }
-  
 }
 
 

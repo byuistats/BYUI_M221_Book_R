@@ -383,7 +383,7 @@ $(document).ready(function () {
 <li><a href="#hypothesis-tests">Hypothesis Tests</a>
 <ul>
 <li><a href="#case-study-another-taste-of-ptc">Case Study: Another Taste of PTC</a></li>
-<li><a href="#r-instructions-for-testing-two-proportions">R Instructions for Testing Two Proportions</a></li>
+<li><a href="#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions">R Instructions for a Hypothesis Test for a Difference of Two Proportions</a></li>
 <li><a href="#case-study-mortality-rates-and-day-of-admissionaortic-aneurysms">Case Study: Mortality Rates and Day of Admission–Aortic Aneurysms</a></li>
 <li><a href="#checking-requirements-for-the-hypothesis-test">Checking Requirements for the Hypothesis Test</a></li>
 <li><a href="#case-study-mortality-rates-and-day-of-admission-heart-attacks">Case Study: Mortality Rates and Day of Admission: Heart Attacks</a></li>
@@ -484,7 +484,7 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>These data are available in the file <a href="./data/PTCtasting.xlsx">PTCTasting</a>. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
+<p>These data are available in the file <a href="./data/ptc_tasting.xlsx">ptc_tasting</a>. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
 <p>Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of males and the proportion of females who can taste PTC? The hypothesis is that there is no difference in the the true proportion of males who can taste PTC compared to the true proportion of females who can taste PTC. This is written mathematically as:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -533,43 +533,79 @@ n_2 = \text{sample size for group 2:}   &amp; n_2 = 52  &amp; \text{(number of m
 \]</span></p>
 <p>However, computing this test statistic by hand is tedious. R will compute the test statistic for us.</p>
 </div>
-<div id="r-instructions-for-testing-two-proportions" class="section level3">
-<h3>R Instructions for Testing Two Proportions</h3>
+<div id="r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions" class="section level3">
+<h3>R Instructions for a Hypothesis Test for a Difference of Two Proportions</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p>Use the <code>prop.test( )</code> function in R to perform a test of two proportions. The test requires typing in</p>
+<p>Here are the instructions for conducting a hypothesis test for a difference of two proportions in R:</p>
+<p><strong>Step 1.</strong> Use RStudio to run the code in the file <a href="./scripts/functions.R">functions.R</a>. This will load a function that will allow you to compute the hypothesis test. You can do this by running the command <br> <code>source("https://byuistats.github.io/M221R/scripts/functions.R")</code> <br> in the RStudio console.</p>
+<p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: p_1 = p_2\)</span> and the alternative was <span class="math inline">\(H_a: p_1 \neq p_2\)</span>.</p>
+<p><strong>Step 3.</strong> Use the function <code>two.prop.test(...)</code> to conduct the hypothesis test for one proportion in R.</p>
+<p>A few notes about using this function:</p>
 <ul>
-<li><code>x = c(first value, second value)</code></li>
-<li><code>n = c(first value, second value)</code></li>
-<li><code>correct = FALSE</code> which turns off the Yate’s Continuity Correction. This correction is only needed for small sample sizes. (Recall that if <span class="math inline">\(np &lt; 10\)</span> or <span class="math inline">\(n(1-p)&lt;10\)</span>, then the sampling distribution of the sample proportion may not be normal. In that case, using <code>correct = TRUE</code> would be appropriate.)</li>
-<li><code>alternative = "two.sided"</code> runs a two-tailed test, but <code>alternative = "greater"</code> or <code>alternative = "less"</code> could also be used if specified in the alternative hypothesis of the test.</li>
+<li>The number of successes in group 1 is entered using the parameter <code>x1</code></li>
+<li>The number of trials (observations) in group 1 is specified using the parameter <code>n1</code></li>
+<li>The number of successes in group 2 is given by <code>x2</code></li>
+<li>The number of trials (observations) in group 2 is given by <code>n2</code></li>
+<li>The alternative hypothesis is established by the argument <code>alternative = "two.sided"</code>. Other options for the alternative hypothesis are <code>alternative = "less"</code> and <code>alternative = "greater"</code>.</li>
 </ul>
-<pre class="r"><code>prop.test(x = c(38,51), n = c(52,66), correct = FALSE, alternative = &quot;two.sided&quot;)</code></pre>
-<pre><code>
-    2-sample test for equality of proportions without continuity
-    correction
-
-data:  c(38, 51) out of c(52, 66)
-X-squared = 0.27623, df = 1, p-value = 0.5992
-alternative hypothesis: two.sided
-95 percent confidence interval:
- -0.1992990  0.1153829
-sample estimates:
-   prop 1    prop 2 
-0.7307692 0.7727273 </code></pre>
-<p>At the bottom of the output above we are given the “prop 1” and “prop 2” sample proportions. Since we entered the male values first, “prop 1” is for the males and “prop 2” is for the females.</p>
-<p><strong>Note</strong>: <code>prop.test( )</code> gives the “Test Statistic” as the “X-squared” value. You will need to square root that value to get the <span class="math inline">\(Z\)</span>-value of the test. As shown above, this test gave X-squared $ = 0.27623$, so the <span class="math inline">\(Z\)</span>-value of the test statistic (which is required for quizzes and exams in Math 221) is <span class="math inline">\(Z = \sqrt{0.27623} = 0.526\)</span>.</p>
-<p>The <span class="math inline">\(P\)</span>-value of this test is 0.599, which is confirmed by putting the <span class="math inline">\(Z\)</span>-value into the Normal Probability Applet and shading both tails.</p>
-<p><img src = "Images/ShadeBothZ-0-5256.png"></p>
-<p>(While you don’t need to shade the Normal Distribution yourself to get the <span class="math inline">\(P\)</span>-value, as R already did that for you, it is useful to recognize that is what R is doing to get the <span class="math inline">\(P\)</span>-value.)</p>
-<p><br/></p>
+<p>When, the above <code>two.prop.test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
+<pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
+two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>##        Two Proportion z-Test  
+## 
+## check for normality of p^s: 
+##       n1p^1 =51
+##   n1(1-p^1) =15
+##       n2p^2 =38
+##   n2(1-p^2) =14
+## 
+## data:  x1 = 51, n1 = 66, x2 = 38, n2 = 52
+## z = 0.526, p-value = 0.599
+## alternative hypothesis: true proportion is not equal to 0
+## 95 percent confidence interval: 
+##       -0.115, 0.199
+## sample estimates: 
+## p^1 = 0.773, p^2 = 0.731</code></pre>
+<p>At the bottom of this output, we are given the sample proportions for the two groups. Since we entered the male values first, group 1 represents the males and group 2 is for the females.</p>
+<p>This function also generates side-by-side bar charts illustrating the data.</p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>We can see that the two proportions are fairly close to each other: <span class="math inline">\(\hat p_1 = \frac{51}{66} = 0.773, \hat p_2 = \frac{38}{52} = 0.731\)</span>.</p>
+<p>The test statistic, <span class="math inline">\(z\)</span>, is <span class="math inline">\(z = 0.526\)</span>.</p>
+<p>The <span class="math inline">\(P\)</span>-value of this test is 0.599, which can be confirmed by putting the <span class="math inline">\(Z\)</span>-value into the Normal Probability Applet and shading both tails.</p>
+<center>
+<img src = "Images/ShadeBothZ-0-5256.png">
+</center>
+<p>You do not need to use the Normal Probability Applet to get the <span class="math inline">\(P\)</span>-value, as R already did that for you. It can be useful to envision what R is doing to get the <span class="math inline">\(P\)</span>-value.</p>
+<p><br></p>
 </div>
-<p><br/></p>
-<p>If you are interested in seeing how these same calculations could be done by had, click the button below. These calculations are optional reading, and are only included for the curious student.</p>
-<a href = "javascript:showhide('handcalculations1')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Math Calculations</span></a>
-<div id="handcalculations1" style="display:none;">
+<p><br></p>
+<!-- ### R Instructions for Testing Two Proportions -->
+<!-- <div class = "SoftwareHeading">R Instructions</div> -->
+<!-- <div class = "Software"> -->
+<!-- Use the `prop.test( )` function in R to perform a test of two proportions. The test requires typing in  -->
+<!-- * `x = c(first value, second value)` -->
+<!-- * `n = c(first value, second value)` -->
+<!-- * `correct = FALSE` which turns off the Yate's Continuity Correction. This correction is only needed for small sample sizes. (Recall that if $np < 10$ or $n(1-p)<10$, then the sampling distribution of the sample proportion may not be normal. In that case, using `correct = TRUE` would be appropriate.) -->
+<!-- * `alternative = "two.sided"` runs a two-tailed test, but `alternative = "greater"` or `alternative = "less"` could also be used if specified in the alternative hypothesis of the test. -->
+<!-- ```{r, comment = NA} -->
+<!-- prop.test(x = c(38,51), n = c(52,66), correct = FALSE, alternative = "two.sided") -->
+<!-- ``` -->
+<!-- At the bottom of the output above we are given the "prop 1" and "prop 2" sample proportions. Since we entered the male values first, "prop 1" is for the males and "prop 2" is for the females. -->
+<!-- **Note**: `prop.test( )` gives the "Test Statistic" as the "X-squared" value. You will need to square root that value to get the $Z$-value of the test. As shown above, this test gave X-squared $ = 0.27623$, so the $Z$-value of the test statistic (which is required for quizzes and exams in Math 221) is $Z = \sqrt{0.27623} = 0.526$. -->
+<!-- The $P$-value of this test is 0.599, which is confirmed by putting the $Z$-value into the Normal Probability Applet and shading both tails. -->
+<!-- <img src = "Images/ShadeBothZ-0-5256.png"> -->
+<!-- (While you don't need to shade the Normal Distribution yourself to get the $P$-value, as R already did that for you, it is useful to recognize that is what R is doing to get the $P$-value.) -->
+<!-- <br/> -->
+<!-- </div> -->
+<!-- <br/> -->
+<p>If you are interested in seeing how these same calculations could be done by hand, click the button below. These calculations are optional reading, and are only included for the curious student.</p>
+<a href = "javascript:showhide('handcalculations1')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Calculations (Optional) </span></a>
+<div id = "handcalculations1" style = "display:none;">
+
+<p><br></p>
 <p>Substituting these values into the equation for the test statistic, <span class="math inline">\(z\)</span>, we get: <span class="math display">\[
 \begin{align}
 z &amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
@@ -588,6 +624,7 @@ The test statistic is <span class="math inline">\(z = 0.526\)</span>. Under the 
 </center>
 <p>Since <span class="math inline">\(P\textrm{-value} = 0.599 &gt; 0.05 = \alpha\)</span>, we fail to reject the null hypothesis. In English we say, there is insufficient evidence to suggest that the true proportion of males who can taste PTC is different from the true proportion of females who can taste PTC.</p>
 <p><br/></p>
+<hr>
 </div>
 <p><br/></p>
 <p><img src = "Images/Step5.png"></p>
@@ -681,7 +718,7 @@ Answer the following questions:
 <div id="Q4" style="display:none;">
 <pre class="r"><code>aortic.table &lt;- c(Weekday = 1476/4145, Weekend = 553/1309)
 barplot(aortic.table, ylim = c(0,1))</code></pre>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Or, yours might look a little nicer than that if you labeled it and colored it, as is good practice. Maybe something like this:</p>
 <pre class="r"><code>barplot(aortic.table, 
         ylim = c(0,1),
@@ -689,7 +726,7 @@ barplot(aortic.table, ylim = c(0,1))</code></pre>
         ylab = &quot;Proportion of Patients who Died&quot;,
         xlab = &quot;Day Patient Entered the Hospital&quot;,
         col = c(&quot;tan3&quot;,&quot;brown3&quot;))</code></pre>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -748,7 +785,9 @@ If you wanted to see the computations required to compute this test statistic by
 <a href = "javascript:showhide('handcalculations2')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Math Calculations</span></a>
 <div id = "handcalculations2" style = "display:none;">
 
-The test statistic can be computed by following these steps:
+<hr>
+
+The test statistic, $z$, can be computed by following these steps:
 
 - First, find the combined proportion of "successes."  This is computed as:
 $$
@@ -874,7 +913,7 @@ Answer the following questions:
 <div id="Q8" style="display:none;">
 <pre class="r"><code>hattack.table &lt;- c(Weekday = 17113/117709, Weekend = 6289/42511)
 barplot(hattack.table, ylim = c(0,1))</code></pre>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">

@@ -29,18 +29,12 @@ output:
 <div id = "oc" style = "display:none;">
 By the end of this lesson, you should be able to:
 
-- Confidence Intervals for the slope of the regression line: 
-    + Calculate and interpret a confidence interval for the slope of the regression line given a confidence level.
-    + Identify a point estimate and margin of error for the confidence interval.
-    + Show the appropriate connections between the numerical and graphical summaries that support the confidence interval. 
-    + Check the requirements for the confidence interval.
-- Hypothesis Testing for the slope of the regression line:
-    + State the null and alternative hypothesis. 
-    + Calculate the test-statistic, degrees of freedom and p-value of the hypothesis test.
-    + Assess the statistical significance by comparing the p-value to the α-level.
-    + Check the requirements for the hypothesis test.
-    + Show the appropriate connections between the numerical and graphical summaries that support the hypothesis test. 
-    + Draw a correct conclusion for the hypothesis test.
+- Write the simple linear regression model 
+- Explain each part of the regression model including the true slope, intercept, and error
+- Calculate a residual using the regression equation for a given observation
+- Interpret the meaning of the residual in the context of the problem
+- Create residual plots and explain how those plots are used for checking the regression requirements
+
 </div>
 <br>
 
