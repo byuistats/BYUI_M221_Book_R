@@ -32,7 +32,7 @@ By the end of this lesson, you should be able to do the following.
   + Determine the level of confidence
   + Create numerical and graphical summaries of the data
   + Create a confidence interval using software
-  + Check the requirements of the confidence interval
+  + Check the requirements of a confidence interval
   + Interpret a confidence interval for the difference of two proportions
 * Perform a hypothesis test for the difference of two proportions using the following steps:
   + State the null and alternative hypotheses
@@ -48,15 +48,9 @@ By the end of this lesson, you should be able to do the following.
 
 <div style = "clear:both;"></div>
 
-## WORKING
-
-## Make Females first in PTC.
-
-## NEED TO CHANGE INSTRUCTIONS IN CI below
-
-### WORKING WORKING WORKING WORKING WORKING WORKING WORKING WORKING WORKING WORKING WORKING WORKING 
-
 ## Hypothesis Tests
+
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Another Taste of PTC
 
@@ -90,42 +84,42 @@ Researchers want to know if the ability to taste PTC is a sex-linked trait. This
 
 $$
 \begin{array}{rl}
-H_0: & p_\text{males} = p_\text{females} \\
-H_a: & p_\text{males} \ne p_\text{females} \\
+H_0: ~& p_\text{females} = p_\text{males} \\
+H_a: ~& p_\text{females} \ne p_\text{males} \\
 \end{array}
 $$
 
 
 <img src = "./Images/Step2.png">
 
-A sample of 66 females and 52 males were provided with PTC strips and asked to indicate if they could taste the chemical or not.  (This research was approved by the BYU-Idaho Institutional Review Board.)
-
+A sample of 66 females and 52 males were provided PTC strips and asked to indicate if they could taste the chemical or not.  (This research was approved by the BYU-Idaho Institutional Review Board.)
 
 <img src = "./Images/Step3.png">
 
-When working with categorical data, it is natural to summarize the data by computing proportions. If someone has the ability to taste PTC, we will call this a success.  The sample proportion is defined as the number of successes observed divided by the total number of observations.  For the males, the proportion who could taste PTC was:
-$$
-\hat p_\text{males} = \frac{x_2}{n_2} = \frac{38}{52} \approx 0.731
-$$
-This works out to be about 73.1%.
+When working with categorical data, it is natural to summarize the data by computing proportions. If someone has the ability to taste PTC, we will call this a success.  The sample proportion is defined as the number of successes observed divided by the total number of observations.  
+
+** Group 1: **
 For the females, the proportion of the sample who could taste the PTC was:
 $$
 \hat p_\text{females} = \frac{x_1}{n_1} = \frac{51}{66} \approx 0.773
 $$
 This is approximately 77.3% of the people who were surveyed.  
 
-When working with data for two proportions, graphically displaying the data can help us compare each proportion. Bar charts are essential tools for describing our data. The stacked bar chart show below was created in R.
+** Group 2: **
+For the males, the proportion who could taste PTC was:
+$$
+\hat p_\text{males} = \frac{x_2}{n_2} = \frac{38}{52} \approx 0.731
+$$
+This works out to be about 73.1%.
 
-<a href = "javascript:showhide('ptcbarplot')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;">Show Code</span></a>
-<div id = "ptcbarplot" style = "display:none;">
+When working with data for two proportions, graphically displaying the data can help us compare each proportion. Bar charts are essential tools for describing our data. This stacked bar chart illustrates how close the two proportions are to each other.
 
-
-
+<center>
 ```{r, echo = FALSE}
-# source("https://byuistats.github.io/M221R/scripts/functions.R")
+source("https://byuistats.github.io/M221R/scripts/functions.R")
 two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = "two.sided", display = "plot")
 ```
-
+</center>
 
 
 <img src = "./Images/Step4.png">
@@ -133,15 +127,21 @@ two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = "two.sided", dis
 The null and alternative hypotheses for a test of equality of two proportions is:
 $$
 \begin{array}{rl}
-H_0: & p_1 = p_2 \\
-H_a: & p_1 \ne p_2 \\
+H_0: ~& p_1 = p_2 \\
+H_a: ~& p_1 \ne p_2 \\
 \end{array}
 $$
 
-In this PTC study, we let $p_1$ be the true proportion of males that could taste PTC, $p_\text{males}$. We let $p_2$ be the true proportion of females that could taste PTC, $p_\text{females}$. If the null hypothesis is true, then the proportion of females who can taste PTC is the same as the proportion of males who can taste PTC.
+In this PTC study, we let $p_1$ be the true proportion of females that could taste PTC, $p_\text{females}$. We let $p_2$ be the true proportion of males that could taste PTC, $p_\text{males}$. If the null hypothesis is true, then the proportion of females who can taste PTC is the same as the proportion of males who can taste PTC.
 
 <span id = "Equation"></span>
-The test statistic of a two-proportion test is a $z$, and is given by the equation:
+The test statistic for a two-proportion test is a $z$. Click on the button below if you want to see the equation.
+
+<a href = "javascript:showhide('handcalculations1')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Formula (Optional) </span></a>
+<div id = "handcalculations1" style = "display:none;">
+
+The equation for the $z$-statistic in a test for the difference of two proportions is:
+
 $$
 z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
 $$
@@ -156,8 +156,10 @@ n_2 = \text{sample size for group 2:}	& n_2 = 52	& \text{(number of males)} \\
 \end{array}
 $$
 
-However, computing this test statistic by hand is tedious. R will compute the test statistic for us.
+Computing this test statistic by hand is not necessary.  R will report it for you.
 
+</div>
+<br>
 
 ### R Instructions for a Hypothesis Test for a Difference of Two Proportions
 
@@ -169,7 +171,7 @@ Here are the instructions for conducting a hypothesis test for a difference of t
 `source("https://byuistats.github.io/M221R/scripts/functions.R")` <br>
 in the RStudio console.
 
-**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: p_1 = p_2$ and the alternative was $H_a: p_1 \neq p_2$.
+**Step 2.** Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is $H_0: ~ p_1 = p_2$ and the alternative was $H_a: ~ p_1 \neq p_2$.
 
 **Step 3.** Use the function `two.prop.test(...)` to conduct the hypothesis test for one proportion in R.
 
@@ -202,7 +204,7 @@ This function also generates side-by-side bar charts illustrating the data.
 two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = "two.sided", display = "plot")
 ```
 
-We can see that the two proportions are fairly close to each other: $\hat p_1 = \frac{51}{66} = 0.773, \hat p_2 = \frac{38}{52} = 0.731$.
+We can see that the two proportions are fairly close to each other: $\hat p_1 = \frac{51}{66} = 0.773$ and $\hat p_2 = \frac{38}{52} = 0.731$.
 
 The test statistic, $z$, is $z = 0.526$.
 
@@ -214,7 +216,6 @@ The $P$-value of this test is 0.599, which can be confirmed by putting the $Z$-v
 
 You do not need to use the Normal Probability Applet to get the $P$-value, as R already did that for you. It can be useful to envision what R is doing to get the $P$-value.
 
-<br>
 </div>
 <br>
 
@@ -292,10 +293,12 @@ Since $P\textrm{-value} = 0.599 > 0.05 = \alpha$, we fail to reject the null hyp
 <img src = "./Images/Step5.png">
 
 Men and women appear to be able to taste PTC in equal proportions.  There is not enough evidence to say that one gender is able to taste PTC more than the other.
-It appears that the ability to taste PTC is not a sex-linked trait.
+We cannot conclude that the ability to taste PTC is a sex-linked trait.
 
 
 <br/>
+
+<img src = "./Images/StepsAll.png">
 
 ### Case Study: Mortality Rates and Day of Admission--Aortic Aneurysms
 
@@ -303,8 +306,7 @@ It appears that the ability to taste PTC is not a sex-linked trait.
 <img src = "./Images/AneurysmAorta-marked.png">
 </div>
 
-Some people have claimed that mortality (death) rates are higher for patients admitted to a hospital on a weekend compared to patients admitted on a weekday.  Researchers Chaim Bell and Donald Redelmeier analyzed
-admission data from hospital emergency rooms in Ontario, Canada <!--<cite>Bell01</cite>-->.
+Some people have claimed that mortality (death) rates are higher for patients admitted to a hospital on a weekend compared to patients admitted on a weekday.  Researchers Chaim Bell and Donald Redelmeier analyzed admission data from hospital emergency rooms in Ontario, Canada <!--<cite>Bell01</cite>-->.
 
 
 The aorta is a major artery that takes oxygen-rich blood from the heart to the entire body.  In some patients, this artery can swell like a balloon and burst.  If this occurs in the abdomen, the technical term for the event is a ruptured abdominal aortic aneurysm.  Although this condition is treatable, it requires immediate action, or the patient will die rapidly.
@@ -319,10 +321,10 @@ The problem is that the quality of care in an emergency care facility may differ
 The proportion of patients with a ruptured abdominal aortic aneurysm who will die is greater on the weekends than on weekdays.
 
 $$
- H_0: p_\text{weekday death} = p_\text{weekend death}
+ H_0: ~ p_\text{weekday death} = p_\text{weekend death}
 $$
 $$
- H_a: p_\text{weekday death} < p_\text{weekend death}
+ H_a: ~ p_\text{weekday death} < p_\text{weekend death}
 $$
 
 
@@ -332,11 +334,11 @@ To test this claim, the researchers accessed medical records for several patient
 
 Data representative of their results are given below <!--<cite>Bell01</cite>-->.
 
-  Outcome     Weekday Admission   Weekend Admission
-  ----------- ------------------- -------------------
-  Died (x)    $x_1 = 1476$        $x_2 = 553$
-  Survived    $2669$              $756$
-  Total (n)   $n_1 = 4145$        $n_2 = 1309$
+  Outcome     Weekday Admission     Weekend Admission
+  ----------- -------------------   -------------------
+  Died (x)    $x_1 = 1476$          $x_2 = 553$
+  Survived    $\phantom{x_1=~}2669$ $\phantom{x_2=~}756$
+  Total (n)   $n_1 = 4145$          $n_2 = 1309$
                                   
 
   : **Aortic Aneurysm Outcomes**
@@ -375,28 +377,20 @@ $$
 </div>
 <br>
 
-4. Create a bar chart showing the two sample proportions side-by-side.
+4. Create a bar chart showing the two sample proportions side-by-side. This is generated by the `two.prop.test()` command.
 
 <a href = "javascript:showhide('Q4')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q4" style = "display:none;">
 
-```{r}
-aortic.table <- c(Weekday = 1476/4145, Weekend = 553/1309)
-barplot(aortic.table, ylim = c(0,1))
+```{r, eval = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = "two.sided")
 ```
 
-Or, yours might look a little nicer than that if you labeled it and colored it, as is good practice. Maybe something like this:
-
-```{r}
-barplot(aortic.table, 
-        ylim = c(0,1),
-        main = "Death Rates of Aortic Aneurysm Patients \n An Emergency Care Facilty in Ontario, Canada",
-        ylab = "Proportion of Patients who Died",
-        xlab = "Day Patient Entered the Hospital",
-        col = c("tan3","brown3"))
-
+```{r, echo = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = "two.sided", display = "plot")
 ```
-
 
 </div>
 &nbsp;
@@ -416,18 +410,27 @@ barplot(aortic.table,
 We now conduct a formal hypothesis test to determine if the mortality (death) rate is greater on a weekend compared to a weekday.  First, we state the null and alternative hypotheses:
 $$
 \begin{align}
-H_0: &  p_1 = p_2 \\
-H_a: &  p_1 < p_2
+H_0: ~&  p_1 = p_2 \\
+H_a: ~&  p_1 < p_2
 \end{align}
 $$
 where group 1 represents the patients admitted on a weekday and group 2 represents patients admitted on a weekend.  Note that if $p_1 < p_2$, then the risk of death is greater in group 2 than in group 1. We will use the 0.05 level of significance.
 
-### Checking Requirements for the Hypothesis Test
+#### Checking Requirements for the Hypothesis Test
 
-<br>
-<div class = "message Tip">When you check the requirements for this procedure, you are actually checking that you have at least 10 successes and 10 failures in both Group 1 and Group 2. All four conditions must be true in order to conduct the test.</div>
-<br>
-<br>
+We perform the test using `two.prop.test( )` in R.
+
+```{r, eval = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = "less")
+```
+
+```{r, echo = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = "less", display = "test")
+```
+
+The check for the requirements is given in the output.
 
 If the sample size is large in both groups, then we can use the normal distribution to compute the $P$-value.  To check if the sample size is large enough, we need to check the following requirements:
 $$
@@ -441,18 +444,15 @@ If all of these requirements are satisfied, the two proportion test can be used 
 Note that the requirements are all satisfied:
 $$
 \begin{array}{rr}
-n_1 \cdot \hat p_1 = 4145 \cdot 0.3561 = 1476 \ge 10  			& n_2 \cdot \hat p_2 = 1309 \cdot 0.4225 = 553 \ge 10  \\
-n_1 \cdot \left(1-\hat p_1\right) = 4145 \cdot 0.6439 = 2669 \ge 10  	& n_2 \cdot \left(1-\hat p_2\right) = 1309 \cdot 0.5775 = 756 \ge 10
+n_1 \cdot \hat p_1 = 4145 \cdot 0.3561 = 1476 \ge 10  			&\surd && n_2 \cdot \hat p_2 = 1309 \cdot 0.4225 = 553 \ge 10 & \surd \\
+n_1 \cdot \left(1-\hat p_1\right) = 4145 \cdot 0.6439 = 2669 \ge 10  	&\surd && n_2 \cdot \left(1-\hat p_2\right) = 1309 \cdot 0.5775 = 756 \ge 10 & \surd
 \end{array}
 $$
 
 **Reminder:** $~ x_1 = 1476,~x_2 = 553$, $n_1 = 4145,~n_2 = 1309$, $\hat p_1 = \frac{x_1}{n_1},~\hat p_2 = \frac{x_2}{n_2}$.
 
-We perform the test using `prop.test( )` in R.
 
-```{r, comment = NA}
-prop.test(x = c(1476, 533), n = c(4145, 1309), correct = FALSE, alternative = "less")
-```
+
 
 <!--These calculations don't match prop.test...
 
@@ -508,7 +508,8 @@ This $z$-score can be substituted into the Normal Probability applet to find the
 
 <br/>
 
-The $P$-value$ = 0.0004179 < 0.05 = \alpha$, so we reject the null hypothesis.
+The $z$-score is z = -3.34.
+The $P$-value$ = 0.000418 < 0.05 = \alpha$, so we reject the null hypothesis.
 
 
 <img src = "./Images/Step5.png">
@@ -520,16 +521,23 @@ There is sufficient evidence to suggest that the true proportion of patients who
 
 
 
+
+<!--
+<img src = "./Images/StepsAll.png">
+
 ### Case Study: Mortality Rates and Day of Admission: Heart Attacks
 
 <div style = "float:right;padding:10px;">
 <img src = "./Images/Acute_myocardial_infarction_with_contraction_band_necrosis.png">
 </div>
 
-
+Here is another study illustrating the challenges of being admitted to a hospital on a weekend.
 
 Heart attacks are a leading cause of death in many areas of the world.
-The study by Doctors Bell and Redelmeier included an analysis of the risk of dying of a heart attack, after admission to a hospital.  The researchers reported the following death rates, depending on whether the heart attack occurred on a weekday or a weekend <!--<cite>Bell01</cite>-->.
+The study by Doctors Bell and Redelmeier included an analysis of the risk of dying of a heart attack after admission to a hospital.  The researchers reported the following death rates, depending on whether the heart attack occurred on a weekday or a weekend 
+```{r, include = FALSE, eval = FALSE}
+<cite>Bell01</cite>
+```
 
   Outcome     Weekday Admission   Weekend Admission
   ----------- ------------------- -------------------
@@ -619,8 +627,8 @@ barplot(hattack.table, ylim = c(0,1))
 
 $$
 \begin{array}{rl}
-H_0: &  p_1 \bigcirc p_2 \\
-H_a: &  p_1 \bigcirc p_2
+H_0: ~&  p_1 \bigcirc p_2 \\
+H_a: ~&  p_1 \bigcirc p_2
 \end{array}
 $$
 
@@ -629,8 +637,8 @@ $$
 <center>
 $$
 \begin{array}{rl}
-H_0: &  p_1 = p_2 \\
-H_a: &  p_1 < p_2
+H_0: ~&  p_1 = p_2 \\
+H_a: ~&  p_1 < p_2
 \end{array}
 $$
 </center>
@@ -673,7 +681,7 @@ $$
 <a href = "javascript:showhide('Q14')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q14" style = "display:none;">
 
-The test statistic is a $Z$ statistic that you obtain from the `prop.test( )` function in R by taking the square root of the "X-squared" statistic.
+The test statistic is a $Z$ statistic that you obtain from the `test( )` function in R by taking the square root of the "X-squared" statistic.
 
 </div>
 <br>
@@ -752,8 +760,14 @@ We get $Z = sqrt(1.6336) = 1.278$. Note however, that since "prop 1" is 0.145 an
 <img src = "./Images/StepsAll.png">
 
 <br>
+################# END HEART ATTACK CASE STUDY
+-->
 
 ## Confidence Intervals
+
+
+<img src = "./Images/StepsAll.png">
+
 
 ### Case Study: Managing Fox Populations
 
@@ -768,76 +782,95 @@ One way to monitor the presence of foxes is to look for fox tracks in specific s
 
 One way to compare two proportions is to make a confidence interval for the difference in the proportions.
 
+<!--
 The equation for the confidence interval for the difference of two proportions may look a little daunting at first, but with some practice, it is not too difficult.
+-->
 
-Before we compute the confidence interval, we first organize our data and calculate some statistics that will be useful later.  We divide the data into two groups: before foxes were targeted (Group 1) and after (Group 2). For each group, let $x_1$ and $x_2$ represent the number of times fox prints were observed in the sand-pads before and after the ecologists began systematically eliminating the foxes, respectively.  Similarly, Let $n_1$ and $n_2$ be the number of times the ecologists checked the sand-pads in the before and after periods, respectively.
+We divide the data into two groups: after foxes were targeted (Group 1) and before the intervention (Group 2). For each group, let $x_1$ and $x_2$ represent the number of times fox prints were observed in the sand-pads before and after the ecologists began systematically eliminating the foxes, respectively.  Similarly, Let $n_1$ and $n_2$ be the number of times the ecologists checked the sand-pads in the "after" and "before" periods, respectively.
 
 <center>
 
 **Fox Tracks Data**
 
-| &nbsp; | Before Intervention | After Intervention | Combined Data |
-|--------|---------------------|--------------------|---------------|
-| **Fox Tracks Observed** |  $x_1 = 576$		| $x_2 = 268$   | $x_1 + x_2 = 576 + 268 = 844$ |
-| **Total Observations** | $n_1 = 950$		| $n_2 = 1359$  		| $n_1 + n_2 = 950 + 1359 = 2309$ |
+| &nbsp; | After Intervention | Before Intervention |
+|--------|---------------------|--------------------|
+| **Fox Tracks Observed** | $x_1 = 268$  | $x_2 = 576$ |
+| **Total Observations**  | $n_1 = 1359$ | $n_2 = 950$ |
 
 </center>
 
-
+<!--
 We compute $\hat p$ for each group.
 
 For group 1:
 $$
-\hat p_1 = \frac{x_1}{n_1} = \frac{576}{950} \approx 0.606
+\hat p_1 = \frac{x_2}{n_2} = \frac{268}{1359}\approx 0.197
 $$
 
 For group 2:
 $$
-\hat p_2 = \frac{x_2}{n_2} = \frac{268}{1359}\approx 0.197
+\hat p_2 = \frac{x_1}{n_1} = \frac{576}{950} \approx 0.606
 $$
 
-When working with two proportions, we are mainly interested in the *difference between the proportions.* In this case, subtracting the two proportions gives us an estimate of how different the true proportions $p_1$ and $p_2$ might be.
+-->
+
+When working with two proportions, we are mainly interested in the *difference between the proportions.* 
+In this case, subtracting the two proportions gives us an estimate of how different the true proportions $p_1$ and $p_2$ might be.
 
 $$
-\hat p_1 -\hat p_2 = 0.606 - 0.197 = 0.409
+\hat p_1 -\hat p_2 = 0.197 - 0.606 = -0.409
 $$
 
-This tells us that it appears the first proportion, $p_1$ is somewhere around 40.9 percentage points higher than $p_2$, which is quite a bit! It seems the intervention lowered the prevalence of foxes in the sand-pads. However, our conclusions are based on sample proportions instead of the true proportions. So we can't be sure on exactly how much the true proportions actually differ. Using a confidence interval to estimate a set of possibilities for true difference in proportions can give us greater insight.
+This tells us that it appears the first proportion, $p_1$ is somewhere around 40.9 percentage points lower than $p_2$. This is quite a bit! It seems the intervention lowered the prevalence of foxes in the sand-pads. However, our conclusions are based on sample proportions instead of the true proportions. We cannot be sure exactly how much the true proportions actually differ, but a confidence interval to estimate the true difference in proportions can give us greater insight.
 
-### R Instructions for the Confidence Interval of the Difference of Two Proportions
+### R Instructions for Finding a Confidence Interval of the Difference of Two Proportions
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
-Use the `prop.test( )` function in R to obtain a confidence interval for the difference of two proportions.
+Use the `two.prop.test( )` function in R to obtain a confidence interval for the difference of two proportions.
 
-```{r, comment = NA}
-prop.test(x = c(576, 268), n = c(950, 1359), correct = FALSE, conf.level = 0.95)
+```{r, eval = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 268, n1 = 1359, x2 = 576, n2 = 950, conf.level = 0.95)
 ```
 
+```{r, echo = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 268, n1 = 1359, x2 = 576, n2 = 950, conf.level = 0.95, display = "test")
+```
+
+We can see the distinct difference in the proportion of fox tracks after the intervention in the side-by-side bar charts.
+
+```{r, echo = FALSE}
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+two.prop.test(x1 = 268, n1 = 1359, x2 = 576, n2 = 950, conf.level = 0.95, display = "plot")
+```
+
+Recall that group 1 represents the observations *after* the intervention and Group 2 represents observations *before* the intervention.
 
 </div>
-
 <br/>
 
-The lower bound for a 95% confidence interval for the difference of the proportions of times fox prints are observed in the sand-pads is $0.371$ while the upper-bound is $0.447$.
+The lower bound for a 95% confidence interval for the difference of the proportions of times fox prints are observed in the sand-pads is $-0.447$ and the upper-bound is $-0.372$.
 
 So, the 95% confidence interval for the difference in the proportions is:
 
 $$
-(0.372, 0.447)
+(-0.447, -0.372)
 $$
 
-<div class = "tip">
-If we switch the way we label group 1 and group 2, then our confidence interval would have the opposite signs: $(-0.447, -0.372)$.
+To interpret this confidence interval, we say, "We are 95% confident that the true *difference* in the proportions of times fox prints will appear in the sand-pads is between $-0.447$ and $-0.372$."
+
+<div class = "message Tip">
+If we had swapped the way we label group 1 and group 2, then our confidence interval would have had the opposite signs: $(0.372, 0.447)$.
 </div>
 
-To interpret this confidence interval, we say, "We are 95% confident that the true *difference* in the proportions of times fox prints will appear in the sand-pads is between 0.372 and 0.447."
-
-Based on this result, it is reasonable to conclude that the proportion of times foxes are observed in the sand-pads has been reduced by anywhere from 37.2 percentage points to 44.7 percentage points.  It seems that the work to reduce the number of foxes is having an effect on their presence in the reserve.
+We conclude that the proportion of times foxes are observed in the sand-pads has been reduced by anywhere from 37.2 percentage points to 44.7 percentage points.  The work to reduce the number of foxes seems to have an effect on their presence in the reserve.
 
 
-### Checking Requirements for a Confidence Interval
 
+
+#### Checking Requirements for a Confidence Interval
 
 The requirements for computing a confidence interval for two proportions are the same as the requirements for doing a hypothesis test.
 
@@ -848,12 +881,15 @@ n_1 \cdot \left(1-\hat p_1\right) \ge 10  && n_2 \cdot \left(1-\hat p_2\right) \
 \end{array}
 $$
 
+These calculations are given in the output above. 
 In this example, all of the requirements are satisfied:
 
 $$
-\begin{array}{rr}
-n_1 \cdot \hat p_1 = 950 \cdot 0.606 = 576 \ge 10  			& n_2 \cdot \hat p_2 = 1359 \cdot 0.197 = 268 \ge 10  \\
-n_1 \cdot \left(1-\hat p_1\right) = 950 \cdot (1-0.606) = 374 \ge 10  	& n_2 \cdot \left(1-\hat p_2\right) = 1359 \cdot (1-0.197) = 1091 \ge 10
+\begin{array}{rlrl}
+ n_1 \cdot \hat p_1 = 1359 \cdot 0.197 = 268 \ge 10 &\surd ~~~~~~~~~& 
+  n_2 \cdot \hat p_2 = 950 \cdot 0.606 = 576 \ge 10  &\surd \\
+n_1 \cdot \left(1-\hat p_1\right) = 1359 \cdot (1-0.197) = 1091 \ge 10 &\surd& 
+  n_2 \cdot \left(1-\hat p_2\right) = 950 \cdot (1-0.606) = 374 \ge 10 &\surd 
 \end{array}
 $$
 
@@ -873,24 +909,24 @@ $$
 
 - For a hypothesis test and confidence interval of two proportions, we use the following symbols:
 $$
-\begin{array}{lcl}
-\text{Sample proportion for group 1:} & \hat p_1 = \displaystyle{\frac{x_1}{n_1}} \\
-\text{Sample proportion for group 2:} & \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
+\begin{array}{lll}
+\text{Sample proportion for group 1:} &~& \hat p_1 = \displaystyle{\frac{x_1}{n_1}} \\
+\text{Sample proportion for group 2:} &~& \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
 \end{array}
 $$
 
 - A test of two proportions (or confidence interval for two proportions) is appropriate to perform whenever all of the following requirements are satisfied:
 
 $$
-n_1\hat{p}_1 \geq 10 \quad\quad n_2 \hat{p}_2 \geq 10\\
+n_1\hat{p}_1 \geq 10 \quad\quad\quad\quad n_2 \hat{p}_2 \geq 10\\
 n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
 $$
 
-- Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.
+- If zero is contained in the confidence interval of the difference of the true proportions, it is reasonable to conclude that there is no significant difference between the two proportions.
 
-- Use [`prop.test(x = c( ,  ), n = c(  ,  ), correct = FALSE, alternative = "two.sided")`](Lesson18.html#r-instructions-for-testing-two-proportions) to perform a hypothesis test of two proportions. 
+- Use [`two.prop.test(x1 = , n1= , x2 = , n2 = , alternative = )`](Lesson18.html#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions) to perform a hypothesis test of two proportions. Note that `alternative` could either be assigned a value of `"two.sided"`, `"less"`, or `"greater"`.
 
-- Use [`prop.test(x = c(  ,  ), n = c(  ,  ), correct = FALSE, conf.level = 0.95)`](Lesson18.html#r-instructions-for-confidence-interval-of-the-difference-of-two-proportions) to obtain a confidence interval for the difference of two proportions.
+- Use [`two.prop.test(x1 = , n1= , x2 = , n2 = , conf.level = 0.95)`](Lesson18.html#r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions) to obtain a confidence interval for the difference of two proportions.
 
 <br>
 </div>
