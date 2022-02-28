@@ -30,10 +30,10 @@ By the end of this lesson, you should be able to do the following.
 
 * Perform a hypothesis test for the Chi-square test for independence using the following steps:
   + State the null and alternative hypotheses
-  + State the level of significance (α)
+  + State the level of significance ($\alpha$)
   + Create numerical and graphical summaries of the data
   + Calculate the test-statistic, degrees of freedom and P-value of the test using software
-  + Assess statistical significance by comparing the P-value to the level of significance (α)
+  + Assess statistical significance by comparing the P-value to the level of significance ($\alpha$)
   + State the appropriate conclusion for the hypothesis test
   + Check the requirements for the hypothesis test
 
@@ -133,8 +133,62 @@ chiropractic care."
 
 <img src = "./Images/Step3.png">
 
-The data from the study are summarized in the following table of counts. (This is sometimes called a *contingency table*.) <!--<cite>Blum08</cite>-->
 
+```{r, include = FALSE, eval = FALSE}
+# The following code was used to generate the untallied data:
+library(tidyverse)
+library(readxl)
+library(writexl)
+url <- "https://byuistats.github.io/M221R/data/chiropractic_care_table.xlsx"
+destfile <- "chiropractic_care_table.xlsx"
+curl::curl_download(url, destfile)
+chiropractic_care_table <- read_excel(destfile)
+View(chiropractic_care_table)
+
+chiropractic_care_table %>% 
+  pivot_longer(cols = 2:ncol(.)) %>% 
+  uncount(value) %>% 
+  rename(motivation = Location, location = name) %>% 
+  mutate(rand = runif(n())) %>% 
+  arrange(location, rand) %>% 
+  select(location, motivation) %>% 
+  write_xlsx("chiropractic_care_raw.xlsx")
+```
+
+The data from the study are given in the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx).
+Each row represents the responses of one person. There were a total of 1316 participants in this study.
+
+Here is a brief excerpt of the data:
+```{r, echo = FALSE}
+library(readxl)
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+dots <- data.frame(location = ":", motivation = ":")
+chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
+chiropractic_head <- chiropractic_care_raw %>% 
+  head(6) 
+chiropractic_mid <- chiropractic_care_raw %>% 
+  filter(location == "Europe") %>% 
+  head(4)
+chiropractic_tail <- chiropractic_care_raw %>% 
+  tail(4) 
+bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>% 
+  kable() %>% 
+  kable_styling(full_width = F)
+```
+
+It is hard to visualize these data. We summarize them into a table of counts, which can be called a *contingency table*. <!--<cite>Blum08</cite>-->
+
+```{r, echo = FALSE}
+chiropractic_care_raw %>% 
+  table() %>% 
+  kable() %>% 
+  kable_styling(full_width = F) %>% 
+  column_spec(1, bold = TRUE)
+```
+
+<!--
 +-------------+--------+-----------+---------------+-----------+
 | Location    | Europe | Australia | United States | **Total** |
 +=============+:======:+:=========:+:=============:+:=========:+
@@ -154,6 +208,8 @@ The data from the study are summarized in the following table of counts. (This i
 +-------------+--------+-----------+---------------+-----------+
 
 These data are available in the file [chiropractic_care_table.xlsx](./data/chiropractic_care_table.xlsx). Notice that in this data file, there are no values giving the sum of the data in each row or column. Before we perform a chi-square analysis, it is important that we remove the row and column totals, if they are given.
+-->
+
 
 **Motivation for Choosing to Seek Chiropractic Care** 
 
@@ -164,23 +220,32 @@ While a table of counts, or contingency table, is helpful in describing the rela
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
 
-First, read in the data from the file [chiropractic_care_table.xlsx](./data/chiropractic_care_table.xlsx).
+First, read in the data from the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx).
 
 ```{r, include = FALSE}
 library(readxl)
-chiropractic_care_table <- read_excel("./data/chiropractic_care_table.xlsx")
+chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
 ```
 
+You can use the `head()` function to look at the first few rows of the data.
 ```{r, comment = NA}
-chiropractic_care_table
+head(chiropractic_care_raw.xlsx)
 ```
 
-After reading in the table
-```{r, comment = NA}
-contingency_table <- as.matrix(data.frame(chiropractic_care_table, row.names = 1))
+After reading in the data, we can organize it into a contingency table.
+```{r}
+contingency_table <- table(chiropractic_care_raw)
+contingency_table
 ```
 
-Once the table of observed counts is created, then it can be turned into a clustered bar chart using the `barplot( )` code with the optional commands of 
+We can transpose (or swap the rows and columns of) this table using the command `t(...)`.
+```{r}
+t(contingency_table)
+```
+
+Notice that the values in the first column of the contingency table are in the first row of its transpose. The rows and columns essentially swap roles.
+
+We can use the table of observed counts to create a clustered bar chart using the `barplot( )` command. We include the following optional commands:
 
 * `beside = TRUE` puts the bars side-by-side. Not using `beside = TRUE` results in a stacked bar chart.
 
@@ -190,40 +255,40 @@ Once the table of observed counts is created, then it can be turned into a clust
 barplot(contingency_table, beside = TRUE, legend = TRUE)
 ```
 
-It is usually helpful to look at the data after reversing the roles of the rows and the columns. We can transpose the data (swap the roles of the rows and columns in the data frame) using the command `t(...)`.
+It is usually helpful to look at a bar chart of the transpose of the data.
 
 ```{r}
 barplot(t(contingency_table), beside = TRUE, legend = TRUE)
 ```
 
-You will probably prefer one of these plots over the other. Either plot can be used. They show the same data in different ways.
+Either plot can be used. They show the same data in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data. 
 
-Notice that the legend is on top of the bars for the United States in these plots. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we will provide five colors: `col = c("brown3","darkolivegreen4","tan3","darkorchid","steelblue3")`.
+Notice that the legend is on top of the bars for the United States in these plots. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we will provide five colors: `col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")`.
 
 ```{r}
-barplot(contingency_table, beside = TRUE, legend = TRUE,
-        ylim = c(0,325), #extend the y-axis to 325
-        col = c("brown3","darkolivegreen4","tan3","darkorchid","steelblue3"))
+barplot(t(contingency_table), beside = TRUE, legend = TRUE,
+        ylim = c(0, 325),                              # extend the y-axis to 325
+        col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4"))
 ```
 
 <br/>
 </div>
 
 <br>
-
-
 <br>
 
-The predominant motivation that people choose to seek chiropractic care in any region is for *self care*. Compared to the other regions, people in Europe, are less likely to be motivated by the *sick role*. People in Austrailia are least likely to seek chiropractic care for *prevention*.
+The predominant motivation that people choose to seek chiropractic care in any region is for *self care*. The second-most common reason differs across the three regions. For Australia, it is *Wellness*. For Europe, it is *At Risk*, and for the United States, it is *Sick Role*. 
 
 <br/>
 
 <img src = "./Images/Step4.png">
 
-Before making any strong conclusions about the data depicted in a bar chart it is important to conduct the chi-squared test of independence. The $P$-value from this test will help us know if we should reject the null hypothesis or not. If we fail to reject the null hypothesis, then *motivation* and *location* are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that *motivation* and *location* are **not independent** (meaning they are related) and we can make conclusions from the patterns showing in the bar plot.
+Before drawing conclusions about the data depicted in a bar chart it is important to conduct the chi-squared test of independence. The $P$-value from this test will help us know if there are statistically significant differences in the ratios across the groups. 
+If we fail to reject the null hypothesis, then *motivation* and *location* are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that *motivation* and *location* are **not independent** (meaning the proportions of the reasons people seek care is different in the three locations). We can then draw our final conclusions regarding the patterns in the side-by-side bar plots.
+
+
 
 ### R Instructions for Performing a Chi-squared Test of Independence
-
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
@@ -231,13 +296,11 @@ Before making any strong conclusions about the data depicted in a bar chart it i
 To perform a chi-squared test of independence in R, use the `chisq.test( )` function. Using this function requires that you have previously made a table of counts. (Review the [R Instructions for Clustered Bar Charts](Lesson19.html#r-instructions-for-clustered-bar-charts) to review how to create a table of counts in R.)
 
 ```{r, comment = NA}
-#chiropractic_care_table is a table of counts created previously.
-
-chisq_test_results <- chisq.test(contingency_table)
-chisq_test_results
+chisq_results <- chisq.test(contingency_table)
+chisq_results
 ```
 
-The "X-squared" value of 49.743 is the test statistic of the test. Technically, it should read $\chi^2 = 49.743$ but the words "X-squared" are used to represent the Greek character chi-squared ($\chi^2$) in the output of the test. The **df** stands for degrees of freedom. The p-value is clearly stated.
+The "X-squared" value of 49.743 is the test statistic of the test. Technically, it should be typeset as $\chi^2 = 49.743$. The text "X-squared" is used to represent the Greek character chi-squared ($\chi^2$) in the chi-square test output. The degrees of freedom (**df**) and the $P$-value are also given in this output.
 
 </div>
 
