@@ -656,11 +656,11 @@ R Instructions
 <p>After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.</p>
 <pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw)
 contingency_table</code></pre>
-<pre><code>##                motivation
-## location        At Risk Prevention Self Care Sick Role Wellness
-##   Australia          83         59       188        68       71
-##   Europe             59         28        95        77       23
-##   United States      65         76       252        82       90</code></pre>
+<pre><code>               motivation
+location        At Risk Prevention Self Care Sick Role Wellness
+  Australia          83         59       188        68       71
+  Europe             59         28        95        77       23
+  United States      65         76       252        82       90</code></pre>
 <!--
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -703,13 +703,13 @@ contingency_table</code></pre>
 -->
 <p>We can transpose (or swap the rows and columns of) this table using the command <code>t(...)</code>.</p>
 <pre class="r"><code>t(contingency_table)</code></pre>
-<pre><code>##             location
-## motivation   Australia Europe United States
-##   At Risk           83     59            65
-##   Prevention        59     28            76
-##   Self Care        188     95           252
-##   Sick Role         68     77            82
-##   Wellness          71     23            90</code></pre>
+<pre><code>            location
+motivation   Australia Europe United States
+  At Risk           83     59            65
+  Prevention        59     28            76
+  Self Care        188     95           252
+  Sick Role         68     77            82
+  Wellness          71     23            90</code></pre>
 <p>Notice that the values in the first column of the contingency table are in the first row of its transpose. When a table is transposed, the rows and columns essentially trade roles.</p>
 <p>While a table of counts (a contingency table) is helpful in describing the relationship between two categorical variables like <em>location</em> and <em>motivation</em>, a clustered bar chart makes it much easier to visually compare and contrast the observed counts. We can use the contingency table to create a clustered bar chart using the <code>barplot( )</code> command. We will include the following optional commands:</p>
 <ul>

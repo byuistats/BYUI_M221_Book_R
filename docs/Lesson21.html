@@ -450,16 +450,34 @@ $(document).ready(function () {
 <div id="describing-bivariate-data" class="section level2">
 <h2>Describing Bivariate Data</h2>
 <p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>.</p>
-<p>Notice that we have two quantitative measurements on each participant. We call these data <strong>bivariate data</strong>, since there are two (bi-) quantitative variables that we are considering simultaneously.</p>
+<p>Read in the data from the file <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>After reading in the data, you may want to look at the first few rows to see how it is formatted.</p>
+<pre class="r"><code>head(math_self_efficacy)</code></pre>
+<pre><code>##   gender score confidence_rating_mean
+## 1      F  50.0                   4.34
+## 2      F  83.3                   4.73
+## 3      F  76.7                   5.28
+## 4      F  50.0                   2.83
+## 5      F  76.7                   5.40
+## 6      F  73.3                   4.03
+##                                                                                 comments
+## 1 Shane Goodwin and other researchers studied factors that affect a student&#39;s confidence
+## 2  on a multiple-choice Mathematics exam. A group of n = 139 students in an Intermediate
+## 3                                 Algebra course at BYU-Idaho participated in the study.
+## 4                                                                                   &lt;NA&gt;
+## 5         The exam consisted of 30 multiple-choice problems worth a total of 100 points.
+## 6             The students&#39; scores out of 100 points are given in the variable &quot;Scores.&quot;</code></pre>
+<p>Notice that we have two quantitative measurements on each participant: <em>score</em> and <em>confidence_rating_mean</em>. We call these data <strong>bivariate data</strong>. The prefix “bi-” comes from the Latin <em>bi-</em> meaning “twice” or “double”. When we are simultaneously working with two quantitative variables, we say we have bivariate data.</p>
 <p>In the past, we have summarized quantitative data by computing summary statistics. Here are a couple of statistics computed from these data:</p>
 <ul>
 <li>The mean score on the test was 74.7 points.</li>
 <li>The mean confidence rating was 4.4.</li>
 </ul>
-<p>While these statistics are useful, they do not provide information about the <em>connection</em> between the students’ scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score? Do they score higher on the exam than those that feel less confident? We need a new tool to help us relate the values of two quantitative observations. When we have two quantitative measurements on a unit, we have <strong>bivariate data</strong>.</p>
+<p>While these statistics are useful, they do not provide information about the <em>connection</em> between the students’ scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score? Do they score higher on the exam than those that feel less confident? We need a new tool to help us relate the values of two quantitative observations. When we have two quantitative measurements on each subject in the study, we have <strong>bivariate data</strong>.</p>
 <div id="graphical-summary" class="section level3">
 <h3>Graphical Summary</h3>
-<p>A scatterplot is an excellent way to present the bivariate relationship between two quantitative variables. The scatterplot has a y-axis (the vertical axis) that usually represents the variable we are most interested in studying. The x-axis of the scatterplot uses the other variable to help <em>explain</em> the y-variable. In this case, we will use the x-axis as the confidence rating of each student in order to <em>explain</em> the exam score of each student.</p>
+<p>A scatterplot is an excellent way to present the bivariate relationship between two quantitative variables. The scatterplot has a y-axis (the vertical axis) that usually represents the variable we are most interested in studying. This is the variable we want to predict. The x-axis of the scatterplot displays the values of the variable that helps <em>explain</em> the values of the y-variable. In this case, we will let our x-variable be the confidence rating of each student, which helps explain that student’s exam score. We expect that students who have higher levels of confidence will tend to have higher exam scores.</p>
+<p>The variable on the x-axis of the scatter plot is called the <strong>explanatory variable</strong>, and the variable on the y-axis is called the <strong>response variable</strong>.</p>
 </div>
 <div id="r-instructions-for-scatterplots" class="section level3">
 <h3>R Instructions for Scatterplots</h3>
@@ -467,39 +485,39 @@ $(document).ready(function () {
 R Instructions
 </div>
 <div class="Software">
-<p><strong>To create a scatterplot in R</strong> use the <code>plot(...)</code> function with the <code>y-variable</code> placed first, followed by a <code>~</code>, followed by the <code>x-variable</code>.</p>
+<p><strong>To create a scatterplot in R</strong> use the <code>plot(...)</code> function with the response variable (y) placed first, followed by a <code>~</code>, followed by the explanatory variable (x). Then, you indicate which data frame the variables are in using the <code>data =</code> argument.</p>
 <p>First, read in the data: <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
-<pre class="r"><code>plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean)</code></pre>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of</p>
+<pre class="r"><code>plot(score ~ confidence_rating_mean, data = math_self_efficacy)</code></pre>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>We can customize our plot with color and better labels using the options</p>
 <ul>
 <li><code>col =</code> a name of a color to specify the color of the points in the graph,</li>
 <li><code>pch =</code> a number 1 to 25 to specify the plotting character used for each point in the graph,</li>
-<li><code>xlab =</code> to specify in quotations the words to print below the x-axis,</li>
-<li><code>ylab =</code> to specify in quotations the words to print next to the y-axis, and</li>
-<li><code>main =</code> to specify in quotations the main title of the graph.</li>
+<li><code>xlab =</code> to specify (in quotation marks) the words to print below the x-axis,</li>
+<li><code>ylab =</code> to specify (in quotation marks) the words to print next to the y-axis, and</li>
+<li><code>main =</code> to specify (in quotation marks) the main title of the graph.</li>
 </ul>
 <p>These options are demonstrated below.</p>
-<pre class="r"><code>plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean,
+<pre class="r"><code>plot(score ~ confidence_rating_mean, data = math_self_efficacy,
      col = &quot;steelblue3&quot;, # specify the color
      pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = &quot;Mean Confidence Rating for Each Student&quot;,
      ylab = &quot;Exam Score of Each Student (Out of 100 Pts.)&quot;,
      main = &quot;Study on Student Exam Performance in Math 101&quot;)</code></pre>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><br/></p>
 <p><strong>Options for Plotting Characters</strong></p>
 <p>If you were curious, here are the <code>pch =</code> options you can pick from by selecting the number corresponding to the symbol you want.</p>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <p><br/></p>
 <p>Each point in the plot represents both the confidence and score of one student. The points are plotted on the X-Y coordinate plane. The position on the horizontal (X) axis represents the student’s confidence rating. The height of the point or the value on the Y-axis, represents the student’s score on the exam.</p>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The cloud of data illustrated in this scatterplot help us visualize the relationship between the student’s confidence rating and their score on the exam. Notice that the points tend to be higher as you move to the right. Students who have a high confidence rating (points further to the right) tend to have higher exam scores (higher vertical position). Similarly, students with lower confidence typically have lower exam scores. Notice that as a students’ confidence increases, their exam score tends to increase. We call this a <em>positive association</em> or a <em>positive correlation</em>.</p>
 <p>Notice that there is variability in the responses. Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind’s eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as a 60 on the exam to as high as a 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn’t tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.</p>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>When the points in a scatterplot follow a straight pattern, we say that there is a <em>linear relationship</em> in the data. Data are considered linearly related if the points in the scatterplot follow a straight line. The points do not have to be aligned tightly to represent a linear relationship. Both broadly scattered and narrow clouds of data can be considered linear. Here are some examples that all would be considered linear relationships.</p>
-<p><img src="Lesson21_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson21_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>In the examples above, even though each plot could be considered a <em>linear relationship</em>, they each differ in how much the dots are spread out along that linear relationship. We need to be able to describe the not only the <strong>shape</strong> of the relationship, but also the the <strong>direction</strong> and <strong>strength</strong> of a linear relationship in bivariate data. We use the correlation coefficient to quantify the direction and strength of the relationship. This idea is discussed below.</p>
 </div>
 <div id="describing-direction-scatterplots-and-the-correlation-coefficient" class="section level3">

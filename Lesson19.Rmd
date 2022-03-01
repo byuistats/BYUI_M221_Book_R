@@ -204,7 +204,7 @@ It is hard to visualize these data. We summarize them into a table of counts, wh
 
 After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.
 
-```{r}
+```{r, comment = NA}
 contingency_table <- table(chiropractic_care_raw)
 contingency_table
 ```
@@ -223,7 +223,7 @@ chiropractic_care_raw %>%
 -->
 
 We can transpose (or swap the rows and columns of) this table using the command `t(...)`.
-```{r}
+```{r, comment = NA}
 t(contingency_table)
 ```
 

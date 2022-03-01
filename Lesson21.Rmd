@@ -78,25 +78,45 @@ The $n = 139$ students from the selected Math 101 course represented a convenien
 
 Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx).
 
-Notice that we have two quantitative measurements on each participant.  We call these data **bivariate data**, since there are two (bi-) quantitative variables that we are considering simultaneously.
+Read in the data from the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+
+```{r, echo = FALSE, message = FALSE}
+library(readxl)
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+math_self_efficacy <- read_excel("./data/math_self_efficacy.xlsx") %>% data.frame()
+```
+
+After reading in the data, you may want to look at the first few rows to see how it is formatted.
+
+```{r, message = FALSE}
+head(math_self_efficacy)
+```
+
+
+Notice that we have two quantitative measurements on each participant: *score* and *confidence_rating_mean*. We call these data **bivariate data**. The prefix "bi-" comes from the Latin *bi-* meaning "twice" or "double". When we are simultaneously working with two quantitative variables, we say we have bivariate data.
 
 In the past, we have summarized quantitative data by computing summary statistics.  Here are a couple of statistics computed from these data:  
 
 - The mean score on the test was 74.7 points. 
 - The mean confidence rating was 4.4.  
 
-While these statistics are useful, they do not provide information about the *connection* between the students' scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score? Do they score higher on the exam than those that feel less confident? We need a new tool to help us relate the values of two quantitative observations.  When we have two quantitative measurements on a unit, we have **bivariate data**.
+While these statistics are useful, they do not provide information about the *connection* between the students' scores on the exam and their confidence. If a student feels very confident, what do the data tell us about their test score? Do they score higher on the exam than those that feel less confident? We need a new tool to help us relate the values of two quantitative observations.  When we have two quantitative measurements on each subject in the study, we have **bivariate data**.
 
 
 ###  Graphical Summary 
 
-A scatterplot is an excellent way to present the bivariate relationship between two quantitative variables. The scatterplot has a y-axis (the vertical axis) that usually represents the variable we are most interested in studying. The x-axis of the scatterplot uses the other variable to help *explain* the y-variable. In this case, we will use the x-axis as the confidence rating of each student in order to *explain* the exam score of each student.
+A scatterplot is an excellent way to present the bivariate relationship between two quantitative variables. The scatterplot has a y-axis (the vertical axis) that usually represents the variable we are most interested in studying. This is the variable we want to predict. The x-axis of the scatterplot displays the values of the variable that helps *explain* the values of the y-variable. In this case, we will let our x-variable be the confidence rating of each student, which helps explain that student's exam score. We expect that students who have higher levels of confidence will tend to have higher exam scores.
+
+The variable on the x-axis of the scatter plot is called the **explanatory variable**, and the variable on the y-axis is called the **response variable**.
+
 
 ### R Instructions for Scatterplots
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
-**To create a scatterplot in R** use the `plot(...)` function with the `y-variable` placed first, followed by a `~`, followed by the `x-variable`.
+**To create a scatterplot in R** use the `plot(...)` function with the response variable (y) placed first, followed by a `~`, followed by the explanatory variable (x). Then, you indicate which data frame the variables are in using the `data = ` argument.
 
 First, read in the data: [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
 
@@ -106,21 +126,21 @@ math_self_efficacy <- read_excel("./data/math_self_efficacy.xlsx")
 ```
 
 ```{r}
-plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean)
+plot(score ~ confidence_rating_mean, data = math_self_efficacy)
 ```
 
-Of course, it is good practice to provide some color and better labeling with any plot. To do that, use the options of 
+We can customize our plot with color and better labels using the options
 
 * `col = ` a name of a color to specify the color of the points in the graph,
 * `pch = ` a number 1 to 25 to specify the plotting character used for each point in the graph, 
-* `xlab = ` to specify in quotations the words to print below the x-axis, 
-* `ylab = ` to specify in quotations the words to print next to the y-axis, and 
-* `main = ` to specify in quotations the main title of the graph.
+* `xlab = ` to specify (in quotation marks) the words to print below the x-axis, 
+* `ylab = ` to specify (in quotation marks) the words to print next to the y-axis, and 
+* `main = ` to specify (in quotation marks) the main title of the graph.
 
 These options are demonstrated below.
 
 ```{r}
-plot(math_self_efficacy$score ~ math_self_efficacy$confidence_rating_mean,
+plot(score ~ confidence_rating_mean, data = math_self_efficacy,
      col = "steelblue3", # specify the color
      pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
      xlab = "Mean Confidence Rating for Each Student",
