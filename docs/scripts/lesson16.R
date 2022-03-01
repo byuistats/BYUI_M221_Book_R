@@ -5,10 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-library(mosaic)
-
 
 
 # Sample Proportions ================================================
