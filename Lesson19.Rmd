@@ -256,12 +256,12 @@ Either plot can be used. They present identical information in different ways. Y
 
 In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.
 
-Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument `ylim = c(0, 450)`, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: `col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")`.
+Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument `ylim = c(0, 450)`, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: `col = c("tan3", "brown3", "darkorchid", "steelblue3", "darkolivegreen4")`.
 
 ```{r}
 barplot(t(contingency_table), beside = TRUE, legend = TRUE,
         ylim = c(0, 450),  # extend the y-axis from 0 to 450
-        col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4"))
+        col = c("tan3", "brown3", "darkorchid", "steelblue3", "darkolivegreen4"))
 ```
 
 <br/>

@@ -735,10 +735,10 @@ contingency_table</code></pre>
 <p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Either plot can be used. They present identical information in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data.</p>
 <p>In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.</p>
-<p>Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 450)</code>, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
+<p>Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 450)</code>, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("tan3", "brown3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
         ylim = c(0, 450),  # extend the y-axis from 0 to 450
-        col = c(&quot;brown3&quot;, &quot;tan3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
+        col = c(&quot;tan3&quot;, &quot;brown3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
 <p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><br/></p>
 </div>
