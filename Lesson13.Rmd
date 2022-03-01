@@ -528,7 +528,8 @@ The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients
 
 <a href = "javascript:showhide('Q5')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q5" style = "display:none;">
-* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$. So we read in the [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx) data into RStudio, ensure `library(mosaic)` is loaded, and then use the `favstats(...)` function.
+* We need to find the the following: $\bar x_1$, $s_1$, $n_1$, $\bar x_2$, $s_2$, and $n_2$. So we read in the [fifa_heart_attacks.xlsx](./data/fifa_heart_attacks.xlsx) data into RStudio. (Review of [reading in data](RHelp.html#reading-in-the-data).) 
+* Ensure `library(mosaic)` is loaded, and then use the `favstats(...)` function.
 
 ```{r, include = FALSE}
 fifa_heart_attacks <- read_excel("./data/fifa_heart_attacks.xlsx")

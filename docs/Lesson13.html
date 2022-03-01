@@ -1036,7 +1036,8 @@ Answer the following questions:
 <a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
-<li>We need to find the the following: <span class="math inline">\(\bar x_1\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(\bar x_2\)</span>, <span class="math inline">\(s_2\)</span>, and <span class="math inline">\(n_2\)</span>. So we read in the <a href="./data/fifa_heart_attacks.xlsx">fifa_heart_attacks.xlsx</a> data into RStudio, ensure <code>library(mosaic)</code> is loaded, and then use the <code>favstats(...)</code> function.</li>
+<li>We need to find the the following: <span class="math inline">\(\bar x_1\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(\bar x_2\)</span>, <span class="math inline">\(s_2\)</span>, and <span class="math inline">\(n_2\)</span>. So we read in the <a href="./data/fifa_heart_attacks.xlsx">fifa_heart_attacks.xlsx</a> data into RStudio. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
+<li>Ensure <code>library(mosaic)</code> is loaded, and then use the <code>favstats(...)</code> function.</li>
 </ul>
 <pre class="r"><code>library(mosaic)
 favstats(fifa_heart_attacks$heart_attacks ~ fifa_heart_attacks$time_period)</code></pre>

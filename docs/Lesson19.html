@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -497,79 +499,7 @@ H_a\colon &amp; \text{The row variable and the column variable are not independe
 <p>The researchers reported on their data collection procedures with the following statement. “Using an international convenience sample of Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients attending 27 different chiropractic clinics in the USA, Europe and Australia completed a one-page survey on intake to assess reason for seeking care. A forced choice response was obtained characterizing the patient’s reason for seeking chiropractic care.”</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
-<p>The data from the study are summarized in the following table of counts. (This is sometimes called a <em>contingency table</em>.) <!--<cite>Blum08</cite>--></p>
-<table style="width:87%;">
-<colgroup>
-<col width="19%" />
-<col width="12%" />
-<col width="16%" />
-<col width="22%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Location</th>
-<th align="center">Europe</th>
-<th align="center">Australia</th>
-<th align="center">United States</th>
-<th align="center"><strong>Total</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Wellness</td>
-<td align="center">62</td>
-<td align="center">84</td>
-<td align="center">85</td>
-<td align="center"><strong>184</strong></td>
-</tr>
-<tr class="even">
-<td>Prevention</td>
-<td align="center">61</td>
-<td align="center">70</td>
-<td align="center">97</td>
-<td align="center"><strong>163</strong></td>
-</tr>
-<tr class="odd">
-<td>At Risk</td>
-<td align="center">72</td>
-<td align="center">75</td>
-<td align="center">82</td>
-<td align="center"><strong>207</strong></td>
-</tr>
-<tr class="even">
-<td>Sick Role</td>
-<td align="center">64</td>
-<td align="center">82</td>
-<td align="center">111</td>
-<td align="center"><strong>227</strong></td>
-</tr>
-<tr class="odd">
-<td>Self Care</td>
-<td align="center">142</td>
-<td align="center">170</td>
-<td align="center">178</td>
-<td align="center"><strong>535</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Total</strong></td>
-<td align="center"><strong>282</strong></td>
-<td align="center"><strong>469</strong></td>
-<td align="center"><strong>565</strong></td>
-<td align="center"><strong>1316</strong></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<p>These data are available in the file <a href="./data/chiropractic_care_table.xlsx">chiropractic_care_table.xlsx</a>. Notice that in this data file, there are no values giving the sum of the data in each row or column. Before we perform a chi-square analysis, it is important that we remove the row and column totals, if they are given.</p>
 <p><strong>Motivation for Choosing to Seek Chiropractic Care</strong></p>
-<p>While a table of counts, or contingency table, is helpful in describing the relationship between two categorical variables like <em>location</em> and <em>motivation</em>, a clustered bar chart makes it much easier to visually compare and contrast the observed counts.</p>
 </div>
 <div id="r-instructions-for-clustered-bar-charts" class="section level3">
 <h3>R Instructions for Clustered Bar Charts</h3>
@@ -577,42 +507,102 @@ H_a\colon &amp; \text{The row variable and the column variable are not independe
 R Instructions
 </div>
 <div class="Software">
-<p>First, read in the data from the file <a href="./data/chiropractic_care_table.xlsx">chiropractic_care_table.xlsx</a>.</p>
-<pre class="r"><code>chiropractic_care_table</code></pre>
-<pre><code># A tibble: 5 x 4
-  Location   Europe Australia `United States`
-  &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;           &lt;dbl&gt;
-1 Wellness       62        84              85
-2 Prevention     61        70              97
-3 At Risk        72        75              82
-4 Sick Role      64        82             111
-5 Self Care     142       170             178</code></pre>
-<p>After reading in the table</p>
-<pre class="r"><code>contingency_table &lt;- as.matrix(data.frame(chiropractic_care_table, row.names = 1))</code></pre>
-<p>Once the table of observed counts is created, then it can be turned into a clustered bar chart using the <code>barplot( )</code> code with the optional commands of</p>
+<p>First, read in the data from the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>You can use the <code>head()</code> function to look at the first few rows of the data.</p>
+<pre class="r"><code>head(chiropractic_care_raw)</code></pre>
+<pre><code># A tibble: 6 x 2
+  location  motivation
+  &lt;chr&gt;     &lt;chr&gt;     
+1 Australia At Risk   
+2 Australia Prevention
+3 Australia Wellness  
+4 Australia Wellness  
+5 Australia Prevention
+6 Australia Self Care </code></pre>
+<p>It is hard to visualize these data. We summarize them into a table of counts, which can be called a <em>contingency table</em>. <!--<cite>Blum08</cite>--></p>
+<p>After reading in the data, we can organize it into a contingency table.</p>
+<pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw)
+contingency_table</code></pre>
+<pre><code>##                motivation
+## location        At Risk Prevention Self Care Sick Role Wellness
+##   Australia          75         70       170        82       84
+##   Europe             72         61       142        64       62
+##   United States      82         97       178       111       85</code></pre>
+<!--
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> At Risk </th>
+   <th style="text-align:right;"> Prevention </th>
+   <th style="text-align:right;"> Self Care </th>
+   <th style="text-align:right;"> Sick Role </th>
+   <th style="text-align:right;"> Wellness </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Australia </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 170 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 84 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Europe </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 62 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> United States </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 178 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 85 </td>
+  </tr>
+</tbody>
+</table>
+-->
+<p>We can transpose (or swap the rows and columns of) this table using the command <code>t(...)</code>.</p>
+<pre class="r"><code>t(contingency_table)</code></pre>
+<pre><code>##             location
+## motivation   Australia Europe United States
+##   At Risk           75     72            82
+##   Prevention        70     61            97
+##   Self Care        170    142           178
+##   Sick Role         82     64           111
+##   Wellness          84     62            85</code></pre>
+<p>Notice that the values in the first column of the contingency table are in the first row of its transpose. When a table is transposed, the rows and columns essentially trade roles.</p>
+<p>While a table of counts (a contingency table) is helpful in describing the relationship between two categorical variables like <em>location</em> and <em>motivation</em>, a clustered bar chart makes it much easier to visually compare and contrast the observed counts. We can use the contingency table to create a clustered bar chart using the <code>barplot( )</code> command. We will include the following optional commands:</p>
 <ul>
 <li><p><code>beside = TRUE</code> puts the bars side-by-side. Not using <code>beside = TRUE</code> results in a stacked bar chart.</p></li>
 <li><p><code>legend.text = TRUE</code> adds a legend to the graph. Sometimes the legend covers the bars, so it is useful in that case to use <code>ylim = c(0, some number)</code> so that the legend is moved off of the bars.</p></li>
 </ul>
 <pre class="r"><code>barplot(contingency_table, beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>It is usually helpful to look at the data after reversing the roles of the rows and the columns. We can transpose the data (swap the roles of the rows and columns in the data frame) using the command <code>t(...)</code>.</p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>It is usually helpful to also examine a bar chart of the transpose of the data.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>You will probably prefer one of these plots over the other. Either plot can be used. They show the same data in different ways.</p>
-<p>Notice that the legend is on top of the bars for the United States in these plots. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we will provide five colors: <code>col = c("brown3","darkolivegreen4","tan3","darkorchid","steelblue3")</code>.</p>
-<pre class="r"><code>barplot(contingency_table, beside = TRUE, legend = TRUE,
-        ylim = c(0,325), #extend the y-axis to 325
-        col = c(&quot;brown3&quot;,&quot;darkolivegreen4&quot;,&quot;tan3&quot;,&quot;darkorchid&quot;,&quot;steelblue3&quot;))</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Either plot can be used. They present identical information in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data.</p>
+<p>In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.</p>
+<p>Notice that the legend covers the top of the bars in this plot. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 325)</code>, which sets the limits of the y-axis to go from 0 to 325. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
+<pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
+        ylim = c(0, 325),  # extend the y-axis from 0 to 325
+        col = c(&quot;brown3&quot;, &quot;tan3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><br/></p>
 </div>
-<p><br></p>
-<p><br></p>
-<p>The predominant motivation that people choose to seek chiropractic care in any region is for <em>self care</em>. Compared to the other regions, people in Europe, are less likely to be motivated by the <em>sick role</em>. People in Austrailia are least likely to seek chiropractic care for <em>prevention</em>.</p>
+<p><br> <br></p>
+<p>The predominant motivation that people choose to seek chiropractic care in any region is for <em>Self Care</em>. The second-most common reason differs across the three regions. For Australia, it is <em>Wellness</em>. For Europe, it is <em>At Risk</em>, and for the United States, it is <em>Sick Role</em>.</p>
 <p><br/></p>
 <p><img src = "Images/Step4.png"></p>
-<p>Before making any strong conclusions about the data depicted in a bar chart it is important to conduct the chi-squared test of independence. The <span class="math inline">\(P\)</span>-value from this test will help us know if we should reject the null hypothesis or not. If we fail to reject the null hypothesis, then <em>motivation</em> and <em>location</em> are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that <em>motivation</em> and <em>location</em> are <strong>not independent</strong> (meaning they are related) and we can make conclusions from the patterns showing in the bar plot.</p>
+<p>Our objective is to determine if the reasons people seek chiropractic care is proportionally the same for each of the three locations. In other words, we want to know if people’s motivation for seeking chiropractic care is independent of their location.</p>
+<p>Before drawing a conclusion, it is important to conduct the chi-squared test of independence. The <span class="math inline">\(P\)</span>-value from this test will help us know if there are statistically significant differences in the ratios across the groups. If we fail to reject the null hypothesis, then <em>motivation</em> and <em>location</em> are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that <em>motivation</em> and <em>location</em> are <strong>not independent</strong> (meaning the proportions of the reasons people seek care is different in the three locations). We can then draw our final conclusions regarding the patterns observed in the side-by-side bar plots.</p>
 </div>
 <div id="r-instructions-for-performing-a-chi-squared-test-of-independence" class="section level3">
 <h3>R Instructions for Performing a Chi-squared Test of Independence</h3>
@@ -621,16 +611,14 @@ R Instructions
 </div>
 <div class="Software">
 <p>To perform a chi-squared test of independence in R, use the <code>chisq.test( )</code> function. Using this function requires that you have previously made a table of counts. (Review the <a href="Lesson19.html#r-instructions-for-clustered-bar-charts">R Instructions for Clustered Bar Charts</a> to review how to create a table of counts in R.)</p>
-<pre class="r"><code>#chiropractic_care_table is a table of counts created previously.
-
-chisq_test_results &lt;- chisq.test(contingency_table)
-chisq_test_results</code></pre>
+<pre class="r"><code>chisq_results &lt;- chisq.test(contingency_table)
+chisq_results</code></pre>
 <pre><code>
     Pearson&#39;s Chi-squared test
 
 data:  contingency_table
 X-squared = 7.4357, df = 8, p-value = 0.4904</code></pre>
-<p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should read <span class="math inline">\(\chi^2 = 49.743\)</span> but the words “X-squared” are used to represent the Greek character chi-squared (<span class="math inline">\(\chi^2\)</span>) in the output of the test. The <strong>df</strong> stands for degrees of freedom. The p-value is clearly stated.</p>
+<p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should be typeset as <span class="math inline">\(\chi^2 = 49.743\)</span>. The text “X-squared” is used to represent the symbol (<span class="math inline">\(\chi^2\)</span>), which is the Greek letter chi (<span class="math inline">\(\chi\)</span>) squared. The degrees of freedom (<strong>df</strong>) and the <span class="math inline">\(P\)</span>-value are also given in this output. The degrees of freedom are df = <code>chisq_results$parameter</code> and the <span class="math inline">\(P\)</span>-value is <code>chisq_results$p.value %&gt;% round(3)</code></p>
 </div>
 <p><br/></p>
 <p>Recall that the hypotheses of this test were:</p>
@@ -652,13 +640,12 @@ X-squared = 7.4357, df = 8, p-value = 0.4904</code></pre>
 <li><p>In this study, all expected counts were greater than 5.</p></li>
 <li><p>To check expected counts in R, use the code:</p></li>
 </ul>
-<pre class="r"><code>chisq_test_results$expected</code></pre>
-<pre><code>              Europe Australia United.States
-Wellness    64.55122  77.42927      89.01951
-Prevention  63.71289  76.42369      87.86341
-At Risk     63.99233  76.75889      88.24878
-Sick Role   71.81672  86.14425      99.03902
-Self Care  136.92683 164.24390     188.82927</code></pre>
+<pre class="r"><code>chisq_results$expected</code></pre>
+<pre><code>               motivation
+location         At Risk Prevention Self Care Sick Role Wellness
+  Australia     76.75889   76.42369  164.2439  86.14425 77.42927
+  Europe        63.99233   63.71289  136.9268  71.81672 64.55122
+  United States 88.24878   87.86341  188.8293  99.03902 89.01951</code></pre>
 <ul>
 <li>As shown in the above table, the smallest expected count is <code>63.71289</code>, which is well above the required 5.</li>
 </ul></li>
