@@ -499,6 +499,163 @@ H_a\colon &amp; \text{The row variable and the column variable are not independe
 <p>The researchers reported on their data collection procedures with the following statement. “Using an international convenience sample of Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients attending 27 different chiropractic clinics in the USA, Europe and Australia completed a one-page survey on intake to assess reason for seeking care. A forced choice response was obtained characterizing the patient’s reason for seeking chiropractic care.”</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
+<p>The data from the study are given in the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. Each row represents the responses of one person. There were a total of 1316 participants in this study.</p>
+<p>Here is a brief excerpt of the data:</p>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+location
+</th>
+<th style="text-align:left;">
+motivation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Self Care
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+At Risk
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Preventative Health
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Self Care
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Sick Role
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Self Care
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+:
+</td>
+<td style="text-align:left;">
+:
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Sick Role
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Sick Role
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+At Risk
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Wellness
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+:
+</td>
+<td style="text-align:left;">
+:
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United States
+</td>
+<td style="text-align:left;">
+Sick Role
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United States
+</td>
+<td style="text-align:left;">
+At Risk
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United States
+</td>
+<td style="text-align:left;">
+Wellness
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United States
+</td>
+<td style="text-align:left;">
+Preventative Health
+</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Motivation for Choosing to Seek Chiropractic Care</strong></p>
 </div>
 <div id="r-instructions-for-clustered-bar-charts" class="section level3">
@@ -511,30 +668,30 @@ R Instructions
 <p>You can use the <code>head()</code> function to look at the first few rows of the data.</p>
 <pre class="r"><code>head(chiropractic_care_raw)</code></pre>
 <pre><code># A tibble: 6 x 2
-  location  motivation
-  &lt;chr&gt;     &lt;chr&gt;     
-1 Australia At Risk   
-2 Australia Prevention
-3 Australia Wellness  
-4 Australia Wellness  
-5 Australia Prevention
-6 Australia Self Care </code></pre>
+  location  motivation         
+  &lt;chr&gt;     &lt;chr&gt;              
+1 Australia Self Care          
+2 Australia At Risk            
+3 Australia Preventative Health
+4 Australia Self Care          
+5 Australia Sick Role          
+6 Australia Self Care          </code></pre>
 <p>It is hard to visualize these data. We summarize them into a table of counts, which can be called a <em>contingency table</em>. <!--<cite>Blum08</cite>--></p>
 <p>After reading in the data, we can organize it into a contingency table.</p>
 <pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw)
 contingency_table</code></pre>
 <pre><code>##                motivation
-## location        At Risk Prevention Self Care Sick Role Wellness
-##   Australia          75         70       170        82       84
-##   Europe             72         61       142        64       62
-##   United States      82         97       178       111       85</code></pre>
+## location        At Risk Preventative Health Self Care Sick Role Wellness
+##   Australia          83                  59       188        68       71
+##   Europe             59                  28        95        77       23
+##   United States      65                  76       252        82       90</code></pre>
 <!--
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
    <th style="text-align:right;"> At Risk </th>
-   <th style="text-align:right;"> Prevention </th>
+   <th style="text-align:right;"> Preventative Health </th>
    <th style="text-align:right;"> Self Care </th>
    <th style="text-align:right;"> Sick Role </th>
    <th style="text-align:right;"> Wellness </th>
@@ -543,40 +700,40 @@ contingency_table</code></pre>
 <tbody>
   <tr>
    <td style="text-align:left;font-weight: bold;"> Australia </td>
-   <td style="text-align:right;"> 75 </td>
-   <td style="text-align:right;"> 70 </td>
-   <td style="text-align:right;"> 170 </td>
-   <td style="text-align:right;"> 82 </td>
-   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 188 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 71 </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> Europe </td>
-   <td style="text-align:right;"> 72 </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 142 </td>
-   <td style="text-align:right;"> 64 </td>
-   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 23 </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> United States </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 252 </td>
    <td style="text-align:right;"> 82 </td>
-   <td style="text-align:right;"> 97 </td>
-   <td style="text-align:right;"> 178 </td>
-   <td style="text-align:right;"> 111 </td>
-   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 90 </td>
   </tr>
 </tbody>
 </table>
 -->
 <p>We can transpose (or swap the rows and columns of) this table using the command <code>t(...)</code>.</p>
 <pre class="r"><code>t(contingency_table)</code></pre>
-<pre><code>##             location
-## motivation   Australia Europe United States
-##   At Risk           75     72            82
-##   Prevention        70     61            97
-##   Self Care        170    142           178
-##   Sick Role         82     64           111
-##   Wellness          84     62            85</code></pre>
+<pre><code>##                      location
+## motivation            Australia Europe United States
+##   At Risk                    83     59            65
+##   Preventative Health        59     28            76
+##   Self Care                 188     95           252
+##   Sick Role                  68     77            82
+##   Wellness                   71     23            90</code></pre>
 <p>Notice that the values in the first column of the contingency table are in the first row of its transpose. When a table is transposed, the rows and columns essentially trade roles.</p>
 <p>While a table of counts (a contingency table) is helpful in describing the relationship between two categorical variables like <em>location</em> and <em>motivation</em>, a clustered bar chart makes it much easier to visually compare and contrast the observed counts. We can use the contingency table to create a clustered bar chart using the <code>barplot( )</code> command. We will include the following optional commands:</p>
 <ul>
@@ -584,17 +741,17 @@ contingency_table</code></pre>
 <li><p><code>legend.text = TRUE</code> adds a legend to the graph. Sometimes the legend covers the bars, so it is useful in that case to use <code>ylim = c(0, some number)</code> so that the legend is moved off of the bars.</p></li>
 </ul>
 <pre class="r"><code>barplot(contingency_table, beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>It is usually helpful to also examine a bar chart of the transpose of the data.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Either plot can be used. They present identical information in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data.</p>
 <p>In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.</p>
 <p>Notice that the legend covers the top of the bars in this plot. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 325)</code>, which sets the limits of the y-axis to go from 0 to 325. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
         ylim = c(0, 325),  # extend the y-axis from 0 to 325
         col = c(&quot;brown3&quot;, &quot;tan3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><br/></p>
 </div>
 <p><br> <br></p>
@@ -617,7 +774,7 @@ chisq_results</code></pre>
     Pearson&#39;s Chi-squared test
 
 data:  contingency_table
-X-squared = 7.4357, df = 8, p-value = 0.4904</code></pre>
+X-squared = 49.743, df = 8, p-value = 4.58e-08</code></pre>
 <p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should be typeset as <span class="math inline">\(\chi^2 = 49.743\)</span>. The text “X-squared” is used to represent the symbol (<span class="math inline">\(\chi^2\)</span>), which is the Greek letter chi (<span class="math inline">\(\chi\)</span>) squared. The degrees of freedom (<strong>df</strong>) and the <span class="math inline">\(P\)</span>-value are also given in this output. The degrees of freedom are df = <code>chisq_results$parameter</code> and the <span class="math inline">\(P\)</span>-value is <code>chisq_results$p.value %&gt;% round(3)</code></p>
 </div>
 <p><br/></p>
@@ -642,10 +799,10 @@ X-squared = 7.4357, df = 8, p-value = 0.4904</code></pre>
 </ul>
 <pre class="r"><code>chisq_results$expected</code></pre>
 <pre><code>               motivation
-location         At Risk Prevention Self Care Sick Role Wellness
-  Australia     76.75889   76.42369  164.2439  86.14425 77.42927
-  Europe        63.99233   63.71289  136.9268  71.81672 64.55122
-  United States 88.24878   87.86341  188.8293  99.03902 89.01951</code></pre>
+location         At Risk Preventative Health Self Care Sick Role Wellness
+  Australia     73.77128            58.09043  190.6649  80.89894 65.57447
+  Europe        44.35714            34.92857  114.6429  48.64286 39.42857
+  United States 88.87158            69.98100  229.6922  97.45821 78.99696</code></pre>
 <ul>
 <li>As shown in the above table, the smallest expected count is <code>63.71289</code>, which is well above the required 5.</li>
 </ul></li>

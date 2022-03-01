@@ -136,46 +136,47 @@ chiropractic care."
 
 ```{r, include = FALSE, eval = FALSE}
 # The following code was used to generate the untallied data:
-# library(tidyverse)
-# library(readxl)
-# library(writexl)
-# url <- "https://byuistats.github.io/M221R/data/chiropractic_care_table.xlsx"
-# destfile <- "chiropractic_care_table.xlsx"
-# curl::curl_download(url, destfile)
-# chiropractic_care_table <- read_excel(destfile)
-# View(chiropractic_care_table)
-# 
-# chiropractic_care_table %>% 
-#   pivot_longer(cols = 2:ncol(.)) %>% 
-#   uncount(value) %>% 
-#   rename(motivation = Location, location = name) %>% 
-#   mutate(rand = runif(n())) %>% 
-#   arrange(location, rand) %>% 
-#   select(location, motivation) %>% 
-#   write_xlsx("chiropractic_care_raw.xlsx")
-# ```
-# 
-# The data from the study are given in the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx).
-# Each row represents the responses of one person. There were a total of 1316 participants in this study.
-# 
-# Here is a brief excerpt of the data:
-# ```{r, echo = FALSE}
-# library(readxl)
-# library(knitr)
-# library(tidyverse)
-# library(kableExtra)
-# dots <- data.frame(location = ":", motivation = ":")
-# chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
-# chiropractic_head <- chiropractic_care_raw %>% 
-#   head(6) 
-# chiropractic_mid <- chiropractic_care_raw %>% 
-#   filter(location == "Europe") %>% 
-#   head(4)
-# chiropractic_tail <- chiropractic_care_raw %>% 
-#   tail(4) 
-# bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>% 
-#   kable() %>% 
-#   kable_styling(full_width = F)
+library(tidyverse)
+library(readxl)
+library(writexl)
+url <- "https://byuistats.github.io/M221R/data/chiropractic_care_table.xlsx"
+destfile <- "chiropractic_care_table.xlsx"
+curl::curl_download(url, destfile)
+chiropractic_care_table <- read_excel(destfile)
+View(chiropractic_care_table)
+
+chiropractic_care_table %>%
+  select(-Source) %>% 
+  pivot_longer(cols = 2:ncol(.)) %>% 
+  uncount(value) %>% 
+  rename(location = "Location \\ Motivation", motivation = name) %>%
+  mutate(rand = runif(n())) %>%
+  arrange(location, rand) %>%
+  select(location, motivation) %>% 
+  write_xlsx("chiropractic_care_raw.xlsx")
+```
+
+The data from the study are given in the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx).
+Each row represents the responses of one person. There were a total of 1316 participants in this study.
+
+Here is a brief excerpt of the data:
+```{r, echo = FALSE}
+library(readxl)
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+dots <- data.frame(location = ":", motivation = ":")
+chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
+chiropractic_head <- chiropractic_care_raw %>%
+  head(6)
+chiropractic_mid <- chiropractic_care_raw %>%
+  filter(location == "Europe") %>%
+  head(4)
+chiropractic_tail <- chiropractic_care_raw %>%
+  tail(4)
+bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>%
+  kable() %>%
+  kable_styling(full_width = F)
 ```
 
 
