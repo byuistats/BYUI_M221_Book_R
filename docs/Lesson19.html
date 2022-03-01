@@ -468,6 +468,7 @@ Note that the number of degrees of freedom does not depend on the number of subj
 
 -->
 <p><br></p>
+<p><img src = "Images/StepsAll.png"></p>
 <div id="case-study-chiropractic-care" class="section level3">
 <h3>Case Study: Chiropractic Care</h3>
 <div style="float:right;padding:10px;">
@@ -494,26 +495,15 @@ H_a\colon &amp; \text{The location and the motivation for seeking treatment are 
 H_0\colon &amp; \text{The row variable and the column variable are independent} \\
 H_a\colon &amp; \text{The row variable and the column variable are not independent} \\
 \end{array}
-\]</span> But when there’s a context, please make sure you write your hypotheses in terms of the context.</p>
+\]</span> When writing these in the context of a given situation, replace “row variable” and “column variable” by a more descriptive reference.</p>
+<p>We will use the level of significance <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><br></p>
 <p><img src = "Images/Step2.png"></p>
 <p>The researchers reported on their data collection procedures with the following statement. “Using an international convenience sample of Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients attending 27 different chiropractic clinics in the USA, Europe and Australia completed a one-page survey on intake to assess reason for seeking care. A forced choice response was obtained characterizing the patient’s reason for seeking chiropractic care.”</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
-<p>The data from the study are given in the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. Each row represents the responses of one person. There were a total of 1316 participants in this study.</p>
-<p>Here is a brief excerpt of the data:</p>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
-## v tibble  3.1.6     v dplyr   1.0.7
-## v tidyr   1.1.4     v stringr 1.4.0
-## v readr   2.1.1     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre><code>## 
-## Attaching package: &#39;kableExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     group_rows</code></pre>
+<p>The data from the study are given in the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.) Each row represents the responses of one person.</p>
+Here is a brief excerpt of the data:
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -667,17 +657,15 @@ R Instructions
 <p>First, read in the data from the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
 <p>You can use the <code>head()</code> function to look at the first few rows of the data.</p>
 <pre class="r"><code>head(chiropractic_care_raw)</code></pre>
-<pre><code># A tibble: 6 x 2
-  location  motivation         
-  &lt;chr&gt;     &lt;chr&gt;              
-1 Australia Self Care          
-2 Australia At Risk            
+<pre><code>   location          motivation
+1 Australia           Self Care
+2 Australia             At Risk
 3 Australia Preventative Health
-4 Australia Self Care          
-5 Australia Sick Role          
-6 Australia Self Care          </code></pre>
+4 Australia           Self Care
+5 Australia           Sick Role
+6 Australia           Self Care</code></pre>
 <p>It is hard to visualize these data. We summarize them into a table of counts, which can be called a <em>contingency table</em>. <!--<cite>Blum08</cite>--></p>
-<p>After reading in the data, we can organize it into a contingency table.</p>
+<p>After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.</p>
 <pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw)
 contingency_table</code></pre>
 <pre><code>##                motivation
@@ -747,19 +735,19 @@ contingency_table</code></pre>
 <p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Either plot can be used. They present identical information in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data.</p>
 <p>In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.</p>
-<p>Notice that the legend covers the top of the bars in this plot. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 325)</code>, which sets the limits of the y-axis to go from 0 to 325. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
+<p>Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 450)</code>, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
-        ylim = c(0, 325),  # extend the y-axis from 0 to 325
+        ylim = c(0, 450),  # extend the y-axis from 0 to 450
         col = c(&quot;brown3&quot;, &quot;tan3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
 <p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><br/></p>
 </div>
 <p><br> <br></p>
-<p>The predominant motivation that people choose to seek chiropractic care in any region is for <em>Self Care</em>. The second-most common reason differs across the three regions. For Australia, it is <em>Wellness</em>. For Europe, it is <em>At Risk</em>, and for the United States, it is <em>Sick Role</em>.</p>
+<p>The predominant motivation that people choose to seek chiropractic care in any region is for <em>Self Care</em>. The second-most common reason differs across the three regions. For Australia, it is <em>At Risk</em>. For Europe, it is <em>Sick Role</em>, and for the United States, it is <em>Wellness</em>.</p>
 <p><br/></p>
 <p><img src = "Images/Step4.png"></p>
 <p>Our objective is to determine if the reasons people seek chiropractic care is proportionally the same for each of the three locations. In other words, we want to know if people’s motivation for seeking chiropractic care is independent of their location.</p>
-<p>Before drawing a conclusion, it is important to conduct the chi-squared test of independence. The <span class="math inline">\(P\)</span>-value from this test will help us know if there are statistically significant differences in the ratios across the groups. If we fail to reject the null hypothesis, then <em>motivation</em> and <em>location</em> are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that <em>motivation</em> and <em>location</em> are <strong>not independent</strong> (meaning the proportions of the reasons people seek care is different in the three locations). We can then draw our final conclusions regarding the patterns observed in the side-by-side bar plots.</p>
+<p>The barcharts for the three regions do not look the same. This suggests that the motivation to seek chiropractic care is not independent of the region. However, before drawing a conclusion it is important to conduct the chi-squared test of independence. The <span class="math inline">\(P\)</span>-value from this test will help us know if there are statistically significant differences in the ratios across the groups. If we fail to reject the null hypothesis, then <em>motivation</em> and <em>location</em> are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that <em>motivation</em> and <em>location</em> are <strong>not independent</strong> (meaning the proportions of the reasons people seek care is different in the three locations). We can then draw our final conclusions regarding the patterns observed in the side-by-side bar plots.</p>
 </div>
 <div id="r-instructions-for-performing-a-chi-squared-test-of-independence" class="section level3">
 <h3>R Instructions for Performing a Chi-squared Test of Independence</h3>
@@ -775,14 +763,15 @@ chisq_results</code></pre>
 
 data:  contingency_table
 X-squared = 49.743, df = 8, p-value = 4.58e-08</code></pre>
-<p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should be typeset as <span class="math inline">\(\chi^2 = 49.743\)</span>. The text “X-squared” is used to represent the symbol (<span class="math inline">\(\chi^2\)</span>), which is the Greek letter chi (<span class="math inline">\(\chi\)</span>) squared. The degrees of freedom (<strong>df</strong>) and the <span class="math inline">\(P\)</span>-value are also given in this output. The degrees of freedom are df = <code>chisq_results$parameter</code> and the <span class="math inline">\(P\)</span>-value is <code>chisq_results$p.value %&gt;% round(3)</code></p>
+<p>The “X-squared” value of 49.743 is the test statistic of the test. Technically, it should be typeset as <span class="math inline">\(\chi^2 = 49.743\)</span>. The text “X-squared” is used to represent the symbol (<span class="math inline">\(\chi^2\)</span>), which is the Greek letter chi (<span class="math inline">\(\chi\)</span>) squared. The degrees of freedom (<strong>df</strong>) and the <span class="math inline">\(P\)</span>-value are also given in this output. <!--
+The value of the degrees of freedom is df = 8 and the $P$-value is $4.58 \times 10^{-8} = 0.000~000~045~8$.
+--></p>
 </div>
 <p><br/></p>
 <p>Recall that the hypotheses of this test were:</p>
 <p><span class="math inline">\(~~~~~H_0\colon\)</span> Location and the motivation to visit a chiropractor are independent</p>
 <p><span class="math inline">\(~~~~~H_a\colon\)</span> Location and the motivation to visit a chiropractor are not independent</p>
-<p>Let <span class="math inline">\(\alpha = 0.05\)</span>.</p>
-<p>The test statistic is: <span class="math inline">\(\chi^2 = 49.743\)</span>, with <span class="math inline">\(df = 8\)</span> and <span class="math inline">\(P\)</span>-value = 4.58e-08 = 0.0000000458. This allows us to reject the null hypothesis and conclude that location and the motivation to visit a chiropractor are not independent (the motivation is associated with the location).</p>
+<p>The test statistic is: <span class="math inline">\(\chi^2 = 49.743\)</span>, with <span class="math inline">\(df = 8\)</span> and <span class="math inline">\(P\)</span>-value <span class="math inline">\(= 4.58e-08 = 0.000~000~045~8 &lt; 0.05 = \alpha\)</span>. We reject the null hypothesis and conclude that location and the motivation to visit a chiropractor are not independent. This means that the motivation is differs across the locations.</p>
 </div>
 <div id="requirements" class="section level3">
 <h3>Requirements</h3>

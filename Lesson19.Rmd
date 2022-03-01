@@ -84,7 +84,10 @@ Note that the number of degrees of freedom does not depend on the number of subj
 <br>
 
 
+<img src = "./Images/StepsAll.png">
+
 ### Case Study: Chiropractic Care
+
 
 <div style = "float:right;padding:10px;">
 <img src = "./Images/chiropracticCare.jpeg" width = "400px;">
@@ -117,7 +120,11 @@ H_0\colon & \text{The row variable and the column variable are independent} \\
 H_a\colon & \text{The row variable and the column variable are not independent} \\
 \end{array}
 $$
-But when there's a context, please make sure you write your hypotheses in terms of the context.
+When writing these in the context of a given situation, replace "row variable" and "column variable" by a more descriptive reference.
+
+We will use the level of significance $\alpha = 0.05$.
+
+<br>
 
 <img src = "./Images/Step2.png">
 
@@ -135,38 +142,41 @@ chiropractic care."
 
 
 ```{r, include = FALSE, eval = FALSE}
-# The following code was used to generate the untallied data:
-library(tidyverse)
-library(readxl)
-library(writexl)
-url <- "https://byuistats.github.io/M221R/data/chiropractic_care_table.xlsx"
-destfile <- "chiropractic_care_table.xlsx"
-curl::curl_download(url, destfile)
-chiropractic_care_table <- read_excel(destfile)
-View(chiropractic_care_table)
-
-chiropractic_care_table %>%
-  select(-Source) %>% 
-  pivot_longer(cols = 2:ncol(.)) %>% 
-  uncount(value) %>% 
-  rename(location = "Location \\ Motivation", motivation = name) %>%
-  mutate(rand = runif(n())) %>%
-  arrange(location, rand) %>%
-  select(location, motivation) %>% 
-  write_xlsx("chiropractic_care_raw.xlsx")
+# # The following code was used to generate the untallied data:
+# library(tidyverse)
+# library(readxl)
+# library(writexl)
+# url <- "https://byuistats.github.io/M221R/data/chiropractic_care_table.xlsx"
+# destfile <- "chiropractic_care_table.xlsx"
+# curl::curl_download(url, destfile)
+# chiropractic_care_table <- read_excel(destfile)
+# View(chiropractic_care_table)
+# 
+# chiropractic_care_table %>%
+#   select(-Source) %>% 
+#   pivot_longer(cols = 2:ncol(.)) %>% 
+#   uncount(value) %>% 
+#   rename(location = "Location \\ Motivation", motivation = name) %>%
+#   mutate(rand = runif(n())) %>%
+#   arrange(location, rand) %>%
+#   select(location, motivation) %>% 
+#   write_xlsx("chiropractic_care_raw.xlsx")
 ```
 
-The data from the study are given in the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx).
-Each row represents the responses of one person. There were a total of 1316 participants in this study.
-
-Here is a brief excerpt of the data:
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE}
 library(readxl)
 library(knitr)
 library(tidyverse)
 library(kableExtra)
 dots <- data.frame(location = ":", motivation = ":")
-chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
+chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx") %>% data.frame()
+```
+
+The data from the study are given in the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+Each row represents the responses of one person. 
+
+Here is a brief excerpt of the data:
+```{r, echo = FALSE}
 chiropractic_head <- chiropractic_care_raw %>%
   head(6)
 chiropractic_mid <- chiropractic_care_raw %>%
@@ -180,6 +190,7 @@ bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>
 ```
 
 
+
 **Motivation for Choosing to Seek Chiropractic Care** 
 
 
@@ -190,11 +201,6 @@ bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>
 
 First, read in the data from the file [chiropractic_care_raw.xlsx](./data/chiropractic_care_raw.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 
-```{r, include = FALSE}
-library(readxl)
-chiropractic_care_raw <- read_excel("./data/chiropractic_care_raw.xlsx")
-```
-
 You can use the `head()` function to look at the first few rows of the data.
 ```{r, comment = NA}
 head(chiropractic_care_raw)
@@ -202,7 +208,7 @@ head(chiropractic_care_raw)
 
 It is hard to visualize these data. We summarize them into a table of counts, which can be called a *contingency table*. <!--<cite>Blum08</cite>-->
 
-After reading in the data, we can organize it into a contingency table.
+After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.
 
 ```{r}
 contingency_table <- table(chiropractic_care_raw)
@@ -250,11 +256,11 @@ Either plot can be used. They present identical information in different ways. Y
 
 In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.
 
-Notice that the legend covers the top of the bars in this plot. If we increase the length of the y-axis to 325 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument `ylim = c(0, 325)`, which sets the limits of the y-axis to go from 0 to 325. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: `col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")`.
+Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument `ylim = c(0, 450)`, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: `col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4")`.
 
 ```{r}
 barplot(t(contingency_table), beside = TRUE, legend = TRUE,
-        ylim = c(0, 325),  # extend the y-axis from 0 to 325
+        ylim = c(0, 450),  # extend the y-axis from 0 to 450
         col = c("brown3", "tan3", "darkorchid", "steelblue3", "darkolivegreen4"))
 ```
 
@@ -264,7 +270,7 @@ barplot(t(contingency_table), beside = TRUE, legend = TRUE,
 <br>
 <br>
 
-The predominant motivation that people choose to seek chiropractic care in any region is for *Self Care*. The second-most common reason differs across the three regions. For Australia, it is *Wellness*. For Europe, it is *At Risk*, and for the United States, it is *Sick Role*. 
+The predominant motivation that people choose to seek chiropractic care in any region is for *Self Care*. The second-most common reason differs across the three regions. For Australia, it is *At Risk*. For Europe, it is *Sick Role*, and for the United States, it is *Wellness*. 
 
 <br/>
 
@@ -272,7 +278,8 @@ The predominant motivation that people choose to seek chiropractic care in any r
 
 Our objective is to determine if the reasons people seek chiropractic care is proportionally the same for each of the three locations. In other words, we want to know if people's motivation for seeking chiropractic care is independent of their location. 
 
-Before drawing a conclusion, it is important to conduct the chi-squared test of independence. The $P$-value from this test will help us know if there are statistically significant differences in the ratios across the groups. 
+The barcharts for the three regions do not look the same. This suggests that the motivation to seek chiropractic care is not independent of the region. 
+However, before drawing a conclusion it is important to conduct the chi-squared test of independence. The $P$-value from this test will help us know if there are statistically significant differences in the ratios across the groups. 
 If we fail to reject the null hypothesis, then *motivation* and *location* are independent (i.e., not related). So any patterns we are seeing in the bar plot can be attributed to random chance. However, if we reject the null hypothesis then we can claim that *motivation* and *location* are **not independent** (meaning the proportions of the reasons people seek care is different in the three locations). We can then draw our final conclusions regarding the patterns observed in the side-by-side bar plots.
 
 
@@ -289,7 +296,10 @@ chisq_results <- chisq.test(contingency_table)
 chisq_results
 ```
 
-The "X-squared" value of 49.743 is the test statistic of the test. Technically, it should be typeset as $\chi^2 = 49.743$. The text "X-squared" is used to represent the symbol ($\chi^2$), which is the Greek letter chi ($\chi$) squared. The degrees of freedom (**df**) and the $P$-value are also given in this output. The degrees of freedom are df = `chisq_results$parameter` and the $P$-value is `chisq_results$p.value %>% round(3)`
+The "X-squared" value of 49.743 is the test statistic of the test. Technically, it should be typeset as $\chi^2 = 49.743$. The text "X-squared" is used to represent the symbol ($\chi^2$), which is the Greek letter chi ($\chi$) squared. The degrees of freedom (**df**) and the $P$-value are also given in this output. 
+<!--
+The value of the degrees of freedom is df = `r chisq_results$parameter` and the $P$-value is $4.58 \times 10^{-8} = 0.000~000~045~8$.
+-->
 
 </div>
 
@@ -301,9 +311,7 @@ $~~~~~H_0\colon$ Location and the motivation to visit a chiropractor are indepen
 
 $~~~~~H_a\colon$ Location and the motivation to visit a chiropractor are not independent
 
-Let $\alpha = 0.05$.
-
-The test statistic is: $\chi^2 = 49.743$, with $df = 8$ and $P$-value = 4.58e-08 = 0.0000000458. This allows us to reject the null hypothesis and conclude that location and the motivation to visit a chiropractor are not independent (the motivation is associated with the location).
+The test statistic is: $\chi^2 = 49.743$, with $df = 8$ and $P$-value $= 4.58e-08 = 0.000~000~045~8 < 0.05 = \alpha$. We reject the null hypothesis and conclude that location and the motivation to visit a chiropractor are not independent. This means that the motivation is differs across the locations.
 
 
 ### Requirements
