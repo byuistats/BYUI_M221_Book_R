@@ -186,7 +186,7 @@ text(5.50,60, "This student had \n a confidence score of 5.70 \n and earned a 86
 
 The cloud of data illustrated in this scatterplot help us visualize the relationship between the student's confidence rating and their score on the exam. Notice that the points tend to be higher as you move to the right.  Students who have a high confidence rating (points further to the right) tend to have higher exam scores (higher vertical position).  Similarly, students with lower confidence typically have lower exam scores.  Notice that as a students' confidence increases, their exam score tends to increase.  We call this a *positive association* or a *positive correlation*.
 
-Notice that there is variability in the responses.  Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind's eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as a 60 on the exam to as high as a 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn't tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.
+Notice that there is variability in the responses.  Consider how the plot below emphasizes the many different exam scores students could earn even for students who all have a mean confidence rating of 5.0. While there is technically only one student in the data set that had a confidence score of exactly 5 (and they scored a 93.3 on the exam) we can picture in our mind's eye that if other Math 101 students were to also to report a confidence rating of 5, then we would see variability in their exam scores. In fact, in looking at the graph, we would expect students with a confidence rating of 5 to score from anywhere as low as around 60 on the exam to as high as 100! That is quite a range of possibilities. So while knowing the confidence score of a student doesn't tell us their exact exam score, it can give us a general idea about how such a student would score on the exam. For example, if a student had a confidence rating of 3.0, then we would expect them to score anywhere between a 34 and a 79 on the exam, which is a lower range of possibilities than we would expect for the student with a confidence rating of 5.0.
 
 <center>
 ```{r, echo = FALSE}
@@ -196,7 +196,9 @@ plot(score ~ confidence_rating_mean, data = math_self_efficacy,
      xlab = "Mean Confidence Rating for Each Student",
      ylab = "Exam Score of Each Student (Out of 100 Pts.)",
      main = "Study on Student Exam Performance in Math 101")
-lines(c(5, 5), c(60,100), col = rgb(0.1,0.1,0.1), lwd = 10)
+lines(c(5, 5), c(60,100), col = "tan3", lwd = 2)
+points(y = 93.3, x = 5, col = "tan3", pch = 16)
+points(y = 93.3, x = 5, col = "steelblue3", pch = 20)
 lm1 <- lm(score ~ confidence_rating_mean, data = math_self_efficacy)
 preds <- predict(lm1, data.frame(confidence_rating_mean = 5), interval = "prediction")
 ```
@@ -270,79 +272,71 @@ It is difficult to establish definite cut-off values to determine when a correla
 
 Several scatterplots have been created, and the correlation coefficient summarizing the relationship between the two variables is presented.  Study these graphs to see if you can infer some of the properties of the correlation coefficient.
 
-<br>
+
+```{r, include = FALSE}
+fixed_cor <- function(n = 50, rho = 0.5, seed = 0){
+  # https://stats.stackexchange.com/questions/15011/generate-a-random-variable-with-a-defined-correlation-to-an-existing-variables
+  # n = length of vector
+  # rho = desired correlation = cos(angle)
+  if (seed == 0) {
+    set.seed(round(1000*(rho)))                   # seed for random number generator
+  } else {
+    set.seed(seed)
+  }
+  x1    <- rnorm(n, 0, 1)                         # fixed given data (any distribution)
+  x2    <- rnorm(n, 0, 1)                         # new random data (any distribution)
+  X     <- cbind(x1, x2)                          # matrix
+  Xctr  <- scale(X, center=TRUE, scale=FALSE)     # centered columns (mean 0)
+  Id   <- diag(n)                                 # identity matrix
+  Q    <- qr.Q(qr(Xctr[ , 1, drop=FALSE]))        # QR-decomposition, just matrix Q
+  P    <- tcrossprod(Q)          # = Q Q'         # projection onto space defined by x1
+  x2o  <- (Id - P) %*% Xctr[ , 2]                 # x2ctr made orthogonal to x1ctr
+  Xc2  <- cbind(Xctr[ , 1], x2o)                  # bind to matrix
+  Y    <- Xc2 %*% diag(1/sqrt(colSums(Xc2^2)))    # scale columns to length 1
+  if (abs(rho) == 1) {
+    x <- rho * x1                                 # final new vector
+  } else {
+    x <- Y[ , 2] + (1 / tan(acos(rho))) * Y[ , 1] # final new vector
+  }
+  return(data.frame(x = x, y = x1))               # return a data frame
+}
+
+plot_xy <- function(df_in = df, fig_number, round_digits = 2){
+  plot(y ~ x, data = df_in, 
+       yaxt = 'n', xaxt = 'n', 
+       col = "steelblue3", 
+       pch = 20, 
+       main = paste("Figure",fig_number,"\nr =",round(cor(df_in$x, df_in$y), round_digits)  )
+  )
+}
+```
+
 <center>
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 1</p></th>
-<th><p>Figure 2</p></th>
-<th><p>Figure 3</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrR-100.png"></p></td>
-<td><p><img src = "./Images/CorrR-96.png"></p></td>
-<td><p><img src = "./Images/CorrR-80.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = -1.00$</p></td>
-<td><p>$r = -0.96$</p></td>
-<td><p>$r = -0.80$</p></td>
-</tr>
-</tbody>
-</table>
-<br><br> 
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 4</p></th>
-<th><p>Figure 5</p></th>
-<th><p>Figure 6</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrR-50.png"></p></td>
-<td><p><img src = "./Images/CorrR00.png"></p></td>
-<td><p><img src = "./Images/CorrR50.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = -0.50$</p></td>
-<td><p>$r = 0$</p></td>
-<td><p>$r = 0.50$</p></td>
-</tr>
-</tbody>
-</table>
-<br><br>
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 7</p></th>
-<th><p>Figure 8</p></th>
-<th><p>Figure 9</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrR80.png"></p></td>
-<td><p><img src = "./Images/CorrR96.png"></p></td>
-<td><p><img src = "./Images/CorrR100.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = 0.80$</p></td>
-<td><p>$r = 0.96$</p></td>
-<td><p>$r = 1.00$</p></td>
-</tr>
-<tr class = "odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+```{r, fig.height = 5, fig.width = 5, echo = FALSE, message = FALSE, warning = FALSE}
+par(mfrow = c(3,3), mar=c(1,1,3,1))
+  fixed_cor(rho = -1) %>% plot_xy(fig_number = 1)
+  fixed_cor(rho = -0.96) %>% plot_xy(fig_number = 2)
+  fixed_cor(rho = -0.8) %>% plot_xy(fig_number = 3)
+  
+  fixed_cor(rho = -0.5) %>% plot_xy(fig_number = 4)
+  fixed_cor(rho = 0, seed = 28) %>% plot_xy(fig_number = 5)
+  fixed_cor(rho = 0.5) %>% plot_xy(fig_number = 6)
+  
+  fixed_cor(rho = 0.8) %>% plot_xy(fig_number = 7)
+  fixed_cor(rho = 0.96) %>% plot_xy(fig_number = 8)
+  fixed_cor(rho = 1) %>% plot_xy(fig_number = 9)
+par(mfrow = c(1,1))
+```
 </center>
+
+
+
+
+
+
+
+
+
 <br>
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
@@ -414,38 +408,28 @@ Several scatterplots have been created, and the correlation coefficient summariz
 An  **outlier** is any point that is very far from the others.  Each of the following scatterplots shows data where there is one outlier present. Notice how one point can influence the correlation coefficient. Imagining that the outlier was removed from each of the following plots, estimate the correlation coefficient in your mind.  Compare that value to the specified correlation coefficient with the outlier included.
 
 <br>
+
 <center>
-
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 10</p></th>
-<th><p>Figure 11</p></th>
-<th><p>Figure 12</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrOutliersR-37.png"></p></td>
-<td><p><img src = "./Images/CorrOutliersR62.png"></p></td>
-<td><p><img src = "./Images/CorrOutliersR88.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = -0.37$</p></td>
-<td><p>$r = +0.62$</p></td>
-<td><p>$r = +0.88$</p></td>
-</tr>
-</tbody>
-</table>
-
-<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
-<!-- ! Figure 10 !! Figure 11 !! Figure 12 -->
-<!-- |- -->
-<!-- |[[File:CorrOutliersR-37.png"> -->
-<!-- |- -->
-<!-- |$r = -0.37$ || $r = +0.62$ || $r = +0.88$   -->
-<!-- |} -->
+```{r, fig.height = 5/3, fig.width = 5, echo = FALSE, message = FALSE, warning = FALSE}
+par(mfrow = c(1,3), mar=c(1,1,3,1))
+  
+  fixed_cor(rho = 0.98, n = 12, seed = 4) %>% 
+    bind_rows(c(x=7, y=-4)) %>% 
+    plot_xy(fig_number = 10)
+  
+  fixed_cor(rho = -0.95, n = 19, seed = 3) %>% 
+    bind_rows(c(x=-5, y=-5.3)) %>% 
+    plot_xy(fig_number = 11)
+  
+  fixed_cor(rho = 0, n = 12, seed = 5) %>% 
+    bind_rows(c(x=3, y=11)) %>% 
+    plot_xy(fig_number = 12)
+  
+par(mfrow = c(1,1))
+```
 </center>
+
+
 
 <div class = "QuestionsHeading">Answer the following question:</div>
 <div class = "Questions">
@@ -463,68 +447,35 @@ An  **outlier** is any point that is very far from the others.  Each of the foll
 
 The following figures illustrate possible situations where the relationship between two variables does not follow a straight line.  You can have a correlation coefficient that is close to zero, even though there is a perfect *nonlinear* association between the data. This is why it is meaningful to show a scatterplot *and* the correlation coefficient. That way we know if we are really measuring the strength and direction of a *linear* relationship or not.
 
-<br>
-<center>
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 13</p></th>
-<th><p>Figure 14</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrNonlinStrongRelWeakCorr.png"></p></td>
-<td><p><img src = "./Images/CorrNonlinStrongRelStrongCorr.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = +0.01$</p></td>
-<td><p>$r = +0.86$</p></td>
-</tr>
-</tbody>
-</table>
-<p><br />
-<br />
 
-<br>
-<table>
-<thead>
-<tr class = "header">
-<th><p>Figure 15</p></th>
-<th><p>Figure 16</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class = "odd">
-<td><p><img src = "./Images/CorrNonlinModRelWeakCorr.png"></p></td>
-<td><p><img src = "./Images/CorrNonlinModRelStrongCorr.png"></p></td>
-</tr>
-<tr class = "even">
-<td><p>$r = +0.04$</p></td>
-<td><p>$r = +0.74$</p></td>
-</tr>
-</tbody>
-</table>
-<p><br />
-<br />
+<center>
+```{r, fig.height = 5, fig.width = 5, echo = FALSE, message = FALSE, warning = FALSE}
+par(mfrow = c(2,2), mar=c(1,1,3,1))
+
+  set.seed(121)
+  data.frame(x = runif(40, -1.3, 1.3)) %>% 
+    mutate(y = (x-1)*x*(x+1)) %>% 
+    plot_xy(fig_number = 13)
+  
+  set.seed(120)
+  data.frame(x = runif(40, -2, 2)) %>% 
+    mutate(y = (x-1)*x*(x+1)) %>% 
+    plot_xy(fig_number = 14)
+  
+  set.seed(131) # 110, 111, 119
+  data.frame(x = runif(50, -2, 2)) %>% 
+    mutate(y = x^2 + rnorm(length(x), 0, 0.5)) %>% 
+    plot_xy(fig_number = 15)
+  
+  set.seed(29) # 23
+  data.frame(x = runif(50, -1.5, 2.5)) %>% 
+    mutate(y = x^2 + rnorm(length(x), 0, 0.6)) %>% 
+    plot_xy(fig_number = 16)
+  
+par(mfrow = c(1,1))
+```
 </center>
-<!-- <center> -->
-<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
-<!-- ! Figure 13 !! Figure 14 -->
-<!-- |- -->
-<!-- |[[File:CorrNonlinStrongRelWeakCorr.png">  -->
-<!-- |- -->
-<!-- |$r = +0.01$ || $r = +0.86$   -->
-<!-- |} -->
-<!-- <br><br> -->
-<!-- {| class = "wikitable" style = "text-align:center" width = "80%" -->
-<!-- ! Figure 15 !! Figure 16 -->
-<!-- |- -->
-<!-- |[[File:CorrNonlinModRelWeakCorr.png"> -->
-<!-- |- -->
-<!-- |$r = +0.04$ || $r = +0.74$     -->
-<!-- |} -->
-<!-- </center> -->
+
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
@@ -540,7 +491,7 @@ The following figures illustrate possible situations where the relationship betw
 
 <a href = "javascript:showhide('Q10')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q10" style = "display:none;">
-- Figures 14 and 16 both have relatively high correlation coefficient, $r = 0.86$ and $r = 0.74$, respectively.
+- Figures 14 and 16 both have relatively high correlation coefficient, $r = 0.8$ and $r = 0.75$, respectively.
 </div>
 <br>
 
@@ -569,6 +520,8 @@ We will summarize the properties of the correlation coefficient, $r$:
 - the correlation of $X$ and $Y$ is the same as the correlation between $Y$ and $X$ (i.e.there is no distinction between explanatory and response variables.)
 - the correlation coefficient measures the strength of the linear relationship between two variables; it does not give the strength of a nonlinear relationship, no matter how strong
 - the correlation coefficient is affected by outliers
+
+<br>
 
 #### Sample Statistic and Population Parameter
 
@@ -621,6 +574,20 @@ Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->
 <div id = "Q13" style = "display:none;">
 - The mean waiting times for the $n = 272$ observations in the data set is $\bar x = 70.9$ minutes.  A 95% confidence interval for the true mean waiting time is: $(69.3,72.5)$ minutes.  We are 95% confident the true mean waiting time between eruptions is between $69.3$ and $72.5$ minutes.  This is a true statement, but does it provide a good prediction?  To assess this, we create a histogram of the waiting times: 
 
+<a href = "javascript:showhide('old_faithful_hist')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Code </span></a>
+<div id = "old_faithful_hist" style = "display:none;">
+
+```{r, eval = FALSE}
+hist(old_faithful$wait, 
+     col = "steelblue3", 
+     xlab = "Waiting Time to Next Eruption (Minutes)", 
+     ylab = "Frequency", 
+     main = "Old Faithful",
+     breaks = seq(40,96,2))
+```
+
+</div>
+
 <center>
 ```{r, echo = FALSE}
 old_faithful <- read_excel("./data/old_faithful.xlsx") %>% data.frame()
@@ -633,7 +600,7 @@ hist(old_faithful$wait,
 ```
 </center>
 
-- Since this distribution is bimodal, the mean of the waiting times does not provide the most useful prediction tool.
+- Since this distribution is bimodal, the mean of the waiting times is not the most useful prediction tool.
 </div>
 <br>
 
@@ -654,15 +621,26 @@ This can be explored using a scatterplot.
 
 For the Old Faithful data, we plot the eruption duration on the $X$-axis and the waiting time before the next eruption on the $Y$-axis of a scatterplot.
 
-<!--
-<img src = "./Images/OldFaithfulEruptions-Scatterplot-Excel.png">
--->
+<a href = "javascript:showhide('old_faithful_scatter')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Code </span></a>
+<div id = "old_faithful_scatter" style = "display:none;">
+
+```{r, eval = FALSE}
+plot(wait ~ duration, data = old_faithful,
+     col = "steelblue3", 
+     pch = 16, 
+     xlab = "Eruption Duration (Minutes)",
+     ylab = "Waiting Time (Minutes)",
+     main = "Old Faithful Eruptions")
+```
+
+</div>
+
 
 <center>
-```{r, echo = FALSE}
+```{r, fig.height = 5, fig.width = 5, echo = FALSE}
 plot(wait ~ duration, data = old_faithful,
-     col = "steelblue3", # specify the color
-     pch = 16, # choose a plotting symbol, options are 1, 2, ..., 25.
+     col = "steelblue3", 
+     pch = 16, 
      xlab = "Eruption Duration (Minutes)",
      ylab = "Waiting Time (Minutes)",
      main = "Old Faithful Eruptions")
