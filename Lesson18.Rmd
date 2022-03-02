@@ -257,8 +257,8 @@ You do not need to use the Normal Probability Applet to get the $P$-value, as R 
 
 If you are interested in seeing how these same calculations could be done by hand, click the button below. These calculations are optional reading, and are only included for the curious student. 
 
-<a href = "javascript:showhide('handcalculations2')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Calculations (Optional) </span></a>
-<div id = "handcalculations2" style = "display:none;">
+<a href = "javascript:showhide('handcalculations3')"><span style = "color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Calculations (Optional) </span></a>
+<div id = "handcalculations3" style = "display:none;">
 
 <br>
 
