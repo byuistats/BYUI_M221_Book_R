@@ -147,9 +147,9 @@ Links to data files used throughout the course:
 
 [lead_behavior.xlsx](./data/lead_behavior.xlsx)
 
-[manatees.xlsx](./data/manatees.xlsx)
-
 [madison_county_real_estate.xlsx](./data/madison_county_real_estate.xlsx)
+
+[manatees.xlsx](./data/manatees.xlsx)
 
 [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx)
 
