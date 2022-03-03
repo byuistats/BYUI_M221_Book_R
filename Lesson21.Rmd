@@ -544,7 +544,7 @@ The amount of time between eruptions (wait time) is random.  However, it can be 
 
 <img src = "./Images/Step2.png">
 
-Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [old_faithful](./data/old_faithful).
+Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [old_faithful.xlsx](./data/old_faithful.xlsx).
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
