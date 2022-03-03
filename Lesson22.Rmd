@@ -201,10 +201,6 @@ cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)
 
 There is a strong positive linear relationship between these two measurements ($r = 0.990$). Because of this strong linear relationship, it seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length.  In particular, we will use this line to estimate the length of SuperCroc.
 
-<br/>
-
-<img src = "./Images/Step4.png">
-
 We can use simple linear regression to develop an equation relating the head length of an estuarine crocodile to its body length.  Let $Y$ be the body length (in cm) and $X$ be the head length (in cm).
 
 If we can assume that there is a linear relationship between the head length and the body length, then we can express this symbolically as:
@@ -251,7 +247,7 @@ $$
 
 We put the "hat" on $Y$ to represent that this is an estimate of the value of $Y$. For example, with SuperCroc, we don't know the *actual* body length, but we can use the equation to come up with a predicted value that is reasonable.  The symbol $\hat{Y}$ is read, "$Y$-hat".  We can also express this equation in the following way:
 $$
-\hat{BodyLength} = -18.274 + 7.660 \cdot HeadLength
+\widehat{BodyLength} = -18.274 + 7.660 \cdot HeadLength
 $$
 
 The slope of the regression equation is 7.660.  This means that for each one-unit increase in $X$, we expect a corresponding increase in the average of $Y$ of 7.660 centimeters.  For every additional centimeter of head length, we expect that the mean body length to increase by 7.660 cm.
@@ -291,6 +287,18 @@ abline(estuarine.lm)
 
 <br/>
 
+<br/>
+
+<img src = "./Images/Step4.png">
+
+We will make inferences about the regression line in [Lesson 23](Lesson23.html).
+
+
+<br/>
+
+<img src = "./Images/Step5.png">
+
+
 ### Predictions
 
 An 87 cm skull from a juvenile sarcosuchus (SuperCroc) was discovered.  We want to estimate the body length of this crocodilian using the regression equation we calculated for the estuarine crocodiles.  
@@ -309,15 +317,16 @@ plot(body_length ~ head_length, data = estuarine_crocodiles,
      xlab = "Head Length (cm)",
      col = "darkolivegreen4", 
      pch = 16,
-     xlim = c(0,90),
-     ylim = c(0,675))
+     xlim = c(0,95),
+     ylim = c(0,750))
 
 abline(estuarine.lm)
 
 points(87, 648, pch = 16, cex = 1.2, col = "tan3")
-text(83,648, "Predicted Body Length of 648 cm", pos = 2)
-arrows(x0 = 38, y0 = 648, x1 = 0, col = "tan3")
-text(87,0, "x = 87", adj = c(0.5,0))
+text(87, 710, "(87, 648)", adj = c(0.5,0), col = "tan3")
+text(83, 648, "Predicted Body Length of 648 cm", pos = 2)
+arrows(x0 = 36, y0 = 648, x1 = 0, col = "tan3")
+text(87,0, "x = 87 cm", adj = c(0.5,0))
 arrows(x0 = 87, y0 = 50, y1 = 620, col = "tan3")
 ```
 </center>
@@ -370,7 +379,7 @@ text(160,1207, "Adult Predicted Body Length of 1207 cm", pos = 2)
 </div>
 <br/>
 
-
+<br>
 
 <img src = "./Images/StepsAll.png">
 
@@ -392,7 +401,9 @@ We can use simple linear regression to model the relationship between the powerb
 <img src = "./Images/Step2.png">
 
 
-The data set [manatees](./data/manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
+The data set [manatees](./data/manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2011. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
+These data are derived from multiple sources.
+
 
 <img src = "./Images/Step3.png">
 
@@ -402,55 +413,69 @@ In other words, simple linear regression is not appropriate when the graph shows
 
 ```{r, include = FALSE}
 library(tidyverse)
-plot_xy <- function(df_in = df, fig_number){
-  plot(y ~ x, data = df_in, 
-       yaxt = 'n', xaxt = 'n', 
-       col = "steelblue3", 
-       pch = 20, 
-       main = paste("Figure",fig_number)
-  )
-}
+source("https://byuistats.github.io/M221R/scripts/functions_textbook.R")
 ```
 
 <center>
-```{r, fig.height = 5/3, fig.width = 5, echo = FALSE, message = FALSE, warning = FALSE}
-par(mfrow = c(1,3), mar=c(1,1,2,1))
+```{r, fig.height = 10/3, fig.width = 10, echo = FALSE, message = FALSE, warning = FALSE}
+par(mfrow = c(1,3), mar=c(5,3,3,3))
   
 n <- 50
 
-set.seed(2)
-data.frame(x = rnorm(n), epsilon = rnorm(n,0,0.7)) %>% 
-  mutate(y = 3 + 2 * x + epsilon) %>% 
-  plot_xy(fig_number = 1)
+# set.seed(11)
+# data.frame(x = rnorm(n), epsilon = rnorm(n,0,0.7)) %>% 
+#   mutate(y = 3 + 2 * x + epsilon) %>% 
+#   plot_xy(fig_number = 1)
 
-fixed_cor(n, rho = 0, seed = 28) %>% 
-  plot_xy(fig_number = 2)
+dat <- fixed_cor(n, rho = .95, seed = 20)
+  plot(y ~ x, data = dat, 
+       yaxt = 'n', xaxt = 'n', 
+       xlab = "", ylab = "",
+       col = "steelblue3", 
+       pch = 16, 
+       main = paste("Figure",1),
+       sub = "Linear Relationship \n\n Significant Linear Relationship"
+  )
+text(max(dat$x), min(dat$y), "x", adj = c(0.5,0.5))
+text(min(dat$x), max(dat$y), "y", adj = c(0.5,0.5))
 
-set.seed(30)
-data.frame(base = seq(-3.25, 2.25, length.out = n*2/3)) %>% 
+dat <- fixed_cor(n, rho = 0, seed = 28) 
+plot(y ~ x, data = dat,
+     yaxt = 'n', xaxt = 'n', 
+       xlab = "", ylab = "",
+     col = "steelblue3", 
+     pch = 16, 
+     main = paste("Figure",2),
+     sub = "Random Scatter \n\n No Significant Linear Relationship"
+)
+text(max(dat$x), min(dat$y), "x", adj = c(0.5,0.5))
+text(min(dat$x), max(dat$y), "y", adj = c(0.5,0.5))
+
+set.seed(33)
+dat <- data.frame(base = seq(-3.25, 2.25, length.out = n*2/3)) %>% 
   bind_rows(data.frame(base = seq(-3.25, -1, length.out = n/3))) %>% 
-  mutate(dx = runif(nrow(.), -.75, 0.75), 
-         dy = runif(nrow(.), -.75, 0.75)
+  mutate(dx = runif(nrow(.), -0.75, 0.75), 
+         dy = runif(nrow(.), -0.75, 0.75)
          ) %>% 
-  mutate(x = base + dx, y = (base)^2 + dy) %>% 
-  plot_xy(fig_number = 3)
+  mutate(x = base + dx, y = (base)^2 + dy) 
+plot(y ~ x, data = dat,
+     yaxt = 'n', xaxt = 'n', 
+       xlab = "", ylab = "",
+     col = "steelblue3", 
+     pch = 16, 
+     main = paste("Figure",3),
+     sub = "Nonlinear Relationship \n\n Linear Regression is not Appropriate"
+)
+text(max(dat$x), min(dat$y), "x", adj = c(0.5,0.5))
+text(min(dat$x), max(dat$y), "y", adj = c(0.5,0.5))
 
 par(mfrow = c(1,1))
 ```
 </center>
 
 
-
-
-+---------------+----------------------------------------+--------------------------------------------+-----------------------------------------+
-| Graph         | <img src = "./Images/Scatter-HotDog.png">| <img src = "./Images/Scatter-Hamburger.png"> | <img src = "./Images/Scatter-Banana.png"> |
-+===============+========================================+============================================+=========================================+
-| **Type**      | Linear Pattern                         | Apparent Random Scatter                    | Nonlinear Pattern                       |
-+---------------+----------------------------------------+--------------------------------------------+-----------------------------------------+
-|**Decision**   | Conduct regression analysis            | Linear regression is not appropriate       | Linear regression is not appropriate    |
-|               | to determine if there is a             |                                            |                                         |
-|               | significant linear relationship        |                                            |                                         |
-+---------------+----------------------------------------+--------------------------------------------+-----------------------------------------+
+<br>
+<br>
 
 
 
@@ -468,6 +493,8 @@ Notice that this is the equation of a straight line. You might have written line
 
 ### Interpreting the Regression Output
 
+Read in the [manatees](./data/manatees.xlsx) data, then find the regression equation.
+
 The output from the commands given above will include a table similar to the one shown here:
 
 ```{r, include = FALSE}
@@ -475,7 +502,7 @@ manatees <- read_excel("./data/manatees.xlsx")
 ```
 
 ```{r, comment = NA}
-manatee.lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+manatee.lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee.lm)
 ```
 

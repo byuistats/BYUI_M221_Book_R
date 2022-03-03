@@ -546,8 +546,6 @@ Answer the following questions:
 <pre class="r"><code>cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)</code></pre>
 <pre><code>## [1] 0.9898911</code></pre>
 <p>There is a strong positive linear relationship between these two measurements (<span class="math inline">\(r = 0.990\)</span>). Because of this strong linear relationship, it seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length. In particular, we will use this line to estimate the length of SuperCroc.</p>
-<p><br/></p>
-<p><img src = "Images/Step4.png"></p>
 <p>We can use simple linear regression to develop an equation relating the head length of an estuarine crocodile to its body length. Let <span class="math inline">\(Y\)</span> be the body length (in cm) and <span class="math inline">\(X\)</span> be the head length (in cm).</p>
 <p>If we can assume that there is a linear relationship between the head length and the body length, then we can express this symbolically as: <span class="math display">\[
 \hat Y = b_0 + b_1 X
@@ -601,7 +599,7 @@ F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
 \underbrace{\hat{Y}}_\text{Predicted Body Length} = -18.274 + 7.660 \underbrace{X}_\text{Head Length}
 \]</span></p>
 <p>We put the “hat” on <span class="math inline">\(Y\)</span> to represent that this is an estimate of the value of <span class="math inline">\(Y\)</span>. For example, with SuperCroc, we don’t know the <em>actual</em> body length, but we can use the equation to come up with a predicted value that is reasonable. The symbol <span class="math inline">\(\hat{Y}\)</span> is read, “<span class="math inline">\(Y\)</span>-hat”. We can also express this equation in the following way: <span class="math display">\[
-\hat{BodyLength} = -18.274 + 7.660 \cdot HeadLength
+\widehat{BodyLength} = -18.274 + 7.660 \cdot HeadLength
 \]</span></p>
 <p>The slope of the regression equation is 7.660. This means that for each one-unit increase in <span class="math inline">\(X\)</span>, we expect a corresponding increase in the average of <span class="math inline">\(Y\)</span> of 7.660 centimeters. For every additional centimeter of head length, we expect that the mean body length to increase by 7.660 cm.</p>
 <p>The Y-intercept is <span class="math inline">\(-18.274\)</span>. As stated previously it does not make sense to interpret the Y-intercept, so we simply state that it is not interpretable. The Y-intercept is included in the regression equation, even though it may not be interpretable. It must be included to make the predictions more reasonable.</p>
@@ -633,6 +631,11 @@ abline(estuarine.lm)</code></pre>
 <p><br/></p>
 </div>
 <p><br/></p>
+<p><br/></p>
+<p><img src = "Images/Step4.png"></p>
+<p>We will make inferences about the regression line in <a href="Lesson23.html">Lesson 23</a>.</p>
+<p><br/></p>
+<p><img src = "Images/Step5.png"></p>
 </div>
 <div id="predictions" class="section level3">
 <h3>Predictions</h3>
@@ -680,6 +683,7 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 </div>
 </div>
 <p><br/></p>
+<p><br></p>
 <p><img src = "Images/StepsAll.png"></p>
 </div>
 </div>
@@ -693,42 +697,14 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 <p>Is there a relationship between the number of powerboats registered in Florida and the number of manatees killed there by powerboats each year? If the powerboats are killing the manatees, then we would expect to see a relationship between the number of powerboats and the number of manatees killed by powerboats. As the number of powerboats increases, we would expect to observe a corresponding increase in manatee deaths due to powerboats.</p>
 <p>We can use simple linear regression to model the relationship between the powerboat registrations and the manatee deaths. In the next lesson, we will be able to conduct a hypothesis test to determine if this relationship is statistically significant.</p>
 <p><img src = "Images/Step2.png"></p>
-<p>The data set <a href="./data/manatees.xlsx">manatees.xlsx</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2006. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--></p>
+<p>The data set <a href="./data/manatees.xlsx">manatees</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2011. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--> These data are derived from multiple sources.</p>
 <p><img src = "Images/Step3.png"></p>
-<p>As part of a regression analysis, it is important that you first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. If you have a situation in your profession that involves a curvilinear relationship, you can consult a statistician or else a textbook on Linear Regression such as Kuntner, et. al., <em>Applied Linear Regression Models</em>.</p>
+<p>As part of a regression analysis, it is important that you first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. These are explored in detail in BYU-Idaho’s Applied Linear Regression course (MATH 425).</p>
 <p>In other words, simple linear regression is not appropriate when the graph shows a “curvilinear” shape (suggesting a nonlinear relationship). We apply simple linear regression when the two variables show a “linear” shape. If the data look like a random scattering of points, we would conclude that there is no linear relationship in the data.</p>
-<table>
-<colgroup>
-<col width="11%" />
-<col width="28%" />
-<col width="31%" />
-<col width="29%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Graph</th>
-<th>&lt;img src = “./Images/Scatter-HotDog.png”</th>
-<th><blockquote>
-<div class="line-block">&lt;img src = “./Images/Scatter-Hamburger.png</div>
-</blockquote></th>
-<th>“&gt; | <img src = "Images/Scatter-Banana.png"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Type</strong></td>
-<td>Linear Pattern</td>
-<td>Apparent Random Scatter</td>
-<td>Nonlinear Pattern</td>
-</tr>
-<tr class="even">
-<td><strong>Decision</strong></td>
-<td>Conduct regression analysis to determine if there is a significant linear relationship</td>
-<td>Linear regression is not appropriate</td>
-<td>Linear regression is not appropriate</td>
-</tr>
-</tbody>
-</table>
+<center>
+<img src="Lesson22_files/figure-html/unnamed-chunk-10-1.png" width="960" />
+</center>
+<p><br> <br></p>
 <div id="regression-equation" class="section level3">
 <h3>Regression Equation</h3>
 <p>We can use simple linear regression to develop an equation relating the number of powerboats to the number of manatees killed. Consider a model where <span class="math inline">\(Y\)</span> is the number of manatees killed and <span class="math inline">\(X\)</span> is the number of powerboats registered (in thousands).</p>
@@ -739,21 +715,22 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 </div>
 <div id="interpreting-the-regression-output-1" class="section level3">
 <h3>Interpreting the Regression Output</h3>
+<p>Read in the <a href="./data/manatees.xlsx">manatees</a> data, then find the regression equation.</p>
 <p>The output from the commands given above will include a table similar to the one shown here:</p>
-<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+<pre class="r"><code>manatee.lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee.lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = manatees$manatees_killed ~ manatees$power_boats_1000s)
+lm(formula = manatees_killed ~ power_boats_1000s, data = manatees)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
 -15.758  -6.647  -1.239   4.349  22.344 
 
 Coefficients:
-                             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                -42.541613   6.349634   -6.70 1.25e-07 ***
-manatees$power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -42.541613   6.349634   -6.70 1.25e-07 ***
+power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -789,7 +766,7 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
      pch = 16)
 
 abline(manatee.lm)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data of <span class="math inline">\(0.9376\)</span>.</p>
 <pre class="r"><code>cor(manatees$power_boats_1000s, manatees$manatees_killed)</code></pre>
 <pre><code>[1] 0.9376087</code></pre>
