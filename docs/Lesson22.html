@@ -380,14 +380,15 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#introduction-to-regression">Introduction to Regression</a></li>
 <li><a href="#case-study-supercroc">Case Study: SuperCroc</a>
 <ul>
+<li><a href="#r-instructions-for-graphing-the-regression-line">R Instructions for Graphing the Regression Line</a></li>
+<li><a href="#introduction-to-regression">Introduction to Regression</a></li>
 <li><a href="#r-instructions-for-performing-a-linear-regression">R Instructions for Performing a Linear Regression</a></li>
 <li><a href="#interpreting-the-regression-output">Interpreting the Regression Output</a></li>
-<li><a href="#r-instructions-for-graphing-the-regression-line">R Instructions for Graphing the Regression Line</a></li>
 <li><a href="#predictions">Predictions</a></li>
 </ul></li>
+<li><a href="#assessing-linearity">Assessing linearity</a></li>
 <li><a href="#case-study-manatees-and-powerboats">Case Study: Manatees and Powerboats</a>
 <ul>
 <li><a href="#regression-equation">Regression Equation</a></li>
@@ -433,9 +434,66 @@ $(document).ready(function () {
 
 </div>
 <p><br/></p>
+<p><img src = "Images/StepsAll.png"></p>
 </div>
-<div id="introduction-to-regression" class="section level2">
-<h2>Introduction to Regression</h2>
+<div id="case-study-supercroc" class="section level2">
+<h2>Case Study: SuperCroc</h2>
+<div style="float:right;padding:10px;">
+<p><img src = "Images/Super_croc.jpeg" width = 300px></p>
+</div>
+<p><img src = "Images/Step1.png"></p>
+<p>A partial skeleton of an enormous extinct crocodilian was found in the Sahara Desert. With a skull that is about six feet long, this massive creature was a fierce hunter. Unfortunately, the skeleton is incomplete. Almost none of the bones for the legs and tail were recovered. How big was this massive creature?</p>
+<p>To answer this question, paleontologist Paul Sereno teamed up with modern crocodile expert Brady Barr. Their work is demonstrated in the National Geographic video <em>SuperCroc</em>. Using linear regression, these researchers are able to estimate the size of SuperCroc simply by knowing the size of its skull. Before continuing, please follow this link to watch a 15 minute clip of this video. You may find the film is so engaging that you will choose to watch it in its entirety. However, please view at least the last fifteen minutes, beginning at 1:19:00.</p>
+<p><br> <br></p>
+<iframe id="kaltura_player_1578605835" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/41351812/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1578605835&amp;entry_id=0_kh1juzmd" width="800" height="450" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+<p><br/></p>
+<p><img src = "Images/Step2.png"></p>
+<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>.</p>
+<p><br/></p>
+<p><img src = "Images/Step3.png"></p>
+<p>Using the information we learned in <a href="Lesson21.html#r-instructions-for-scatterplots">Lesson 21</a>, we create a scatterplot for the Estuarine Crocodile data.</p>
+<pre class="r"><code>plot(body_length ~ head_length, data = estuarine_crocodiles,
+     main = &quot;Estuarine Crocodile Measurements&quot;,
+     ylab = &quot;Body Length (cm)&quot;,
+     xlab = &quot;Head Length (cm)&quot;,
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16)</code></pre>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>In Lesson 21, we also learned how to <a href="Lesson21.html#r-instructions-for-computing-correlation">compute the correlation coefficient</a> that describes the relationship between the head length and the body length.</p>
+<pre class="r"><code>cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)</code></pre>
+<pre><code>[1] 0.9898911</code></pre>
+<p>There is a strong positive linear relationship between these two measurements (<span class="math inline">\(r = 0.990\)</span>). This strong linear correlation is substantiated by the linearity in the scatter plot. It seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length. In particular, we will use this line to estimate the length of the specimen called SuperCroc.</p>
+<div id="r-instructions-for-graphing-the-regression-line" class="section level3">
+<h3>R Instructions for Graphing the Regression Line</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
+<ul>
+<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Perform the regression:</li>
+</ul>
+<pre class="r"><code>estuarine.lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
+<ul>
+<li>Create the scatterplot and use <code>abline( )</code> with the name of your regression object–in this case, <code>estuarine.lm</code>–to graph the regression line.</li>
+</ul>
+<pre class="r"><code>plot(body_length ~ head_length, data = estuarine_crocodiles,
+     main = &quot;Estuarine Crocodile Measurements&quot;,
+     ylab = &quot;Body Length (cm)&quot;,
+     xlab = &quot;Head Length (cm)&quot;,
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16)
+
+abline(estuarine.lm)</code></pre>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br/></p>
+</div>
+<p><br/></p>
+</div>
+<div id="introduction-to-regression" class="section level3">
+<h3>Introduction to Regression</h3>
 <p>Simple linear regression is a method used to fit a line to data. This provides a powerful tool to model bivariate data (i.e., data involving two variables.) Regression allows us to write a linear equation that models the relationship between the <strong>independent variable</strong> (<span class="math inline">\(X\)</span>) and the <strong>dependent variable</strong> (<span class="math inline">\(Y\)</span>) which we can use to predict the value of <span class="math inline">\(Y\)</span> for any given value of <span class="math inline">\(X\)</span>. Sometimes the independent variable is also called the <strong>explanatory variable</strong>, and the dependent variable is also called the <strong>response variable</strong>.</p>
 <p>We will be using linear equations throughout this lesson. Click on the link below if you would like to review lines and linear equations.</p>
 <!-- BEGIN REVIEW OF LINES  ***********************************************  -->
@@ -516,40 +574,11 @@ Answer the following questions:
 <hr>
 </div>
 <p><br> <!-- END EXPLANATION OF FORM ***********************************************  --></p>
-<p><img src = "Images/StepsAll.png"></p>
-</div>
-<div id="case-study-supercroc" class="section level2">
-<h2>Case Study: SuperCroc</h2>
-<div style="float:right;padding:10px;">
-<p><img src = "Images/Super_croc.jpeg" width = 300px></p>
-</div>
-<p><img src = "Images/Step1.png"></p>
-<p>A partial skeleton of an enormous extinct crocodilian was found in the Sahara Desert. With a skull that is about six feet long, this massive creature was a fierce hunter. Unfortunately, the skeleton is incomplete. Almost none of the bones for the legs and tail were recovered. How big was this massive creature?</p>
-<p>To answer this question, paleontologist Paul Sereno teamed up with modern crocodile expert Brady Barr. Their work is demonstrated in the National Geographic video <em>SuperCroc</em>. Using linear regression, these researchers are able to estimate the size of SuperCroc simply by knowing the size of its skull. Before continuing, please follow this link to watch a 15 minute clip of this video. You may find the film is so engaging that you will choose to watch it in its entirety. However, please view at least the last fifteen minutes, beginning at 1:19:00.</p>
-<p><br> <br></p>
-<iframe id="kaltura_player_1578605835" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/41351812/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1578605835&amp;entry_id=0_kh1juzmd" width="800" height="450" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
-</iframe>
-<p><br/></p>
-<p><img src = "Images/Step2.png"></p>
-<p>We will use Sereno and Barr’s measurements on the lengths of Estuarine, or saltwater, Crocodiles’ heads to estimate the length of their bodies. Their measurements are given in the file <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>.</p>
-<p><br/></p>
-<p><img src = "Images/Step3.png"></p>
-<p>Using the information we learned in <a href="Lesson21.html#r-instructions-for-scatterplots">Lesson 21</a> we create a scatterplot for the Estuarine Crocodile data.</p>
-<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
-     main = &quot;Estuarine Crocodile Measurements&quot;,
-     ylab = &quot;Body Length (cm)&quot;,
-     xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;darkolivegreen4&quot;, 
-     pch = 16)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Using the information we learned in Lesson 21 about <a href="Lesson21.html#r-instructions-for-computing-correlation">computing the correlation coefficient</a> we obtain the following.</p>
-<pre class="r"><code>cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)</code></pre>
-<pre><code>## [1] 0.9898911</code></pre>
-<p>There is a strong positive linear relationship between these two measurements (<span class="math inline">\(r = 0.990\)</span>). Because of this strong linear relationship, it seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length. In particular, we will use this line to estimate the length of SuperCroc.</p>
 <p>We can use simple linear regression to develop an equation relating the head length of an estuarine crocodile to its body length. Let <span class="math inline">\(Y\)</span> be the body length (in cm) and <span class="math inline">\(X\)</span> be the head length (in cm).</p>
 <p>If we can assume that there is a linear relationship between the head length and the body length, then we can express this symbolically as: <span class="math display">\[
 \hat Y = b_0 + b_1 X
 \]</span> where <span class="math inline">\(\hat Y\)</span> represents the predicted body length of an estuarine crocodile with a head length of <span class="math inline">\(X\)</span>. The numbers <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are called the estimated “regression coefficients”. “Coefficient” is a fancy term that simply means a number, especially a number that is multiplied by a variable such as <span class="math inline">\(X\)</span>. We will use software to calculate the regression coefficients.</p>
+</div>
 <div id="r-instructions-for-performing-a-linear-regression" class="section level3">
 <h3>R Instructions for Performing a Linear Regression</h3>
 <div class="SoftwareHeading">
@@ -593,8 +622,8 @@ F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div id="interpreting-the-regression-output" class="section level3">
 <h3>Interpreting the Regression Output</h3>
 <p>The regression coefficients are given in the column labeled “Estimate”. The “(Intercept)” of -18.2740 in this case, gives the value of <span class="math inline">\(b_0\)</span>. The “Estimate” below the (Intercept) of 7.6601 is the value for the slope, <span class="math inline">\(b_1\)</span>.</p>
-<p>The Y-intercept gives the mean y-value for when the x-value is zero. It is sometimes called the <em>constant term</em> because it is the term in the equation not multiplied by the value of <span class="math inline">\(x\)</span>. For the crocodile data, <span class="math inline">\(b_0 = -18.274\)</span>, which is somewhat of a silly number if we were to interpret it because it is claiming that the mean body length of crocodiles that have head lengths of 0 cm is -18.274 cm. Since a head length of 0 cm is meaningless, it also makes sense that the Y-intercept of -18.274 cm is meaningless, so we ignore this value for this data.</p>
-<p>The slope gives the value that is to be multiplied by <span class="math inline">\(X\)</span>; this is the slope of the regression equation. In our model, <span class="math inline">\(X\)</span> represents the head length, in centimeters. The slope in our regression equation is <span class="math inline">\(b_1 = 7.660\)</span>. This number tells us how much the mean y-value (body length) increases as x (head length) increases.</p>
+<p>The Y-intercept gives the mean Y-value for when the X-value is zero. It is sometimes called the <em>constant term</em> because it is the term in the equation not multiplied by the value of <span class="math inline">\(x\)</span>. For the crocodile data, <span class="math inline">\(b_0 = -18.274\)</span>, which is somewhat of a silly number if we were to interpret it because it is claiming that the mean body length of crocodiles that have head lengths of 0 cm is -18.274 cm. Since a head length of 0 cm is meaningless, it also makes sense that the Y-intercept of -18.274 cm is meaningless, so we ignore this value for this data.</p>
+<p>The slope gives the value that is to be multiplied by <span class="math inline">\(X\)</span>; this is the slope of the regression equation. In our model, <span class="math inline">\(X\)</span> represents the head length, in centimeters. The slope in our regression equation is <span class="math inline">\(b_1 = 7.660\)</span>. This number tells us how much the mean Y-value (body length) increases as x (head length) increases.</p>
 <p><span class="math display">\[
 \underbrace{\hat{Y}}_\text{Predicted Body Length} = -18.274 + 7.660 \underbrace{X}_\text{Head Length}
 \]</span></p>
@@ -603,37 +632,9 @@ F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
 \]</span></p>
 <p>The slope of the regression equation is 7.660. This means that for each one-unit increase in <span class="math inline">\(X\)</span>, we expect a corresponding increase in the average of <span class="math inline">\(Y\)</span> of 7.660 centimeters. For every additional centimeter of head length, we expect that the mean body length to increase by 7.660 cm.</p>
 <p>The Y-intercept is <span class="math inline">\(-18.274\)</span>. As stated previously it does not make sense to interpret the Y-intercept, so we simply state that it is not interpretable. The Y-intercept is included in the regression equation, even though it may not be interpretable. It must be included to make the predictions more reasonable.</p>
-</div>
-<div id="r-instructions-for-graphing-the-regression-line" class="section level3">
-<h3>R Instructions for Graphing the Regression Line</h3>
-<div class="SoftwareHeading">
-R Instructions
-</div>
-<div class="Software">
-<p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
-<ul>
-<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
-<li>Perform the regression:</li>
-</ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
-<ul>
-<li>Create the scatterplot and use <code>abline( )</code> with the name of your regression object–in this case, <code>estuarine.lm</code>–to graph the regression line.</li>
-</ul>
-<pre class="r"><code>plot(body_length ~ head_length, data = estuarine_crocodiles,
-     main = &quot;Estuarine Crocodile Measurements&quot;,
-     ylab = &quot;Body Length (cm)&quot;,
-     xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;darkolivegreen4&quot;, 
-     pch = 16)
-
-abline(estuarine.lm)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p><br/></p>
-</div>
-<p><br/></p>
 <p><br/></p>
 <p><img src = "Images/Step4.png"></p>
-<p>We will make inferences about the regression line in <a href="Lesson23.html">Lesson 23</a>.</p>
+<p>We will make inferences about the regression line in <a href="Lesson23.html">Lesson 23</a>. We will conduct a hypothesis test to determine if the slope of the regression line is different from zero. In other words, we will assess if there is significant evidence of a linear relationship between the head length (<span class="math inline">\(X\)</span>) and the body length (<span class="math inline">\(Y\)</span>) of crocodiles. (<em>Spoiler alert</em>: There appears to be a strong linear relationship between these variables!)</p>
 <p><br/></p>
 <p><img src = "Images/Step5.png"></p>
 </div>
@@ -662,30 +663,22 @@ Answer the following question:
 \hat Y = -18.274 + 7.660 X = -18.274 + 7.660 (160) = 1207.326
 \]</span> If you did some unit conversions, this turns out to be about 39 feet!</p>
 <p>Further, if we wanted to draw a picture of this prediction, it would look as follows.</p>
-<pre class="r"><code>plot(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length,
-     main = &quot;Estuarine Crocodile Measurements&quot;,
-     ylab = &quot;Body Length (cm)&quot;,
-     xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;darkolivegreen4&quot;, pch = 16,
-     xlim = c(0,165),
-     ylim = c(0,1210))
-
-abline(estuarine.lm)
-
-#Predictions for Juvenile
-points(87, 648, pch = 16, cex = 1.2, col = &quot;tan3&quot;)
-text(87,648, &quot;Juvenile Predicted Body Length of 648 cm&quot;, pos = 2)
-
-#Predictions for Adult
-points(160, 1207, pch = 16, cex = 1.2, col = &quot;tan3&quot;)
-text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 </div>
 <p><br/></p>
 <p><br></p>
-<p><img src = "Images/StepsAll.png"></p>
 </div>
+</div>
+<div id="assessing-linearity" class="section level2">
+<h2>Assessing linearity</h2>
+<p>As part of a regression analysis, it is important to first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. These are explored in detail in BYU-Idaho’s Applied Linear Regression course (MATH 425).</p>
+<p>In other words, simple linear regression is not appropriate when the graph shows a “curvilinear” shape (suggesting a nonlinear relationship). We apply simple linear regression when the two variables show a “linear” shape. If the data look like a random scattering of points, we would conclude that there is no linear relationship in the data.</p>
+<center>
+<img src="Lesson22_files/figure-html/unnamed-chunk-10-1.png" width="960" />
+</center>
+<p><br> <br></p>
+<p><img src = "Images/StepsAll.png"></p>
 </div>
 <div id="case-study-manatees-and-powerboats" class="section level2">
 <h2>Case Study: Manatees and Powerboats</h2>
@@ -699,12 +692,6 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 <p><img src = "Images/Step2.png"></p>
 <p>The data set <a href="./data/manatees.xlsx">manatees</a> gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2011. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>--> These data are derived from multiple sources.</p>
 <p><img src = "Images/Step3.png"></p>
-<p>As part of a regression analysis, it is important that you first create a scatterplot and visually examine the data. If the cloud of data in your scatterplot shows a curvilinear pattern, it is not appropriate to conduct simple linear regression. Procedures exist for handling curvilinear relationships. These are explored in detail in BYU-Idaho’s Applied Linear Regression course (MATH 425).</p>
-<p>In other words, simple linear regression is not appropriate when the graph shows a “curvilinear” shape (suggesting a nonlinear relationship). We apply simple linear regression when the two variables show a “linear” shape. If the data look like a random scattering of points, we would conclude that there is no linear relationship in the data.</p>
-<center>
-<img src="Lesson22_files/figure-html/unnamed-chunk-10-1.png" width="960" />
-</center>
-<p><br> <br></p>
 <div id="regression-equation" class="section level3">
 <h3>Regression Equation</h3>
 <p>We can use simple linear regression to develop an equation relating the number of powerboats to the number of manatees killed. Consider a model where <span class="math inline">\(Y\)</span> is the number of manatees killed and <span class="math inline">\(X\)</span> is the number of powerboats registered (in thousands).</p>
@@ -715,8 +702,7 @@ text(160,1207, &quot;Adult Predicted Body Length of 1207 cm&quot;, pos = 2)</cod
 </div>
 <div id="interpreting-the-regression-output-1" class="section level3">
 <h3>Interpreting the Regression Output</h3>
-<p>Read in the <a href="./data/manatees.xlsx">manatees</a> data, then find the regression equation.</p>
-<p>The output from the commands given above will include a table similar to the one shown here:</p>
+<p>Read in the <a href="./data/manatees.xlsx">manatees</a> data, then find the regression equation as follows:</p>
 <pre class="r"><code>manatee.lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee.lm)</code></pre>
 <pre><code>
@@ -737,7 +723,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 9.239 on 33 degrees of freedom
 Multiple R-squared:  0.8791,    Adjusted R-squared:  0.8754 
 F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>The Y-intercept term is not multiplied by anything. This is the value of <span class="math inline">\(b_0\)</span>: <span class="math inline">\(b_0 = -42.542\)</span>. The value of the slope is to be multiplied by <span class="math inline">\(X\)</span>; this is the slope of the regression equation. In our model, <span class="math inline">\(X\)</span> represents the number of powerboat registrations in Florida, in thousands. The slope for our regression equation is <span class="math inline">\(b_1 = 0.129\)</span>. We get the equation: <span class="math display">\[
+<p>The Y-intercept term is called <span class="math inline">\(b_0\)</span>. In this case, <span class="math inline">\(b_0 = -42.542\)</span>. The slope of the regression line is denoted <span class="math inline">\(b_1\)</span>. For this data set, <span class="math inline">\(b_1 = 0.129\)</span>. The variable <span class="math inline">\(X\)</span> represents the number of powerboat registrations in Florida (in thousands). Putting this together, we get the equation:</p>
+<p><span class="math display">\[
 \hat Y = -42.542 + 0.129 X
 \]</span></p>
 <p>We can also write the linear regression equation in the following way: <span class="math display">\[
@@ -767,7 +754,7 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
 
 abline(manatee.lm)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data of <span class="math inline">\(0.9376\)</span>.</p>
+<p>You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data. The correlation coefficient is <span class="math inline">\(0.9376\)</span>:</p>
 <pre class="r"><code>cor(manatees$power_boats_1000s, manatees$manatees_killed)</code></pre>
 <pre><code>[1] 0.9376087</code></pre>
 <p><br></p>
@@ -785,8 +772,9 @@ Most statistical packages (including SPSS) will easily handle multiple regressio
 </div>
 <div id="whats-in-a-name" class="section level2">
 <h2>What’s in a Name?</h2>
-<p>When we want to refer to simple linear regression, there are a variety of names that could be used: simple linear regression, ordinary least-squares regression, linear regression, regression, or (most ostentatiously) simple ordinary linear least squares regression.</p>
-<p>If we need to distinguish between simple linear regression and multiple regression, the key will be whether we use the word “multiple.” If we are discussing regression, and the word “multiple” is not used, then assume we are talking about simple least squares regression. <!--
+<p>When we want to refer to simple linear regression, there are a variety of names that could be used: simple linear regression, ordinary least-squares regression, linear regression, regression, or simple ordinary linear least squares regression.</p>
+<!-- If we need to distinguish between simple linear regression and multiple regression, the key will be whether we use the word "multiple."  If we are discussing regression, and the word "multiple" is not used, then assume we are talking about simple least squares regression. -->
+<!--
 
 ## Historical Notes
 ### Why is error called error?
@@ -794,7 +782,7 @@ Most statistical packages (including SPSS) will easily handle multiple regressio
 
 TextGoesHere
 
---></p>
+-->
 <p><br></p>
 </div>
 <div id="summary" class="section level2">
@@ -807,10 +795,10 @@ Remember…
 <li><p>In statistics, we write the <strong>linear regression equation</strong> as <span class="math inline">\(\hat Y = b_0+b_1X\)</span> where <span class="math inline">\(b_0\)</span> is the <strong>Y-intercept</strong> of the line and <span class="math inline">\(b_1\)</span> is the <strong>slope</strong> of the line.</p></li>
 <li><p>To calculate the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> in R use the <code>lm( )</code> function and the <code>summary( )</code> function as <a href="Lesson22.html#r-instructions-for-performing-a-linear-regression">shown here</a>.</p></li>
 <li><p>To add the regression line to a scatterplot, use the <code>abline( )</code> function as <a href="Lesson22.html#r-instructions-for-graphing-the-regression-line">shown here</a>.</p></li>
-<li><p>Linear regression allows us to predict values of <span class="math inline">\(Y\)</span> for a given <span class="math inline">\(X\)</span>. This is done by first calculating the coefficients <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> and then plugging in the desired value of <span class="math inline">\(X\)</span> and solving for <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>Linear regression allows us to predict values of <span class="math inline">\(Y\)</span> for a given value of <span class="math inline">\(X\)</span>. This is done by first calculating the coefficients <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> and then plugging in the desired value of <span class="math inline">\(X\)</span> and solving for <span class="math inline">\(Y\)</span>.</p></li>
 <li><p>The <strong>independent (or explanatory) variable (<span class="math inline">\(X\)</span>)</strong> is the variable which is <em>not</em> affected by what happens to the other variable. The <strong>dependent (or response) variable (<span class="math inline">\(Y\)</span>)</strong> is the variable which <em>is</em> affected by what happens to the other variable. For example, in the correlation between number of powerboats and number of manatee deaths, the number of deaths is affected by the number of powerboats in the water, but not the other way around. So, we would assign <span class="math inline">\(X\)</span> to represent the number of powerboats and <span class="math inline">\(Y\)</span> to represent the number of manatee deaths.</p></li>
-<li><p>The Y-intercept <span class="math inline">\(b_0\)</span> is interpreted as the mean y-value for when the x-value equals zero.</p></li>
-<li><p>The slope <span class="math inline">\(b_1\)</span> is interpreted as the change in the mean y-value for each one unit change in the x-value.</p></li>
+<li><p>The Y-intercept, <span class="math inline">\(b_0\)</span>, is interpreted as the mean Y-value for when the X-value equals zero. This value is not interpetable, if it does not make sense for the X-value to be zero.</p></li>
+<li><p>The slope, <span class="math inline">\(b_1\)</span>, is interpreted as the change in the mean Y-value for each one unit change in the X-value.</p></li>
 </ul>
 <p><br></p>
 </div>
