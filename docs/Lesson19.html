@@ -654,10 +654,11 @@ R Instructions
 <p>First, read in the data from the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
 <p>It is hard to visualize these data. We summarize them into a table of counts, which can be called a <em>contingency table</em>. <!--<cite>Blum08</cite>--></p>
 <p>After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.</p>
-<pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw)
+<p>We make a contingency table using the <code>table()</code> command. We give the two columns of data using the format <code>dataframe$variable</code>. In our case, we will create a contingency table of the <code>chiropractic_care_raw$location</code> and <code>chiropractic_care_raw$motivation</code> data.</p>
+<pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)
 contingency_table</code></pre>
-<pre><code>               motivation
-location        At Risk Prevention Self Care Sick Role Wellness
+<pre><code>               
+                At Risk Prevention Self Care Sick Role Wellness
   Australia          83         59       188        68       71
   Europe             59         28        95        77       23
   United States      65         76       252        82       90</code></pre>
@@ -703,8 +704,8 @@ location        At Risk Prevention Self Care Sick Role Wellness
 -->
 <p>We can transpose (or swap the rows and columns of) this table using the command <code>t(...)</code>.</p>
 <pre class="r"><code>t(contingency_table)</code></pre>
-<pre><code>            location
-motivation   Australia Europe United States
+<pre><code>            
+             Australia Europe United States
   At Risk           83     59            65
   Prevention        59     28            76
   Self Care        188     95           252
@@ -780,8 +781,8 @@ The value of the degrees of freedom is df = 8 and the $P$-value is $4.58 \times 
 <li><p>To check expected counts in R, use the code:</p></li>
 </ul>
 <pre class="r"><code>chisq_results$expected</code></pre>
-<pre><code>               motivation
-location         At Risk Prevention Self Care Sick Role Wellness
+<pre><code>
+                 At Risk Prevention Self Care Sick Role Wellness
   Australia     73.77128   58.09043  190.6649  80.89894 65.57447
   Europe        44.35714   34.92857  114.6429  48.64286 39.42857
   United States 88.87158   69.98100  229.6922  97.45821 78.99696</code></pre>

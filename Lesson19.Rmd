@@ -204,8 +204,10 @@ It is hard to visualize these data. We summarize them into a table of counts, wh
 
 After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.
 
+We make a contingency table using the `table()` command. We give the two columns of data using the format `dataframe$variable`. In our case, we will create a contingency table of the `chiropractic_care_raw$location` and `chiropractic_care_raw$motivation` data.
+
 ```{r, comment = NA}
-contingency_table <- table(chiropractic_care_raw)
+contingency_table <- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)
 contingency_table
 ```
 
