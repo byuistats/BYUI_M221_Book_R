@@ -27,7 +27,7 @@ View(chiropractic_care_raw)
 
 
 # Create a Contingency Table from the Raw Data ------------
-contingency_table <- table(chiropractic_care_raw)
+contingency_table <- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)
 contingency_table
 
 # Transpose the Contingency Table -------------------------
