@@ -462,18 +462,22 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <p>We will illustrate the process of checking requirements using the estuarine crocodile data.</p>
 <div id="scatterplot" class="section level3">
 <h3>Scatterplot</h3>
-<p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This has been referred to as a “hot dog” shape in the data.</p>
+<p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
 <p>Consider the scatterplot of the estuarine crocodile data <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>:</p>
-<p><img src = "./Images/estuarine_crocodiles-Scatterplot-RegLine-Excel.PNG"></p>
-<p>Notice how the data follow a linear shape. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
+plot(body_length ~ head_length, data = estuarine_crocodiles)
+abline(estuarine_lm)</code></pre>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Notice how the data have a linear pattern. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
 <div id="residuals" class="section level3">
 <h3>Residuals</h3>
 <p>The <em>residual</em> for an observation is defined as the difference between the observed value of <span class="math inline">\(Y\)</span> and the value that would have been predicted by the regression line. As an equation, this is expressed as: <span class="math display">\[
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p>
-<p>It is tedious to calculate the residuals by hand, but software can be used to find the residuals.</p>
+<p>You can think of the residual as the vertical distance from a point to the regression line. If the point is above the line, the residual is positive. If the point is below the line, the residual is negative.</p>
+<p>It is tedious to calculate the residuals by hand, but we can easily find them using R.</p>
 </div>
 <div id="r-instructions-for-computing-residuals" class="section level3">
 <h3>R Instructions for Computing Residuals</h3>
@@ -486,11 +490,11 @@ R Instructions
 <li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)</code></pre>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
 <ul>
-<li>Use the name of the lm that you created and the <code>$</code> to access the residuals.</li>
+<li>The residual are stored in the linear model (lm) that you created. You can use the name of the lm that you created and the <code>$</code> to access the residuals:</li>
 </ul>
-<pre class="r"><code>estuarine.lm$residuals</code></pre>
+<pre class="r"><code>estuarine_lm$residuals</code></pre>
 <pre><code>##           1           2           3           4           5           6 
 ##  -4.5684826  13.4315174  -0.8493199   9.1703661  -1.1301573  11.8698427 
 ##           7           8           9          10          11          12 
@@ -501,14 +505,16 @@ R Instructions
 ## -18.1301573   4.2884820  -6.9923554 -10.7115180   3.2294240  -5.3716227 
 ##          25          26          27          28 
 ##  12.2687960   0.6480633 -12.1301573  -4.3913087</code></pre>
-<p>Each residual is labeled as residual #1, #2, #3, and so on, in this case up to residual #28. These correspond to the order of the original data set.</p>
+<p>Each residual is labeled as residual #1, #2, #3, and so on. There is a residual corresponding to each of the 28 observations in this data set. The residuals are given in the same order as the original data values.</p>
 <p><br></p>
 </div>
 <p><br></p>
 </div>
 <div id="residual-plot" class="section level3">
 <h3>Residual Plot</h3>
-<p>The residual is calculated for each data point, so you have one residual for every observation in the data set. It is hard to use so many numbers to make decisions. How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a <em>residual plot</em>. A residual plot is a scatterplot where the <span class="math inline">\(X\)</span>-axis shows the independent variable (<span class="math inline">\(X\)</span>) and the <span class="math inline">\(Y\)</span>-axis presents the residuals for each value of <span class="math inline">\(X\)</span>.</p>
+<p>The residual is calculated for each data point, so you have one residual for every observation in the data set. It is hard to use this many numbers to make decisions. How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a <em>residual plot</em>. A residual plot is a scatterplot where the <span class="math inline">\(X\)</span>-axis shows the independent variable (<span class="math inline">\(X\)</span>) and the <span class="math inline">\(Y\)</span>-axis presents the residuals for each value of <span class="math inline">\(X\)</span>.</p>
+<p>Imagine that a scatterplot represents several balloons tied to a rod with string. The points represent the balloons, and the rod represents the simple linear regression line. The length of the string is the distance the balloon is from the rod. If the rod is leveled, the positions of the balloons would change, but the distance to the rod would be the same. A residual plot is a scatter plot where the regression line has been leveled, but the vertical distance from the line to each point is unchanged.</p>
+<p>We will use R to create residual plots.</p>
 </div>
 <div id="r-instructions-for-residual-plots" class="section level3">
 <h3>R Instructions for Residual Plots</h3>
@@ -520,13 +526,15 @@ Excel Instructions
 <li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)</code></pre>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
 <ul>
-<li>Use the name of the lm that you created and the <code>plot()</code> function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use <code>plot(  , which = 1)</code> to obtain just the first plot.</li>
+<li>Use the <code>residual_plot(...)</code> function to create the residual plot. This plot is generated by a function stored in the <code>functions.R</code> script. Use the <code>source()</code> command to load this function into R. Then you are able to create the residual plot.</li>
 </ul>
-<pre class="r"><code>plot(estuarine.lm, which = 1)</code></pre>
+<pre class="r"><code># Load the residual_plot function and create the plot
+source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
+residual_plot(estuarine_lm)</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don’t worry about whether or not it is flat.</p>
+<p>Notice the dashed line in the residual plot is The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don’t worry about whether or not it is flat.</p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -555,9 +563,13 @@ Excel Instructions
 <div id="histogram-of-the-residuals" class="section level3">
 <h3>Histogram of the Residuals</h3>
 <p>Once the residuals have been calculated in R, we can assess if they are normally distributed using a histogram. If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met.</p>
-<pre class="r"><code>hist(estuarine.lm$residuals)</code></pre>
+<pre class="r"><code>hist(estuarine_lm$residuals)</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>The histogram of the residuals using 7 bins does not show a distinct or extreme departure from a normal shape. We do not have evidence of nonnormality in the residuals. We conclude that the residuals are normally distributed. In more advanced classes you will use a tool called a Q-Q plot to assess whether residuals are normally distributed.</p>
+<p>We can use the <code>nclass</code> option to change the number of bins in the histogram. By using <code>nclass = 10</code> we generate a histogram with room for 10 bins.</p>
+<pre class="r"><code>hist(estuarine_lm$residuals, nclass = 10)</code></pre>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>It can be helpful to try different values for <code>nclass</code>. Usually, values between 5 and 15 are chosen. If the data set is small, then <code>nclass</code> is usually closer to 5. If the data set is larger, then values of <code>nclass</code> closer to 15 are used.</p>
+<p>We chose a value of <code>nclass = 10</code>. The histogram of the residuals using 10 bins does not show a distinct or extreme departure from a normal shape. We do not have evidence of nonnormality in the residuals. We conclude that the residuals are normally distributed.</p>
 </div>
 <div id="requirements-summary" class="section level3">
 <h3>Requirements Summary</h3>
@@ -603,7 +615,7 @@ Scatterplot
 </td>
 <td>
 <p>
-“Hot dog” shape
+No nonlinear pattern
 </p>
 </td>
 </tr>
@@ -619,7 +631,7 @@ Residual Plot
 </td>
 <td>
 <p>
-No pattern in the residuals
+No pattern in the residuals only random scatter)
 </p>
 </td>
 </tr>
@@ -641,7 +653,7 @@ Histogram of the Residuals
 </td>
 <td>
 <p>
-A shape that is approximately normal
+Not heavily skewed and no extreme outliers
 </p>
 </td>
 </tr>
@@ -755,20 +767,20 @@ Excel Instructions
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 <li>See the results using <code>summary( )</code>.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
-summary(estuarine.lm)</code></pre>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
+summary(estuarine_lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
+lm(formula = body_length ~ head_length, data = estuarine_crocodiles)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
 -18.1302  -7.1968  -0.9602   8.2245  25.9486 
 
 Coefficients:
-                                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                      -18.2740     9.9663  -1.834   0.0782 .  
-estuarine_crocodiles$head_length   7.6601     0.2152  35.588   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -18.2740     9.9663  -1.834   0.0782 .  
+head_length   7.6601     0.2152  35.588   &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -851,8 +863,8 @@ n = 35 \\
 \end{array}
 \]</span></p>
 <p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution.</p>
-<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
-summary(manatee.lm)</code></pre>
+<pre class="r"><code>manatee_lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+summary(manatee_lm)</code></pre>
 <pre><code>
 Call:
 lm(formula = manatees$manatees_killed ~ manatees$power_boats_1000s)
@@ -901,11 +913,11 @@ R Instructions
 <li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>manatee.lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)</code></pre>
+<pre class="r"><code>manatee_lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)</code></pre>
 <ul>
 <li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level = 0.95)</code> to control the confidence level.</li>
 </ul>
-<pre class="r"><code>confint(manatee.lm, level = 0.95)</code></pre>
+<pre class="r"><code>confint(manatee_lm, level = 0.95)</code></pre>
 <pre><code>                                 2.5 %      97.5 %
 (Intercept)                -55.4600405 -29.6231851
 manatees$power_boats_1000s   0.1121986   0.1461254</code></pre>
@@ -929,11 +941,11 @@ Answer the following questions:
 </ol>
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<pre class="r"><code>estuarine.lm &lt;- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
-confint(estuarine.lm, level = 0.95)</code></pre>
-<pre><code>                                      2.5 %   97.5 %
-(Intercept)                      -38.760103 2.212044
-estuarine_crocodiles$head_length   7.217669 8.102540</code></pre>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
+confint(estuarine_lm, level = 0.95)</code></pre>
+<pre><code>                 2.5 %   97.5 %
+(Intercept) -38.760103 2.212044
+head_length   7.217669 8.102540</code></pre>
 <center>
 <span class="math display">\[
 (7.218,~8.103)

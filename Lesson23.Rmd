@@ -72,15 +72,24 @@ We will illustrate the process of checking requirements using the estuarine croc
 
 ### Scatterplot
 
-To check requirement 1, we do two things.  The first is to make a scatterplot and to visually check to see if there is a linear relationship between $X$ and $Y$.  This has been referred to as a "hot dog" shape in the data.
+To check requirement 1, we do two things.  The first is to make a scatterplot and to visually check to see if there is a linear relationship between $X$ and $Y$. 
 
 We want to make sure that there is no distinct curvature or other nonlinear characteristics.  This is simply a visual check of the data.
 
 Consider the scatterplot of the estuarine crocodile data [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx):
 
-<img src = "./Images/estuarine_crocodiles-Scatterplot-RegLine-Excel.PNG">
+```{r, include = FALSE}
+library(readxl)
+estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
+```
 
-Notice how the data follow a linear shape.  This data set shows a particularly strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
+```{r}
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
+plot(body_length ~ head_length, data = estuarine_crocodiles)
+abline(estuarine_lm)
+```
+
+Notice how the data have a linear pattern.  This data set shows a particularly strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
 
 ### Residuals
 
@@ -89,7 +98,9 @@ $$
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 $$
 
-It is tedious to calculate the residuals by hand, but software can be used to find the residuals.
+You can think of the residual as the vertical distance from a point to the regression line. If the point is above the line, the residual is positive. If the point is below the line, the residual is negative.
+
+It is tedious to calculate the residuals by hand, but we can easily find them using R.
 
 ### R Instructions for Computing Residuals
 
@@ -100,30 +111,33 @@ It is tedious to calculate the residuals by hand, but software can be used to fi
 - Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
 - Perform a linear regression using the `lm( )` function.
 
-```{r, include = FALSE}
-library(readxl)
-estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
+```{r}
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
 ```
+
+- The residual are stored in the linear model (lm) that you created. You can use the name of the lm that you created and the `$` to access the residuals:
 
 ```{r}
-estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
+estuarine_lm$residuals
 ```
 
-- Use the name of the lm that you created and the `$` to access the residuals.
-
-```{r}
-estuarine.lm$residuals
-```
-
-Each residual is labeled as residual #1, #2, #3, and so on, in this case up to residual #28. These correspond to the order of the original data set.
+Each residual is labeled as residual #1, #2, #3, and so on. There is a residual corresponding to each of the 28 observations in this data set. The residuals are given in the same order as the original data values.
 
 <br>
 </div>
 <br>
 
+
 ### Residual Plot
 
-The residual is calculated for each data point, so you have one residual for every observation in the data set.  It is hard to use so many numbers to make decisions.  How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a *residual plot*. A residual plot is a scatterplot where the $X$-axis shows the independent variable ($X$) and the $Y$-axis presents the residuals for each value of $X$.
+The residual is calculated for each data point, so you have one residual for every observation in the data set.  It is hard to use this many numbers to make decisions.  How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a *residual plot*. A residual plot is a scatterplot where the $X$-axis shows the independent variable ($X$) and the $Y$-axis presents the residuals for each value of $X$.
+
+Imagine that a scatterplot represents several balloons tied to a rod with string. 
+The points represent the balloons, and the rod represents the simple linear regression line. The length of the string is the distance the balloon is from the rod. If the rod is leveled, the positions of the balloons would change, but the distance to the rod would be the same. 
+A residual plot is a scatter plot where the regression line has been leveled, but the vertical distance from the line to each point is unchanged.
+
+We will use R to create residual plots.
+
 
 ### R Instructions for Residual Plots
 
@@ -132,22 +146,19 @@ The residual is calculated for each data point, so you have one residual for eve
 - Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
 - Perform a linear regression using the `lm( )` function.
 
-```{r, include = FALSE}
-library(readxl)
-estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
+```{r}
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
 ```
+
+- Use the `residual_plot(...)` function to create the residual plot. This plot is generated by a function stored in the `functions.R` script. Use the `source()` command to load this function into R. Then you are able to create the residual plot.
 
 ```{r}
-estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
+# Load the residual_plot function and create the plot
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+residual_plot(estuarine_lm)
 ```
 
-- Use the name of the lm that you created and the `plot()` function to create the residual plot. There are 4 plots that are created by default. The residuals vs. fitted-values plot is the first, so use `plot(  , which = 1)` to obtain just the first plot.
-
-```{r}
-plot(estuarine.lm, which = 1)
-```
-
-The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don't worry about whether or not it is flat.
+Notice the dashed line in the residual plot is The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don't worry about whether or not it is flat.
 
 <br>
 </div>
@@ -166,8 +177,8 @@ There are several patterns that could arise in a residual plot:
 n <- 40
 x <- runif(n, -2, 5)
 y <- 2 + 3*x + 4*x^2 + rnorm(n, 0, 1.3)
-lm1 <- lm(y ~ x)
-plot(lm1, which = 1)
+curvature_lm <- lm(y ~ x)
+residual_plot(curvature_lm)
 ```
 
 </div>
@@ -177,8 +188,8 @@ plot(lm1, which = 1)
 <div style = "padding-left:30px;">
 
 ```{r, echo = FALSE, fig.height = 3, fig.width = 3}
-lm.orange <- lm(circumference ~ age, data = Orange)
-plot(lm.orange, which = 1)
+megaphone_lm <- lm(circumference ~ age, data = Orange)
+residual_plot(megaphone_lm)
 ```
 
 </div>
@@ -189,8 +200,8 @@ plot(lm.orange, which = 1)
 
 ```{r, echo = FALSE, fig.height = 3, fig.width = 3, message = FALSE}
 library(car)
-lm.dav <- lm(weight ~ repwt, data = Davis)
-plot(lm.dav, which = 1)
+outlier_lm <- lm(weight ~ repwt, data = Davis)
+residual_plot(outlier_lm)
 ```
 
 </div>
@@ -204,10 +215,19 @@ plot(lm.dav, which = 1)
 Once the residuals have been calculated in R, we can assess if they are normally distributed using a histogram.  If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met. 
 
 ```{r}
-hist(estuarine.lm$residuals)
+hist(estuarine_lm$residuals)
 ```
 
-The histogram of the residuals using 7 bins does not show a distinct or extreme departure from a normal shape.  We do not have evidence of nonnormality in the residuals.  We conclude that the residuals are normally distributed. In more advanced classes you will use a tool called a Q-Q plot to assess whether residuals are normally distributed.
+We can use the `nclass` option to change the number of bins in the histogram. By using `nclass = 10` we generate a histogram with room for 10 bins.
+
+```{r}
+hist(estuarine_lm$residuals, nclass = 10)
+```
+
+It can be helpful to try different values for `nclass`. Usually, values between 5 and 15 are chosen. If the data set is small, then `nclass` is usually closer to 5. If the data set is larger, then values of `nclass` closer to 15 are used.
+
+We chose a value of `nclass = 10`.
+The histogram of the residuals using 10 bins does not show a distinct or extreme departure from a normal shape.  We do not have evidence of nonnormality in the residuals.  We conclude that the residuals are normally distributed.
 
 
 ### Requirements Summary
@@ -228,19 +248,19 @@ The following table describes how to check each of the requirements above.
 <td><p>1.</p></td>
 <td><p>Linear Relationship</p></td>
 <td><p>Scatterplot</p></td>
-<td><p>"Hot dog" shape</p></td>
+<td><p>No nonlinear pattern</p></td>
 </tr>
 <tr class = "even">
 <td></td>
 <td></td>
 <td><p>Residual Plot</p></td>
-<td><p>No pattern in the residuals</p></td>
+<td><p>No pattern in the residuals only random scatter)</p></td>
 </tr>
 <tr class = "odd">
 <td><p>2.</p></td>
 <td><p>Normal Error Term</p></td>
 <td><p>Histogram of the Residuals</p></td>
-<td><p>A shape that is approximately normal</p></td>
+<td><p>Not heavily skewed and no extreme outliers</p></td>
 </tr>
 <tr class = "even">
 <td><p>3.</p></td>
@@ -315,8 +335,8 @@ The relevant summary statistics include the sample size and the estimated regres
 - See the results using `summary( )`.
 
 ```{r, comment = NA}
-estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
-summary(estuarine.lm)
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
+summary(estuarine_lm)
 ```
 
 <br/>
@@ -385,8 +405,8 @@ $$
 The test statistic follows a $t$-distribution.
 
 ```{r, comment = NA}
-manatee.lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
-summary(manatee.lm)
+manatee_lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+summary(manatee_lm)
 ```
 
 Remember, we are conducting a test for the slope, so the information we need is given in the second row of output.  We find the value of $t$ is given as 15.49.
@@ -424,13 +444,13 @@ We are often interested in the range of plausible values for the true regression
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
-manatee.lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+manatee_lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
 ```
 
 - Use the `confint( )` function with the name of your lm object placed inside to obtain the confidence intervals. Use `confint(  , conf.level = 0.95)` to control the confidence level.
 
 ```{r, comment = NA}
-confint(manatee.lm, level = 0.95)
+confint(manatee_lm, level = 0.95)
 ```
 
 The first row of the output gives the confidence interval for $\beta_0$, the y-intercept. The second row of the output gives the confidence interval for $\beta_1$, the slope.
@@ -458,8 +478,8 @@ We can compute a 95% confidence interval for the estuarine crocodile data in a s
 <div id = "Q1" style = "display:none;">
 
 ```{r, comment = NA}
-estuarine.lm <- lm(estuarine_crocodiles$body_length ~ estuarine_crocodiles$head_length)
-confint(estuarine.lm, level = 0.95)
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
+confint(estuarine_lm, level = 0.95)
 ```
 
 <center>
