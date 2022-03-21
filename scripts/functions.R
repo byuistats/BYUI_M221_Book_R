@@ -141,3 +141,22 @@ two.prop.test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.si
     )
   } # end if
 }
+
+
+# Function to Generate the Residual Plot, given a Regression Model
+
+residual_plot <- function(model) {
+  y <- model$residuals
+  x <- model.frame(model)[[2]]
+  temp <- max(abs(y))
+  plot(y ~ x , type = "n",
+       main = c("Residual Plot of \n", deparse(substitute(model))), 
+       ylab = "Residuals",
+       xlab = attr(model$terms, "term.labels"),
+       ylim = c(-temp, temp))
+  abline(h=0, col = "gray", lty = 2)
+  points(y ~ x,
+         pch = 16,
+         col = rgb(red = 0, green = 0, blue = 0, alpha = 0.8)
+  )
+}
