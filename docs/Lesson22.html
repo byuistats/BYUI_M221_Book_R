@@ -382,10 +382,10 @@ $(document).ready(function () {
 <li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
 <li><a href="#case-study-supercroc">Case Study: SuperCroc</a>
 <ul>
-<li><a href="#r-instructions-for-graphing-the-regression-line">R Instructions for Graphing the Regression Line</a></li>
 <li><a href="#introduction-to-regression">Introduction to Regression</a></li>
 <li><a href="#r-instructions-for-performing-a-linear-regression">R Instructions for Performing a Linear Regression</a></li>
 <li><a href="#interpreting-the-regression-output">Interpreting the Regression Output</a></li>
+<li><a href="#r-instructions-for-graphing-the-regression-line">R Instructions for Graphing the Regression Line</a></li>
 <li><a href="#predictions">Predictions</a></li>
 </ul></li>
 <li><a href="#assessing-linearity">Assessing linearity</a></li>
@@ -464,34 +464,6 @@ $(document).ready(function () {
 <pre class="r"><code>cor(estuarine_crocodiles$body_length, estuarine_crocodiles$head_length)</code></pre>
 <pre><code>[1] 0.9898911</code></pre>
 <p>There is a strong positive linear relationship between these two measurements (<span class="math inline">\(r = 0.990\)</span>). This strong linear correlation is substantiated by the linearity in the scatter plot. It seemed reasonable to fit a line to the data. This line can be used to predict the length of a crocodile with a known head length. In particular, we will use this line to estimate the length of the specimen called SuperCroc.</p>
-<div id="r-instructions-for-graphing-the-regression-line" class="section level3">
-<h3>R Instructions for Graphing the Regression Line</h3>
-<div class="SoftwareHeading">
-R Instructions
-</div>
-<div class="Software">
-<p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
-<ul>
-<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
-<li>Perform the regression:</li>
-</ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
-<ul>
-<li>Create the scatterplot and use <code>abline( )</code> with the name of your regression object–in this case, <code>estuarine.lm</code>–to graph the regression line.</li>
-</ul>
-<pre class="r"><code>plot(body_length ~ head_length, data = estuarine_crocodiles,
-     main = &quot;Estuarine Crocodile Measurements&quot;,
-     ylab = &quot;Body Length (cm)&quot;,
-     xlab = &quot;Head Length (cm)&quot;,
-     col = &quot;darkolivegreen4&quot;, 
-     pch = 16)
-
-abline(estuarine.lm)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><br/></p>
-</div>
-<p><br/></p>
-</div>
 <div id="introduction-to-regression" class="section level3">
 <h3>Introduction to Regression</h3>
 <p>Simple linear regression is a method used to fit a line to data. This provides a powerful tool to model bivariate data (i.e., data involving two variables.) Regression allows us to write a linear equation that models the relationship between the <strong>independent variable</strong> (<span class="math inline">\(X\)</span>) and the <strong>dependent variable</strong> (<span class="math inline">\(Y\)</span>) which we can use to predict the value of <span class="math inline">\(Y\)</span> for any given value of <span class="math inline">\(X\)</span>. Sometimes the independent variable is also called the <strong>explanatory variable</strong>, and the dependent variable is also called the <strong>response variable</strong>.</p>
@@ -594,8 +566,8 @@ R Instructions
 <li>Use the <code>summary( )</code> function to view the results of the <code>lm( )</code> function.</li>
 <li>The summary shows the “Estimates” for the <code>(Intercept)</code> and the slope term. The <code>(Intercept)</code> estimate is the value of <span class="math inline">\(b_0\)</span> (Y-intercept), and the second Estimate is always for the slope term, <span class="math inline">\(b_1\)</span>.</li>
 </ul>
-<pre class="r"><code>estuarine.lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
-summary(estuarine.lm)</code></pre>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
+summary(estuarine_lm)</code></pre>
 <pre><code>
 Call:
 lm(formula = body_length ~ head_length, data = estuarine_crocodiles)
@@ -632,6 +604,34 @@ F-statistic:  1267 on 1 and 26 DF,  p-value: &lt; 2.2e-16</code></pre>
 \]</span></p>
 <p>The slope of the regression equation is 7.660. This means that for each one-unit increase in <span class="math inline">\(X\)</span>, we expect a corresponding increase in the average of <span class="math inline">\(Y\)</span> of 7.660 centimeters. For every additional centimeter of head length, we expect that the mean body length to increase by 7.660 cm.</p>
 <p>The Y-intercept is <span class="math inline">\(-18.274\)</span>. As stated previously it does not make sense to interpret the Y-intercept, so we simply state that it is not interpretable. The Y-intercept is included in the regression equation, even though it may not be interpretable. It must be included to make the predictions more reasonable.</p>
+<p><br/></p>
+</div>
+<div id="r-instructions-for-graphing-the-regression-line" class="section level3">
+<h3>R Instructions for Graphing the Regression Line</h3>
+<div class="SoftwareHeading">
+R Instructions
+</div>
+<div class="Software">
+<p><strong>To add a regression line to a scatterplot in RStudio, do the following:</strong></p>
+<ul>
+<li>Import the data into RStudio: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Perform the regression:</li>
+</ul>
+<pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
+<ul>
+<li>Create the scatterplot and use <code>abline( )</code> with the name of your regression object–in this case, <code>estuarine_lm</code>–to graph the regression line.</li>
+</ul>
+<pre class="r"><code>plot(body_length ~ head_length, data = estuarine_crocodiles,
+     main = &quot;Estuarine Crocodile Measurements&quot;,
+     ylab = &quot;Body Length (cm)&quot;,
+     xlab = &quot;Head Length (cm)&quot;,
+     col = &quot;darkolivegreen4&quot;, 
+     pch = 16)
+
+abline(estuarine_lm)</code></pre>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><br/></p>
+</div>
 <p><br/></p>
 <p><img src = "Images/Step4.png"></p>
 <p>We will make inferences about the regression line in <a href="Lesson23.html">Lesson 23</a>. We will conduct a hypothesis test to determine if the slope of the regression line is different from zero. In other words, we will assess if there is significant evidence of a linear relationship between the head length (<span class="math inline">\(X\)</span>) and the body length (<span class="math inline">\(Y\)</span>) of crocodiles. (<em>Spoiler alert</em>: There appears to be a strong linear relationship between these variables!)</p>
@@ -703,8 +703,8 @@ Answer the following question:
 <div id="interpreting-the-regression-output-1" class="section level3">
 <h3>Interpreting the Regression Output</h3>
 <p>Read in the <a href="./data/manatees.xlsx">manatees</a> data, then find the regression equation as follows:</p>
-<pre class="r"><code>manatee.lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
-summary(manatee.lm)</code></pre>
+<pre class="r"><code>manatee_lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
+summary(manatee_lm)</code></pre>
 <pre><code>
 Call:
 lm(formula = manatees_killed ~ power_boats_1000s, data = manatees)
@@ -752,7 +752,7 @@ F-statistic:   240 on 1 and 33 DF,  p-value: &lt; 2.2e-16</code></pre>
      col = &quot;steelblue3&quot;, 
      pch = 16)
 
-abline(manatee.lm)</code></pre>
+abline(manatee_lm)</code></pre>
 <p><img src="Lesson22_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data. The correlation coefficient is <span class="math inline">\(0.9376\)</span>:</p>
 <pre class="r"><code>cor(manatees$power_boats_1000s, manatees$manatees_killed)</code></pre>

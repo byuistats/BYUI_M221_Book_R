@@ -100,38 +100,6 @@ There is a strong positive linear relationship between these two measurements ($
 
 
 
-### R Instructions for Graphing the Regression Line
-
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-**To add a regression line to a scatterplot in RStudio, do the following:**
-
-- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
-- Perform the regression:
-
-```{r}
-estuarine.lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-```
-
-- Create the scatterplot and use `abline( )` with the name of your regression object--in this case, `estuarine.lm`--to graph the regression line.
-
-```{r}
-plot(body_length ~ head_length, data = estuarine_crocodiles,
-     main = "Estuarine Crocodile Measurements",
-     ylab = "Body Length (cm)",
-     xlab = "Head Length (cm)",
-     col = "darkolivegreen4", 
-     pch = 16)
-
-abline(estuarine.lm)
-```
-
-<br/>
-
-</div>
-
-<br/>
-
 
 
 ### Introduction to Regression
@@ -268,8 +236,8 @@ where $\hat Y$ represents the predicted body length of an estuarine crocodile wi
 - The summary shows the "Estimates" for the `(Intercept)` and the slope term. The `(Intercept)` estimate is the value of $b_0$ (Y-intercept), and the second Estimate is always for the slope term, $b_1$.
 
 ```{r, comment = NA}
-estuarine.lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-summary(estuarine.lm)
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
+summary(estuarine_lm)
 ```
 
 As shown in the summary output above, the Y-intercept of the regression line is $b_0 = -18.274$, and the slope is $b_1 = 7.6601$.
@@ -299,9 +267,40 @@ The slope of the regression equation is 7.660.  This means that for each one-uni
 
 The Y-intercept is $-18.274$.  As stated previously it does not make sense to interpret the Y-intercept, so we simply state that it is not interpretable.  The Y-intercept is included in the regression equation, even though it may not be interpretable.  It must be included to make the predictions more reasonable.
 
+<br/>
 
+### R Instructions for Graphing the Regression Line
+
+<div class = "SoftwareHeading">R Instructions</div>
+<div class = "Software">
+**To add a regression line to a scatterplot in RStudio, do the following:**
+
+- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Perform the regression:
+
+```{r}
+estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
+```
+
+- Create the scatterplot and use `abline( )` with the name of your regression object--in this case, `estuarine_lm`--to graph the regression line.
+
+```{r}
+plot(body_length ~ head_length, data = estuarine_crocodiles,
+     main = "Estuarine Crocodile Measurements",
+     ylab = "Body Length (cm)",
+     xlab = "Head Length (cm)",
+     col = "darkolivegreen4", 
+     pch = 16)
+
+abline(estuarine_lm)
+```
 
 <br/>
+
+</div>
+
+<br/>
+
 
 <img src = "./Images/Step4.png">
 
@@ -334,7 +333,7 @@ plot(body_length ~ head_length, data = estuarine_crocodiles,
      xlim = c(0,95),
      ylim = c(0,750))
 
-abline(estuarine.lm)
+abline(estuarine_lm)
 
 points(87, 648, pch = 16, cex = 1.2, col = "tan3")
 text(87, 710, "(87, 648)", adj = c(0.5,0), col = "tan3")
@@ -378,7 +377,7 @@ plot(body_length ~ head_length, data = estuarine_crocodiles,
      xlim = c(0,165),
      ylim = c(0,1210))
 
-abline(estuarine.lm)
+abline(estuarine_lm)
 
 #Predictions for Juvenile
 points(87, 648, pch = 16, cex = 1.2, col = "tan3")
@@ -517,8 +516,8 @@ manatees <- read_excel("./data/manatees.xlsx")
 ```
 
 ```{r, comment = NA}
-manatee.lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
-summary(manatee.lm)
+manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
+summary(manatee_lm)
 ```
 
 The Y-intercept term is called $b_0$. In this case, $b_0 = -42.542$. The slope of the regression line is denoted $b_1$. For this data set, $b_1 = 0.129$. The variable $X$ represents the number of powerboat registrations in Florida (in thousands). Putting this together, we get the equation:
@@ -562,7 +561,7 @@ plot(manatees$manatees_killed ~ manatees$power_boats_1000s,
      col = "steelblue3", 
      pch = 16)
 
-abline(manatee.lm)
+abline(manatee_lm)
 ```
 
 You will observe that the points are not as tightly clustered around the regression line for the manatee data, compared to the crocodile data, but that there is still a fairly strong correlation in the data. The correlation coefficient is $0.9376$:
