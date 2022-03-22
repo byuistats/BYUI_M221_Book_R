@@ -570,6 +570,13 @@ residual_plot(estuarine_lm)</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>It can be helpful to try different values for <code>nclass</code>. Usually, values between 5 and 15 are chosen. If the data set is small, then <code>nclass</code> is usually closer to 5. If the data set is larger, then values of <code>nclass</code> closer to 15 are used.</p>
 <p>We chose a value of <code>nclass = 10</code>. The histogram of the residuals using 10 bins does not show a distinct or extreme departure from a normal shape. We do not have evidence of nonnormality in the residuals. We conclude that the residuals are normally distributed.</p>
+<p>As a contrast, here is an example of a plot of residuals that is not normal. <img src="Lesson23_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>If the histogram of the residuals shows a mound shape that is roughly symmetrical, we can conclude the assumption of normal error terms is not violated.</p>
+<!--
+Here is a histogram of residuals that shows the presence of outliers:
+
+<img src="Lesson23_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+-->
 </div>
 <div id="requirements-summary" class="section level3">
 <h3>Requirements Summary</h3>

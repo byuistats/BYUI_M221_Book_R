@@ -229,6 +229,25 @@ It can be helpful to try different values for `nclass`. Usually, values between 
 We chose a value of `nclass = 10`.
 The histogram of the residuals using 10 bins does not show a distinct or extreme departure from a normal shape.  We do not have evidence of nonnormality in the residuals.  We conclude that the residuals are normally distributed.
 
+As a contrast, here is an example of a plot of residuals that is not normal.
+```{r, echo = FALSE}
+set.seed(2)
+skewed_lm <- data.frame(residuals = rchisq(30, 3))
+hist(skewed_lm$residuals, nclass = 10)
+```
+
+If the histogram of the residuals shows a mound shape that is roughly symmetrical, we can conclude the assumption of normal error terms is not violated.
+
+<!--
+Here is a histogram of residuals that shows the presence of outliers:
+
+```{r, echo = FALSE}
+set.seed(9)
+outliers_lm <- data.frame(residuals = rt(50, df = 1))
+hist(outliers_lm$residuals, nclass = 15)
+```
+-->
+
 
 ### Requirements Summary
 
