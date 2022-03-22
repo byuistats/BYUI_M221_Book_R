@@ -236,7 +236,7 @@ skewed_lm <- data.frame(residuals = rchisq(30, 3))
 hist(skewed_lm$residuals, nclass = 10)
 ```
 
-If the histogram of the residuals shows a mound shape that is roughly symmetrical, we can conclude the assumption of normal error terms is not violated.
+If the histogram of the residuals shows a mound shape that is roughly symmetrical, we can conclude the assumption of normal error terms is not violated. For the estuarine crocodile data, it is reasonable to conclude the assumption of normally distributed error terms is satisfied.
 
 <!--
 Here is a histogram of residuals that shows the presence of outliers:
