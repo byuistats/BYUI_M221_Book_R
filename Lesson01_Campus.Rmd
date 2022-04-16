@@ -588,7 +588,7 @@ mean(mydata)
 
 In RStudio this looks like:
 
-<img src="./Images/rstudio_tuberc_mean.png" width="500">
+<img src="./Images/rstudio_demo_mean.png" width="500">
 
 
 
