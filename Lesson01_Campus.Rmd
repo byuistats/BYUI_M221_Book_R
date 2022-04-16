@@ -623,6 +623,7 @@ $$\sum P(X) = 1$$
     3. The probability that an outcome will not occur is 1 minus the probability that it will occur. 
 $$P(\text{not}~X) = 1 - P(X)$$
 
+<br>
 </div>
 <br>
 
