@@ -172,7 +172,7 @@ You may have heard people refer to the sample mean as the average. Technically, 
 <div class = "QuestionsHeading">Answer the following question:</div>
 <div class = "Questions">
 3. Practice finding the mean, $\bar x$, for the tuberculosis treatment costs of the 10 patients in India by simplifying the following:
-$$\bar x = \frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10} = $$
+$$ \bar x = \frac{15100 + 19000 + 4800 + 6500 + 14900 + 600 + 23500 + 11500 + 12900 + 32200}{10} = $$
 
 <a href = "javascript:showhide('Q3')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q3" style = "display:none;">
@@ -278,58 +278,55 @@ e. A, B, and C can all occur.
 <div id = "r_instr_1_center" style = "display:none;">
 
 <br>
-**To calculate numerical summaries** (such as the mean, median, and mode) in R, follow these steps:
+Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below.
+<br/> 
+<br> 
+**To load data sets for this course, simply run the code:**
+```{r, eval = FALSE}
+  load("https://byuistats.github.io/M221R/m221.RData")
+```
+```{r, include = FALSE}
+  load("./m221.RData")
+```
+
+This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the *tuberculosis* data, simply run the command
+```{r, eval = FALSE}
+  View(tuberculosis)
+```
+
+```{r, echo = FALSE, comment = NA}
+tuberculosis
+```
+<br /> 
+
+<br>
+**To calculate numerical summaries** (such as the mean, median, and mode) in R, do the following:
 <br />
 
-1. Open RStudio.
+In R, data are stored in data frames, like *tuberculosis*. Within a data frame, the data values are organized in columns called "vectors". To access the data representing the costs to treat tuberculosis cases in India, we use the \$ operator. The command `tuberculosis$costs` tells R that you want to access the varaible `costs` in the data frame `tuberculosis`. When we execute this command, it returns the values stored in this variable.
 
-2. Load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick.
-
-```{r, warning = FALSE, message = FALSE}
-install.packages("mosaic")
-library(mosaic)
+```{r}
+tuberculosis$costs
 ```
-
-You only need to run the code `install.packages("mosaic")` once. After that, this package will be "installed" on your computer.
-
-
-<!--
-
-    NEED TO CHANGE THIS FILE TO USE favstats()...
-
--->
-
-</div>
-
-Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this:
-
-3. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses.
-
-```{}
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
-```
-
-Recall that if your data is stored in a file, you will need to read it in using the "Import Dataset" feature of RStudio. You can use these instructions [Reading in Data](RHelp.html#reading-in-data) if you need a remninder about how to do this.
-
+We can perform calculations on these values.
 
 **Calculate a Mean**
 
-For the tuberculosis patient costs in India, compute the mean with the R code:
+For the tuberculosis patient costs in India, we compute the mean with the R code:
 
-```{}
-mean(tuberc)
+```{r, eval = FALSE}
+mean(tuberculosis$costs)
 ```
 
 ```{r, echo = FALSE}
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
-mean(tuberc)
+mean(tuberculosis$costs)
 ```
 
 The value given above is the output from this command and represents the mean cost to treat the tuberculosis patients in our sample.
 
-In RStudio this looks like:
+<!-- In RStudio this looks like: -->
 
-<img src = "./Images/rstudio_tuberc_mean.png" width = "500">
+<!-- <img src = "./Images/rstudio_tuberc_mean.png" width = "500"> -->
 
 
 
@@ -339,12 +336,12 @@ In RStudio this looks like:
 
 For the tuberculosis patient costs in India, compute the median with the R code:
 
-```{}
-median(tuberc)
+```{r, eval = FALSE}
+median(tuberculosis$costs)
 ```
 
 ```{r, echo = FALSE}
-median(tuberc)
+median(tuberculosis$costs)
 ```
 
 The value printed above is the median cost of treating tuberculosis in our sample.
@@ -358,23 +355,62 @@ R does not directly calculate a mode, but you can tabulate (or count) how many t
 
 For the tuberculosis patient costs in India, count up how many times each value occurs using the code
 
-```{}
-table(tuberc)
+```{r, eval = FALSE}
+table(tuberculosis$costs)
 ```
 
 ```{r, echo = FALSE}
-table(tuberc)
+table(tuberculosis$costs)
 ```
 
 This shows us that all values occur just once in our sample, so there is no mode. (The "1" printed below each number tells us how many times that number occurred. The mode, if there was one, would be the number that occurred more often than all of the other numbers.)
 
 If the table is very large, you can use the command
 
-```{r, echo = FALSE}
-sort(table(tuberc))
+```{r, eval = FALSE}
+sort(table(tuberculosis$costs))
 ```
 
-to arrange the data in order of increasing frequency. This is obviously not needed here, but it would be helpful with a large data set.
+```{r, echo = FALSE}
+sort(table(tuberculosis$costs))
+```
+
+to arrange the data in order of increasing frequency. This is obviously not needed here, but it is helpful with a large data set.
+
+
+
+
+<!-- 1. Open RStudio. -->
+
+<!-- 2. Load the `mosaic` library in RStudio that makes calculating the numerical summaries for two groups really quick. -->
+
+<!-- ```{r, warning = FALSE, message = FALSE} -->
+<!-- install.packages("mosaic") -->
+<!-- library(mosaic) -->
+<!-- ``` -->
+
+<!-- You only need to run the code `install.packages("mosaic")` once. After that, this package will be "installed" on your computer. -->
+
+
+<!-- <!-- -->
+
+<!--     NEED TO CHANGE THIS FILE TO USE favstats()... -->
+
+<!-- --> -->
+
+<!-- </div> -->
+
+<!-- Use the `favstats(...)` function and the tilde `~` (top-left key on your keyboard) to produce numerical summaries for two or more groups. When using the `~` you put the quantitative variable first, followed by the `~`, then the categorical variable second, like this: -->
+
+<!-- 3. You can store data into a vector by giving the name of the vector `tuberc` followed by the assignment operator `<-`, and then combining the individual data values into a vector using the combine function `c(...)`, where the values are listed in the parentheses. -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- costs = c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200) -->
+<!-- tuberc <- data.frame(costs)  -->
+<!-- ``` -->
+
+<!-- Recall that if your data is stored in a file, you will need to read it in using the "Import Dataset" feature of RStudio. You can use these instructions [Reading in Data](RHelp.html#reading-in-data) if you need a remninder about how to do this. -->
+
 
 
 </div> <!-- End of R instructions for measures of center -->
@@ -420,8 +456,7 @@ showing that the *center* of the histogram (or average) is at \$14,100.
 <br>
 
 ```{r, echo = FALSE, fig.width = 5}
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
-hist(tuberc, 
+hist(tuberculosis$costs, 
 #     col = "steelblue3", 
      main = "Histogram of Costs to Treat Tuberculosis", 
      xlab = "Cost in Dollars",
@@ -466,35 +501,37 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 **Step 2**
 
 Load the data into RStudio. 
-
-If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into. 
-
-* The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again. 
-* The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object."
-
-<div class = "note">
-If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set. For this particular example, we will just type in the data directly. In a later example we will practice reading in the data from a dataset.
-</div>
-
-<div id = "enter-in-data">
-
-To enter in the tuberculosis data you would use:
-
-```{}
-tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200)
+```{r, eval = FALSE}
+  load("https://byuistats.github.io/M221R/m221.RData")
 ```
 
-Notice that numbers like "15,100" are written as just "15100" because the comma "," is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers "15," "100," "19", "000" and so on.  Also, the name `tuberc` could have been any word you wanted to come up with, but "tuberculosis" is hard to spell, so using `tuberc` was easier. It is recommended that you use short names, but not single letter names. So don't use `t` or `tuberculosis` for your names, but `tub` or `tuber` or `tuberc` or other things like that instead.
+<!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
 
-In RStudio, it would look like this:
+<!-- * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again.  -->
+<!-- * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object." -->
 
-<img src = "./Images/rstudio_tuberc2.png" width = "500">
+<!-- <div class = "note"> -->
+<!-- If your data is already stored in a file somewhere, then use these instructions on [Reading in Data](RHelp.html#reading-in-data) to get the data out of an existing data set. For this particular example, we will just type in the data directly. In a later example we will practice reading in the data from a dataset. -->
+<!-- </div> -->
+
+<!-- <div id = "enter-in-data"> -->
+
+<!-- To enter in the tuberculosis data you would use: -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- tuberc <- c(15100, 19000, 4800, 6500, 14900, 600, 23500, 11500, 12900, 32200) -->
+<!-- ``` -->
+
+<!-- Notice that numbers like "15,100" are written as just "15100" because the comma "," is used to separate each number. So R would get really confused if you wrote 15,100, 19,000, and would think you wanted the numbers "15," "100," "19", "000" and so on.  Also, the name `tuberc` could have been any word you wanted to come up with, but "tuberculosis" is hard to spell, so using `tuberc` was easier. It is recommended that you use short names, but not single letter names. So don't use `t` or `tuberculosis` for your names, but `tub` or `tuber` or `tuberc` or other things like that instead. -->
+
+<!-- In RStudio, it would look like this: -->
+
+<!-- <img src = "./Images/rstudio_tuberc2.png" width = "500"> -->
 
 
-</div>
+<!-- </div> -->
 
 
-<br />
 <br />
 
 **Step 3**
@@ -503,14 +540,9 @@ Now that you have created an object in R called `tuberc` that contains the 10 da
 
 For the tuberculosis data, since you used the assignment operator to store the data in the `tuberc` object, you would access the data and make a histogram of it using the code:
 
-```{r, eval = FALSE}
-hist(tuberc)
+```{r}
+hist(tuberculosis$costs)
 ```
-
-In RStudio, it would look like this.
-
-<img src = "./Images/rstudio_tuberc_hist.png" width = "500">
-
 
 </div> <!-- id = "r_instr_1" style = "display:none;"> -->
 </div>
@@ -540,8 +572,8 @@ It is useful to add color and descriptive axis labels. In general, you can contr
 
 For the Tuberculosis data we could use the code
 
-```{}
-hist(tuberc, 
+```{r, eval = FALSE}
+hist(tuberculosis$costs, 
       col = "steelblue3", 
       main = "Histogram of Costs to Treat Tuberculosis", 
       xlab = "Cost in Dollars", 
@@ -549,7 +581,7 @@ hist(tuberc,
 ```
 
 ```{r, echo = FALSE}
-hist(tuberc, 
+hist(tuberculosis$costs, 
      col = "steelblue3", 
      main = "Histogram of Costs to Treat Tuberculosis", 
      xlab = "Cost in Dollars", 
@@ -689,7 +721,7 @@ Even though measures of center are important, we need to consider the shape, cen
 
     * how to make a histogram using [`hist(...)`](Lesson03.html#r-instructions-for-histograms) 
     * how to compute the [`mean(...)`, `median(...)`, and mode `table(...)`](Lesson03.html#r-instructions-for-mean-median-and-mode). 
-    * how to [manually type in data](Lesson03.html#enter-in-data) using the assignment operator `<-` and combine function `c(...)`. 
+    <!-- * how to [manually type in data](Lesson03.html#enter-in-data) using the assignment operator `<-` and combine function `c(...)`.  -->
 
 <br />
 

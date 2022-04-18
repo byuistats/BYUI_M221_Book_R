@@ -1,0 +1,20 @@
+"0","no_click_query_summary <- read_excel(""./data/no_click_query_summary.xlsx"")
+"
+"2","Error in read_excel(""./data/no_click_query_summary.xlsx"") : 
+  could not find function ""read_excel""
+"
+"2","In addition: "
+"2","Warning messages:
+"
+"2","1: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/craigaj/Documents/GitHub/M221R/index.Rmd'
+"
+"2","2: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/craigaj/Documents/GitHub/M221R/index.Rmd'
+"

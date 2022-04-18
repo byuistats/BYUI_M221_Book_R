@@ -12,6 +12,10 @@ librarian::shelf(curl, readxl, tidyverse, mosaic)
 
 
 
+
+
+
+
 # Tuberculosis Example ------------------------------------
 # Use "Import Dataset" to read the data into R
 # https://byuistats.github.io/M221R/data/tuberculosis.xlsx
@@ -43,22 +47,22 @@ hist(tuberculosis$costs)
 url <- "https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx"
 destfile <- basename(url)
 curl::curl_download(url, destfile)
-mydata <- read_excel(destfile)
-View(mydata)
+surgery_lawsuits <- read_excel(destfile)
+View(surgery_lawsuits)
 
 # Compute the mean of the wrong_site data
-mean(mydata$wrong_site)
+mean(surgery_lawsuits$wrong_site)
 
 # Compute the median of the wrong_site data
-median(mydata$wrong_site)
+median(surgery_lawsuits$wrong_site)
 
 # Find the mode of the wrong_site data 
 # (Note: this is not very helpful)
-table(mydata$wrong_site)
+table(surgery_lawsuits$wrong_site)
 
 # Find the mode of the wrong_site data (Sorted in ascending order)
 # Notice the two most-frequently occurring value is 0, with 50 instances
-sort(table(mydata$wrong_site))
+sort(table(surgery_lawsuits$wrong_site))
 
 # Basic histogram of the wrong_site data
-hist(mydata$wrong_site)
+hist(surgery_lawsuits$wrong_site)
