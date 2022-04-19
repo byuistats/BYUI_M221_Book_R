@@ -200,7 +200,7 @@ pander(matrix(data = w, nrow = 6, ncol = 8, byrow = TRUE))
 </center>
 -->
 
-These data are available in the file [ethanallen.xlsx](./data/ethanallen.xlsx).
+These data are available in the file [ethan_allen.xlsx](./data/ethan_allen.xlsx).
 
 <img src = "./Images/Step3.png">
 
@@ -208,7 +208,7 @@ To help us understand the data, we first create a graph summarizing the values.
 
 <center>
 **Weights of Passengers and Crew on the Ethan Allen**<br>
-<img src = "./Images/EthanAllen-PassengerWeights-Histogram.png">
+<img src = "./Images/ethanallen-PassengerWeights-Histogram.png">
 </center>
 
 Next, we compute summary statistics. The sample size is $n = 48$, and the sample mean is $\bar{x} = 177.6$ pounds. According to the CDC, the standard deviation of the weights of individuals in the United States is $\sigma = 26.7$ pounds. <!-- CITE: http://www.cdc.gov/growthcharts/2000growthchart-us.pdf, page 154-155.-->
