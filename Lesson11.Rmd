@@ -63,7 +63,7 @@ $$
 
 The $t$-distribution is bell-shaped and symmetrical.  The $t$-distribution has a mean of 0, but it has more area in the tails than the standard normal distribution.    The exact shape of the $t$-distribution depends on a parameter called the **degrees of freedom** (abbreviated $df$).  The degrees of freedom is related to the sample size.  As the sample size goes up, the degrees of freedom increase accordingly.  For the procedures discussed in this lesson, the degrees of freedom is one less than the sample size: $df = n-1$.
 
-[Click here](http://byuimath.com/apps/normprobwitht.html){target = "_blank"} to explore how the shape of the $t$-distribution changes with the degrees of freedom.  Notice that as the degrees of freedom increases, the shape of the $t$-distribution (dark curve) gets closer to the standard normal distribution (lighter curve).  The lighter gray curve is identical (always normal) in the three images below, while the darker curve changes shape as the degrees of freedom increase.
+[Click here](http://byuimath.com/apps/normprobwitht.html) to explore how the shape of the $t$-distribution changes with the degrees of freedom.  Notice that as the degrees of freedom increases, the shape of the $t$-distribution (dark curve) gets closer to the standard normal distribution (lighter curve).  The lighter gray curve is identical (always normal) in the three images below, while the darker curve changes shape as the degrees of freedom increase.
 
 <center>
 <table style = "table-layout: fixed; width: 100%;">
@@ -743,7 +743,7 @@ t.test(bleu$score, mu = 0, conf.level = 0.99)
 **Summarize the relevant background information**
 
 A group of statisticians measured the weights of 2000 Belgian one Euro coins in eight batches.  Each batch contains coins that were all minted together. <!--<cite>JSEeuros</cite>--> You can learn more about these data at:
-[http://www.amstat.org/publications/jse/](http://www.amstat.org/publications/jse/datasets/euroweight.txt){target = "_blank"}
+[http://www.amstat.org/publications/jse/](http://www.amstat.org/publications/jse/datasets/euroweight.txt)
 
 <img src = "./Images/Step2.png">
 

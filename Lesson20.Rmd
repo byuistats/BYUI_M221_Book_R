@@ -15,7 +15,7 @@ output:
 </script>
 
 
-This is not designed to be a comprehensive review.  There may be items on the exam that are not covered in this review.  Similarly, there may be items in this review that are not tested on this exam.  You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the [Review for Exam 1](Lesson08.html){target = "_blank"} and the [Review for Exam 2](Lesson15.html){target = "_blank"}. 
+This is not designed to be a comprehensive review.  There may be items on the exam that are not covered in this review.  Similarly, there may be items in this review that are not tested on this exam.  You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the [Review for Exam 1](Lesson08.html) and the [Review for Exam 2](Lesson15.html). 
 
 <!-- Use the <span style = "font-variant:small-caps"> -->
 <!-- [[Index]]</span> to review definitions of important terms. 

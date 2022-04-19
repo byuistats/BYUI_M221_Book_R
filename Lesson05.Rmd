@@ -227,7 +227,7 @@ htmltools::includeHTML("https://byuimath.com/apps/normprob.html")
 </center>
 ### Converting a $z$-score to a Probability
 
-Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the [Normal Probability Applet](https://byuimath.com/apps/normprob.html){target = "_blank"} and practice using it to find areas under the curve.
+Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the [Normal Probability Applet](https://byuimath.com/apps/normprob.html) and practice using it to find areas under the curve.
 
 #### Heights of Ghanaian Women
 
@@ -312,10 +312,10 @@ So the probability that the height of a randomly selected young Ghanaian woman w
 
 A percentile is a number such that a specified percentage of the data are at or below this number. For example, the 25<sup>th</sup> percentile is the number in a data set that is greater than or equal to 25% of all the values in the data set. (For a more complete definition of percentiles, see 
 <!-- Lesson_3#Percentiles_and_Quartiles| need to figure out how to link content between pages -->
-[Lesson 3](Lesson03){target = "_blank"}.) We can find the values of percentiles for a normal distribution by using the applet to calculate the $z$-score corresponding to a specified area and then plugging that $z$-score into our $z$-score equation and solving for $x$. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.
+[Lesson 3](Lesson03).) We can find the values of percentiles for a normal distribution by using the applet to calculate the $z$-score corresponding to a specified area and then plugging that $z$-score into our $z$-score equation and solving for $x$. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.
 
 
-First, we need to find the $z$-score that corresponds to the 90<sup>th</sup> percentile using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html?area = 0.9&left = 1&right = 0&mid = 1){target = "_blank"}.
+First, we need to find the $z$-score that corresponds to the 90<sup>th</sup> percentile using the [Normal Probability Applet](https://byuimath.com/apps/normprob.html?area = 0.9&left = 1&right = 0&mid = 1).
 
 
 - Click on the areas under the curve until only the areas *left* of the positive $z$-score are shaded blue.

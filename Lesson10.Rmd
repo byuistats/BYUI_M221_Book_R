@@ -164,7 +164,7 @@ The following questions will help you review your understanding of the normal di
 
 #### The Distribution of the Sample Mean
 
-We learned in the reading [Distribution of Sample Means & The Central Limit Theorem](Lesson06.html){target = "_blank"} about the characteristics of the sample mean, $\bar x$.  Specifically, if the population from which the data are drawn is (i) approximately normal or (ii) if the sample size is large, then $\bar x$ will be approximately normally distributed.  Furthermore, if the original population has mean $\mu$ and standard deviation  $\sigma$, then the sampling distribution of $\bar x$ will have mean $\mu$ and standard deviation  $\sigma/\sqrt{n}$.
+We learned in the reading [Distribution of Sample Means & The Central Limit Theorem](Lesson06.html) about the characteristics of the sample mean, $\bar x$.  Specifically, if the population from which the data are drawn is (i) approximately normal or (ii) if the sample size is large, then $\bar x$ will be approximately normally distributed.  Furthermore, if the original population has mean $\mu$ and standard deviation  $\sigma$, then the sampling distribution of $\bar x$ will have mean $\mu$ and standard deviation  $\sigma/\sqrt{n}$.
 
 So, if either condition (i) or (ii) is met, then we can consider the sample mean $\bar x$ as a normal random variable with mean $\mu$ and standard deviation  $\sigma/\sqrt{n}$.  According to the 68-95-99.7% rule for symmetric bell-shaped distributions, about 95% of the time, the sample mean ($\bar x$) will lie within two standard deviations of the population mean ($\mu$).
 
@@ -263,12 +263,12 @@ The 68-95-99.7% Rule for bell-shaped distribution is just a quick approximation.
 <div class = "QuestionsHeading">Answer the following question:</div>
 <div class = "Questions">
 3. For a standard normal distribution, between what two $z$-scores will 95% of the data fall?  In other words, find the values $-z$ and $z$ such that the area between them is equal to 0.95.  Use the
-[Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet){target = "_blank"}.
+[Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet).
 
 <a href = "javascript:showhide('hint')"><span style = "font-size:8pt;">Click here for a hint</span></a>
 <div id = "hint" style = "display:none;">
 - To find the value of $z^*$, given a specific confidence level, do the following:
-  + *Open the applet at [Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet){target = "_blank"}
+  + *Open the applet at [Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet)
   + Shade the area between the two red lines (the middle portion of the graph) only and enter the decimal value for the desired percentage (e.g. 0.95 for 95%) in the *Area* box.
   + The value of $z^*$ will be displayed below. Two numbers will be given along the horizontal axis.  The only difference in these numbers is their sign: one is positive and one is negative. The positive value is the desired $z^*$.
 </div>
@@ -325,7 +325,7 @@ Suppose we want to create a 90% confidence interval.  What value would we put in
 $$
 \left( \bar x - \underline{~ ~ ~ ? ~ ~ ~} \frac{\sigma}{\sqrt{n}}, ~ \bar x + \underline{~ ~ ~ ? ~ ~ ~} \frac{\sigma}{\sqrt{n}} \right)
 $$
-Another way to state this question is to ask, between what two $z$-scores will 90% of the data in a standard normal distribution fall?  We need to find the values of $-z$ and $z$ such that the area between them is equal to 0.90.  Again, we use the [Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet){target = "_blank"}.
+Another way to state this question is to ask, between what two $z$-scores will 90% of the data in a standard normal distribution fall?  We need to find the values of $-z$ and $z$ such that the area between them is equal to 0.90.  Again, we use the [Normal Probability Applet](http://statistics.byuimath.com/index.php?title = Normal_Probability_Applet).
 
 <img src = "./Images/Updated_z-score_curve.JPG">
 
