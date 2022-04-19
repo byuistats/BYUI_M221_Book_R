@@ -329,8 +329,7 @@ If we take a closer look, we see that the Hassles and Events groups had means th
 
 Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>-->  The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.
 
-Data representing the results of this study are given in the file [soccer_shoes.xlsx](./data/soccer_shoes.xlsx).
-[soccer_shoes.xlsx](./data/soccer_shoes.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+Data representing the results of this study are given in the file [soccer_shoes](./data/soccer_shoes.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
 
 ### R Instructions for Converting "Wide" Data to "Long" Format
 

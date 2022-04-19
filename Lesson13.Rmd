@@ -215,7 +215,7 @@ We next compute our "favorite" summary statistics for each of the two groups in 
 
 We will use the tilde symbol (`~`) for this next command. This character is located on the top-left key on your keyboard. Using this symbol, we can run the `favstats` command separately for the two groups. The basic form of the command is `favstats(quantitative_data_variable ~ group_variable)`. The quantitative (numerical) data values are in the column `reading$nights` and the grouping variable is in the column `reading$group`. We enter the command in R as:
 
-```{r, comment = NA}
+```{r, message = FALSE, warning = FALSE, comment = NA}
 library(mosaic)
 favstats(reading$nights ~ reading$group)
 ```
@@ -1013,7 +1013,7 @@ We next compute our "favorite" summary statistics for each of the two columns.
 Load the `mosaic` library in RStudio that makes calculating the numerical summaries really quick, even for just one set of data.
 Use the `favstats(...)` function to produce numerical summaries for each group.
 
-```{r, warning = FALSE, message = FALSE}
+```{r, message = FALSE, warning = FALSE, comment = NA}
 library(mosaic)
 favstats(values ~ ind, data = copd)
 ```

@@ -1120,7 +1120,7 @@ The requirements for creating a confidence interval for the difference of means 
 &nbsp;
 <img src = "./Images/StepsAll.png">
 
-<img src = "./Images/pine_beetleDamage-1441150-LG.png">
+<img src = "./Images/PineBeetleDamage-1441150-LG.png">
 
 ### Mountain Pine Beetle Attacks
 
@@ -1136,7 +1136,7 @@ Lodgepole pine (*Pinus contorta* Dougl.ex Loud.) are particularly susceptible to
 <div class = "Questions">
 37. The mountain pine beetle threatens many forests in the United States. These tiny insects are only 0.5 cm long--about the size of a grain of rice. This photo of a mountain pine beetle is magnified greatly. These little creatures can destroy a large, healthy forest. Can you think of a spiritual parallel?   
 
-<img src = "./Images/Mountainpine_beetle2-1306004.png">
+<img src = "./Images/MountainPineBeetle2-1306004.png">
 
 <a href = "javascript:showhide('Q37')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q37" style = "display:none;">
