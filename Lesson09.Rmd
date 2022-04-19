@@ -1358,7 +1358,7 @@ When a testimony is given, the truth is planted in the heart.  The testimony fro
 <div class = "SummaryHeading">Remember...</div>
 <div class = "Summary">
 
-- The **null hypothesis ($H_0$)** is the foundational assumption about a population and represents the status quo. It is a statement of equality ($ = $). The **alternative hypothesis ($H_a$)** is a different assumption about a population and is a statement of inequality ($<$, $>$, or $\ne$). Using a **hypothesis test**, we determine whether it is more likely that the null hypothesis or the alternative hypothesis is true.
+- The **null hypothesis ($H_0$)** is the foundational assumption about a population and represents the status quo. It is a statement of equality ($=$). The **alternative hypothesis ($H_a$)** is a different assumption about a population and is a statement of inequality ($<$, $>$, or $\ne$). Using a **hypothesis test**, we determine whether it is more likely that the null hypothesis or the alternative hypothesis is true.
 
 - The **$P$-value** is the probability of getting a test statistic at least as extreme as the one you got, assuming $H_0$ is true. A $P$-value is calculated by finding the area under the normal distribution curve that is more extreme (farther away from the mean) than the z-score. The alternative hypothesis tells us whether we look at both tails or only one.
 
