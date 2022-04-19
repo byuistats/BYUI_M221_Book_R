@@ -257,16 +257,30 @@ prozac <- read_excel(destfile)
 # FROM TEXTBOOK
 
 library(readxl)
-surgery_lawsuits <- read_excel("data/surgery_lawsuits.xlsx")
-tuberculosis <- read_excel("data/tuberculosis.xlsx")
-# View(tuberculosis)
+url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
+destfile <- "surgery_lawsuits.xlsx"
+curl::curl_download(url, destfile)
+surgery_lawsuits <- read_excel(destfile)
+
+library(readxl)
+url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
+destfile <- "tuberculosis.xlsx"
+curl::curl_download(url, destfile)
+tuberculosis <- read_excel(destfile)
+
+
+library(readxl)
+url <- "https://emp.byui.edu/johnsonc/data/dist_shapes.xlsx"
+destfile <- "dist_shapes.xlsx"
+curl::curl_download(url, destfile)
+dist_shapes <- read_excel(destfile)
 
 
 setwd("C:/Users/craigaj/Documents/GitHub/M221R/")
 
 getwd()
 
-save(am_pm_heights, baby_boom_jse_11, bleu, body_temp_11, bone_mineral, chapter_12_a, chapter_12_b, dasl_hot_dog, dentist_bills, dime_weights, direct_flight_costs, dissolved_organic_carbon, exam1_employees, exercised_bone_density, freshmen_dinner, Grades_L3_hw_quiz, illinois_birth_weights_two_var, iq, MysteryInvestmentOpportunities, nba_salaries, prozac, rates_of_return, soccer_shoes, surgery_lawsuits, tuberculosis, used_hummers_ny_and_la, women_weights, WrongSiteWrongPatient, file="m221.RData")
+save(am_pm_heights, baby_boom_jse_11, bleu, body_temp_11, bone_mineral, chapter_12_a, chapter_12_b, dasl_hot_dog, dentist_bills, dime_weights, direct_flight_costs, dissolved_organic_carbon, dist_shapes, exam1_employees, exercised_bone_density, freshmen_dinner, Grades_L3_hw_quiz, illinois_birth_weights_two_var, iq, MysteryInvestmentOpportunities, nba_salaries, prozac, rates_of_return, soccer_shoes, surgery_lawsuits, tuberculosis, used_hummers_ny_and_la, women_weights, WrongSiteWrongPatient, file="m221.RData")
 
 load("https://byuistats.github.io/M221R/m221.RData")
 
