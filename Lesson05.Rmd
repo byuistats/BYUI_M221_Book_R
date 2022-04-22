@@ -47,17 +47,47 @@ By the end of this lesson, you should be able to:
 
 <img src = "./Images/Baseball.jpg">
 
-In baseball, a player called the "pitcher" throws a ball to a player called the "batter." The batter swings a wooden or metal bat and tries to hit the ball. A "hit" is made when the batter successfully hits the ball and runs to a point in the field called first base. A player's batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been "at bat." Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The file [BattingAverages.xlsx](./data/BattingAverages.xlsx) contains his data.
+In baseball, a player called the "pitcher" throws a ball to a player called the "batter." The batter swings a wooden or metal bat and tries to hit the ball. A "hit" is made when the batter successfully hits the ball and runs to a point in the field called first base. A player's batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been "at bat." Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The data frame "batting_averages" contains his data. Use the following command to load these data on your computer:
+```{r}
+load(url("https://byuistats.github.io/M221R/L05.RData"))
+```
 
 The following histogram summarizes the batting averages for these professional baseball players:
 
-<img src = "./Images/Lesson_03_Activity_06_Reading_1.jpg">
+```{r}
+hist(batting_averages$batting_avg,
+     main = "Baseball Batting Averages", 
+     xlab = "Batting Average",
+     ylab = "Number of Players",
+     breaks = 12,
+     col = "steelblue3")
+```
 
 Notice the bell-shaped distribution of the data.
 
-Suppose we want to estimate the probability that a randomly selected player will have a batting average that is greater than 0.280. One way to do this would be to find the proportion of players in the data set who have a batting average above 0.280. We can do this by finding the number of players who fall into each of the red-colored bins below and dividing this number by the total number of players.
+Suppose we want to estimate the probability that a randomly selected player will have a batting average that is greater than 0.280. One way to do this would be to find the proportion of players in the data set who have a batting average above 0.280. We can do this by finding the number of players whose batting averages fall into each of the blue-colored bins below and dividing this number by the total number of players.
 
-<img src = "./Images/L03_A06_R02.jpg">
+```{r, echo = FALSE}
+hist(batting_averages$batting_avg,
+     main = "Baseball Batting Averages", 
+     xlab = "Batting Average",
+     ylab = "Number of Players",
+     breaks = 12,
+     col = c("tan3","tan3","tan3","tan3","tan3","tan3","tan3","steelblue3","steelblue3","steelblue3","steelblue3","steelblue3"))
+```
+
+<!--```{r} -->
+<!--x <- rnorm(1000) -->
+<!--h <- hist(batting_averages$batting_avg, -->
+<!--  breaks = 12, -->
+<!--    plot = FALSE) -->
+<!-- cuts <- cut(h$breaks, c(-Inf,-0.1,0,0.28,Inf)) -->
+<!-- plot(h,  -->
+<!--      main = "Baseball Batting Averages",  -->
+<!--      xlab = "Batting Average", -->
+<!--      ylab = "Number of Players", -->
+<!--      col=cuts) -->
+<!-- ``` -->
 
 In other words, we could find the proportion of the total area of the bars that is shaded red out of the combined area of all the bars. This gives us the proportion of players whose batting averages are greater than 0.280.
 
@@ -340,20 +370,13 @@ Solve for $x$:
 
 |                                          |                                             |     |                                                                |
 |------------------------------------------|--------------------------------------------:|-----|----------------------------------------------------------------|
-| Original Equation                        |            $\displaystyle{ 1.282 }\space$   | $ = $ | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                   |
-| $~$                                      |                                             |     |                                                                |
-| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$     |
-| $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | $ = $ | $\displaystyle{ x - 0.261 }$                                 |
-| $~$                                      |                                             |     |                                                                |
-| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ 0.261 + (x - 0.261) }$                       |
-| $~$                                      |                                             |     |                                                                |
-| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | $ = $ | $\displaystyle{ x }$                                         |
-| $~$                                      |                                             |     |                                                                |
-| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | $ = $ | $\displaystyle{ x }$                                         |
-| $~$                                      |                                             |     |                                                                |
-| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | $ = $ | $\displaystyle{ 0.305 }$                                     |
-|                                          |                                             |     |                                                                |
+| Original Equation   |            $\displaystyle{ 1.282 }\space$   | = | $\displaystyle{ \frac{x - 0.261}{0.034 }}$                   |
+| Multiply both sides by 0.034             |    $\displaystyle{ 1.282 (0.034) }\space$   | = | $\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }$     |
+| Simplify the right-hand side             |    $\displaystyle{ 1.282 (0.034) }\space$   | = | $\displaystyle{ x - 0.261 }$                                 |
+| Add 0.261 to both sides                  |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | = | $\displaystyle{ 0.261 + (x - 0.261) }$                       |
+| Simplify the right-hand side             |$\displaystyle{ 0.261 + 1.282(0.034)}\space$ | = | $\displaystyle{ x }$                                         |
+| Simplify the left-hand side              |            $\displaystyle{ 0.305 }\space$   | = | $\displaystyle{ x }$                                         |
+| Swap the left- and right-hand sides      |                $\displaystyle{ x }\space$   | = | $\displaystyle{ 0.305 }$                                     |
 <br>
 
 The 90<sup>th</sup> percentile of the batting averages is 0.305. That means that 90% of the players have a batting average that is 0.305 or less.
