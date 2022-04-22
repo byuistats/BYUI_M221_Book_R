@@ -859,12 +859,12 @@ Percentiles can be used to describe the center and spread of any distribution an
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
 <br />
 
-- Read in the dataset [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx). If needed, you can review the instructions on reading in data from [Lesson 2: Reading Data into R](Lesson02.html#Reading-Data-into-R).
-
-```{r, include = FALSE, label = w_s_w_p_data}
-#Read the data into this document so that we can use it here as well.
-surgery_lawsuits <- read_excel("./data/surgery_lawsuits.xlsx")
+- Load the data frames for this lesson by executing the following command in R:
+```{r}
+  load(url("https://byuistats.github.io/M221R/L04.RData"))
 ```
+
+- One of the data frames you will have loaded is called "surgery_lawsuits".
 
 - Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
 
@@ -981,7 +981,9 @@ Statistical packages can give different results for some computations.  This is 
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 <br />
 
-- Open the data file you are using if you haven't already. For this example, continue using the file [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx) that you opened previously in this lesson.
+- Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you need to load this data frame, you can run the command 
+
+`load(url("https://byuistats.github.io/M221R/L04.RData"))`
 
 - You can use the function **summary(...)** in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The `summary(...)` function also provides the value of the mean, which isn't technically part of the five-number summary, but is useful to compare against the median.)
 
@@ -1071,7 +1073,9 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **To create a boxplot in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, continue using the [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx) data that you opened previously in this lesson.
+- Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, you can run the command:
+
+`load(url("https://byuistats.github.io/M221R/L04.RData"))`
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 
@@ -1108,7 +1112,7 @@ boxplot(surgery_lawsuits$wrong_site)
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
-29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of  the file [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx). What is the shape of the wrong-patient data?
+29. Create a histogram of the **wrong-patient** lawsuit data, located in column B of the  "surgery_lawsuits" data frame. What is the shape of the wrong-patient data?
 
 a. Skewed left
 b. Symmetric
@@ -1163,7 +1167,7 @@ In the plot we can quickly see that a wrong-patient lawsuit resulted in the larg
 **To create side-by-side boxplots in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, open the file [surgery_lawsuits.xlsx](./data/surgery_lawsuits.xlsx).
+- Open the data file you are using. For this example, open the data frame "surgery_lawsuits".
 
 - Use the `boxplot(...)` function with the first column listed, followed by a comma, then followed by the next column of data.
 

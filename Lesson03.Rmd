@@ -281,9 +281,9 @@ e. A, B, and C can all occur.
 Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below.
 <br/> 
 <br> 
-**To load data sets for this course, simply run the code:**
+**To load data sets for this lesson, simply run the following command in RStudio:**
 ```{r}
-  load(url("https://byuistats.github.io/M221R/M221.RData"))
+  load(url("https://byuistats.github.io/M221R/L03.RData"))
 ```
 
 This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the *tuberculosis* data, simply run the command
@@ -497,9 +497,9 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 **Step 2**
 
-Load the data into RStudio. 
+Load the data for this lesson into RStudio. 
 ```{r, eval = FALSE}
-  load(url("https://byuistats.github.io/M221R/M221.RData"))
+  load(url("https://byuistats.github.io/M221R/L03.RData"))
 ```
 
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->

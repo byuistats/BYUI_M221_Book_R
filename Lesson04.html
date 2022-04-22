@@ -1312,7 +1312,11 @@ R Instructions
 <div id="r_instr_4_percentiles" style="display:none;">
 <p><br>   <strong>To calculate percentiles and quartiles in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Read in the dataset <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>. If needed, you can review the instructions on reading in data from <a href="Lesson02.html#Reading-Data-into-R">Lesson 2: Reading Data into R</a>.</p></li>
+<li>Load the data frames for this lesson by executing the following command in R:</li>
+</ul>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L04.RData&quot;))</code></pre>
+<ul>
+<li><p>One of the data frames you will have loaded is called “surgery_lawsuits”.</p></li>
 <li><p>Percentiles can then be calculated on any numeric column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</p></li>
 </ul>
 <p>For the <strong>surgery_lawsuits</strong> data set, we could compute the 25th percentile of the “Wrong Site” column of the data set by using the code:</p>
@@ -1446,8 +1450,11 @@ R Instructions
 <div id="r_instr_4_quartiles" style="display:none;">
 <p><br>   <strong>To find the values for a five-number summary in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a> that you opened previously in this lesson.</p></li>
-<li><p>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</p></li>
+<li>Open the data file you are using if you haven’t already. For this example, continue using the data frame “surgery_lawsuits” that you loaded previously in this lesson. If you need to load this data frame, you can run the command</li>
+</ul>
+<p><code>load(url(&quot;https://byuistats.github.io/M221R/L04.RData&quot;))</code></p>
+<ul>
+<li>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</li>
 </ul>
 <pre class="r"><code>summary(surgery_lawsuits$wrong_site)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -1506,8 +1513,11 @@ R Instructions
 <div id="r_instr_4_boxplots" style="display:none;">
 <p><br> <strong>To create a boxplot in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, continue using the <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a> data that you opened previously in this lesson.</p></li>
-<li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</p></li>
+<li>Open the data file you are using. For this example, continue using the “surgery_lawsuits” data frame that you opened previously in this lesson. If you need to load this data frame, you can run the command:</li>
+</ul>
+<p><code>load(url(&quot;https://byuistats.github.io/M221R/L04.RData&quot;))</code></p>
+<ul>
+<li>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</li>
 </ul>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)</code></pre>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAJACAMAAAB7fzyHAAAAkFBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrY6AAA6OgA6Ojo6OmY6ZpA6ZrY6kNtmAABmOgBmOjpmZjpmkLZmkNtmtttmtv+QOgCQZjqQkDqQttuQ2/+2ZgC2Zjq2kGa229u22/+2///T09PbkDrbkGbbtmbbtpDb27bb2//b////tmb/25D/27b/29v//7b//9v///+xhb3PAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAQJklEQVR4nO3da2PjxBmGYS+HbjkVSjmULpQ2pUBYmv3//64eObalOBusZ5y1RnNdX1qCPIzeVW4fk928ASCyufYGAFoloAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUICShASEABQgIKEBJQgJCAAoQEFCAkoAAhAQUILTugG4CLuXyiLr7iBV172sC6XLxRl17wkp7hDgPoloAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJKEBIQAFCAgoQElCAkIAChAQUICSgACEBBQgJ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" width="672" /></p>
@@ -1544,7 +1554,7 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="29" style="list-style-type: decimal">
-<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>. What is the shape of the wrong-patient data?</li>
+<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the “surgery_lawsuits” data frame. What is the shape of the wrong-patient data?</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Skewed left</li>
@@ -1583,7 +1593,7 @@ R Instructions
 <div id="r_instr_4_sidebyside_boxplots" style="display:none;">
 <p><br> <strong>To create side-by-side boxplots in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>.</p></li>
+<li><p>Open the data file you are using. For this example, open the data frame “surgery_lawsuits”.</p></li>
 <li><p>Use the <code>boxplot(...)</code> function with the first column listed, followed by a comma, then followed by the next column of data.</p></li>
 </ul>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site, surgery_lawsuits$wrong_patient)</code></pre>
