@@ -282,11 +282,8 @@ Before we can perform calculations on a data set, we need to load the data into 
 <br/> 
 <br> 
 **To load data sets for this course, simply run the code:**
-```{r, eval = FALSE}
-  load("https://byuistats.github.io/M221R/m221.RData")
-```
-```{r, include = FALSE}
-  load("./m221.RData")
+```{r}
+  load(url("https://byuistats.github.io/M221R/M221.RData"))
 ```
 
 This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the *tuberculosis* data, simply run the command
@@ -502,7 +499,7 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 Load the data into RStudio. 
 ```{r, eval = FALSE}
-  load("https://byuistats.github.io/M221R/m221.RData")
+  load(url("https://byuistats.github.io/M221R/M221.RData"))
 ```
 
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
