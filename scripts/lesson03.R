@@ -4,30 +4,20 @@
 # https://byuistats.github.io/BYUI_M221_Book_R
 
 
-
 # Install required packages for the course ----------------
 # (You only need to run this once!)
 install.packages("librarian")
-librarian::shelf(curl, readxl, tidyverse, mosaic)
+librarian::shelf(mosaic, readxl)
 
 
-
-
-
-
-
-# Tuberculosis Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/tuberculosis.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
-destfile <- "tuberculosis.xlsx"
-curl::curl_download(url, destfile)
-tuberculosis <- read_excel(destfile)
-View(tuberculosis)
+# Load data for Lesson 3
+load(url("https://byuistats.github.io/M221R/L03.RData"))
 
 # Numerical Summaries -------------------------------------
+mean(tuberculosis$costs)
+median(tuberculosis$costs)
+sort(table(tuberculosis$costs))
+
 library(mosaic)
 favstats(tuberculosis$costs)
 
@@ -35,20 +25,7 @@ favstats(tuberculosis$costs)
 hist(tuberculosis$costs)
 
 
-
-
-
-
-
-
-
-
-# To download an Excel file from the web, update the URL below:
-url <- "https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx"
-destfile <- basename(url)
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
-View(surgery_lawsuits)
+# -------------------------------------------------------------------
 
 # Compute the mean of the wrong_site data
 mean(surgery_lawsuits$wrong_site)

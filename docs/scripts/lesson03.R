@@ -4,26 +4,20 @@
 # https://byuistats.github.io/BYUI_M221_Book_R
 
 
-
 # Install required packages for the course ----------------
 # (You only need to run this once!)
 install.packages("librarian")
-librarian::shelf(curl, readxl, tidyverse, mosaic)
+librarian::shelf(mosaic, readxl)
 
 
-
-# Tuberculosis Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/tuberculosis.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
-destfile <- "tuberculosis.xlsx"
-curl::curl_download(url, destfile)
-tuberculosis <- read_excel(destfile)
-View(tuberculosis)
+# Load data for Lesson 3
+load(url("https://byuistats.github.io/M221R/L03.RData"))
 
 # Numerical Summaries -------------------------------------
+mean(tuberculosis$costs)
+median(tuberculosis$costs)
+sort(table(tuberculosis$costs))
+
 library(mosaic)
 favstats(tuberculosis$costs)
 
@@ -31,34 +25,21 @@ favstats(tuberculosis$costs)
 hist(tuberculosis$costs)
 
 
-
-
-
-
-
-
-
-
-# To download an Excel file from the web, update the URL below:
-url <- "https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx"
-destfile <- basename(url)
-curl::curl_download(url, destfile)
-mydata <- read_excel(destfile)
-View(mydata)
+# -------------------------------------------------------------------
 
 # Compute the mean of the wrong_site data
-mean(mydata$wrong_site)
+mean(surgery_lawsuits$wrong_site)
 
 # Compute the median of the wrong_site data
-median(mydata$wrong_site)
+median(surgery_lawsuits$wrong_site)
 
 # Find the mode of the wrong_site data 
 # (Note: this is not very helpful)
-table(mydata$wrong_site)
+table(surgery_lawsuits$wrong_site)
 
 # Find the mode of the wrong_site data (Sorted in ascending order)
 # Notice the two most-frequently occurring value is 0, with 50 instances
-sort(table(mydata$wrong_site))
+sort(table(surgery_lawsuits$wrong_site))
 
 # Basic histogram of the wrong_site data
-hist(mydata$wrong_site)
+hist(surgery_lawsuits$wrong_site)
