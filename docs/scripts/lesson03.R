@@ -24,8 +24,7 @@ favstats(tuberculosis$costs)
 # Graphical Summaries -------------------------------------
 hist(tuberculosis$costs)
 
-
-# -------------------------------------------------------------------
+# Surgery Lawsuits (Wrong-Site Wrong-Patient) -----------------------
 
 # Compute the mean of the wrong_site data
 mean(surgery_lawsuits$wrong_site)
