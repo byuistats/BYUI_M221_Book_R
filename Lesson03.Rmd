@@ -79,7 +79,7 @@ Instructions go here.
 -->
 
 
-## R Script---Link---
+## R Script
 
 Here is a link to the [R Script for Lesson 3](scripts/lesson03.R).
 
