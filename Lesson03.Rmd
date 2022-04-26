@@ -81,7 +81,7 @@ Instructions go here.
 
 ## R Script
 
-Here is a link to the [R Script for Lesson 3](lesson03_script.R).
+Here is a link to the [R Script for Lesson 3](scripts/lesson03.R).
 
 <br>
 

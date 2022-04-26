@@ -71,7 +71,7 @@ By the end of this lesson, you should be able to:
 
 ## R Script
 
-Here is a link to the [R Script for Lesson 4](lesson04_script.R).
+Here is a link to the [R Script for Lesson 4](scripts/lesson04.R).
 
 <br>
 
