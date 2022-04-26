@@ -5,16 +5,8 @@
 
 
 
-# Surgery Lawsuits Example --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
-destfile <- "surgery_lawsuits.xlsx"
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
-View(surgery_lawsuits)
+# Load data for this lesson
+load(url("https://byuistats.github.io/M221R/L04.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

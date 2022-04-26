@@ -10,7 +10,7 @@ install.packages("librarian")
 librarian::shelf(mosaic, readxl)
 
 
-# Load data for Lesson 3
+# Load data for this lesson
 load(url("https://byuistats.github.io/M221R/L03.RData"))
 
 # Numerical Summaries -------------------------------------
