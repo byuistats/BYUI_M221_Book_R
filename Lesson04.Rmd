@@ -71,7 +71,7 @@ By the end of this lesson, you should be able to:
 
 ## R Script
 
-Here is a link to the [R Script for Lesson 4](./scripts/lesson04.R).
+Here is a link to the [R Script for Lesson 4](./scripts/lesson04.R]).
 
 <br> 
 
@@ -144,7 +144,7 @@ median(bodytemp_uncomp)
 
 ```{r, label = body_temp_mean}
 bodytemp_uncomp <- c(38.1, 38.3, 38.4, 39.5, 39.7)
-mean(bodytemp_uncomp)
+mean(bodytemp_uncomp) 
 ```
 
 </div>
