@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -434,12 +434,31 @@ $(document).ready(function () {
 <div id="baseball-batting-averages" class="section level3">
 <h3>Baseball Batting Averages</h3>
 <p><img src = "Images/Baseball.jpg"></p>
-<p>In baseball, a player called the “pitcher” throws a ball to a player called the “batter.” The batter swings a wooden or metal bat and tries to hit the ball. A “hit” is made when the batter successfully hits the ball and runs to a point in the field called first base. A player’s batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been “at bat.” Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The file <a href="./data/BattingAverages.xlsx">BattingAverages.xlsx</a> contains his data.</p>
+<p>In baseball, a player called the “pitcher” throws a ball to a player called the “batter.” The batter swings a wooden or metal bat and tries to hit the ball. A “hit” is made when the batter successfully hits the ball and runs to a point in the field called first base. A player’s batting average is calculated as the ratio of the number of hits a player makes divided by the number of times the player has attempted to hit the ball or in other words, been “at bat.” Sean Lahman reported the batting averages of several professional baseball players in the United States. (Lahman, 2010) The data frame “batting_averages” contains his data. Use the following command to load these data on your computer:</p>
+<pre class="r"><code>load(url(&quot;https://byuistats.github.io/M221R/L05.RData&quot;))</code></pre>
 <p>The following histogram summarizes the batting averages for these professional baseball players:</p>
-<p><img src = "Images/Lesson_03_Activity_06_Reading_1.jpg"></p>
+<pre class="r"><code>hist(batting_averages$batting_avg,
+     main = &quot;Baseball Batting Averages&quot;, 
+     xlab = &quot;Batting Average&quot;,
+     ylab = &quot;Number of Players&quot;,
+     breaks = 12,
+     col = &quot;steelblue3&quot;)</code></pre>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Notice the bell-shaped distribution of the data.</p>
-<p>Suppose we want to estimate the probability that a randomly selected player will have a batting average that is greater than 0.280. One way to do this would be to find the proportion of players in the data set who have a batting average above 0.280. We can do this by finding the number of players who fall into each of the red-colored bins below and dividing this number by the total number of players.</p>
-<p><img src = "Images/L03_A06_R02.jpg"></p>
+<p>Suppose we want to estimate the probability that a randomly selected player will have a batting average that is greater than 0.280. One way to do this would be to find the proportion of players in the data set who have a batting average above 0.280. We can do this by finding the number of players whose batting averages fall into each of the blue-colored bins below and dividing this number by the total number of players.</p>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<!--```{r} -->
+<!--x <- rnorm(1000) -->
+<!--h <- hist(batting_averages$batting_avg, -->
+<!--  breaks = 12, -->
+<!--    plot = FALSE) -->
+<!-- cuts <- cut(h$breaks, c(-Inf,-0.1,0,0.28,Inf)) -->
+<!-- plot(h,  -->
+<!--      main = "Baseball Batting Averages",  -->
+<!--      xlab = "Batting Average", -->
+<!--      ylab = "Number of Players", -->
+<!--      col=cuts) -->
+<!-- ``` -->
 <p>In other words, we could find the proportion of the total area of the bars that is shaded red out of the combined area of all the bars. This gives us the proportion of players whose batting averages are greater than 0.280.</p>
 <p>Out of the 446 players listed, there are a total of 133 players with batting averages over 0.280. This suggests that the proportion of players whose batting average exceeds 0.280 is:</p>
 <p><span class="math display">\[\displaystyle{\frac{133}{446}} = 0.298\]</span></p>
@@ -1349,7 +1368,7 @@ setDefaults();
 </div>
 <div id="converting-a-z-score-to-a-probability" class="section level3">
 <h3>Converting a <span class="math inline">\(z\)</span>-score to a Probability</h3>
-<p>Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a>{target = “_blank”} and practice using it to find areas under the curve.</p>
+<p>Using this applet we can calculate proportions and probabilities based on the area under the normal curve. For the following examples, please open the <a href="https://byuimath.com/apps/normprob.html">Normal Probability Applet</a> and practice using it to find areas under the curve.</p>
 <div id="heights-of-ghanaian-women" class="section level4">
 <h4>Heights of Ghanaian Women</h4>
 <p>We will use the example of Serwa’s height to find the proportion of young Ghanaian women who are shorter than Serwa. Recall that for the height of young Ghanaian women, the population mean is 159.0 cm and the population standard deviation is 4.9 cm. Serwa’s height is 169.0 cm. We found the <span class="math inline">\(z\)</span>-score of Serwa’s height as:</p>
@@ -1405,8 +1424,8 @@ setDefaults();
 </div>
 <div id="calculating-percentiles-using-a-normal-distribution" class="section level3">
 <h3>Calculating Percentiles using a Normal Distribution</h3>
-<p>A percentile is a number such that a specified percentage of the data are at or below this number. For example, the 25<sup>th</sup> percentile is the number in a data set that is greater than or equal to 25% of all the values in the data set. (For a more complete definition of percentiles, see <!-- Lesson_3#Percentiles_and_Quartiles| need to figure out how to link content between pages --> <a href="Lesson03">Lesson 3</a>{target = “_blank”}.) We can find the values of percentiles for a normal distribution by using the applet to calculate the <span class="math inline">\(z\)</span>-score corresponding to a specified area and then plugging that <span class="math inline">\(z\)</span>-score into our <span class="math inline">\(z\)</span>-score equation and solving for <span class="math inline">\(x\)</span>. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.</p>
-<p>First, we need to find the <span class="math inline">\(z\)</span>-score that corresponds to the 90<sup>th</sup> percentile using the <a href="https://byuimath.com/apps/normprob.html?area%20=%200.9&amp;left%20=%201&amp;right%20=%200&amp;mid%20=%201">Normal Probability Applet</a>{target = “_blank”}.</p>
+<p>A percentile is a number such that a specified percentage of the data are at or below this number. For example, the 25<sup>th</sup> percentile is the number in a data set that is greater than or equal to 25% of all the values in the data set. (For a more complete definition of percentiles, see <!-- Lesson_3#Percentiles_and_Quartiles| need to figure out how to link content between pages --> <a href="Lesson03">Lesson 3</a>.) We can find the values of percentiles for a normal distribution by using the applet to calculate the <span class="math inline">\(z\)</span>-score corresponding to a specified area and then plugging that <span class="math inline">\(z\)</span>-score into our <span class="math inline">\(z\)</span>-score equation and solving for <span class="math inline">\(x\)</span>. The following instructions show how to find the 90<sup>th</sup> percentile of the distribution of batting averages.</p>
+<p>First, we need to find the <span class="math inline">\(z\)</span>-score that corresponds to the 90<sup>th</sup> percentile using the <a href="https://byuimath.com/apps/normprob.html?area%20=%200.9&amp;left%20=%201&amp;right%20=%200&amp;mid%20=%201">Normal Probability Applet</a>.</p>
 <ul>
 <li>Click on the areas under the curve until only the areas <em>left</em> of the positive <span class="math inline">\(z\)</span>-score are shaded blue.</li>
 <li>Type the desired area (or percentile) in the box at the top of the graph. (Type in a number between 0 and 1. A 90<sup>th</sup> percentile would be entered as “0.900”.)</li>
@@ -1431,86 +1450,44 @@ setDefaults();
 <tr class="odd">
 <td>Original Equation</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 1.282 }\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ \frac{x - 0.261}{0.034 }}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Multiply both sides by 0.034</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 1.282 (0.034) }\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ \frac{x -0.261}{0.034 } \cdot (0.034) }\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Simplify the right-hand side</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 1.282 (0.034) }\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ x - 0.261 }\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Add 0.261 to both sides</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 0.261 + 1.282(0.034)}\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ 0.261 + (x - 0.261) }\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Simplify the right-hand side</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 0.261 + 1.282(0.034)}\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ x }\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Simplify the left-hand side</td>
 <td align="right"><span class="math inline">\(\displaystyle{ 0.305 }\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ x }\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(~\)</span></td>
-<td align="right"></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Swap the left- and right-hand sides</td>
 <td align="right"><span class="math inline">\(\displaystyle{ x }\space\)</span></td>
-<td>$ = $</td>
+<td>=</td>
 <td><span class="math inline">\(\displaystyle{ 0.305 }\)</span></td>
-</tr>
-<tr class="even">
-<td></td>
-<td align="right"></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1549,7 +1526,7 @@ Answer the following questions:
 -->
 <p>Create a histogram in R by first <a href="RHelp#reading-in-data">importing the data</a> to RStudio. Then, use code similar to:</p>
 <pre class="r"><code>hist(BodyTemp$BodyTemp, main = &quot;Body Temperatures&quot;, xlab = &quot;Degrees Fahrenheit&quot;, col = &quot;steelblue3&quot;)</code></pre>
-<p><img src="Lesson05_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
@@ -1594,7 +1571,7 @@ Answer the following questions:
 <p>First, read in the <strong>Survey Data</strong> into RStudio. Then, use the code</p>
 <pre class="r"><code>SurveyData &lt;- read_excel(&quot;./data/SurveyData.xlsx&quot;)</code></pre>
 <pre class="r"><code>hist(SurveyData$Wage, xlab = &quot;Hourly Wages&quot;, main = &quot;BYU-Idaho Student Survey Results&quot;, col = &quot;tan3&quot;)</code></pre>
-<p><img src="Lesson05_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson05_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">

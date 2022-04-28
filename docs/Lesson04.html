@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -455,7 +455,7 @@ $(document).ready(function () {
 </div>
 <div id="r-script" class="section level2">
 <h2>R Script</h2>
-<p>Here is a link to the <a href="lesson04_script.R">R Script for Lesson 4</a>.</p>
+<p>Here is a link to the <a href="./scripts/lesson04.R%5D">R Script for Lesson 4</a>.</p>
 <p><br></p>
 </div>
 <div id="spread-of-a-distribution" class="section level2">
@@ -539,7 +539,7 @@ median(bodytemp_uncomp)</code></pre>
 <li>The mean body temperature for the relatively uncomplicated cases is 38.8 degrees Centigrade.</li>
 </ul>
 <pre class="r"><code>bodytemp_uncomp &lt;- c(38.1, 38.3, 38.4, 39.5, 39.7)
-mean(bodytemp_uncomp)</code></pre>
+mean(bodytemp_uncomp) </code></pre>
 <pre><code>## [1] 38.8</code></pre>
 </div>
 <p> </p>
@@ -1522,7 +1522,11 @@ R Instructions
 <div id="r_instr_4_percentiles" style="display:none;">
 <p><br>   <strong>To calculate percentiles and quartiles in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Read in the dataset <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>. If needed, you can review the instructions on reading in data from <a href="Lesson02.html#Reading-Data-into-R">Lesson 2: Reading Data into R</a>.</p></li>
+<li>Load the data frames for this lesson by executing the following command in R:</li>
+</ul>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L04.RData&quot;))</code></pre>
+<ul>
+<li><p>One of the data frames you will have loaded is called “surgery_lawsuits”.</p></li>
 <li><p>Percentiles can then be calculated on any numeric column of the data set using the <code>quantile(...)</code> function and the selection operator <code>$</code> as follows.</p></li>
 </ul>
 <p>For the <strong>surgery_lawsuits</strong> data set, we could compute the 25th percentile of the “Wrong Site” column of the data set by using the code:</p>
@@ -1656,8 +1660,11 @@ R Instructions
 <div id="r_instr_4_quartiles" style="display:none;">
 <p><br>   <strong>To find the values for a five-number summary in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using if you haven’t already. For this example, continue using the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a> that you opened previously in this lesson.</p></li>
-<li><p>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</p></li>
+<li>Open the data file you are using if you haven’t already. For this example, continue using the data frame “surgery_lawsuits” that you loaded previously in this lesson. If you need to load this data frame, you can run the command</li>
+</ul>
+<p><code>load(url("https://byuistats.github.io/M221R/L04.RData"))</code></p>
+<ul>
+<li>You can use the function <strong>summary(…)</strong> in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The <code>summary(...)</code> function also provides the value of the mean, which isn’t technically part of the five-number summary, but is useful to compare against the median.)</li>
 </ul>
 <pre class="r"><code>summary(surgery_lawsuits$wrong_site)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -1716,8 +1723,11 @@ R Instructions
 <div id="r_instr_4_boxplots" style="display:none;">
 <p><br> <strong>To create a boxplot in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, continue using the <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a> data that you opened previously in this lesson.</p></li>
-<li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</p></li>
+<li>Open the data file you are using. For this example, continue using the “surgery_lawsuits” data frame that you opened previously in this lesson. If you need to load this data frame, you can run the command:</li>
+</ul>
+<p><code>load(url("https://byuistats.github.io/M221R/L04.RData"))</code></p>
+<ul>
+<li>Use the <strong>boxplot(…)</strong> function to create a boxplot of the column of the data set you are interested in graphing.</li>
 </ul>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)</code></pre>
 <p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot1-1.png" width="672" /></p>
@@ -1744,7 +1754,7 @@ boxplot(surgery_lawsuits$wrong_site/1000, horizontal = TRUE, xlab = "Cost in Tho
 -->
 <p>Note that the default for <code>boxplot(...)</code> is to draw the boxplot vertically. That is why we used the command <code>horizontal = TRUE</code> to force the graph to draw the boxplot sideways. If we remove the <code>horizontal = TRUE</code> statement, we get a vertical boxplot instead It really doesn’t matter whether your draw your boxplots vertically or horizontally, so use whichever method you like the look of best.</p>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <p><!-- R instructions for boxplot --></p>
 </div>
@@ -1754,7 +1764,7 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="29" style="list-style-type: decimal">
-<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>. What is the shape of the wrong-patient data?</li>
+<li>Create a histogram of the <strong>wrong-patient</strong> lawsuit data, located in column B of the “surgery_lawsuits” data frame. What is the shape of the wrong-patient data?</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Skewed left</li>
@@ -1793,7 +1803,7 @@ R Instructions
 <div id="r_instr_4_sidebyside_boxplots" style="display:none;">
 <p><br> <strong>To create side-by-side boxplots in R, do the following</strong> <br /></p>
 <ul>
-<li><p>Open the data file you are using. For this example, open the file <a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a>.</p></li>
+<li><p>Open the data file you are using. For this example, open the data frame “surgery_lawsuits”.</p></li>
 <li><p>Use the <code>boxplot(...)</code> function with the first column listed, followed by a comma, then followed by the next column of data.</p></li>
 </ul>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site, surgery_lawsuits$wrong_patient)</code></pre>

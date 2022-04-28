@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -458,7 +458,7 @@ Instructions go here.
 </div>
 <div id="r-script" class="section level2">
 <h2>R Script</h2>
-<p>Here is a link to the <a href="lesson03_script.R">R Script for Lesson 3</a>.</p>
+<p>Here is a link to the <a href="./scripts/lesson03.R">R Script for Lesson 3</a>.</p>
 <p><br></p>
 </div>
 <div id="review-of-the-five-steps-of-the-statistical-process" class="section level2">
@@ -650,21 +650,23 @@ R Instructions
 <div class="Software" style="padding:10px;">
 <a href = "javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1_center" style="display:none;">
-<p><br> Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below. <br/> <br> <strong>To load data sets for this course, simply run the code:</strong></p>
-<pre class="r"><code>  load(&quot;https://byuistats.github.io/M221R/m221.RData&quot;)</code></pre>
+<p><br> Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below. <br/> <br> <strong>To load data sets for this lesson, simply run the following command in RStudio:</strong></p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L03.RData&quot;))</code></pre>
 <p>This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the <em>tuberculosis</em> data, simply run the command</p>
 <pre class="r"><code>  View(tuberculosis)</code></pre>
-<pre><code>   costs                          comments
-1  15100     Cost (in US dollars) to treat
-2  19000   tuberculosis patients in India.
-3   4800 Used in the textbook in Lesson 3.
-4   6500                              &lt;NA&gt;
-5  14900                              &lt;NA&gt;
-6    600                              &lt;NA&gt;
-7  23500                              &lt;NA&gt;
-8  11500                              &lt;NA&gt;
-9  12900                              &lt;NA&gt;
-10 32200                              &lt;NA&gt;</code></pre>
+<pre><code># A tibble: 10 x 2
+   costs comments                         
+   &lt;dbl&gt; &lt;chr&gt;                            
+ 1 15100 Cost (in US dollars) to treat    
+ 2 19000 tuberculosis patients in India.  
+ 3  4800 Used in the textbook in Lesson 3.
+ 4  6500 &lt;NA&gt;                             
+ 5 14900 &lt;NA&gt;                             
+ 6   600 &lt;NA&gt;                             
+ 7 23500 &lt;NA&gt;                             
+ 8 11500 &lt;NA&gt;                             
+ 9 12900 &lt;NA&gt;                             
+10 32200 &lt;NA&gt;                             </code></pre>
 <p><br /></p>
 <p><br> <strong>To calculate numerical summaries</strong> (such as the mean, median, and mode) in R, do the following: <br /></p>
 <p>In R, data are stored in data frames, like <em>tuberculosis</em>. Within a data frame, the data values are organized in columns called “vectors”. To access the data representing the costs to treat tuberculosis cases in India, we use the $ operator. The command <code>tuberculosis$costs</code> tells R that you want to access the varaible <code>costs</code> in the data frame <code>tuberculosis</code>. When we execute this command, it returns the values stored in this variable.</p>
@@ -778,7 +780,7 @@ $$
 showing that the *center* of the histogram (or average) is at \$14,100. 
 --></p>
 <p><strong>Histogram of these data created in R:</strong> <br></p>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-15-1.png" width="480" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-14-1.png" width="480" /></p>
 <p><br /></p>
 </div>
 <div id="r-instructions-for-histograms" class="section level3">
@@ -800,8 +802,8 @@ R Instructions
 -->
 <p><br /></p>
 <p><strong>Step 2</strong></p>
-<p>Load the data into RStudio.</p>
-<pre class="r"><code>  load(&quot;https://byuistats.github.io/M221R/m221.RData&quot;)</code></pre>
+<p>Load the data for this lesson into RStudio.</p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L03.RData&quot;))</code></pre>
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
 <!-- * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again.  -->
 <!-- * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object." -->
@@ -822,7 +824,7 @@ R Instructions
 <p>Now that you have created an object in R called <code>tuberc</code> that contains the 10 data points of the Tuberculosis data, you can create a histogram using the <code>hist(...)</code> function.</p>
 <p>For the tuberculosis data, since you used the assignment operator to store the data in the <code>tuberc</code> object, you would access the data and make a histogram of it using the code:</p>
 <pre class="r"><code>hist(tuberculosis$costs)</code></pre>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <p><!-- id = "r_instr_1" style = "display:none;"> --></p>
 </div>
@@ -850,7 +852,7 @@ R Instructions (Optional)
       main = &quot;Histogram of Costs to Treat Tuberculosis&quot;, 
       xlab = &quot;Cost in Dollars&quot;, 
       ylab = &quot;Number of Individuals&quot;)</code></pre>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <p><!-- id = "r_instr_1" style = "display:none;"> --></p>
 </div>
@@ -901,7 +903,7 @@ Answer the following question:
 <p>We will describe the shape of the distribution of a data set using the following basic categories: symmetric, bell-shaped, skewed right, and skewed left. Additionally, we can label the shape of a distribution as uniform, unimodal, bimodal, or multimodal.</p>
 <p>A distribution is symmetric if both the left and right side of the distribution appear to be roughly a mirror image of each other. A special symmetric distribution is a bell-shaped distribution. When data follow a bell-shaped distribution, the histogram looks like a bell. Bell-shaped distributions play an important role in Statistics and will play a role in most of the future lessons.</p>
 <p>A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers on the right-hand side of the distribution. A distribution is left-skewed if a histogram shows that it has a long tail to the left.</p>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><img src = "Images/Lesson_2_Activity_2-3.JPG" width = 130%></p>
 <p>If a distribution has only one peak, it is said to be <strong>unimodal</strong>. The three distributions illustrated above are all unimodal distributions. Some people might argue that there are several peaks in the GPA data, so it should not be considered unimodal. Even though there are jagged bumps in the histogram, it is important to visualize the overall shape in the data. When interpreting a histogram, it can be helpful to blur your eyes and imagine the overall shape after smoothing out the bumps. If the overall trend indicates that there is more than one bump, then we do not consider the distribution to be unimodal. We will usually only work with unimodal data sets in this course.</p>
 <p>Some distributions have no distinct peak, others have more than one peak. When there is no distinct peak, and the histogram shows a relatively flat shape, we might say the data follow a <strong>uniform</strong> distribution. If there are two distinct peaks, a distribution is called bimodal. If there are more than two peaks, we refer to the distribution as <strong>multimodal</strong>.</p>

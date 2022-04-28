@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -601,7 +601,7 @@ $(document).ready(function () {
 |}
 </center>
 -->
-<p>These data are available in the file <a href="./data/ethanallen.xlsx">ethanallen.xlsx</a>.</p>
+<p>These data are available in the file <a href="./data/ethan_allen.xlsx">ethan_allen.xlsx</a>.</p>
 <p><img src = "Images/Step3.png"></p>
 <p>To help us understand the data, we first create a graph summarizing the values.</p>
 <center>
@@ -797,7 +797,7 @@ Answer the following questions:
 See Lesson \ref{Reading:SampDistOfXbar} to review the concept of the distribution of sample means, $\bar{x}$.
 |}
 -->
-<p>The null hypothesis will always be a statement involving equality. This gives us a starting point in our analysis. In the reading for <a href="Lesson05.html">Normal Distributions</a>{target = “_blank”}, we assumed that the true mean body temperature was 98.6° F. This becomes the assumed value of the mean of the distribution of the random variable <span class="math inline">\(\bar{x}\)</span>.</p>
+<p>The null hypothesis will always be a statement involving equality. This gives us a starting point in our analysis. In the reading for <a href="Lesson05.html">Normal Distributions</a>, we assumed that the true mean body temperature was 98.6° F. This becomes the assumed value of the mean of the distribution of the random variable <span class="math inline">\(\bar{x}\)</span>.</p>
 <p>The scientific method demands that we make a hypothesis (a claim or an educated guess). We assume that the null hypothesis is true and gather evidence against it. In other words, we “do research” (e.g., collect data) to gather evidence against that hypothesis. If we can gather enough evidence to discredit our initial hypothesis, we conclude that it was false, and begin the process again. If we are unable to reject the original hypothesis, we do not conclude that it is correct. For example, we do not know that Einstein’s Theory of Relativity is correct. We have simply not been able to disprove it<span class="math inline">\(\ldots\)</span>yet.</p>
 <p>In the same way, we never can prove a null hypothesis is true. We can only gather evidence against it. If we get enough evidence, we reject the null hypothesis.</p>
 </div>
@@ -1188,7 +1188,7 @@ Answer the following questions:
 <p>First of all, we must assume that the data represent a simple random sample from a large population. In practice, this requirement is rarely satisfied. Frequently researchers working with humans rely on convenience samples, where the subjects volunteer to participate in a research project. The researcher may advertise using television, radio, and flyers in a clinic. If there is no relationship between the issue being studied and people’s desire to participate, this method works fairly well.</p>
 <p>A second requirement is that the data are drawn from a population that has a normal distribution with mean <span class="math inline">\(\mu\)</span> given in the null hypothesis (e.g. 98.6° F) and a known standard deviation (e.g. <span class="math inline">\(\sigma = 0.675^\circ\)</span> F.)</p>
 <p>It turns out that the procedure actually works quite well–even if the data are not normally distributed–as long as <span class="math inline">\(\bar{x}\)</span> follows a normal distribution. Under what conditions will <span class="math inline">\(\bar{x}\)</span> be normally distributed? (Think about it.)</p>
-<p>In the reading for <a href="Lesson06.html">Distribution of Sample Means &amp; The Central Limit Theorem|Lesson 6</a>{target = “_blank”}, we learned that <span class="math inline">\(\bar{x}\)</span> will follow a normal distribution if the data are drawn from a normal distribution or if the sample size (<span class="math inline">\(n\)</span>) is large.</p>
+<p>In the reading for <a href="Lesson06.html">Distribution of Sample Means &amp; The Central Limit Theorem</a>, we learned that <span class="math inline">\(\bar{x}\)</span> will follow a normal distribution if the data are drawn from a normal distribution or if the sample size (<span class="math inline">\(n\)</span>) is large.</p>
 <p>Putting this all together, we can summarize the requirements for a test for a single mean with <span class="math inline">\(\sigma\)</span> known as:</p>
 <ul>
 <li>The data represent a simple random sample from a large population.</li>
@@ -1257,10 +1257,9 @@ Answer the following question:
 <div class="Questions">
 <p><img src = "Images/Step1.png"></p>
 <ol start="21" style="list-style-type: decimal">
-<li>Summarize the relevant background information.</li>
+<li>Summarize the relevant background information.= <a href = "javascript:showhide('Q21')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id = "Q21" style = "display:none;"></li>
 </ol>
-<a href = "javascript:showhide('Q21')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id="Q21" style="display:none;">
 <ul>
 <li>The long-term health of patients who had previously suffered a cardiac arrest were studied. The researchers want to know if these patients will feel that their overall long-term health was worsened by the cardiac arrest.<br />
 </li>
@@ -1383,7 +1382,7 @@ n = 50
 <li>There is insufficient evidence to suggest that the mean perceived general health of patients after a cardiac arrest is worse than the general population. Patients who suffer from a cardiac arrest typically have the potential to return to full health</li>
 </ul>
 </div>
-<p> </p>
+ 
 </div>
 <p><br></p>
 </div>
@@ -1715,7 +1714,7 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p>The <strong>null hypothesis (<span class="math inline">\(H_0\)</span>)</strong> is the foundational assumption about a population and represents the status quo. It is a statement of equality ($ = <span class="math inline">\(). The **alternative hypothesis (\)</span>H_a<span class="math inline">\()** is a different assumption about a population and is a statement of inequality (\)</span>&lt;$, <span class="math inline">\(&gt;\)</span>, or <span class="math inline">\(\ne\)</span>). Using a <strong>hypothesis test</strong>, we determine whether it is more likely that the null hypothesis or the alternative hypothesis is true.</p></li>
+<li><p>The <strong>null hypothesis (<span class="math inline">\(H_0\)</span>)</strong> is the foundational assumption about a population and represents the status quo. It is a statement of equality (<span class="math inline">\(=\)</span>). The <strong>alternative hypothesis (<span class="math inline">\(H_a\)</span>)</strong> is a different assumption about a population and is a statement of inequality (<span class="math inline">\(&lt;\)</span>, <span class="math inline">\(&gt;\)</span>, or <span class="math inline">\(\ne\)</span>). Using a <strong>hypothesis test</strong>, we determine whether it is more likely that the null hypothesis or the alternative hypothesis is true.</p></li>
 <li><p>The <strong><span class="math inline">\(P\)</span>-value</strong> is the probability of getting a test statistic at least as extreme as the one you got, assuming <span class="math inline">\(H_0\)</span> is true. A <span class="math inline">\(P\)</span>-value is calculated by finding the area under the normal distribution curve that is more extreme (farther away from the mean) than the z-score. The alternative hypothesis tells us whether we look at both tails or only one.</p></li>
 <li><p>The <strong>level of significance (<span class="math inline">\(\alpha\)</span>)</strong> controls the probability of committing a Type I Error. It is the standard for determining whether or not the null hypothesis should be rejected. Typical values for <span class="math inline">\(\alpha\)</span> are <span class="math inline">\(0.05\)</span>, <span class="math inline">\(0.10\)</span>, and <span class="math inline">\(0.01\)</span>. If the <span class="math inline">\(P\)</span>-value is less than <span class="math inline">\(\alpha\)</span> we reject the null. If the <span class="math inline">\(P\)</span>-value is not less than <span class="math inline">\(\alpha\)</span> we fail to reject the null.</p></li>
 <li><p>A <strong>Type I error</strong> is committed when we reject a null hypothesis that is, in reality, true. A <strong>Type II error</strong> is committed when we fail to reject a null hypothesis that is, in reality, not true. The value of <span class="math inline">\(\alpha\)</span> is the probability of committing a Type I error.</p></li>

@@ -124,7 +124,7 @@ Then, use the `barplot(...)` function to create a bar chart of the values.
 
 <div style = "padding-left:40px;">
 
-```{r, comment = NA}
+```{r, label = "Something is wrong here...", eval=FALSE, comment = NA}
 #Create a plot of the counts in mytable:
 library(RColorBrewer)
 barplot(height = no_click_query_summary$count, legend.text = no_click_query_summary$reason, col = brewer.pal(n = 12, name = "Set3"))
@@ -135,7 +135,7 @@ barplot(no_click_query_summary$reason, horiz = TRUE)
 - Specify colors for the bar chart using either `col = "steelblue3"` to give all bars the same color, or use `col = c("tan3","brown3","steelblue3")` to give each bar a different color. Of course, use any color names you like: [R Color Options](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
 - Specify axes labeling with `main = "A main title"`, `xlab = "An x-axis label"`, and `ylab = "A y-axis label"`.
 
-```{r, comment = NA}
+```{r, label = "Something is wrong here too...", eval=FALSE, comment = NA}
 #Make a fancier graph using the options:
 barplot(mytable,
         col = c("tan3","brown3","steelblue3"),

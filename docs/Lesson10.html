@@ -298,13 +298,13 @@ $(document).ready(function () {
       <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
     </li>
     <li>
-      <a href="Lesson12.html">Lesson 12: Inference for the Mean of Differences (Two Dependent Samples)</a>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
     </li>
     <li>
-      <a href="Lesson13.html">Lesson 13: Inference for the Difference of Means (Two Independent Samples)</a>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
     </li>
     <li>
-      <a href="Lesson14.html">Lesson 14: Inference using ANOVA (Several Independent Samples)</a>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
     </li>
     <li>
       <a href="Lesson15.html">Lesson 15: Unit 2 Review</a>
@@ -615,7 +615,7 @@ Answer the following questions:
 </div>
 <div id="the-distribution-of-the-sample-mean" class="section level4">
 <h4>The Distribution of the Sample Mean</h4>
-<p>We learned in the reading <a href="Lesson06.html">Distribution of Sample Means &amp; The Central Limit Theorem</a>{target = “_blank”} about the characteristics of the sample mean, <span class="math inline">\(\bar x\)</span>. Specifically, if the population from which the data are drawn is (i) approximately normal or (ii) if the sample size is large, then <span class="math inline">\(\bar x\)</span> will be approximately normally distributed. Furthermore, if the original population has mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, then the sampling distribution of <span class="math inline">\(\bar x\)</span> will have mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p>We learned in the reading <a href="Lesson06.html">Distribution of Sample Means &amp; The Central Limit Theorem</a> about the characteristics of the sample mean, <span class="math inline">\(\bar x\)</span>. Specifically, if the population from which the data are drawn is (i) approximately normal or (ii) if the sample size is large, then <span class="math inline">\(\bar x\)</span> will be approximately normally distributed. Furthermore, if the original population has mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, then the sampling distribution of <span class="math inline">\(\bar x\)</span> will have mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
 <p>So, if either condition (i) or (ii) is met, then we can consider the sample mean <span class="math inline">\(\bar x\)</span> as a normal random variable with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma/\sqrt{n}\)</span>. According to the 68-95-99.7% rule for symmetric bell-shaped distributions, about 95% of the time, the sample mean (<span class="math inline">\(\bar x\)</span>) will lie within two standard deviations of the population mean (<span class="math inline">\(\mu\)</span>).</p>
 <p>This is an important concept. Make sure that you understand the logic above before you continue reading.</p>
 </div>
@@ -671,14 +671,14 @@ Answer the following question:
 </div>
 <div class="Questions">
 <ol start="3" style="list-style-type: decimal">
-<li>For a standard normal distribution, between what two <span class="math inline">\(z\)</span>-scores will 95% of the data fall? In other words, find the values <span class="math inline">\(-z\)</span> and <span class="math inline">\(z\)</span> such that the area between them is equal to 0.95. Use the <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a>{target = “_blank”}.</li>
+<li>For a standard normal distribution, between what two <span class="math inline">\(z\)</span>-scores will 95% of the data fall? In other words, find the values <span class="math inline">\(-z\)</span> and <span class="math inline">\(z\)</span> such that the area between them is equal to 0.95. Use the <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a>.</li>
 </ol>
 <a href = "javascript:showhide('hint')"><span style="font-size:8pt;">Click here for a hint</span></a>
 <div id="hint" style="display:none;">
 <ul>
 <li>To find the value of <span class="math inline">\(z^*\)</span>, given a specific confidence level, do the following:
 <ul>
-<li>*Open the applet at <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a>{target = “_blank”}</li>
+<li>*Open the applet at <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a></li>
 <li>Shade the area between the two red lines (the middle portion of the graph) only and enter the decimal value for the desired percentage (e.g. 0.95 for 95%) in the <em>Area</em> box.</li>
 <li>The value of <span class="math inline">\(z^*\)</span> will be displayed below. Two numbers will be given along the horizontal axis. The only difference in these numbers is their sign: one is positive and one is negative. The positive value is the desired <span class="math inline">\(z^*\)</span>.</li>
 </ul></li>
@@ -721,7 +721,7 @@ Answer the following question:
 <p>Most of the time, researchers report 95% confidence intervals. The number 95% is called the <strong>confidence level</strong>. Sometimes it is desirable to use a level of confidence that is different than 95%. In that case, we need to use a number besides 1.96 in the calculations.</p>
 <p>Suppose we want to create a 90% confidence interval. What value would we put in the blanks in the confidence interval formula below? <span class="math display">\[
 \left( \bar x - \underline{~ ~ ~ ? ~ ~ ~} \frac{\sigma}{\sqrt{n}}, ~ \bar x + \underline{~ ~ ~ ? ~ ~ ~} \frac{\sigma}{\sqrt{n}} \right)
-\]</span> Another way to state this question is to ask, between what two <span class="math inline">\(z\)</span>-scores will 90% of the data in a standard normal distribution fall? We need to find the values of <span class="math inline">\(-z\)</span> and <span class="math inline">\(z\)</span> such that the area between them is equal to 0.90. Again, we use the <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a>{target = “_blank”}.</p>
+\]</span> Another way to state this question is to ask, between what two <span class="math inline">\(z\)</span>-scores will 90% of the data in a standard normal distribution fall? We need to find the values of <span class="math inline">\(-z\)</span> and <span class="math inline">\(z\)</span> such that the area between them is equal to 0.90. Again, we use the <a href="http://statistics.byuimath.com/index.php?title%20=%20Normal_Probability_Applet">Normal Probability Applet</a>.</p>
 <p><img src = "Images/Updated_z-score_curve.JPG"></p>
 <p>So, for a 90% confidence interval, the value of <span class="math inline">\(z*\)</span> would be 1.645. Note: We use an asterisk (<span class="math inline">\(*\)</span>) to indicate that <span class="math inline">\(z\)</span> was not computed from data, but was determined based on a <em>chosen</em> confidence level, 90%.</p>
 <p>The formula for a 90% confidence interval for a mean when <span class="math inline">\(\sigma\)</span> is known is: <span class="math display">\[
