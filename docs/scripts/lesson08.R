@@ -12,15 +12,8 @@
 
 
 # Tuberculosis Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/tuberculosis.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
-destfile <- "tuberculosis.xlsx"
-curl::curl_download(url, destfile)
-tuberculosis <- read_excel(destfile)
-View(tuberculosis)
+# Load the data frames
+load(url("https://github.com/byuistats/M221R/raw/main/docs/L03.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -36,15 +29,8 @@ hist(tuberculosis$costs)
 
 
 # Surgery Lawsuits Example --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
-destfile <- "surgery_lawsuits.xlsx"
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
-View(surgery_lawsuits)
+# Load the data frames
+load(url("https://github.com/byuistats/M221R/raw/main/docs/L04.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
