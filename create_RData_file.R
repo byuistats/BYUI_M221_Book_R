@@ -1,3 +1,5 @@
+library(readxl)
+
 # load(url("https://byuistats.github.io/M221R/M221.RData"))
 # 
 # 
@@ -93,6 +95,17 @@ save(hurricane,
      crossroads_purchases,
      employees,
   file="docs/L08.RData")
+
+
+# Unit 1 Exam
+
+url <- "https://byuistats.github.io/M221R/data/quiz/e1v2/employees.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+
+save(employees,
+     file="Exam1_X2d0l09QO.RData")
+
+
+
 
 # Lesson 9
 
