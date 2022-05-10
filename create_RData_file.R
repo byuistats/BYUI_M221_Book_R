@@ -459,12 +459,14 @@ save(stature,
 
 # Lesson 23
 
-URLs_Go_HERE
+# in-class exercises
+url <- "https://byuistats.github.io/M221R/data/oysters.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 
-save(
+save(oysters,
   file="L23.RData")
 
-save(
+save(oysters,
   file="docs/L23.RData")
 
 # Lesson 24
