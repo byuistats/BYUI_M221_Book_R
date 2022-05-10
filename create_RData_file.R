@@ -1,5 +1,8 @@
 library(readxl)
 
+setwd("C:/Users/craigaj/Documents/GitHub/M221R/")
+
+
 # load(url("https://byuistats.github.io/M221R/M221.RData"))
 # 
 # 
@@ -16,10 +19,6 @@ url <- "https://byuistats.github.io/M221R/data/quiz/lesson03/exam1.xlsx"; curl::
 url <- "https://byuistats.github.io/M221R/data/quiz/lesson03/grades.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
-
-setwd("C:/Users/craigaj/Documents/GitHub/M221R/")
-
-getwd()
 
 save(tuberculosis,
      surgery_lawsuits,
@@ -102,15 +101,19 @@ save(hurricane,
 url <- "https://byuistats.github.io/M221R/data/quiz/e1v2/employees.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(employees,
-     file="Exam1_X2d0l09QO.RData")
+     file="Exam1.RData")
 
+save(employees,
+     file="docs/Exam1.RData")
 
 
 
 # Lesson 9
 
 url <- "https://byuistats.github.io/M221R/data/ethan_allen.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# in-class exercises
 url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/cardiac_arrest.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
@@ -128,12 +131,12 @@ save(ethan_allen,
 
 # Lesson 10
 
-URLs_Go_HERE
+url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
-save(
+save(body_temp,
   file="L10.RData")
 
-save(
+save(body_temp,
   file="docs/L10.RData")
 
 # Lesson 11
@@ -142,7 +145,9 @@ url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_downl
 url <- "https://byuistats.github.io/M221R/data/baby_boom.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/bleu.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/euro.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# in-class exercises
 url <- "https://emp.byui.edu/johnsonc/data/old_faithful.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/quiz/baby_boom_jse_11.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/body_temp_11.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/Data/quiz/nile.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -183,8 +188,10 @@ url <- "https://byuistats.github.io/M221R/data/ree.xlsx"; curl::curl_download(ur
 url <- "https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/pine_beetle.xslx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/sleep.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# in-class exercises
 url <- "https://byuistats.github.io/M221R/data/twin_heights.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://emp.byui.edu/johnsonc/data/bp_placebo.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/quiz/chapter_12_a.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/chapter_12_b.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/women_weights.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -226,8 +233,10 @@ save(weight_loss,
 url <- "https://byuistats.github.io/M221R/data/reading.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/copd_rehab.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# in-class exercises
 url <- "https://emp.byui.edu/johnsonc/data/old_faithful_eras.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://emp.byui.edu/johnsonc/data/salaries_nursing.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/dentist_bills.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/freshmen_dinner.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/dime_weights.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -265,8 +274,10 @@ save(reading,
 
 url <- "https://byuistats.github.io/M221R/data/gratitude.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/soccer_shoes.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# in-class exercises
 url <- "https://emp.byui.edu/johnsonc/data/kindness.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://emp.byui.edu/johnsonc/data/weight_loss_incentives.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/soccer_shoes.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/dasl_hot_dog.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byui.instructure.com/courses/184480/files/84606950?wrap=1"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -294,9 +305,11 @@ save(gratitude,
 
 # Lesson 15
 
+# in-class exercises
 url <- "https://emp.byui.edu/johnsonc/data/euro_wide.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://emp.byui.edu/johnsonc/data/center_st_speeds.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://emp.byui.edu/johnsonc/data/rexburg_pizza.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 url <- "https://byuistats.github.io/M221R/data/dissolved_organic_carbon.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/used_hummers_ny_and_la.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/exercised_bone_density.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -373,42 +386,75 @@ save(ptc_tasting,
 
 # Lesson 19
 
-URLs_Go_HERE
+# in-class exercises
+library(carData); titanic <- TitanicSurvival
+url <- "https://emp.byui.edu/johnsonc/data/bison.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+# Generate hair_styles data for in-class exercises
+library(data.table)
+df <- data.frame(CJ(style = c(1:4), group = c(1:3)))
+df$n <- ifelse(df$style == 3 | df$group == 3, 45, 1000) +
+  abs(df$style - df$group) * 0 
+# df$n <- ifelse(df$style == 3 | df$group == 3, 40, 995) +
+#  abs(3 * df$style - 5 * df$group) 
+df$style = paste0("style_", letters[df$style])
+df$group = paste0("group_", df$group)
+hair_styles <- df[rep(row.names(df), df$n), 1:2]
+table(hair_styles)
+#
 
-save(
+
+save(titanic,
+     bison,
+     hair_styles,
   file="L19.RData")
 
-save(
+save(titanic,
+     bison,
+     hair_styles,
   file="docs/L19.RData")
 
 # Lesson 20
 
-URLs_Go_HERE
+# in-class exercises
+url <- "https://byuistats.github.io/M221R/data/lapd_searches.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 
-save(
+
+save(lapd_searches,
   file="L20.RData")
 
-save(
+save(lapd_searches,
   file="docs/L20.RData")
 
 # Lesson 21
 
-URLs_Go_HERE
+# in-class exercises
+library(tidyverse)
+degrees <- data.frame(celsius = c(-40,-20,0,10,20)) %>% mutate(fahrenheit = 9/5*celsius+32)
+squares <- data.frame(x = seq(3,-3,-1)) %>% mutate(y = x^2)
+#
 
-save(
+save(degrees,
+     squares,
   file="L21.RData")
 
-save(
+save(degrees,
+     squares,
   file="docs/L21.RData")
 
 # Lesson 22
 
-URLs_Go_HERE
+# in-class exercises
+url <- "https://byuistats.github.io/M221R/data/stature.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/oysters.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+#
 
-save(
+save(stature,
+     oysters,
   file="L22.RData")
 
-save(
+save(stature,
+     oysters,
   file="docs/L22.RData")
 
 # Lesson 23
