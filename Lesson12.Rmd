@@ -1353,18 +1353,18 @@ In William Sealy Gosset's landmark paper on the $t$-distribution, he cites data 
 
 Eleven subjects were included in the study.  At the start of the study, the researchers observed the average length of time that each of the participants slept before waking.  Later, each subject was given 0.6 mg of L-Hyoscyamine and the duration of uninterrupted sleep was again measured.
 
-The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug.  The data are given in the file [sleep.xlsx](./data/sleep.xlsx). After reading in these data, run the following to compute the column of differences:
+The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug.  The data are given in the file [sleep_drug.xlsx](./data/sleep_drug.xlsx). After reading in these data, run the following to compute the column of differences:
 
 ```{r, echo = FALSE}
-sleep <- read_excel("./data/sleep.xlsx") %>% select(-comments)
+sleep_drug <- read_excel("./data/sleep_drug.xlsx") %>% select(-comments)
 ```
 
 
 ```{r}
-sleep$difference = sleep$treatment - sleep$control
+sleep_drug$difference = sleep_drug$treatment - sleep_drug$control
 ```
 
-Run the command `View(sleep)` to examine the data file.
+Run the command `View(sleep_drug)` to examine the data file.
 
 Notice that the "control" data for Subject #11 is missing.  It is not possible to compute a difference for this person, so their data will be omitted from our analysis.  For this analysis, we will use the remaining $n = 10$ observations.
 
@@ -1383,7 +1383,7 @@ Notice that the "control" data for Subject #11 is missing.  It is not possible t
 We use the following command
 
 ```{r}
-favstats(sleep$difference)
+favstats(sleep_drug$difference)
 ```
 
 <center>
@@ -1408,14 +1408,14 @@ Sample Size:           $n = 10$
 Here is a histogram and a boxplot of the data:
 
 ```{r, fig.height = 3}
-hist(sleep$difference,
+hist(sleep_drug$difference,
      col = "brown3",
      xlab = "Difference in Hours of Sleep",
      main = "Slee Inducing Drugs Study")
 ```
 
 ```{r, fig.height = 3}
-boxplot(sleep$difference, 
+boxplot(sleep_drug$difference, 
         col = "brown3",
         xlab = "Difference in Hours of Sleep",
         main = "Slee Inducing Drugs Study",
@@ -1459,7 +1459,7 @@ Remember, just like the hypothesis test, this confidence interval for a mean of 
 <div id = "Q47" style = "display:none;">
 
 ```{r, comment = NA}
-t.test(sleep$difference, conf.level = 0.90)
+t.test(sleep_drug$difference, conf.level = 0.90)
 ```
 
 <center>
@@ -1513,9 +1513,9 @@ Notice that the `t.text` function does not have a problem with the missing value
 
 - When conducting hypothesis tests using dependent samples, the null hypothesis is always $\mu_d = 0$, indicating that there is no change between the first population and the second population. The alternative hypothesis can be left-tailed ($<$), right-tailed($>$), or two-tailed($\ne$).
 
-- The R code to perform a paired samples t test requires two steps. First, the `differences` must be computed. Second, the `t.test(sleep$difference, mu = 0, alternative = "two.sided")` should be used. Be sure to match the `alternative = ` statement to either `"less"`, `"greater"`, or `"two.sided"` so that it matches whatever is stated in the actual $H_a$ statement. 
+- The R code to perform a paired samples t test requires two steps. First, the `differences` must be computed. Second, the `t.test(sleep_drug$difference, mu = 0, alternative = "two.sided")` should be used. Be sure to match the `alternative = ` statement to either `"less"`, `"greater"`, or `"two.sided"` so that it matches whatever is stated in the actual $H_a$ statement. 
 
-- The R code to created a confidence interval for the true mean of the differences, $\mu_d$, uses `t.test(sleep$difference, conf.level = 0.95)` where `conf.level = ` can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).
+- The R code to created a confidence interval for the true mean of the differences, $\mu_d$, uses `t.test(sleep_drug$difference, conf.level = 0.95)` where `conf.level = ` can be changed to either 0.9 (for a 90% confidence interval) or 0.99 (for a 99% confidence interval).
 
 <br>
 </div>
