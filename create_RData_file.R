@@ -26,14 +26,14 @@ save(tuberculosis,
      dist_shapes,
      exam1,
      grades,
-  file="L03.RData")
+  file="data/L03.RData")
 
 save(tuberculosis,
      surgery_lawsuits,
      dist_shapes,
      exam1,
      grades,
-  file="docs/L03.RData")
+  file="docs/data/L03.RData")
 
 # Lesson 4
 
@@ -47,13 +47,13 @@ save(surgery_lawsuits,
      dist_shapes,
      exam1,
      grades,
-  file="L04.RData")
+  file="data/L04.RData")
 
 save(surgery_lawsuits,
      dist_shapes,
      exam1,
      grades,
-  file="docs/L04.RData")
+  file="docs/data/L04.RData")
 
 
 # Lesson 5
@@ -61,20 +61,20 @@ save(surgery_lawsuits,
 url <- "https://byuistats.github.io/M221R/data/batting_averages.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(batting_averages,
-  file="L05.RData")
+  file="data/L05.RData")
 
 save(batting_averages,
-  file="docs/L05.RData")
+  file="docs/data/L05.RData")
 
 # Lesson 7
 
 url <- "https://byuistats.github.io/M221R/data/uranium_plant_lead.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(uranium_plant_lead,
-     file="L07.RData")
+     file="data/L07.RData")
 
 save(uranium_plant_lead,
-     file="docs/L07.RData")
+     file="docs/data/L07.RData")
 
 # Lesson 8
 
@@ -85,12 +85,12 @@ url <- "https://byuistats.github.io/M221R/data/quiz/e1v2/employees.xlsx"; curl::
 save(hurricane,
      crossroads_purchases,
      employees,
-  file="L08.RData")
+  file="data/L08.RData")
 
 save(hurricane,
      crossroads_purchases,
      employees,
-  file="docs/L08.RData")
+  file="docs/data/L08.RData")
 
 
 # Unit 1 Exam
@@ -98,10 +98,10 @@ save(hurricane,
 url <- "https://byuistats.github.io/M221R/data/quiz/e1v2/employees.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(employees,
-     file="Exam1.RData")
+     file="data/Exam1.RData")
 
 save(employees,
-     file="docs/Exam1.RData")
+     file="docs/data/Exam1.RData")
 
 
 
@@ -116,22 +116,22 @@ url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_downl
 save(ethan_allen,
      body_temp,
      cardiac_arrest,
-  file="L09.RData")
+  file="data/L09.RData")
 
 save(ethan_allen,
      body_temp,
      cardiac_arrest,
-  file="docs/L09.RData")
+  file="docs/data/L09.RData")
 
 # Lesson 10
 
 url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(body_temp,
-  file="L10.RData")
+  file="data/L10.RData")
 
 save(body_temp,
-  file="docs/L10.RData")
+  file="docs/data/L10.RData")
 
 # Lesson 11
 
@@ -156,7 +156,7 @@ save(body_temp,
      nile,
      rates_of_return,
      bleu,
-  file="L11.RData")
+  file="data/L11.RData")
 
 save(body_temp,
      baby_boom,
@@ -168,7 +168,7 @@ save(body_temp,
      nile,
      rates_of_return,
      bleu,
-  file="docs/L11.RData")
+  file="docs/data/L11.RData")
 
 
 
@@ -201,7 +201,7 @@ save(weight_loss,
      women_weights,
      am_pm_heights,
      nba_salaries,
-  file="L12.RData")
+  file="data/L12.RData")
 
 save(weight_loss,
      hospital_infections,
@@ -216,7 +216,7 @@ save(weight_loss,
      women_weights,
      am_pm_heights,
      nba_salaries,
-  file="docs/L12.RData")
+  file="docs/data/L12.RData")
 
 # Lesson 13
 
@@ -243,7 +243,7 @@ save(reading,
      iq,
      illinois_birth_weights_two_var,
      direct_flight_costs,
-  file="L13.RData")
+  file="data/L13.RData")
 
 save(reading,
      fifa_heart_attacks,
@@ -256,7 +256,7 @@ save(reading,
      iq,
      illinois_birth_weights_two_var,
      direct_flight_costs,
-  file="docs/L13.RData")
+  file="docs/data/L13.RData")
 
 # Lesson 14
 
@@ -279,7 +279,7 @@ save(gratitude,
      dasl_hot_dog,
      iris_data,
      bone_mineral,
-  file="L14.RData")
+  file="data/L14.RData")
 
 save(gratitude,
      soccer_shoes,
@@ -289,7 +289,7 @@ save(gratitude,
      dasl_hot_dog,
      iris_data,
      bone_mineral,
-  file="docs/L14.RData")
+  file="docs/data/L14.RData")
 
 
 # Lesson 15
@@ -317,7 +317,7 @@ save(euro_wide,
      fitness,
      calcium,
      rates_of_return,
-  file="L15.RData")
+  file="data/L15.RData")
 
 save(euro_wide,
      center_st_speeds,
@@ -330,7 +330,7 @@ save(euro_wide,
      fitness,
      calcium,
      rates_of_return,
-  file="docs/L15.RData")
+  file="docs/data/L15.RData")
 
 
 # Lesson 16
@@ -342,36 +342,36 @@ url <- "https://byuistats.github.io/M221R/data/coin_heads.xlsx"; curl::curl_down
 save(grades_gender,
      grades_tally,
      coin_heads,
-  file="L16.RData")
+  file="data/L16.RData")
 
 save(grades_gender,
      grades_tally,
      coin_heads,
-  file="docs/L16.RData")
+  file="docs/data/L16.RData")
 
 
 # Lesson 17
 
-URLs_Go_HERE
-
-save(
-  file="L17.RData")
-
-save(
-  file="docs/L17.RData")
+# URLs_Go_HERE
+# 
+# save(
+#   file="data/L17.RData")
+# 
+# save(
+#   file="docs/data/L17.RData")
 
 # Lesson 18
 
 url <- "https://byuistats.github.io/M221R/data/ptc_tasting.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
-url <- "https://byuistats.github.io/M221R/data/lesson18/grades.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/lesson18/grades.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 
 save(ptc_tasting,
      grades,
-  file="L18.RData")
+  file="data/L18.RData")
 
 save(ptc_tasting,
      grades,
-  file="docs/L18.RData")
+  file="docs/data/L18.RData")
 
 # Lesson 19
 
@@ -389,7 +389,7 @@ save(chiropractic_care_raw,
      hair_styles,
      chiropractic_care_raw,
      grades_h19,
-  file="L19.RData")
+  file="data/L19.RData")
 
 save(chiropractic_care_raw,
      titanic,
@@ -397,7 +397,7 @@ save(chiropractic_care_raw,
      hair_styles,
      chiropractic_care_raw,
      grades_h19,
-  file="docs/L19.RData")
+  file="docs/data/L19.RData")
 
 
 # Lesson 20
@@ -418,7 +418,7 @@ save(lapd_searches,
      ratings,
      wake_county,
      firms,
-  file="L20.RData")
+  file="data/L20.RData")
 
 save(lapd_searches,
      morning_people_pexam3_raw,
@@ -427,7 +427,7 @@ save(lapd_searches,
      ratings,
      wake_county,
      firms,
-  file="docs/L20.RData")
+  file="docs/data/L20.RData")
 
 
 # Lesson 21
@@ -451,7 +451,7 @@ save(math_self_efficacy,
      corr_data,
      madison_county_real_estate,
      body_measurements_corrected,
-  file="L21.RData")
+  file="data/L21.RData")
 
 save(math_self_efficacy,
      old_faithful,
@@ -462,7 +462,7 @@ save(math_self_efficacy,
      corr_data,
      madison_county_real_estate,
      body_measurements_corrected,
-  file="docs/L21.RData")
+  file="docs/data/L21.RData")
 
 
 # Lesson 22
@@ -482,7 +482,7 @@ save(estuarine_crocodiles,
      math_self_efficacy,
      exam_prep,
      gharial_crocodiles,
-  file="L22.RData")
+  file="data/L22.RData")
 
 save(estuarine_crocodiles,
      manatees,
@@ -491,7 +491,7 @@ save(estuarine_crocodiles,
      math_self_efficacy,
      exam_prep,
      gharial_crocodiles,
-  file="docs/L22.RData")
+  file="docs/data/L22.RData")
 
 # Lesson 23
 
@@ -514,7 +514,7 @@ save(estuarine_crocodiles,
      estuarine_crocodiles,
      ad_sales,
      old_faithful,
-  file="L23.RData")
+  file="data/L23.RData")
 
 save(estuarine_crocodiles,
      manatees,
@@ -525,12 +525,12 @@ save(estuarine_crocodiles,
      estuarine_crocodiles,
      ad_sales,
      old_faithful,
-  file="docs/L23.RData")
+  file="docs/data/L23.RData")
 
 # Lesson 24
 
 url <- "https://byuistats.github.io/M221R/data/quiz/vehicles.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
-url <- "https://byuistats.github.io/M221R/data/rates_of_return.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/rates_of_return.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/exam_scores.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/e4v2/ads.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
 url <- "https://byuistats.github.io/M221R/data/quiz/e4v2/gas.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -546,7 +546,7 @@ save(vehicles,
      hand_strength,
      lizards,
      study_habits,
-  file="L24.RData")
+  file="data/L24.RData")
 
 save(vehicles,
      rates_of_return,
@@ -556,4 +556,4 @@ save(vehicles,
      hand_strength,
      lizards,
      study_habits,
-  file="docs/L24.RData")
+  file="docs/data/L24.RData")
