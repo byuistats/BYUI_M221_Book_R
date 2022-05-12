@@ -861,7 +861,7 @@ Percentiles can be used to describe the center and spread of any distribution an
 
 - Load the data frames for this lesson by executing the following command in R:
 ```{r}
-  load(url("https://byuistats.github.io/M221R/L04.RData"))
+  load(url("https://byuistats.github.io/M221R/data/L04.RData"))
 ```
 
 - One of the data frames you will have loaded is called "surgery_lawsuits".
@@ -983,7 +983,7 @@ Statistical packages can give different results for some computations.  This is 
 
 - Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you need to load this data frame, you can run the command 
 
-`load(url("https://byuistats.github.io/M221R/L04.RData"))`
+`load(url("https://byuistats.github.io/M221R/data/L04.RData"))`
 
 - You can use the function **summary(...)** in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The `summary(...)` function also provides the value of the mean, which isn't technically part of the five-number summary, but is useful to compare against the median.)
 
@@ -1075,7 +1075,7 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 
 - Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, you can run the command:
 
-`load(url("https://byuistats.github.io/M221R/L04.RData"))`
+`load(url("https://byuistats.github.io/M221R/data/L04.RData"))`
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 

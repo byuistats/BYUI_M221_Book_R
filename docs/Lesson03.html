@@ -651,22 +651,20 @@ R Instructions
 <a href = "javascript:showhide('r_instr_1_center')"><span style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1_center" style="display:none;">
 <p><br> Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below. <br/> <br> <strong>To load data sets for this lesson, simply run the following command in RStudio:</strong></p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L03.RData&quot;))</code></pre>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L03.RData&quot;))</code></pre>
 <p>This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the <em>tuberculosis</em> data, simply run the command</p>
 <pre class="r"><code>  View(tuberculosis)</code></pre>
-<pre><code># A tibble: 10 x 2
-   costs comments                         
-   &lt;dbl&gt; &lt;chr&gt;                            
- 1 15100 Cost (in US dollars) to treat    
- 2 19000 tuberculosis patients in India.  
- 3  4800 Used in the textbook in Lesson 3.
- 4  6500 &lt;NA&gt;                             
- 5 14900 &lt;NA&gt;                             
- 6   600 &lt;NA&gt;                             
- 7 23500 &lt;NA&gt;                             
- 8 11500 &lt;NA&gt;                             
- 9 12900 &lt;NA&gt;                             
-10 32200 &lt;NA&gt;                             </code></pre>
+<pre><code>   costs                          comments
+1  15100     Cost (in US dollars) to treat
+2  19000   tuberculosis patients in India.
+3   4800 Used in the textbook in Lesson 3.
+4   6500                              &lt;NA&gt;
+5  14900                              &lt;NA&gt;
+6    600                              &lt;NA&gt;
+7  23500                              &lt;NA&gt;
+8  11500                              &lt;NA&gt;
+9  12900                              &lt;NA&gt;
+10 32200                              &lt;NA&gt;</code></pre>
 <p><br /></p>
 <p><br> <strong>To calculate numerical summaries</strong> (such as the mean, median, and mode) in R, do the following: <br /></p>
 <p>In R, data are stored in data frames, like <em>tuberculosis</em>. Within a data frame, the data values are organized in columns called “vectors”. To access the data representing the costs to treat tuberculosis cases in India, we use the $ operator. The command <code>tuberculosis$costs</code> tells R that you want to access the varaible <code>costs</code> in the data frame <code>tuberculosis</code>. When we execute this command, it returns the values stored in this variable.</p>
@@ -803,7 +801,7 @@ R Instructions
 <p><br /></p>
 <p><strong>Step 2</strong></p>
 <p>Load the data for this lesson into RStudio.</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/L03.RData&quot;))</code></pre>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L03.RData&quot;))</code></pre>
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
 <!-- * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again.  -->
 <!-- * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object." -->
