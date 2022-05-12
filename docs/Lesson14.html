@@ -574,10 +574,11 @@ R Instructions
 <div class="Software">
 <p><strong>To compute numerical summaries for several groups:</strong></p>
 <ul>
-<li>Read in the data: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
-<li>Load <code>library(mosaic)</code>. (If this fails for you, try running <code>install.packages("mosaic")</code> and then re-run the <code>library(mosaic)</code> command.)</li>
+<li>Load the data: <code>gratitude</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L14.RData"))</code> in R.</li>
+<li>Load <code>library(mosaic)</code>.</li>
 <li>Use the <code>favstats(...)</code> function with the quantitative data column name listed first, followed by a tilde, <code>~</code>, which is followed by the categorical data column name. We indicate that these columns are part of the <code>gratitude</code> data frame using the command <code>data = gratitude</code>.</li>
 </ul>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L14.RData&quot;))</code></pre>
 <pre class="r"><code>library(mosaic) 
 favstats(happiness ~ treatment, data = gratitude)</code></pre>
 <pre><code>  treatment min    Q1 median    Q3 max     mean        sd  n missing
@@ -605,7 +606,7 @@ R Instructions
         main = &quot;The Effects of Gratitude&quot;,
         xlab = &quot;Treatment Groups&quot;,
         ylab = &quot;Happiness Score (Higher is More Positive)&quot;)</code></pre>
-<p><img src="Lesson14_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="Lesson14_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -621,7 +622,7 @@ R Instructions
 <div class="Software">
 <p>To conduct a test for several means (ANOVA) in R, do the following:</p>
 <ul>
-<li>Read in the data if you haven’t already: <a href="./data/gratitude.xlsx">gratitude.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</li>
+<li>Load the <code>gratitude</code> data if you haven’t already,</li>
 <li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>aov_output</code>.</li>
 <li>When using the <code>aov(...)</code> function, place the quantitative variable first, followed by a <code>~</code>, followed by the categorical variable. As in other examples, we indicate the data frame using the <code>data =</code> argument.</li>
 <li>Use the <code>summary(...)</code> function to view the results of the ANOVA test in a nice format.</li>
@@ -671,7 +672,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>This requirement is checked by examining the variances. Remember, the variance is the square of the standard deviation. The rule we will use is: <em>if the largest variance is more than four times as big as the smallest variance, we will conclude that the variances are equal.</em></p>
 <p>We can find the variance using the following R command:</p></li>
 </ul>
-<pre class="r"><code>var(happiness ~ treatment, data=gratitude)</code></pre>
+<pre class="r"><code>var(happiness ~ treatment, data = gratitude)</code></pre>
 <pre><code>##    Events  Grateful   Hassles 
 ## 0.7196250 0.8917460 0.6922478</code></pre>
 <pre><code>For the gratitude study, the variances of the Events, Grateful, and Hassles groups were 0.720, 0.892, and 0.692, respectively. The largest of these variances is 0.892 and the smallest is 0.692. Notice that the largest variance is not more than four times as big as the smallest variance. So, we conclude the assumption is satisfied.</code></pre>
@@ -705,7 +706,7 @@ The variance is the square of the standard deviation. The sample variance is den
 <p><img src = "Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>--> The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.</p>
-<p>Data representing the results of this study are given in the file <a href="./data/soccer_shoes.xlsx">soccer_shoes</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>Data representing the results of this study are given in the data frame <code>soccer_shoes</code>.</p>
 <div id="r-instructions-for-converting-wide-data-to-long-format" class="section level3">
 <h3>R Instructions for Converting “Wide” Data to “Long” Format</h3>
 <p>After reading in the data, examine the format in which they are presented.</p>
@@ -849,6 +850,7 @@ Ewald M. Hennig and Thorsten Sterzing
 27
 </td>
 <td style="text-align:left;">
+NA
 </td>
 </tr>
 <tr>
@@ -917,6 +919,7 @@ performance: a series of biomechanical studies’, Footwear Science, 2: 1, 3 —
 37
 </td>
 <td style="text-align:left;">
+NA
 </td>
 </tr>
 </tbody>
@@ -925,14 +928,9 @@ performance: a series of biomechanical studies’, Footwear Science, 2: 1, 3 —
 <p>In order to conduct an ANOVA analysis to determine if the mean accuracy is the same for the six types of footwear, we need to convert the data into “long” format. We will do this in three steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>Examine the data. We can either do this with either the <code>View(soccer_shoes)</code> or <code>head(soccer_shoes)</code> commands.</p></li>
-<li><p>Remove columns that do not contain data. In this case, we want to eliminate the column titled <code>comments</code>. One way to do this is by running the command:</p></li>
+<li><p>We will “stack” the data to create a new data frame in long format. We filter out any columns that are not numeric in this process. The column titled <code>comments</code> is deleted before the data are stacked. We give this new data frame a separate name: <code>soccer</code>. Notice that <code>soccer</code> that is in “long” format, where <code>soccer_shoes</code> is in “wide” format.</p></li>
 </ol>
-<pre class="r"><code>soccer_shoes$comments &lt;- NULL</code></pre>
-<p>This command removes the column <code>comments</code> from the data set. The only way to restore the column is to start over by reading in the data again.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>We will use the <code>stack()</code> command to create a new data set called <code>soccer</code> that is in “long” format:</li>
-</ol>
-<pre class="r"><code>soccer &lt;- stack(soccer_shoes)</code></pre>
+<pre class="r"><code>  soccer &lt;- stack(Filter(is.numeric, soccer_shoes))</code></pre>
 <p>Use <code>View(soccer)</code> to explore these data. Notice that R has transformed the data, so that it is now in “long” format, where the accuracy values are in a column called <code>values</code> and the label indicating (“ind”) the type of footwear is in a second column called <code>ind</code>.</p>
 <p>After making this change, the techniques for performing ANOVA on long data can be applied to the data set <code>soccer</code>.</p>
 <p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
@@ -1014,12 +1012,134 @@ favstats(values ~ ind, data = soccer)</code></pre>
 </ol>
 <a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
+<pre class="r"><code>soccer</code></pre>
+<pre><code>##     values    ind
+## 1       35 shoe_a
+## 2       32 shoe_a
+## 3       39 shoe_a
+## 4       44 shoe_a
+## 5       35 shoe_a
+## 6       27 shoe_a
+## 7       28 shoe_a
+## 8       31 shoe_a
+## 9       39 shoe_a
+## 10      38 shoe_a
+## 11      37 shoe_a
+## 12      34 shoe_a
+## 13      22 shoe_a
+## 14      29 shoe_a
+## 15      35 shoe_a
+## 16      35 shoe_a
+## 17      26 shoe_a
+## 18      29 shoe_a
+## 19      34 shoe_a
+## 20      33 shoe_a
+## 21      30 shoe_b
+## 22      27 shoe_b
+## 23      27 shoe_b
+## 24      38 shoe_b
+## 25      36 shoe_b
+## 26      31 shoe_b
+## 27      36 shoe_b
+## 28      36 shoe_b
+## 29      25 shoe_b
+## 30      37 shoe_b
+## 31      26 shoe_b
+## 32      40 shoe_b
+## 33      40 shoe_b
+## 34      39 shoe_b
+## 35      41 shoe_b
+## 36      29 shoe_b
+## 37      31 shoe_b
+## 38      31 shoe_b
+## 39      26 shoe_b
+## 40      28 shoe_b
+## 41      25 shoe_c
+## 42      40 shoe_c
+## 43      35 shoe_c
+## 44      30 shoe_c
+## 45      23 shoe_c
+## 46      24 shoe_c
+## 47      31 shoe_c
+## 48      28 shoe_c
+## 49      39 shoe_c
+## 50      32 shoe_c
+## 51      26 shoe_c
+## 52      25 shoe_c
+## 53      31 shoe_c
+## 54      20 shoe_c
+## 55      29 shoe_c
+## 56      27 shoe_c
+## 57      27 shoe_c
+## 58      31 shoe_c
+## 59      36 shoe_c
+## 60      30 shoe_c
+## 61      26 shoe_d
+## 62      19 shoe_d
+## 63      32 shoe_d
+## 64      37 shoe_d
+## 65      29 shoe_d
+## 66      43 shoe_d
+## 67      38 shoe_d
+## 68      30 shoe_d
+## 69      33 shoe_d
+## 70      34 shoe_d
+## 71      41 shoe_d
+## 72      35 shoe_d
+## 73      24 shoe_d
+## 74      28 shoe_d
+## 75      27 shoe_d
+## 76      27 shoe_d
+## 77      37 shoe_d
+## 78      48 shoe_d
+## 79      30 shoe_d
+## 80      22 shoe_d
+## 81      43 shoe_e
+## 82      30 shoe_e
+## 83      38 shoe_e
+## 84      36 shoe_e
+## 85      27 shoe_e
+## 86      30 shoe_e
+## 87      34 shoe_e
+## 88      25 shoe_e
+## 89      38 shoe_e
+## 90      37 shoe_e
+## 91      24 shoe_e
+## 92      29 shoe_e
+## 93      26 shoe_e
+## 94      27 shoe_e
+## 95      35 shoe_e
+## 96      29 shoe_e
+## 97      28 shoe_e
+## 98      33 shoe_e
+## 99      42 shoe_e
+## 100     33 shoe_e
+## 101     34  socks
+## 102     37  socks
+## 103     46  socks
+## 104     39  socks
+## 105     27  socks
+## 106     37  socks
+## 107     41  socks
+## 108     37  socks
+## 109     36  socks
+## 110     28  socks
+## 111     43  socks
+## 112     36  socks
+## 113     40  socks
+## 114     26  socks
+## 115     40  socks
+## 116     44  socks
+## 117     27  socks
+## 118     33  socks
+## 119     28  socks
+## 120     26  socks</code></pre>
 <pre class="r"><code>boxplot(values ~ ind, data = soccer,
         col = &quot;tan3&quot;, 
         main = &quot;Soccer Shoes vs. Socks and Shooting Accuracy&quot;,
         xlab = &quot;Footwear&quot;,
         ylab = &quot;Accuracy&quot;)</code></pre>
-<p><img src="Lesson14_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="Lesson14_files/figure-html/soccer_boxplot-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -1182,7 +1302,7 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 </ul></li>
 </ol></li>
 <li><p>To perform an ANOVA in R, use the code <code>aov_output &lt;- aov(...)</code> to run the test, then the code <code>summary(aov_output)</code> to view the results.</p></li>
-<li><p>If data are provided in “wide” format, they must first be converted to “long” format before performing the ANOVA analysis.</p></li>
+<li><p>If data are provided in “wide” format, they must first be converted to “long” format before performing the ANOVA analysis. This can be accomplished using the command <code>new_data_frame &lt;- stack(Filter(is.numeric, old_data_frame))</code> in R.</p></li>
 </ul>
 <p><br></p>
 </div>

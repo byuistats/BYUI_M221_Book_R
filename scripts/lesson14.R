@@ -51,7 +51,7 @@ summary(aov_output)
 
 
 # Convert Data from Wide to Long Format -------------------
-soccer_shoes$comments <- NULL
+Filter(is.numeric, soccer_shoes)
 soccer <- stack(soccer_shoes)
 
 # Numerical Summaries -------------------------------------

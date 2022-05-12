@@ -149,14 +149,18 @@ The 192 students that volunteered to participate in the study were randomly assi
 
 **To compute numerical summaries for several groups:**
 
-* Read in the data: [gratitude.xlsx](./data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
-* Load `library(mosaic)`. (If this fails for you, try running `install.packages("mosaic")` and then re-run the `library(mosaic)` command.)
+* Load the data: `gratitude`. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L14.RData"))`
+in R.
+* Load `library(mosaic)`. 
 * Use the `favstats(...)` function with the quantitative data column name listed first, followed by a tilde, `~`, which is followed by the categorical data column name. We indicate that these columns are part of the `gratitude` data frame using the command `data = gratitude`.
 
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L14.RData"))
+```
+
 ```{r, include = FALSE}
-library(readxl)
 library(pander)
-gratitude <- read_excel("./data/gratitude.xlsx")
 ```
 
 ```{r, message = FALSE, warning = FALSE, comment = NA}
@@ -205,7 +209,7 @@ Based on the numerical summaries and boxplot, the gratitude group had a higher l
 
 To conduct a test for several means (ANOVA) in R, do the following: 
 
-* Read in the data if you haven't already: [gratitude.xlsx](./data/gratitude.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+* Load the `gratitude` data if you haven't already,
 * Use the `aov(...)` function and the assignment operator `<-` to perform and save the results of the test to any name you want to create for the test. Here we use the name `aov_output`. 
 * When using the `aov(...)` function, place the quantitative variable first, followed by a `~`, followed by the categorical variable. As in other examples, we indicate the data frame using the `data = ` argument.
 * Use the `summary(...)` function to view the results of the ANOVA test in a nice format.
@@ -267,7 +271,7 @@ There are two requirements of ANOVA that we can verify directly:
 
     We can find the variance using the following R command:
 ```{r}
-var(happiness ~ treatment, data=gratitude)
+var(happiness ~ treatment, data = gratitude)
 ```
 
     For the gratitude study, the variances of the Events, Grateful, and Hassles groups were 0.720, 0.892, and 0.692, respectively. The largest of these variances is 0.892 and the smallest is 0.692. Notice that the largest variance is not more than four times as big as the smallest variance. So, we conclude the assumption is satisfied.
@@ -329,7 +333,7 @@ If we take a closer look, we see that the Hassles and Events groups had means th
 
 Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>-->  The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.
 
-Data representing the results of this study are given in the file [soccer_shoes](./data/soccer_shoes.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+Data representing the results of this study are given in the data frame `soccer_shoes`.
 
 ### R Instructions for Converting "Wide" Data to "Long" Format
 
@@ -339,7 +343,6 @@ After reading in the data, examine the format in which they are presented.
 library(knitr)
 library(tidyverse)
 library(kableExtra)
-soccer_shoes <- read_excel("./data/soccer_shoes.xlsx")
 ```
 
 Here are the first eight rows:
@@ -357,15 +360,9 @@ In order to conduct an ANOVA analysis to determine if the mean accuracy is the s
 
   1. Examine the data. We can either do this with either the `View(soccer_shoes)` or `head(soccer_shoes)` commands.
   
-  2. Remove columns that do not contain data. In this case, we want to eliminate the column titled `comments`. One way to do this is by running the command:
+  2. We will "stack" the data to create a new data frame in long format. We filter out any columns that are not numeric in this process. The column titled `comments` is deleted before the data are stacked. We give this new data frame a separate name: `soccer`. Notice that `soccer` that is in "long" format, where `soccer_shoes` is in "wide" format.
 ```{r}
-soccer_shoes$comments <- NULL
-```
-This command removes the column `comments` from the data set. The only way to restore the column is to start over by reading in the data again.
-
-  3. We will use the `stack()` command to create a new data set called `soccer` that is in "long" format:
-```{r}
-soccer <- stack(soccer_shoes)
+  soccer <- stack(Filter(is.numeric, soccer_shoes))
 ```
 
 Use `View(soccer)` to explore these data. Notice that R has transformed the data, so that it is now in "long" format, where the accuracy values are in a column called `values` and the label indicating ("ind") the type of footwear is in a second column called `ind`.
@@ -433,8 +430,12 @@ Using the code above, we can pull out the important values.
 <a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q2" style = "display:none;">
 
-
 ```{r}
+soccer
+```
+
+
+```{r, label = soccer_boxplot}
 boxplot(values ~ ind, data = soccer,
         col = "tan3", 
         main = "Soccer Shoes vs. Socks and Shooting Accuracy",
@@ -585,6 +586,7 @@ $$
 - To perform an ANOVA in R, use the code `aov_output <- aov(...)` to run the test, then the code `summary(aov_output)` to view the results.
 
 - If data are provided in "wide" format, they must first be converted to "long" format before performing the ANOVA analysis.
+This can be accomplished using the command `new_data_frame <- stack(Filter(is.numeric, old_data_frame))` in R.
 
 <br>
 </div>
