@@ -449,17 +449,19 @@ $(document).ready(function () {
 </div>
 <div id="describing-bivariate-data" class="section level2">
 <h2>Describing Bivariate Data</h2>
-<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>.</p>
-<p>Read in the data from the file <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student’s confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file <code>math_self_efficacy</code>. You can load this data frame into R by running the command</p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L21.RData&quot;))</code></pre>
 <p>After reading in the data, you may want to look at the first few rows to see how it is formatted.</p>
 <pre class="r"><code>head(math_self_efficacy)</code></pre>
-<pre><code>  gender score confidence_rating_mean                    comments
-1 Female  50.0                   4.34     Shane Goodwin and other
+<pre><code># A tibble: 6 x 4
+  gender score confidence_rating_mean comments                   
+  &lt;chr&gt;  &lt;dbl&gt;                  &lt;dbl&gt; &lt;chr&gt;                      
+1 Female  50                     4.34 Shane Goodwin and other    
 2 Female  83.3                   4.73 researchers studied factors
-3 Female  76.7                   5.28     that affect a student&#39;s
-4 Female  50.0                   2.83   confidence on a multiple-
-5 Female  76.7                   5.40    choice mathematics exam.
-6 Female  73.3                   4.03                        &lt;NA&gt;</code></pre>
+3 Female  76.7                   5.28 that affect a student&#39;s    
+4 Female  50                     2.83 confidence on a multiple-  
+5 Female  76.7                   5.4  choice mathematics exam.   
+6 Female  73.3                   4.03 &lt;NA&gt;                       </code></pre>
 <p>Notice that we have two quantitative measurements on each participant: <em>score</em> and <em>confidence_rating_mean</em>. We call these data <strong>bivariate data</strong>. The prefix “bi-” comes from the Latin <em>bi-</em> meaning “twice” or “double”. When we are simultaneously working with two quantitative variables, we say we have bivariate data.</p>
 <p>In the past, we have summarized quantitative data by computing summary statistics. Here are a couple of statistics computed from these data:</p>
 <ul>
@@ -479,7 +481,7 @@ R Instructions
 </div>
 <div class="Software">
 <p><strong>To create a scatterplot in R</strong> use the <code>plot(...)</code> function with the response variable (y) placed first, followed by a <code>~</code>, followed by the explanatory variable (x). Then, you indicate which data frame the variables are in using the <code>data =</code> argument.</p>
-<p>First, read in the data: <a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a>. (<a href="RHelp.html#reading-in-data">Click here</a> for a reminder on how to read in data.) Then, run the code:</p>
+<p>First, load the data frame <code>math_self_efficacy</code>. Then, run the following code to make a scatterplot:</p>
 <pre class="r"><code>plot(score ~ confidence_rating_mean, data = math_self_efficacy)</code></pre>
 <p><img src="Lesson21_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We can customize our plot with color and better labels using the options</p>
@@ -740,7 +742,7 @@ Answer the following questions:
 
 </div>
 <p><img src = "Images/Step2.png"></p>
-<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <a href="./data/old_faithful.xlsx">old_faithful.xlsx</a>.</p>
+<p>Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file <code>old_faithful</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L21.RData"))</code> in R.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>

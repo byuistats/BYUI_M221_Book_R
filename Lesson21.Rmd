@@ -76,16 +76,15 @@ The $n = 139$ students from the selected Math 101 course represented a convenien
 
 ##  Describing Bivariate Data 
 
-Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx).
-
-Read in the data from the file [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx). (Review of [reading in data](RHelp.html#reading-in-the-data).)
+Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file `math_self_efficacy`. You can load this data frame into R by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L21.RData"))
+```
 
 ```{r, echo = FALSE, message = FALSE}
-library(readxl)
 library(knitr)
 library(tidyverse)
 library(kableExtra)
-math_self_efficacy <- read_excel("./data/math_self_efficacy.xlsx") %>% data.frame()
 ```
 
 After reading in the data, you may want to look at the first few rows to see how it is formatted.
@@ -118,12 +117,7 @@ The variable on the x-axis of the scatter plot is called the **explanatory varia
 <div class = "Software">
 **To create a scatterplot in R** use the `plot(...)` function with the response variable (y) placed first, followed by a `~`, followed by the explanatory variable (x). Then, you indicate which data frame the variables are in using the `data = ` argument.
 
-First, read in the data: [math_self_efficacy.xlsx](./data/math_self_efficacy.xlsx). ([Click here](RHelp.html#reading-in-data) for a reminder on how to read in data.) Then, run the code:
-
-```{r, include = FALSE}
-library(readxl)
-math_self_efficacy <- read_excel("./data/math_self_efficacy.xlsx")
-```
+First, load the data frame `math_self_efficacy`. Then, run the following code to make a scatterplot:
 
 ```{r}
 plot(score ~ confidence_rating_mean, data = math_self_efficacy)
@@ -544,7 +538,9 @@ The amount of time between eruptions (wait time) is random.  However, it can be 
 
 <img src = "./Images/Step2.png">
 
-Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file [old_faithful.xlsx](./data/old_faithful.xlsx).
+Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file `old_faithful`. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L21.RData"))`
+in R. 
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">
@@ -590,7 +586,6 @@ hist(old_faithful$wait,
 
 <center>
 ```{r, echo = FALSE}
-old_faithful <- read_excel("./data/old_faithful.xlsx") %>% data.frame()
 hist(old_faithful$wait, 
      col = "steelblue3", 
      xlab = "Waiting Time to Next Eruption (Minutes)", 
