@@ -490,16 +490,20 @@ H_a\colon &amp; \text{The row variable and the column variable are not independe
 <p>The researchers reported on their data collection procedures with the following statement. “Using an international convenience sample of Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients attending 27 different chiropractic clinics in the USA, Europe and Australia completed a one-page survey on intake to assess reason for seeking care. A forced choice response was obtained characterizing the patient’s reason for seeking chiropractic care.”</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
-<p>The data from the study are given in the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.) Each row represents the responses of one person.</p>
+<p>The data from the study are given in the file <code>chiropractic_care_raw</code>. You can access this data frame by running the command</p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L19.RData&quot;))</code></pre>
+<p>in R. Each row represents the responses of one person.</p>
 <p>You can use the <code>head()</code> function to look at the first few rows of the data.</p>
 <pre class="r"><code>head(chiropractic_care_raw)</code></pre>
-<pre><code>   location motivation
-1 Australia  Self Care
-2 Australia    At Risk
+<pre><code># A tibble: 6 x 2
+  location  motivation
+  &lt;chr&gt;     &lt;chr&gt;     
+1 Australia Self Care 
+2 Australia At Risk   
 3 Australia Prevention
-4 Australia  Self Care
-5 Australia  Sick Role
-6 Australia  Self Care</code></pre>
+4 Australia Self Care 
+5 Australia Sick Role 
+6 Australia Self Care </code></pre>
 You can also view the data using the command <code>View(chiropractic_care_raw)</code>. Here is a brief excerpt of the data:
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -651,7 +655,7 @@ Prevention
 R Instructions
 </div>
 <div class="Software">
-<p>First, read in the data from the file <a href="./data/chiropractic_care_raw.xlsx">chiropractic_care_raw.xlsx</a>. (Review of <a href="RHelp.html#reading-in-the-data">reading in data</a>.)</p>
+<p>First, read in the data from the file <code>chiropractic_care_raw</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L19.RData"))</code> in R.</p>
 <p>It is hard to visualize these data. We summarize them into a table of counts, which can be called a <em>contingency table</em>. <!--<cite>Blum08</cite>--></p>
 <p>After reading in the data, we can organize it into a contingency table. The values in a contingency table represent the counts of the reasons individuals from each location sought chiropractic care.</p>
 <p>We make a contingency table using the <code>table()</code> command. We give the two columns of data using the format <code>dataframe$variable</code>. In our case, we will create a contingency table of the <code>chiropractic_care_raw$location</code> and <code>chiropractic_care_raw$motivation</code> data.</p>
@@ -718,17 +722,17 @@ contingency_table</code></pre>
 <li><p><code>legend.text = TRUE</code> adds a legend to the graph. Sometimes the legend covers the bars, so it is useful in that case to use <code>ylim = c(0, some number)</code> so that the legend is moved off of the bars.</p></li>
 </ul>
 <pre class="r"><code>barplot(contingency_table, beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>It is usually helpful to also examine a bar chart of the transpose of the data.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Either plot can be used, because they present identical information in different ways. You will probably prefer one of these plots over the other, so use the one you feel best describes the data.</p>
 <p>In this case, it makes sense to group the reasons people seek chiropractic care together for each country. The second boxplot seems to be more effective as presenting the information in this case.</p>
 <p>Notice that the legend covers part of the bars in this plot. If we increase the length of the y-axis to 450 (instead of the default value), the legend no longer covers the bars. This is accomplished with the argument <code>ylim = c(0, 450)</code>, which sets the limits of the y-axis to go from 0 to 450. We can also color the plot by providing enough colors for each of the legend entries. We will use the first plot, which has five legend entries. So, we use the command: <code>col = c("tan3", "brown3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
 <pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
         ylim = c(0, 450),  # extend the y-axis from 0 to 450
         col = c(&quot;tan3&quot;, &quot;brown3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Lesson19_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p><br/></p>
 </div>
 <p><br> <br></p>
