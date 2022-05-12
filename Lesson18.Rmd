@@ -78,7 +78,13 @@ Further exploration of the PTC data allows us to investigate if there is a diffe
 
 
 
-These data are available in the file [ptc_tasting](./data/ptc_tasting.xlsx).  Note the way the data are organized in the file.  One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.
+These data are available in the file `ptc_tasting`. You can access this data frame by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L18.RData"))
+```
+in R. 
+Note the way the data are organized in the file.  One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.
+
 
 Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of males and the proportion of females who can taste PTC?  The hypothesis is that there is no difference in the the true proportion of males who can taste PTC compared to the true proportion of females who can taste PTC. This is written mathematically as:
 

@@ -482,7 +482,9 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>These data are available in the file <a href="./data/ptc_tasting.xlsx">ptc_tasting</a>. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
+<p>These data are available in the file <code>ptc_tasting</code>. You can access this data frame by running the command</p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L18.RData&quot;))</code></pre>
+<p>in R. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
 <p>Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of males and the proportion of females who can taste PTC? The hypothesis is that there is no difference in the the true proportion of males who can taste PTC compared to the true proportion of females who can taste PTC. This is written mathematically as:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -502,7 +504,7 @@ H_a: ~&amp; p_\text{females} \ne p_\text{males} \\
 \]</span> This works out to be about 73.1%.</p>
 <p>When working with data for two proportions, graphically displaying the data can help us compare each proportion. Bar charts are essential tools for describing our data. This stacked bar chart illustrates how close the two proportions are to each other.</p>
 <center>
-<img src="Lesson18_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="Lesson18_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 </center>
 <p><img src = "Images/Step4.png"></p>
 <p>The null and alternative hypotheses for a test of equality of two proportions is: <span class="math display">\[
@@ -569,7 +571,7 @@ two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = &quot;two.sided&
 ## p^1 = 0.773, p^2 = 0.731</code></pre>
 <p>At the bottom of this output, we are given the sample proportions for the two groups. Since we entered the female values first, group 1 represents the females and group 2 is for the males.</p>
 <p>This function also generates side-by-side bar charts illustrating the data.</p>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>We can see that the two proportions are fairly close to each other: <span class="math inline">\(\hat p_1 = \frac{51}{66} = 0.773\)</span> and <span class="math inline">\(\hat p_2 = \frac{38}{52} = 0.731\)</span>.</p>
 <p>The test statistic, <span class="math inline">\(z\)</span>, is <span class="math inline">\(z = 0.526\)</span>.</p>
 <p>The <span class="math inline">\(P\)</span>-value of this test is 0.599, which can be confirmed by putting the <span class="math inline">\(Z\)</span>-value into the Normal Probability Applet and shading both tails.</p>
@@ -716,7 +718,7 @@ Answer the following questions:
 <div id="Q4" style="display:none;">
 <pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = &quot;two.sided&quot;)</code></pre>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -897,7 +899,7 @@ hattack.table <- c(Weekday = 17113/117709, Weekend = 6289/42511)
 barplot(hattack.table, ylim = c(0,1))
 ```
 
-<img src="Lesson18_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="Lesson18_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
 </div>
@@ -1174,7 +1176,7 @@ two.prop.test(x1 = 268, n1 = 1359, x2 = 576, n2 = 950, conf.level = 0.95)</code>
 ## sample estimates: 
 ## p^1 = 0.197, p^2 = 0.606</code></pre>
 <p>We can see the distinct difference in the proportion of fox tracks after the intervention in the side-by-side bar charts.</p>
-<p><img src="Lesson18_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="Lesson18_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>Recall that group 1 represents the observations <em>after</em> the intervention and Group 2 represents observations <em>before</em> the intervention.</p>
 </div>
 <p><br/></p>
