@@ -54,16 +54,20 @@ That suggests that 55.2% of the people polled plan to vote for the Republican.  
 
 #### Grades of BYU-Idaho Students
 
-Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data file [grades_gender.xlsx](./data/grades_gender.xlsx). R can be used to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file
-[grades_tally.xlsx](./data/grades_tally.xlsx). Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
+Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data frame `grades_gender`. You can access this data frame by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+```
+in R.
+We can use R to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file
+`grades_tally`. Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
 
-Read the data in the file [grades_tally.xlsx](./data/grades_tally.xlsx) into R. These data are summarized in the table below.
+The `grades_tally` data are summarized in the table below.
 
 ```{r, include = FALSE}
 library(readxl)
 library(kableExtra)
 library(tidyverse)
-grades_tally <- read_excel("./data/grades_tally.xlsx")
 ```
 
 ```{r, echo = FALSE}
@@ -160,8 +164,11 @@ It is important for you to know how to create a bar chart. These are heavily use
 
 We will use the students' grades to create a bar chart.
 
-Read in the data: [grades_tally.xlsx](./data/grades_tally.xlsx) into R. 
-(Review of [reading in data](RHelp.html#reading-in-the-data).)
+Load the data frame `grades_tally` into R. You can access this data frame by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+```
+in R.
 
 Then, use the `barplot(...)` function to create a bar chart of the values.
 
@@ -252,11 +259,11 @@ Answer the following questions. For this exercise, you will need a coin.
 </div>
 <br>
 
-2. The data file [coin_heads.xlsx](./data/coin_heads.xlsx) contains data representing a collection of 900 students' results, where each tossed a coin $n=25$ times and calculated the proportion of heads.  The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?
+2. The data frame `coin_heads` contains data representing a collection of 900 students' results, where each tossed a coin $n=25$ times and calculated the proportion of heads. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L16.RData"))`
+in R. The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?
 
 ```{r, echo = FALSE}
-library(readxl)
-coin_heads <- read_excel("./data/coin_heads.xlsx")
 hist(coin_heads$proportion, prob=TRUE, breaks = seq(0.1,0.9,0.04),#density=20, breaks=20,  
      xlab = "Proportion of Heads in 25 Coin Tosses", #ylim=c(0, 2), 
      ylab = "",
@@ -426,7 +433,7 @@ Then, we can enter this $z$-score in the Normal Probability Applet to find the a
 
 If a coin is tossed $n=25$ times, and heads is observed 17 times, the sample proportion of heads is
 $\displaystyle{\widehat p = \frac{x}{n} = \frac{17}{25} = 0.68}$
-The proportion of heads tossed by the first student in the file [coin_heads.xlsx](./data/coin_heads.xlsx) is $\widehat p = 0.68$.
+The proportion of heads tossed by the first student in the data frame `coin_heads` is $\widehat p = 0.68$.
 We will find the probability that a sample proportion will exceed 0.68.
 
 First, we compute the $z$-score corresponding to $\widehat p = 0.68$.  We can use the mean and standard deviation, which were given in questions 9 and 10, or simply substitute the values of $p=0.5$ and $n=25$ in the equation for the $z$-score.
@@ -447,7 +454,7 @@ The area to the right of $z=1.800$ is $0.0359$.
 
 <div class="QuestionsHeading">Answer the following questions:</div>
 <div class="Questions">
-11. The second student with data listed in the file [coin_heads.xlsx](./data/coin_heads.xlsx) had $\widehat p = 0.44$, or 44% of their coin tosses resulted in heads.  Find the $z$-score corresponding to this value.
+11. The second student with data listed in the data frame `coin_heads` had $\widehat p = 0.44$, or 44% of their coin tosses resulted in heads.  Find the $z$-score corresponding to this value.
 
 <a href="javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
