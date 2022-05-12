@@ -523,11 +523,6 @@ H_a: \mu \ne 98.6\\
 <pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L11.RData&quot;))</code></pre>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<!-- ```{r, include = FALSE} -->
-<!-- library(mosaic) -->
-<!-- library(readxl) -->
-<!-- # body_temp <- read_excel("./data/body_temp.xlsx") -->
-<!-- ``` -->
 <p>We calculate summary statistics in RStudio after importing the data (<a href="RHelp.html#reading-in-data">click here</a> for a reminder how to import data into RStudio). We can get the mean (<span class="math inline">\(\bar x\)</span>), standard deviation (<span class="math inline">\(s\)</span>), and sample size (<span class="math inline">\(n\)</span>) using the code:</p>
 <pre class="r"><code>library(mosaic)
 favstats(body_temp$temperature) </code></pre>
@@ -554,7 +549,8 @@ n = 148
         col = &quot;tan3&quot;,                # Set the color
         xlab = &quot;Body Temperature (Degrees Fahrenheight)&quot;,
         main = &quot;Body Temperatures of 148 Healthy Adults&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-9-1.png" width="672" /> In both these plots, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample <span class="math inline">\(t\)</span>-test.</p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>In both the histogram and boxplot, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample <span class="math inline">\(t\)</span>-test.</p>
 <p></br></p>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
@@ -660,9 +656,6 @@ Answer the following questions:
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <p>Once the <code>baby_boom</code> data frame is loaded into RStudio, the relevant summary statistics for the “Weight” column are computed by:</p>
-<!-- ```{r, include = FALSE} -->
-<!-- baby_boom <- read_excel("./data/baby_boom.xlsx") -->
-<!-- ``` -->
 <pre class="r"><code>favstats(baby_boom$weight)</code></pre>
 <pre><code>##   min     Q1 median      Q3  max     mean       sd  n missing
 ##  1745 3141.5   3404 3571.75 4162 3275.955 528.0325 44       0</code></pre>
@@ -793,10 +786,7 @@ You can see the details by clicking on [Show Hand Calculations] in Step 4.
 R Instructions
 </div>
 <div class="Software">
-<p>After reading the <a href="./data/bleu.xlsx">bleu.xlsx</a> data into R, we can compute the following.</p>
-<!-- ```{r, include = FALSE} -->
-<!-- bleu <- read_excel("./data/bleu.xlsx") -->
-<!-- ``` -->
+<p>After loading the <code>bleu</code> data frame, we can compute the following.</p>
 <pre class="r"><code>favstats(bleu$score)</code></pre>
 <pre><code>##    min     Q1 median      Q3   max    mean         sd   n missing
 ##  0.211 0.2715 0.2865 0.30525 0.373 0.28761 0.02636415 100       0</code></pre>
@@ -1012,9 +1002,6 @@ Answer the following questions:
 <a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <p>Read in the <code>euro</code> data frame. Then, compute the summary statistics.</p>
-<!-- ```{r, include = FALSE} -->
-<!-- euro <- read_excel("./data/euro.xlsx") -->
-<!-- ``` -->
 <pre class="r"><code>favstats(euro$weight)</code></pre>
 <pre><code>   min    Q1 median      Q3   max     mean         sd    n missing
  7.201 7.498   7.52 7.54425 7.752 7.521232 0.03437914 2000       0</code></pre>

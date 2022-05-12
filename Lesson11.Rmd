@@ -175,13 +175,6 @@ Load this data frame into R by running the following command in R:
 
 **Give the relevant summary statistics**
 
-
-<!-- ```{r, include = FALSE} -->
-<!-- library(mosaic) -->
-<!-- library(readxl) -->
-<!-- # body_temp <- read_excel("./data/body_temp.xlsx") -->
-<!-- ``` -->
-
 We calculate summary statistics in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio). We can get the mean ($\bar x$), standard deviation ($s$), and sample size ($n$) using the code:
 
 ```{r, include = FALSE}
@@ -229,7 +222,8 @@ boxplot(body_temp$temperature,       # Select the data to use for the graph
         xlab = "Body Temperature (Degrees Fahrenheight)",
         main = "Body Temperatures of 148 Healthy Adults")
 ```
-In both these plots, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample $t$-test.
+
+In both the histogram and boxplot, there is evidence that the mean is not 98.6 degrees Fahrenheit but some lower value. We will test this formally using a one-sample $t$-test.
 
 
 </br>
@@ -377,10 +371,6 @@ Using this data frame, test the hypothesis that the mean weight of babies born i
 <div id = "Q1" style = "display:none;">
 
 Once the `baby_boom` data frame is loaded into RStudio, the relevant summary statistics for the "Weight" column are computed by:
-
-<!-- ```{r, include = FALSE} -->
-<!-- baby_boom <- read_excel("./data/baby_boom.xlsx") -->
-<!-- ``` -->
 
 ```{r}
 favstats(baby_boom$weight)
@@ -547,13 +537,9 @@ Koehn wants to find an estimate of the true mean BLEU score for text translated 
 
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
-After reading the
-[bleu.xlsx](./data/bleu.xlsx)
-data into R, we can compute the following.
-
-<!-- ```{r, include = FALSE} -->
-<!-- bleu <- read_excel("./data/bleu.xlsx") -->
-<!-- ``` -->
+After loading the
+`bleu`
+data frame, we can compute the following.
 
 ```{r}
 favstats(bleu$score)
@@ -775,10 +761,6 @@ in R.
 <div id = "Q8" style = "display:none;">
 
 Read in the `euro` data frame. Then, compute the summary statistics. 
-
-<!-- ```{r, include = FALSE} -->
-<!-- euro <- read_excel("./data/euro.xlsx") -->
-<!-- ``` -->
 
 ```{r, comment = NA}
 favstats(euro$weight)
