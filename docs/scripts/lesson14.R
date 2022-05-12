@@ -12,15 +12,8 @@
 
 
 # Gratitude Example ---------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/gratitude.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/gratitude.xlsx"
-destfile <- "gratitude.xlsx"
-curl::curl_download(url, destfile)
-gratitude <- read_excel(destfile)
-View(gratitude)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L14.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -45,10 +38,8 @@ summary(aov_output)
 
 
 # Soccer Shoes Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L14.RData"))
 
 # Convert Data from Wide to Long Format -------------------
 soccer <- stack(Filter(is.numeric, soccer_shoes))

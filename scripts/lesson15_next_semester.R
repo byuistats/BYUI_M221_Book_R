@@ -12,15 +12,8 @@
 
 
 # Tuberculosis Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/tuberculosis.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
-destfile <- "tuberculosis.xlsx"
-curl::curl_download(url, destfile)
-tuberculosis <- read_excel(destfile)
-View(tuberculosis)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L03.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -36,15 +29,8 @@ hist(tuberculosis$costs)
 
 
 # Surgery Lawsuits Example --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
-destfile <- "surgery_lawsuits.xlsx"
-curl::curl_download(url, destfile)
-surgery_lawsuits <- read_excel(destfile)
-View(surgery_lawsuits)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L04.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -62,15 +48,8 @@ boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)
 
 
 # Body Temperatures Example -------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/body_temp.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"
-destfile <- "body_temp.xlsx"
-curl::curl_download(url, destfile)
-body_temp <- read_excel(destfile)
-View(body_temp)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L11.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -96,15 +75,8 @@ t.test(body_temp$temperature,      # Data
 
 
 # Weight Loss Example -------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/weight_loss.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/weight_loss.xlsx"
-destfile <- "weight_loss.xlsx"
-curl::curl_download(url, destfile)
-weight_loss <- read_excel(destfile)
-View(weight_loss)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
@@ -134,15 +106,8 @@ t.test(weight_loss$difference,     # Data
 
 
 # FIFA Heart Attacks Example (Long Data) ------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx"
-destfile <- "fifa_heart_attacks.xlsx"
-curl::curl_download(url, destfile)
-fifa_heart_attacks <- read_excel(destfile)
-View(fifa_heart_attacks)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L13.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -162,15 +127,8 @@ t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
 
 
 # COPD Example (Wide Data) --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/copd_rehab.xlsx"
-destfile <- "copd_rehab.xlsx"
-curl::curl_download(url, destfile)
-copd_rehab <- read_excel(destfile)
-View(copd_rehab)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L13.RData"))
 
 # Convert Data from Wide to Long Format (if necessary) ----
 copd <- stack( Filter(is.numeric, copd_rehab) )
@@ -197,15 +155,8 @@ t.test(values ~ ind, data = copd,
 
 
 # Gratitude Example (Long Data) ---------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/gratitude.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/gratitude.xlsx"
-destfile <- "gratitude.xlsx"
-curl::curl_download(url, destfile)
-gratitude <- read_excel(destfile)
-View(gratitude)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L14.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -226,15 +177,8 @@ summary(gratitude_aov)
 
 
 # Soccer Shoes Example (Wide Data) ------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
-# (You may want to paste the code here)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/soccer_shoes.xlsx"
-destfile <- "soccer_shoes.xlsx"
-curl::curl_download(url, destfile)
-soccer_shoes <- read_excel(destfile)
-View(soccer_shoes)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L14.RData"))
 
 # Convert Data from Wide to Long Format -------------------
 soccer <- stack( Filter(is.numeric, soccer_shoes) )

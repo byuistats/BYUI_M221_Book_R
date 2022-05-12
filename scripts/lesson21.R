@@ -15,16 +15,8 @@ library(readxl)
 
 
 # Math Self-Efficacy Example ------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx"
-destfile <- "math_self_efficacy.xlsx"
-curl::curl_download(url, destfile)
-math_self_efficacy <- read_excel(destfile)
-View(math_self_efficacy)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L21.RData"))
 
 # Scatterplot ---------------------------------------------
 plot(score ~ confidence_rating_mean, data = math_self_efficacy)
@@ -38,10 +30,8 @@ cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score,
 
 
 # Old Faithful Example ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/old_faithful.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L21.RData"))
 
 # Scatterplot ---------------------------------------------
 plot(wait ~ duration, data = old_faithful)

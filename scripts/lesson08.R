@@ -12,8 +12,8 @@
 
 
 # Tuberculosis Example ------------------------------------
-# Load the data frames
-load(url("https://github.com/byuistats/M221R/raw/main/docs/L03.RData"))
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L03.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -29,8 +29,8 @@ hist(tuberculosis$costs)
 
 
 # Surgery Lawsuits Example --------------------------------
-# Load the data frames
-load(url("https://github.com/byuistats/M221R/raw/main/docs/L04.RData"))
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L04.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

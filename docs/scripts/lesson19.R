@@ -15,16 +15,8 @@ library(readxl)
 
 
 # Reasons for Seeking Chiropractic Care Example -----------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx"
-destfile <- "chiropractic_care_raw.xlsx"
-curl::curl_download(url, destfile)
-chiropractic_care_raw <- read_excel(destfile)
-View(chiropractic_care_raw)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L19.RData"))
 
 # Create a Contingency Table from the Raw Data ------------
 contingency_table <- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)

@@ -6,7 +6,8 @@
 
 
 # Load data for this lesson
-load(url("https://byuistats.github.io/M221R/L04.RData"))
+load(url("https://byuistats.github.io/M221R/data/L04.RData"))
+
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

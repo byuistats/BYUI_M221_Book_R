@@ -6,12 +6,12 @@
 
 # Install required packages for the course ----------------
 # (You only need to run this once!)
-install.packages("librarian")
-librarian::shelf(mosaic, readxl)
+install.packages("mosaic")
+library(mosaic)
 
 
 # Load data for this lesson
-load(url("https://byuistats.github.io/M221R/L03.RData"))
+load(url("https://byuistats.github.io/M221R/data/L03.RData"))
 
 # Numerical Summaries -------------------------------------
 mean(tuberculosis$costs)

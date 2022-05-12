@@ -12,15 +12,8 @@
 
 
 # Student Grades Example ----------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/grades_tally.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/grades_tally.xlsx"
-destfile <- "grades_tally.xlsx"
-curl::curl_download(url, destfile)
-grades_tally <- read_excel(destfile)
-View(grades_tally)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L16.RData"))
 
 # Graphical Summaries -------------------------------------
 barplot(count ~ grade, data = grades_tally)

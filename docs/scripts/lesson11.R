@@ -12,15 +12,8 @@
 
 
 # Body Temperatures Example -------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/body_temp.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/body_temp.xlsx"
-destfile <- "body_temp.xlsx"
-curl::curl_download(url, destfile)
-body_temp <- read_excel(destfile)
-View(body_temp)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L11.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -38,10 +31,8 @@ t.test(body_temp$temperature,    # Data
 
 
 # Baby Boom Data ------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/baby_boom.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L11.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -61,10 +52,8 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
 # BLEU Scores ---------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/bleu.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L11.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -80,10 +69,8 @@ t.test(bleu$score, conf.level=0.95)
 
 
 # Euro Weights --------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/euro.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L11.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

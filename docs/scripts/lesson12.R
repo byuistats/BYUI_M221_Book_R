@@ -12,15 +12,8 @@
 
 
 # Weight Loss Example -------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/weight_loss.xlsx
-# (The "Import Dataset" code was pasted here:)
-library(readxl)
-url <- "https://byuistats.github.io/M221R/data/weight_loss.xlsx"
-destfile <- "weight_loss.xlsx"
-curl::curl_download(url, destfile)
-weight_loss <- read_excel(destfile)
-View(weight_loss)
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
@@ -42,10 +35,8 @@ t.test(weight_loss$difference,     # Data
 
 
 # Hospital Infections Data --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/hospital_infections.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 hospital_infections$difference <- 
@@ -68,10 +59,8 @@ t.test(hospital_infections$difference,
 
 
 # REE -----------------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/ree.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 ree$difference <- ree$stressful - ree$silence
@@ -93,10 +82,8 @@ t.test(ree$difference,
 
 
 # Flight Costs --------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/flight_costs.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 flight_costs$difference <- 
@@ -123,10 +110,8 @@ t.test(flight_costs$difference,
 
 
 # Pine Beetles --------------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/pine_beetle.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 pine_beetle$difference <- pine_beetle$after - pine_beetle$before
@@ -145,10 +130,8 @@ t.test(pine_beetle$difference, conf.level = 0.95)
 
 
 # Sleep-Inducing Drugs ------------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/sleep.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L12.RData"))
 
 # Compute Column of Differences
 sleep$difference = sleep$treatment - sleep$control

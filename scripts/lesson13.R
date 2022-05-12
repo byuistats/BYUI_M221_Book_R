@@ -12,10 +12,8 @@
 
 
 # Reading Practices Example -------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L13.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -34,10 +32,8 @@ t.test(nights ~ group, data = reading,
 
 
 # FIFA Heart Attacks Example (Long Data) ------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L13.RData"))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -61,10 +57,8 @@ t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
 
 
 # COPD Example (Wide Data) --------------------------------
-# Use "Import Dataset" to read the data into R
-# https://byuistats.github.io/M221R/data/copd_rehab.xlsx
-# (You may want to paste the code here)
-
+# Load the data for this lesson
+load(url("https://byuistats.github.io/M221R/data/L13.RData"))
 
 # Convert Data from Wide to Long Format (if necessary) ----
 copd_rehab$comments <- NULL     # Eliminate column of comments
