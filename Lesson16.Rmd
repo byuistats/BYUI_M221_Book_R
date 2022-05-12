@@ -65,7 +65,6 @@ We can use R to tally (count) these responses. The counts of the number of respo
 The `grades_tally` data are summarized in the table below.
 
 ```{r, include = FALSE}
-library(readxl)
 library(kableExtra)
 library(tidyverse)
 ```
