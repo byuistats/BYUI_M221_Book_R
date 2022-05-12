@@ -76,12 +76,12 @@ To check requirement 1, we do two things.  The first is to make a scatterplot an
 
 We want to make sure that there is no distinct curvature or other nonlinear characteristics.  This is simply a visual check of the data.
 
-Consider the scatterplot of the estuarine crocodile data [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx):
-
-```{r, include = FALSE}
-library(readxl)
-estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
+Load the `estuarine_crocodiles` data frame by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L23.RData"))
 ```
+in R. 
+Consider the following scatterplot of these data, which includes a superimposed regression line.
 
 ```{r}
 estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
@@ -89,7 +89,7 @@ plot(body_length ~ head_length, data = estuarine_crocodiles)
 abline(estuarine_lm)
 ```
 
-Notice how the data have a linear pattern.  This data set shows a particularly strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
+Notice how the data have a linear pattern.  This data set shows a very strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
 
 ### Residuals
 
@@ -108,7 +108,8 @@ It is tedious to calculate the residuals by hand, but we can easily find them us
 <div class = "Software">
 **To find the residuals in R, do the following:**
 
-- Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Load the data frame `estuarine_crocodiles` into R by running the command
+`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
@@ -143,7 +144,9 @@ We will use R to create residual plots.
 
 <div class = "SoftwareHeading">Excel Instructions</div>
 <div class = "Software">
-- Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Load the data into R: `estuarine_crocodiles` You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
+in R. 
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
@@ -349,7 +352,8 @@ The relevant summary statistics include the sample size and the estimated regres
 
 <div class = "SoftwareHeading">Excel Instructions</div>
 <div class = "Software">
-- Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Load the `estuarine_crocodiles` data into R using the command
+`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
 - Perform a linear regression using the `lm( )` function.
 - See the results using `summary( )`.
 
@@ -393,15 +397,10 @@ It was appropriate to conduct this analysis, since the requirements of simple li
 
 <img src = "./Images/step4.png">
 
-Here is an excerpt from the output for the [manatees.xlsx](./data/manatees.xlsx) data set:  
-
-```{r, include = FALSE}
-manatees <- read_excel("./data/manatees.xlsx")
-manatees <- manatees[,c(2,3)]
-```
+Here is an excerpt of the `manatees` data set:  
 
 ```{r, comment = NA, echo = FALSE}
-pander::pander(head(manatees))
+pander::pander(head(manatees[,c(2,3)]))
 ```
 
 
@@ -424,7 +423,7 @@ $$
 The test statistic follows a $t$-distribution.
 
 ```{r, comment = NA}
-manatee_lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee_lm)
 ```
 
@@ -459,11 +458,13 @@ We are often interested in the range of plausible values for the true regression
 <div class = "Software">
 **To compute the confidence intervals for the regression coefficients in R, do the following:**
 
-- Read the data into R: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Read the data into R: `estuarine_crocodiles`. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
+in R. 
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
-manatee_lm <- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 ```
 
 - Use the `confint( )` function with the name of your lm object placed inside to obtain the confidence intervals. Use `confint(  , conf.level = 0.95)` to control the confidence level.

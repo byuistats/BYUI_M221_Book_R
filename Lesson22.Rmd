@@ -68,18 +68,17 @@ To answer this question, paleontologist Paul Sereno teamed up with modern crocod
 
 <img src = "./Images/Step2.png">
 
-We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx). 
+We will use Sereno and Barr's measurements on the lengths of Estuarine, or saltwater, Crocodiles' heads to estimate the length of their bodies.  Their measurements are given in the file `estuarine_crocodiles`.  You can access this data frame by running the command
+```{r}
+  load(url("https://byuistats.github.io/M221R/data/L22.RData"))
+```
+in R. 
 
 <br/>
 
 <img src = "./Images/Step3.png">
 
 Using the information we learned in [Lesson 21](Lesson21.html#r-instructions-for-scatterplots), we create a scatterplot for the Estuarine Crocodile data.
-
-```{r, include = FALSE}
-library(readxl)
-estuarine_crocodiles <- read_excel("./data/estuarine_crocodiles.xlsx")
-```
 
 ```{r}
 plot(body_length ~ head_length, data = estuarine_crocodiles,
@@ -228,7 +227,8 @@ where $\hat Y$ represents the predicted body length of an estuarine crocodile wi
 <div class = "Software">
 **To find the estimated regression coefficients ($b_0$ and $b_1$) in R, do the following:**
 
-- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Load the `estuarine_crocodiles` data frame into R. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L22.RData"))` 
 - Use the `lm( )` function to create a "linear model" for the data.
 - Put your response variable (Y) first, followed by a `~`, followed by the explanatory variable (X).
 - Be sure to indicate the data frame that contains your response and explanatory variables.
@@ -275,7 +275,9 @@ The Y-intercept is $-18.274$.  As stated previously it does not make sense to in
 <div class = "Software">
 **To add a regression line to a scatterplot in RStudio, do the following:**
 
-- Import the data into RStudio: [estuarine_crocodiles.xlsx](./data/estuarine_crocodiles.xlsx)
+- Load the `estuarine_crocodiles` data frame. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L22.RData"))`
+in R. 
 - Perform the regression:
 
 ```{r}
@@ -488,7 +490,10 @@ We can use simple linear regression to model the relationship between the powerb
 <img src = "./Images/Step2.png">
 
 
-The data set [manatees](./data/manatees.xlsx) gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2011. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
+You can access the `manatees` data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L22.RData"))`
+in R. 
+This data frame gives the number of Florida powerboat registrations (in thousands) and the number of manatees killed by powerboats for the years 1977-2011. <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
 These data are derived from multiple sources.
 
 
@@ -509,11 +514,9 @@ Notice that this is the equation of a straight line. You might have written line
 
 ### Interpreting the Regression Output
 
-Read in the [manatees](./data/manatees.xlsx) data, then find the regression equation as follows:
-
-```{r, include = FALSE}
-manatees <- read_excel("./data/manatees.xlsx")
-```
+Read in the `manatees` data frame. You can access this data frame by running the command
+`load(url("https://byuistats.github.io/M221R/data/L22.RData"))`
+in R. Then, find the regression equation as follows:
 
 ```{r, comment = NA}
 manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)

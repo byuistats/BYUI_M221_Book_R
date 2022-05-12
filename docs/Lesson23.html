@@ -464,12 +464,14 @@ Y = \beta_0 + \beta_1 X + \epsilon
 <h3>Scatterplot</h3>
 <p>To check requirement 1, we do two things. The first is to make a scatterplot and to visually check to see if there is a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>We want to make sure that there is no distinct curvature or other nonlinear characteristics. This is simply a visual check of the data.</p>
-<p>Consider the scatterplot of the estuarine crocodile data <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a>:</p>
+<p>Load the <code>estuarine_crocodiles</code> data frame by running the command</p>
+<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L23.RData&quot;))</code></pre>
+<p>in R. Consider the following scatterplot of these data, which includes a superimposed regression line.</p>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
 plot(body_length ~ head_length, data = estuarine_crocodiles)
 abline(estuarine_lm)</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Notice how the data have a linear pattern. This data set shows a particularly strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
+<p>Notice how the data have a linear pattern. This data set shows a very strong linear relationship. In many cases, the data will show more spread than is illustrated here.</p>
 </div>
 <div id="residuals" class="section level3">
 <h3>Residuals</h3>
@@ -487,7 +489,7 @@ R Instructions
 <div class="Software">
 <p><strong>To find the residuals in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Load the data frame <code>estuarine_crocodiles</code> into R by running the command <code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
@@ -523,7 +525,7 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Load the data into R: <code>estuarine_crocodiles</code> You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code> in R.</li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
@@ -556,6 +558,7 @@ residual_plot(estuarine_lm)</code></pre>
 <li><strong>Outliers</strong> If there are outliers in the residual plot, that suggests that the error terms are not normally distributed. This should also be apparent in the scatterplot or histogram of the residuals.</li>
 </ul>
 <div style="padding-left:30px;">
+<pre><code>## Warning: package &#39;carData&#39; was built under R version 4.1.3</code></pre>
 <p><img src="Lesson23_files/figure-html/unnamed-chunk-9-1.png" width="288" /></p>
 </div>
 <p><br/></p>
@@ -770,7 +773,7 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Load the <code>estuarine_crocodiles</code> data into R using the command <code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code></li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 <li>See the results using <code>summary( )</code>.</li>
 </ul>
@@ -818,7 +821,7 @@ df = 28-2 = 26
 <div id="manatees" class="section level3">
 <h3>Manatees</h3>
 <p><img src = "Images/Step4.png"></p>
-<p>Here is an excerpt from the output for the <a href="./data/manatees.xlsx">manatees.xlsx</a> data set:</p>
+<p>Here is an excerpt of the <code>manatees</code> data set:</p>
 <table style="width:56%;">
 <colgroup>
 <col width="27%" />
@@ -870,20 +873,20 @@ n = 35 \\
 \end{array}
 \]</span></p>
 <p>The test statistic follows a <span class="math inline">\(t\)</span>-distribution.</p>
-<pre class="r"><code>manatee_lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)
+<pre class="r"><code>manatee_lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee_lm)</code></pre>
 <pre><code>
 Call:
-lm(formula = manatees$manatees_killed ~ manatees$power_boats_1000s)
+lm(formula = manatees_killed ~ power_boats_1000s, data = manatees)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
 -15.758  -6.647  -1.239   4.349  22.344 
 
 Coefficients:
-                             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                -42.541613   6.349634   -6.70 1.25e-07 ***
-manatees$power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -42.541613   6.349634   -6.70 1.25e-07 ***
+power_boats_1000s   0.129162   0.008338   15.49  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -917,17 +920,17 @@ R Instructions
 <div class="Software">
 <p><strong>To compute the confidence intervals for the regression coefficients in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></li>
+<li>Read the data into R: <code>estuarine_crocodiles</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code> in R.</li>
 <li>Perform a linear regression using the <code>lm( )</code> function.</li>
 </ul>
-<pre class="r"><code>manatee_lm &lt;- lm(manatees$manatees_killed ~ manatees$power_boats_1000s)</code></pre>
+<pre class="r"><code>manatee_lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)</code></pre>
 <ul>
 <li>Use the <code>confint( )</code> function with the name of your lm object placed inside to obtain the confidence intervals. Use <code>confint(  , conf.level = 0.95)</code> to control the confidence level.</li>
 </ul>
 <pre class="r"><code>confint(manatee_lm, level = 0.95)</code></pre>
-<pre><code>                                 2.5 %      97.5 %
-(Intercept)                -55.4600405 -29.6231851
-manatees$power_boats_1000s   0.1121986   0.1461254</code></pre>
+<pre><code>                        2.5 %      97.5 %
+(Intercept)       -55.4600405 -29.6231851
+power_boats_1000s   0.1121986   0.1461254</code></pre>
 <p>The first row of the output gives the confidence interval for <span class="math inline">\(\beta_0\)</span>, the y-intercept. The second row of the output gives the confidence interval for <span class="math inline">\(\beta_1\)</span>, the slope.</p>
 <p><br></p>
 </div>
