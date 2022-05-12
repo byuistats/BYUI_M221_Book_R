@@ -51,8 +51,7 @@ summary(aov_output)
 
 
 # Convert Data from Wide to Long Format -------------------
-Filter(is.numeric, soccer_shoes)
-soccer <- stack(soccer_shoes)
+soccer <- stack(Filter(is.numeric, soccer_shoes))
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
