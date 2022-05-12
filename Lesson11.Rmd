@@ -184,7 +184,7 @@ Load this data frame into R by running the following command in R:
 
 We calculate summary statistics in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio). We can get the mean ($\bar x$), standard deviation ($s$), and sample size ($n$) using the code:
 
-```{r, include=FALSE}
+```{r, include = FALSE}
 library(mosaic)
 ```
 
@@ -251,7 +251,7 @@ We will need to conduct the analysis using software, so we can report this value
 <div class = "Software">
 Here are the instructions for conducting the one sample t-test in R:
 
-**Step 1.** Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: [reading data into RStudio](RHelp.html#reading-in-data).
+**Step 1.** Load the data frame you will be using for the one sample t-test. 
 
 For this t test, we are using the `body_temp` data.
 
@@ -263,7 +263,7 @@ A few notes about using `t.test(...)`.
 
 * The null hypothesis is established by **mu = 98.6** 
 * The alternative hypothesis is established by **alternative = "two.sided"**. Other options for the alternative hypothesis are **alternative = "less"** and **alternative = "greater"**.
-* We access the data we will use for the test by using the name of the dataset, followed by a `$` sign, followed by the name of the column we want to use for the test. 
+* We access the data we will use for the test by using the name of the data frame, followed by a `$` sign, followed by the name of the column we want to use for the test. 
 
 ```{r, eval = FALSE}
 t.test(body_temp$temperature, mu = 98.6, alternative = "two.sided")
@@ -364,7 +364,7 @@ You can access this data frame by running the command
 `load(url("https://byuistats.github.io/M221R/data/L11.RData"))`
 in R.
 
-Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
+Using this data frame, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
 
 <img src = "./Images/Step3.png">
@@ -376,7 +376,7 @@ Using this data set, test the hypothesis that the mean weight of babies born in 
 <a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
 <div id = "Q1" style = "display:none;">
 
-Once the `baby_boom` dataset is loaded into RStudio, the relevant summary statistics for the "Weight" column are computed by:
+Once the `baby_boom` data frame is loaded into RStudio, the relevant summary statistics for the "Weight" column are computed by:
 
 <!-- ```{r, include = FALSE} -->
 <!-- baby_boom <- read_excel("./data/baby_boom.xlsx") -->
@@ -898,7 +898,7 @@ You will never need to compute the $t$-statistic by hand, because R will provide
 - The $t$-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the $t$-distribution depends on the **degrees of freedom ($df$)**.
 $$df = n-1$$
 
-- You will use R to carry out hypothesis testing and create confidence intervals involving $t$-distributions by using the `t.test(...)` function which follows the general format of `t.test(dataSetName$columnName, mu = , alternative = , conf.level = )` where `mu = ` the value from the null hypothesis, `alternative = ` either "two.sided", "less", or "greater", and `conf.level = ` 0.95, 0.99, or 0.90.
+- You will use R to carry out hypothesis testing and create confidence intervals involving $t$-distributions by using the `t.test(...)` function which follows the general format of `t.test(dataframe$variable, mu = , alternative = , conf.level = )` where `mu = ` the value from the null hypothesis, `alternative = ` either "two.sided", "less", or "greater", and `conf.level = ` 0.95, 0.99, or 0.90.
 
 <br/>
 

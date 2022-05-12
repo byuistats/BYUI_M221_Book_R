@@ -572,7 +572,7 @@ R Instructions
 </div>
 <div class="Software">
 <p>Here are the instructions for conducting the one sample t-test in R:</p>
-<p><strong>Step 1.</strong> Import the dataset you will be using for the one sample t-test. If you want a refresher on how to do this, go here: <a href="RHelp.html#reading-in-data">reading data into RStudio</a>.</p>
+<p><strong>Step 1.</strong> Load the data frame you will be using for the one sample t-test.</p>
 <p>For this t test, we are using the <code>body_temp</code> data.</p>
 <p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: \mu = 98.6\)</span> and the alternative was <span class="math inline">\(H_a: \mu \neq 98.6\)</span>.</p>
 <p><strong>Step 3.</strong> Use <code>t.test(...)</code> as follows to run the One Sample t Test in R.</p>
@@ -580,7 +580,7 @@ R Instructions
 <ul>
 <li>The null hypothesis is established by <strong>mu = 98.6</strong></li>
 <li>The alternative hypothesis is established by <strong>alternative = “two.sided”</strong>. Other options for the alternative hypothesis are <strong>alternative = “less”</strong> and <strong>alternative = “greater”</strong>.</li>
-<li>We access the data we will use for the test by using the name of the dataset, followed by a <code>$</code> sign, followed by the name of the column we want to use for the test.</li>
+<li>We access the data we will use for the test by using the name of the data frame, followed by a <code>$</code> sign, followed by the name of the column we want to use for the test.</li>
 </ul>
 <pre class="r"><code>t.test(body_temp$temperature, mu = 98.6, alternative = &quot;two.sided&quot;)</code></pre>
 <p>Note, by default the <code>t.test(...)</code> function uses a 95% Confidence Level in creating the confidence interval that is provided in the summary output of the test. However, if you wanted to use a different confidence level, you would use <code>t.test(..., conf.level = 0.99)</code> or <code>t.test(..., conf.level = 0.90)</code>.</p>
@@ -648,7 +648,7 @@ H_a: &amp;~ \mu \ne 3373
 <p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>The birth weights of all children born on December 18, 1997 at the Mater Mothers’ Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->. The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the data frame <code>baby_boom</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L11.RData"))</code> in R.</p>
-<p>Using this data set, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance for this problem. Make an appropriate graph of the data.</p>
+<p>Using this data frame, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance for this problem. Make an appropriate graph of the data.</p>
 <p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -659,7 +659,7 @@ Answer the following questions:
 </ol>
 <a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
-<p>Once the <code>baby_boom</code> dataset is loaded into RStudio, the relevant summary statistics for the “Weight” column are computed by:</p>
+<p>Once the <code>baby_boom</code> data frame is loaded into RStudio, the relevant summary statistics for the “Weight” column are computed by:</p>
 <!-- ```{r, include = FALSE} -->
 <!-- baby_boom <- read_excel("./data/baby_boom.xlsx") -->
 <!-- ``` -->
@@ -1123,7 +1123,7 @@ Remember…
 <ul>
 <li><p>In practice we rarely know the true standard deviation <span class="math inline">\(\sigma\)</span> and will therefore be unable to calculate a z-score. <strong>Student’s t-distribution</strong> gives us a new test statistic, <span class="math inline">\(t\)</span>, that is calculated using the sample standard deviation (<span class="math inline">\(s\)</span>) instead. <span class="math display">\[\displaystyle{ t = \frac {\bar x - \mu} {s / \sqrt{n}} }\]</span> You will never need to compute the <span class="math inline">\(t\)</span>-statistic by hand, because R will provide it.</p></li>
 <li><p>The <span class="math inline">\(t\)</span>-distribution is similar to a normal distribution in that it is bell-shaped and symmetrical, but the exact shape of the <span class="math inline">\(t\)</span>-distribution depends on the <strong>degrees of freedom (<span class="math inline">\(df\)</span>)</strong>. <span class="math display">\[df = n-1\]</span></p></li>
-<li><p>You will use R to carry out hypothesis testing and create confidence intervals involving <span class="math inline">\(t\)</span>-distributions by using the <code>t.test(...)</code> function which follows the general format of <code>t.test(dataSetName$columnName, mu = , alternative = , conf.level = )</code> where <code>mu =</code> the value from the null hypothesis, <code>alternative =</code> either “two.sided”, “less”, or “greater”, and <code>conf.level =</code> 0.95, 0.99, or 0.90.</p></li>
+<li><p>You will use R to carry out hypothesis testing and create confidence intervals involving <span class="math inline">\(t\)</span>-distributions by using the <code>t.test(...)</code> function which follows the general format of <code>t.test(dataframe$variable, mu = , alternative = , conf.level = )</code> where <code>mu =</code> the value from the null hypothesis, <code>alternative =</code> either “two.sided”, “less”, or “greater”, and <code>conf.level =</code> 0.95, 0.99, or 0.90.</p></li>
 </ul>
 <p><br/></p>
 </div>
