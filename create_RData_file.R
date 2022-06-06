@@ -333,6 +333,26 @@ save(euro_wide,
   file="docs/data/L15.RData")
 
 
+# Test 2
+
+url <- "https://byuistats.github.io/M221R/data/quiz/e2v2/cholesterol.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/e2v2/calcium.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/e2v2/fitness.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/e2v2/rates_of_return.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+
+save(cholesterol,
+     calcium,
+     fitness,
+     rates_of_return,
+     file="data/Exam2.RData")
+
+save(cholesterol,
+     calcium,
+     fitness,
+     rates_of_return,
+     file="docs/data/Exam2.RData")
+
+
 # Lesson 16
 
 url <- "https://byuistats.github.io/M221R/data/grades_gender.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
@@ -342,12 +362,12 @@ url <- "https://byuistats.github.io/M221R/data/coin_heads.xlsx"; curl::curl_down
 save(grades_gender,
      grades_tally,
      coin_heads,
-  file="data/L16.RData")
+     file="data/L16.RData")
 
 save(grades_gender,
      grades_tally,
      coin_heads,
-  file="docs/data/L16.RData")
+     file="docs/data/L16.RData")
 
 
 # Lesson 17
