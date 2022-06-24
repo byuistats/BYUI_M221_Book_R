@@ -450,6 +450,26 @@ save(lapd_searches,
   file="docs/data/L20.RData")
 
 
+
+
+# Test 3
+
+url <- "https://byuistats.github.io/M221R/data/quiz/e3v2/firms.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/e3v2/ratings.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+url <- "https://byuistats.github.io/M221R/data/quiz/e3v2/wake_county.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
+
+save(firms,
+     ratings,
+     wake_county,
+     file="data/Exam3.RData")
+
+save(firms,
+     ratings,
+     wake_county,
+     file="docs/data/Exam3.RData")
+
+
+
 # Lesson 21
 
 url <- "https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx"; curl::curl_download(url, basename(url)); assign(tools::file_path_sans_ext(basename(url)), read_excel(basename(url)))
