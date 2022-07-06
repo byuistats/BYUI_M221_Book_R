@@ -140,6 +140,7 @@ two.prop.test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.si
 }
 
 
+
 # Function to convert a contingency table in a data frame to a table
 table_format <- function(x, rownames = 1) { 
   # permits advanced as.matrix() functionality (rownames)
@@ -159,6 +160,7 @@ table_format <- function(x, rownames = 1) {
   with_rows <- data.table(first_col, no_str)
   return(as.matrix(with_rows, rownames = TRUE))
 }
+
 
 
 # Function to Generate the Residual Plot, given a Regression Model
