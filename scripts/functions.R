@@ -48,7 +48,7 @@ one.prop.test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
         main = "Pie Chart",
         clockwise = TRUE
     )
-    par(mfrow=c(1,2))
+    par(mfrow=c(1,1))
   }
   
   if (display != "plot") {
