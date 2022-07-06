@@ -1,7 +1,5 @@
 # R Function for a Hypothesis Test and Confidence Interval for One Proportion
-
 one.prop.test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 0.95, display = "all") {
-  
   phat <- x / n
   std_dev <- sqrt(p * (1 - p) / n)
   std_error <- sqrt(phat * (1 - phat) / n)
@@ -77,7 +75,6 @@ one.prop.test <- function(x, n, p = .5, alternative = "two.sided", conf.level = 
 
 
 # R Function for a Hypothesis Test and Confidence Interval for the Difference of Two Proportions
-
 two.prop.test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.sided", conf.level = 0.95, display = "all") {
   
   phat <- (x1 + x2) / (n1 + n2)
@@ -143,8 +140,28 @@ two.prop.test <- function(x1, n1, x2, n2, p1_minus_p2 = 0, alternative = "two.si
 }
 
 
-# Function to Generate the Residual Plot, given a Regression Model
+# Function to convert a contingency table in a data frame to a table
+table_format <- function(x, rownames = 1) { 
+  # permits advanced as.matrix() functionality (rownames)
+  require(data.table)
+  # check format of the data
+  if(!is.numeric(rownames)) {
+    stop("Parameter rownames must be a number")
+  }
+  if((rownames %% 1 != 0) | ( rownames > ncol(x)) | ( rownames <= 0)) {
+    stop("Parameter rownames must be a valid column number") 
+  }
+  # pull the column containing the names of the rows (rownames)
+  first_col <- x[,rownames]
+  # remove all non-numeric columns after deleting the column with row names
+  no_str <- Filter(is.numeric, x[,-rownames])
+  # put the first column back on
+  with_rows <- data.table(first_col, no_str)
+  return(as.matrix(with_rows, rownames = TRUE))
+}
 
+
+# Function to Generate the Residual Plot, given a Regression Model
 residual_plot <- function(model) {
   y <- model$residuals
   x <- model.frame(model)[[2]]
