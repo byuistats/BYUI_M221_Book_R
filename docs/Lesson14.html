@@ -13,7 +13,7 @@
 
 <title>Lesson 14: Inference using ANOVA (Several Independent Samples)</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -59,6 +59,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -83,6 +84,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -140,11 +144,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -235,7 +243,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -248,7 +256,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 1
      
     <span class="caret"></span>
@@ -284,7 +292,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 2
      
     <span class="caret"></span>
@@ -314,7 +322,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 3
      
     <span class="caret"></span>
@@ -338,7 +346,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 4
      
     <span class="caret"></span>
@@ -375,28 +383,49 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 14: Inference using ANOVA (Several Independent Samples)</h1>
+<h1 class="title toc-ignore">Lesson 14: Inference using ANOVA (Several
+Independent Samples)</h1>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#case-study-the-effects-of-gratitude">Case Study: The Effects of Gratitude</a></li>
-<li><a href="#analysis-of-variance-anova">Analysis of Variance (ANOVA)</a>
+<li><a href="#lesson-outcomes" id="toc-lesson-outcomes">Lesson
+Outcomes</a></li>
+<li><a href="#case-study-the-effects-of-gratitude"
+id="toc-case-study-the-effects-of-gratitude">Case Study: The Effects of
+Gratitude</a></li>
+<li><a href="#analysis-of-variance-anova"
+id="toc-analysis-of-variance-anova">Analysis of Variance (ANOVA)</a>
 <ul>
-<li><a href="#r-instructions-for-numerical-summaries-of-several-groups-long-data">R Instructions for Numerical Summaries of Several Groups (Long Data)</a></li>
-<li><a href="#r-instructions-for-side-by-side-boxplots-of-several-groups-long-data">R Instructions for Side-by-Side Boxplots of Several Groups (Long Data)</a></li>
-<li><a href="#r-instructions-for-conducting-an-anova-test-long-data">R Instructions for Conducting an ANOVA Test (Long Data)</a></li>
-<li><a href="#the-f-distribution">The <span class="math inline">\(F\)</span>-distribution</a></li>
-<li><a href="#requirements-of-anova">Requirements of ANOVA</a></li>
+<li><a
+href="#r-instructions-for-numerical-summaries-of-several-groups-long-data"
+id="toc-r-instructions-for-numerical-summaries-of-several-groups-long-data">R
+Instructions for Numerical Summaries of Several Groups (Long
+Data)</a></li>
+<li><a
+href="#r-instructions-for-side-by-side-boxplots-of-several-groups-long-data"
+id="toc-r-instructions-for-side-by-side-boxplots-of-several-groups-long-data">R
+Instructions for Side-by-Side Boxplots of Several Groups (Long
+Data)</a></li>
+<li><a href="#r-instructions-for-conducting-an-anova-test-long-data"
+id="toc-r-instructions-for-conducting-an-anova-test-long-data">R
+Instructions for Conducting an ANOVA Test (Long Data)</a></li>
+<li><a href="#the-f-distribution" id="toc-the-f-distribution">The <span
+class="math inline">\(F\)</span>-distribution</a></li>
+<li><a href="#requirements-of-anova"
+id="toc-requirements-of-anova">Requirements of ANOVA</a></li>
 </ul></li>
-<li><a href="#anova-with-wide-data-soccer-shoes">ANOVA with Wide Data: Soccer Shoes</a>
+<li><a href="#anova-with-wide-data-soccer-shoes"
+id="toc-anova-with-wide-data-soccer-shoes">ANOVA with Wide Data: Soccer
+Shoes</a>
 <ul>
-<li><a href="#r-instructions-for-converting-wide-data-to-long-format">R Instructions for Converting “Wide” Data to “Long” Format</a></li>
+<li><a href="#r-instructions-for-converting-wide-data-to-long-format"
+id="toc-r-instructions-for-converting-wide-data-to-long-format">R
+Instructions for Converting “Wide” Data to “Long” Format</a></li>
 </ul></li>
-<li><a href="#summary">Summary</a></li>
-<li><a href="#navigation">Navigation</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#navigation" id="toc-navigation">Navigation</a></li>
 </ul>
 </div>
 
@@ -415,17 +444,22 @@ $(document).ready(function () {
 -->
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span
+style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
-<p>By the end of this lesson, you should be able to do the following for a hypothesis test for several means (ANOVA):</p>
+<p>By the end of this lesson, you should be able to do the following for
+a hypothesis test for several means (ANOVA):</p>
 <ul>
-<li>Perform a hypothesis test for ANOVA (several independent samples) using the following steps:
+<li>Perform a hypothesis test for ANOVA (several independent samples)
+using the following steps:
 <ul>
 <li>State the null and alternative hypotheses</li>
 <li>State the level of significance (α)</li>
 <li>Create numerical and graphical summaries of the data</li>
-<li>Calculate the test-statistic, degrees of freedom and P-value of the test using software</li>
-<li>Assess statistical significance by comparing the P-value to the level of significance (α)</li>
+<li>Calculate the test-statistic, degrees of freedom and P-value of the
+test using software</li>
+<li>Assess statistical significance by comparing the P-value to the
+level of significance (α)</li>
 <li>State the appropriate conclusion for the hypothesis test</li>
 <li>Check the requirements for the hypothesis test</li>
 </ul></li>
@@ -457,7 +491,12 @@ $(document).ready(function () {
 </td>
 <td>
 <p>
-President Gordon B. Hinckley said, "My plea is that we stop seeking out the storms and enjoy more fully the sunlight. I am suggesting that as we go through life, we ‘accentuate the positive.’ I am asking that we look a little deeper for the good, that we still our voices of insult and sarcasm, that we more generously compliment and endorse virtue and effort" (<em>Standing for Something</em>, 2000, p.101).
+President Gordon B. Hinckley said, "My plea is that we stop seeking out
+the storms and enjoy more fully the sunlight. I am suggesting that as we
+go through life, we ‘accentuate the positive.’ I am asking that we look
+a little deeper for the good, that we still our voices of insult and
+sarcasm, that we more generously compliment and endorse virtue and
+effort" (<em>Standing for Something</em>, 2000, p.101).
 </p>
 </td>
 </tr>
@@ -476,14 +515,31 @@ President Gordon B. Hinckley said, "My plea is that we stop seeking out the stor
 <p><img src = "Images/Midnight_sun.jpg"></p>
 </div>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Robert Emmons and Michael McCullough investigated the effects of gratitude on people’s perception of life as a whole<!--<cite>Emmons03</cite>-->. In a study of <span class="math inline">\(n = 192\)</span> undergraduates, the people were randomly assigned to one of three groups.</p>
+<p>Robert Emmons and Michael McCullough investigated the effects of
+gratitude on people’s perception of life as a
+whole<!--<cite>Emmons03</cite>-->. In a study of <span
+class="math inline">\(n = 192\)</span> undergraduates, the people were
+randomly assigned to one of three groups.</p>
 <ul>
-<li>Group 1 (Gratitude): The participants in this group were asked to record five things each week for which they were grateful or thankful.</li>
-<li>Group 2 (Hassles): The volunteers in this group recorded five irritants that had occurred to them in the previous week.</li>
-<li>Group 3 (Events): The people in the events group recorded five things that occurred in the past week that had an impact on them.</li>
+<li>Group 1 (Gratitude): The participants in this group were asked to
+record five things each week for which they were grateful or
+thankful.</li>
+<li>Group 2 (Hassles): The volunteers in this group recorded five
+irritants that had occurred to them in the previous week.</li>
+<li>Group 3 (Events): The people in the events group recorded five
+things that occurred in the past week that had an impact on them.</li>
 </ul>
-<p>In addition to the weekly record of the five things they recorded their level of satisfaction with life in general. (Higher values are more favorable.) Reports were collected for nine weeks, and the overall level of satisfaction with life as a whole was recorded for each individual. The researchers wanted to determine if there was a difference in the perception of life as a whole between the subjects assigned to each of the three groups. Stated differently, they wanted to determine if expressing gratitude affects a person’s view of life in general.</p>
-<p>Here is an excerpt of data representing the results of this study:</p>
+<p>In addition to the weekly record of the five things they recorded
+their level of satisfaction with life in general. (Higher values are
+more favorable.) Reports were collected for nine weeks, and the overall
+level of satisfaction with life as a whole was recorded for each
+individual. The researchers wanted to determine if there was a
+difference in the perception of life as a whole between the subjects
+assigned to each of the three groups. Stated differently, they wanted to
+determine if expressing gratitude affects a person’s view of life in
+general.</p>
+<p>Here is an excerpt of data representing the results of this
+study:</p>
 <table>
 <thead>
 <tr class="header">
@@ -545,38 +601,85 @@ President Gordon B. Hinckley said, "My plea is that we stop seeking out the stor
 </tr>
 </tbody>
 </table>
-<p>Higher values indicate a greater level of satisfaction with life as a whole.</p>
-<p>How might we analyze these data? One possible method would be to conduct separate t-tests for all the possible pairs of groups in the study. If we did this, we would need to conduct a separate t-test to compare groups 1 &amp; 2, 1 &amp; 3 and 2 &amp; 3. If the probability of committing a Type I error is <span class="math inline">\(\alpha = .05\)</span> on each of these tests, then the probability that we would commit a Type I error on at least one of the tests is much greater than 0.05. We need a hypothesis test that we can use to compare all the groups at once. The procedure that allows us to do this is called Analysis of Variance (ANOVA).</p>
+<p>Higher values indicate a greater level of satisfaction with life as a
+whole.</p>
+<p>How might we analyze these data? One possible method would be to
+conduct separate t-tests for all the possible pairs of groups in the
+study. If we did this, we would need to conduct a separate t-test to
+compare groups 1 &amp; 2, 1 &amp; 3 and 2 &amp; 3. If the probability of
+committing a Type I error is <span class="math inline">\(\alpha =
+.05\)</span> on each of these tests, then the probability that we would
+commit a Type I error on at least one of the tests is much greater than
+0.05. We need a hypothesis test that we can use to compare all the
+groups at once. The procedure that allows us to do this is called
+Analysis of Variance (ANOVA).</p>
 </div>
 <div id="analysis-of-variance-anova" class="section level2">
 <h2>Analysis of Variance (ANOVA)</h2>
-<p>ANOVA, an acronym for <strong>An</strong>alysis <strong>o</strong>f <strong>Va</strong>riance, is a test for equality of several means. It allows us to compare the means for several groups in a single hypothesis test. It is based on a comparison of the spread (or variance) of the data <em>within</em> each of the groups compared to the spread (or variance) <em>between</em> the means of the groups.</p>
-<p>In an ANOVA test, the null hypothesis is typically expressed in words: <span class="math display">\[H_0: \text{All the population means are equal.}\]</span> The alternative hypothesis is also stated in words as: <span class="math display">\[H_a: \text{One or more of the population means differs from the others.}\]</span></p>
-<p>If the sample means differ from each other enough, then we conclude that the true population means for each group are not all equal. If the sample means do not differ by much (when compared to the spread of the data in each group) then we fail to reject the null hypothesis that all the populations means are equal.</p>
-<p>We will use the level of significance, <span class="math inline">\(\alpha\)</span>, and the <span class="math inline">\(P\)</span>-value just as we have in the other hypothesis tests.</p>
-<p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
+<p>ANOVA, an acronym for <strong>An</strong>alysis <strong>o</strong>f
+<strong>Va</strong>riance, is a test for equality of several means. It
+allows us to compare the means for several groups in a single hypothesis
+test. It is based on a comparison of the spread (or variance) of the
+data <em>within</em> each of the groups compared to the spread (or
+variance) <em>between</em> the means of the groups.</p>
+<p>In an ANOVA test, the null hypothesis is typically expressed in
+words: <span class="math display">\[H_0: \text{All the population means
+are equal.}\]</span> The alternative hypothesis is also stated in words
+as: <span class="math display">\[H_a: \text{One or more of the
+population means differs from the others.}\]</span></p>
+<p>If the sample means differ from each other enough, then we conclude
+that the true population means for each group are not all equal. If the
+sample means do not differ by much (when compared to the spread of the
+data in each group) then we fail to reject the null hypothesis that all
+the populations means are equal.</p>
+<p>We will use the level of significance, <span
+class="math inline">\(\alpha\)</span>, and the <span
+class="math inline">\(P\)</span>-value just as we have in the other
+hypothesis tests.</p>
+<p><strong>State the null and alternative hypotheses and the level of
+significance</strong> <span class="math display">\[
 \begin{align}
-H_0: &amp; ~ \textrm{The population mean happiness scores are equal for each treatment} \\
-H_a: &amp; ~ \textrm{At least one of treatments has a different population mean happiness score}
+H_0: &amp; ~ \textrm{The population mean happiness scores are equal for
+each treatment} \\
+H_a: &amp; ~ \textrm{At least one of treatments has a different
+population mean happiness score}
 \end{align}
 \]</span></p>
-<p>We will use the <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</p>
+<p>We will use the <span class="math inline">\(\alpha = 0.05\)</span>
+level of significance.</p>
 <p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>The 192 students that volunteered to participate in the study were randomly assigned to one of the three treatment groups: Events, Hassles, or Gratitude. They wrote in a weekly journal, according to their group assignment. At the end of the semester, they completed a questionnaire that asked about their attitude toward life. The responses on the survey were coded into a number, where higher numbers represent a more positive outlook on life.</p>
+<p>The 192 students that volunteered to participate in the study were
+randomly assigned to one of the three treatment groups: Events, Hassles,
+or Gratitude. They wrote in a weekly journal, according to their group
+assignment. At the end of the semester, they completed a questionnaire
+that asked about their attitude toward life. The responses on the survey
+were coded into a number, where higher numbers represent a more positive
+outlook on life.</p>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<div id="r-instructions-for-numerical-summaries-of-several-groups-long-data" class="section level3">
-<h3>R Instructions for Numerical Summaries of Several Groups (Long Data)</h3>
+<div
+id="r-instructions-for-numerical-summaries-of-several-groups-long-data"
+class="section level3">
+<h3>R Instructions for Numerical Summaries of Several Groups (Long
+Data)</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p><strong>To compute numerical summaries for several groups:</strong></p>
+<p><strong>To compute numerical summaries for several
+groups:</strong></p>
 <ul>
-<li>Load the data: <code>gratitude</code>. You can access this data frame by running the command <code>load(url("https://byuistats.github.io/M221R/data/L14.RData"))</code> in R.</li>
+<li>Load the data: <code>gratitude</code>. You can access this data
+frame by running the command
+<code>load(url("https://byuistats.github.io/M221R/data/L14.RData"))</code>
+in R.</li>
 <li>Load <code>library(mosaic)</code>.</li>
-<li>Use the <code>favstats(...)</code> function with the quantitative data column name listed first, followed by a tilde, <code>~</code>, which is followed by the categorical data column name. We indicate that these columns are part of the <code>gratitude</code> data frame using the command <code>data = gratitude</code>.</li>
+<li>Use the <code>favstats(...)</code> function with the quantitative
+data column name listed first, followed by a tilde, <code>~</code>,
+which is followed by the categorical data column name. We indicate that
+these columns are part of the <code>gratitude</code> data frame using
+the command <code>data = gratitude</code>.</li>
 </ul>
 <pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L14.RData&quot;))</code></pre>
 <pre class="r"><code>library(mosaic) 
@@ -589,17 +692,28 @@ favstats(happiness ~ treatment, data = gratitude)</code></pre>
 </div>
 <p><br></p>
 </div>
-<div id="r-instructions-for-side-by-side-boxplots-of-several-groups-long-data" class="section level3">
-<h3>R Instructions for Side-by-Side Boxplots of Several Groups (Long Data)</h3>
+<div
+id="r-instructions-for-side-by-side-boxplots-of-several-groups-long-data"
+class="section level3">
+<h3>R Instructions for Side-by-Side Boxplots of Several Groups (Long
+Data)</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p><strong>To make an appropriate graph to illustrate the data:</strong></p>
+<p><strong>To make an appropriate graph to illustrate the
+data:</strong></p>
 <ul>
-<li>Use the <code>boxplot(...)</code> function with the quantitative data listed first, followed by a <code>~</code>, followed by the categorical data.</li>
-<li>Specify colors using either <code>col = "steelblue3"</code> to give all boxes the same color, or use <code>col = c("brown3","steelblue3","tan3")</code> to give each box a different color. Of course, use any color names you like.</li>
-<li>Specify axes labeling with <code>main = "A main title"</code>, <code>xlab = "An x-axis label"</code>, and <code>ylab = "A y-axis label"</code>.</li>
+<li>Use the <code>boxplot(...)</code> function with the quantitative
+data listed first, followed by a <code>~</code>, followed by the
+categorical data.</li>
+<li>Specify colors using either <code>col = "steelblue3"</code> to give
+all boxes the same color, or use
+<code>col = c("brown3","steelblue3","tan3")</code> to give each box a
+different color. Of course, use any color names you like.</li>
+<li>Specify axes labeling with <code>main = "A main title"</code>,
+<code>xlab = "An x-axis label"</code>, and
+<code>ylab = "A y-axis label"</code>.</li>
 </ul>
 <pre class="r"><code>boxplot(gratitude$happiness ~ gratitude$treatment,
         col = c(&quot;brown3&quot;,&quot;steelblue3&quot;,&quot;tan3&quot;),
@@ -610,22 +724,37 @@ R Instructions
 <p><br></p>
 </div>
 <p><br></p>
-<p>Based on the numerical summaries and boxplot, the gratitude group had a higher life happiness mean score of 5.05 compared to the other two groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests that perhaps exercising a daily recognition of things one is grateful for can result in greater life satisfaction. However, it is important to first <strong>make inference</strong> before we decide if the data really warrants this conclusion.</p>
+<p>Based on the numerical summaries and boxplot, the gratitude group had
+a higher life happiness mean score of 5.05 compared to the other two
+groups of 4.66 (Events group) and 4.67 (Hassles group). This suggests
+that perhaps exercising a daily recognition of things one is grateful
+for can result in greater life satisfaction. However, it is important to
+first <strong>make inference</strong> before we decide if the data
+really warrants this conclusion.</p>
 <p><img src = "Images/Step4.png"></p>
 <p><strong>Make Inference</strong></p>
 </div>
-<div id="r-instructions-for-conducting-an-anova-test-long-data" class="section level3">
+<div id="r-instructions-for-conducting-an-anova-test-long-data"
+class="section level3">
 <h3>R Instructions for Conducting an ANOVA Test (Long Data)</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p>To conduct a test for several means (ANOVA) in R, do the following:</p>
+<p>To conduct a test for several means (ANOVA) in R, do the
+following:</p>
 <ul>
 <li>Load the <code>gratitude</code> data if you haven’t already,</li>
-<li>Use the <code>aov(...)</code> function and the assignment operator <code>&lt;-</code> to perform and save the results of the test to any name you want to create for the test. Here we use the name <code>aov_output</code>.</li>
-<li>When using the <code>aov(...)</code> function, place the quantitative variable first, followed by a <code>~</code>, followed by the categorical variable. As in other examples, we indicate the data frame using the <code>data =</code> argument.</li>
-<li>Use the <code>summary(...)</code> function to view the results of the ANOVA test in a nice format.</li>
+<li>Use the <code>aov(...)</code> function and the assignment operator
+<code>&lt;-</code> to perform and save the results of the test to any
+name you want to create for the test. Here we use the name
+<code>aov_output</code>.</li>
+<li>When using the <code>aov(...)</code> function, place the
+quantitative variable first, followed by a <code>~</code>, followed by
+the categorical variable. As in other examples, we indicate the data
+frame using the <code>data =</code> argument.</li>
+<li>Use the <code>summary(...)</code> function to view the results of
+the ANOVA test in a nice format.</li>
 </ul>
 <pre class="r"><code>aov_output &lt;- aov(happiness ~ treatment, data = gratitude)
 summary(aov_output)</code></pre>
@@ -636,23 +765,54 @@ Residuals   189 145.16   0.768
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In the ANOVA table output summary, you will find</p>
 <ul>
-<li>the test statistic (<span class="math inline">\(F\)</span>, see <strong>The <span class="math inline">\(F\)</span>-Distribution</strong> section below for an explanation),</li>
+<li>the test statistic (<span class="math inline">\(F\)</span>, see
+<strong>The <span class="math inline">\(F\)</span>-Distribution</strong>
+section below for an explanation),</li>
 <li>the <span class="math inline">\(P\)</span>-value (Pr(&gt;F)),</li>
-<li>and the two separate degrees of freedoms (Df) for the <span class="math inline">\(F\)</span> statistic.</li>
+<li>and the two separate degrees of freedoms (Df) for the <span
+class="math inline">\(F\)</span> statistic.</li>
 </ul>
-<p>Note that there are two numbers specifying the degrees of freedom. These are given as the “Treatment Group” and “Residuals” degrees of freedom, respectively. The degrees of freedom for the “Treatment Group” are one less than the number of groups, in this case there are three groups (Events, Hassles, and Grateful) so there are 2 degrees of freedom. The “Residuals” degrees of freedom is equal to the total sample size (<span class="math inline">\(n = 192\)</span> in this study) minus 1, then minus the Df for the “Treatment Group”, which is 2 in this case. That leaves us with <span class="math inline">\(192 - 1 - 2 = 189\)</span> “residual” degrees of freedom (or leftover degrees of freedom).</p>
-<p>More advanced statistics courses will go deeper into explaining these degrees of freedom and why they matter. For now, just recognize that the “Df” values are used to obtain the “Mean Sq” values by dividing the “Sum Sq” values by the “Df” values. Then, the “F value” is obtained by dividing the two “Mean Sq” values. These “Mean Sq” values are essentially <em>variances</em> and thus the name of the method is called “Analaysis of Variance” or ANOVA because the F-statistic is the ratio of two variances. When the F-statistic is large, that tells us that the means are farther apart than we would expect if all samples were from the same population of data.</p>
+<p>Note that there are two numbers specifying the degrees of freedom.
+These are given as the “Treatment Group” and “Residuals” degrees of
+freedom, respectively. The degrees of freedom for the “Treatment Group”
+are one less than the number of groups, in this case there are three
+groups (Events, Hassles, and Grateful) so there are 2 degrees of
+freedom. The “Residuals” degrees of freedom is equal to the total sample
+size (<span class="math inline">\(n = 192\)</span> in this study) minus
+1, then minus the Df for the “Treatment Group”, which is 2 in this case.
+That leaves us with <span class="math inline">\(192 - 1 - 2 =
+189\)</span> “residual” degrees of freedom (or leftover degrees of
+freedom).</p>
+<p>More advanced statistics courses will go deeper into explaining these
+degrees of freedom and why they matter. For now, just recognize that the
+“Df” values are used to obtain the “Mean Sq” values by dividing the “Sum
+Sq” values by the “Df” values. Then, the “F value” is obtained by
+dividing the two “Mean Sq” values. These “Mean Sq” values are
+essentially <em>variances</em> and thus the name of the method is called
+“Analaysis of Variance” or ANOVA because the F-statistic is the ratio of
+two variances. When the F-statistic is large, that tells us that the
+means are farther apart than we would expect if all samples were from
+the same population of data.</p>
 </div>
 <p><br/></p>
 </div>
 <div id="the-f-distribution" class="section level3">
 <h3>The <span class="math inline">\(F\)</span>-distribution</h3>
-<p><img src = "Images/Gratitude-F.png"> The test statistic in ANOVA follows an <span class="math inline">\(F\)</span>-distribution. This is the first time we have encountered this distribution. In previous tests, we have used the test statistics <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. For the ANOVA test, we use the <span class="math inline">\(F\)</span>-statistic.</p>
-<p>Here is a brief summary of the characteristics of the <span class="math inline">\(F\)</span>-distribution:</p>
+<p><img src = "Images/Gratitude-F.png"> The test statistic in ANOVA
+follows an <span class="math inline">\(F\)</span>-distribution. This is
+the first time we have encountered this distribution. In previous tests,
+we have used the test statistics <span class="math inline">\(z\)</span>
+and <span class="math inline">\(t\)</span>. For the ANOVA test, we use
+the <span class="math inline">\(F\)</span>-statistic.</p>
+<p>Here is a brief summary of the characteristics of the <span
+class="math inline">\(F\)</span>-distribution:</p>
 <ul>
 <li>It is right skewed.</li>
-<li>The values of <span class="math inline">\(F\)</span> are never negative.</li>
-<li>The <span class="math inline">\(P\)</span>-value for the ANOVA test is the area in the <em>right tail</em>. We will never divide the area in the tail.</li>
+<li>The values of <span class="math inline">\(F\)</span> are never
+negative.</li>
+<li>The <span class="math inline">\(P\)</span>-value for the ANOVA test
+is the area in the <em>right tail</em>. We will never divide the area in
+the tail.</li>
 </ul>
 </div>
 <div id="requirements-of-anova" class="section level3">
@@ -666,10 +826,26 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 -->
 <ul>
 <li><p>The data are normally distributed in each group.</p>
-<p>We can check this by looking at the boxplots we created previously. If each boxplot is relatively symmetric and there are no major outliers, it is reasonable to conclude that the data are sufficiently normal to proceed with the analysis. We can take this approach because ANOVA is robust to violations of requirements. In other words, results from ANOVA tests are reasonably good even if there are mild to moderate violations of the requirements.</p>
-<p>In looking at the boxplot of the gratitude data above, we see the median is in the center of each box (it isn’t pressed up against either end of the box) and that the whiskers of each box go out somewhat equally to either side of the box. While there are a couple of outliers in the Events group, and the top whisker for the “Grateful” group is longer than its bottom whisker, this would be considered a very “normally distributed” set of boxplots.</p></li>
+<p>We can check this by looking at the boxplots we created previously.
+If each boxplot is relatively symmetric and there are no major outliers,
+it is reasonable to conclude that the data are sufficiently normal to
+proceed with the analysis. We can take this approach because ANOVA is
+robust to violations of requirements. In other words, results from ANOVA
+tests are reasonably good even if there are mild to moderate violations
+of the requirements.</p>
+<p>In looking at the boxplot of the gratitude data above, we see the
+median is in the center of each box (it isn’t pressed up against either
+end of the box) and that the whiskers of each box go out somewhat
+equally to either side of the box. While there are a couple of outliers
+in the Events group, and the top whisker for the “Grateful” group is
+longer than its bottom whisker, this would be considered a very
+“normally distributed” set of boxplots.</p></li>
 <li><p>The variances are equal for each group.</p>
-<p>This requirement is checked by examining the variances. Remember, the variance is the square of the standard deviation. The rule we will use is: <em>if the largest variance is more than four times as big as the smallest variance, we will conclude that the variances are equal.</em></p>
+<p>This requirement is checked by examining the variances. Remember, the
+variance is the square of the standard deviation. The rule we will use
+is: <em>if the largest variance is more than four times as big as the
+smallest variance, we will conclude that the variances are
+equal.</em></p>
 <p>We can find the variance using the following R command:</p></li>
 </ul>
 <pre class="r"><code>var(happiness ~ treatment, data = gratitude)</code></pre>
@@ -678,38 +854,74 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre><code>For the gratitude study, the variances of the Events, Grateful, and Hassles groups were 0.720, 0.892, and 0.692, respectively. The largest of these variances is 0.892 and the smallest is 0.692. Notice that the largest variance is not more than four times as big as the smallest variance. So, we conclude the assumption is satisfied.</code></pre>
 <br>
 <div class="message Tip">
-The variance is the square of the standard deviation. The sample variance is denoted by the symbol <span class="math inline">\(s^2\)</span>.
+The variance is the square of the standard deviation. The sample
+variance is denoted by the symbol <span
+class="math inline">\(s^2\)</span>.
 </div>
 <p><br> <br></p>
 <p><strong>Give the test statistic and its value</strong></p>
-<p>This can be found in the output. Our test statistic, <span class="math inline">\(F\)</span>, is: <span class="math display">\[F = 4.075\]</span></p>
+<p>This can be found in the output. Our test statistic, <span
+class="math inline">\(F\)</span>, is: <span class="math display">\[F =
+4.075\]</span></p>
 <p><strong>State the degrees of freedom</strong></p>
 <p>There are 2 and 189 degrees of freedom.</p>
-<p>The order in which these are stated is important. For an F-test, it is not the same to have 2 and 189 degrees of freedom as it is to have 189 and 2 degrees of freedom.</p>
-<p><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></p>
-<p>While this is not something that you have to do in this course, it is good to remember that the <span class="math inline">\(P\)</span>-value provided to you in the output of the ANOVA test in R is the “probability of obtaining a test statistic as extreme or more extreme than the one observed, assuming the null hypothesis is true.” That is why the notation for it in the summary output is <code>Pr(&gt;F)</code>. If we drew a picture of the F-distribution we would see that it starts at zero, is strongly right-skewed, and goes to infinity. Marking the observed test statistic on the graph and shading the area to the right would give the p-value.</p>
+<p>The order in which these are stated is important. For an F-test, it
+is not the same to have 2 and 189 degrees of freedom as it is to have
+189 and 2 degrees of freedom.</p>
+<p><strong>Mark the test statistic and <span
+class="math inline">\(P\)</span>-value on a graph of the sampling
+distribution</strong></p>
+<p>While this is not something that you have to do in this course, it is
+good to remember that the <span class="math inline">\(P\)</span>-value
+provided to you in the output of the ANOVA test in R is the “probability
+of obtaining a test statistic as extreme or more extreme than the one
+observed, assuming the null hypothesis is true.” That is why the
+notation for it in the summary output is <code>Pr(&gt;F)</code>. If we
+drew a picture of the F-distribution we would see that it starts at
+zero, is strongly right-skewed, and goes to infinity. Marking the
+observed test statistic on the graph and shading the area to the right
+would give the p-value.</p>
 <p><img src = "Images/Gratitude-F.png"></p>
-<p><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></p>
-<p>The <span class="math inline">\(P\)</span>-value of the ANOVA test can be found in the output summary of the test. <span class="math display">\[P\textrm{-value} = 0.019 &lt; 0.05 = \alpha\]</span></p>
+<p><strong>Find the <span class="math inline">\(P\)</span>-value and
+compare it to the level of significance</strong></p>
+<p>The <span class="math inline">\(P\)</span>-value of the ANOVA test
+can be found in the output summary of the test. <span
+class="math display">\[P\textrm{-value} = 0.019 &lt; 0.05 =
+\alpha\]</span></p>
 <p><strong>State your decision</strong></p>
-<p>Since <span class="math inline">\(P\)</span>-value$ = 0.019 &lt; 0.05 = $, we reject the null hypothesis.</p>
+<p>Since <span class="math inline">\(P\)</span>-value$ = 0.019 &lt; 0.05
+= $, we reject the null hypothesis.</p>
 <p><img src = "Images/Step5.png"></p>
-<p><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></p>
-<p>There is sufficient evidence to suggest that at least one of the three groups has a mean level of satisfaction with life that differs from the others. In short, the mean level of satisfaction with life in general is not the same for all three groups.</p>
-<p>If we take a closer look, we see that the Hassles and Events groups had means that were fairly close together. However, the Grateful group appears to have a significantly higher mean level of satisfaction than the other two groups.</p>
+<p><strong>Present your conclusion in an English sentence, relating the
+result to the context of the problem</strong></p>
+<p>There is sufficient evidence to suggest that at least one of the
+three groups has a mean level of satisfaction with life that differs
+from the others. In short, the mean level of satisfaction with life in
+general is not the same for all three groups.</p>
+<p>If we take a closer look, we see that the Hassles and Events groups
+had means that were fairly close together. However, the Grateful group
+appears to have a significantly higher mean level of satisfaction than
+the other two groups.</p>
 </div>
 </div>
 <div id="anova-with-wide-data-soccer-shoes" class="section level2">
 <h2>ANOVA with Wide Data: Soccer Shoes</h2>
-<p><span id="21:soccer_shoesExplanation"></span></p>
+<p><span id="id_21:soccer_shoesExplanation"></span></p>
 <p><img src = "Images/StepsAll.png"></p>
 <p><img src = "Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
-<p>Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>--> The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.</p>
-<p>Data representing the results of this study are given in the data frame <code>soccer_shoes</code>.</p>
-<div id="r-instructions-for-converting-wide-data-to-long-format" class="section level3">
+<p>Nike, a company that makes sporting goods including shoes, funded a
+study to compare five soccer shoe designs.
+<!--<cite>Hennig09,Hennig10</cite>--> The objective of the research was
+to determine if there is a difference in the mean accuracy soccer
+players achieve using different Nike shoe designs.</p>
+<p>Data representing the results of this study are given in the data
+frame <code>soccer_shoes</code>.</p>
+<div id="r-instructions-for-converting-wide-data-to-long-format"
+class="section level3">
 <h3>R Instructions for Converting “Wide” Data to “Long” Format</h3>
-<p>After reading in the data, examine the format in which they are presented.</p>
+<p>After reading in the data, examine the format in which they are
+presented.</p>
 <p>Here are the first eight rows:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -850,7 +1062,6 @@ Ewald M. Hennig and Thorsten Sterzing
 27
 </td>
 <td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -873,7 +1084,8 @@ NA
 37
 </td>
 <td style="text-align:left;">
-Hennig, Ewald M. and Sterzing, Thorsten(2010) ’The influence of soccer shoe design on playing
+Hennig, Ewald M. and Sterzing, Thorsten(2010) ’The influence of soccer
+shoe design on playing
 </td>
 </tr>
 <tr>
@@ -896,7 +1108,8 @@ Hennig, Ewald M. and Sterzing, Thorsten(2010) ’The influence of soccer shoe de
 41
 </td>
 <td style="text-align:left;">
-performance: a series of biomechanical studies’, Footwear Science, 2: 1, 3 — 11
+performance: a series of biomechanical studies’, Footwear Science, 2: 1,
+3 — 11
 </td>
 </tr>
 <tr>
@@ -919,31 +1132,58 @@ performance: a series of biomechanical studies’, Footwear Science, 2: 1, 3 —
 37
 </td>
 <td style="text-align:left;">
-NA
 </td>
 </tr>
 </tbody>
 </table>
-<p>There are six columns of data, where each column gives the accuracy rating for a different type of footwear. Note that this is wide data, since every column gives the data for one group. The last column provides the reference for the articles from which the data were derived.</p>
-<p>In order to conduct an ANOVA analysis to determine if the mean accuracy is the same for the six types of footwear, we need to convert the data into “long” format. We will do this in three steps:</p>
+<p>There are six columns of data, where each column gives the accuracy
+rating for a different type of footwear. Note that this is wide data,
+since every column gives the data for one group. The last column
+provides the reference for the articles from which the data were
+derived.</p>
+<p>In order to conduct an ANOVA analysis to determine if the mean
+accuracy is the same for the six types of footwear, we need to convert
+the data into “long” format. We will do this in three steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Examine the data. We can either do this with either the <code>View(soccer_shoes)</code> or <code>head(soccer_shoes)</code> commands.</p></li>
-<li><p>We will “stack” the data to create a new data frame in long format. We filter out any columns that are not numeric in this process. The column titled <code>comments</code> is deleted before the data are stacked. We give this new data frame a separate name: <code>soccer</code>. Notice that <code>soccer</code> that is in “long” format, where <code>soccer_shoes</code> is in “wide” format.</p></li>
+<li><p>Examine the data. We can either do this with either the
+<code>View(soccer_shoes)</code> or <code>head(soccer_shoes)</code>
+commands.</p></li>
+<li><p>We will “stack” the data to create a new data frame in long
+format. We filter out any columns that are not numeric in this process.
+The column titled <code>comments</code> is deleted before the data are
+stacked. We give this new data frame a separate name:
+<code>soccer</code>. Notice that <code>soccer</code> that is in “long”
+format, where <code>soccer_shoes</code> is in “wide” format.</p></li>
 </ol>
 <pre class="r"><code>  soccer &lt;- stack(Filter(is.numeric, soccer_shoes))</code></pre>
-<p>Use <code>View(soccer)</code> to explore these data. Notice that R has transformed the data, so that it is now in “long” format, where the accuracy values are in a column called <code>values</code> and the label indicating (“ind”) the type of footwear is in a second column called <code>ind</code>.</p>
-<p>After making this change, the techniques for performing ANOVA on long data can be applied to the data set <code>soccer</code>.</p>
-<p><strong>State the null and alternative hypotheses and the level of significance</strong> <span class="math display">\[
+<p>Use <code>View(soccer)</code> to explore these data. Notice that R
+has transformed the data, so that it is now in “long” format, where the
+accuracy values are in a column called <code>values</code> and the label
+indicating (“ind”) the type of footwear is in a second column called
+<code>ind</code>.</p>
+<p>After making this change, the techniques for performing ANOVA on long
+data can be applied to the data set <code>soccer</code>.</p>
+<p><strong>State the null and alternative hypotheses and the level of
+significance</strong> <span class="math display">\[
 \begin{align}
 H_0: &amp; \textrm{All the means are equal} \\
 H_a: &amp; \textrm{At least one of the means differs}
 \end{align}
 \]</span></p>
-<p>We will use the <span class="math inline">\(\alpha = 0.10\)</span> level of significance.</p>
+<p>We will use the <span class="math inline">\(\alpha = 0.10\)</span>
+level of significance.</p>
 <p><img src = "Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
-<p>As part of the research, they asked trained soccer players to kick a ball at a target. The target was placed 115 cm above the ground and at a distance of 10 m from the players. Using electronic equipment, the researchers recorded the distance from the center of the target to the point where the ball hit. The objective of the research was to assess if footwear could affect the accuracy of a soccer player.</p>
-<p>The subjects wore five different soccer shoes and for one treatment they kicked the ball in stocking feet. Due to the proprietary nature of the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the article. Use the soccer shoes to answer the following questions.</p>
+<p>As part of the research, they asked trained soccer players to kick a
+ball at a target. The target was placed 115 cm above the ground and at a
+distance of 10 m from the players. Using electronic equipment, the
+researchers recorded the distance from the center of the target to the
+point where the ball hit. The objective of the research was to assess if
+footwear could affect the accuracy of a soccer player.</p>
+<p>The subjects wore five different soccer shoes and for one treatment
+they kicked the ball in stocking feet. Due to the proprietary nature of
+the data, the shoes are only labeled “A,” “B,” “C,” “D,” and “E” in the
+article. Use the soccer shoes to answer the following questions.</p>
 <p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -952,7 +1192,8 @@ Answer the following questions:
 <ol style="list-style-type: decimal">
 <li><strong>Give the relevant summary statistics</strong></li>
 </ol>
-<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <pre class="r"><code>library(mosaic)
 favstats(values ~ ind, data = soccer)</code></pre>
@@ -1008,9 +1249,11 @@ favstats(values ~ ind, data = soccer)</code></pre>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Make an appropriate graph to illustrate the data</strong></li>
+<li><strong>Make an appropriate graph to illustrate the
+data</strong></li>
 </ol>
-<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <pre class="r"><code>soccer</code></pre>
 <pre><code>##     values    ind
@@ -1143,23 +1386,35 @@ favstats(values ~ ind, data = soccer)</code></pre>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Based on what you have seen so far, does it appear that there is a significant difference between the mean accuracy of the kicks using the six types of footwear?</li>
+<li>Based on what you have seen so far, does it appear that there is a
+significant difference between the mean accuracy of the kicks using the
+six types of footwear?</li>
 </ol>
-<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q3')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <ul>
-<li>Just by looking at the boxplots we can see that there is a difference, but we do not know if there is a statistically significant difference between the mean accuracy of the kicks using the six different types of footwear until we perform an hypothesis test for several means.<br />
+<li>Just by looking at the boxplots we can see that there is a
+difference, but we do not know if there is a statistically significant
+difference between the mean accuracy of the kicks using the six
+different types of footwear until we perform an hypothesis test for
+several means.<br />
 </li>
 </ul>
 </div>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Which types of footwear seem to be giving the greatest accuracy?</li>
+<li>Which types of footwear seem to be giving the greatest
+accuracy?</li>
 </ol>
-<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q4')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
-<li>Based on the boxplot, it appears that “socks” seem to give the greatest accuracy. This is substantiated by looking at the sample means in the numerical summary where “socks” has a mean accuracy of 35.25, which is bigger than any other mean.</li>
+<li>Based on the boxplot, it appears that “socks” seem to give the
+greatest accuracy. This is substantiated by looking at the sample means
+in the numerical summary where “socks” has a mean accuracy of 35.25,
+which is bigger than any other mean.</li>
 </ul>
 </div>
 <p> </p>
@@ -1173,23 +1428,31 @@ Answer the following questions:
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Verify the requirements have been met</strong></li>
 </ol>
-<a href = "javascript:showhide('Q5')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q5')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
-<li>The boxplots all look fairly symmetric in the graph above. The median line isn’t exactly in the middle of each box, but there are not any outliers and there isn’t any overly skewed box in the graph, so it seems okay to consider this data as normally distributed.<br />
+<li>The boxplots all look fairly symmetric in the graph above. The
+median line isn’t exactly in the middle of each box, but there are not
+any outliers and there isn’t any overly skewed box in the graph, so it
+seems okay to consider this data as normally distributed.<br />
 </li>
-<li>We compute the variance of the groups using the following command:</li>
+<li>We compute the variance of the groups using the following
+command:</li>
 </ul>
 <pre class="r"><code>var(values ~ ind, data=soccer)</code></pre>
 <pre><code>##   shoe_a   shoe_b   shoe_c   shoe_d   shoe_e    socks 
 ## 27.35789 29.48421 27.20789 53.15789 31.01053 40.72368</code></pre>
-<p>The largest variance (53.158) is not more than four times the smallest (27.208), so the assumption of equal variances is satisfied.</p>
+<p>The largest variance (53.158) is not more than four times the
+smallest (27.208), so the assumption of equal variances is
+satisfied.</p>
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Give the test statistic and its value</strong></li>
 </ol>
-<a href = "javascript:showhide('Q6')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q6')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <pre class="r"><code>aov_output &lt;- aov(values ~ ind, data = soccer)
 summary(aov_output)</code></pre>
@@ -1206,7 +1469,8 @@ summary(aov_output)</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li><strong>State the degrees of freedom</strong></li>
 </ol>
-<a href = "javascript:showhide('Q7')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q7')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
 <li>There are 5 and 114 degrees of freedom</li>
@@ -1214,11 +1478,15 @@ summary(aov_output)</code></pre>
 </div>
 <p><br></p>
 <ol start="8" style="list-style-type: decimal">
-<li><strong>Mark the test statistic and <span class="math inline">\(P\)</span>-value on a graph of the sampling distribution</strong></li>
+<li><strong>Mark the test statistic and <span
+class="math inline">\(P\)</span>-value on a graph of the sampling
+distribution</strong></li>
 </ol>
-<a href = "javascript:showhide('Q8')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q8')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
-<p>This is included just to remind you that the p-value is the area to the right of the F-statistic in the F-distribution.</p>
+<p>This is included just to remind you that the p-value is the area to
+the right of the F-statistic in the F-distribution.</p>
 <p><img src = "Images/SoccerShoes-SamplingDist.png"></p>
 <!--
 If you are curious, this could be done in R using the code
@@ -1234,22 +1502,28 @@ abline(v = 2.02, h = 0)
 </div>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">
-<li><strong>Find the <span class="math inline">\(P\)</span>-value and compare it to the level of significance</strong></li>
+<li><strong>Find the <span class="math inline">\(P\)</span>-value and
+compare it to the level of significance</strong></li>
 </ol>
-<a href = "javascript:showhide('Q9')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q9')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
-<li><span class="math inline">\(P\text{-value} = 0.0809 &lt; 0.1 = \alpha\)</span></li>
+<li><span class="math inline">\(P\text{-value} = 0.0809 &lt; 0.1 =
+\alpha\)</span></li>
 </ul>
 </div>
 <p><br></p>
 <ol start="10" style="list-style-type: decimal">
 <li><strong>State your decision</strong></li>
 </ol>
-<a href = "javascript:showhide('Q10')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q10')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
-<li>Since the <span class="math inline">\(P\)</span>-value <span class="math inline">\(= 0.0809 &lt; 0.1 = \alpha\)</span>, we reject the null hypothesis.</li>
+<li>Since the <span class="math inline">\(P\)</span>-value <span
+class="math inline">\(= 0.0809 &lt; 0.1 = \alpha\)</span>, we reject the
+null hypothesis.</li>
 </ul>
 </div>
 <p> </p>
@@ -1261,12 +1535,16 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="11" style="list-style-type: decimal">
-<li><strong>Present your conclusion in an English sentence, relating the result to the context of the problem</strong></li>
+<li><strong>Present your conclusion in an English sentence, relating the
+result to the context of the problem</strong></li>
 </ol>
-<a href = "javascript:showhide('Q11')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q11')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
 <ul>
-<li>There is sufficient evidence to suggest that there is a difference in the mean accuracy of the kicks for the various types of footwear.<br />
+<li>There is sufficient evidence to suggest that there is a difference
+in the mean accuracy of the kicks for the various types of
+footwear.<br />
 </li>
 </ul>
 </div>
@@ -1282,27 +1560,42 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p><strong>ANOVA</strong> is used to compare the means for several groups. The hypotheses for the test are always: <span class="math display">\[
+<li><p><strong>ANOVA</strong> is used to compare the means for several
+groups. The hypotheses for the test are always: <span
+class="math display">\[
 \begin{align}
 H_0: &amp; ~ \textrm{All the means are equal} \\
 H_a: &amp; ~ \textrm{At least one of the means differs}
 \end{align}
 \]</span></p></li>
-<li><p>For ANOVA testing we use an <strong><span class="math inline">\(F\)</span>-distribution</strong>, which is right-skewed. The <span class="math inline">\(P\)</span>-value of an ANOVA test is always the area to the right of the <span class="math inline">\(F\)</span>-statistic.</p></li>
-<li><p>We can conduct ANOVA testing when the following requirements are satisfied:</p>
+<li><p>For ANOVA testing we use an <strong><span
+class="math inline">\(F\)</span>-distribution</strong>, which is
+right-skewed. The <span class="math inline">\(P\)</span>-value of an
+ANOVA test is always the area to the right of the <span
+class="math inline">\(F\)</span>-statistic.</p></li>
+<li><p>We can conduct ANOVA testing when the following requirements are
+satisfied:</p>
 <ol style="list-style-type: decimal">
 <li>The data come from a simple random sample.</li>
 <li>The data are normally distributed within each group.
 <ul>
-<li>This is considered met unless one or more of the groups has a <em>strongly</em> skewed distribution.</li>
+<li>This is considered met unless one or more of the groups has a
+<em>strongly</em> skewed distribution.</li>
 </ul></li>
 <li>The variance is constant.
 <ul>
-<li>This is satisfied when the largest variance is not more than four times the smallest.</li>
+<li>This is satisfied when the largest variance is not more than four
+times the smallest.</li>
 </ul></li>
 </ol></li>
-<li><p>To perform an ANOVA in R, use the code <code>aov_output &lt;- aov(...)</code> to run the test, then the code <code>summary(aov_output)</code> to view the results.</p></li>
-<li><p>If data are provided in “wide” format, they must first be converted to “long” format before performing the ANOVA analysis. This can be accomplished using the command <code>new_data_frame &lt;- stack(Filter(is.numeric, old_data_frame))</code> in R.</p></li>
+<li><p>To perform an ANOVA in R, use the code
+<code>aov_output &lt;- aov(...)</code> to run the test, then the code
+<code>summary(aov_output)</code> to view the results.</p></li>
+<li><p>If data are provided in “wide” format, they must first be
+converted to “long” format before performing the ANOVA analysis. This
+can be accomplished using the command
+<code>new_data_frame &lt;- stack(Filter(is.numeric, old_data_frame))</code>
+in R.</p></li>
 </ul>
 <p><br></p>
 </div>
@@ -1326,9 +1619,12 @@ H_a: &amp; ~ \textrm{At least one of the means differs}
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><a href="Lesson13.html">Lesson 13: <br> Inference for Two Means: Independent Samples</a></td>
-<td align="center">Lesson 14: <br> Inference for Several Means (ANOVA)</td>
-<td align="center"><a href="Lesson15.html">Lesson 15: <br> Review for Exam 2</a></td>
+<td align="center"><a href="Lesson13.html">Lesson 13: <br> Inference for
+Two Means: Independent Samples</a></td>
+<td align="center">Lesson 14: <br> Inference for Several Means
+(ANOVA)</td>
+<td align="center"><a href="Lesson15.html">Lesson 15: <br> Review for
+Exam 2</a></td>
 </tr>
 </tbody>
 </table>

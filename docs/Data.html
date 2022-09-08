@@ -13,7 +13,7 @@
 
 <title>Data</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -57,6 +57,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -81,6 +82,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -138,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -233,7 +241,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -246,7 +254,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 1
      
     <span class="caret"></span>
@@ -282,7 +290,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 2
      
     <span class="caret"></span>
@@ -312,7 +320,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 3
      
     <span class="caret"></span>
@@ -336,7 +344,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 4
      
     <span class="caret"></span>
@@ -389,8 +397,10 @@ $(document).ready(function () {
 <p><a href="./data/batting_averages.xlsx">batting_averages.xlsx</a></p>
 <p><a href="./data/biggest_loser.xlsx">biggest_loser.xlsx</a></p>
 <p><a href="./data/bleu.xlsx">bleu.xlsx</a></p>
-<p><a href="./data/body_measurements.xlsx">body_measurements.xlsx</a></p>
-<p><a href="./data/body_measurements_corrected.xlsx">body_measurements_corrected.xlsx</a></p>
+<p><a
+href="./data/body_measurements.xlsx">body_measurements.xlsx</a></p>
+<p><a
+href="./data/body_measurements_corrected.xlsx">body_measurements_corrected.xlsx</a></p>
 <p><a href="./data/body_temp.xlsx">body_temp.xlsx</a></p>
 <p><a href="./data/bofm_wordprint.xlsx">bofm_wordprint.xlsx</a></p>
 <p><a href="./data/bone_mineral.xlsx">bone_mineral.xlsx</a></p>
@@ -399,69 +409,96 @@ $(document).ready(function () {
 <p><a href="./data/car_prices.xlsx">car_prices.xlsx</a></p>
 <p><a href="./data/cardiac_arrest.xlsx">cardiac_arrest.xlsx</a></p>
 <p><a href="./data/cause_of_death.xlsx">cause_of_death.xlsx</a></p>
-<p><a href="./data/chiropractic_care.xlsx">chiropractic_care.xlsx</a></p>
+<p><a
+href="./data/chiropractic_care.xlsx">chiropractic_care.xlsx</a></p>
 <p><a href="./data/class_survey.xlsx">class_survey.xlsx</a></p>
 <p><a href="./data/coin_heads.xlsx">coin_heads.xlsx</a></p>
 <p><a href="./data/cold_treatments.xlsx">cold_treatments.xlsx</a></p>
 <p><a href="./data/comet.xlsx">comet.xlsx</a></p>
-<p><a href="./data/conjugated_linoleic_acid.xlsx">conjugated_linoleic_acid.xlsx</a></p>
+<p><a
+href="./data/conjugated_linoleic_acid.xlsx">conjugated_linoleic_acid.xlsx</a></p>
 <p><a href="./data/contamination.xlsx">contamination.xlsx</a></p>
 <p><a href="./data/copd_rehab.xlsx">copd_rehab.xlsx</a></p>
-<p><a href="./data/crossroads_purchases.xlsx">crossroads_purchases.xlsx</a></p>
+<p><a
+href="./data/crossroads_purchases.xlsx">crossroads_purchases.xlsx</a></p>
 <p><a href="./data/cuckoo_eggs.xlsx">cuckoo_eggs.xlsx</a></p>
-<p><a href="./data/dart_expert_dow_6_month.xlsx">dart_expert_dow_6_month.xlsx</a></p>
+<p><a
+href="./data/dart_expert_dow_6_month.xlsx">dart_expert_dow_6_month.xlsx</a></p>
 <p><a href="./data/dasl_cheese.xlsx">dasl_cheese.xlsx</a></p>
 <p><a href="./data/dasl_fiber.xlsx">dasl_fiber.xlsx</a></p>
-<p><a href="./data/dasl_helium_football.xlsx">dasl_helium_football.xlsx</a></p>
+<p><a
+href="./data/dasl_helium_football.xlsx">dasl_helium_football.xlsx</a></p>
 <p><a href="./data/dasl_hot_dog.xlsx">dasl_hot_dog.xlsx</a></p>
 <p><a href="./data/dasl_hubble.xlsx">dasl_hubble.xlsx</a></p>
 <p><a href="./data/dasl_stepping.xlsx">dasl_stepping.xlsx</a></p>
 <p><a href="./data/dasl_student_dat.xlsx">dasl_student_dat.xlsx</a></p>
-<p><a href="./data/dasl_taste_test_scores.xlsx">dasl_taste_test_scores.xlsx</a></p>
-<p><a href="./data/dasl_waste_run_up.xlsx">dasl_waste_run_up.xlsx</a></p>
+<p><a
+href="./data/dasl_taste_test_scores.xlsx">dasl_taste_test_scores.xlsx</a></p>
+<p><a
+href="./data/dasl_waste_run_up.xlsx">dasl_waste_run_up.xlsx</a></p>
 <p><a href="./data/dentist_bills.xlsx">dentist_bills.xlsx</a></p>
-<p><a href="./data/diabetes_depression.xlsx">diabetes_depression.xlsx</a></p>
-<p><a href="./data/dissolved_organic_carbon.xlsx">dissolved_organic_carbon.xlsx</a></p>
+<p><a
+href="./data/diabetes_depression.xlsx">diabetes_depression.xlsx</a></p>
+<p><a
+href="./data/dissolved_organic_carbon.xlsx">dissolved_organic_carbon.xlsx</a></p>
 <p><a href="./data/eating_healthy.xlsx">eating_healthy.xlsx</a></p>
-<p><a href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></p>
+<p><a
+href="./data/estuarine_crocodiles.xlsx">estuarine_crocodiles.xlsx</a></p>
 <p><a href="./data/ethanallen.xlsx">ethanallen.xlsx</a></p>
 <p><a href="./data/euro.xlsx">euro.xlsx</a></p>
 <p><a href="./data/euro_wide.xlsx">euro_wide.xlsx</a></p>
 <p><a href="./data/exam_scores.xlsx">exam_scores.xlsx</a></p>
-<p><a href="./data/exercised_bone_density.xlsx">exercised_bone_density.xlsx</a></p>
-<p><a href="./data/factory_assembly_times_sim.xlsx">factory_assembly_times_sim.xlsx</a></p>
+<p><a
+href="./data/exercised_bone_density.xlsx">exercised_bone_density.xlsx</a></p>
+<p><a
+href="./data/factory_assembly_times_sim.xlsx">factory_assembly_times_sim.xlsx</a></p>
 <p><a href="./data/fev.xlsx">fev.xlsx</a></p>
-<p><a href="./data/fifa_heart_attacks.xlsx">fifa_heart_attacks.xlsx</a></p>
-<p><a href="./data/direct_flight_costs.xlsx">direct_flight_costs.xlsx</a></p>
+<p><a
+href="./data/fifa_heart_attacks.xlsx">fifa_heart_attacks.xlsx</a></p>
+<p><a
+href="./data/direct_flight_costs.xlsx">direct_flight_costs.xlsx</a></p>
 <p><a href="./data/freshmen_dinner.xlsx">freshmen_dinner.xlsx</a></p>
-<p><a href="./data/gharial_crocodiles.xlsx">gharial_crocodiles.xlsx</a></p>
+<p><a
+href="./data/gharial_crocodiles.xlsx">gharial_crocodiles.xlsx</a></p>
 <p><a href="./data/gratitude.xlsx">gratitude.xlsx</a></p>
-<p><a href="./data/hospital_infections.xlsx">hospital_infections.xlsx</a></p>
-<p><a href="./data/hubbles_constant_supernovas.xlsx">hubbles_constant_supernovas.xlsx</a></p>
-<p><a href="./data/hubbles_constant_supernovas_up_to_250_mpc.xlsx">hubbles_constant_supernovas_up_to_250_mpc.xlsx</a></p>
+<p><a
+href="./data/hospital_infections.xlsx">hospital_infections.xlsx</a></p>
+<p><a
+href="./data/hubbles_constant_supernovas.xlsx">hubbles_constant_supernovas.xlsx</a></p>
+<p><a
+href="./data/hubbles_constant_supernovas_up_to_250_mpc.xlsx">hubbles_constant_supernovas_up_to_250_mpc.xlsx</a></p>
 <p><a href="./data/hubbles_data.xlsx">hubbles_data.xlsx</a></p>
 <p><a href="./data/hurricane.xlsx">hurricane.xlsx</a></p>
-<p><a href="./data/illinois_birth_weights.xlsx">illinois_birth_weights.xlsx</a></p>
-<p><a href="./data/illinois_birth_weights_two_var.xlsx">illinois_birth_weights_two_var.xlsx</a></p>
+<p><a
+href="./data/illinois_birth_weights.xlsx">illinois_birth_weights.xlsx</a></p>
+<p><a
+href="./data/illinois_birth_weights_two_var.xlsx">illinois_birth_weights_two_var.xlsx</a></p>
 <p><a href="./data/jse_hats.xlsx">jse_hats.xlsx</a></p>
 <p><a href="./data/junk_food.xlsx">junk_food.xlsx</a></p>
 <p><a href="./data/kindness.xlsx">kindness.xlsx</a></p>
 <p><a href="./data/lapd_searches.xlsx">lapd_searches.xlsx</a></p>
 <p><a href="./data/lead_behavior.xlsx">lead_behavior.xlsx</a></p>
-<p><a href="./data/madison_county_real_estate.xlsx">madison_county_real_estate.xlsx</a></p>
+<p><a
+href="./data/madison_county_real_estate.xlsx">madison_county_real_estate.xlsx</a></p>
 <p><a href="./data/manatees.xlsx">manatees.xlsx</a></p>
-<p><a href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a></p>
+<p><a
+href="./data/math_self_efficacy.xlsx">math_self_efficacy.xlsx</a></p>
 <p><a href="./data/mla_data.xlsx">mla_data.xlsx</a></p>
-<p><a href="./data/mystery_investment_opportunities.xlsx">mystery_investment_opportunities.xlsx</a></p>
-<p><a href="./data/nasdaq_price_and_volume.xlsx">nasdaq_price_and_volume.xlsx</a></p>
+<p><a
+href="./data/mystery_investment_opportunities.xlsx">mystery_investment_opportunities.xlsx</a></p>
+<p><a
+href="./data/nasdaq_price_and_volume.xlsx">nasdaq_price_and_volume.xlsx</a></p>
 <p><a href="./data/nba_salaries.xlsx">nba_salaries.xlsx</a></p>
 <p><a href="./data/no_click_query.xlsx">no_click_query.xlsx</a></p>
-<p><a href="./data/no_click_query_summary.xlsx">no_click_query_summary.xlsx</a></p>
+<p><a
+href="./data/no_click_query_summary.xlsx">no_click_query_summary.xlsx</a></p>
 <p><a href="./data/old_faithful.xlsx">old_faithful.xlsx</a></p>
-<p><a href="./data/old_faithful_eras.xlsx">old_faithful_eras.xlsx</a></p>
+<p><a
+href="./data/old_faithful_eras.xlsx">old_faithful_eras.xlsx</a></p>
 <p><a href="./data/oreos.xlsx">oreos.xlsx</a></p>
 <p><a href="./data/oysters.xlsx">oysters.xlsx</a></p>
-<p><a href="./data/patient_satisfaction.xlsx">patient_satisfaction.xlsx</a></p>
+<p><a
+href="./data/patient_satisfaction.xlsx">patient_satisfaction.xlsx</a></p>
 <p><a href="./data/pine_beetle.xlsx">pine_beetle.xlsx</a></p>
 <p><a href="./data/protein.xlsx">protein.xlsx</a></p>
 <p><a href="./data/ptc_tasting.xlsx">ptc_tasting.xlsx</a></p>
@@ -473,19 +510,27 @@ $(document).ready(function () {
 <p><a href="./data/singer_heights.xlsx">singer_heights.xlsx</a></p>
 <p><a href="./data/soccer_shoes.xlsx">soccer_shoes.xlsx</a></p>
 <p><a href="./data/soviet_accidents.xlsx">soviet_accidents.xlsx</a></p>
-<p><a href="./data/speed_of_light_1879.xlsx">speed_of_light_1879.xlsx</a></p>
-<p><a href="./data/speed_of_light_1882.xlsx">speed_of_light_1882.xlsx</a></p>
+<p><a
+href="./data/speed_of_light_1879.xlsx">speed_of_light_1879.xlsx</a></p>
+<p><a
+href="./data/speed_of_light_1882.xlsx">speed_of_light_1882.xlsx</a></p>
 <p><a href="./data/stature.xlsx">stature.xlsx</a></p>
-<p><a href="./data/super_bowl_movies.xlsx">super_bowl_movies.xlsx</a></p>
+<p><a
+href="./data/super_bowl_movies.xlsx">super_bowl_movies.xlsx</a></p>
 <p><a href="./data/surgery_lawsuits.xlsx">surgery_lawsuits.xlsx</a></p>
 <p><a href="./data/survey_data.xlsx">survey_data.xlsx</a></p>
-<p><a href="./data/toyota_prius_2005.xlsx">toyota_prius_2005.xlsx</a></p>
+<p><a
+href="./data/toyota_prius_2005.xlsx">toyota_prius_2005.xlsx</a></p>
 <p><a href="./data/twin_heights.xlsx">twin_heights.xlsx</a></p>
-<p><a href="./data/used_hummers_ny_and_la.xlsx">used_hummers_ny_and_la.xlsx</a></p>
-<p><a href="./data/vertebral_heights.xlsx">vertebral_heights.xlsx</a></p>
+<p><a
+href="./data/used_hummers_ny_and_la.xlsx">used_hummers_ny_and_la.xlsx</a></p>
+<p><a
+href="./data/vertebral_heights.xlsx">vertebral_heights.xlsx</a></p>
 <p><a href="./data/weight_loss.xlsx">weight_loss.xlsx</a></p>
-<p><a href="./data/weight_loss_incentives.xlsx">weight_loss_incentives.xlsx</a></p>
-<p><a href="./data/women_poet_mortality.xlsx">women_poet_mortality.xlsx</a></p>
+<p><a
+href="./data/weight_loss_incentives.xlsx">weight_loss_incentives.xlsx</a></p>
+<p><a
+href="./data/women_poet_mortality.xlsx">women_poet_mortality.xlsx</a></p>
 <p><a href="./data/zung_sim.xlsx">zung_sim.xlsx</a></p>
 </div>
 

@@ -13,7 +13,7 @@
 
 <title>Lesson 18: Inference for Two Proportions</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -57,6 +57,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -81,6 +82,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -138,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -233,7 +241,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -246,7 +254,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 1
      
     <span class="caret"></span>
@@ -282,7 +290,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 2
      
     <span class="caret"></span>
@@ -312,7 +320,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 3
      
     <span class="caret"></span>
@@ -336,7 +344,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 4
      
     <span class="caret"></span>
@@ -373,26 +381,45 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 18: Inference for Two Proportions</h1>
+<h1 class="title toc-ignore">Lesson 18: Inference for Two
+Proportions</h1>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#lesson-outcomes">Lesson Outcomes</a></li>
-<li><a href="#hypothesis-tests">Hypothesis Tests</a>
+<li><a href="#lesson-outcomes" id="toc-lesson-outcomes">Lesson
+Outcomes</a></li>
+<li><a href="#hypothesis-tests" id="toc-hypothesis-tests">Hypothesis
+Tests</a>
 <ul>
-<li><a href="#case-study-another-taste-of-ptc">Case Study: Another Taste of PTC</a></li>
-<li><a href="#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions">R Instructions for a Hypothesis Test for a Difference of Two Proportions</a></li>
-<li><a href="#case-study-mortality-rates-and-day-of-admissionaortic-aneurysms">Case Study: Mortality Rates and Day of Admission–Aortic Aneurysms</a></li>
+<li><a href="#case-study-another-taste-of-ptc"
+id="toc-case-study-another-taste-of-ptc">Case Study: Another Taste of
+PTC</a></li>
+<li><a
+href="#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions"
+id="toc-r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions">R
+Instructions for a Hypothesis Test for a Difference of Two
+Proportions</a></li>
+<li><a
+href="#case-study-mortality-rates-and-day-of-admissionaortic-aneurysms"
+id="toc-case-study-mortality-rates-and-day-of-admissionaortic-aneurysms">Case
+Study: Mortality Rates and Day of Admission–Aortic Aneurysms</a></li>
 </ul></li>
-<li><a href="#confidence-intervals">Confidence Intervals</a>
+<li><a href="#confidence-intervals"
+id="toc-confidence-intervals">Confidence Intervals</a>
 <ul>
-<li><a href="#case-study-managing-fox-populations">Case Study: Managing Fox Populations</a></li>
-<li><a href="#r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions">R Instructions for Finding a Confidence Interval of the Difference of Two Proportions</a></li>
+<li><a href="#case-study-managing-fox-populations"
+id="toc-case-study-managing-fox-populations">Case Study: Managing Fox
+Populations</a></li>
+<li><a
+href="#r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions"
+id="toc-r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions">R
+Instructions for Finding a Confidence Interval of the Difference of Two
+Proportions</a></li>
 </ul></li>
-<li><a href="#summary">Summary</a></li>
-<li><a href="#navigation">Navigation</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#navigation" id="toc-navigation">Navigation</a></li>
 </ul>
 </div>
 
@@ -411,25 +438,33 @@ $(document).ready(function () {
 -->
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href = "javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<a href = "javascript:showhide('oc')"><span
+style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
-<p>By the end of this lesson, you should be able to do the following.</p>
+<p>By the end of this lesson, you should be able to do the
+following.</p>
 <ul>
-<li>Apply a confidence interval for the difference of two proportions using the following steps:
+<li>Apply a confidence interval for the difference of two proportions
+using the following steps:
 <ul>
 <li>Determine the level of confidence</li>
 <li>Create numerical and graphical summaries of the data</li>
 <li>Create a confidence interval using software</li>
 <li>Check the requirements of a confidence interval</li>
-<li>Interpret a confidence interval for the difference of two proportions</li>
+<li>Interpret a confidence interval for the difference of two
+proportions</li>
 </ul></li>
-<li>Perform a hypothesis test for the difference of two proportions using the following steps:
+<li>Perform a hypothesis test for the difference of two proportions
+using the following steps:
 <ul>
 <li>State the null and alternative hypotheses</li>
-<li>State the level of significance (<span class="math inline">\(\alpha\)</span>)</li>
+<li>State the level of significance (<span
+class="math inline">\(\alpha\)</span>)</li>
 <li>Create numerical and graphical summaries of the data</li>
-<li>Calculate the test-statistic, degrees of freedom and P-value of the test using software</li>
-<li>Assess statistical significance by comparing the P-value to the level of significance (<span class="math inline">\(\alpha\)</span>)</li>
+<li>Calculate the test-statistic, degrees of freedom and P-value of the
+test using software</li>
+<li>Assess statistical significance by comparing the P-value to the
+level of significance (<span class="math inline">\(\alpha\)</span>)</li>
 <li>State the appropriate conclusion for the hypothesis test</li>
 <li>Check the requirements for the hypothesis test</li>
 </ul></li>
@@ -449,8 +484,14 @@ $(document).ready(function () {
 <p><img src = "Images/Phenylthiocarbamide-3D-balls.png"></p>
 </div>
 <p><img src = "Images/Step1.png"></p>
-<p>The ability to taste the chemical Phenylthiocarbamide (PTC) is hereditary. Some people can taste it, while others cannot. Even though the ability to taste PTC was observed in all age, race, and sex groups, this does not address the issue about whether men or women are more likely to be able taste PTC.</p>
-<p>Further exploration of the PTC data allows us to investigate if there is a difference in the proportion of men and women who can taste PTC. The following table of counts summarizes Elise Johnson’s results:</p>
+<p>The ability to taste the chemical Phenylthiocarbamide (PTC) is
+hereditary. Some people can taste it, while others cannot. Even though
+the ability to taste PTC was observed in all age, race, and sex groups,
+this does not address the issue about whether men or women are more
+likely to be able taste PTC.</p>
+<p>Further exploration of the PTC data allows us to investigate if there
+is a difference in the proportion of men and women who can taste PTC.
+The following table of counts summarizes Elise Johnson’s results:</p>
 <table>
 <caption><strong>PTC Taste Test Results Table</strong></caption>
 <thead>
@@ -482,10 +523,19 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>These data are available in the file <code>ptc_tasting</code>. You can access this data frame by running the command</p>
+<p>These data are available in the file <code>ptc_tasting</code>. You
+can access this data frame by running the command</p>
 <pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L18.RData&quot;))</code></pre>
-<p>in R. Note the way the data are organized in the file. One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.</p>
-<p>Researchers want to know if the ability to taste PTC is a sex-linked trait. This can be summarized in the following research question: Is there a difference in the proportion of males and the proportion of females who can taste PTC? The hypothesis is that there is no difference in the the true proportion of males who can taste PTC compared to the true proportion of females who can taste PTC. This is written mathematically as:</p>
+<p>in R. Note the way the data are organized in the file. One column
+gives the gender, another column indicates if the individual can taste
+PTC, and a third column gives counts for each group.</p>
+<p>Researchers want to know if the ability to taste PTC is a sex-linked
+trait. This can be summarized in the following research question: Is
+there a difference in the proportion of males and the proportion of
+females who can taste PTC? The hypothesis is that there is no difference
+in the the true proportion of males who can taste PTC compared to the
+true proportion of females who can taste PTC. This is written
+mathematically as:</p>
 <p><span class="math display">\[
 \begin{array}{rl}
 H_0: ~&amp; p_\text{females} = p_\text{males} \\
@@ -493,92 +543,163 @@ H_a: ~&amp; p_\text{females} \ne p_\text{males} \\
 \end{array}
 \]</span></p>
 <p><img src = "Images/Step2.png"></p>
-<p>A sample of 66 females and 52 males were provided PTC strips and asked to indicate if they could taste the chemical or not. (This research was approved by the BYU-Idaho Institutional Review Board.)</p>
+<p>A sample of 66 females and 52 males were provided PTC strips and
+asked to indicate if they could taste the chemical or not. (This
+research was approved by the BYU-Idaho Institutional Review Board.)</p>
 <p><img src = "Images/Step3.png"></p>
-<p>When working with categorical data, it is natural to summarize the data by computing proportions. If someone has the ability to taste PTC, we will call this a success. The sample proportion is defined as the number of successes observed divided by the total number of observations.</p>
-<p>** Group 1: ** For the females, the proportion of the sample who could taste the PTC was: <span class="math display">\[
+<p>When working with categorical data, it is natural to summarize the
+data by computing proportions. If someone has the ability to taste PTC,
+we will call this a success. The sample proportion is defined as the
+number of successes observed divided by the total number of
+observations.</p>
+<p>** Group 1: ** For the females, the proportion of the sample who
+could taste the PTC was: <span class="math display">\[
 \hat p_\text{females} = \frac{x_1}{n_1} = \frac{51}{66} \approx 0.773
-\]</span> This is approximately 77.3% of the people who were surveyed.</p>
-<p>** Group 2: ** For the males, the proportion who could taste PTC was: <span class="math display">\[
+\]</span> This is approximately 77.3% of the people who were
+surveyed.</p>
+<p>** Group 2: ** For the males, the proportion who could taste PTC was:
+<span class="math display">\[
 \hat p_\text{males} = \frac{x_2}{n_2} = \frac{38}{52} \approx 0.731
 \]</span> This works out to be about 73.1%.</p>
-<p>When working with data for two proportions, graphically displaying the data can help us compare each proportion. Bar charts are essential tools for describing our data. This stacked bar chart illustrates how close the two proportions are to each other.</p>
+<p>When working with data for two proportions, graphically displaying
+the data can help us compare each proportion. Bar charts are essential
+tools for describing our data. This stacked bar chart illustrates how
+close the two proportions are to each other.</p>
 <center>
 <img src="Lesson18_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 </center>
 <p><img src = "Images/Step4.png"></p>
-<p>The null and alternative hypotheses for a test of equality of two proportions is: <span class="math display">\[
+<p>The null and alternative hypotheses for a test of equality of two
+proportions is: <span class="math display">\[
 \begin{array}{rl}
 H_0: ~&amp; p_1 = p_2 \\
 H_a: ~&amp; p_1 \ne p_2 \\
 \end{array}
 \]</span></p>
-<p>In this PTC study, we let <span class="math inline">\(p_1\)</span> be the true proportion of females that could taste PTC, <span class="math inline">\(p_\text{females}\)</span>. We let <span class="math inline">\(p_2\)</span> be the true proportion of males that could taste PTC, <span class="math inline">\(p_\text{males}\)</span>. If the null hypothesis is true, then the proportion of females who can taste PTC is the same as the proportion of males who can taste PTC.</p>
-<p><span id="Equation"></span> The test statistic for a two-proportion test is a <span class="math inline">\(z\)</span>. Click on the button below if you want to see the equation.</p>
-<a href = "javascript:showhide('handcalculations1')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Formula (Optional) </span></a>
+<p>In this PTC study, we let <span class="math inline">\(p_1\)</span> be
+the true proportion of females that could taste PTC, <span
+class="math inline">\(p_\text{females}\)</span>. We let <span
+class="math inline">\(p_2\)</span> be the true proportion of males that
+could taste PTC, <span class="math inline">\(p_\text{males}\)</span>. If
+the null hypothesis is true, then the proportion of females who can
+taste PTC is the same as the proportion of males who can taste PTC.</p>
+<p><span id="Equation"></span> The test statistic for a two-proportion
+test is a <span class="math inline">\(z\)</span>. Click on the button
+below if you want to see the equation.</p>
+<a href = "javascript:showhide('handcalculations1')"><span
+style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">
+Show Formula (Optional) </span></a>
 <div id="handcalculations1" style="display:none;">
-<p>The equation for the <span class="math inline">\(z\)</span>-statistic in a test for the difference of two proportions is:</p>
+<p>The equation for the <span class="math inline">\(z\)</span>-statistic
+in a test for the difference of two proportions is:</p>
 <p><span class="math display">\[
-z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
+z = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right)
+}{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} +
+\frac{1}{n_2} \right) } }
 \]</span> where <span class="math display">\[
 \begin{array}{lll}
-n_1 = \text{sample size for group 1:}   &amp; n_1 = 66  &amp; \text{(number of females)} \\
-n_2 = \text{sample size for group 2:}   &amp; n_2 = 52  &amp; \text{(number of males)} \\
-\hat p_1 = \text{sample proportion for group 1:} &amp; \hat p_1 = \frac{x_1}{n_1} = \frac{51}{66} &amp; \text{(proportion of females who can taste PTC)}\\
-\hat p_2 = \text{sample proportion for group 2:} ~ &amp; \hat p_2 = \frac{x_2}{n_2} = \frac{38}{52} &amp; \text{(proportion of males who can taste PTC)}\\
-\hat p = \text{overall sample proportion:}  &amp; \hat p = \frac{x_1+x_2}{n_1+n_2} = \frac{89}{118} &amp; \text{(overall proportion who can taste PTC)}\\
+n_1 = \text{sample size for group 1:}   &amp; n_1 = 66  &amp;
+\text{(number of females)} \\
+n_2 = \text{sample size for group 2:}   &amp; n_2 = 52  &amp;
+\text{(number of males)} \\
+\hat p_1 = \text{sample proportion for group 1:} &amp; \hat p_1 =
+\frac{x_1}{n_1} = \frac{51}{66} &amp; \text{(proportion of females who
+can taste PTC)}\\
+\hat p_2 = \text{sample proportion for group 2:} ~ &amp; \hat p_2 =
+\frac{x_2}{n_2} = \frac{38}{52} &amp; \text{(proportion of males who can
+taste PTC)}\\
+\hat p = \text{overall sample proportion:}  &amp; \hat p =
+\frac{x_1+x_2}{n_1+n_2} = \frac{89}{118} &amp; \text{(overall proportion
+who can taste PTC)}\\
 \end{array}
 \]</span></p>
-<p>Computing this test statistic by hand is not necessary. R will report it for you.</p>
+<p>Computing this test statistic by hand is not necessary. R will report
+it for you.</p>
 </div>
 <p><br></p>
 </div>
-<div id="r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions" class="section level3">
-<h3>R Instructions for a Hypothesis Test for a Difference of Two Proportions</h3>
+<div
+id="r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions"
+class="section level3">
+<h3>R Instructions for a Hypothesis Test for a Difference of Two
+Proportions</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p>Here are the instructions for conducting a hypothesis test for a difference of two proportions in R:</p>
-<p><strong>Step 1.</strong> Use RStudio to run the code in the file <a href="./scripts/functions.R">functions.R</a>. This will load a function that will allow you to compute the hypothesis test. You can do this by running the command <br> <code>source("https://byuistats.github.io/M221R/scripts/functions.R")</code> <br> in the RStudio console.</p>
-<p><strong>Step 2.</strong> Ensure you know both the null hypothesis and alternative hypothesis of your test. In this case, the null hypothesis is <span class="math inline">\(H_0: ~ p_1 = p_2\)</span> and the alternative was <span class="math inline">\(H_a: ~ p_1 \neq p_2\)</span>.</p>
-<p><strong>Step 3.</strong> Use the function <code>two.prop.test(...)</code> to conduct the hypothesis test for one proportion in R.</p>
+<p>Here are the instructions for conducting a hypothesis test for a
+difference of two proportions in R:</p>
+<p><strong>Step 1.</strong> Use RStudio to run the code in the file <a
+href="./scripts/functions.R">functions.R</a>. This will load a function
+that will allow you to compute the hypothesis test. You can do this by
+running the command <br>
+<code>source("https://byuistats.github.io/M221R/scripts/functions.R")</code>
+<br> in the RStudio console.</p>
+<p><strong>Step 2.</strong> Ensure you know both the null hypothesis and
+alternative hypothesis of your test. In this case, the null hypothesis
+is <span class="math inline">\(H_0: ~ p_1 = p_2\)</span> and the
+alternative was <span class="math inline">\(H_a: ~ p_1 \neq
+p_2\)</span>.</p>
+<p><strong>Step 3.</strong> Use the function
+<code>two.prop.test(...)</code> to conduct the hypothesis test for one
+proportion in R.</p>
 <p>A few notes about using this function:</p>
 <ul>
-<li>The number of successes in group 1 is entered using the parameter <code>x1</code></li>
-<li>The number of trials (observations) in group 1 is specified using the parameter <code>n1</code></li>
+<li>The number of successes in group 1 is entered using the parameter
+<code>x1</code></li>
+<li>The number of trials (observations) in group 1 is specified using
+the parameter <code>n1</code></li>
 <li>The number of successes in group 2 is given by <code>x2</code></li>
-<li>The number of trials (observations) in group 2 is given by <code>n2</code></li>
-<li>The alternative hypothesis is established by the argument <code>alternative = "two.sided"</code>. Other options for the alternative hypothesis are <code>alternative = "less"</code> and <code>alternative = "greater"</code>.</li>
+<li>The number of trials (observations) in group 2 is given by
+<code>n2</code></li>
+<li>The alternative hypothesis is established by the argument
+<code>alternative = "two.sided"</code>. Other options for the
+alternative hypothesis are <code>alternative = "less"</code> and
+<code>alternative = "greater"</code>.</li>
 </ul>
-<p>When, the above <code>two.prop.test(...)</code> code is run in RStudio, it produces the following results. The output is formatted similar to R output you have seen in the past.</p>
+<p>When, the above <code>two.prop.test(...)</code> code is run in
+RStudio, it produces the following results. The output is formatted
+similar to R output you have seen in the past.</p>
 <pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = &quot;two.sided&quot;)</code></pre>
 <pre><code>##        Two Proportion z-Test  
 ## 
-## check for normality of p^s: 
-##       n1p^1 =51
-##   n1(1-p^1) =15
-##       n2p^2 =38
-##   n2(1-p^2) =14
+## check for normality of p̂s: 
+##       n₁p̂₁ =51
+##   n₁(1-p̂₁) =15
+##       n₂p̂₂ =38
+##   n₂(1-p̂₂) =14
 ## 
-## data:  x1 = 51, n1 = 66, x2 = 38, n2 = 52
+## data:  x₁ = 51, n₁ = 66, x₂ = 38, n₂ = 52
 ## z = 0.5256, p-value = 0.599
 ## alternative hypothesis: true proportion is not equal to 0
 ## 95 percent confidence interval: 
 ##       -0.115, 0.199
 ## sample estimates: 
-## p^1 = 0.773, p^2 = 0.731</code></pre>
-<p>At the bottom of this output, we are given the sample proportions for the two groups. Since we entered the female values first, group 1 represents the females and group 2 is for the males.</p>
-<p>This function also generates side-by-side bar charts illustrating the data.</p>
+## p̂₁ = 0.773, p̂₂ = 0.731</code></pre>
+<p>At the bottom of this output, we are given the sample proportions for
+the two groups. Since we entered the female values first, group 1
+represents the females and group 2 is for the males.</p>
+<p>This function also generates side-by-side bar charts illustrating the
+data.</p>
 <p><img src="Lesson18_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>We can see that the two proportions are fairly close to each other: <span class="math inline">\(\hat p_1 = \frac{51}{66} = 0.773\)</span> and <span class="math inline">\(\hat p_2 = \frac{38}{52} = 0.731\)</span>.</p>
-<p>The test statistic, <span class="math inline">\(z\)</span>, is <span class="math inline">\(z = 0.526\)</span>.</p>
-<p>The <span class="math inline">\(P\)</span>-value of this test is 0.599, which can be confirmed by putting the <span class="math inline">\(Z\)</span>-value into the Normal Probability Applet and shading both tails.</p>
+<p>We can see that the two proportions are fairly close to each other:
+<span class="math inline">\(\hat p_1 = \frac{51}{66} = 0.773\)</span>
+and <span class="math inline">\(\hat p_2 = \frac{38}{52} =
+0.731\)</span>.</p>
+<p>The test statistic, <span class="math inline">\(z\)</span>, is <span
+class="math inline">\(z = 0.526\)</span>.</p>
+<p>The <span class="math inline">\(P\)</span>-value of this test is
+0.599, which can be confirmed by putting the <span
+class="math inline">\(Z\)</span>-value into the Normal Probability
+Applet and shading both tails.</p>
 <center>
 <img src = "Images/ShadeBothZ-0-5256.png">
 </center>
-<p>You do not need to use the Normal Probability Applet to get the <span class="math inline">\(P\)</span>-value, as R already did that for you. It can be useful to envision what R is doing to get the <span class="math inline">\(P\)</span>-value.</p>
+<p>You do not need to use the Normal Probability Applet to get the <span
+class="math inline">\(P\)</span>-value, as R already did that for you.
+It can be useful to envision what R is doing to get the <span
+class="math inline">\(P\)</span>-value.</p>
 </div>
 <p><br></p>
 <!-- ### R Instructions for Testing Two Proportions -->
@@ -600,55 +721,102 @@ two.prop.test(x1 = 51, n1 = 66, x2 = 38, n2 = 52, alternative = &quot;two.sided&
 <!-- <br/> -->
 <!-- </div> -->
 <!-- <br/> -->
-<p>If you are interested in seeing how these same calculations could be done by hand, click the button below. These calculations are optional reading, and are only included for the curious student.</p>
-<a href = "javascript:showhide('handcalculations3')"><span style="color:white;background-color:darkgray;border-radius:5px;padding:2px;"> Show Calculations (Optional) </span></a>
+<p>If you are interested in seeing how these same calculations could be
+done by hand, click the button below. These calculations are optional
+reading, and are only included for the curious student.</p>
+<a href = "javascript:showhide('handcalculations3')"><span
+style="color:white;background-color:darkgray;border-radius:5px;padding:2px;">
+Show Calculations (Optional) </span></a>
 <div id = "handcalculations3" style = "display:none;">
 
 <p><br></p>
-<p>Substituting these values into the equation for the test statistic, <span class="math inline">\(z\)</span>, we get: <span class="math display">\[
+<p>Substituting these values into the equation for the test statistic,
+<span class="math inline">\(z\)</span>, we get: <span
+class="math display">\[
 \begin{align}
-z &amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
+z &amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( p_1 - p_2
+\right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} +
+\frac{1}{n_2} \right) } }
 \\
-&amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( 0 \right) }{ \sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } } \\
-&amp; ~ ~ ~ ~ ~ \textrm{In the null hypothesis, we assumed that} ~ p_1 = p_2. \\
+&amp; = \frac{ \left( \hat p_1 - \hat p_2 \right) - \left( 0 \right) }{
+\sqrt{\hat p \left( 1-\hat p \right) \left( \frac{1}{n_1} +
+\frac{1}{n_2} \right) } } \\
+&amp; ~ ~ ~ ~ ~ \textrm{In the null hypothesis, we assumed that} ~ p_1 =
+p_2. \\
 &amp; ~ ~ ~ ~ ~ \textrm{Or after subtracting,} ~ p_1-p_2 = 0 \\
-&amp; ~ ~ ~ ~ ~ \textrm{So, we substituted} ~ 0 ~ \textrm{for} ~ p_1-p_2 ~ \text{in the previous step.} \\
-&amp; = \frac{ \left( \frac{51}{66} - \frac{38}{52} \right) - (0) }{ \sqrt{\frac{89}{118} \left( 1-\frac{89}{118} \right) \left( \frac{1}{66} + \frac{1}{52} \right) } } \\
+&amp; ~ ~ ~ ~ ~ \textrm{So, we substituted} ~ 0 ~ \textrm{for} ~ p_1-p_2
+~ \text{in the previous step.} \\
+&amp; = \frac{ \left( \frac{51}{66} - \frac{38}{52} \right) - (0) }{
+\sqrt{\frac{89}{118} \left( 1-\frac{89}{118} \right) \left( \frac{1}{66}
++ \frac{1}{52} \right) } } \\
 &amp; = 0.526 \\
 \end{align}
 \]</span></p>
-The test statistic is <span class="math inline">\(z = 0.526\)</span>. Under the null hypothesis, this follows a standard normal distribution. So, we can use the Normal Probability applet to compute the <span class="math inline">\(P\)</span>-value. We are conducting a two-sided test, so we will shade both tails in the applet.
+The test statistic is <span class="math inline">\(z = 0.526\)</span>.
+Under the null hypothesis, this follows a standard normal distribution.
+So, we can use the Normal Probability applet to compute the <span
+class="math inline">\(P\)</span>-value. We are conducting a two-sided
+test, so we will shade both tails in the applet.
 <center>
 <img src = "Images/ShadeBothZ-0-5256.png">
 </center>
-<p>Since <span class="math inline">\(P\textrm{-value} = 0.599 &gt; 0.05 = \alpha\)</span>, we fail to reject the null hypothesis. In English we say, there is insufficient evidence to suggest that the true proportion of males who can taste PTC is different from the true proportion of females who can taste PTC.</p>
+<p>Since <span class="math inline">\(P\textrm{-value} = 0.599 &gt; 0.05
+= \alpha\)</span>, we fail to reject the null hypothesis. In English we
+say, there is insufficient evidence to suggest that the true proportion
+of males who can taste PTC is different from the true proportion of
+females who can taste PTC.</p>
 <p><br/></p>
 <hr>
 </div>
 <p><br/></p>
 <p><img src = "Images/Step5.png"></p>
-<p>Men and women appear to be able to taste PTC in equal proportions. There is not enough evidence to say that one gender is able to taste PTC more than the other. We cannot conclude that the ability to taste PTC is a sex-linked trait.</p>
+<p>Men and women appear to be able to taste PTC in equal proportions.
+There is not enough evidence to say that one gender is able to taste PTC
+more than the other. We cannot conclude that the ability to taste PTC is
+a sex-linked trait.</p>
 <p><br/></p>
 <p><img src = "Images/StepsAll.png"></p>
 </div>
-<div id="case-study-mortality-rates-and-day-of-admissionaortic-aneurysms" class="section level3">
-<h3>Case Study: Mortality Rates and Day of Admission–Aortic Aneurysms</h3>
+<div
+id="case-study-mortality-rates-and-day-of-admissionaortic-aneurysms"
+class="section level3">
+<h3>Case Study: Mortality Rates and Day of Admission–Aortic
+Aneurysms</h3>
 <div style="float:right;padding:10px;">
 <p><img src = "Images/AneurysmAorta-marked.png"></p>
 </div>
-<p>Some people have claimed that mortality (death) rates are higher for patients admitted to a hospital on a weekend compared to patients admitted on a weekday. Researchers Chaim Bell and Donald Redelmeier analyzed admission data from hospital emergency rooms in Ontario, Canada <!--<cite>Bell01</cite>-->.</p>
-<p>The aorta is a major artery that takes oxygen-rich blood from the heart to the entire body. In some patients, this artery can swell like a balloon and burst. If this occurs in the abdomen, the technical term for the event is a ruptured abdominal aortic aneurysm. Although this condition is treatable, it requires immediate action, or the patient will die rapidly.</p>
+<p>Some people have claimed that mortality (death) rates are higher for
+patients admitted to a hospital on a weekend compared to patients
+admitted on a weekday. Researchers Chaim Bell and Donald Redelmeier
+analyzed admission data from hospital emergency rooms in Ontario, Canada
+<!--<cite>Bell01</cite>-->.</p>
+<p>The aorta is a major artery that takes oxygen-rich blood from the
+heart to the entire body. In some patients, this artery can swell like a
+balloon and burst. If this occurs in the abdomen, the technical term for
+the event is a ruptured abdominal aortic aneurysm. Although this
+condition is treatable, it requires immediate action, or the patient
+will die rapidly.</p>
 <p><img src = "Images/Step1.png"></p>
-<p>The problem is that the quality of care in an emergency care facility may differ at different times of the week. Doctors Bell and Redelmeier hypothesized that the probability that a patient with an aortic aneurysm will die is greater if they are admitted to a hospital on a weekend compared to a weekday.</p>
-<p><strong>Hypothesis:</strong> The proportion of patients with a ruptured abdominal aortic aneurysm who will die is greater on the weekends than on weekdays.</p>
+<p>The problem is that the quality of care in an emergency care facility
+may differ at different times of the week. Doctors Bell and Redelmeier
+hypothesized that the probability that a patient with an aortic aneurysm
+will die is greater if they are admitted to a hospital on a weekend
+compared to a weekday.</p>
+<p><strong>Hypothesis:</strong> The proportion of patients with a
+ruptured abdominal aortic aneurysm who will die is greater on the
+weekends than on weekdays.</p>
 <p><span class="math display">\[
- H_0: ~ p_\text{weekday death} = p_\text{weekend death}
+H_0: ~ p_\text{weekday death} = p_\text{weekend death}
 \]</span> <span class="math display">\[
- H_a: ~ p_\text{weekday death} &lt; p_\text{weekend death}
+H_a: ~ p_\text{weekday death} &lt; p_\text{weekend death}
 \]</span></p>
 <p><img src = "Images/Step2.png"></p>
-<p>To test this claim, the researchers accessed medical records for several patients admitted to the emergency department of the hospitals in Ontario, Canada. They recorded the number of patients admitted with an aortic aneurysm on weekdays compared to weekends.</p>
-<p>Data representative of their results are given below <!--<cite>Bell01</cite>-->.</p>
+<p>To test this claim, the researchers accessed medical records for
+several patients admitted to the emergency department of the hospitals
+in Ontario, Canada. They recorded the number of patients admitted with
+an aortic aneurysm on weekdays compared to weekends.</p>
+<p>Data representative of their results are given below
+<!--<cite>Bell01</cite>-->.</p>
 <table>
 <caption><strong>Aortic Aneurysm Outcomes</strong></caption>
 <thead>
@@ -666,8 +834,10 @@ The test statistic is <span class="math inline">\(z = 0.526\)</span>. Under the 
 </tr>
 <tr class="even">
 <td align="left">Survived</td>
-<td align="left"><span class="math inline">\(\phantom{x_1=~}2669\)</span></td>
-<td align="left"><span class="math inline">\(\phantom{x_2=~}756\)</span></td>
+<td align="left"><span
+class="math inline">\(\phantom{x_1=~}2669\)</span></td>
+<td align="left"><span
+class="math inline">\(\phantom{x_2=~}756\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">Total (n)</td>
@@ -682,19 +852,25 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol style="list-style-type: decimal">
-<li>Use the data above to find the estimated proportion of patients admitted with an aortic aneurysm on a weekday who will die, <span class="math inline">\(\hat p_1\)</span>.</li>
+<li>Use the data above to find the estimated proportion of patients
+admitted with an aortic aneurysm on a weekday who will die, <span
+class="math inline">\(\hat p_1\)</span>.</li>
 </ol>
-<a href = "javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q1')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <p><span class="math display">\[
- \hat p_1 = \hat{p}_\text{weekday} = \frac{1476}{4145} \approx 0.3561
+\hat p_1 = \hat{p}_\text{weekday} = \frac{1476}{4145} \approx 0.3561
 \]</span></p>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Use the data to compute the estimated proportion of the patients admitted on a weekend that will die, <span class="math inline">\(\hat p_2\)</span>.</li>
+<li>Use the data to compute the estimated proportion of the patients
+admitted on a weekend that will die, <span class="math inline">\(\hat
+p_2\)</span>.</li>
 </ol>
-<a href = "javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q2')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <p><span class="math display">\[
   \hat p_2 = \hat{p}_\text{weekend} = \frac{553}{1309} \approx 0.4225
@@ -702,19 +878,24 @@ Answer the following questions:
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>What do you notice about <span class="math inline">\(\hat p_1\)</span> and <span class="math inline">\(\hat p_2\)</span>?</li>
+<li>What do you notice about <span class="math inline">\(\hat
+p_1\)</span> and <span class="math inline">\(\hat p_2\)</span>?</li>
 </ol>
-<a href = "javascript:showhide('Q3')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q3')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <center>
-<span class="math inline">\(\hat p_\text{weekend}~&gt;~\hat p_\text{weekday}\)</span>
+<span class="math inline">\(\hat p_\text{weekend}~&gt;~\hat
+p_\text{weekday}\)</span>
 </center>
 </div>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Create a bar chart showing the two sample proportions side-by-side. This is generated by the <code>two.prop.test()</code> command.</li>
+<li>Create a bar chart showing the two sample proportions side-by-side.
+This is generated by the <code>two.prop.test()</code> command.</li>
 </ol>
-<a href = "javascript:showhide('Q4')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<a href = "javascript:showhide('Q4')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = &quot;two.sided&quot;)</code></pre>
@@ -726,49 +907,75 @@ two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = &quot;two
 <p><img src = "Images/Step4.png"></p>
 <br>
 <div class="message Tip">
-<span class="math inline">\(p_1\)</span> is the true proportion of deaths in group 1, the weekday group. <span class="math inline">\(p_2\)</span> is the true proportion of deaths in the weekend group.
+<span class="math inline">\(p_1\)</span> is the true proportion of
+deaths in group 1, the weekday group. <span
+class="math inline">\(p_2\)</span> is the true proportion of deaths in
+the weekend group.
 </div>
 <p><br> <br></p>
-<p>We now conduct a formal hypothesis test to determine if the mortality (death) rate is greater on a weekend compared to a weekday. First, we state the null and alternative hypotheses: <span class="math display">\[
+<p>We now conduct a formal hypothesis test to determine if the mortality
+(death) rate is greater on a weekend compared to a weekday. First, we
+state the null and alternative hypotheses: <span class="math display">\[
 \begin{align}
 H_0: ~&amp;  p_1 = p_2 \\
 H_a: ~&amp;  p_1 &lt; p_2
 \end{align}
-\]</span> where group 1 represents the patients admitted on a weekday and group 2 represents patients admitted on a weekend. Note that if <span class="math inline">\(p_1 &lt; p_2\)</span>, then the risk of death is greater in group 2 than in group 1. We will use the 0.05 level of significance.</p>
-<div id="checking-requirements-for-the-hypothesis-test" class="section level4">
+\]</span> where group 1 represents the patients admitted on a weekday
+and group 2 represents patients admitted on a weekend. Note that if
+<span class="math inline">\(p_1 &lt; p_2\)</span>, then the risk of
+death is greater in group 2 than in group 1. We will use the 0.05 level
+of significance.</p>
+<div id="checking-requirements-for-the-hypothesis-test"
+class="section level4">
 <h4>Checking Requirements for the Hypothesis Test</h4>
 <p>We perform the test using <code>two.prop.test( )</code> in R.</p>
 <pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 two.prop.test(x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309, alternative = &quot;less&quot;)</code></pre>
 <pre><code>##        Two Proportion z-Test  
 ## 
-## check for normality of p^s: 
-##       n1p^1 =1476
-##   n1(1-p^1) =2669
-##       n2p^2 =553
-##   n2(1-p^2) =756
+## check for normality of p̂s: 
+##       n₁p̂₁ =1476
+##   n₁(1-p̂₁) =2669
+##       n₂p̂₂ =553
+##   n₂(1-p̂₂) =756
 ## 
-## data:  x1 = 1476, n1 = 4145, x2 = 553, n2 = 1309
+## data:  x₁ = 1476, n₁ = 4145, x₂ = 553, n₂ = 1309
 ## z = -4.331, p-value = 7.42e-06
 ## alternative hypothesis: true proportion is less than 0
 ## 95 percent confidence interval: 
 ##       -Inf, -0.0408
 ## sample estimates: 
-## p^1 = 0.356, p^2 = 0.422</code></pre>
+## p̂₁ = 0.356, p̂₂ = 0.422</code></pre>
 <p>The check for the requirements is given in the output.</p>
-<p>If the sample size is large in both groups, then we can use the normal distribution to compute the <span class="math inline">\(P\)</span>-value. To check if the sample size is large enough, we need to check the following requirements: <span class="math display">\[
+<p>If the sample size is large in both groups, then we can use the
+normal distribution to compute the <span
+class="math inline">\(P\)</span>-value. To check if the sample size is
+large enough, we need to check the following requirements: <span
+class="math display">\[
 \begin{array}{rrr}
-n_1 \cdot \hat p_1 \ge 10                 &amp;&amp; n_2 \cdot \hat p_2 \ge 10 \\
-n_1 \cdot \left(1-\hat p_1\right) \ge 10  &amp;&amp; n_2 \cdot \left(1-\hat p_2\right) \ge 10
+n_1 \cdot \hat p_1 \ge 10                 &amp;&amp; n_2 \cdot \hat p_2
+\ge 10 \\
+n_1 \cdot \left(1-\hat p_1\right) \ge 10  &amp;&amp; n_2 \cdot
+\left(1-\hat p_2\right) \ge 10
 \end{array}
-\]</span> If all of these requirements are satisfied, the two proportion test can be used to assess whether the true population proportions are equal or if the risk of death is greater on weekends.</p>
-<p>Note that the requirements are all satisfied: <span class="math display">\[
+\]</span> If all of these requirements are satisfied, the two proportion
+test can be used to assess whether the true population proportions are
+equal or if the risk of death is greater on weekends.</p>
+<p>Note that the requirements are all satisfied: <span
+class="math display">\[
 \begin{array}{rr}
-n_1 \cdot \hat p_1 = 4145 \cdot 0.3561 = 1476 \ge 10            &amp;\surd &amp;&amp; n_2 \cdot \hat p_2 = 1309 \cdot 0.4225 = 553 \ge 10 &amp; \surd \\
-n_1 \cdot \left(1-\hat p_1\right) = 4145 \cdot 0.6439 = 2669 \ge 10     &amp;\surd &amp;&amp; n_2 \cdot \left(1-\hat p_2\right) = 1309 \cdot 0.5775 = 756 \ge 10 &amp; \surd
+n_1 \cdot \hat p_1 = 4145 \cdot 0.3561 = 1476 \ge
+10            &amp;\surd &amp;&amp; n_2 \cdot \hat p_2 = 1309 \cdot
+0.4225 = 553 \ge 10 &amp; \surd \\
+n_1 \cdot \left(1-\hat p_1\right) = 4145 \cdot 0.6439 = 2669 \ge
+10     &amp;\surd &amp;&amp; n_2 \cdot \left(1-\hat p_2\right) = 1309
+\cdot 0.5775 = 756 \ge 10 &amp; \surd
 \end{array}
 \]</span></p>
-<p><strong>Reminder:</strong> <span class="math inline">\(~ x_1 = 1476,~x_2 = 553\)</span>, <span class="math inline">\(n_1 = 4145,~n_2 = 1309\)</span>, <span class="math inline">\(\hat p_1 = \frac{x_1}{n_1},~\hat p_2 = \frac{x_2}{n_2}\)</span>.</p>
+<p><strong>Reminder:</strong> <span class="math inline">\(~ x_1 =
+1476,~x_2 = 553\)</span>, <span class="math inline">\(n_1 = 4145,~n_2 =
+1309\)</span>, <span class="math inline">\(\hat p_1 =
+\frac{x_1}{n_1},~\hat p_2 = \frac{x_2}{n_2}\)</span>.</p>
 <!--These calculations don't match prop.test...
 
 If you wanted to see the computations required to compute this test statistic by hand, click the button below.
@@ -821,9 +1028,15 @@ This $z$-score can be substituted into the Normal Probability applet to find the
 
 -->
 <p><br/></p>
-<p>The <span class="math inline">\(z\)</span>-score is z = -3.34. The <span class="math inline">\(P\)</span>-value$ = 0.000418 &lt; 0.05 = $, so we reject the null hypothesis.</p>
+<p>The <span class="math inline">\(z\)</span>-score is z = -3.34. The
+<span class="math inline">\(P\)</span>-value$ = 0.000418 &lt; 0.05 = $,
+so we reject the null hypothesis.</p>
 <p><img src = "Images/Step5.png"></p>
-<p>There is sufficient evidence to suggest that the true proportion of patients who die from an aortic aneurysm is greater on the weekends than on the weekdays. It appears that there are substantial differences in the quality of care available to patients on the weekends compared to patients on weekdays.</p>
+<p>There is sufficient evidence to suggest that the true proportion of
+patients who die from an aortic aneurysm is greater on the weekends than
+on the weekdays. It appears that there are substantial differences in
+the quality of care available to patients on the weekends compared to
+patients on weekdays.</p>
 <p><br/></p>
 <!--
 <img src = "Images/StepsAll.png">
@@ -1002,10 +1215,9 @@ prop.test(x = c(17113, 6289), n = c(117709,42511), correct = FALSE, alternative 
 
 ```
 
-    2-sample test for equality of proportions without continuity
-    correction
+    2-sample test for equality of proportions without continuity correction
 
-data:  c(17113, 6289) out of c(117709, 42511)
+data:  c out of c17113 out of 1177096289 out of 42511
 X-squared = 1.6336, df = 1, p-value = 0.1006
 alternative hypothesis: less
 95 percent confidence interval:
@@ -1099,14 +1311,38 @@ We get $Z = sqrt(1.6336) = 1.278$. Note however, that since "prop 1" is 0.145 an
 <div style="float:right;padding:10px;">
 <p><img src = "Images/RoyalBotanicGardensCranbourne-Flikr-flipsockgrrl.png" width = 80%></p>
 </div>
-<p>During the mid 1800’s, European foxes were introduced to the Australian mainland. These predators have been responsible for the reduction or extinction of several species of native wildlife. <!--(Coates08)--></p>
-<p>The Royal Botanic Gardens Cranbourne is a 914 acre (370 ha) conservation reserve outside Melbourne, Australia. Predation by foxes has been an ongoing problem in the gardens. To reduce the risk to native species, a systematic program of killing foxes was implemented.</p>
-<p>One way to monitor the presence of foxes is to look for fox tracks in specific sandy areas, called sand-pads. Before beginning a systematic effort to reduce the fox population, ecologists observed fox tracks in the sand-pads 576 out of the 950 times the sand-pads were observed. After eliminating some of the foxes, the ecologists observed fox tracks in the sand-pads 268 times out of the 1359 times they checked the sand-pads <!--<cite>Coates08</cite>-->. The ecologists want to know if there is a difference in the proportion of times fox tracks are observed before versus after the intervention to reduce the fox population.</p>
-<p>One way to compare two proportions is to make a confidence interval for the difference in the proportions.</p>
+<p>During the mid 1800’s, European foxes were introduced to the
+Australian mainland. These predators have been responsible for the
+reduction or extinction of several species of native wildlife.
+<!--(Coates08)--></p>
+<p>The Royal Botanic Gardens Cranbourne is a 914 acre (370 ha)
+conservation reserve outside Melbourne, Australia. Predation by foxes
+has been an ongoing problem in the gardens. To reduce the risk to native
+species, a systematic program of killing foxes was implemented.</p>
+<p>One way to monitor the presence of foxes is to look for fox tracks in
+specific sandy areas, called sand-pads. Before beginning a systematic
+effort to reduce the fox population, ecologists observed fox tracks in
+the sand-pads 576 out of the 950 times the sand-pads were observed.
+After eliminating some of the foxes, the ecologists observed fox tracks
+in the sand-pads 268 times out of the 1359 times they checked the
+sand-pads <!--<cite>Coates08</cite>-->. The ecologists want to know if
+there is a difference in the proportion of times fox tracks are observed
+before versus after the intervention to reduce the fox population.</p>
+<p>One way to compare two proportions is to make a confidence interval
+for the difference in the proportions.</p>
 <!--
 The equation for the confidence interval for the difference of two proportions may look a little daunting at first, but with some practice, it is not too difficult.
 -->
-<p>We divide the data into two groups: after foxes were targeted (Group 1) and before the intervention (Group 2). For each group, let <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> represent the number of times fox prints were observed in the sand-pads before and after the ecologists began systematically eliminating the foxes, respectively. Similarly, Let <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> be the number of times the ecologists checked the sand-pads in the “after” and “before” periods, respectively.</p>
+<p>We divide the data into two groups: after foxes were targeted (Group
+1) and before the intervention (Group 2). For each group, let <span
+class="math inline">\(x_1\)</span> and <span
+class="math inline">\(x_2\)</span> represent the number of times fox
+prints were observed in the sand-pads before and after the ecologists
+began systematically eliminating the foxes, respectively. Similarly, Let
+<span class="math inline">\(n_1\)</span> and <span
+class="math inline">\(n_2\)</span> be the number of times the ecologists
+checked the sand-pads in the “after” and “before” periods,
+respectively.</p>
 <center>
 <p><strong>Fox Tracks Data</strong></p>
 <table>
@@ -1145,67 +1381,108 @@ $$
 $$
 
 -->
-<p>When working with two proportions, we are mainly interested in the <em>difference between the proportions.</em> In this case, subtracting the two proportions gives us an estimate of how different the true proportions <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> might be.</p>
+<p>When working with two proportions, we are mainly interested in the
+<em>difference between the proportions.</em> In this case, subtracting
+the two proportions gives us an estimate of how different the true
+proportions <span class="math inline">\(p_1\)</span> and <span
+class="math inline">\(p_2\)</span> might be.</p>
 <p><span class="math display">\[
 \hat p_1 -\hat p_2 = 0.197 - 0.606 = -0.409
 \]</span></p>
-<p>This tells us that it appears the first proportion, <span class="math inline">\(p_1\)</span> is somewhere around 40.9 percentage points lower than <span class="math inline">\(p_2\)</span>. This is quite a bit! It seems the intervention lowered the prevalence of foxes in the sand-pads. However, our conclusions are based on sample proportions instead of the true proportions. We cannot be sure exactly how much the true proportions actually differ, but a confidence interval to estimate the true difference in proportions can give us greater insight.</p>
+<p>This tells us that it appears the first proportion, <span
+class="math inline">\(p_1\)</span> is somewhere around 40.9 percentage
+points lower than <span class="math inline">\(p_2\)</span>. This is
+quite a bit! It seems the intervention lowered the prevalence of foxes
+in the sand-pads. However, our conclusions are based on sample
+proportions instead of the true proportions. We cannot be sure exactly
+how much the true proportions actually differ, but a confidence interval
+to estimate the true difference in proportions can give us greater
+insight.</p>
 </div>
-<div id="r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions" class="section level3">
-<h3>R Instructions for Finding a Confidence Interval of the Difference of Two Proportions</h3>
+<div
+id="r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions"
+class="section level3">
+<h3>R Instructions for Finding a Confidence Interval of the Difference
+of Two Proportions</h3>
 <div class="SoftwareHeading">
 R Instructions
 </div>
 <div class="Software">
-<p>Use the <code>two.prop.test( )</code> function in R to obtain a confidence interval for the difference of two proportions.</p>
+<p>Use the <code>two.prop.test( )</code> function in R to obtain a
+confidence interval for the difference of two proportions.</p>
 <pre class="r"><code>source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 two.prop.test(x1 = 268, n1 = 1359, x2 = 576, n2 = 950, conf.level = 0.95)</code></pre>
 <pre><code>##        Two Proportion z-Test  
 ## 
-## check for normality of p^s: 
-##       n1p^1 =268
-##   n1(1-p^1) =1091
-##       n2p^2 =576
-##   n2(1-p^2) =374
+## check for normality of p̂s: 
+##       n₁p̂₁ =268
+##   n₁(1-p̂₁) =1091
+##       n₂p̂₂ =576
+##   n₂(1-p̂₂) =374
 ## 
-## data:  x1 = 268, n1 = 1359, x2 = 576, n2 = 950
+## data:  x₁ = 268, n₁ = 1359, x₂ = 576, n₂ = 950
 ## z = -20.09, p-value = 9.41e-90
 ## alternative hypothesis: true proportion is not equal to 0
 ## 95 percent confidence interval: 
 ##       -0.447, -0.372
 ## sample estimates: 
-## p^1 = 0.197, p^2 = 0.606</code></pre>
-<p>We can see the distinct difference in the proportion of fox tracks after the intervention in the side-by-side bar charts.</p>
+## p̂₁ = 0.197, p̂₂ = 0.606</code></pre>
+<p>We can see the distinct difference in the proportion of fox tracks
+after the intervention in the side-by-side bar charts.</p>
 <p><img src="Lesson18_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Recall that group 1 represents the observations <em>after</em> the intervention and Group 2 represents observations <em>before</em> the intervention.</p>
+<p>Recall that group 1 represents the observations <em>after</em> the
+intervention and Group 2 represents observations <em>before</em> the
+intervention.</p>
 </div>
 <p><br/></p>
-<p>The lower bound for a 95% confidence interval for the difference of the proportions of times fox prints are observed in the sand-pads is <span class="math inline">\(-0.447\)</span> and the upper-bound is <span class="math inline">\(-0.372\)</span>.</p>
-<p>So, the 95% confidence interval for the difference in the proportions is:</p>
+<p>The lower bound for a 95% confidence interval for the difference of
+the proportions of times fox prints are observed in the sand-pads is
+<span class="math inline">\(-0.447\)</span> and the upper-bound is <span
+class="math inline">\(-0.372\)</span>.</p>
+<p>So, the 95% confidence interval for the difference in the proportions
+is:</p>
 <p><span class="math display">\[
 (-0.447, -0.372)
 \]</span></p>
-<p>To interpret this confidence interval, we say, “We are 95% confident that the true <em>difference</em> in the proportions of times fox prints will appear in the sand-pads is between <span class="math inline">\(-0.447\)</span> and <span class="math inline">\(-0.372\)</span>.”</p>
+<p>To interpret this confidence interval, we say, “We are 95% confident
+that the true <em>difference</em> in the proportions of times fox prints
+will appear in the sand-pads is between <span
+class="math inline">\(-0.447\)</span> and <span
+class="math inline">\(-0.372\)</span>.”</p>
 <div class="message Tip">
-<p>If we had swapped the way we label group 1 and group 2, then our confidence interval would have had the opposite signs: <span class="math inline">\((0.372, 0.447)\)</span>.</p>
+<p>If we had swapped the way we label group 1 and group 2, then our
+confidence interval would have had the opposite signs: <span
+class="math inline">\((0.372, 0.447)\)</span>.</p>
 </div>
-<p>We conclude that the proportion of times foxes are observed in the sand-pads has been reduced by anywhere from 37.2 percentage points to 44.7 percentage points. The work to reduce the number of foxes seems to have an effect on their presence in the reserve.</p>
-<div id="checking-requirements-for-a-confidence-interval" class="section level4">
+<p>We conclude that the proportion of times foxes are observed in the
+sand-pads has been reduced by anywhere from 37.2 percentage points to
+44.7 percentage points. The work to reduce the number of foxes seems to
+have an effect on their presence in the reserve.</p>
+<div id="checking-requirements-for-a-confidence-interval"
+class="section level4">
 <h4>Checking Requirements for a Confidence Interval</h4>
-<p>The requirements for computing a confidence interval for two proportions are the same as the requirements for doing a hypothesis test.</p>
+<p>The requirements for computing a confidence interval for two
+proportions are the same as the requirements for doing a hypothesis
+test.</p>
 <p><span class="math display">\[
 \begin{array}{rrr}
-n_1 \cdot \hat p_1 \ge 10                 &amp;&amp; n_2 \cdot \hat p_2 \ge 10 \\
-n_1 \cdot \left(1-\hat p_1\right) \ge 10  &amp;&amp; n_2 \cdot \left(1-\hat p_2\right) \ge 10
+n_1 \cdot \hat p_1 \ge 10                 &amp;&amp; n_2 \cdot \hat p_2
+\ge 10 \\
+n_1 \cdot \left(1-\hat p_1\right) \ge 10  &amp;&amp; n_2 \cdot
+\left(1-\hat p_2\right) \ge 10
 \end{array}
 \]</span></p>
-<p>These calculations are given in the output above. In this example, all of the requirements are satisfied:</p>
+<p>These calculations are given in the output above. In this example,
+all of the requirements are satisfied:</p>
 <p><span class="math display">\[
 \begin{array}{rlrl}
- n_1 \cdot \hat p_1 = 1359 \cdot 0.197 = 268 \ge 10 &amp;\surd ~~~~~~~~~&amp; 
+n_1 \cdot \hat p_1 = 1359 \cdot 0.197 = 268 \ge 10 &amp;\surd
+~~~~~~~~~&amp;
   n_2 \cdot \hat p_2 = 950 \cdot 0.606 = 576 \ge 10  &amp;\surd \\
-n_1 \cdot \left(1-\hat p_1\right) = 1359 \cdot (1-0.197) = 1091 \ge 10 &amp;\surd&amp; 
-  n_2 \cdot \left(1-\hat p_2\right) = 950 \cdot (1-0.606) = 374 \ge 10 &amp;\surd 
+n_1 \cdot \left(1-\hat p_1\right) = 1359 \cdot (1-0.197) = 1091 \ge 10
+&amp;\surd&amp;
+  n_2 \cdot \left(1-\hat p_2\right) = 950 \cdot (1-0.606) = 374 \ge 10
+&amp;\surd
 \end{array}
 \]</span></p>
 <p><br></p>
@@ -1219,23 +1496,44 @@ Remember…
 </div>
 <div class="Summary">
 <ul>
-<li><p>When conducting hypothesis tests using two proportions, the null hypothesis is always <span class="math inline">\(p_1 = p_2\)</span>, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed (<span class="math inline">\(&lt;\)</span>), right-tailed(<span class="math inline">\(&gt;\)</span>), or two-tailed(<span class="math inline">\(\ne\)</span>).</p></li>
-<li><p>For a hypothesis test and confidence interval of two proportions, we use the following symbols: <span class="math display">\[
+<li><p>When conducting hypothesis tests using two proportions, the null
+hypothesis is always <span class="math inline">\(p_1 = p_2\)</span>,
+indicating that there is no difference between the two proportions. The
+alternative hypothesis can be left-tailed (<span
+class="math inline">\(&lt;\)</span>), right-tailed(<span
+class="math inline">\(&gt;\)</span>), or two-tailed(<span
+class="math inline">\(\ne\)</span>).</p></li>
+<li><p>For a hypothesis test and confidence interval of two proportions,
+we use the following symbols: <span class="math display">\[
 \begin{array}{lll}
-\text{Sample proportion for group 1:} &amp;~&amp; \hat p_1 = \displaystyle{\frac{x_1}{n_1}} \\
-\text{Sample proportion for group 2:} &amp;~&amp; \hat p_2 = \displaystyle{\frac{x_2}{n_2}}
+\text{Sample proportion for group 1:} &amp;~&amp; \hat p_1 =
+\displaystyle{\frac{x_1}{n_1}} \\
+\text{Sample proportion for group 2:} &amp;~&amp; \hat p_2 =
+\displaystyle{\frac{x_2}{n_2}}
 \end{array}
 \]</span></p></li>
-<li><p>A test of two proportions (or confidence interval for two proportions) is appropriate to perform whenever all of the following requirements are satisfied:</p></li>
+<li><p>A test of two proportions (or confidence interval for two
+proportions) is appropriate to perform whenever all of the following
+requirements are satisfied:</p></li>
 </ul>
 <p><span class="math display">\[
 n_1\hat{p}_1 \geq 10 \quad\quad\quad\quad n_2 \hat{p}_2 \geq 10\\
 n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
 \]</span></p>
 <ul>
-<li><p>If zero is contained in the confidence interval of the difference of the true proportions, it is reasonable to conclude that there is no significant difference between the two proportions.</p></li>
-<li><p>Use <a href="Lesson18.html#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions"><code>two.prop.test(x1 = , n1= , x2 = , n2 = , alternative = )</code></a> to perform a hypothesis test of two proportions. Note that <code>alternative</code> could either be assigned a value of <code>"two.sided"</code>, <code>"less"</code>, or <code>"greater"</code>.</p></li>
-<li><p>Use <a href="Lesson18.html#r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions"><code>two.prop.test(x1 = , n1= , x2 = , n2 = , conf.level = 0.95)</code></a> to obtain a confidence interval for the difference of two proportions.</p></li>
+<li><p>If zero is contained in the confidence interval of the difference
+of the true proportions, it is reasonable to conclude that there is no
+significant difference between the two proportions.</p></li>
+<li><p>Use <a
+href="Lesson18.html#r-instructions-for-a-hypothesis-test-for-a-difference-of-two-proportions"><code>two.prop.test(x1 = , n1= , x2 = , n2 = , alternative = )</code></a>
+to perform a hypothesis test of two proportions. Note that
+<code>alternative</code> could either be assigned a value of
+<code>"two.sided"</code>, <code>"less"</code>, or
+<code>"greater"</code>.</p></li>
+<li><p>Use <a
+href="Lesson18.html#r-instructions-for-finding-a-confidence-interval-of-the-difference-of-two-proportions"><code>two.prop.test(x1 = , n1= , x2 = , n2 = , conf.level = 0.95)</code></a>
+to obtain a confidence interval for the difference of two
+proportions.</p></li>
 </ul>
 <p><br></p>
 </div>
@@ -1259,9 +1557,11 @@ n_1(1-\hat{p}_1) \geq 10 \quad\quad n_2 (1-\hat{p}_2) \geq 10
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><a href="Lesson17.html">Lesson 17: <br> Inference for One Proportion</a></td>
+<td align="center"><a href="Lesson17.html">Lesson 17: <br> Inference for
+One Proportion</a></td>
 <td align="center">Lesson 18: <br> Inference for Two Proportion</td>
-<td align="center"><a href="Lesson19.html">Lesson 19: <br> Inference for Independence of Categorical Data</a></td>
+<td align="center"><a href="Lesson19.html">Lesson 19: <br> Inference for
+Independence of Categorical Data</a></td>
 </tr>
 </tbody>
 </table>

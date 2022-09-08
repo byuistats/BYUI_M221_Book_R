@@ -13,7 +13,7 @@
 
 <title>R Help</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -84,6 +85,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -141,11 +145,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -309,7 +317,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -322,7 +330,7 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 1
      
     <span class="caret"></span>
@@ -358,7 +366,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 2
      
     <span class="caret"></span>
@@ -388,7 +396,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 3
      
     <span class="caret"></span>
@@ -412,7 +420,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Unit 4
      
     <span class="caret"></span>
@@ -460,8 +468,13 @@ div.tocify {
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<p>We will use <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a> for all of our data analysis this semester. This page will guide you through the installation process and help you get started working with data in R.</p>
-<div id="installing-r-and-rstudio" class="section level2 tabset tabset-fade">
+<p>We will use <a
+href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>
+for all of our data analysis this semester. This page will guide you
+through the installation process and help you get started working with
+data in R.</p>
+<div id="installing-r-and-rstudio"
+class="section level2 tabset tabset-fade">
 <h2 class="tabset tabset-fade">Installing R and RStudio</h2>
 <div id="quick-instructions" class="section level3">
 <h3>Quick Instructions</h3>
@@ -471,7 +484,9 @@ div.tocify {
 <strong>First</strong>, install:
 </td>
 <td style="padding:5px;">
-<img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /> (<a href="https://cran.r-project.org/bin/macosx/base/R-4.1.0.pkg" target="_blank">Mac OS X</a> | <a href="https://cran.r-project.org/bin/windows/base/release.html" target="_blank">Windows</a>),
+<img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /> (<a href="https://cran.r-project.org/bin/macosx/base/R-4.1.0.pkg" target="_blank">Mac
+OS X</a> |
+<a href="https://cran.r-project.org/bin/windows/base/release.html" target="_blank">Windows</a>),
 </td>
 </tr>
 <tr>
@@ -479,12 +494,18 @@ div.tocify {
 <strong>Second</strong>, install:
 </td>
 <td style="padding:5px;">
-<img src="Images/RStudio_logo.png" alt="RStudio_logo.png" width="106" height="37" /> (<a href="https://download1.rstudio.org/desktop/macos/RStudio-1.4.1106.dmg" target="_blank">Mac OS X</a> | <a href="https://download1.rstudio.org/desktop/windows/RStudio-1.4.1106.exe" target="_blank">Windows</a>).
+<img src="Images/RStudio_logo.png" alt="RStudio_logo.png" width="106" height="37" /> (<a href="https://download1.rstudio.org/desktop/macos/RStudio-1.4.1106.dmg" target="_blank">Mac
+OS X</a> |
+<a href="https://download1.rstudio.org/desktop/windows/RStudio-1.4.1106.exe" target="_blank">Windows</a>).
 </td>
 </tr>
 </table>
 <div class="note">
-<p>If you are using a <span style="color: #ff6600;">Chromebook</span> or <span style="color: #ff6600;">other “web browsing only” type computer</span> that will not allow you to install software, then set up an account at <a href="https://rstudio.cloud/">RStudio Cloud</a> instead of installing R and RStudio as shown here.</p>
+<p>If you are using a <span style="color: #ff6600;">Chromebook</span> or
+<span style="color: #ff6600;">other “web browsing only” type
+computer</span> that will not allow you to install software, then set up
+an account at <a href="https://rstudio.cloud/">RStudio Cloud</a> instead
+of installing R and RStudio as shown here.</p>
 </div>
 <div style="clear:both;">
 
@@ -497,14 +518,21 @@ div.tocify {
 </div>
 <div id="detailed-instructions" class="section level3">
 <h3>Detailed Instructions</h3>
-<p>To install the statistical analysis program <strong>RStudio</strong> you will first need to install a piece of software called <strong>R</strong>. Funny name, right? (There was originally a software called “S” for statistics, and then “R” was invented later on. Part of the reason they used “R” was to claim that “R” was a “leap ahead” of “S.”)</p>
+<p>To install the statistical analysis program <strong>RStudio</strong>
+you will first need to install a piece of software called
+<strong>R</strong>. Funny name, right? (There was originally a software
+called “S” for statistics, and then “R” was invented later on. Part of
+the reason they used “R” was to claim that “R” was a “leap ahead” of
+“S.”)</p>
 <table align="left">
 <tr>
 <td style="padding:5px;">
 Install the R Software by clicking here:
 </td>
 <td style="padding:5px;">
-<img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /> (<a href="https://cran.r-project.org/bin/macosx/R-4.0.5.pkg" target="_blank">Mac OS X</a> | <a href="https://cran.r-project.org/bin/windows/base/release.html" target="_blank">Windows</a>),
+<img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /> (<a href="https://cran.r-project.org/bin/macosx/R-4.0.5.pkg" target="_blank">Mac
+OS X</a> |
+<a href="https://cran.r-project.org/bin/windows/base/release.html" target="_blank">Windows</a>),
 </td>
 </tr>
 </table>
@@ -512,18 +540,28 @@ Install the R Software by clicking here:
 
 </div>
 <p><br/></p>
-<p>Once that download finishes, open the resulting file. It should look something like this:</p>
+<p>Once that download finishes, open the resulting file. It should look
+something like this:</p>
 <p><img src="Images/installingR_step1.png" width="500"></p>
-<p>Click “Continue” or “Okay” or “Accept” for all of the several various windows that will appear. Once the installation is complete you should get a window like this:</p>
+<p>Click “Continue” or “Okay” or “Accept” for all of the several various
+windows that will appear. Once the installation is complete you should
+get a window like this:</p>
 <p><img src="Images/installingR_step8.png" width="500"></p>
-<p>Now that R is properly installed on your computer, we need to install RStudio. RStudio is an app that runs R inside of it and provides you with many other tools that go way beyond what R can do. This is why R must be installed first, so that RStudio can use it. You will never need to open R yourself. Just use RStudio. But without R, RStudio won’t work properly.</p>
+<p>Now that R is properly installed on your computer, we need to install
+RStudio. RStudio is an app that runs R inside of it and provides you
+with many other tools that go way beyond what R can do. This is why R
+must be installed first, so that RStudio can use it. You will never need
+to open R yourself. Just use RStudio. But without R, RStudio won’t work
+properly.</p>
 <table align="left">
 <tr>
 <td style="padding:5px;">
 Install the RStudio app by clicking here:
 </td>
 <td style="padding:5px;">
-<img src="Images/RStudio_logo.png" alt="RStudio_logo.png" width="106" height="37" /> (<a href="https://download1.rstudio.org/desktop/macos/RStudio-1.4.1106.dmg" target="_blank">Mac OS X</a> | <a href="https://download1.rstudio.org/desktop/windows/RStudio-1.4.1106.exe" target="_blank">Windows</a>).
+<img src="Images/RStudio_logo.png" alt="RStudio_logo.png" width="106" height="37" /> (<a href="https://download1.rstudio.org/desktop/macos/RStudio-1.4.1106.dmg" target="_blank">Mac
+OS X</a> |
+<a href="https://download1.rstudio.org/desktop/windows/RStudio-1.4.1106.exe" target="_blank">Windows</a>).
 </td>
 </tr>
 </table>
@@ -531,11 +569,16 @@ Install the RStudio app by clicking here:
 
 </div>
 <p><br/></p>
-<p>Once the RStudio installer downloads, open the resulting file. A window like this should appear:</p>
+<p>Once the RStudio installer downloads, open the resulting file. A
+window like this should appear:</p>
 <p><img src="Images/rstudio_setup.png" width="500"></p>
-<p>Again, work through the installation process, agreeing with all the defaults and terms of conditions.</p>
-<p>Once the installation finishes you can use your computer’s search bar to search for “RStudio” in your apps. It will have an icon like this: <img src="Images/RStudio_logo.png" width="30">.</p>
-<p>Once you have successfully opened RStudio it should look like this:</p>
+<p>Again, work through the installation process, agreeing with all the
+defaults and terms of conditions.</p>
+<p>Once the installation finishes you can use your computer’s search bar
+to search for “RStudio” in your apps. It will have an icon like this:
+<img src="Images/RStudio_logo.png" width="30">.</p>
+<p>Once you have successfully opened RStudio it should look like
+this:</p>
 <p><img src="Images/rstudio_open.png" width="500"></p>
 <hr />
 <p><br/> <br/></p>
@@ -547,24 +590,43 @@ Install the RStudio app by clicking here:
 <h3>Quick Instructions</h3>
 <p>First, open the “Import Dataset” option from within RStudio.</p>
 <p><img src="Images/rstudio_import_excel.png" width="500"></p>
-<p>Second, either paste in a link to a data set, or “Browse” to find a dataset that is saved somewhere on your computer.</p>
+<p>Second, either paste in a link to a data set, or “Browse” to find a
+dataset that is saved somewhere on your computer.</p>
 <p><img src="Images/rstudio_import_excel2.png" width="500"></p>
 </div>
 <div id="detailed-instructions-1" class="section level3">
 <h3>Detailed Instructions</h3>
-<p>There are many ways to open a dataset in RStudio. One of the easiest methods is to use the “Import Dataset” button. This button can be found by</p>
+<p>There are many ways to open a dataset in RStudio. One of the easiest
+methods is to use the “Import Dataset” button. This button can be found
+by</p>
 <ul>
-<li>Opening RStudio <img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /></li>
-<li>Locating the “Environment” window of RStudio, typically in the top right portion of RStudio.</li>
-<li>Locating the “Import Dataset” button inside the “Environment” window.</li>
+<li>Opening RStudio
+<img src="Images/R_logo.jpeg" alt="R_logo.jpg" width="64" height="49" /></li>
+<li>Locating the “Environment” window of RStudio, typically in the top
+right portion of RStudio.</li>
+<li>Locating the “Import Dataset” button inside the “Environment”
+window.</li>
 </ul>
-<p>Once you click on the “Import Dataset” button, a menu will appear. Since all datasets in this class are stored in Excel files with a “.xlsx” file extension at the end of the file name, we will always use the option “From Excel…” to import our datasets.</p>
+<p>Once you click on the “Import Dataset” button, a menu will appear.
+Since all datasets in this class are stored in Excel files with a
+“.xlsx” file extension at the end of the file name, we will always use
+the option “From Excel…” to import our datasets.</p>
 <p><img src="Images/rstudio_import_excel.png" width="500"></p>
-<p>After selecting the “From Excel…” option, a new window will appear inside of RStudio. It will look like this.</p>
+<p>After selecting the “From Excel…” option, a new window will appear
+inside of RStudio. It will look like this.</p>
 <p><img src="Images/rstudio_import_excel1b.png" width="500"></p>
-<p>If you have saved the file on your computer already, then you can “Browse” to find the file. However, in this class, it will be more common that you are provided with a link to a file, like this: <a href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient</a>. By right-clicking on the link and selecting “Copy Link Address” you can then paste it into the “File/URL:” box in RStudio and then click the “Update” button. Like this:</p>
+<p>If you have saved the file on your computer already, then you can
+“Browse” to find the file. However, in this class, it will be more
+common that you are provided with a link to a file, like this: <a
+href="./Data/WrongSiteWrongPatient.xlsx">WrongSiteWrongPatient</a>. By
+right-clicking on the link and selecting “Copy Link Address” you can
+then paste it into the “File/URL:” box in RStudio and then click the
+“Update” button. Like this:</p>
 <p><img src="Images/rstudio_import_excel2.png" width="500"></p>
-<p>Once a data set is read into RStudio, it will appear in the top-left screen of RStudio and is now available for use in the “Console” inside of commands like <code>boxplot(...)</code>, <code>mean(...)</code>, <code>summary(...)</code>, and so on.</p>
+<p>Once a data set is read into RStudio, it will appear in the top-left
+screen of RStudio and is now available for use in the “Console” inside
+of commands like <code>boxplot(...)</code>, <code>mean(...)</code>,
+<code>summary(...)</code>, and so on.</p>
 <p><img src="Images/rstudio_import_excel_finalview.png" width="500"></p>
 </div>
 </div>
