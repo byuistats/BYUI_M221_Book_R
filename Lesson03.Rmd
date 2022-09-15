@@ -302,46 +302,50 @@ tuberculosis
 
 In R, data are stored in data frames, like *tuberculosis*. Within a data frame, the data values are organized in columns called "vectors". To access the data representing the costs to treat tuberculosis cases in India, we use the \$ operator. The command `tuberculosis$costs` tells R that you want to access the varaible `costs` in the data frame `tuberculosis`. When we execute this command, it returns the values stored in this variable.
 
-```{r}
+```{r, label = tuberc_data}
 tuberculosis$costs
 ```
 We can perform calculations on these values.
 
-**Calculate a Mean**
+**Using the R command favstats()**
 
-For the tuberculosis patient costs in India, we compute the mean with the R code:
+In R, there are some commands that are included in the basic installation (base R). There are other commands that can be added to the available library of options. To add additional functionality to R, we install "packages" that have the desired capabilities. Each package only needs to be installed once, then you can load the package when you want to use it.
+
+One such library is called `mosaic`. To install this package, enter the following in the RStudio Console:
+
+```{r, eval = FALSE, label = install_mosaic}
+install.packages("mosaic")
+```
+
+This only needs to be done one time. When you want to use this package in a R session, enter the command:
 
 ```{r, eval = FALSE}
-mean(tuberculosis$costs)
+library(mosaic)
 ```
 
-```{r, echo = FALSE}
-mean(tuberculosis$costs)
+This library includes a slick command that will compute several important summary statistics at once: `favstats()`. Among other things, this command will compute the mean and median of a variable.
+
+**Calculate a Mean or Median**
+
+For the tuberculosis patient costs in India, we compute the mean and median with the R code:
+
+```{r, eval = FALSE}
+library(mosaic)
+favstats(tuberculosis$costs)
 ```
 
-The value given above is the output from this command and represents the mean cost to treat the tuberculosis patients in our sample.
+```{r, echo = FALSE, message = FALSE}
+library(mosaic)
+favstats(tuberculosis$costs)
+```
+
+This output gives the mean and median cost to treat the tuberculosis patients in our sample. The mean cost is \$14100, and the median is \$13900. There are other values presented as well, which we will learn later.
 
 <!-- In RStudio this looks like: -->
 
 <!-- <img src = "./Images/rstudio_tuberc_mean.png" width = "500"> -->
 
 
-
-<br>
-
-**Calculate a Median**
-
-For the tuberculosis patient costs in India, compute the median with the R code:
-
-```{r, eval = FALSE}
-median(tuberculosis$costs)
-```
-
-```{r, echo = FALSE}
-median(tuberculosis$costs)
-```
-
-The value printed above is the median cost of treating tuberculosis in our sample.
 
 
 <br />
@@ -353,10 +357,12 @@ R does not directly calculate a mode, but you can tabulate (or count) how many t
 For the tuberculosis patient costs in India, count up how many times each value occurs using the code
 
 ```{r, eval = FALSE}
+library(mosaic)
 table(tuberculosis$costs)
 ```
 
 ```{r, echo = FALSE}
+library(mosaic)
 table(tuberculosis$costs)
 ```
 

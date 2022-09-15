@@ -755,19 +755,17 @@ this lesson, simply run the following command in RStudio:</strong></p>
 them by referencing their name. For example, to view the
 <em>tuberculosis</em> data, simply run the command</p>
 <pre class="r"><code>  View(tuberculosis)</code></pre>
-<pre><code># A tibble: 10 × 2
-   costs comments                         
-   &lt;dbl&gt; &lt;chr&gt;                            
- 1 15100 Cost (in US dollars) to treat    
- 2 19000 tuberculosis patients in India.  
- 3  4800 Used in the textbook in Lesson 3.
- 4  6500 &lt;NA&gt;                             
- 5 14900 &lt;NA&gt;                             
- 6   600 &lt;NA&gt;                             
- 7 23500 &lt;NA&gt;                             
- 8 11500 &lt;NA&gt;                             
- 9 12900 &lt;NA&gt;                             
-10 32200 &lt;NA&gt;                             </code></pre>
+<pre><code>   costs                          comments
+1  15100     Cost (in US dollars) to treat
+2  19000   tuberculosis patients in India.
+3   4800 Used in the textbook in Lesson 3.
+4   6500                              &lt;NA&gt;
+5  14900                              &lt;NA&gt;
+6    600                              &lt;NA&gt;
+7  23500                              &lt;NA&gt;
+8  11500                              &lt;NA&gt;
+9  12900                              &lt;NA&gt;
+10 32200                              &lt;NA&gt;</code></pre>
 <p><br /></p>
 <p><br> <strong>To calculate numerical summaries</strong> (such as the
 mean, median, and mode) in R, do the following: <br /></p>
@@ -782,23 +780,36 @@ variable.</p>
 <pre class="r"><code>tuberculosis$costs</code></pre>
 <pre><code>##  [1] 15100 19000  4800  6500 14900   600 23500 11500 12900 32200</code></pre>
 <p>We can perform calculations on these values.</p>
-<p><strong>Calculate a Mean</strong></p>
-<p>For the tuberculosis patient costs in India, we compute the mean with
-the R code:</p>
-<pre class="r"><code>mean(tuberculosis$costs)</code></pre>
-<pre><code>## [1] 14100</code></pre>
-<p>The value given above is the output from this command and represents
-the mean cost to treat the tuberculosis patients in our sample.</p>
+<p><strong>Using the R command favstats()</strong></p>
+<p>In R, there are some commands that are included in the basic
+installation (base R). There are other commands that can be added to the
+available library of options. To add additional functionality to R, we
+install “packages” that have the desired capabilities. Each package only
+needs to be installed once, then you can load the package when you want
+to use it.</p>
+<p>One such library is called <code>mosaic</code>. To install this
+package, enter the following in the RStudio Console:</p>
+<pre class="r"><code>install.packages(&quot;mosaic&quot;)</code></pre>
+<p>This only needs to be done one time. When you want to use this
+package in a R session, enter the command:</p>
+<pre class="r"><code>library(mosaic)</code></pre>
+<p>This library includes a slick command that will compute several
+important summary statistics at once: <code>favstats()</code>. Among
+other things, this command will compute the mean and median of a
+variable.</p>
+<p><strong>Calculate a Mean or Median</strong></p>
+<p>For the tuberculosis patient costs in India, we compute the mean and
+median with the R code:</p>
+<pre class="r"><code>library(mosaic)
+favstats(tuberculosis$costs)</code></pre>
+<pre><code>##  min   Q1 median    Q3   max  mean       sd  n missing
+##  600 7750  13900 18025 32200 14100 9287.507 10       0</code></pre>
+<p>This output gives the mean and median cost to treat the tuberculosis
+patients in our sample. The mean cost is $14100, and the median is
+$13900. There are other values presented as well, which we will learn
+later.</p>
 <!-- In RStudio this looks like: -->
 <!-- <img src = "Images/rstudio_tuberc_mean.png" width = "500"> -->
-<p><br></p>
-<p><strong>Calculate a Median</strong></p>
-<p>For the tuberculosis patient costs in India, compute the median with
-the R code:</p>
-<pre class="r"><code>median(tuberculosis$costs)</code></pre>
-<pre><code>## [1] 13900</code></pre>
-<p>The value printed above is the median cost of treating tuberculosis
-in our sample.</p>
 <p><br /></p>
 <p><strong>Calculate a Mode</strong></p>
 <p>R does not directly calculate a mode, but you can tabulate (or count)
@@ -806,7 +817,8 @@ how many times each value in the data occurs using the
 <code>table(...)</code> function.</p>
 <p>For the tuberculosis patient costs in India, count up how many times
 each value occurs using the code</p>
-<pre class="r"><code>table(tuberculosis$costs)</code></pre>
+<pre class="r"><code>library(mosaic)
+table(tuberculosis$costs)</code></pre>
 <pre><code>## 
 ##   600  4800  6500 11500 12900 14900 15100 19000 23500 32200 
 ##     1     1     1     1     1     1     1     1     1     1</code></pre>
@@ -915,7 +927,7 @@ $$
 showing that the *center* of the histogram (or average) is at \$14,100. 
 --></p>
 <p><strong>Histogram of these data created in R:</strong> <br></p>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-14-1.png" width="480" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-12-1.png" width="480" /></p>
 <p><br /></p>
 </div>
 <div id="r-instructions-for-histograms" class="section level3">
@@ -970,7 +982,7 @@ create a histogram using the <code>hist(...)</code> function.</p>
 store the data in the <code>tuberc</code> object, you would access the
 data and make a histogram of it using the code:</p>
 <pre class="r"><code>hist(tuberculosis$costs)</code></pre>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <p><!-- id = "r_instr_1" style = "display:none;"> --></p>
 </div>
@@ -1010,7 +1022,7 @@ the left of the y-axis of your graph.</li>
       main = &quot;Histogram of Costs to Treat Tuberculosis&quot;, 
       xlab = &quot;Cost in Dollars&quot;, 
       ylab = &quot;Number of Individuals&quot;)</code></pre>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <p><!-- id = "r_instr_1" style = "display:none;"> --></p>
 </div>
@@ -1110,7 +1122,7 @@ shows a long right tail. This can occur if there are some very large
 outliers on the right-hand side of the distribution. A distribution is
 left-skewed if a histogram shows that it has a long tail to the
 left.</p>
-<p><img src="Lesson03_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p><img src = "Images/Lesson_2_Activity_2-3.JPG" width = 130%></p>
 <p>If a distribution has only one peak, it is said to be
 <strong>unimodal</strong>. The three distributions illustrated above are
