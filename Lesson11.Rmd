@@ -165,10 +165,14 @@ $$
 **Describe the data collection procedures**
 
 We will use the body temperature data in the data frame `body_temp`, collected by Dr. Mackowiak and his colleagues to conduct the test. <!-- <cite>Mackowiak92</cite> -->
-Load this data frame into R by running the following command in R:
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+You can download these data from https://byuistats.github.io/M221R/data/body_temp.xlsx. 
+Please [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import this dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+body_temp <- read.xlsx("https://byuistats.github.io/M221R/data/body_temp.xlsx")
 ```
+
 
 
 <img src = "./Images/Step3.png">
@@ -176,6 +180,7 @@ Load this data frame into R by running the following command in R:
 **Give the relevant summary statistics**
 
 We calculate summary statistics in RStudio after importing the data ([click here](RHelp.html#reading-in-data) for a reminder how to import data into RStudio). We can get the mean ($\bar x$), standard deviation ($s$), and sample size ($n$) using the code:
+
 
 ```{r, include = FALSE}
 library(mosaic)
@@ -354,10 +359,13 @@ $$ \alpha = 0.05 $$
 **Describe the data collection procedures**
 
 The birth weights of all children born on December 18, 1997 at the Mater Mothers' Hospital in Brisbane, Australia were recorded<!--<cite>JSEdunn99</cite>-->.  The time of birth (on a 24 hour clock), gender, and birth weight of each child are given in the data frame `baby_boom`.
-You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L11.RData"))`
-in R.
+You can download these data from https://byuistats.github.io/M221R/data/baby_boom.xlsx. 
+Please [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import this dataset into R.
 
+```{r, include = FALSE}
+library(openxlsx)
+baby_boom <- read.xlsx("https://byuistats.github.io/M221R/data/baby_boom.xlsx")
+```
 Using this data frame, test the hypothesis that the mean weight of babies born in Australia is 3373 grams. Use the $\alpha = 0.05$ level of significance for this problem.  Make an appropriate graph of the data.
 
 
@@ -524,9 +532,14 @@ The IBM T. J. Watson Research Center developed methods to measure the quality of
 **Describe the data collection procedures**
 
 To test Pharaoh's ability to translate, Koehn took a random sample of 100 blocks of Spanish text, each of which contained 300 sentences, and used Pharaoh to translate each of these to English.  The BLEU score was calculated for each of the 100 blocks.  The data were extracted from Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>-->  The 100 BLEU scores are given in
-the data frame `bleu`. You can load this data frame by running the command 
-`load(url("https://byuistats.github.io/M221R/data/L11.RData"))`
-in R.
+the data frame `bleu`. 
+You can download these data from https://byuistats.github.io/M221R/data/bleu.xlsx. 
+Please [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import this dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+bleu <- read.xlsx("https://byuistats.github.io/M221R/data/bleu.xlsx")
+```
 
 Koehn wants to find an estimate of the true mean BLEU score for text translated by the Pharaoh computer program.  He would like to compute a confidence interval, but he does not know the true population standard deviation, $\sigma$.
 
@@ -747,9 +760,14 @@ A group of statisticians measured the weights of 2000 Belgian one Euro coins in 
 
 **Describe the data collection procedures**
 
-The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the data frame `euro`. This data frame is loaded by running the command 
-`load(url("https://byuistats.github.io/M221R/data/L11.RData"))`
-in R.
+The coins were borrowed from a bank in Belgium, one batch at a time. The weights (in grams) of the coins are given in the data frame `euro`. 
+You can download these data from https://byuistats.github.io/M221R/data/euro.xlsx. 
+Please [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import this dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+euro <- read.xlsx("https://byuistats.github.io/M221R/data/euro.xlsx")
+```
 
 <img src = "./Images/Step3.png">
 

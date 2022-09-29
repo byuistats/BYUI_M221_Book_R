@@ -609,9 +609,13 @@ H_a: \mu \ne 98.6\\
 <p><strong>Describe the data collection procedures</strong></p>
 <p>We will use the body temperature data in the data frame
 <code>body_temp</code>, collected by Dr. Mackowiak and his colleagues to
-conduct the test. <!-- <cite>Mackowiak92</cite> --> Load this data frame
-into R by running the following command in R:</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L11.RData&quot;))</code></pre>
+conduct the test. <!-- <cite>Mackowiak92</cite> --> You can download
+these data from <a
+href="https://byuistats.github.io/M221R/data/body_temp.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/body_temp.xlsx</a>.
+Please <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import this dataset into R.</p>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
 <p>We calculate summary statistics in RStudio after importing the data
@@ -829,10 +833,12 @@ H_a: &amp;~ \mu \ne 3373
 Mater Mothers’ Hospital in Brisbane, Australia were
 recorded<!--<cite>JSEdunn99</cite>-->. The time of birth (on a 24 hour
 clock), gender, and birth weight of each child are given in the data
-frame <code>baby_boom</code>. You can access this data frame by running
-the command
-<code>load(url("https://byuistats.github.io/M221R/data/L11.RData"))</code>
-in R.</p>
+frame <code>baby_boom</code>. You can download these data from <a
+href="https://byuistats.github.io/M221R/data/baby_boom.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/baby_boom.xlsx</a>.
+Please <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import this dataset into R.</p>
 <p>Using this data frame, test the hypothesis that the mean weight of
 babies born in Australia is 3373 grams. Use the <span
 class="math inline">\(\alpha = 0.05\)</span> level of significance for
@@ -878,7 +884,7 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
      xlab = &quot;Weights in grams&quot;, 
      ylab = &quot;Number of Children&quot;, 
      main = &quot;Babies Born December 18, 1997 \n Mater Mothers&#39; Hospital in Brisbane, Australia&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>We can also make a boxplot of these data:</p>
 <pre class="r"><code>boxplot(baby_boom$weight,
         horizontal=TRUE,
@@ -886,7 +892,7 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
         xlab = &quot;Weights in grams&quot;,
         ylab = &quot;Number of Children&quot;,
         main = &quot;Babies Born December 18, 1997 \n Mater Mothers&#39; Hospital in Brisbane, Australia&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1041,10 +1047,13 @@ order to weed out bad ideas from good ideas”.
 used Pharaoh to translate each of these to English. The BLEU score was
 calculated for each of the 100 blocks. The data were extracted from
 Figure 2 in a paper Koehn published. <!--<cite>Koehn04</cite>--> The 100
-BLEU scores are given in the data frame <code>bleu</code>. You can load
-this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L11.RData"))</code>
-in R.</p>
+BLEU scores are given in the data frame <code>bleu</code>. You can
+download these data from <a
+href="https://byuistats.github.io/M221R/data/bleu.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/bleu.xlsx</a>. Please
+<a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import this dataset into R.</p>
 <p>Koehn wants to find an estimate of the true mean BLEU score for text
 translated by the Pharaoh computer program. He would like to compute a
 confidence interval, but he does not know the true population standard
@@ -1069,13 +1078,13 @@ n = 100
      col = &quot;steelblue3&quot;,
      xlab = &quot;Score&quot;,
      main = &quot;BLEU Scores&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(bleu$score,
         horizontal=TRUE,
         col = &quot;steelblue3&quot;,
         xlab = &quot;Score&quot;,
         main = &quot;BLEU Scores&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><br></p>
 </div>
 <p><br></p>
@@ -1308,9 +1317,12 @@ href="http://www.amstat.org/publications/jse/datasets/euroweight.txt">http://www
 <p><strong>Describe the data collection procedures</strong></p>
 <p>The coins were borrowed from a bank in Belgium, one batch at a time.
 The weights (in grams) of the coins are given in the data frame
-<code>euro</code>. This data frame is loaded by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L11.RData"))</code>
-in R.</p>
+<code>euro</code>. You can download these data from <a
+href="https://byuistats.github.io/M221R/data/euro.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/euro.xlsx</a>. Please
+<a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import this dataset into R.</p>
 <p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -1357,7 +1369,7 @@ good feel for the distribution.</p>
      xlab = &quot;Weight in grams&quot;, 
      main = &quot;Coins from a Bank in Belgium&quot;,
      breaks = 50)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <pre class="r"><code># Since the sampe size was large, 
 # we can use a lot of &quot;bins&quot; or &quot;breaks&quot; in the graph.</code></pre>
 <pre class="r"><code>boxplot(euro$weight,
@@ -1365,7 +1377,7 @@ good feel for the distribution.</p>
         xlab = &quot;Weight in grams&quot;, 
         main = &quot;Coins from a Bank in Belgium&quot;, 
         col = &quot;brown3&quot;)</code></pre>
-<p><img src="Lesson11_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="Lesson11_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>You can see the data is relatively normal, with just a couple of
 potential outliers that could be investigated further.</p>
 </div>
