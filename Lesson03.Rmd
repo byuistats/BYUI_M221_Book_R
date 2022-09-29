@@ -278,15 +278,17 @@ e. A, B, and C can all occur.
 <div id = "r_instr_1_center" style = "display:none;">
 
 <br>
-Before we can perform calculations on a data set, we need to load the data into R. In this course, all the data can be accessed by loading the RData file below.
-<br/> 
-<br> 
-**To load data sets for this lesson, simply run the following command in RStudio:**
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L03.RData"))
+Before we can perform calculations on a data set, we need to load the data into R. 
+Download these data from https://byuistats.github.io/M221R/data/tuberculosis.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/data/tuberculosis.xlsx")
 ```
 
-This will load all the data sets we need into R. You can then access them by referencing their name. For example, to view the *tuberculosis* data, simply run the command
+
+To view the *tuberculosis* data, simply run the command
 ```{r, eval = FALSE}
   View(tuberculosis)
 ```
@@ -503,10 +505,14 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 **Step 2**
 
-Load the data for this lesson into RStudio. 
-```{r, eval = FALSE}
-  load(url("https://byuistats.github.io/M221R/data/L03.RData"))
+Download these data from https://byuistats.github.io/M221R/data/tuberculosis.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/data/tuberculosis.xlsx")
 ```
+
 
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
 
@@ -539,7 +545,7 @@ Load the data for this lesson into RStudio.
 
 **Step 3**
 
-Now that you have created an object in R called `tuberc` that contains the 10 data points of the Tuberculosis data, you can create a histogram using the `hist(...)` function.
+Now you have created a data frame in R called `tuberculosis` that contains the 10 data points of the Tuberculosis data, you can create a histogram using the `hist(...)` function.
 
 For the tuberculosis data, since you used the assignment operator to store the data in the `tuberc` object, you would access the data and make a histogram of it using the code:
 

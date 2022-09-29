@@ -747,13 +747,13 @@ R Instructions
 style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <div id="r_instr_1_center" style="display:none;">
 <p><br> Before we can perform calculations on a data set, we need to
-load the data into R. In this course, all the data can be accessed by
-loading the RData file below. <br/> <br> <strong>To load data sets for
-this lesson, simply run the following command in RStudio:</strong></p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L03.RData&quot;))</code></pre>
-<p>This will load all the data sets we need into R. You can then access
-them by referencing their name. For example, to view the
-<em>tuberculosis</em> data, simply run the command</p>
+load the data into R. Download these data from <a
+href="https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/tuberculosis.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>To view the <em>tuberculosis</em> data, simply run the command</p>
 <pre class="r"><code>  View(tuberculosis)</code></pre>
 <pre><code>   costs                          comments
 1  15100     Cost (in US dollars) to treat
@@ -956,8 +956,12 @@ apps.)</p>
 -->
 <p><br /></p>
 <p><strong>Step 2</strong></p>
-<p>Load the data for this lesson into RStudio.</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L03.RData&quot;))</code></pre>
+<p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/tuberculosis.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/tuberculosis.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <!-- If your data set is small, then you can load the data into RStudio by using the "combine function" `c(...)` where the `...` is a list of numbers separated by commas, the "assignment operator" `<-` and some name you come up with to store the data into.  -->
 <!-- * The **assignment operator** `<-` is written by typing a less than symbol "<" and a minus sign "-" together as one symbol: `<-`. It allows you to "save things" into an "object name." It's kind of like saving a document on your computer. By later typing the name you "assigned" data into, you can access the data without having to type it in again.  -->
 <!-- * The **combine function** `c(...)` is like a back pack where you can "zip up" or "combine" a bunch of things into a single bag, or "object." -->
@@ -975,9 +979,10 @@ apps.)</p>
 <!-- </div> -->
 <p><br /></p>
 <p><strong>Step 3</strong></p>
-<p>Now that you have created an object in R called <code>tuberc</code>
-that contains the 10 data points of the Tuberculosis data, you can
-create a histogram using the <code>hist(...)</code> function.</p>
+<p>Now you have created a data frame in R called
+<code>tuberculosis</code> that contains the 10 data points of the
+Tuberculosis data, you can create a histogram using the
+<code>hist(...)</code> function.</p>
 <p>For the tuberculosis data, since you used the assignment operator to
 store the data in the <code>tuberc</code> object, you would access the
 data and make a histogram of it using the code:</p>

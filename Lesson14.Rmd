@@ -149,15 +149,17 @@ The 192 students that volunteered to participate in the study were randomly assi
 
 **To compute numerical summaries for several groups:**
 
-* Load the data: `gratitude`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L14.RData"))`
-in R.
+* Load the data: `gratitude`. Download these data from https://byuistats.github.io/M221R/data/gratitude.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+gratitude <- read.xlsx("https://byuistats.github.io/M221R/data/gratitude.xlsx")
+```
+
 * Load `library(mosaic)`. 
 * Use the `favstats(...)` function with the quantitative data column name listed first, followed by a tilde, `~`, which is followed by the categorical data column name. We indicate that these columns are part of the `gratitude` data frame using the command `data = gratitude`.
 
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L14.RData"))
-```
 
 ```{r, include = FALSE}
 library(pander)
@@ -333,7 +335,14 @@ If we take a closer look, we see that the Hassles and Events groups had means th
 
 Nike, a company that makes sporting goods including shoes, funded a study to compare five soccer shoe designs. <!--<cite>Hennig09,Hennig10</cite>-->  The objective of the research was to determine if there is a difference in the mean accuracy soccer players achieve using different Nike shoe designs.
 
-Data representing the results of this study are given in the data frame `soccer_shoes`.
+Data representing the results of this study are given in the data frame `soccer_shoes`. Download these data from https://byuistats.github.io/M221R/data/soccer_shoes.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+soccer_shoes <- read.xlsx("https://byuistats.github.io/M221R/data/soccer_shoes.xlsx")
+```
+
 
 ### R Instructions for Converting "Wide" Data to "Long" Format
 

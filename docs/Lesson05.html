@@ -481,9 +481,13 @@ batting average is calculated as the ratio of the number of hits a
 player makes divided by the number of times the player has attempted to
 hit the ball or in other words, been “at bat.” Sean Lahman reported the
 batting averages of several professional baseball players in the United
-States. (Lahman, 2010) The data frame “batting_averages” contains his
-data. Use the following command to load these data on your computer:</p>
-<pre class="r"><code>load(url(&quot;https://byuistats.github.io/M221R/data/L05.RData&quot;))</code></pre>
+States. (Lahman, 2010) The data frame <code>batting_averages</code>
+contains his data. Download these data from <a
+href="https://byuistats.github.io/M221R/data/batting_averages.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/batting_averages.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>The following histogram summarizes the batting averages for these
 professional baseball players:</p>
 <pre class="r"><code>hist(batting_averages$batting_avg,

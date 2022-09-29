@@ -78,11 +78,14 @@ Further exploration of the PTC data allows us to investigate if there is a diffe
 
 
 
-These data are available in the file `ptc_tasting`. You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L18.RData"))
+These data are available in the file `ptc_tasting`. Download these data from https://byuistats.github.io/M221R/data/ptc_tasting.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+ptc_tasting <- read.xlsx("https://byuistats.github.io/M221R/data/ptc_tasting.xlsx")
 ```
-in R. 
+
 Note the way the data are organized in the file.  One column gives the gender, another column indicates if the individual can taste PTC, and a third column gives counts for each group.
 
 

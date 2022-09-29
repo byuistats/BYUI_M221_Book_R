@@ -494,10 +494,12 @@ please view at least the last fifteen minutes, beginning at 1:19:00.</p>
 <p>We will use Sereno and Barr’s measurements on the lengths of
 Estuarine, or saltwater, Crocodiles’ heads to estimate the length of
 their bodies. Their measurements are given in the file
-<code>estuarine_crocodiles</code>. You can access this data frame by
-running the command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L22.RData&quot;))</code></pre>
-<p>in R.</p>
+<code>estuarine_crocodiles</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p><br/></p>
 <p><img src = "Images/Step3.png"></p>
 <p>Using the information we learned in <a
@@ -730,22 +732,27 @@ R Instructions
 class="math inline">\(b_0\)</span> and <span
 class="math inline">\(b_1\)</span>) in R, do the following:</strong></p>
 <ul>
-<li>Load the <code>estuarine_crocodiles</code> data frame into R. You
-can access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L22.RData"))</code></li>
-<li>Use the <code>lm( )</code> function to create a “linear model” for
-the data.</li>
-<li>Put your response variable (Y) first, followed by a <code>~</code>,
-followed by the explanatory variable (X).</li>
-<li>Be sure to indicate the data frame that contains your response and
-explanatory variables.</li>
-<li>Use the <code>summary( )</code> function to view the results of the
-<code>lm( )</code> function.</li>
-<li>The summary shows the “Estimates” for the <code>(Intercept)</code>
-and the slope term. The <code>(Intercept)</code> estimate is the value
-of <span class="math inline">\(b_0\)</span> (Y-intercept), and the
-second Estimate is always for the slope term, <span
-class="math inline">\(b_1\)</span>.</li>
+<li><p>Load the <code>estuarine_crocodiles</code> data frame into R.
+Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Use the <code>lm( )</code> function to create a “linear model”
+for the data.</p></li>
+<li><p>Put your response variable (Y) first, followed by a
+<code>~</code>, followed by the explanatory variable (X).</p></li>
+<li><p>Be sure to indicate the data frame that contains your response
+and explanatory variables.</p></li>
+<li><p>Use the <code>summary( )</code> function to view the results of
+the <code>lm( )</code> function.</p></li>
+<li><p>The summary shows the “Estimates” for the
+<code>(Intercept)</code> and the slope term. The
+<code>(Intercept)</code> estimate is the value of <span
+class="math inline">\(b_0\)</span> (Y-intercept), and the second
+Estimate is always for the slope term, <span
+class="math inline">\(b_1\)</span>.</p></li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
 summary(estuarine_lm)</code></pre>
@@ -836,11 +843,14 @@ R Instructions
 <p><strong>To add a regression line to a scatterplot in RStudio, do the
 following:</strong></p>
 <ul>
-<li>Load the <code>estuarine_crocodiles</code> data frame. You can
-access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L22.RData"))</code>
-in R.</li>
-<li>Perform the regression:</li>
+<li><p>Load the <code>estuarine_crocodiles</code> data frame. Download
+these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Perform the regression:</p></li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
 <ul>
@@ -856,7 +866,7 @@ graph the regression line.</li>
      pch = 16)
 
 abline(estuarine_lm)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><br/></p>
 </div>
 <p><br/></p>
@@ -885,7 +895,7 @@ class="math inline">\(x = 87\)</span> into the regression equation:
 \hat Y = -18.274 + 7.660 X = -18.274 + 7.660 (87) = 648.146
 \]</span></p>
 <center>
-<img src="Lesson22_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="Lesson22_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 </center>
 <p>Note that if a juvinile sarcosuchus has a head length of 87 cm, then
 the regression equation predicts the body length to be around 648 cm.
@@ -913,7 +923,7 @@ value of <span class="math inline">\(x = 160\)</span> gives:</p>
 39 feet!</p>
 <p>Further, if we wanted to draw a picture of this prediction, it would
 look as follows.</p>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 </div>
 <p><br/></p>
@@ -934,7 +944,7 @@ We apply simple linear regression when the two variables show a “linear”
 shape. If the data look like a random scattering of points, we would
 conclude that there is no linear relationship in the data.</p>
 <center>
-<img src="Lesson22_files/figure-html/unnamed-chunk-10-1.png" width="960" />
+<img src="Lesson22_files/figure-html/unnamed-chunk-12-1.png" width="960" />
 </center>
 <p><br> <br></p>
 <p><img src = "Images/StepsAll.png"></p>
@@ -960,12 +970,15 @@ the powerboat registrations and the manatee deaths. In the next lesson,
 we will be able to conduct a hypothesis test to determine if this
 relationship is statistically significant.</p>
 <p><img src = "Images/Step2.png"></p>
-<p>You can access the <code>manatees</code> data frame by running the
-command
-<code>load(url("https://byuistats.github.io/M221R/data/L22.RData"))</code>
-in R. This data frame gives the number of Florida powerboat
-registrations (in thousands) and the number of manatees killed by
-powerboats for the years 1977-2011.
+<p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/manatees.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/manatees.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>This data frame gives the number of Florida powerboat registrations
+(in thousands) and the number of manatees killed by powerboats for the
+years 1977-2011.
 <!--<cite>Manatees06,Manatees-ManateeData,Manatees-PowerboatData</cite>-->
 These data are derived from multiple sources.</p>
 <p><img src = "Images/Step3.png"></p>
@@ -994,10 +1007,13 @@ class="math inline">\(b_0\)</span>.</p>
 </div>
 <div id="interpreting-the-regression-output-1" class="section level3">
 <h3>Interpreting the Regression Output</h3>
-<p>Read in the <code>manatees</code> data frame. You can access this
-data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L22.RData"))</code>
-in R. Then, find the regression equation as follows:</p>
+<p>Read in the <code>manatees</code> data frame. Download these data
+from <a href="https://byuistats.github.io/M221R/data/manatees.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/manatees.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>Then, find the regression equation as follows:</p>
 <pre class="r"><code>manatee_lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatee_lm)</code></pre>
 <pre><code>
@@ -1085,7 +1101,7 @@ class="section level3">
      pch = 16)
 
 abline(manatee_lm)</code></pre>
-<p><img src="Lesson22_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="Lesson22_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>You will observe that the points are not as tightly clustered around
 the regression line for the manatee data, compared to the crocodile
 data, but that there is still a fairly strong correlation in the data.

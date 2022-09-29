@@ -148,11 +148,14 @@ Is there a difference in the amount of reading done by children with problematic
 
 **Summarize the relevant background information**
 
-Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->.  They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home.  Data representative of their results are given in the file `reading`. You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+Researchers led by Arlene Butz published a study on the reading practices of children <!--<cite>Butz09</cite>-->.  They wanted to know if there was a difference in the reading practices of children with developmental or behavioral problems (the DEV group or Group 1) compared to children in the general population who do not have developmental problems (the GEN group or Group 2.) One of the factors they considered was the number of nights each week that the children participated in reading in the home.  Data representative of their results are given in the file `reading`. Download these data from https://byuistats.github.io/M221R/data/reading.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+reading <- read.xlsx("https://byuistats.github.io/M221R/data/reading.xlsx")
 ```
-in R.
+
 
 
 **State the null and alternative hypotheses and the level of significance**
@@ -358,9 +361,14 @@ The test statistic for a hypothesis test comparing two means with independent sa
 <div class = "Software">
 **The following instructions will help you conduct a hypothesis test for two means with independent samples in R.**
 
-* Load the `reading` data frame into RStudio. You can do this by running the command
-`load(url("https://byuistats.github.io/M221R/data/L13.RData"))`
-in R.
+* Load the `reading` data frame into RStudio. Download these data from https://byuistats.github.io/M221R/data/reading.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+reading <- read.xlsx("https://byuistats.github.io/M221R/data/reading.xlsx")
+```
+
 
 * Take note of your null and alternative hypotheses, in this case $H_0: \mu_1 = \mu_2$ implies $\mu_1 - \mu_2 = 0$ and $H_a: \mu_1 \neq \mu_2$ implies $\mu_1 - \mu_2 \neq 0$.
 * Use the `t.test(...)` function along with the tilde `~` (top-left key on your keyboard) to test a quantitative variable that is "divided into two groups" with the `~` sign like this:
@@ -516,9 +524,14 @@ We will use the $\alpha = 0.01$ level of significance. Remember, we are always f
 
 **Describe the data collection procedures**
 
-The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file `fifa_heart_attacks`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L13.RData"))`
-in R.
+The 2006 World Cup was held from June 9 to July 9, 2006.  The number of patients suffering cardiovascular events (e.g. heart attacks) was obtained from medical records of patients in the Greater Munich (Germany) area during this time period.  To provide a control group, counts of patients suffering cardiovascular events was recorded from May 1 to June 8 and July 10 to July 30, 2006, as well as May 1 to July 30 in 2003 and 2005.  The year 2004 was avoided, due to the European Soccer Championships held in Portugal.  These data were extracted from Figure 1 in the article by Wilbert-Lampen, <!--<cite>WilbertLampen08</cite>--> and are given in the file `fifa_heart_attacks`. Download these data from https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+fifa_heart_attacks <- read.xlsx("https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx")
+```
+
 
 
 <img src = "./Images/Step3.png">
@@ -705,9 +718,13 @@ Software can be used to compute the confidence interval for a difference of two 
 
 **Describe the data collection procedures**
 
-In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child's caretaker (usually a parent).  This survey included questions about the child's development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the data frame `reading`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L13.RData"))`
-in R.
+In the study by Arlene Butz, et.al., on the reading practices of children, the researchers wanted to determine if there was a difference in the mean number of nights children read in the two groups (DEV and GEN)<!--<cite>Butz09</cite>-->. A survey was given to the child's caretaker (usually a parent).  This survey included questions about the child's development and behavior. The survey also asked the number of nights each week that the child participated in reading in the home. Data representative of their results are given in the data frame `reading`. Download these data from https://byuistats.github.io/M221R/data/reading.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+reading <- read.xlsx("https://byuistats.github.io/M221R/data/reading.xlsx")
+```
 
 
 <img src = "./Images/Step3.png">
@@ -917,9 +934,15 @@ We will use the $\alpha = 0.05$ level of significance.
     
 A study was conducted in the United Kingdom to determine if there is a difference in the effectiveness of community-based rehabilitation program compared to hospital-based rehabilitation <!--<cite>Waterhouse10</cite>-->. Patients suffering from COPD were randomly assigned to either the community or hospital group. Twice a week for six weeks, they participated in two-hour educational and exercise sessions.  Patients were also encouraged to exercise between sessions.
   
-The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file `copd_rehab`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L13.RData"))`
-in R. The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
+The effectiveness of the program was measured based on the total distance patients could walk at one time at a particular pace. This is called the endurance shuttle walking test (ESWT).  This was measured at the beginning of the study and again at the end of the six week rehabilitation period.  Data representing the improvement of the patients in each group is given in the file `copd_rehab`. Download these data from https://byuistats.github.io/M221R/data/copd_rehab.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+copd_rehab <- read.xlsx("https://byuistats.github.io/M221R/data/copd_rehab.xlsx")
+```
+
+The data represent the increased distance (in meters) that each patient could walk.  Negative values indicate that the patient was not able to walk as far at the end of the rehabilitation treatment as at the beginning.
   
 Because hospital-based rehabilitation tends to be more expensive, the researchers wanted to assess if there is a significant difference in the patients' improvement under the two programs.  If not, then it makes sense to refer patients to the less expensive treatment option.  The purpose of this study was to determine if pulmonary rehabilitation in a community setting is as effective as rehabilitation in a hospital setting.
 

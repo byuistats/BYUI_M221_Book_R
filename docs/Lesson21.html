@@ -501,20 +501,22 @@ ranging from 1 to 6) from each student’s confidence scores they provided
 for each question. The second value was the actual score the student
 earned on the exam (out of 100 points possible). The confidence ratings
 and exam scores are given in the file <code>math_self_efficacy</code>.
-You can load this data frame into R by running the command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L21.RData&quot;))</code></pre>
+Download these data from <a
+href="https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>After reading in the data, you may want to look at the first few rows
 to see how it is formatted.</p>
 <pre class="r"><code>head(math_self_efficacy)</code></pre>
-<pre><code># A tibble: 6 × 4
-  gender score confidence_rating_mean comments                   
-  &lt;chr&gt;  &lt;dbl&gt;                  &lt;dbl&gt; &lt;chr&gt;                      
-1 Female  50                     4.34 Shane Goodwin and other    
+<pre><code>  gender score confidence_rating_mean                    comments
+1 Female  50.0                   4.34    Shane Goodwin and other 
 2 Female  83.3                   4.73 researchers studied factors
-3 Female  76.7                   5.28 that affect a student&#39;s    
-4 Female  50                     2.83 confidence on a multiple-  
-5 Female  76.7                   5.4  choice mathematics exam.   
-6 Female  73.3                   4.03 &lt;NA&gt;                       </code></pre>
+3 Female  76.7                   5.28    that affect a student&#39;s 
+4 Female  50.0                   2.83   confidence on a multiple-
+5 Female  76.7                   5.40    choice mathematics exam.
+6 Female  73.3                   4.03                        &lt;NA&gt;</code></pre>
 <p>Notice that we have two quantitative measurements on each
 participant: <em>score</em> and <em>confidence_rating_mean</em>. We call
 these data <strong>bivariate data</strong>. The prefix “bi-” comes from
@@ -1069,9 +1071,12 @@ it can be predicted, give-or-take a reasonable error bound.</p>
 <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of
 each eruption (in minutes) and the waiting time until the next eruption
 (in minutes.) The data are given in the file <code>old_faithful</code>.
-You can access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L21.RData"))</code>
-in R.</p>
+Download these data from <a
+href="https://byuistats.github.io/M221R/data/old_faithful.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/old_faithful.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1133,7 +1138,7 @@ Show Code </span></a>
      breaks = seq(40,96,2))</code></pre>
 </div>
 <center>
-<img src="Lesson21_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="Lesson21_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 </center>
 <ul>
 <li>Since this distribution is bimodal, the mean of the waiting times is
@@ -1178,7 +1183,7 @@ Show Code </span></a>
      main = &quot;Old Faithful Eruptions&quot;)</code></pre>
 </div>
 <center>
-<img src="Lesson21_files/figure-html/unnamed-chunk-19-1.png" width="480" />
+<img src="Lesson21_files/figure-html/unnamed-chunk-20-1.png" width="480" />
 </center>
 <p>Each point in the plot represents both the actual eruption time and
 the wait time until the next eruption of Old Faithful. The position of

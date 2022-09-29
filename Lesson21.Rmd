@@ -76,10 +76,14 @@ The $n = 139$ students from the selected Math 101 course represented a convenien
 
 ##  Describing Bivariate Data 
 
-Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file `math_self_efficacy`. You can load this data frame into R by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L21.RData"))
+Two values were computed for each student at the completion of their exam. The first value was the mean confidence rating (possible values ranging from 1 to 6) from each student's confidence scores they provided for each question. The second value was the actual score the student earned on the exam (out of 100 points possible). The confidence ratings and exam scores are given in the file `math_self_efficacy`. Download these data from https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+math_self_efficacy <- read.xlsx("https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx")
 ```
+
 
 ```{r, echo = FALSE, message = FALSE}
 library(knitr)
@@ -538,9 +542,13 @@ The amount of time between eruptions (wait time) is random.  However, it can be 
 
 <img src = "./Images/Step2.png">
 
-Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file `old_faithful`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L21.RData"))`
-in R. 
+Researchers observed 272 eruptions of this geyser <!--<cite>Azzalini90</cite>-->. The researchers recorded the duration of each eruption (in minutes) and the waiting time until the next eruption (in minutes.) The data are given in the file `old_faithful`. Download these data from https://byuistats.github.io/M221R/data/old_faithful.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+old_faithful <- read.xlsx("https://byuistats.github.io/M221R/data/old_faithful.xlsx")
+```
 
 <div class = "QuestionsHeading">Answer the following questions:</div>
 <div class = "Questions">

@@ -54,13 +54,25 @@ That suggests that 55.2% of the people polled plan to vote for the Republican.  
 
 #### Grades of BYU-Idaho Students
 
-Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data frame `grades_gender`. You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+Grades of students in a general education course at BYU-Idaho were recorded. These values are given in the data frame `grades_gender`. Download these data from https://byuistats.github.io/M221R/data/grades_gender.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+grades_gender <- read.xlsx("https://byuistats.github.io/M221R/data/grades_gender.xlsx")
 ```
-in R.
+
 We can use R to tally (count) these responses. The counts of the number of respondents who claimed each religion is given in the file
-`grades_tally`. Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
+`grades_tally`. 
+Download these data from https://byuistats.github.io/M221R/data/grades_tally.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+grades_tally <- read.xlsx("https://byuistats.github.io/M221R/data/grades_tally.xlsx")
+```
+
+Notice that each row in the "tally" data file represents responses from several individuals.  The *count* column tells how many times each response was given. We will used this summarized data for our analysis.
 
 The `grades_tally` data are summarized in the table below.
 
@@ -163,11 +175,13 @@ It is important for you to know how to create a bar chart. These are heavily use
 
 We will use the students' grades to create a bar chart.
 
-Load the data frame `grades_tally` into R. You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+Load the data frame `grades_tally` into R. Download these data from https://byuistats.github.io/M221R/data/grades_tally.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+grades_tally <- read.xlsx("https://byuistats.github.io/M221R/data/grades_tally.xlsx")
 ```
-in R.
 
 Then, use the `barplot(...)` function to create a bar chart of the values.
 
@@ -258,9 +272,15 @@ Answer the following questions. For this exercise, you will need a coin.
 </div>
 <br>
 
-2. The data frame `coin_heads` contains data representing a collection of 900 students' results, where each tossed a coin $n=25$ times and calculated the proportion of heads. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L16.RData"))`
-in R. The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?
+2. The data frame `coin_heads` contains data representing a collection of 900 students' results, where each tossed a coin $n=25$ times and calculated the proportion of heads. Download these data from https://byuistats.github.io/M221R/data/coin_heads.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+coin_heads <- read.xlsx("https://byuistats.github.io/M221R/data/coin_heads.xlsx")
+```
+
+The following histogram illustrates these data. How would you describe the shape of the distribution of the observed proportions?
 
 ```{r, echo = FALSE}
 hist(coin_heads$proportion, prob=TRUE, breaks = seq(0.1,0.9,0.04),#density=20, breaks=20,  

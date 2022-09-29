@@ -670,18 +670,19 @@ R Instructions
 <p><strong>To compute numerical summaries for several
 groups:</strong></p>
 <ul>
-<li>Load the data: <code>gratitude</code>. You can access this data
-frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L14.RData"))</code>
-in R.</li>
-<li>Load <code>library(mosaic)</code>.</li>
-<li>Use the <code>favstats(...)</code> function with the quantitative
+<li><p>Load the data: <code>gratitude</code>. Download these data from
+<a href="https://byuistats.github.io/M221R/data/gratitude.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/gratitude.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Load <code>library(mosaic)</code>.</p></li>
+<li><p>Use the <code>favstats(...)</code> function with the quantitative
 data column name listed first, followed by a tilde, <code>~</code>,
 which is followed by the categorical data column name. We indicate that
 these columns are part of the <code>gratitude</code> data frame using
-the command <code>data = gratitude</code>.</li>
+the command <code>data = gratitude</code>.</p></li>
 </ul>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L14.RData&quot;))</code></pre>
 <pre class="r"><code>library(mosaic) 
 favstats(happiness ~ treatment, data = gratitude)</code></pre>
 <pre><code>  treatment min    Q1 median    Q3 max     mean        sd  n missing
@@ -916,7 +917,12 @@ study to compare five soccer shoe designs.
 to determine if there is a difference in the mean accuracy soccer
 players achieve using different Nike shoe designs.</p>
 <p>Data representing the results of this study are given in the data
-frame <code>soccer_shoes</code>.</p>
+frame <code>soccer_shoes</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/soccer_shoes.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/soccer_shoes.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <div id="r-instructions-for-converting-wide-data-to-long-format"
 class="section level3">
 <h3>R Instructions for Converting “Wide” Data to “Long” Format</h3>
@@ -1062,6 +1068,7 @@ Ewald M. Hennig and Thorsten Sterzing
 27
 </td>
 <td style="text-align:left;">
+NA
 </td>
 </tr>
 <tr>
@@ -1132,6 +1139,7 @@ performance: a series of biomechanical studies’, Footwear Science, 2: 1,
 37
 </td>
 <td style="text-align:left;">
+NA
 </td>
 </tr>
 </tbody>
@@ -1497,7 +1505,7 @@ curve(df(x, 5, 114), from = 0, to = 10)
 abline(v = 2.02, h = 0)
 ```
 
-<img src="Lesson14_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="Lesson14_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 -->
 </div>
 <p><br></p>

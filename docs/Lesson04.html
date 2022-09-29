@@ -452,7 +452,7 @@ id="toc-r-instructions-for-na-or-missing-values">R Instructions for
   When we rewrite this lesson, we should:
     - Use data on a smaller scale so dividing by 1000 or 1000000 is not needed
     
-    - Consider whether or not to compare two groups (i.e., wrong site v. wrong patient)
+    - Acoid comparing two groups (i.e., wrong site v. wrong patient)
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -2036,13 +2036,12 @@ style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <p><br>   <strong>To calculate percentiles and quartiles in R, do the
 following</strong> <br /></p>
 <ul>
-<li>Load the data frames for this lesson by executing the following
-command in R:</li>
-</ul>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L04.RData&quot;))</code></pre>
-<ul>
-<li><p>One of the data frames you will have loaded is called
-“surgery_lawsuits”.</p></li>
+<li><p>Open the “surgery_lawsuits” data. Download these data from <a
+href="https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
 <li><p>Percentiles can then be calculated on any numeric column of the
 data set using the <code>quantile(...)</code> function and the selection
 operator <code>$</code> as follows.</p></li>
@@ -2220,18 +2219,20 @@ style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <p><br>   <strong>To find the values for a five-number summary in R, do
 the following</strong> <br /></p>
 <ul>
-<li>Open the data file you are using if you haven’t already. For this
+<li><p>Open the data file you are using if you haven’t already. For this
 example, continue using the data frame “surgery_lawsuits” that you
-loaded previously in this lesson. If you need to load this data frame,
-you can run the command</li>
-</ul>
-<p><code>load(url("https://byuistats.github.io/M221R/data/L04.RData"))</code></p>
-<ul>
-<li>You can use the function <strong>summary(…)</strong> in R to find
+loaded previously in this lesson. If you have not already done it,
+please download these data from <a
+href="https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>You can use the function <strong>summary(…)</strong> in R to find
 the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile,
 and maximum. (The <code>summary(...)</code> function also provides the
 value of the mean, which isn’t technically part of the five-number
-summary, but is useful to compare against the median.)</li>
+summary, but is useful to compare against the median.)</p></li>
 </ul>
 <pre class="r"><code>summary(surgery_lawsuits$wrong_site)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -2311,15 +2312,16 @@ style="font-size:8pt;">Show/Hide R Instructions</span></a>
 <p><br> <strong>To create a boxplot in R, do the following</strong>
 <br /></p>
 <ul>
-<li>Open the data file you are using. For this example, continue using
-the “surgery_lawsuits” data frame that you opened previously in this
-lesson. If you need to load this data frame, you can run the
-command:</li>
-</ul>
-<p><code>load(url("https://byuistats.github.io/M221R/data/L04.RData"))</code></p>
-<ul>
-<li>Use the <strong>boxplot(…)</strong> function to create a boxplot of
-the column of the data set you are interested in graphing.</li>
+<li><p>Open the data file you are using. For this example, continue
+using the “surgery_lawsuits” data frame that you opened previously in
+this lesson. If you need to load this data frame, download the data from
+<a href="https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Use the <strong>boxplot(…)</strong> function to create a boxplot
+of the column of the data set you are interested in graphing.</p></li>
 </ul>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)</code></pre>
 <p><img src="Lesson04_files/figure-html/w_s_w_p_boxplot1-1.png" width="672" /></p>
@@ -2352,7 +2354,7 @@ get a vertical boxplot instead It really doesn’t matter whether your
 draw your boxplots vertically or horizontally, so use whichever method
 you like the look of best.</p>
 <pre class="r"><code>boxplot(surgery_lawsuits$wrong_site)</code></pre>
-<p><img src="Lesson04_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="Lesson04_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <p><!-- R instructions for boxplot --></p>
 </div>

@@ -518,10 +518,14 @@ studied the weight loss of <span class="math inline">\(n = 27\)</span>
 middle aged women who consumed a prescribed low-calorie diet.
 <!--<cite>Mahon07</cite>--> The women’s weights were recorded (in
 kilograms) at the beginning of the study and after the nine-week diet
-period. The data are given in the data frame <code>weight_loss</code>.
-You can access this data frame by running the command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L12.RData&quot;))</code></pre>
-<p>in R. An excerpt of the data is shown below.</p>
+period.</p>
+<p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/weight_loss.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/weight_loss.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>An excerpt of the data is shown below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -866,9 +870,12 @@ R Instructions
 <div class="Software">
 <p>To compute the <em>differences</em> within each paired set of
 measurements in R, begin by reading in the <code>weight_loss</code> data
-into RStudio. You can access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R.</p>
+into RStudio. Download these data from <a
+href="https://byuistats.github.io/M221R/data/weight_loss.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/weight_loss.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>Then, calculate the <em>differences</em> using the assignment
 operator <code>&lt;-</code> and the selection operator
 <code>$</code>:</p>
@@ -901,13 +908,13 @@ we computed is the standard deviation of the differences.</p>
      col = &quot;tan3&quot;,
      xlab = &quot;Weight Change in Kilograms (Post - Pre)&quot;,
      main = &quot;Weight Loss Study&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(weight_loss$difference,
         horizontal=TRUE,
         col = &quot;tan3&quot;,
         xlab = &quot;Weight Change in Kilograms (Post - Pre)&quot;,
         main = &quot;Weight Loss Study&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <p><br></p>
 <div class="QuestionsHeading">
@@ -1208,8 +1215,8 @@ weights were measured again at the end of the study. A calibrated scale
 was used to provide an accurate weight.</p>
 <p><img src = "Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><img src="Lesson12_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>From the R output demonstrated previously, we can see a histogram of
 the data and get the following numerical summaries:</p>
 <p><span class="math display">\[
@@ -1363,10 +1370,12 @@ matched as closely as possible to a similar case where there was no
 nosocomial infection. Patients who died were excluded from the study
 <!--<cite>Vegas93</cite>-->. The lengths of the hospital stays (in days)
 for these patients are given in the data frame
-<code>hospital_infections</code>. You can access this data frame by
-running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R.</p>
+<code>hospital_infections</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/hospital_infections.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/hospital_infections.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>The difference, <span class="math inline">\(d\)</span>, is defined as
 the duration of the hospital stay of the individual in the pair with the
 nosocomial infection minus the duration of the stay for the individual
@@ -1486,12 +1495,12 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 <pre class="r"><code>hist(hospital_infections$difference, 
      main = &quot;Matched Pairs Study \n Nosocomial Infections&quot;, 
      xlab = &quot;Difference in Hospital Stay (infected - not_infected)&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(hospital_infections$difference,
         horizontal=TRUE,
         main = &quot;Matched Pairs Study \n Nosocomial Infections&quot;,
         xlab = &quot;Difference in Hospital Stay (infected - not_infected)&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -1660,9 +1669,12 @@ listening to stressful classical music increases a person’s REE.
 <!--<cite>Carlsson05</cite>--> Each subject’s REE was measuring during
 silence and again while listening to stressful classical music. Data
 representing their results are given in the data frame <code>ree</code>.
-You can access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R.</p>
+Download these data from <a
+href="https://byuistats.github.io/M221R/data/ree.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/ree.xlsx</a>. You can
+<a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>Notice that this is not a pre- and post-test, but it is still a test
 involving paired data. Two REE measurements were made for each subject:
 (1) in silence (<span class="math inline">\(silence\)</span>) and (2)
@@ -1768,13 +1780,13 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
      main = &quot;Effect of Classical Music on Energy&quot;, 
      xlab = &quot;Resting Energy Expenditure (Stressful - Silence)&quot;, 
      col = &quot;darkorchid&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(ree$difference,
         horizontal = TRUE,
         main = &quot;Effect of Classical Music on Energy&quot;,
         xlab = &quot;Resting Energy Expenditure (Stressful - Silence)&quot;,
         col = &quot;darkorchid&quot;) </code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <p><br></p>
 </div>
@@ -1941,11 +1953,13 @@ ticket prices of one-way flights from Heathrow to various destinations
 in Europe. Using Travelocity.com, she recorded the lowest published
 fares for nonstop midweek flights booked either 14 days in advance or 90
 days in advance. The prices (in US dollars) are given in the file
-<code>direct_flight_costs</code>. You can access this data frame by
-running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R.<br />
-Notice that for some destinations, flights were not available.</p>
+<code>direct_flight_costs</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>Notice that for some destinations, flights were not available.</p>
 <p>The data are paired, because we are measuring the costs twice for
 each city. The 14-day ticket price is paired with the 90-day price for
 each city.</p>
@@ -2058,7 +2072,7 @@ hist(direct_flight_costs$difference,
      xlab = &quot;Difference in Dollar Cost (14 Days - 90 Days)&quot;,
      main = &quot;Direct Flight Costs&quot;,
      breaks = 30)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <ul>
 <li>If you defined your difference as the 90-day price minus the 14-day
 price, then you would have the following histogram instead:</li>
@@ -2069,7 +2083,7 @@ hist(direct_flight_costs$difference2,
      xlab = &quot;Difference in Dollar Cost (90 Days - 14 Days)&quot;,
      main = &quot;Direct Flight Costs&quot;,
      breaks = 30)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -2264,10 +2278,12 @@ beetle outbreaks on the average number of trees in an area.
 established trees per hectare before a pine beetle outbreak and seven
 years after an outbreak. (One hectare is an area of 100 meters by 100
 meters.) Data representative of their observations are given in the data
-frame <code>pine_beetle</code>. You can access these data by running the
-command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R.</p>
+frame <code>pine_beetle</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/pine_beetle.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/pine_beetle.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p><img src = "Images/Step3.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
@@ -2382,13 +2398,13 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
      main = &quot;Pine Beetle Outbreaks&quot;, 
      xlab = &quot;Difference in Tree Density (After - Before)&quot;, 
      col = &quot;darkolivegreen4&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(pine_beetle$difference,
         horizontal = TRUE,
         main = &quot;Pine Beetle Outbreaks&quot;,
         xlab = &quot;Difference in Tree Density (After - Before)&quot;,
         col = &quot;darkolivegreen4&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>
@@ -2407,9 +2423,13 @@ R Instructions
 <p><strong>To calculate confidence intervals for the true mean of the
 difference in R, do the following</strong>:</p>
 <ul>
-<li>Read in the data to RStudio if you haven’t already: <a
-href="./data/pine_beetle.xslx">pine_beetle</a></li>
-<li>Compute the differences if you haven’t already:</li>
+<li><p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/pine_beetle.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/pine_beetle.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Compute the differences if you haven’t already:</p></li>
 </ul>
 <pre class="r"><code>pine_beetle$difference &lt;- pine_beetle$after - pine_beetle$before</code></pre>
 <ul>
@@ -2530,11 +2550,14 @@ measured.</p>
 <p>The difference in the amount of time each person slept was computed
 by subtracting the amount of time the subjects slept when taking the
 drug minus the sleep duration with no drug. The data are given in the
-file <code>sleep_drug</code>. You can access this data frame by running
-the command
-<code>load(url("https://byuistats.github.io/M221R/data/L12.RData"))</code>
-in R. After reading in these data, run the following to compute the
-column of differences:</p>
+file <code>sleep_drug</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/sleep_drug.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/sleep_drug.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>After reading in these data, run the following to compute the column
+of differences:</p>
 <pre class="r"><code>sleep_drug$difference = sleep_drug$treatment - sleep_drug$control</code></pre>
 <p>Run the command <code>View(sleep_drug)</code> to examine the data
 file.</p>
@@ -2600,13 +2623,13 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
      col = &quot;brown3&quot;,
      xlab = &quot;Difference in Hours of Sleep&quot;,
      main = &quot;Slee Inducing Drugs Study&quot;)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <pre class="r"><code>boxplot(sleep_drug$difference, 
         col = &quot;brown3&quot;,
         xlab = &quot;Difference in Hours of Sleep&quot;,
         main = &quot;Slee Inducing Drugs Study&quot;,
         horizontal = TRUE)</code></pre>
-<p><img src="Lesson12_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="Lesson12_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 </div>
 <p> </p>
 </div>

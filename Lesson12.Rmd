@@ -64,12 +64,16 @@ We will first explore an application of pre- and post-testing in a weight loss s
 
 **Background**
 
-Annie Mahon and other researchers in Wayne Campbell's nutrition lab studied the weight loss of $n = 27$ middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>-->  The women's weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. The data are given in the data frame `weight_loss`. 
-You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+Annie Mahon and other researchers in Wayne Campbell's nutrition lab studied the weight loss of $n = 27$ middle aged women who consumed a prescribed low-calorie diet. <!--<cite>Mahon07</cite>-->  The women's weights were recorded (in kilograms) at the beginning of the study and after the nine-week diet period. 
+
+Download these data from https://byuistats.github.io/M221R/data/weight_loss.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+weight_loss <- read.xlsx("https://byuistats.github.io/M221R/data/weight_loss.xlsx")
 ```
-in R.
+
 An excerpt of the data is shown below.
 
 <table>
@@ -195,9 +199,13 @@ We can calculate the difference (or change) in weight for each woman in the stud
 <div class = "SoftwareHeading">R Instructions </div>
 <div class = "Software">
 To compute the *differences* within each paired set of measurements in R, begin by reading in the `weight_loss` data into RStudio. 
-You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R.
+Download these data from https://byuistats.github.io/M221R/data/weight_loss.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+weight_loss <- read.xlsx("https://byuistats.github.io/M221R/data/weight_loss.xlsx")
+```
 
 Then, calculate the *differences* using the assignment operator `<-` and the selection operator `$`:
 
@@ -453,9 +461,14 @@ There are many factors that affect the amount of time that a patient will need t
 
 One way is to match a patient who develops a nosocomial infection with another one who has similar characteristics (illness, procedures, health, gender, age group, etc.) but does not develop a nosocomial infection.  Now, the patients are matched into pairs with similar characteristics, where the principle difference between the members of each pair is whether or not they acquired a nosocomial infection.
 
-By pairing the patients according to specific characteristics, the researchers can now subtract to observe a difference in their recovery times.  In this way, it is possible to assess if nosocomial infections increase the mean duration of a hospital stay.  Some researchers conducted such a study in which 52 pairs of patients were matched based on clinical characteristics.  A patient with a nosocomial infection was matched as closely as possible to a similar case where there was no nosocomial infection. Patients who died were excluded from the study <!--<cite>Vegas93</cite>-->.  The lengths of the hospital stays (in days) for these patients are given in the data frame `hospital_infections`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R.
+By pairing the patients according to specific characteristics, the researchers can now subtract to observe a difference in their recovery times.  In this way, it is possible to assess if nosocomial infections increase the mean duration of a hospital stay.  Some researchers conducted such a study in which 52 pairs of patients were matched based on clinical characteristics.  A patient with a nosocomial infection was matched as closely as possible to a similar case where there was no nosocomial infection. Patients who died were excluded from the study <!--<cite>Vegas93</cite>-->.  The lengths of the hospital stays (in days) for these patients are given in the data frame `hospital_infections`. Download these data from https://byuistats.github.io/M221R/data/hospital_infections.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+hospital_infections <- read.xlsx("https://byuistats.github.io/M221R/data/hospital_infections.xlsx")
+```
+
 
 The difference, $d$, is defined as the duration of the hospital stay of the individual in the pair with the nosocomial infection minus the duration of the stay for the individual who did not get a nosocomial infection:
 $$
@@ -679,9 +692,14 @@ Resting Energy Expenditure (REE) is defined as the amount of energy a person wou
 
 REE accounts for approximately 70 to 80% of all energy that a person will expend in a day. <!--<cite>Carlsson05</cite>-->  If researchers can find simple, enjoyable activities that will increase REE, it may be possible to minimize the spread of obesity around the world.
 
-Ebba Carlsson and other researchers in Sweden investigated whether listening to stressful classical music increases a person's REE. <!--<cite>Carlsson05</cite>-->  Each subject's REE was measuring during silence and again while listening to stressful classical music.  Data representing their results are given in the data frame `ree`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R.
+Ebba Carlsson and other researchers in Sweden investigated whether listening to stressful classical music increases a person's REE. <!--<cite>Carlsson05</cite>-->  Each subject's REE was measuring during silence and again while listening to stressful classical music.  Data representing their results are given in the data frame `ree`. Download these data from https://byuistats.github.io/M221R/data/ree.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+ree <- read.xlsx("https://byuistats.github.io/M221R/data/ree.xlsx")
+```
+
 
 Notice that this is not a pre- and post-test, but it is still a test involving paired data.  Two REE measurements were made for each subject:  (1) in silence ($silence$) and (2) while listening to stressful classical music ($stressful$).
 
@@ -908,9 +926,14 @@ Note that we did not say we "accept" the null hypothesis.  We do not know that l
 
 Pressures of supply and demand act directly on the prices for an airline ticket.  As the seats available on the plane begin to fill, airlines raise the price.  If seats on a flight do not sell well, an airline may discount the tickets or even cancel the flight.  Business travelers frequently demand travel booked on short notice.  They must pay the current price.  Typically, tourists book their flights well in advance, hoping to buy tickets before the price rises.  We will consider the cost of a one-way ticket from London's Heathrow Airport to a variety of destinations in Europe.
 
-Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe.  Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance.  The prices (in US dollars) are given in the file `direct_flight_costs`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R.  
+Allie Henrich, a BYU-Idaho student, compared the lowest published ticket prices of one-way flights from Heathrow to various destinations in Europe.  Using Travelocity.com, she recorded the lowest published fares for nonstop midweek flights booked either 14 days in advance or 90 days in advance.  The prices (in US dollars) are given in the file `direct_flight_costs`. Download these data from https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+direct_flight_costs <- read.xlsx("https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx")
+```
+
 Notice that for some destinations, flights were not available.
 
 The data are paired, because we are measuring the costs twice for each city.  The 14-day ticket price is paired with the 90-day price for each city.
@@ -1147,9 +1170,13 @@ Lodgepole pine (*Pinus contorta* Dougl.ex Loud.) are particularly susceptible to
 
 **Describe the data collection procedures**
 
-In a study conducted in the Arapaho National Forest in Colorado, researchers from the USDA Forest Service studied the effect of pine beetle outbreaks on the average number of trees in an area. <!--<cite>Klutsch09</cite>-->  The researchers counted the number of established trees per hectare before a pine beetle outbreak and seven years after an outbreak. (One hectare is an area of 100 meters by 100 meters.)  Data representative of their observations are given in the data frame `pine_beetle`. You can access these data by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R.
+In a study conducted in the Arapaho National Forest in Colorado, researchers from the USDA Forest Service studied the effect of pine beetle outbreaks on the average number of trees in an area. <!--<cite>Klutsch09</cite>-->  The researchers counted the number of established trees per hectare before a pine beetle outbreak and seven years after an outbreak. (One hectare is an area of 100 meters by 100 meters.)  Data representative of their observations are given in the data frame `pine_beetle`. Download these data from https://byuistats.github.io/M221R/data/pine_beetle.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+pine_beetle <- read.xlsx("https://byuistats.github.io/M221R/data/pine_beetle.xlsx")
+```
 
 <img src = "./Images/Step3.png">
 
@@ -1253,7 +1280,14 @@ To create a confidence interval for the true mean of the differences $\mu_d$ in 
 <div class = "Software">
 **To calculate confidence intervals for the true mean of the difference in R, do the following**:
 
-* Read in the data to RStudio if you haven't already: [pine_beetle](./data/pine_beetle.xslx) 
+* Download these data from https://byuistats.github.io/M221R/data/pine_beetle.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+pine_beetle <- read.xlsx("https://byuistats.github.io/M221R/data/pine_beetle.xlsx")
+```
+
 * Compute the differences if you haven't already:
 
 ```{r}
@@ -1344,9 +1378,16 @@ In William Sealy Gosset's landmark paper on the $t$-distribution, he cites data 
 
 Eleven subjects were included in the study.  At the start of the study, the researchers observed the average length of time that each of the participants slept before waking.  Later, each subject was given 0.6 mg of L-Hyoscyamine and the duration of uninterrupted sleep was again measured.
 
-The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug.  The data are given in the file `sleep_drug`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L12.RData"))`
-in R. After reading in these data, run the following to compute the column of differences:
+The difference in the amount of time each person slept was computed by subtracting the amount of time the subjects slept when taking the drug minus the sleep duration with no drug.  The data are given in the file `sleep_drug`. 
+Download these data from https://byuistats.github.io/M221R/data/sleep_drug.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+sleep_drug <- read.xlsx("https://byuistats.github.io/M221R/data/sleep_drug.xlsx")
+```
+
+After reading in these data, run the following to compute the column of differences:
 
 ```{r}
 sleep_drug$difference = sleep_drug$treatment - sleep_drug$control

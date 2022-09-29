@@ -76,11 +76,14 @@ To check requirement 1, we do two things.  The first is to make a scatterplot an
 
 We want to make sure that there is no distinct curvature or other nonlinear characteristics.  This is simply a visual check of the data.
 
-Load the `estuarine_crocodiles` data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L23.RData"))
+Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
 ```
-in R. 
+
 Consider the following scatterplot of these data, which includes a superimposed regression line.
 
 ```{r}
@@ -108,8 +111,14 @@ It is tedious to calculate the residuals by hand, but we can easily find them us
 <div class = "Software">
 **To find the residuals in R, do the following:**
 
-- Load the data frame `estuarine_crocodiles` into R by running the command
-`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
+- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
+```
+
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
@@ -144,9 +153,14 @@ We will use R to create residual plots.
 
 <div class = "SoftwareHeading">Excel Instructions</div>
 <div class = "Software">
-- Load the data into R: `estuarine_crocodiles` You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
-in R. 
+- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
+```
+
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
@@ -352,8 +366,14 @@ The relevant summary statistics include the sample size and the estimated regres
 
 <div class = "SoftwareHeading">Excel Instructions</div>
 <div class = "Software">
-- Load the `estuarine_crocodiles` data into R using the command
-`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
+- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
+```
+
 - Perform a linear regression using the `lm( )` function.
 - See the results using `summary( )`.
 
@@ -394,6 +414,11 @@ Assuming $\alpha = 0.05$, we reject the null hypothesis since the $P$-value is l
 It was appropriate to conduct this analysis, since the requirements of simple linear regression were satisfied.
 
 ### Manatees
+
+```{r, include = FALSE}
+library(openxlsx)
+manatees <- read.xlsx("https://byuistats.github.io/M221R/data/manatees.xlsx")
+```
 
 <img src = "./Images/step4.png">
 
@@ -458,9 +483,15 @@ We are often interested in the range of plausible values for the true regression
 <div class = "Software">
 **To compute the confidence intervals for the regression coefficients in R, do the following:**
 
-- Read the data into R: `estuarine_crocodiles`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L23.RData"))`
-in R. 
+- Download these data from https://byuistats.github.io/M221R/data/manatees.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+manatees <- read.xlsx("https://byuistats.github.io/M221R/data/manatees.xlsx")
+```
+
+
 - Perform a linear regression using the `lm( )` function.
 
 ```{r}
@@ -480,7 +511,7 @@ The first row of the output gives the confidence interval for $\beta_0$, the y-i
 <br>
 
 
-In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of manatees killed is $(0.112, 0.146)$.  Remember the slope is the amount that $Y$ is expected to change if $X$ changes by one unit.  Also, recall that $X$ is given in terms of thousands of powerboats registered.  If an additional one thousand powerboats are registered (one unit increase in $X$,) we are 95% confident that the average number of manatees killed in such years will increase between 0.112 and 0.146.  Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect the average number of manatee deaths witnessed in such years to be between 11.2 to 14.6 manatees.
+In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of = killed is $(0.112, 0.146)$.  Remember the slope is the amount that $Y$ is expected to change if $X$ changes by one unit.  Also, recall that $X$ is given in terms of thousands of powerboats registered.  If an additional one thousand powerboats are registered (one unit increase in $X$,) we are 95% confident that the average number of manatees killed in such years will increase between 0.112 and 0.146.  Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect the average number of manatee deaths witnessed in such years to be between 11.2 to 14.6 manatees.
 
 The 95% confidence interval for the $Y$-intercept is $(-55.460, -29.623)$.  We are 95% confident that the expected number of manatees that will be killed if there are zero powerboats registered in Florida is between $-55.5$ and $-29.6$.  This is illogical.  There cannot be a negative number of manatees killed.  The $Y$-intercept is not interpretable for this data.
 

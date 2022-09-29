@@ -24,7 +24,7 @@ output:
   When we rewrite this lesson, we should:
     - Use data on a smaller scale so dividing by 1000 or 1000000 is not needed
     
-    - Consider whether or not to compare two groups (i.e., wrong site v. wrong patient)
+    - Acoid comparing two groups (i.e., wrong site v. wrong patient)
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -859,12 +859,14 @@ Percentiles can be used to describe the center and spread of any distribution an
 &nbsp;&nbsp;**To calculate percentiles and quartiles in R, do the following**
 <br />
 
-- Load the data frames for this lesson by executing the following command in R:
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L04.RData"))
-```
+- Open the "surgery_lawsuits" data.
+Download these data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
-- One of the data frames you will have loaded is called "surgery_lawsuits".
+```{r, include = FALSE}
+library(openxlsx)
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+```
 
 - Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
 
@@ -981,9 +983,14 @@ Statistical packages can give different results for some computations.  This is 
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 <br />
 
-- Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you need to load this data frame, you can run the command 
+- Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you have not already done it, please download these data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
-`load(url("https://byuistats.github.io/M221R/data/L04.RData"))`
+```{r, include = FALSE}
+library(openxlsx)
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+```
+
 
 - You can use the function **summary(...)** in R to find the minimum, 1<sup>st</sup> quartile, median, 3<sup>rd</sup> quartile, and maximum. (The `summary(...)` function also provides the value of the mean, which isn't technically part of the five-number summary, but is useful to compare against the median.)
 
@@ -1073,9 +1080,14 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **To create a boxplot in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, you can run the command:
+- Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, download the data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
-`load(url("https://byuistats.github.io/M221R/data/L04.RData"))`
+```{r, include = FALSE}
+library(openxlsx)
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+```
+
 
 - Use the **boxplot(...)** function to create a boxplot of the column of the data set you are interested in graphing.
 

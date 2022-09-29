@@ -541,11 +541,14 @@ class="math inline">\(Y\)</span>.</p>
 <p>We want to make sure that there is no distinct curvature or other
 nonlinear characteristics. This is simply a visual check of the
 data.</p>
-<p>Load the <code>estuarine_crocodiles</code> data frame by running the
-command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L23.RData&quot;))</code></pre>
-<p>in R. Consider the following scatterplot of these data, which
-includes a superimposed regression line.</p>
+<p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>Consider the following scatterplot of these data, which includes a
+superimposed regression line.</p>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
 plot(body_length ~ head_length, data = estuarine_crocodiles)
 abline(estuarine_lm)</code></pre>
@@ -576,11 +579,14 @@ R Instructions
 <div class="Software">
 <p><strong>To find the residuals in R, do the following:</strong></p>
 <ul>
-<li>Load the data frame <code>estuarine_crocodiles</code> into R by
-running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code></li>
-<li>Perform a linear regression using the <code>lm( )</code>
-function.</li>
+<li><p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Perform a linear regression using the <code>lm( )</code>
+function.</p></li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
 <ul>
@@ -636,12 +642,14 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Load the data into R: <code>estuarine_crocodiles</code> You can
-access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code>
-in R.</li>
-<li>Perform a linear regression using the <code>lm( )</code>
-function.</li>
+<li><p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Perform a linear regression using the <code>lm( )</code>
+function.</p></li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)</code></pre>
 <ul>
@@ -654,7 +662,7 @@ plot.</li>
 <pre class="r"><code># Load the residual_plot function and create the plot
 source(&quot;https://byuistats.github.io/M221R/scripts/functions.R&quot;)
 residual_plot(estuarine_lm)</code></pre>
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Notice the dashed line in the residual plot is The red line is often
 not helpful in this plot, but should be relatively flat. Only trust the
 red line when the dots in the graph seem to closely follow the red line.
@@ -675,7 +683,7 @@ appropriate.</p>
 that suggests that the data are not linearly related.</li>
 </ul>
 <div style="padding-left:30px;">
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-7-1.png" width="288" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-9-1.png" width="288" /></p>
 </div>
 <ul>
 <li><strong>Megaphone</strong> A megaphone shape occurs when points tend
@@ -687,7 +695,7 @@ suggests that there is a difference in the spread of the residuals
 depending on the value of <span class="math inline">\(X\)</span>.</li>
 </ul>
 <div style="padding-left:30px;">
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-8-1.png" width="288" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-10-1.png" width="288" /></p>
 </div>
 <ul>
 <li><strong>Outliers</strong> If there are outliers in the residual
@@ -696,7 +704,7 @@ This should also be apparent in the scatterplot or histogram of the
 residuals.</li>
 </ul>
 <div style="padding-left:30px;">
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-9-1.png" width="288" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-11-1.png" width="288" /></p>
 </div>
 <p><br/></p>
 </div>
@@ -707,12 +715,12 @@ are normally distributed using a histogram. If the shape of the
 histogram of residuals does not show a distinct departure from a normal
 shape, we conclude the requirement of normal residuals has been met.</p>
 <pre class="r"><code>hist(estuarine_lm$residuals)</code></pre>
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>We can use the <code>nclass</code> option to change the number of
 bins in the histogram. By using <code>nclass = 10</code> we generate a
 histogram with room for 10 bins.</p>
 <pre class="r"><code>hist(estuarine_lm$residuals, nclass = 10)</code></pre>
-<p><img src="Lesson23_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="Lesson23_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>It can be helpful to try different values for <code>nclass</code>.
 Usually, values between 5 and 15 are chosen. If the data set is small,
 then <code>nclass</code> is usually closer to 5. If the data set is
@@ -723,7 +731,7 @@ from a normal shape. We do not have evidence of nonnormality in the
 residuals. We conclude that the residuals are normally distributed.</p>
 <p>As a contrast, here is an example of a plot of residuals that is not
 normal.
-<img src="Lesson23_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<img src="Lesson23_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>If the histogram of the residuals shows a mound shape that is roughly
 symmetrical, we can conclude the assumption of normal error terms is not
 violated. For the estuarine crocodile data, it is reasonable to conclude
@@ -731,7 +739,7 @@ the assumption of normally distributed error terms is satisfied.</p>
 <!--
 Here is a histogram of residuals that shows the presence of outliers:
 
-<img src="Lesson23_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="Lesson23_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 -->
 </div>
 <div id="requirements-summary" class="section level3">
@@ -950,12 +958,15 @@ Excel Instructions
 </div>
 <div class="Software">
 <ul>
-<li>Load the <code>estuarine_crocodiles</code> data into R using the
-command
-<code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code></li>
-<li>Perform a linear regression using the <code>lm( )</code>
-function.</li>
-<li>See the results using <code>summary( )</code>.</li>
+<li><p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Perform a linear regression using the <code>lm( )</code>
+function.</p></li>
+<li><p>See the results using <code>summary( )</code>.</p></li>
 </ul>
 <pre class="r"><code>estuarine_lm &lt;- lm(body_length ~ head_length, data = estuarine_crocodiles)
 summary(estuarine_lm)</code></pre>
@@ -1160,12 +1171,14 @@ R Instructions
 <p><strong>To compute the confidence intervals for the regression
 coefficients in R, do the following:</strong></p>
 <ul>
-<li>Read the data into R: <code>estuarine_crocodiles</code>. You can
-access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L23.RData"))</code>
-in R.</li>
-<li>Perform a linear regression using the <code>lm( )</code>
-function.</li>
+<li><p>Download these data from <a
+href="https://byuistats.github.io/M221R/data/manatees.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/manatees.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p></li>
+<li><p>Perform a linear regression using the <code>lm( )</code>
+function.</p></li>
 </ul>
 <pre class="r"><code>manatee_lm &lt;- lm(manatees_killed ~ power_boats_1000s, data = manatees)</code></pre>
 <ul>
@@ -1187,13 +1200,13 @@ class="math inline">\(\beta_1\)</span>, the slope.</p>
 <p><br></p>
 <p>In this case, the 95% confidence interval for the true slope of the
 regression line relating the number of thousand powerboats registered in
-Florida to the number of manatees killed is <span
-class="math inline">\((0.112, 0.146)\)</span>. Remember the slope is the
-amount that <span class="math inline">\(Y\)</span> is expected to change
-if <span class="math inline">\(X\)</span> changes by one unit. Also,
-recall that <span class="math inline">\(X\)</span> is given in terms of
-thousands of powerboats registered. If an additional one thousand
-powerboats are registered (one unit increase in <span
+Florida to the number of = killed is <span class="math inline">\((0.112,
+0.146)\)</span>. Remember the slope is the amount that <span
+class="math inline">\(Y\)</span> is expected to change if <span
+class="math inline">\(X\)</span> changes by one unit. Also, recall that
+<span class="math inline">\(X\)</span> is given in terms of thousands of
+powerboats registered. If an additional one thousand powerboats are
+registered (one unit increase in <span
 class="math inline">\(X\)</span>,) we are 95% confident that the average
 number of manatees killed in such years will increase between 0.112 and
 0.146. Or in other words, if 100 thousand additional powerboats are

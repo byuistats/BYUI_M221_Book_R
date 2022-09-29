@@ -163,11 +163,14 @@ library(kableExtra)
 dots <- data.frame(location = ":", motivation = ":")
 ```
 
-The data from the study are given in the file `chiropractic_care_raw`. You can access this data frame by running the command
-```{r}
-  load(url("https://byuistats.github.io/M221R/data/L19.RData"))
+The data from the study are given in the file `chiropractic_care_raw`. Download these data from https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+chiropractic_care_raw <- read.xlsx("https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx")
 ```
-in R. 
+
 Each row represents the responses of one person. 
 
 You can use the `head()` function to look at the first few rows of the data.
@@ -200,9 +203,13 @@ bind_rows(chiropractic_head, dots, chiropractic_mid, dots, chiropractic_tail) %>
 <div class = "SoftwareHeading">R Instructions</div>
 <div class = "Software">
 
-First, read in the data from the file `chiropractic_care_raw`. You can access this data frame by running the command
-`load(url("https://byuistats.github.io/M221R/data/L19.RData"))`
-in R. 
+First, read in the data from the file `chiropractic_care_raw`. Download these data from https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx.
+You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+
+```{r, include = FALSE}
+library(openxlsx)
+chiropractic_care_raw <- read.xlsx("https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx")
+```
 
 It is hard to visualize these data. We summarize them into a table of counts, which can be called a *contingency table*. <!--<cite>Blum08</cite>-->
 

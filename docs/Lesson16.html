@@ -484,15 +484,24 @@ point.</p>
 <h4>Grades of BYU-Idaho Students</h4>
 <p>Grades of students in a general education course at BYU-Idaho were
 recorded. These values are given in the data frame
-<code>grades_gender</code>. You can access this data frame by running
-the command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L16.RData&quot;))</code></pre>
-<p>in R. We can use R to tally (count) these responses. The counts of
-the number of respondents who claimed each religion is given in the file
-<code>grades_tally</code>. Notice that each row in the “tally” data file
-represents responses from several individuals. The <em>count</em> column
-tells how many times each response was given. We will used this
-summarized data for our analysis.</p>
+<code>grades_gender</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/grades_gender.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/grades_gender.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>We can use R to tally (count) these responses. The counts of the
+number of respondents who claimed each religion is given in the file
+<code>grades_tally</code>. Download these data from <a
+href="https://byuistats.github.io/M221R/data/grades_tally.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/grades_tally.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
+<p>Notice that each row in the “tally” data file represents responses
+from several individuals. The <em>count</em> column tells how many times
+each response was given. We will used this summarized data for our
+analysis.</p>
 <p>The <code>grades_tally</code> data are summarized in the table
 below.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -683,7 +692,7 @@ pie charts when they want to represent the observations as part of a
 whole, where each slice (sector) of the pie chart represents a
 proportion or percentage of the whole. Larger slices represent larger
 proportions of the whole.</p>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>The grades earned by the students are summarized in this pie chart.
 The most common grade was a “B,” which corresponds to the largest
 slice.</p>
@@ -702,16 +711,19 @@ R Instructions
 <div class="Software">
 <p><strong>To make a bar chart in R:</strong></p>
 <p>We will use the students’ grades to create a bar chart.</p>
-<p>Load the data frame <code>grades_tally</code> into R. You can access
-this data frame by running the command</p>
-<pre class="r"><code>  load(url(&quot;https://byuistats.github.io/M221R/data/L16.RData&quot;))</code></pre>
-<p>in R.</p>
+<p>Load the data frame <code>grades_tally</code> into R. Download these
+data from <a
+href="https://byuistats.github.io/M221R/data/grades_tally.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/grades_tally.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</p>
 <p>Then, use the <code>barplot(...)</code> function to create a bar
 chart of the values.</p>
 <div style="padding-left:40px;">
 <pre class="r"><code>#Create a plot of the counts:
 barplot(count ~ grade, data = grades_tally)</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <ul>
 <li>The argument <code>count ~ grade</code> tells R to define the groups
 by the <code>grade</code> values and to set the heights of the bars
@@ -737,7 +749,7 @@ barplot(
   xlab = &quot;Grade&quot;, 
   ylab = &quot;Number of Students&quot;
   )</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <p><br></p>
 </div>
@@ -758,7 +770,7 @@ A study was conducted by the Pew Research Center on the religious affiliation of
 1811 
 people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file [religion_tally.xlsx](./data/religion_tally.xlsx). 
 
-<img src="Lesson16_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="Lesson16_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
 We conclude that Protestants comprise the largest religious category among the United States residents surveyed.
@@ -799,12 +811,16 @@ Your proportion may vary.</li>
 <li>The data frame <code>coin_heads</code> contains data representing a
 collection of 900 students’ results, where each tossed a coin <span
 class="math inline">\(n=25\)</span> times and calculated the proportion
-of heads. You can access this data frame by running the command
-<code>load(url("https://byuistats.github.io/M221R/data/L16.RData"))</code>
-in R. The following histogram illustrates these data. How would you
-describe the shape of the distribution of the observed proportions?</li>
+of heads. Download these data from <a
+href="https://byuistats.github.io/M221R/data/coin_heads.xlsx"
+class="uri">https://byuistats.github.io/M221R/data/coin_heads.xlsx</a>.
+You can <a
+href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
+here</a> for instructions on how to import the dataset into R.</li>
 </ol>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>The following histogram illustrates these data. How would you
+describe the shape of the distribution of the observed proportions?</p>
+<p><img src="Lesson16_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <a href="javascript:showhide('Q2')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
