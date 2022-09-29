@@ -12,8 +12,8 @@
 
 
 # Weight Loss Example -------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the weight_loss data:
+#   https://byuistats.github.io/M221R/data/weight_loss.xlsx
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
@@ -29,14 +29,13 @@ boxplot(weight_loss$difference, horizontal=TRUE)
 # Hypothesis Test -----------------------------------------
 t.test(weight_loss$difference,     # Data
        mu = 0,                     # Value from null hypothesis
-       alternative = "two.sided",  # Could be "two.sided", "greater" or "less"
-       conf.level = 0.95)          # Confidence level for a confidence interval
+       alternative = "two.sided")  # Could be "two.sided", "greater" or "less"
 
 
 
 # Hospital Infections Data --------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the hospital_infections data:
+#   https://byuistats.github.io/M221R/data/hospital_infections.xlsx
 
 # Compute Column of Differences
 hospital_infections$difference <- 
@@ -59,8 +58,8 @@ t.test(hospital_infections$difference,
 
 
 # REE -----------------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the ree data:
+#   https://byuistats.github.io/M221R/data/ree.xlsx
 
 # Compute Column of Differences
 ree$difference <- ree$stressful - ree$silence
@@ -82,8 +81,8 @@ t.test(ree$difference,
 
 
 # Flight Costs --------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the direct_flight_costs data:
+#   https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx
 
 # Compute Column of Differences
 flight_costs$difference <- 
@@ -110,8 +109,8 @@ t.test(flight_costs$difference,
 
 
 # Pine Beetles --------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the pine_beetle data:
+#   https://byuistats.github.io/M221R/data/pine_beetle.xlsx
 
 # Compute Column of Differences
 pine_beetle$difference <- pine_beetle$after - pine_beetle$before
@@ -130,8 +129,8 @@ t.test(pine_beetle$difference, conf.level = 0.95)
 
 
 # Sleep-Inducing Drugs ------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the sleep_drug data:
+#   https://byuistats.github.io/M221R/data/sleep_drug.xlsx
 
 # Compute Column of Differences
 sleep$difference = sleep$treatment - sleep$control

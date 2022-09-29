@@ -9,36 +9,14 @@
 install.packages("mosaic")
 library(mosaic)
 
-
-# Load data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L03.RData"))
+# Tuberculosis Example ----------------------------------------------
+# Load the tuberculosis data:
+#   https://byuistats.github.io/M221R/data/tuberculosis.xlsx
 
 # Numerical Summaries -------------------------------------
-mean(tuberculosis$costs)
-median(tuberculosis$costs)
-sort(table(tuberculosis$costs))
-
 library(mosaic)
-favstats(tuberculosis$costs)
+favstats(tuberculosis$costs)    # Mean, Median
+sort(table(tuberculosis$costs)) # Mode
 
 # Graphical Summaries -------------------------------------
 hist(tuberculosis$costs)
-
-# Surgery Lawsuits (Wrong-Site Wrong-Patient) -----------------------
-
-# Compute the mean of the wrong_site data
-mean(surgery_lawsuits$wrong_site)
-
-# Compute the median of the wrong_site data
-median(surgery_lawsuits$wrong_site)
-
-# Find the mode of the wrong_site data 
-# (Note: this is not very helpful)
-table(surgery_lawsuits$wrong_site)
-
-# Find the mode of the wrong_site data (Sorted in ascending order)
-# Notice the two most-frequently occurring value is 0, with 50 instances
-sort(table(surgery_lawsuits$wrong_site))
-
-# Basic histogram of the wrong_site data
-hist(surgery_lawsuits$wrong_site)

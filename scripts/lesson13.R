@@ -12,8 +12,8 @@
 
 
 # Reading Practices Example -------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+# Load the reading data:
+#   https://byuistats.github.io/M221R/data/reading.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -32,8 +32,8 @@ t.test(nights ~ group, data = reading,
 
 
 # FIFA Heart Attacks Example (Long Data) ------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+# Load the fifa_heart_attacks data:
+#   https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -57,8 +57,8 @@ t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
 
 
 # COPD Example (Wide Data) --------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+# Load the copd_rehab data:
+#   https://byuistats.github.io/M221R/data/copd_rehab.xlsx
 
 # Convert Data from Wide to Long Format (if necessary) ----
 copd_rehab$comments <- NULL     # Eliminate column of comments

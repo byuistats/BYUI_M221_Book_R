@@ -12,8 +12,8 @@
 
 
 # Student Grades Example ----------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+# Load the grades_tally data:
+#   https://byuistats.github.io/M221R/data/grades_tally.xlsx
 
 # Graphical Summaries -------------------------------------
 barplot(count ~ grade, data = grades_tally)

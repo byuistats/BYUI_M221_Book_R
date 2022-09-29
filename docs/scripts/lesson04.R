@@ -5,9 +5,9 @@
 
 
 
-# Load data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L04.RData"))
-
+# Surgery Lawsuits Example --------------------------------
+# Load the surgery_lawsuits data:
+#   https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

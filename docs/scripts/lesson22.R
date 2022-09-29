@@ -15,8 +15,8 @@ library(readxl)
 
 
 # Estuarine Crocodiles Example ----------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L22.RData"))
+# Load the estuarine_crocodiles data:
+#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(body_length ~ head_length, data = estuarine_crocodiles)
@@ -35,8 +35,8 @@ abline(estuarine_lm)
 
 
 # Manatees and Powerboats Example -------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L22.RData"))
+# Load the manatees data:
+#   https://byuistats.github.io/M221R/data/manatees.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(manatees_killed ~ power_boats_1000s, data = manatees)

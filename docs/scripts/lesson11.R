@@ -12,8 +12,8 @@
 
 
 # Body Temperatures Example -------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+# Load the body_temp data:
+#   https://byuistats.github.io/M221R/data/body_temp.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -31,8 +31,8 @@ t.test(body_temp$temperature,    # Data
 
 
 # Baby Boom Data ------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+# Load the baby_boom data:
+#   https://byuistats.github.io/M221R/data/baby_boom.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -52,8 +52,8 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 
 # BLEU Scores ---------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+# Load the bleu scores data:
+#   https://byuistats.github.io/M221R/data/bleu.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -69,8 +69,8 @@ t.test(bleu$score, conf.level=0.95)
 
 
 # Euro Weights --------------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+# Load the euro weights data:
+#   https://byuistats.github.io/M221R/data/euro.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

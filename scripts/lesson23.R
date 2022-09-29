@@ -15,8 +15,8 @@ library(readxl)
 
 
 # Estuarine Crocodiles Example ----------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L23.RData"))
+# Load the estuarine_crocodiles data:
+#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
 
 # Simple Linear Regression Equation and Residuals ---------
 estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
@@ -42,8 +42,8 @@ confint(estuarine_lm, level = 0.95)
 
 
 # Manatees and Powerboats Example -------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L23.RData"))
+# Load the manatees data:
+#   https://byuistats.github.io/M221R/data/manatees.xlsx
 
 # Simple Linear Regression Equation and Residuals ---------
 manatees_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
@@ -63,4 +63,4 @@ residual_plot(manatees_lm)
 hist(manatees_lm$residuals, nclass = 10)
 
 # 95% Confidence Interval for the Slope -------------------
-confint(estuarine_lm, level = 0.95)
+confint(manatees_lm, level = 0.95)

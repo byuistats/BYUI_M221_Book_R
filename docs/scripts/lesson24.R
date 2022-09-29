@@ -12,12 +12,13 @@
 
 
 # Tuberculosis Example ------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L03.RData"))
+# Load the tuberculosis data:
+#   https://byuistats.github.io/M221R/data/tuberculosis.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(tuberculosis$costs)
+favstats(tuberculosis$costs)    # Mean, Median
+sort(table(tuberculosis$costs)) # Mode
 
 # Graphical Summaries -------------------------------------
 hist(tuberculosis$costs)
@@ -29,8 +30,8 @@ hist(tuberculosis$costs)
 
 
 # Surgery Lawsuits Example --------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L04.RData"))
+# Load the surgery_lawsuits data:
+#   https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -48,8 +49,8 @@ boxplot(surgery_lawsuits$wrong_site, horizontal = TRUE)
 
 
 # Body Temperatures Example -------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L11.RData"))
+# Load the body_temp data:
+#   https://byuistats.github.io/M221R/data/body_temp.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -60,9 +61,9 @@ hist(body_temp$temperature)
 boxplot(body_temp$temperature, horizontal=TRUE)
 
 # Hypothesis Test -----------------------------------------
-t.test(body_temp$temperature,      # Data
-       mu = 98.6,                  # Value from null hypothesis
-       alternative = "two.sided")  # Could be "two.sided", "greater" or "less"
+t.test(body_temp$temperature,    # Data
+       mu = 98.6,                # Value from null hypothesis
+       alternative="two.sided")  # Could be "two.sided", "greater" or "less"
 
 # Confidence Interval -------------------------------------
 t.test(body_temp$temperature,      # Data
@@ -75,8 +76,8 @@ t.test(body_temp$temperature,      # Data
 
 
 # Weight Loss Example -------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L12.RData"))
+# Load the weight_loss data:
+#   https://byuistats.github.io/M221R/data/weight_loss.xlsx
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
@@ -92,8 +93,7 @@ boxplot(weight_loss$difference, horizontal=TRUE)
 # Hypothesis Test -----------------------------------------
 t.test(weight_loss$difference,     # Data
        mu = 0,                     # Value from null hypothesis
-       alternative = "two.sided",  # Could be "two.sided", "greater" or "less"
-       conf.level = 0.95)          # Confidence level for a confidence interval
+       alternative = "two.sided")  # Could be "two.sided", "greater" or "less"
 
 # Confidence Interval -------------------------------------
 t.test(weight_loss$difference,     # Data
@@ -106,8 +106,8 @@ t.test(weight_loss$difference,     # Data
 
 
 # FIFA Heart Attacks Example (Long Data) ------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+# Load the fifa_heart_attacks data:
+#   https://byuistats.github.io/M221R/data/fifa_heart_attacks.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -127,8 +127,8 @@ t.test(heart_attacks ~ time_period, data = fifa_heart_attacks,
 
 
 # COPD Example (Wide Data) --------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L13.RData"))
+# Load the copd_rehab data:
+#   https://byuistats.github.io/M221R/data/copd_rehab.xlsx
 
 # Convert Data from Wide to Long Format (if necessary) ----
 copd_rehab$comments <- NULL     # Eliminate column of comments
@@ -156,8 +156,8 @@ t.test(values ~ ind, data = copd,
 
 
 # Gratitude Example (Long Data) ---------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L14.RData"))
+# Load the gratitude data:
+#   https://byuistats.github.io/M221R/data/gratitude.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -172,18 +172,17 @@ min( var(happiness ~ treatment, data = gratitude) ) # Min variance
 boxplot(happiness ~ treatment, data = gratitude)
 
 # Hypothesis Test -----------------------------------------
-gratitude_aov <- aov(happiness ~ treatment, data = gratitude)
-summary(gratitude_aov)
+aov_output <- aov(happiness ~ treatment, data = gratitude)
+summary(aov_output)
 
 
 
 # Soccer Shoes Example (Wide Data) ------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L14.RData"))
+# Load the soccer_shoes data:
+#   https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
 
 # Convert Data from Wide to Long Format -------------------
-soccer_shoes$comments <- NULL
-soccer <- stack(soccer_shoes)
+soccer <- stack( Filter(is.numeric, soccer_shoes) )
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -208,8 +207,8 @@ summary(aov_output)
 
 
 # Student Grades Example ----------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L16.RData"))
+# Load the grades_tally data:
+#   https://byuistats.github.io/M221R/data/grades_tally.xlsx
 
 # Graphical Summaries -------------------------------------
 barplot(count ~ grade, data = grades_tally)
@@ -231,8 +230,15 @@ barplot(
 # Hypothesis Tests ----------------------------------------
 
 # PTC Tasting (One Population) Example --------------------
+# Load the function and conduct the test
 source("https://byuistats.github.io/M221R/scripts/functions.R")
 one.prop.test(x = 89, n = 118, p = 0.70, alternative = "two.sided")
+one.prop.test(
+  x = 89,                    # Number of successes
+  n = 118,                   # Total number of trials (observations)
+  p = 0.70,                  # True proportion, given in null hypothesis
+  alternative = "two.sided"  # Can be "two.sided", "less", or "greater"
+)
 
 # Confidence Intervals ------------------------------------
 
@@ -295,8 +301,8 @@ chisq_results$expected
 
 
 # Math Self-Efficacy Example ------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L21.RData"))
+# Load the math_self_efficacy data:
+#   https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(score ~ confidence_rating_mean, data = math_self_efficacy)
@@ -314,8 +320,8 @@ cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score,
 
 
 # Estuarine Crocodiles Example ----------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L22.RData"))
+# Load the estuarine_crocodiles data:
+#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(body_length ~ head_length, data = estuarine_crocodiles)
@@ -338,8 +344,8 @@ abline(estuarine_lm)
 
 
 # Estuarine Crocodiles Example ----------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L23.RData"))
+# Load the estuarine_crocodiles data:
+#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
 
 # Simple Linear Regression Equation and Residuals ---------
 estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)

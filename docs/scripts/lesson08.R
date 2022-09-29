@@ -12,12 +12,13 @@
 
 
 # Tuberculosis Example ------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L03.RData"))
+# Load the tuberculosis data:
+#   https://byuistats.github.io/M221R/data/tuberculosis.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
-favstats(tuberculosis$costs)
+favstats(tuberculosis$costs)    # Mean, Median
+sort(table(tuberculosis$costs)) # Mode
 
 # Graphical Summaries -------------------------------------
 hist(tuberculosis$costs)
@@ -29,8 +30,8 @@ hist(tuberculosis$costs)
 
 
 # Surgery Lawsuits Example --------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L04.RData"))
+# Load the surgery_lawsuits data:
+#   https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

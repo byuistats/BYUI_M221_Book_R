@@ -12,8 +12,8 @@
 
 
 # Gratitude Example ---------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L14.RData"))
+# Load the gratitude data:
+#   https://byuistats.github.io/M221R/data/gratitude.xlsx
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -38,11 +38,11 @@ summary(aov_output)
 
 
 # Soccer Shoes Example ------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L14.RData"))
+# Load the soccer_shoes data:
+#   https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
 
 # Convert Data from Wide to Long Format -------------------
-soccer <- stack(Filter(is.numeric, soccer_shoes))
+soccer <- stack( Filter(is.numeric, soccer_shoes) )
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

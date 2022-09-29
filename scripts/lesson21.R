@@ -5,6 +5,8 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
+
+
 # Load R Packages ===================================================
 library(readxl)
 
@@ -15,8 +17,8 @@ library(readxl)
 
 
 # Math Self-Efficacy Example ------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L21.RData"))
+# Load the math_self_efficacy data:
+#   https://byuistats.github.io/M221R/data/math_self_efficacy.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(score ~ confidence_rating_mean, data = math_self_efficacy)
@@ -30,8 +32,8 @@ cor(math_self_efficacy$confidence_rating_mean, math_self_efficacy$score,
 
 
 # Old Faithful Example ------------------------------------
-# Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L21.RData"))
+# Load the old_faithful data:
+#   https://byuistats.github.io/M221R/data/old_faithful.xlsx
 
 # Scatterplot ---------------------------------------------
 plot(wait ~ duration, data = old_faithful)
