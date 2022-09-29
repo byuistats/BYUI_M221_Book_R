@@ -1,7 +1,9 @@
-# MATH 221D
-# Lesson 4
+# ===================================================================
+# Lesson 3: Describing Quantitative Data (Spread)
 # Sample R code
-# https://byuistats.github.io/BYUI_M221_Book_R
+# MATH 221D
+# Brigham Young University-Idaho
+# ===================================================================
 
 
 

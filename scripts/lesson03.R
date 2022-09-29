@@ -1,13 +1,17 @@
-# MATH 221D
-# Lesson 3
+# ===================================================================
+# Lesson 3: Describing Quantitative Data (Shape & Center)
 # Sample R code
-# https://byuistats.github.io/BYUI_M221_Book_R
+# MATH 221D
+# Brigham Young University-Idaho
+# ===================================================================
+
 
 
 # Install required packages for the course ----------------
 # (You only need to run this once!)
 install.packages("mosaic")
-library(mosaic)
+
+
 
 # Tuberculosis Example ----------------------------------------------
 # Load the tuberculosis data:
