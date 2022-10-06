@@ -1,5 +1,5 @@
 ---
-title: "Lesson 15: Review for Exam 2" 
+title: "Lesson 15: Review for Exam 2"
 output: 
   html_document:
     theme: cerulean

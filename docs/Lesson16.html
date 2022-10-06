@@ -32,8 +32,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -398,9 +396,9 @@ and Graphical Summaries of Categorical Data</a>
 <ul>
 <li><a href="#proportions" id="toc-proportions">Proportions</a></li>
 <li><a href="#pie-charts" id="toc-pie-charts">Pie charts</a></li>
-<li><a href="#r-instructions-for-bar-charts"
-id="toc-r-instructions-for-bar-charts">R Instructions for Bar
-Charts</a></li>
+<li><a href="#bar-charts-and-pareto-charts"
+id="toc-bar-charts-and-pareto-charts">Bar charts and Pareto
+charts</a></li>
 </ul></li>
 <li><a href="#sampling-distribution-of-the-sample-proportion"
 id="toc-sampling-distribution-of-the-sample-proportion">Sampling
@@ -426,31 +424,50 @@ Calculations for a Sample Proportion</a></li>
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<!--
-<div style="float:right;width=40%;">
-<br/>
-<div style="padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width="90%" align="right" src="https://www.youtube.com/embed/videoseries?list=PLaZryQtbPQC_379i2-P7s9yhiqN2Vt6zD" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div id="optional-videos-for-this-lesson"
+class="section level4 tabset tabset-pills"
+style="width:50%;float:right;">
+<h4 class="tabset tabset-pills">Optional Videos for this Lesson</h4>
+<div id="part-1" class="section level5">
+<h5>Part 1</h5>
+<iframe id="kaltura_player_1653754340" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653754340&amp;entry_id=1_w6yz2m52" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
 </div>
--->
+<div id="part-2" class="section level5">
+<h5>Part 2</h5>
+<iframe id="kaltura_player_1653755130" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653755130&amp;entry_id=1_mgsznxh9" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-3" class="section level5">
+<h5>Part 3</h5>
+<iframe id="kaltura_player_1653755542" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653755542&amp;entry_id=1_48qt6o40" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-4" class="section level5">
+<h5>Part 4</h5>
+<iframe id="kaltura_player_1653755908" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653755908&amp;entry_id=1_f87rwi1f" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-5" class="section level5">
+<h5>Part 5</h5>
+<iframe id="kaltura_player_1653756144" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653756144&amp;entry_id=1_7kfq09he" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+</div>
+<div style="clear:both;">
+
+</div>
 <div id="lesson-outcomes" class="section level2">
 <h2>Lesson Outcomes</h2>
-<a href="javascript:showhide('oc')"><span
-style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
-<li>Calculate and interpret a sample proportion</li>
-<li>Summarize categorical data with graphical summaries</li>
-<li>Determine the mean, standard deviation, and shape of the sampling
-distribution of the sample proportion given the population proportion
-and a specific sample size</li>
-<li>Calculate probabilities using a distribution of normally distributed
-sample proportions</li>
-<li>Identify when a sample proportion will follow a normal
-distribution</li>
+<li>Calculate and interpret a sample proportion.</li>
+<li>Summarize categorical data with a bar or pie chart.</li>
+<li>Determine the mean, standard deviation and shape of a distribution
+of sample proportions.</li>
+<li>Calculate probabilities using a distribution of sample
+proportions.</li>
 </ul>
-</div>
 <p><br></p>
 </div>
 <div id="numerical-and-graphical-summaries-of-categorical-data"
@@ -480,305 +497,120 @@ the Republican. This does not mean that this candidate will win the
 election. However, it looks like they might be in the lead at this
 point.</p>
 </div>
-<div id="grades-of-byu-idaho-students" class="section level4">
-<h4>Grades of BYU-Idaho Students</h4>
-<p>Grades of students in a general education course at BYU-Idaho were
-recorded. These values are given in the data frame
-<code>grades_gender</code>. Download these data from <a
-href="https://byuistats.github.io/M221R/data/grades_gender.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/grades_gender.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>We can use R to tally (count) these responses. The counts of the
-number of respondents who claimed each religion is given in the file
-<code>grades_tally</code>. Download these data from <a
-href="https://byuistats.github.io/M221R/data/grades_tally.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/grades_tally.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>Notice that each row in the “tally” data file represents responses
-from several individuals. The <em>count</em> column tells how many times
-each response was given. We will used this summarized data for our
-analysis.</p>
-<p>The <code>grades_tally</code> data are summarized in the table
-below.</p>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-grade
-</th>
-<th style="text-align:center;">
-count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-A
-</td>
-<td style="text-align:center;">
-79
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-B
-</td>
-<td style="text-align:center;">
-94
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-C
-</td>
-<td style="text-align:center;">
-61
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-D
-</td>
-<td style="text-align:center;">
-22
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-F
-</td>
-<td style="text-align:center;">
-16
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Total
-</td>
-<td style="text-align:center;">
-272
-</td>
-</tr>
-</tbody>
-</table>
-<p>For example, of the 272 students, 79 earned an A in the course.</p>
-<p>We can compute the sample proportion for each group by taking the
-number of responses in each group and dividing this value by the total
-number of responses, 272. The proportion of who earned an A is <span
-class="math display">\[ \frac{79}{272} = 0.145\]</span> We can compute
-the sample proportions for all religions:</p>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-grade
-</th>
-<th style="text-align:center;">
-count
-</th>
-<th style="text-align:center;">
-proportion
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-A
-</td>
-<td style="text-align:center;">
-79
-</td>
-<td style="text-align:center;">
-79 / 272 = 0.290
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-B
-</td>
-<td style="text-align:center;">
-94
-</td>
-<td style="text-align:center;">
-94 / 272 = 0.346
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-C
-</td>
-<td style="text-align:center;">
-61
-</td>
-<td style="text-align:center;">
-61 / 272 = 0.224
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-D
-</td>
-<td style="text-align:center;">
-22
-</td>
-<td style="text-align:center;">
-22 / 272 = 0.081
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-F
-</td>
-<td style="text-align:center;">
-16
-</td>
-<td style="text-align:center;">
-16 / 272 = 0.059
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="comparison-of-quantitative-and-categorical-data"
-class="section level4">
-<h4>Comparison of Quantitative and Categorical Data</h4>
-<p>It will be increasingly important for you to distinguish between
-quantitative and categorical variables. One of the first things you will
-want to do when you encounter a question in statistics is to determine
-whether the data are quantitative or categorical. Up to this point in
-the course, we have discussed methods that are appropriate when we have
-quantitative data. In this unit, we will learn how to describe
-categorical data and make inferences from them. Here are some tips to
-help you distinguish between quantitative and categorical data.</p>
-<p>We can do arithmetic on quantitative data. For example, it makes
-sense to talk about one person being one centimeter taller than another
-person. It also makes sense to say that a child doubled in height over
-four years.</p>
-<p>Categorical data represent labels or categories, rather than
-quantitative responses. It does not make sense to do arithmetic on
-categorical data. For example, colors and phone numbers are categorical.
-We would not say that “red” is double “blue”. A phone number is a
-categorical variable. It is a label for the phone that rings when that
-number is dialed. It does not make sense to talk about doubling phone
-numbers or adding to phone numbers together.</p>
-<p>Note that the students’ final letter grades are categorical. For
-example, it does not make sense to add two “F” grades together or to
-multiply a grade of “B” by 2. Each of the individuals’ responses is a
-categorization of their performance in the class. Even though we
-summarize the data by counting the number of each type of grade, the
-individual grades are categorical, not quantitative.</p>
-<p>As a caution, every problem in this course will deal with numbers in
-some way. It is not sufficient to use the presence of numbers to
-determine if a situation involves quantitative or categorical data. To
-determine whether data are quantitative or categorical, think about one
-subject (participant) in the study. What was measured on that one
-person? Is it quantitative, like their height, income, or age? Or, is it
-something categorical like a final letter grade, their favorite color,
-or whether they are an adult (yes or no)?</p>
+<div id="web-searches" class="section level4">
+<h4>Web Searches</h4>
+<p>A study was conducted on web searches of computer science students.
+If these students did not click on one of the links that came up in the
+search, the researchers asked them to record the reason. 908 trials
+conducted and there were 116 searches in which the students did not
+click on any links. The reasons the students gave for not clicking on
+any links are summarized in the data file <a
+href="./Data/NoClickQuery.xlsx">NoClickQuery.xlsx</a>.</p>
+<p>Note that the data taken for this study are categorical. Each of the
+student’s responses is a categorization of their reason for not clicking
+on any of the links. Even though we can summarize the data by counting
+the number of each type of response, the individual responses are
+categorical, not quantitative. Up to this point in the course we have
+discussed methods for describing and understanding only quantitative
+data. In this unit we will learn how to describe categorical data and
+make inferences from it.</p>
 </div>
 </div>
 <div id="pie-charts" class="section level3">
 <h3>Pie charts</h3>
 <p>Pie charts are a popular way to display categorical data. These are
-used extensively in practice, but they can be deceptive. For this
-reason, we will not use pie charts in this course. Typically, people use
-pie charts when they want to represent the observations as part of a
-whole, where each slice (sector) of the pie chart represents a
-proportion or percentage of the whole. Larger slices represent larger
-proportions of the whole.</p>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>The grades earned by the students are summarized in this pie chart.
-The most common grade was a “B,” which corresponds to the largest
-slice.</p>
-<p>In this course, you will never create a pie chart. However, it is
-good to be aware of them, as you are likely to see several in your
-lifetime.</p>
-</div>
-<div id="r-instructions-for-bar-charts" class="section level3">
-<h3>R Instructions for Bar Charts</h3>
-<p>It is important for you to know how to create a bar chart. These are
-heavily used in industry to illustrate the frequency of categorical
-values.</p>
+used extensively in practice. Typically, pie charts are used when you
+want to represent the observations as part of a whole, where each slice
+(sector) of the pie chart represents a proportion or percentage of the
+whole.</p>
+<p>We can represent the reasons the students did not click in their
+searches using a pie chart.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=PieCharts }} -->
 <div class="SoftwareHeading">
-R Instructions
+Excel Instructions
 </div>
-<div class="Software">
-<p><strong>To make a bar chart in R:</strong></p>
-<p>We will use the students’ grades to create a bar chart.</p>
-<p>Load the data frame <code>grades_tally</code> into R. Download these
-data from <a
-href="https://byuistats.github.io/M221R/data/grades_tally.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/grades_tally.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>Then, use the <code>barplot(...)</code> function to create a bar
-chart of the values.</p>
-<div style="padding-left:40px;">
-<pre class="r"><code>#Create a plot of the counts:
-barplot(count ~ grade, data = grades_tally)</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="Summary">
+<p><strong>To make a pie chart in Excel:</strong></p>
 <ul>
-<li>The argument <code>count ~ grade</code> tells R to define the groups
-by the <code>grade</code> values and to set the heights of the bars
-using the value in the variable <code>count</code>. These refer to
-variable names in the data frame specified in
-<code>data = grades_tally</code>.</li>
-<li>Specify colors for the bar chart using one color like
-<code>col = "steelblue3"</code> to give all bars the same color, or use
-the option
-<code>col = c("darkolivegreen4", "steelblue3", "darkorchid", "tan3" , "brown3"),</code>
-to give each bar a different color. Of course, use any color names you
-like: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R
-Color Options</a></li>
-<li>Specify axes labeling with <code>main = "A main title"</code>,
-<code>xlab = "An x-axis label"</code>, and
-<code>ylab = "A y-axis label"</code>.</li>
+<li>Open the data file <a
+href="./Data/NoClickQuery-Summary.xlsx">NoClickQuery-Summary.xlsx</a>.
+This file contains a summary of the NoClickQuery data. Notice that each
+row in this data file represents the responses of several individuals.
+The <em>Count</em> column tells how many times each response was given.
+The data in this file have been summarized.<br />
+</li>
+<li>Make sure the categorical column (Reason) and the Count column are
+next to each other with the Count column on the right and highlight both
+of them.</li>
+<li>Click on the Insert tab, then click on the Pie chart button.</li>
+<li>Please choose the basic 2D pie.</li>
 </ul>
-<pre class="r"><code>#Make a fancier graph using the options:
-barplot(
-  count ~ grade, data = grades_tally, 
-  col = &quot;steelblue3&quot;, 
-  main = &quot;Final Letter Grades&quot;,
-  xlab = &quot;Grade&quot;, 
-  ylab = &quot;Number of Students&quot;
-  )</code></pre>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>The pie chart will look like this:</p>
+<p><img src="Images/NoClickQuery-Pie-Excel.png"> <br></p>
 </div>
 <p><br></p>
 </div>
-<p><br/></p>
+<div id="bar-charts-and-pareto-charts" class="section level3">
+<h3>Bar charts and Pareto charts</h3>
 <p>Bar charts can be considered a companion plot to the pie chart. They
-present the same basic information but the two plots are not
+present the same basic information but are not, however,
 interchangeable. We typically use bar charts if our data represent
-counts. In contrast, pie charts are used to represent parts of a whole
-or percentages.</p>
-<!--
-### Pareto Charts
-
-A Pareto chart (named for Wilfredo Pareto) is a bar chart where the bars are given either in descending or ascending order. 
-
-
-
-A study was conducted by the Pew Research Center on the religious affiliation of residents of the United States. A total of 
-1811 
-people were surveyed. Among other things, each person was asked to report their religious affiliation. These values are given in the data file [religion_tally.xlsx](./data/religion_tally.xlsx). 
-
-<img src="Lesson16_files/figure-html/unnamed-chunk-11-1.png" width="672" />
-
-
-We conclude that Protestants comprise the largest religious category among the United States residents surveyed.
-
-Pareto charts are often used to display causes of problems in an industry.  For example, in health care administration, it may be causes of patient deaths.  In business, it may be used to display common reasons employees are terminated. This can give you an idea of where you should focus your energy in your business or organization.
-
-There is an idea, called the Pareto Principle, which states that 80% of your problems come from 20% of the causes.  Many Pareto charts display a few very tall columns with several much shorter ones. This is exactly what we observed in our Pareto chart.
--->
+counts. In contrast, pie charts are used to represent parts of a
+whole.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=BarCharts }} -->
+<div class="SoftwareHeading">
+Excel Instructions
+</div>
+<div class="Summary">
+<p><strong>To make a bar chart in Excel:</strong></p>
+<ul>
+<li>Highlight the categorical column and the count column.</li>
+<li>Click on the Insert tab and then click on column chart button.</li>
+<li>Again, please choose the simple 2D column chart.</li>
+</ul>
+<p>Your bar chart will look like this:</p>
+<p><img src="Images/NoClickQuery-Bar-Excel.png"> <br></p>
+</div>
+<p><br></p>
+<p>A Pareto chart is a bar chart where the bars are presented in
+descending order.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ParetoCharts }} -->
+<div class="SoftwareHeading">
+Excel Instructions
+</div>
+<div class="Summary">
+<p><strong>To make a Pareto chart in Excel:</strong></p>
+<ul>
+<li>Begin by creating a bar chart. You can use the one you created
+above.</li>
+<li>Highlight the “Count” column.</li>
+<li>Click on the Sort and Filter tab in the right hand corner of the
+screen.</li>
+<li>Click on Sort Largest to Smallest (A little window will pop up,
+select “Expand the Selection” then “Sort”.)</li>
+<li>The bars in your chart should now be resorted to create a Pareto
+chart.</li>
+</ul>
+<p>Your Pareto chart will look like this:</p>
+<p><img src="Images/NoClickQuery-Pareto-Excel.png"> <br></p>
+</div>
+<p><br></p>
+<p>We conclude that the main reason that people do not click on any of
+the search results is that the results were not relevant. The next two
+most common reasons were that they did not find any new results or they
+made a spelling error in their search query.</p>
+<p>Pareto charts are often used to display causes of problems in an
+industry. For example, in health care administration, it may be causes
+of patient deaths. In business, it may be used to display common reasons
+employees are terminated.</p>
+<p>There is an idea, called the Pareto Principle, which states that 80%
+of your problems come from 20% of the causes. Many Pareto charts display
+a few very tall columns with several much shorter ones. This can give
+you an idea of where you should focus your energy in your business or
+organization.</p>
 </div>
 </div>
 <div id="sampling-distribution-of-the-sample-proportion"
@@ -808,30 +640,26 @@ Your proportion may vary.</li>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
-<li>The data frame <code>coin_heads</code> contains data representing a
-collection of 900 students’ results, where each tossed a coin <span
-class="math inline">\(n=25\)</span> times and calculated the proportion
-of heads. Download these data from <a
-href="https://byuistats.github.io/M221R/data/coin_heads.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/coin_heads.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</li>
+<li>The data file <a
+href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> contains data
+representing a collection of 900 students’ results, where each tossed a
+coin <span class="math inline">\(n=25\)</span> times and calculated the
+proportion of heads. The following histogram illustrates these data. How
+would you describe the shape of the distribution of the observed
+proportions?</li>
 </ol>
-<p>The following histogram illustrates these data. How would you
-describe the shape of the distribution of the observed proportions?</p>
-<p><img src="Lesson16_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <a href="javascript:showhide('Q2')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
-<li>The histogram shows that the observed sample proportions are
-normally distributed.</li>
+<li>Judging just from the histogram it shows that the observed sample
+proportions are normally distributed.</li>
 </ul>
 </div>
 <p> </p>
 </div>
 <p><br></p>
+<p><img src="Images/Histogram-PropHeadsIn25CoinTosses.png"></p>
 <div class="QuestionsHeading">
 Answer the following questions:
 </div>
@@ -1078,7 +906,8 @@ in the Normal Probability Applet to find the area more extreme than the
 and heads is observed 17 times, the sample proportion of heads is <span
 class="math inline">\(\displaystyle{\widehat p = \frac{x}{n} =
 \frac{17}{25} = 0.68}\)</span> The proportion of heads tossed by the
-first student in the data frame <code>coin_heads</code> is <span
+first student in the file <a
+href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> is <span
 class="math inline">\(\widehat p = 0.68\)</span>. We will find the
 probability that a sample proportion will exceed 0.68.</p>
 <p>First, we compute the <span class="math inline">\(z\)</span>-score
@@ -1106,11 +935,11 @@ Answer the following questions:
 </div>
 <div class="Questions">
 <ol start="11" style="list-style-type: decimal">
-<li>The second student with data listed in the data frame
-<code>coin_heads</code> had <span class="math inline">\(\widehat p =
-0.44\)</span>, or 44% of their coin tosses resulted in heads. Find the
-<span class="math inline">\(z\)</span>-score corresponding to this
-value.</li>
+<li>The second student with data listed in the file <a
+href="./Data/CoinTossHeads.xlsx">CoinTossHeads.xlsx</a> had <span
+class="math inline">\(\widehat p = 0.44\)</span>, or 44% of their coin
+tosses resulted in heads. Find the <span
+class="math inline">\(z\)</span>-score corresponding to this value.</li>
 </ol>
 <a href="javascript:showhide('Q11')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
@@ -1201,11 +1030,9 @@ charts and are used when our data represent counts. A <strong>Pareto
 chart</strong> is a bar chart where the height of the bars is presented
 in descending order.</p></li>
 <li><p><span class="math inline">\(\widehat p\)</span> is a point
-estimator for true proportion <span class="math inline">\(p\)</span>. We
-compute <span class="math inline">\(\widehat p\)</span> as: <span
-class="math display">\[\displaystyle{\widehat p = \frac{x}{n} =
-\frac{\text{Number of successes}}{\text{Number of trials}}
-}\]</span></p></li>
+estimator for true proportion <span class="math inline">\(p\)</span>.
+<span class="math inline">\(\displaystyle{\widehat p =
+\frac{x}{n}}\)</span></p></li>
 <li><p>The sampling distribution of <span class="math inline">\(\widehat
 p\)</span> has a mean of <span class="math inline">\(\mu_{\widehat{p}} =
 p\)</span> and a standard deviation of <span

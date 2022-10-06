@@ -7,7 +7,7 @@ output:
     toc_float: false
 ---
 
-<script type = "text/javascript">
+<script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -15,16 +15,16 @@ output:
 </script>
 
 
-This is not designed to be a comprehensive review.  There may be items on the exam that are not covered in this review.  Similarly, there may be items in this review that are not tested on this exam.  You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the [Review for Exam 1](Lesson08.html) and the [Review for Exam 2](Lesson15.html). 
+This is not designed to be a comprehensive review.  There may be items on the exam that are not covered in this review.  Similarly, there may be items in this review that are not tested on this exam.  You are strongly encouraged to review the readings, homework exercises, and other activities from Units 1-3 as you prepare for the exam. In particular, you should go over the [Review for Exam 1](Lesson08.html){target="_blank"} and the [Review for Exam 2](Lesson15.html){target="_blank"}. 
 
-<!-- Use the <span style = "font-variant:small-caps"> -->
+<!-- Use the <span style="font-variant:small-caps"> -->
 <!-- [[Index]]</span> to review definitions of important terms. 
 Index needs to be built-->
 
 ## Unit 3 Lesson Outcomes
 
-<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id = "oc" style = "display:none;">
+<a href="javascript:showhide('oc')"><span style="font-size:8pt;">Show/Hide Outcomes</span></a>
+<div id="oc" style="display:none;">
 The expectation on the exam is the following outcomes. You should be able to do all of the following.
 
 - All of the Outcomes from [Lesson 08 (Unit 1)](Lesson08.html) and [Lesson 15 (Unit 2)](Lesson15.html)
@@ -64,11 +64,11 @@ The expectation on the exam is the following outcomes. You should be able to do 
 
 Here are the summaries for each lesson in Unit 3. Reviewing these key points from each lesson will help you in your preparation for the exam.
 
-<a href = "javascript:showhide('ls')"><span style = "font-size:8pt;">Show/Hide Summaries</span></a>
-<div id = "ls" >
+<a href="javascript:showhide('ls')"><span style="font-size:8pt;">Show/Hide Summaries</span></a>
+<div id="ls" >
 
-<div class = "RecapHeading">Lesson 16 Recap</div>
-<div class = "Summary">
+<div class="RecapHeading">Lesson 16 Recap</div>
+<div class="Summary">
 
 - **Pie charts** are used when you want to represent the observations as part of a whole, where each slice (sector) of the pie chart represents a proportion or percentage of the whole.
 
@@ -81,30 +81,30 @@ Here are the summaries for each lesson in Unit 3. Reviewing these key points fro
 - If $np \ge 10$ and $n(1-p) \ge 10$, you can conduct **probability calculations** using the Normal Probability Applet.
 $$
 \displaystyle {z = \frac{\textrm{value} - \textrm{mean}}{\textrm{standard deviation}}
- = \frac{\hat p - p}{\sqrt{\frac{p \cdot (1-p)}{n}}}}
+= \frac{\hat p - p}{\sqrt{\frac{p \cdot (1-p)}{n}}}}
 $$
 <br>
 </div>
 <br>
 
-<div class = "RecapHeading">Lesson 17 Recap</div>
-<div class = "Summary">
+<div class="RecapHeading">Lesson 17 Recap</div>
+<div class="Summary">
 
 - The **estimator** of $p$ is $\hat p$. $\displaystyle{ \hat p = \frac {x}{n}}$ and is used for both confidence intervals and hypothesis testing.
 
-- You will use the Excel spreadsheet [Math 221 Statistics Toolbox](./data/Math221StatisticsToolbox.xltx), to perform hypothesis testing and calculate confidence intervals for problems involving one proportion.
+- You will use the Excel spreadsheet [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx), to perform hypothesis testing and calculate confidence intervals for problems involving one proportion.
 
 - The requirements for a confidence interval are $n \hat p \ge 10$ and $n(1-\hat p) \ge 10$. The requirements for hypothesis tests involving one proportion are $np\ge10$ and $n(1-p)\ge10$.
 
-- We can determine the sample size we need to obtain a desired margin of error using the formula $\displaystyle{ n = \left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}$ where $p^*$ is a **prior estimate** of $p$. If no prior estimate is available, the formula $\displaystyle{ \left(\frac{z^*}{2m}\right)^2}$ is used.
+- We can determine the sample size we need to obtain a desired margin of error using the formula $\displaystyle{ n=\left(\frac{z^*}{m}\right)^2 p^*(1-p^*)}$ where $p^*$ is a **prior estimate** of $p$. If no prior estimate is available, the formula $\displaystyle{ \left(\frac{z^*}{2m}\right)^2}$ is used.
 <br>
 </div>
 <br>
 
-<div class = "RecapHeading">Lesson 18 Recap</div>
-<div class = "Summary">
+<div class="RecapHeading">Lesson 18 Recap</div>
+<div class="Summary">
 
-- When conducting hypothesis tests using two proportions, the null hypothesis is always $p_1 = p_2$, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed ($<$), right-tailed($>$), or two-tailed($\ne$).
+- When conducting hypothesis tests using two proportions, the null hypothesis is always $p_1=p_2$, indicating that there is no difference between the two proportions. The alternative hypothesis can be left-tailed ($<$), right-tailed($>$), or two-tailed($\ne$).
 
 - For a hypothesis test and confidence interval of two proportions, we use the following symbols:
 $$
@@ -124,13 +124,13 @@ $$
 
 - Whenever zero is contained in the confidence interval of the difference of the true proportions we conclude that there is no significant difference between the two proportions.
 
-- You will use the Excel spreadsheet [Math 221 Statistics Toolbox](./data/Math221StatisticsToolbox.xltx) to perform hypothesis testing and calculate confidence intervals for problems involving two proportions.
+- You will use the Excel spreadsheet [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) to perform hypothesis testing and calculate confidence intervals for problems involving two proportions.
 <br>
 </div>
 <br>
 
-<div class = "RecapHeading">Lesson 19 Recap</div>
-<div class = "Summary">
+<div class="RecapHeading">Lesson 19 Recap</div>
+<div class="Summary">
 
 - The **$\chi^2$ hypothesis test** is a test of independence between two variables. These variables are either associated or they are not. Therefore, the null and alternative hypotheses are the same for every test:
 $$
@@ -140,7 +140,7 @@ H_a: & \text{The (first variable) and the (second variable) are not independent.
 \end{array}
 $$
 
-- The **degrees of freedom ($df$)** for a $\chi^2$ test of independence are calculated using the formula $df = (\text{number of rows}-1)(\text{number of columns}-1)$
+- The **degrees of freedom ($df$)** for a $\chi^2$ test of independence are calculated using the formula $df=(\text{number of rows}-1)(\text{number of columns}-1)$
 
 - In our hypothesis testing for $\chi^2$ we never conclude that two variables are *dependent*. Instead, we say that two variables are *not independent*.
 <br>

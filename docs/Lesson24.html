@@ -395,7 +395,7 @@ id="toc-unit-4-lesson-summaries">Unit 4 Lesson Summaries</a></li>
 </ul>
 </div>
 
-<script type = "text/javascript">
+<script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
@@ -404,7 +404,7 @@ id="toc-unit-4-lesson-summaries">Unit 4 Lesson Summaries</a></li>
 <p><br /></p>
 <div id="unit-4-lesson-outcomes" class="section level2">
 <h2>Unit 4 Lesson Outcomes</h2>
-<a href = "javascript:showhide('oc')"><span
+<a href="javascript:showhide('oc')"><span
 style="font-size:8pt;">Show/Hide Outcomes</span></a>
 <div id="oc" style="display:none;">
 <p>The expectation on the exam is the following outcomes. You should be
@@ -455,7 +455,7 @@ summaries that support the hypothesis test.</li>
 <p>Here are the summaries for each lesson in unit 4. Reviewing these key
 points from each lesson will help you in your preparation for the
 exam.</p>
-<a href = "javascript:showhide('su')"><span
+<a href="javascript:showhide('su')"><span
 style="font-size:8pt;">Show/Hide Summaries</span></a>
 <div id="su">
 <div class="RecapHeading">
@@ -480,14 +480,11 @@ association</strong>. A value of <span class="math inline">\(r\)</span>
 closer to <span class="math inline">\(-1\)</span> or <span
 class="math inline">\(1\)</span> indicates a stronger association than a
 value of <span class="math inline">\(r\)</span> closer to zero.</p></li>
-<li><p>To create a scatterplot in R use the <a
-href="Lesson21.htlm#r-instructions-for-scatterplots"><code>plot(...)</code></a>
-function.</p></li>
-<li><p>To compute the correlation in R, use the <a
-href="Lesson21.html#r-instructions-for-computing-correlation"><code>cor(...)</code></a>
-function.</p></li>
+<li><p>The <strong>covariance</strong> is a measure of how two variables
+vary together. The formula for the covariance is <span
+class="math inline">\(s_{xy}=r \cdot s_x \cdot s_y\)</span>.
+<br></p></li>
 </ul>
-<p><br></p>
 </div>
 <p><br></p>
 <div class="RecapHeading">
@@ -496,21 +493,13 @@ Lesson 22 Recap
 <div class="Summary">
 <ul>
 <li><p>In statistics, we write the <strong>linear regression
-equation</strong> as <span class="math inline">\(\hat Y =
-b_0+b_1X\)</span> where <span class="math inline">\(b_0\)</span> is the
-<strong>Y-intercept</strong> of the line and <span
+equation</strong> as <span class="math inline">\(\hat
+Y=b_0+b_1X\)</span> where <span class="math inline">\(b_0\)</span> is
+the <strong>Y-intercept</strong> of the line and <span
 class="math inline">\(b_1\)</span> is the <strong>slope</strong> of the
-line.</p></li>
-<li><p>To calculate the values of <span
-class="math inline">\(b_0\)</span> and <span
-class="math inline">\(b_1\)</span> in R use the <code>lm( )</code>
-function and the <code>summary( )</code> function as <a
-href="Lesson22.html#r-instructions-for-performing-a-linear-regression">shown
-here</a>.</p></li>
-<li><p>To add the regression line to a scatterplot, use the
-<code>abline( )</code> function as <a
-href="Lesson22.html#r-instructions-for-graphing-the-regression-line">shown
-here</a>.</p></li>
+line. The values of <span class="math inline">\(b_0\)</span> and <span
+class="math inline">\(b_1\)</span> are calculated using
+software.</p></li>
 <li><p>Linear regression allows us to predict values of <span
 class="math inline">\(Y\)</span> for a given <span
 class="math inline">\(X\)</span>. This is done by first calculating the
@@ -529,15 +518,8 @@ deaths, the number of deaths is affected by the number of powerboats in
 the water, but not the other way around. So, we would assign <span
 class="math inline">\(X\)</span> to represent the number of powerboats
 and <span class="math inline">\(Y\)</span> to represent the number of
-manatee deaths.</p></li>
-<li><p>The y-intercept <span class="math inline">\(b_0\)</span> is
-interpreted as the mean y-value for when the x-value equals
-zero.</p></li>
-<li><p>The slope <span class="math inline">\(b_1\)</span> is interpreted
-as the change in the mean y-value for each one unit change in the
-x-value.</p></li>
+manatee deaths. <br></p></li>
 </ul>
-<p><br></p>
 </div>
 <p><br></p>
 <div class="RecapHeading">
@@ -546,7 +528,7 @@ Lesson 23 Recap
 <div class="Summary">
 <ul>
 <li><p>The unknown <strong>true linear regression line</strong> is <span
-class="math inline">\(Y = \beta_0+\beta_1X\)</span> where <span
+class="math inline">\(Y=\beta_0+\beta_1X\)</span> where <span
 class="math inline">\(\beta_0\)</span> is the true y-intercept of the
 line and <span class="math inline">\(\beta_1\)</span> is the true slope
 of the line.</p></li>
@@ -558,44 +540,26 @@ class="math inline">\(Y\)</span> on the regression line for the same
 class="math display">\[
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 \]</span></p></li>
-<li><p>Residuals can be obtained in R using
-<code>lmObjectName$residuals</code>, <a
-href="Lesson23.html#r-instructions-for-computing-residuals">see here</a>
-for details.</p></li>
 <li><p>To check all the requirements for bivariate inference you will
 need to create a <strong>scatterplot</strong> of <span
 class="math inline">\(X\)</span> and <span
 class="math inline">\(Y\)</span>, a <strong>residual plot</strong>, and
-a <strong>histogram of the residuals</strong>. These plots can be
-created in R using <code>plot(lmObjectName, which = 1)</code> and
-<code>hist(lmObjectName$residuals)</code>, <a
-href="Lesson23.html#r-instructions-for-residual-plots">see here</a> for
-an example.</p></li>
+a <strong>histogram of the residuals</strong>.</p></li>
 <li><p>We conduct a hypothesis test on bivariate data to know if there
 is a linear relationship between the two variables. To determine this,
 we test the slope (<span class="math inline">\(\beta_1\)</span>) on
 whether or not it equals zero. The appropriate hypotheses for this test
 are: <span class="math display">\[
 \begin{array}{1cl}
-H_0: &amp; \beta_1 = 0 \\
+H_0: &amp; \beta_1=0 \\
 H_a: &amp; \beta_1\ne0
 \end{array}
 \]</span></p></li>
-<li><p>For bivariate inference we use R to calculate the sample
+<li><p>For bivariate inference we use software to calculate the sample
 coefficients, residuals, test statistic, <span
 class="math inline">\(P\)</span>-value, and confidence intervals of the
-true linear regression coefficients using <code>lm( )</code> and
-<code>summary( )</code> as <a
-href="Lesson23.html#r-instructions-for-testing-the-regression-slope">shown
-here</a>.</p></li>
-<li><p>Confidence intervals for the true regression coefficients (<span
-class="math inline">\(\beta_0\)</span> and <span
-class="math inline">\(\beta_1\)</span>) can be computed by
-<code>confint( )</code> as <a
-href="Lesson23.html#r-instructions-for-confidence-intervals">shown
-here</a>.</p></li>
+true linear regression coefficients. <br></p></li>
 </ul>
-<p><br></p>
 </div>
 <p><br></p>
 </div>

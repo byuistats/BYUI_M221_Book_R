@@ -11,7 +11,7 @@
 
 
 
-<title>Lesson 19: Inference for Independence of Categorical Data</title>
+<title>Lesson 19 Inference for Independence of Categorical Data</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -32,8 +32,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -383,7 +381,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 19: Inference for Independence of
+<h1 class="title toc-ignore">Lesson 19 Inference for Independence of
 Categorical Data</h1>
 
 </div>
@@ -392,20 +390,14 @@ Categorical Data</h1>
 <ul>
 <li><a href="#lesson-outcomes" id="toc-lesson-outcomes">Lesson
 Outcomes</a></li>
-<li><a href="#the-chi-squared-test-of-independence"
-id="toc-the-chi-squared-test-of-independence">The Chi-squared Test of
-Independence</a>
+<li><a href="#the-chi2-chi-squared-test-of-independence"
+id="toc-the-chi2-chi-squared-test-of-independence">The <span
+class="math inline">\(\chi^2\)</span> (Chi-squared) Test of
+Independence</a></li>
+<li><a href="#reasons-for-seeking-chiropractic-care"
+id="toc-reasons-for-seeking-chiropractic-care">Reasons for Seeking
+Chiropractic Care</a>
 <ul>
-<li><a href="#case-study-chiropractic-care"
-id="toc-case-study-chiropractic-care">Case Study: Chiropractic
-Care</a></li>
-<li><a href="#r-instructions-for-clustered-bar-charts"
-id="toc-r-instructions-for-clustered-bar-charts">R Instructions for
-Clustered Bar Charts</a></li>
-<li><a
-href="#r-instructions-for-performing-a-chi-squared-test-of-independence"
-id="toc-r-instructions-for-performing-a-chi-squared-test-of-independence">R
-Instructions for Performing a Chi-squared Test of Independence</a></li>
 <li><a href="#requirements" id="toc-requirements">Requirements</a></li>
 </ul></li>
 <li><a href="#other-considerations" id="toc-other-considerations">Other
@@ -425,106 +417,195 @@ id="toc-no-confidence-intervals">No Confidence Intervals</a></li>
 </ul>
 </div>
 
-<script type = "text/javascript">
+<script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<!--
-<div style = "float:right;width = 40%;">
-<br/>
-<div style = "padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC9acEfJHNYCs9N93R2CJ8zB" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
+<div id="optional-videos-for-this-lesson"
+class="section level4 tabset tabset-pills"
+style="width:50%;float:right;">
+<h4 class="tabset tabset-pills">Optional Videos for this Lesson</h4>
+<div id="part-1" class="section level5">
+<h5>Part 1</h5>
+<iframe id="kaltura_player_1653054974" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653054974&amp;entry_id=1_hism0ky3" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
 </div>
--->
-<div id="lesson-outcomes" class="section level2">
-<h2>Lesson Outcomes</h2>
-<a href = "javascript:showhide('oc')"><span
-style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
-<p>By the end of this lesson, you should be able to do the
-following.</p>
-<ul>
-<li>Perform a hypothesis test for the Chi-square test for independence
-using the following steps:
-<ul>
-<li>State the null and alternative hypotheses</li>
-<li>State the level of significance (<span
-class="math inline">\(\alpha\)</span>)</li>
-<li>Create numerical and graphical summaries of the data</li>
-<li>Calculate the test-statistic, degrees of freedom and P-value of the
-test using software</li>
-<li>Assess statistical significance by comparing the P-value to the
-level of significance (<span class="math inline">\(\alpha\)</span>)</li>
-<li>State the appropriate conclusion for the hypothesis test</li>
-<li>Check the requirements for the hypothesis test</li>
-</ul></li>
-</ul>
+<div id="part-2" class="section level5">
+<h5>Part 2</h5>
+<iframe id="kaltura_player_1653055379" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1653055379&amp;entry_id=1_pvyru4yn" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
 </div>
-<p><br></p>
+<div id="part-3" class="section level5">
+<h5>Part 3</h5>
+<iframe id="kaltura_player_1655822214" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1655822214&amp;entry_id=1_g5fcvzoh" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-4" class="section level5">
+<h5>Part 4</h5>
+<iframe id="kaltura_player_1655823027" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1655823027&amp;entry_id=1_7jli2y0e" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+</div>
 <div style="clear:both;">
 
 </div>
-<p><br/></p>
-</div>
-<div id="the-chi-squared-test-of-independence" class="section level2">
-<h2>The Chi-squared Test of Independence</h2>
-<p>The chi-squared test of independence allows us to determine if two
-different categorical variables are related to each other. Here are some
-questions that could be answered with a chi-squared test of
-independence.</p>
+<div id="lesson-outcomes" class="section level2">
+<h2>Lesson Outcomes</h2>
+<p>By the end of this lesson, you should be able to do the
+following.</p>
+<p><strong>Regarding Hypothesis Testing for a Test of independence for
+categorical data: </strong></p>
 <ul>
-<li>Does the education level obtained by your father impact the
-education level you will obtain in life? (Here education level could be
-defined to be one of: High School, Associates Degree, Bachelor’s Degree,
-or Graduate Degree. The two variables we would be comparing would be the
-child’s education level and their father’s education level.)</li>
-<li>Does the marital status of a person (single, married, widowed, or
-divorced/separated) relate to the overall happiness of that person (very
-happy, happy, not too happy)?</li>
-<li>Does a student’s major (say Business, Nursing, Biology, or Math)
-have any impact on their ability to get a good paying job (say above
-$50,000 per year versus below $50,000) after graduating from
-college?</li>
+<li>State the null and alternative hypothesis for the chosen test.</li>
+<li>Calculate the test-statistic, df and p-value of the hypothesis
+test.</li>
+<li>Assess the statistical significance by comparing the p-value to the
+α-level.</li>
+<li>Check the requirements for the hypothesis test.</li>
+<li>Show the appropriate connections between the numerical and graphical
+summaries that support the hypothesis test.</li>
+<li>Draw a correct conclusion for the hypothesis test.</li>
 </ul>
-<p>In each of these examples, there were two sets of categorical data
-that were being compared to see if there was any relation between those
-variables. An important word that will be used in this lesson to talk
-about variables being related or not is the word <em>independent</em>.
-Things that <strong>are independent</strong> of each other have
-absolutely no relation to each other. On the other hand, when things are
-related to each other, that means that they are <strong>not independent
-of each other</strong>. Keep this in mind as you read this lesson.
-Independent means not related, and <em>not independent</em> means
-<em>related</em>.</p>
+<p><strong>Regarding Hypothesis Testing for a goodness of fitness
+test:</strong></p>
+<ul>
+<li>State the null and alternative hypothesis for the chosen test.</li>
+<li>Calculate the test-statistic, df and p-value of the hypothesis
+test.</li>
+<li>Assess the statistical significance by comparing the p-value to the
+α-level.</li>
+<li>Check the requirements for the hypothesis test.</li>
+<li>Show the appropriate connections between the numerical and graphical
+summaries that support the hypothesis test.</li>
+<li>Draw a correct conclusion for the hypothesis test.</li>
+</ul>
 <p><br></p>
-<p><img src = "Images/StepsAll.png"></p>
-<div id="case-study-chiropractic-care" class="section level3">
-<h3>Case Study: Chiropractic Care</h3>
-<div style="float:right;padding:10px;">
-<p><img src = "Images/chiropracticCare.jpeg" width = "400px;"></p>
-</div>
-<!-- (Reasons for wording it this way will be given after you've been through the entire hypothesis test.) -->
-<!--
-To prepare for the hypothesis test, recall that our hypothesis tests have assessed how different two or more things are. For example, in the 2-sample $t$-test, we compare two population means by seeing how different they are. In a test of one proportion, we measure the difference between a sample proportion and a population proportion. Each of these tests requires some information about at least one parameter. That information is given in the null hypothesis of the test, which we've always been able to write with one or more " = " signs, because we've always used numeric parameters.
+<!-- -------------------------- BEGIN HIDDEN COMMENTED SECTION --------------------------
 
-Unfortunately, we have no parameter we can use to measure the independence of the variables "location" and "motivation". Nevertheless, we have to be able to calculate a $P$-value, and the only approach we have so far is to measure differences between things. "Difference" means "subtraction" in Statistics, and if the measurements are categorical, we cannot subtract them. Therefore, as in the other lessons of this unit, we will count occurrences of each value of each variable to get some numbers. (The example that follows will show how this is handled.) The numbers we get will be called "counts" or "observed counts".
--->
-<p><img src = "Images/Step1.png"></p>
-<p>A <a
-href="https://drcharlesblum.com/About%20Us/BlumJCCASep2008.pdf">study
-was conducted</a> to determine why patients in Australia, Europe, and
-the U.S.A. seek chiropractic care<!--<cite>Blum08</cite>-->. Patients
-were classified based on their location (Australia, Europe, or the
-U.S.A.) and their motivation for seeking treatment. Using descriptions
+
+## Introduction
+In this section, we will explore three different, but related hypothesis tests. We will not compute confidence intervals for these tests. 
+The first test we will consider is a test for several proportions.  This is used when one categorical variable is measured on units (i.e. subjects) within several populations or treatment groups.  The test for two proportions measures a categorical variable that can take one of two values for subjects in two populations.  The test for several proportions is the natural extension of the test for two proportions.  With this test, we measure a categorical variable across several proportions.
+
+Next, we will explore a test for independence of two categorical variables.  This procedure applies when two categorical variables are measured on each subject.  This test is used to determine whether there is a relationship between the two variables.
+
+Lastly, we will study a test to determine whether the values of a categorical variable follow a specified distribution.
+
+The three tests are related in that they rely in much the same way on frequencies. We can't do arithmetic with categorical data for the purpose of calculating a test statistic, like we can with numeric data. Our only recourse is to convert categorical data into numbers from which a test statistic *can* be calculated. Frequencies can be used for this purpose.
+
+## The $\chi^2$ (Chi-square) Test for Several Proportions
+### Nurses' Weight Loss
+Dr. Bruce Zitkus, an advanced practice registered nurse, conducted a study in which a convenience sample of 721 registered nurses were 
+{| class="basic"  width="60%"
+|- 
+! || colspan="6"| Weight Loss Regimen 
+|- 
+! Outcome || Diet || Exercise || Social <br> Interaction  || Medication
+|- align="center"
+! Helpful 
+| 71 || 121 || 12 || 17 
+|- align="center"
+! Not helpful 
+| 278 || 291 || 22 || 44 
+|- 
+|} 
+-------------------------- END HIDDEN COMMENTED SECTION -------------------------- -->
+</div>
+<div id="the-chi2-chi-squared-test-of-independence"
+class="section level2">
+<h2>The <span class="math inline">\(\chi^2\)</span> (Chi-squared) Test
+of Independence</h2>
+<p><img src="Images/Oc-chiropractor.jpg"></p>
+<p>People often wonder whether two things influence each other. For
+example, people seek chiropractic care for different reasons. We may
+want to know if those reasons are different for Europeans than for
+Americans or Australians. This question can be expressed as “Do reasons
+for seeking chiropractic care depend on the location in which one
+lives?”</p>
+<p>This question has only two possible answers: “yes” and “no.” The
+answer “no” can be written as “Motivations for seeking chiropractic care
+and one’s location are independent.” (The statistical meaning of
+“independent” is too technical to give here. However, for now, you can
+think of it as meaning that the two variables are not associated in any
+way. For example, neither variable depends on the other.) Writing the
+answer “no” this way allows us to use it as the null hypothesis of a
+test. We can write the alternative hypothesis by expressing the answer
+“yes” as “Motivations for seeking chiropractic care and one’s location
+are not independent.” (Reasons for wording it this way will be given
+after you’ve been through the entire hypothesis test.)</p>
+<p>To prepare for the hypothesis test, recall that our hypothesis tests
+always measure how different two or more things are. For example, in the
+2-sample <span class="math inline">\(t\)</span>-test, we compare two
+population means by seeing how different they are. In a test of one
+proportion, we measure the difference between a sample proportion and a
+population proportion. Each of these tests requires some information
+about at least one parameter. That information is given in the null
+hypothesis of the test, which we’ve always been able to write with one
+or more “=” signs, because we’ve always used numeric parameters.</p>
+<p>Unfortunately, we have no parameter we can use to measure the
+independence of the variables “location” and “motivation”. Nevertheless,
+we have to be able to calculate a <span
+class="math inline">\(P\)</span>-value, and the only approach we have so
+far is to measure differences between things. “Difference” means
+“subtraction” in Statistics, and if the measurements are categorical, we
+cannot subtract them. Therefore, as in the other lessons of this unit,
+we will count occurrences of each value of each variable to get some
+numbers. (The example that follows will show how this is handled.) The
+numbers we get will be called “counts” or “observed counts”.</p>
+<p>When we have our observed counts in hand, software will calculate the
+counts we should <em>expect</em> to see, <em>if the null hypothesis is
+true.</em> We call these the “expected counts.” The software will then
+subtract the observed counts from the expected counts and combine these
+differences to create a single number that we can use to get a <span
+class="math inline">\(P\)</span>-value. That single number is called the
+<span class="math inline">\(\chi^2\)</span> test statistic. (Note that
+<span class="math inline">\(\chi\)</span> is a Greek letter, and its
+name is “ki”, as in “kite”. The symbol <span
+class="math inline">\(\chi^2\)</span> should be pronounced “ki squared,”
+but many people pronounce it “ki-square.”)</p>
+<p>In this course, software will calculate the <span
+class="math inline">\(\chi^2\)</span> test statistic for you, but you
+need to understand that the <span class="math inline">\(\chi^2\)</span>
+test statistic compares the observed counts to the expected counts—that
+is, to the counts we should expect to get if the null hypothesis is
+true. The larger the <span class="math inline">\(\chi^2\)</span> test
+statistic is, the smaller the <span
+class="math inline">\(P\)</span>-value will be. If the <span
+class="math inline">\(\chi^2\)</span> test statistic is large enough
+that the <span class="math inline">\(P\)</span>-value is less than <span
+class="math inline">\(\alpha\)</span>, we will conclude that the
+observed counts and expected counts are too different for the null
+hypothesis to be plausible, and will therefore reject <span
+class="math inline">\(H_0\)</span>. Otherwise, we will fail to reject
+<span class="math inline">\(H_0\)</span>, as always.</p>
+<p>For organizational reasons, counts are traditionally arranged in a
+table called a “contingency table.” One variable is chosen as the “row
+variable,” so called because its values are the row headers for the
+table. The other variable is called the “column variable,” because its
+values are the column headers. Different <span
+class="math inline">\(\chi^2\)</span> distributions are distinguished by
+the number of degrees of freedom, which are determined by the number of
+rows and columns in the table:</p>
+<p><span class="math display">\[df = (\text{number of rows
+}-1)(\text{number of columns }-1)\]</span></p>
+<p>Note that the number of degrees of freedom does not depend on the
+number of subjects in the study.</p>
+<p><br></p>
+</div>
+<div id="reasons-for-seeking-chiropractic-care" class="section level2">
+<h2>Reasons for Seeking Chiropractic Care</h2>
+<p>A study was conducted to determine why patients seek chiropractic
+care<!--<cite>Blum08</cite>-->. Patients were classified based on their
+location and their motivation for seeking treatment. Using descriptions
 developed by Green and Krueter, patients were asked which of the five
 reasons led them to seek chiropractic care
 <!--<cite>Blum08,Green99</cite>-->:</p>
 <ul>
 <li><em>Wellness</em>: defined as optimizing health among the
 self-identified healthy</li>
-<li><em>Prevention</em>: defined as preventing illness among the
+<li><em>Preventive health</em>: defined as preventing illness among the
 self-identified healthy</li>
 <li><em>At risk</em>: defined as preventing illness among the currently
 healthy who are at heightened risk to develop a specific condition</li>
@@ -535,22 +616,122 @@ treatment</li>
 self-perceived as ill favoring the use of self vs. therapist directed
 strategies</li>
 </ul>
+<p>The data from the study are summarized in the following contingency
+table <!--<cite>Blum08</cite>-->:</p>
+<table>
+<caption><strong>Motivation</strong></caption>
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="15%" />
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Wellness</th>
+<th>Preventive Health</th>
+<th>At Risk</th>
+<th>Sick Role</th>
+<th>Self Care</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Europe</td>
+<td>23</td>
+<td>28</td>
+<td>59</td>
+<td>77</td>
+<td>95</td>
+<td>282</td>
+</tr>
+<tr class="even">
+<td>Australia</td>
+<td>71</td>
+<td>59</td>
+<td>83</td>
+<td>68</td>
+<td>188</td>
+<td>469</td>
+</tr>
+<tr class="odd">
+<td>United States</td>
+<td>90</td>
+<td>76</td>
+<td>65</td>
+<td>82</td>
+<td>252</td>
+<td>565</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>184</td>
+<td>163</td>
+<td>207</td>
+<td>227</td>
+<td>535</td>
+<td>1316</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- {| class="basic" style="text-align:center" -->
+<!-- |+ **Motivation** -->
+<!-- ! Location || Wellness || Preventive<br>Health || At Risk || Sick Role || Self Care || Total -->
+<!-- |- -->
+<!-- !Europe     -->
+<!-- |             23       || 28                   || 59      || 77        || 95        || 282  -->
+<!-- |- -->
+<!-- !Australia        -->
+<!-- |             71       || 59                   || 83      || 68        || 188       || 469  -->
+<!-- |- -->
+<!-- !United States    -->
+<!-- |             90       || 76                   || 65      || 82        || 252       || 565 -->
+<!-- |- -->
+<!-- !Total  -->
+<!-- |             184  || 163              || 207 || 227   || 535   || 1316  -->
+<!-- |- -->
+<!-- |} -->
 <p>The research question was whether people’s motivation for seeking
-chiropractic care was related to their location: Europe, Australia, or
-the United States or not.</p>
-<p>People seek chiropractic care for different reasons. We may want to
-know if those reasons are different for Europeans than for Americans or
-Australians. Do reasons for seeking chiropractic care depend on the
-location in which one lives?</p>
-<p>If the reasons people seek chiropractic care are the same in each of
-the regions, we can say “Motivations for seeking chiropractic care and
-one’s location are independent.” (The statistical meaning of
-“independent” is too technical to give here. However, for now, you can
-think of it as knowing the value of one variable gives you no
-information about the value of the other variable.) This is the null
-hypothesis of the test we will conduct. We can write the alternative
-hypothesis as the opposite: “Motivations for seeking chiropractic care
-and one’s location are not independent.”</p>
+chiropractic care was independent of their location: Europe, Australia,
+or the United States. The hypothesis test used to address this question
+was the chi-squared (<span class="math inline">\(\chi^2\)</span>) test
+of independence. (Recall that the Greek letter <span
+class="math inline">\(\chi\)</span> is pronounced, “ki” as in
+“kite.”)</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=TestForIndependence-ChiropracticCare-DataEntry }} -->
+<div class="SoftwareHeading">
+Excel Instructions
+</div>
+<div class="Summary">
+<ul>
+<li>In the Excel sheet <a
+href="./Data/Math221StatisticsToolbox.xltx">Math 221 Statistics
+Toolbox</a>, go to the tab labeled “Chi Squared”. This tab will allow
+you to perform tests for independence. Excel allows us to enter data in
+the same way as the table above, so enter the data in the following
+manner on the excel sheet:</li>
+</ul>
+<p><img src="Images/Excel-Chi-Square-Filled-Out.png"></p>
+<ul>
+<li>Note: The boxes without data are left blank. <br></li>
+</ul>
+</div>
+<p><br></p>
 <p>The null and alternative hypotheses for this chi-squared test of
 independence are: <span class="math display">\[
 \begin{array}{rl}
@@ -560,478 +741,191 @@ H_a\colon &amp; \text{The location and the motivation for seeking
 treatment are not independent} \\
 \end{array}
 \]</span></p>
-<p>The data we will examine is the number of people observed in each
-region seeking chiropractic treatment for specific reasons. For
-simplicity, we arrange counts of the number of observations of each
-motivation in each region in a table called a “contingency table.” One
-variable is chosen as the “row variable,” so called because its values
-are the row headers for the table. The other variable is called the
-“column variable,” because its values are the column headers.</p>
 <p>Note: When speaking of the hypotheses in the absence of a context, we
 can write them in the form <span class="math display">\[
 \begin{array}{rl}
 H_0\colon &amp; \text{The row variable and the column variable are
 independent} \\
 H_a\colon &amp; \text{The row variable and the column variable are not
-independent} \\
+independent.} \\
 \end{array}
-\]</span> When writing these in the context of a given situation,
-replace “row variable” and “column variable” by a more descriptive
-reference.</p>
-<p>We will use a level of significance of <span
-class="math inline">\(\alpha = 0.05\)</span>.</p>
-<p><br></p>
-<p><img src = "Images/Step2.png"></p>
-<p>The researchers reported on their data collection procedures with the
-following statement. “Using an international convenience sample of
-Sacro-Occipital Technique (SOT) practitioners, 1316 consecutive patients
-attending 27 different chiropractic clinics in the USA, Europe and
-Australia completed a one-page survey on intake to assess reason for
-seeking care. A forced choice response was obtained characterizing the
-patient’s reason for seeking chiropractic care.”</p>
-<p><br/></p>
-<p><img src = "Images/Step3.png"></p>
-<p>The data from the study are given in the file
-<code>chiropractic_care_raw</code>. Download these data from <a
-href="https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>Each row represents the responses of one person.</p>
-<p>You can use the <code>head()</code> function to look at the first few
-rows of the data.</p>
-<pre class="r"><code>head(chiropractic_care_raw)</code></pre>
-<pre><code>   location motivation
-1 Australia  Self Care
-2 Australia    At Risk
-3 Australia Prevention
-4 Australia  Self Care
-5 Australia  Sick Role
-6 Australia  Self Care</code></pre>
-You can also view the data using the command
-<code>View(chiropractic_care_raw)</code>. Here is a brief excerpt of the
-data:
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-location
-</th>
-<th style="text-align:left;">
-motivation
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Self Care
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-At Risk
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Prevention
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Self Care
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Sick Role
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Self Care
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-:
-</td>
-<td style="text-align:left;">
-:
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:left;">
-Sick Role
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:left;">
-Sick Role
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:left;">
-At Risk
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:left;">
-Wellness
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-:
-</td>
-<td style="text-align:left;">
-:
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Sick Role
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-At Risk
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Wellness
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Prevention
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Motivation for Choosing to Seek Chiropractic
-Care</strong></p>
-</div>
-<div id="r-instructions-for-clustered-bar-charts"
-class="section level3">
-<h3>R Instructions for Clustered Bar Charts</h3>
+\]</span> But when there’s a context, please make sure you write your
+hypotheses in terms of the context.</p>
+<p>If the row and column variable are independent, then no matter which
+row you consider, the proportion of observations in each column should
+be roughly the same. For example, if motivation for seeking chiropractic
+care is independent of location, then the proportion of people who seek
+chiropractic care for, say, wellness will be approximately the same in
+each row. That is, it will be approximately the same for Australians,
+Europeans, and Americans.</p>
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=TestForIndependence-ChiropracticCare-Calculations }} -->
 <div class="SoftwareHeading">
-R Instructions
+Excel Instructions
 </div>
-<div class="Software">
-<p>First, read in the data from the file
-<code>chiropractic_care_raw</code>. Download these data from <a
-href="https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/chiropractic_care_raw.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>It is hard to visualize these data. We summarize them into a table of
-counts, which can be called a <em>contingency table</em>.
-<!--<cite>Blum08</cite>--></p>
-<p>After reading in the data, we can organize it into a contingency
-table. The values in a contingency table represent the counts of the
-reasons individuals from each location sought chiropractic care.</p>
-<p>We make a contingency table using the <code>table()</code> command.
-We give the two columns of data using the format
-<code>dataframe$variable</code>. In our case, we will create a
-contingency table of the <code>chiropractic_care_raw$location</code> and
-<code>chiropractic_care_raw$motivation</code> data.</p>
-<pre class="r"><code>contingency_table &lt;- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)
-contingency_table</code></pre>
-<pre><code>               
-                At Risk Prevention Self Care Sick Role Wellness
-  Australia          83         59       188        68       71
-  Europe             59         28        95        77       23
-  United States      65         76       252        82       90</code></pre>
-<!--
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> At Risk </th>
-   <th style="text-align:right;"> Prevention </th>
-   <th style="text-align:right;"> Self Care </th>
-   <th style="text-align:right;"> Sick Role </th>
-   <th style="text-align:right;"> Wellness </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;font-weight: bold;"> Australia </td>
-   <td style="text-align:right;"> 83 </td>
-   <td style="text-align:right;"> 59 </td>
-   <td style="text-align:right;"> 188 </td>
-   <td style="text-align:right;"> 68 </td>
-   <td style="text-align:right;"> 71 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;"> Europe </td>
-   <td style="text-align:right;"> 59 </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 95 </td>
-   <td style="text-align:right;"> 77 </td>
-   <td style="text-align:right;"> 23 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;font-weight: bold;"> United States </td>
-   <td style="text-align:right;"> 65 </td>
-   <td style="text-align:right;"> 76 </td>
-   <td style="text-align:right;"> 252 </td>
-   <td style="text-align:right;"> 82 </td>
-   <td style="text-align:right;"> 90 </td>
-  </tr>
-</tbody>
-</table>
--->
-<p>We can transpose (or swap the rows and columns of) this table using
-the command <code>t(...)</code>.</p>
-<pre class="r"><code>t(contingency_table)</code></pre>
-<pre><code>            
-             Australia Europe United States
-  At Risk           83     59            65
-  Prevention        59     28            76
-  Self Care        188     95           252
-  Sick Role         68     77            82
-  Wellness          71     23            90</code></pre>
-<p>Notice that the values in the first column of the contingency table
-are in the first row of its transpose. When a table is transposed, the
-rows and columns essentially trade roles.</p>
-<p>While a table of counts (a contingency table) is helpful in
-describing the relationship between two categorical variables like
-<em>location</em> and <em>motivation</em>, a clustered bar chart makes
-it much easier to visually compare and contrast the observed counts. We
-can use the contingency table to create a clustered bar chart using the
-<code>barplot( )</code> command. We will include the following optional
-commands:</p>
+<div class="Summary">
 <ul>
-<li><p><code>beside = TRUE</code> puts the bars side-by-side. Not using
-<code>beside = TRUE</code> results in a stacked bar chart.</p></li>
-<li><p><code>legend.text = TRUE</code> adds a legend to the graph.
-Sometimes the legend covers the bars, so it is useful in that case to
-use <code>ylim = c(0, some number)</code> so that the legend is moved
-off of the bars.</p></li>
+<li>The Chi-Square statistic, degrees of freedom, and <span
+class="math inline">\(P\)</span>-value of the hypotheiss test are all
+displayed to the right of the where the data is entered in. The data for
+this example will look like:</li>
 </ul>
-<pre class="r"><code>barplot(contingency_table, beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>It is usually helpful to also examine a bar chart of the transpose of
-the data.</p>
-<pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE)</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<p>Either plot can be used, because they present identical information
-in different ways. You will probably prefer one of these plots over the
-other, so use the one you feel best describes the data.</p>
-<p>In this case, it makes sense to group the reasons people seek
-chiropractic care together for each country. The second boxplot seems to
-be more effective as presenting the information in this case.</p>
-<p>Notice that the legend covers part of the bars in this plot. If we
-increase the length of the y-axis to 450 (instead of the default value),
-the legend no longer covers the bars. This is accomplished with the
-argument <code>ylim = c(0, 450)</code>, which sets the limits of the
-y-axis to go from 0 to 450. We can also color the plot by providing
-enough colors for each of the legend entries. We will use the first
-plot, which has five legend entries. So, we use the command:
-<code>col = c("tan3", "brown3", "darkorchid", "steelblue3", "darkolivegreen4")</code>.</p>
-<pre class="r"><code>barplot(t(contingency_table), beside = TRUE, legend = TRUE,
-        ylim = c(0, 450),  # extend the y-axis from 0 to 450
-        col = c(&quot;tan3&quot;, &quot;brown3&quot;, &quot;darkorchid&quot;, &quot;steelblue3&quot;, &quot;darkolivegreen4&quot;))</code></pre>
-<p><img src="Lesson19_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p><br/></p>
+<p><img src="Images/Excel-Chi-Square-Results.png"></p>
+<ul>
+<li>If we reject the null hypothesis, we state, “There is sufficient
+evidence to suggest that (restate the alternative hypothesis.)” If we
+failed to reject the null hypothesis, we would replace the word,
+“sufficient” with “insufficient.”</li>
+</ul>
+<p><br></p>
 </div>
-<p><br> <br></p>
-<p>The predominant motivation that people choose to seek chiropractic
-care in any region is for <em>Self Care</em>. The second-most common
-reason differs across the three regions. For Australia, it is <em>At
-Risk</em>. For Europe, it is <em>Sick Role</em>, and for the United
-States, it is <em>Wellness</em>.</p>
-<p><br/></p>
-<p><img src = "Images/Step4.png"></p>
-<p>Our objective is to determine if the reasons people seek chiropractic
-care is proportionally the same for each of the three locations. In
-other words, we want to know if people’s motivation for seeking
-chiropractic care is independent of their location.</p>
-<p>The barcharts for the three regions do not look the same. This
-suggests that the motivation to seek chiropractic care is not
-independent of the region. However, before drawing a conclusion it is
-important to conduct the chi-squared test of independence. The <span
-class="math inline">\(P\)</span>-value from this test will help us know
-if there are statistically significant differences in the ratios across
-the groups. If we fail to reject the null hypothesis, then
-<em>motivation</em> and <em>location</em> are independent (i.e., not
-related). So any patterns we are seeing in the bar plot can be
-attributed to random chance. However, if we reject the null hypothesis
-then we can claim that <em>motivation</em> and <em>location</em> are
-<strong>not independent</strong> (meaning the proportions of the reasons
-people seek care is different in the three locations). We can then draw
-our final conclusions regarding the patterns observed in the
-side-by-side bar plots.</p>
-</div>
-<div
-id="r-instructions-for-performing-a-chi-squared-test-of-independence"
-class="section level3">
-<h3>R Instructions for Performing a Chi-squared Test of
-Independence</h3>
-<div class="SoftwareHeading">
-R Instructions
-</div>
-<div class="Software">
-<p>To perform a chi-squared test of independence in R, use the
-<code>chisq.test( )</code> function. Using this function requires that
-you have previously made a table of counts. (Review the <a
-href="Lesson19.html#r-instructions-for-clustered-bar-charts">R
-Instructions for Clustered Bar Charts</a> to review how to create a
-table of counts in R.)</p>
-<pre class="r"><code>chisq_results &lt;- chisq.test(contingency_table)
-chisq_results</code></pre>
-<pre><code>
-    Pearson&#39;s Chi-squared test
-
-data:  contingency_table
-X-squared = 49.743, df = 8, p-value = 4.58e-08</code></pre>
-<p>The “X-squared” value of 49.743 is the test statistic of the test.
-Technically, it should be typeset as <span class="math inline">\(\chi^2
-= 49.743\)</span>. The text “X-squared” is used to represent the symbol
-(<span class="math inline">\(\chi^2\)</span>), which is the Greek letter
-chi (<span class="math inline">\(\chi\)</span>) squared. (Note that
-<span class="math inline">\(\chi\)</span> is a Greek letter, and its
-name is pronounced “/ki/”, as in “kite”. The symbol <span
-class="math inline">\(\chi^2\)</span> should be pronounced
-“ki-squared.”) The degrees of freedom (<strong>df</strong>) and the
-<span class="math inline">\(P\)</span>-value are also given in this
-output. <!--
-The value of the degrees of freedom is df = 8 and the $P$-value is $4.58 \times 10^{-8} = 0.000~000~045~8$.
---></p>
-</div>
-<p><br/></p>
-<p>In this hypothesis test, R compares the counts of how many times
-things actually occurred compared to the counts we should
-<em>expect</em> to see, <em>if the null hypothesis is true.</em> We call
-the counts we would expect to see “expected counts.” The software will
-then subtract the observed counts from the expected counts and combine
-these differences to create a test statistic that is used to get the
-<span class="math inline">\(P\)</span>-value. That number is called the
-<span class="math inline">\(\chi^2\)</span> test statistic.</p>
-<p>In this course, we use software to calculate the <span
-class="math inline">\(\chi^2\)</span> test statistic, but it is
-important to recognize that the <span
-class="math inline">\(\chi^2\)</span> test statistic compares the
-observed counts to the expected counts—that is, to the counts we should
-expect to get if the null hypothesis is true. The larger the <span
-class="math inline">\(\chi^2\)</span> test statistic is, the smaller the
-<span class="math inline">\(P\)</span>-value will be. If the <span
-class="math inline">\(\chi^2\)</span> test statistic is large enough
-that the <span class="math inline">\(P\)</span>-value is less than <span
-class="math inline">\(\alpha\)</span>, we will conclude that the
-observed counts and expected counts are too different for the null
-hypothesis to be plausible, and will therefore reject <span
-class="math inline">\(H_0\)</span>. Otherwise, we will fail to reject
-<span class="math inline">\(H_0\)</span>, as with other hypothesis
-tests.</p>
-<p>Different <span class="math inline">\(\chi^2\)</span> distributions
-are distinguished by the number of degrees of freedom, which are
-determined by the number of rows and columns in the table:</p>
-<p><span class="math display">\[df = (\text{number of rows
-}-1)(\text{number of columns }-1)\]</span></p>
-<p>One way to compute the degrees of freedom is to cross out the last
-row and the last column of the contingency table and to count the number
-of cells that remain. Note that the number of degrees of freedom does
-not depend on the number of subjects in the study.</p>
-<p>Recall that the hypotheses of this test were:</p>
-<p><span class="math inline">\(~~~~~H_0\colon\)</span> Location and the
-motivation to visit a chiropractor are independent</p>
-<p><span class="math inline">\(~~~~~H_a\colon\)</span> Location and the
-motivation to visit a chiropractor are not independent</p>
-<p>The test statistic is: <span class="math inline">\(\chi^2 =
-49.743\)</span>, with <span class="math inline">\(df = 8\)</span> and
-<span class="math inline">\(P\)</span>-value <span
-class="math inline">\(= 4.58 \times 10^{-8} = 0.000~000~045~8 &lt; 0.05
-= \alpha\)</span>. We reject the null hypothesis and conclude that
-location and the motivation to visit a chiropractor are not independent.
-This means that the motivation differs across the locations.</p>
-</div>
+<p><br></p>
 <div id="requirements" class="section level3">
 <h3>Requirements</h3>
 <p>The following requirements must be met in order to conduct a <span
 class="math inline">\(\chi^2\)</span> test of independence:</p>
 <ol style="list-style-type: decimal">
-<li><p>The sample of data should be representative of the full
-population. This is most likely to happen when simple random sampling is
-used to obtain a sample from the population.</p>
-<ul>
-<li>In this study, a convenience sample was used. So there could be some
-doubt as to whether these individuals are representative of all
-individuals in each country that seek chiropractic care.</li>
-</ul></li>
-<li><p>Each expected count must be greater than or equal to 5.</p>
-<ul>
-<li><p>In this study, all expected counts were greater than 5.</p></li>
-<li><p>To check expected counts in R, use the code:</p></li>
-</ul>
-<pre class="r"><code>chisq_results$expected</code></pre>
-<pre><code>
-                 At Risk Prevention Self Care Sick Role Wellness
-  Australia     73.77128   58.09043  190.6649  80.89894 65.57447
-  Europe        44.35714   34.92857  114.6429  48.64286 39.42857
-  United States 88.87158   69.98100  229.6922  97.45821 78.99696</code></pre>
-<ul>
-<li>As shown in the above table, the smallest expected count is
-<code>34.92857</code>, which is greater than or equal to 5.</li>
-</ul></li>
+<li>You must use simple random sampling to obtain a sample from a single
+population.</li>
+<li>Each expected count must be greater than or equal to 5.</li>
 </ol>
-<p>We conclude the assumptions of the chi-squared test for independence
-are satisfied.</p>
-<p><img src = "Images/Step5.png"></p>
-<p>People in Europe, Australia, and the United States evidently have
-different reasons for seeking chiropractic care. It appears that
-individuals in Europe are less likely to seek chiropractic care for self
-care and more likely to seek care in the sick role than individuals in
-the other regions. The Europeans are also less likely to visit a
-chiropractor for wellness reasons.</p>
+<p>A table of expected counts is found starting in cell S4 (scroll to
+the right of the data entry area and hypothesis test results).</p>
+<p><img src="Images/Excel-Chi-Req-Expected-Counts.PNG"></p>
+<p><br></p>
+<p>Let’s walk through the chiropractic example now from beginning to
+end: <!--[To do: Flesh this out a bit]:--></p>
+<p><strong>Background:</strong></p>
+<ul>
+<li>Context of the study: The population of interest consisted of
+chiropractic patients in three locations: Australia, Europe, and the
+United States. The objective was to determine whether reasons for
+seeking chiropractic care are different in the different locations.</li>
+<li>Research question: Is a patient’s location independent of their
+motivation for seeking treatment? In other words, do people in
+Australia, Europe, and the United States seek chiropractic care for the
+same reasons?</li>
+<li>Data collection procedures: Upon check-in at their visit, patients
+were provided a brief questionnaire regarding the reason they were
+seeking care. Responses were categorized and tabulated. (Note that the
+table contains statistics (frequencies) that describe the patients in
+the sample.)</li>
+</ul>
+<p><br></p>
+<p><strong>Descriptive statistics:</strong></p>
+<table>
+<caption><strong>Motivation</strong></caption>
+<colgroup>
+<col width="19%" />
+<col width="13%" />
+<col width="15%" />
+<col width="12%" />
+<col width="14%" />
+<col width="14%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Wellness</th>
+<th>Preventive Health</th>
+<th>At Risk</th>
+<th>Sick Role</th>
+<th>Self Care</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Europe</td>
+<td>23</td>
+<td>28</td>
+<td>59</td>
+<td>77</td>
+<td>95</td>
+<td>282</td>
+</tr>
+<tr class="even">
+<td>Australia</td>
+<td>71</td>
+<td>59</td>
+<td>83</td>
+<td>68</td>
+<td>188</td>
+<td>469</td>
+</tr>
+<tr class="odd">
+<td>United States</td>
+<td>90</td>
+<td>76</td>
+<td>65</td>
+<td>82</td>
+<td>252</td>
+<td>565</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>184</td>
+<td>163</td>
+<td>207</td>
+<td>227</td>
+<td>535</td>
+<td>1316</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- {| class="basic" style="text-align:center" -->
+<!-- |+ **Motivation** -->
+<!-- ! Location || Wellness || Preventive<br>Health || At Risk || Sick Role || Self Care || Total -->
+<!-- |- -->
+<!-- !Europe     -->
+<!-- |             23       || 28                   || 59      || 77        || 95        || 282  -->
+<!-- |- -->
+<!-- !Australia        -->
+<!-- |             71       || 59                   || 83      || 68        || 188       || 469  -->
+<!-- |- -->
+<!-- !United States    -->
+<!-- |             90       || 76                   || 65      || 82        || 252       || 565  -->
+<!-- |- -->
+<!-- !Total  -->
+<!-- |             184  || 163              || 207 || 227   || 535   || 1316 -->
+<!-- |- -->
+<!-- |} -->
+<p><strong>Inferential statistics:</strong></p>
+<p>The appropriate hypothesis test is the chi-squared test for
+independence. The requirement that the expected counts are all at least
+5 is met. (Check the picture of the Expected Counts table already shown
+above.)</p>
+<p>Conduct the hypothesis test:</p>
+<p><span class="math inline">\(~~~~~H_0\colon\)</span> Location and the
+motivation to visit a chiropractor are independent.</p>
+<p><span class="math inline">\(~~~~~H_a\colon\)</span> Location and the
+motivation to visit a chiropractor are not independent.</p>
+<p>Let <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p>The test statistic is: <span class="math inline">\(\chi^2 =
+49.743\)</span>, with <span class="math inline">\(df=8\)</span>.</p>
+<!--:*Sketch of the sampling distribution of $\chi^2$: (Draw a right skewed distribution that looks somewhat like an $F$.)-->
+<p>The <span class="math inline">\(P\)</span>-value is rounded to .000
+in the output. To see the actual <span
+class="math inline">\(P\)</span>-value you would need to use Excel to
+expand the number of decimal places shown: <span
+class="math inline">\(P\textrm{-value} = 4.58 \times 10^{-8} &lt; 0.05 =
+\alpha\)</span></p>
+<p>Decision: Reject the null hypothesis.</p>
+<p>Conclusion: There is sufficient evidence to suggest that the
+motivation to visit a chiropractor is not independent of the
+location.</p>
+<!--The following observation really needs to be supported by an appropriate table of percentages or a clustered bar chart, or something.-->
+<!--:*Further discussion: <br> People in these three locations evidently have different reasons for seeking chiropractic care. It appears that individuals in Europe are much more likely to seek chiropractic care in the sick role than individuals in the United States and Australia. The Europeans are also less likely to visit a chiropractor for wellness reasons.-->
 <p><br></p>
 </div>
 </div>
@@ -1049,15 +943,15 @@ Answer the following questions:
 <div class="Questions">
 <ol style="list-style-type: decimal">
 <li>Re-do the <span class="math inline">\(\chi^2\)</span> test of
-independence for the chiropractic care data, but use the transpose of
-the contingency table. Then compare the degrees of freedom, <span
+independence for the chiropractic care data, but use “Motivation” as the
+row variable. Then compare the degrees of freedom, <span
 class="math inline">\(\chi^2\)</span> test statistic, and <span
 class="math inline">\(P\)</span>-value of this test, with the degrees of
 freedom, <span class="math inline">\(\chi^2\)</span> test statistic, and
 <span class="math inline">\(P\)</span>-value for the test conducted
 above, when “Location” was the row variable.</li>
 </ol>
-<a href = "javascript:showhide('Q1')"><span
+<a href="javascript:showhide('Q1')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <ul>
@@ -1073,7 +967,7 @@ They are the same for both tests.</li>
 <li>What do you conclude about swapping the row and column variables in
 a <span class="math inline">\(\chi^2\)</span> test of independence?</li>
 </ol>
-<a href = "javascript:showhide('Q2')"><span
+<a href="javascript:showhide('Q2')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
@@ -1085,20 +979,24 @@ change the conclusion of the test.</li>
 <p> </p>
 </div>
 <p><br></p>
+<p>There may be no general guideline for deciding which variable is the
+row variable, but the graphics produced by your software may depend on
+this decision. For example, Excel will give you a different clustered
+bar chart when you use “Location” as the row variable than when you use
+“Motivation” as the row variable. Sometimes, choosing one of the
+variables as the row variable makes the clustered bar chart easier to
+understand. The bar chart is just below the data entry area in
+Excel.</p>
 </div>
 <div id="why-h_a-is-worded-as-it-is" class="section level3">
 <h3>Why <span class="math inline">\(H_a\)</span> is Worded As It Is</h3>
 <p>Recall that in the chiropractic care example, the hypotheses for the
 <span class="math inline">\(\chi^2\)</span> test of independence
 were</p>
-<p><span class="math display">\[
-\begin{array}{1cl}
-H_0: &amp; \text{Location and the motivation to visit a chiropractor are
-independent} \\
-H_a: &amp; \text{Location and the motivation to visit a chiropractor are
-not independent}
-\end{array}
-\]</span></p>
+<p><span class="math inline">\(H_0\colon\)</span> Location and the
+motivation to visit a chiropractor are independent. <span
+class="math inline">\(H_a\colon\)</span> Location and the motivation to
+visit a chiropractor are not independent.</p>
 <p>You may wonder why we don’t write “<span
 class="math inline">\(H_a\colon\)</span> The motivation to visit a
 chiropractor depends on location.” Well, couldn’t we say just as easily
@@ -1115,14 +1013,14 @@ Answer the following questions:
 degree to which they feel a need to succeed are independent. What should
 your hypotheses be?</li>
 </ol>
-<a href = "javascript:showhide('Q3')"><span
+<a href="javascript:showhide('Q3')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <ul>
 <li><span class="math inline">\(H_0\colon\)</span> Stress level and the
-need to succeed are independent</li>
+need to succeed are independent.</li>
 <li><span class="math inline">\(H_a\colon\)</span> Stress level and the
-need to succeed are not independent</li>
+need to succeed are not independent.</li>
 </ul>
 </div>
 <p><br></p>
@@ -1132,7 +1030,7 @@ need to succeed are not independent</li>
 the need to succeed.” If they reject <span
 class="math inline">\(H_0\)</span>, what will they conclude?</li>
 </ol>
-<a href = "javascript:showhide('Q4')"><span
+<a href="javascript:showhide('Q4')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
 <ul>
@@ -1147,7 +1045,7 @@ class="math inline">\(H_a\colon\)</span> Need to succeed depends on
 stress levels.” If they reject <span class="math inline">\(H_0\)</span>,
 what will they conclude?</li>
 </ol>
-<a href = "javascript:showhide('Q5')"><span
+<a href="javascript:showhide('Q5')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
@@ -1162,7 +1060,7 @@ level? Could it be that their stress level depends on their need to
 succeed? How can the <span class="math inline">\(\chi^2\)</span> test of
 independence distinguish between these two possibilities?</li>
 </ol>
-<a href = "javascript:showhide('Q6')"><span
+<a href="javascript:showhide('Q6')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <ul>
@@ -1212,20 +1110,102 @@ motivation depends on location, nor that each depends on the other, nor
 that both depend on something else, nor that location and motivation are
 dependent. Instead, we write “<span
 class="math inline">\(H_a\colon\)</span> The location and the motivation
-for seeking treatment are not independent,” as statisticians do.</p>
+for seeking treatment are not independent,” as statisticians do. <!--
+
+## The $\chi^2$ (Chi-squared) Goodness of Fit Test
+This test is used to compare the observed counts of two or more categories to the expected counts for those same categories. For example, the Mars company claims that the colors of M&Ms are distributed as follows: 24% Blue, 13% Brown, 16% Green, 20% Orange, 13% Red, 14% Yellow. (see http://joshmadison.com/2007/12/02/mms-color-distribution-analysis/) These are the expected proportions (not counts). In a bag of $200$ M&Ms, the expected number of Blue M&Ms is $48$, the expected number of Brown M&Ms is $26$, etc.
+
+To verify the Mars company claim, you could buy several bags of M&Ms and count the number of each color. These would be the observed counts. The $\chi^2$ (Chi-squared) Goodness of Fit Test can be used to compare the expected counts to the observed counts and decide if they are similar or not.
+
+The test is based on the $\chi^2$ statistic that is defined here:
+
+$\chi^2 = \Sigma \frac{(Observed - Expected)^2}{Expected}$
+
+The $\chi^2$ statistic can be used to conduct a hypothesis test.
+
+We illustrate this test using a Sudden Infant Death Syndrome (SIDS) study conducted in King County Washington. The research question in this study was, "Do SIDS deaths occur uniformly across all four seasons?" We will conduct this hypothesis test using a level of significance $\alpha = 0.05$. The null hypothesis is that the answer to this question is, "Yes." So the null and alternative hypotheses can be expressed as follows.
+
+$H_0:$ SIDS deaths are equally likely in winter, spring, summer, and fall
+$H_a:$ SIDS deaths are not equally likely in winter, spring, summer, and fall
+
+The number if SIDS deaths that occurred during the observation period in each season were: 78 (winter), 71 (spring), 87 (summer), 86 (fall). The total number of deaths is $78 + 71 + 87 + 86 = 322$. So the expected number of SIDS deaths in each season is $322/4 = 80.5$.
+
+Then $\chi^2 = \frac{(78 - 80.5)^2}{80.5} + \frac{(71 - 80.5)^2}{80.5} + \frac{(87 - 80.5)^2}{80.5} + \frac{(86 - 80.5)^2}{80.5} = 2.1$.
+
+The sample data (observed values) and the the expected counts are summarized in this table.
+
+<center>
+{| class="basic" style="text-align:center"
+! Season || Winter || Spring || Summer || Fall
+|-
+! Expected Proportion ||  80.5 || 80.5 || 80.5 || 80.5 
+|-
+! Observed Count || 78 || 71 || 87 || 86
+|-
+|}
+</center>
+
+The degrees of freedom $df$ equals the number of categories minus one or $df = 4 - 1 = 3$. The $P$-value is the probability that $\chi^2$ is greater then the observed value of the test statistic, or $P(\chi^2 > 2.1)$. This probability is the area under the curve to the right of $2.1$ of a $\chi^2$ distribution curve, illustrated here.
+
+insert graphic
+
+In this case, the $P$-value = 0.5519. Since the $P$-value = 0.5519 > 0.05 = $\alpha$, we fail to reject the null hypothesis. This means there is not enough evidence to conclude that the proportion of SIDS deaths is different from one season to another.
+
+
+See - http://wiener.math.csi.cuny.edu/Statistics/R/simpleR/stat013.html
+
+
+Another example: The letter distribution of the 5 most popular letters in the English language is known to be approximately
+
+<center>
+{| class="basic" style="text-align:center"
+! Letter || E || T || N || R || O
+|-
+! Frequency ||  29 || 21 || 17 || 17 || 16 
+|-
+|}
+</center>
+
+That is, when either E, T, N, R, O appear, on average 29 times out of 100 it is an E and not the other 4. This information is useful in cryptography to break some basic secret codes.
+
+We want to test the null hypothesis against the alternative hypothesis as follows.
+
+$H_0:$ The frequency of E, T, N, R, O is consistent with English
+$H_a:$ The frequency of E, T, N, R, O is not consistent with English
+
+A text of  unknown origin is analyzed and the number of E, T, N, R, and O's is counted. The following distribution is found.
+
+<center>
+{| class="basic" style="text-align:center"
+! Letter || E || T || N || R || O
+|-
+! Count ||  100 || 110 || 80 || 55 || 14 
+|-
+|}
+</center>
+
+We now do a chi-square goodness of fit hypothesis test to see if the letter frequencies for this text are consistent with the English language or not.
+
+The chi-squared test requires the independence of each letter, which is not quite true in most languages. Even so, this type of analysis reveals valuable insights.
+
+In this case $\chi^2 = 55.3955$, $df = 4$, and the $P$-value = 2.685e-11. Remember, the $P$-value is the probability of obtaining a test statistic at least as extreme as the one you calculated, assuming the null hypothesis is true. Since the $P$-value is effectively 0, it is very unlikely that this text is written in English.
+
+Remark: need to add Excel and SPSS instructions.
+
+--></p>
 </div>
 <div id="no-confidence-intervals" class="section level3">
 <h3>No Confidence Intervals</h3>
 <p>We do not calculate confidence intervals when working with
 contingency tables. Think about it: With three rows and five columns in
-the table for the chiropractic care example, there are 15 proportions.
-It can be shown that if we compare these two at a time, there would be
-105 pairs to compare. How could we possibly interpret a collection of
-105 confidence intervals? Also, if our confidence level is 95%, we would
-expect that about 5 of our confidence intervals would not contain the
-true difference between proportions, but we wouldn’t know which ones.
-Rather than take the risks this would cause, statisticians do not to
-calculate confidence intervals for contingency tables.</p>
+the table for the chiropractic care example, there are 15 proportions,
+which means there would be 105 pairs of proportions to compare. How
+could we possibly interpret a collection of 105 confidence intervals?
+Also, if our confidence level is 95%, we would expect that about 5 of
+our confidence intervals would not contain the true difference between
+proportions, but we wouldn’t know which ones. Rather than take the risks
+this would cause, the Statistics culture has agreed not to calculate
+confidence intervals for contingency tables.</p>
 <!-- TO-DO LIST
 
 ## To-do list for the authors of this wiki
@@ -1254,39 +1234,22 @@ Therefore, the null and alternative hypotheses are the same for every
 test: <span class="math display">\[
 \begin{array}{1cl}
 H_0: &amp; \text{The (first variable) and the (second variable) are
-independent} \\
+independent.} \\
 H_a: &amp; \text{The (first variable) and the (second variable) are not
-independent}
+independent.}
 \end{array}
 \]</span></p></li>
 <li><p>The <strong>degrees of freedom (<span
 class="math inline">\(df\)</span>)</strong> for a <span
 class="math inline">\(\chi^2\)</span> test of independence are
-calculated using the formula <span class="math inline">\(df =
-(\text{number of rows}-1)(\text{number of columns}-1)\)</span></p></li>
+calculated using the formula <span
+class="math inline">\(df=(\text{number of rows}-1)(\text{number of
+columns}-1)\)</span></p></li>
 <li><p>In our hypothesis testing for <span
 class="math inline">\(\chi^2\)</span> we never conclude that two
 variables are <em>dependent</em>. Instead, we say that two variables are
-<em>not independent</em>.</p></li>
-<li><p>To create a clustered bar chart in R first requires using either
-<code>cbind( )</code> or <code>rbind( )</code> to create a table of
-observed counts, and then using
-<code>barplot(..., beside = TRUE, legend.text = TRUE)</code> to create
-the plot. Review this by <a
-href="Lesson19.html#r-instructions-for-clustered-bar-charts">clicking
-here</a>.</p></li>
-<li><p>To perform a chi-squared test of independence in R, use the
-<code>chisq.test( )</code> with your table of observed counts placed
-inside the function. Review this by <a
-href="Lesson19.html#r-instructions-for-performing-a%20chi-squared-test-of-independence">clicking
-here</a>.</p></li>
-<li><p>To check the requirements of a chi-squared test of independence,
-use the code <code>chisq_test_results$expected</code> where
-<code>chisq_test_results</code> is the results you saved from your
-chi-square test. Verify that all expected counts are greater than or
-equal to 5.</p></li>
+<em>not independent</em>. <br></p></li>
 </ul>
-<p><br></p>
 </div>
 <p><br></p>
 </div>

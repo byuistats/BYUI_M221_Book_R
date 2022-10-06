@@ -7,40 +7,63 @@ output:
     toc_float: false
 ---
 
-<script type = "text/javascript">
+<script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
 
-<!--
-<div style = "float:right;width = 40%;">
-<br/>
-<div style = "padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC8-A6W3DcLXUyoR8x0dpTgs" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-<br>
--->
+
+<div style="width:50%;float:right;">
+
+#### Optional Videos for this Lesson {.tabset .tabset-pills}
+
+##### Part 1
+
+<iframe id="kaltura_player_1657035963" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&playerId=kaltura_player_1657035963&entry_id=1_2ejy5b0k" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+
+##### Part 2
+
+<iframe id="kaltura_player_1657036689" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&playerId=kaltura_player_1657036689&entry_id=1_36bz6qtv" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+
+##### Part 3
+
+<iframe id="kaltura_player_1657037756" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&playerId=kaltura_player_1657037756&entry_id=1_gi0es9iw" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+
+##### Part 4
+
+<iframe id="kaltura_player_1657038095" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&playerId=kaltura_player_1657038095&entry_id=1_90q9qt82" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+
+##### Part 5
+
+<iframe id="kaltura_player_1657039270" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/42438262/partner_id/1157612?iframeembed=true&playerId=kaltura_player_1657039270&entry_id=1_v4140z66" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+
+</div><div style="clear:both;"></div>
+
 
 ## Lesson Outcomes
 
-<a href = "javascript:showhide('oc')"><span style = "font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id = "oc" style = "display:none;">
 By the end of this lesson, you should be able to:
 
-- Write the simple linear regression model 
-- Explain each part of the regression model including the true slope, intercept, and error
-- Calculate a residual using the regression equation for a given observation
-- Interpret the meaning of the residual in the context of the problem
-- Create residual plots and explain how those plots are used for checking the regression requirements
+- Confidence Intervals for the slope of the regression line: 
+    + Calculate and interpret a confidence interval for the slope of the regression line given a confidence level.
+    + Identify a point estimate and margin of error for the confidence interval.
+    + Show the appropriate connections between the numerical and graphical summaries that support the confidence interval. 
+    + Check the requirements for the confidence interval.
+- Hypothesis Testing for the slope of the regression line:
+    + State the null and alternative hypothesis. 
+    + Calculate the test-statistic, degrees of freedom and p-value of the hypothesis test.
+    + Assess the statistical significance by comparing the p-value to the α-level.
+    + Check the requirements for the hypothesis test.
+    + Show the appropriate connections between the numerical and graphical summaries that support the hypothesis test. 
+    + Draw a correct conclusion for the hypothesis test.
 
-</div>
 <br>
 
 ## Theory of Simple Linear Regression
 
-<img src = "./Images/Line_on_coordinate_plane.jpg">
+<img src="./Images/Line_on_coordinate_plane.jpg">
 
 When we compute an estimated regression equation, we assume that there is some true equation that describes the relationship between the $X$-variable and the mean value of $Y$.  This equation is unknown to us. In particular, we don't know what the coefficients are in this equation. In the estimated regression equation, we used $b_0$ and $b_1$ to represent the $Y$-intercept and slope, respectively.  These two coefficients are estimates of the unknown regression coefficients in the true equation.  We will use the Greek letter $\beta$ (pronounced "beta") to denote these true unknown coefficients.
 
@@ -60,11 +83,11 @@ where $\beta_0$ and $\beta_1$ are parameters, and $\epsilon$ is a (normal) rando
 
 In order to do hypothesis tests and confidence intervals using a regression line, we need to be sure that certain conditions are satisfied.  There are five requirements for a linear regression model:
 
-  1. <span id = 'linear'><span> There is a linear relationship between $X$ and $Y$.
-  2. <span id = 'normal'><span> The error term ($\epsilon$) is normally distributed.
-  3. <span id = 'const'><span> The variance of the error terms is constant for all values of $X$.
-  4. <span id = 'fixed'><span> The $X$'s are fixed and measured without error.  (In other words, the $X$'s can be considered as known constants.)
-  5. <span id = 'indep'><span> The observations are independent.
+  1. <span id='linear'><span> There is a linear relationship between $X$ and $Y$.
+  2. <span id='normal'><span> The error term ($\epsilon$) is normally distributed.
+  3. <span id='const'><span> The variance of the error terms is constant for all values of $X$.
+  4. <span id='fixed'><span> The $X$'s are fixed and measured without error.  (In other words, the $X$'s can be considered as known constants.)
+  5. <span id='indep'><span> The observations are independent.
 
 These must be satisfied in order to conduct a hypothesis test or create confidence intervals involving regression lines.
 
@@ -72,27 +95,15 @@ We will illustrate the process of checking requirements using the estuarine croc
 
 ### Scatterplot
 
-To check requirement 1, we do two things.  The first is to make a scatterplot and to visually check to see if there is a linear relationship between $X$ and $Y$. 
+To check requirement 1, we do two things.  The first is to make a scatterplot and to visually check to see if there is a linear relationship between $X$ and $Y$.  This has been referred to as a "hot dog" shape in the data.
 
 We want to make sure that there is no distinct curvature or other nonlinear characteristics.  This is simply a visual check of the data.
 
-Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
-You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+Consider the scatterplot of the estuarine crocodile data [EstuarineCrocodile(Modified).xlsx](./Data/Estuarine_Crocodile_(Modified).xlsx):
 
-```{r, include = FALSE}
-library(openxlsx)
-estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
-```
+<img src="./Images/EstuarineCrocodile-Scatterplot-RegLine-Excel.PNG">
 
-Consider the following scatterplot of these data, which includes a superimposed regression line.
-
-```{r}
-estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-plot(body_length ~ head_length, data = estuarine_crocodiles)
-abline(estuarine_lm)
-```
-
-Notice how the data have a linear pattern.  This data set shows a very strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
+Notice how the data follow a linear shape.  This data set shows a particularly strong linear relationship.  In many cases, the data will show more spread than is illustrated here.
 
 ### Residuals
 
@@ -101,169 +112,59 @@ $$
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 $$
 
-You can think of the residual as the vertical distance from a point to the regression line. If the point is above the line, the residual is positive. If the point is below the line, the residual is negative.
+It is tedious to calculate the residuals by hand, but software can be used to find the residuals.
 
-It is tedious to calculate the residuals by hand, but we can easily find them using R.
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=CalculateResiduals }} -->
 
-### R Instructions for Computing Residuals
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+**To find the residuals in Excel, do the following:**
 
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-**To find the residuals in R, do the following:**
-
-- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
-You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
-
-```{r, include = FALSE}
-library(openxlsx)
-estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
-```
-
-- Perform a linear regression using the `lm( )` function.
-
-```{r}
-estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-```
-
-- The residual are stored in the linear model (lm) that you created. You can use the name of the lm that you created and the `$` to access the residuals:
-
-```{r}
-estuarine_lm$residuals
-```
-
-Each residual is labeled as residual #1, #2, #3, and so on. There is a residual corresponding to each of the 28 observations in this data set. The residuals are given in the same order as the original data values.
-
+- Open [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) and click on the "Linear Regression" tab
+- Copy and Paste the dependent (or response) variable into the "Y" column (Column B).  The dependent variable (or response variable) is the thing you are trying to predict.  Often it is the more difficult/expensive variable to measure.
+- Copy and paste the independent (or explanatory) variable into the "X" column (Column A).
+- Your residuals will then be calculated in column Y of the Excel Spreadsheet.
 <br>
 </div>
 <br>
-
 
 ### Residual Plot
 
-The residual is calculated for each data point, so you have one residual for every observation in the data set.  It is hard to use this many numbers to make decisions.  How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a *residual plot*. A residual plot is a scatterplot where the $X$-axis shows the independent variable ($X$) and the $Y$-axis presents the residuals for each value of $X$.
+The residual is calculated for each data point, so you have one residual for every observation in the data set.  It is hard to use so many numbers to make decisions.  How do you comprehend so much information at once? To help us understand the information in the residuals, we make what is called a *residual plot*. A residual plot is a scatterplot where the $X$-axis shows the independent variable ($X$) and the $Y$-axis presents the residuals for each value of $X$.
 
-Imagine that a scatterplot represents several balloons tied to a rod with string. 
-The points represent the balloons, and the rod represents the simple linear regression line. The length of the string is the distance the balloon is from the rod. If the rod is leveled, the positions of the balloons would change, but the distance to the rod would be the same. 
-A residual plot is a scatter plot where the regression line has been leveled, but the vertical distance from the line to each point is unchanged.
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ResidualPlot }} -->
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+**To make a residual plot in Excel do the following:**
 
-We will use R to create residual plots.
+- Once the explanatory and response variables are entered into the correct columns in the [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) spreadsheet, you are given a scatter plot of residuals starting in cell S4, to the right of the hypothesis testing section.  
 
-
-### R Instructions for Residual Plots
-
-<div class = "SoftwareHeading">Excel Instructions</div>
-<div class = "Software">
-- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
-You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
-
-```{r, include = FALSE}
-library(openxlsx)
-estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
-```
-
-- Perform a linear regression using the `lm( )` function.
-
-```{r}
-estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-```
-
-- Use the `residual_plot(...)` function to create the residual plot. This plot is generated by a function stored in the `functions.R` script. Use the `source()` command to load this function into R. Then you are able to create the residual plot.
-
-```{r}
-# Load the residual_plot function and create the plot
-source("https://byuistats.github.io/M221R/scripts/functions.R")
-residual_plot(estuarine_lm)
-```
-
-Notice the dashed line in the residual plot is The red line is often not helpful in this plot, but should be relatively flat. Only trust the red line when the dots in the graph seem to closely follow the red line. If the red line just looks chaotic, don't worry about whether or not it is flat.
-
+- To create a residual plot on your own, you can highlight columns X and Y, then click on the Insert Ribbon, and then click on "Scatter" (or the icon that looks like a scatter plot).  You want the first choice (Scatter with only markers), so select the first scatter plot choice.
 <br>
 </div>
 <br>
 
+The following image shows the residual plot for the estuarine crocodile data.
 
-The residual plot of the estuarine crocodile data shown above shows random scatter. There is no obvious pattern in the data. This is good. Whenever linear regression is appropriate, then the residual plot will show no patterns and will consist of random scatter. If there is a pattern in the residuals, it suggests that linear regression is not appropriate.  
+<img src="./Images/EstuarineCrocodile-ResidualPlot-Excel.PNG">
+
+This residual plot shows random scatter. There is no obvious pattern in the data.  If linear regression is appropriate, then the residual plot will show no patterns and will consist of random scatter. If there is a pattern in the residuals, it suggests that linear regression is not appropriate.  
 
 There are several patterns that could arise in a residual plot:
 
 - **Curvature**  If the residual plot shows curvature, that suggests that the data are not linearly related.
-
-<div style = "padding-left:30px;">
-
-```{r, echo = FALSE, fig.height = 3, fig.width = 3}
-n <- 40
-x <- runif(n, -2, 5)
-y <- 2 + 3*x + 4*x^2 + rnorm(n, 0, 1.3)
-curvature_lm <- lm(y ~ x)
-residual_plot(curvature_lm)
-```
-
-</div>
-
 - **Megaphone**  A megaphone shape occurs when points tend to be close together on one side of the graph and farther apart on the other side of the graph.  If there is a megaphone shape apparent in the residuals, it suggests that the variance of the error terms is not constant for all values of $X$.  It suggests that there is a difference in the spread of the residuals depending on the value of $X$.
-
-<div style = "padding-left:30px;">
-
-```{r, echo = FALSE, fig.height = 3, fig.width = 3}
-megaphone_lm <- lm(circumference ~ age, data = Orange)
-residual_plot(megaphone_lm)
-```
-
-</div>
-
 - **Outliers**  If there are outliers in the residual plot, that suggests that the error terms are not normally distributed.  This should also be apparent in the scatterplot or histogram of the residuals.
-
-<div style = "padding-left:30px;">
-
-```{r, echo = FALSE, fig.height = 3, fig.width = 3, message = FALSE}
-library(car)
-outlier_lm <- lm(weight ~ repwt, data = Davis)
-residual_plot(outlier_lm)
-```
-
-</div>
-
-
-<br/>
-
 
 ### Histogram of the Residuals
 
-Once the residuals have been calculated in R, we can assess if they are normally distributed using a histogram.  If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met. 
+Once the residuals have been calculated in Excel, we can assess if they are normally distributed using a histogram.  If the shape of the histogram of residuals does not show a distinct departure from a normal shape, we conclude the requirement of normal residuals has been met.Don't forget that you may need to try out various histograms with different number of bins to get a feel for the shape of the distribution of residuals.
 
-```{r}
-hist(estuarine_lm$residuals)
-```
+<img src="./Images/EstuarineCrocodile-Hist-Residuals-Excel.PNG">
 
-We can use the `nclass` option to change the number of bins in the histogram. By using `nclass = 10` we generate a histogram with room for 10 bins.
-
-```{r}
-hist(estuarine_lm$residuals, nclass = 10)
-```
-
-It can be helpful to try different values for `nclass`. Usually, values between 5 and 15 are chosen. If the data set is small, then `nclass` is usually closer to 5. If the data set is larger, then values of `nclass` closer to 15 are used.
-
-We chose a value of `nclass = 10`.
-The histogram of the residuals using 10 bins does not show a distinct or extreme departure from a normal shape.  We do not have evidence of nonnormality in the residuals.  We conclude that the residuals are normally distributed.
-
-As a contrast, here is an example of a plot of residuals that is not normal.
-```{r, echo = FALSE}
-set.seed(2)
-skewed_lm <- data.frame(residuals = rchisq(30, 3))
-hist(skewed_lm$residuals, nclass = 10)
-```
-
-If the histogram of the residuals shows a mound shape that is roughly symmetrical, we can conclude the assumption of normal error terms is not violated. For the estuarine crocodile data, it is reasonable to conclude the assumption of normally distributed error terms is satisfied.
-
-<!--
-Here is a histogram of residuals that shows the presence of outliers:
-
-```{r, echo = FALSE}
-set.seed(9)
-outliers_lm <- data.frame(residuals = rt(50, df = 1))
-hist(outliers_lm$residuals, nclass = 15)
-```
--->
+The histogram of the residuals using 7 bins does not show a distinct or extreme departure from a normal shape.  We do not have evidence of nonnormality in the residuals.  We conclude that the residuals are normally distributed. In more advanced classes you will use a tool called a Q-Q plot to assess whether residuals are normally distributed.
 
 
 ### Requirements Summary
@@ -272,7 +173,7 @@ The following table describes how to check each of the requirements above.
 
 <table>
 <thead>
-<tr class = "header">
+<tr class="header">
 <th></th>
 <th><p>Requirement</p></th>
 <th><p>How to Check</p></th>
@@ -280,31 +181,31 @@ The following table describes how to check each of the requirements above.
 </tr>
 </thead>
 <tbody>
-<tr class = "odd">
+<tr class="odd">
 <td><p>1.</p></td>
 <td><p>Linear Relationship</p></td>
 <td><p>Scatterplot</p></td>
-<td><p>No nonlinear pattern</p></td>
+<td><p>"Hot dog" shape</p></td>
 </tr>
-<tr class = "even">
+<tr class="even">
 <td></td>
 <td></td>
 <td><p>Residual Plot</p></td>
-<td><p>No pattern in the residuals only random scatter)</p></td>
+<td><p>No pattern in the residuals</p></td>
 </tr>
-<tr class = "odd">
+<tr class="odd">
 <td><p>2.</p></td>
 <td><p>Normal Error Term</p></td>
 <td><p>Histogram of the Residuals</p></td>
-<td><p>Not heavily skewed and no extreme outliers</p></td>
+<td><p>A shape that is approximately normal</p></td>
 </tr>
-<tr class = "even">
+<tr class="even">
 <td><p>3.</p></td>
 <td><p>Constant Variance</p></td>
 <td><p>Residual Plot</p></td>
 <td><p>No megaphone shape in the residuals</p></td>
 </tr>
-<tr class = "odd">
+<tr class="odd">
 <td><p>4.</p></td>
 <td><p>$X$'s are Known<br />
 Constants</p></td>
@@ -312,7 +213,7 @@ Constants</p></td>
 <td><p>$X$'s should be measured<br />
 accurately and precisely</p></td>
 </tr>
-<tr class = "even">
+<tr class="even">
 <td><p>5.</p></td>
 <td><p>Observations are<br />
 Independent</p></td>
@@ -320,7 +221,7 @@ Independent</p></td>
 <td><p>Knowing the value of one of the $Y$'s<br />
 tells you nothing about any other points</p></td>
 </tr>
-<tr class = "odd">
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -329,110 +230,118 @@ tells you nothing about any other points</p></td>
 </tbody>
 </table>
 
-
+<!-- {| class="basic" style="text-align:left" -->
+<!-- ! !! Requirement                      !! How to Check      !! What you hope to see -->
+<!-- |- -->
+<!-- |1. || Linear Relationship           || Scatterplot || "Hot dog" shape   -->
+<!-- |- -->
+<!-- | ||            || Residual Plot|| No pattern in the residuals  -->
+<!-- |- -->
+<!-- |2. || Normal Error Term             || Q-Q Plot of the Residuals  || Points in the Q-Q plot are close to the line  -->
+<!-- |- -->
+<!-- |3.  || Constant Variance             || Residual Plot              || No megaphone shape in the residuals  -->
+<!-- |- -->
+<!-- |4.  || $X$'s are Known <br> Constants|| Cannot be checked directly || $X$'s should be measured <br> accurately and precisely  -->
+<!-- |- -->
+<!-- |5.  || Observations are <br> Independent|| Cannot be checked directly || Knowing the value of one of the $Y$'s <br> tells you nothing about any other points  -->
+<!-- |- -->
+<!-- |} -->
 
 
 If these requirements are met, then it is reasonable to assume that the use of regression with the data is appropriate.
 
 ## Hypothesis Test for Regression Coefficients
 
-<img src = "./Images/step4.png">
-
 ### Estuarine Crocodiles
 
 We want to know if there is a linear relationship between $X$ and $Y$.  To test for this, we need to determine if the slope is different from zero.  If the slope is zero, then that suggests that there is no linear relationship between the two variables.  If the slope is not zero, that suggests that there is a linear relationship between the two variables.
 
-In this course, we will test if the true slope is different from zero.  If the slope equals zero, $\beta_1 = 0$, then the regression line reduces from:
+The regression output will include all the calculations you need to conduct a hypothesis test for the regression slope:
+ 
+<img src="./Images/EstuarineCrocodile_HypTest_Output.PNG">
+
+In this course, we will test if the true slope is different from zero.  If the slope equals zero, then the regression line reduces from:
 $$Y = \beta_0 + \beta_1 X + \epsilon$$
 
 to:
-$$Y = \beta_0 + 0 \cdot X_i + \epsilon = \beta_0 + \epsilon_i$$
+$$Y = \beta_0 + \epsilon$$
 
 In other words, the independent variable $X$ does not affect the value of the dependent variable $Y$.
 
 The null and alternative hypotheses for this test are:
 $$
 \begin{array}{ll}
-H_0: & \beta_1 = 0\\
+H_0: & \beta_1  =  0\\
 H_a: & \beta_1 \ne 0\\
 \end{array}
 $$
 
 We will assume the $0.05$ level of significance.
 
-The relevant summary statistics include the sample size and the estimated regression equation ($\hat Y = b_0 + b_1 X$).  For the estuarine crocodile data, we get the following.
-
-### R Instructions for Testing the Regression Slope
-
-<div class = "SoftwareHeading">Excel Instructions</div>
-<div class = "Software">
-- Download these data from https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx.
-You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
-
-```{r, include = FALSE}
-library(openxlsx)
-estuarine_crocodiles <- read.xlsx("https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx")
-```
-
-- Perform a linear regression using the `lm( )` function.
-- See the results using `summary( )`.
-
-```{r, comment = NA}
-estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-summary(estuarine_lm)
-```
-
-<br/>
-</div>
-<br/>
-
-The output above shows that
-
+The relevant summary statistics include the sample size and the estimated regression equation ($\hat Y = b_0 + b_1 X$).  For the estuarine crocodile data, we get:
 $$
 \begin{array}{c}
-n = 28 \\
+n=28 \\
 \hat Y = -18.274 + 7.660 X \\
 \end{array}
 $$
 
-The test statistic follows a $t$-distribution. We are conducting a test for the slope.  The information related to the slope is given in the second row of the "Estimate" table, which is labeled "estuarine_crocodiles\$head_length".  Looking across the second row, we find the value of $t$ is given as 35.588.
+The test statistic follows a $t$-distribution. We are conducting a test for the slope.  The information related to the slope is given in the second row of the "Coefficients" table, which is labeled "Head Length (cm)".  Looking across the second row, we find the value of $t$ is given as 35.588.
 $$
-t = 35.588
+t=35.588
 $$
 
 This is a tremendously large value for t.  This indicates that there is a lot of evidence against the null hypothesis.
 
-Remember, the $t$ distribution has one number describing its degrees of freedom. The degrees of freedom for this test is shown towards the bottom of the output where it states "26 degrees of freedom". It is also easy to calculate the degrees of freedom by hand. Because we used the dataset to estimate two population parameters (a slope and a y-intercept) we have used two degrees of freedom. There are 28 observations in our dataset.  The degrees of freedom equals $28-2 = 26$ for the estuarine crocodile data.
+<!-- The degrees of freedom are given in the ANOVA table in the "Residual" row under the "df" column:
+
+<img src="./Images/SPSS_Estuarine_Croc_Regression_output_df.PNG"> -->
+
+Remember, the $t$ distribution has one number describing its degrees of freedom. The degrees of freedom for this test is not shown on the Excel sheet, but is easy to calculate by hand. Because we used the dataset to estimate two population parameters (a slope and a y-intercept) we have used two degrees of freedom. There are 28 observations in our dataset.  The degrees of freedom equals $28-2 = 26$ for the estuarine crocodile data.
 $$
-df = 28-2 = 26
+df= 28-2 = 26
 $$
 
-With a test statistic of $t = 35.588$, we get a very small $P$-value, "0.000" as shown in the column of the output titled "Pr(>|t|)". That stands for "the probability" (Pr) of being "more extreme" (>) than the observed test statistic (t).  
+With a test statistic of $t=35.588$, we get a very small $P$-value, "0.000" as shown in cell Q9.  
 
-Assuming $\alpha = 0.05$, we reject the null hypothesis since the $P$-value is less than the level of significance.  There is sufficient evidence to suggest that there is a linear relationship between the head length and the body length of estuarine crocodiles.
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=EstuarineCrocodilePvalue }} -->
+
+<!--
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+Note that in the output for Excel, the $P$-value is given in scientific notation.  Also note that there are two values under $P$-value.  One is for the slope and the other is for the y-intercept.  In this class we will always be looking at the slope, which is the bottom or the "Predictors".  So, our $P$-value for this test is written as:
+
+$$
+P\textrm{-value} = 0.0000000000000000000000107211   
+$$
+<center>or as</center>
+$$
+1.07211E^-23
+$$
+
+Assuming $\alpha=0.05$, then $P\textrm{-value} = 1.07211E^-23 < 0.05 = \alpha$.
+<br>
+</div>
+<br>
+-->
+
+Assuming $\alpha=0.05$, we reject the null hypothesis since the $P$-value is less than the level of significance.  There is sufficient evidence to suggest that there is a linear relationship between the head length and the body length of estuarine crocodiles.
 
 It was appropriate to conduct this analysis, since the requirements of simple linear regression were satisfied.
 
 ### Manatees
 
-```{r, include = FALSE}
-library(openxlsx)
-manatees <- read.xlsx("https://byuistats.github.io/M221R/data/manatees.xlsx")
-```
+Here is an excerpt from the output for the [Manatees.xlsx](./Data/Manatees.xlsx) data set:  <!--<cite>Manatees06</cite>-->
 
-<img src = "./Images/step4.png">
+<img src="./Images/Manatees-RegressionOutput.png">
 
-Here is an excerpt of the `manatees` data set:  
-
-```{r, comment = NA, echo = FALSE}
-pander::pander(head(manatees[,c(2,3)]))
-```
 
 
 The null and alternative hypotheses for this test are:
 $$
 \begin{array}{ll}
-H_0: & \beta_1 = 0\\
+H_0: & \beta_1  =  0\\
 H_a: & \beta_1 \ne 0\\
 \end{array}
 $$
@@ -440,33 +349,51 @@ $$
 The relevant summary statistics include the sample size and the estimated regression equation ($\hat Y = b_0 + b_1 X$).
 $$
 \begin{array}{c}
-n = 35 \\
+n=35 \\
 \hat Y = -42.542 + 0.129 X \\
 \end{array}
 $$
 
 The test statistic follows a $t$-distribution.
 
-```{r, comment = NA}
-manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
-summary(manatee_lm)
-```
+<img src="./Images/Manatees-RegressionOutput-HypTest.png">
 
-Remember, we are conducting a test for the slope, so the information we need is given in the second row of output.  We find the value of $t$ is given as 15.49.
+Remember, we are conducting a test for the slope, so the information we need is given in the block of output labeled "Hypothesis Test of the Regression Slope".  We find the value of $t$ is given as 15.491.
 $$
-t = 15.49
+t=15.491
 $$
 
 Think about this result.  Is this a large or a small value for $t$?  What does this say about the conclusion to our test?
 
-Remember, the $t$ has one number describing its degrees of freedom.  For this test, the degrees of freedom $35-2 = 33$. We subtract two from the total number of observations because we estimated 2 population parameters for the line: a y-intercept and a slope.  
+Remember, the $t$ has one number describing its degrees of freedom.  For this test, the degrees of freedom $35-2 = 33$. We subtract two from the total number of observations because we estimated a 2 population parameters for the line: a y-intercept and a slope.  
 $$
-df = 33
+df=33
 $$
 
-With a test statistic of $t = 15.49$ and $33$ degrees of freedom, we get a very small $P$-value. The value is so small that when we round to just three decimal places, the $P$-value appears to be zero. In the output the p-value is listed as "<2e-16" which means it is so small that it is less than $2\times10^{-16}$!
+With a test statistic of $t=15.491$ and $33$ degrees of freedom, we get a very small $P$-value. The value is so small that when we round to just three decimal places, the $P$-value appears to be zero.
 
-Assuming $\alpha = 0.05$, our decision rule is to reject the null hypothesis, since the $P$-value is less than the level of significance.  There is sufficient evidence to suggest that there is a linear relationship between the number of powerboats registered in Florida and the number of manatees killed by powerboats.
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ManateePvalue }} -->
+
+<!--
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+Note that in the output for Excel, the $P$-value is given in scientific notation.  Also note that there are two values under $P$-value.  One is for the slope and the other is for the y-intercept.  In this class we will always be looking at the slope, which is the bottom or the "Predictors".  So, our $P$-value for this test is written as:
+
+$$
+P\textrm{-value} = 0.000000000000000000105954   
+$$
+<center>or as</center>
+$$
+1.05954E^-19
+$$
+
+Assuming $\alpha=0.05$, then $P\textrm{-value} = 1.05954E^-19 < 0.05 = \alpha$.
+<br>
+</div>
+<br>
+-->
+Assuming $\alpha=0.05$, our decision rule is to reject the null hypothesis, since the $P$-value is less than the level of significance.  There is sufficient evidence to suggest that there is a linear relationship between the number of powerboats registered in Florida and the number of manatees killed by powerboats.
 This conclusion fits our intuition. If there are more boats on the water, it seems plausible that this will affect the number of manatees killed. If any statistical conclusion is counterintuitive, you should always be very wary!
 
 <br>
@@ -475,45 +402,32 @@ This conclusion fits our intuition. If there are more boats on the water, it see
 
 ### Manatees
 
-We are often interested in the range of plausible values for the true regression coefficients.  We can create a confidence interval for the slope and the $Y$-intercept in R.  
+We are often interested in the range of plausible values for the true regression coefficients.  We can create a confidence interval for the slope and the $Y$-intercept in Excel.  
 
-### R Instructions for Confidence Intervals
+<!-- To access this content, scroll to the bottom of the editing page and click on the link "Software:(Excel or SPSS)-(PageName)" -->
+<!-- {{Software_Filter | PageName=ManateeCIforRegressionCoefficients }} -->
 
-<div class = "SoftwareHeading">R Instructions</div>
-<div class = "Software">
-**To compute the confidence intervals for the regression coefficients in R, do the following:**
+<div class="SoftwareHeading">Excel Instructions</div>
+<div class="Summary">
+**To find the residuals in Excel, do the following:**
 
-- Download these data from https://byuistats.github.io/M221R/data/manatees.xlsx.
-You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
+- Open [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx) and click on the "Linear Regression" tab
+- Copy and Paste the dependent (or response) variable into the "Y" column (Column B).  The dependent variable is also known as the response variable.  It is the thing you are trying to predict.  Often it is the more difficult/expensive variable to measure.
+- Copy and paste the independent (or explanatory) variable into the "X" column (Column A).
+- You can change the confidence level in cell N12.    
+- The confidence interval for the slope is found in cells P15 and Q15.  
 
-```{r, include = FALSE}
-library(openxlsx)
-manatees <- read.xlsx("https://byuistats.github.io/M221R/data/manatees.xlsx")
-```
+<img src="./Images/Manatees-RegressionOutputCIs.png">
 
-
-- Perform a linear regression using the `lm( )` function.
-
-```{r}
-manatee_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
-```
-
-- Use the `confint( )` function with the name of your lm object placed inside to obtain the confidence intervals. Use `confint(  , conf.level = 0.95)` to control the confidence level.
-
-```{r, comment = NA}
-confint(manatee_lm, level = 0.95)
-```
-
-The first row of the output gives the confidence interval for $\beta_0$, the y-intercept. The second row of the output gives the confidence interval for $\beta_1$, the slope.
 
 <br>
 </div>
 <br>
 
 
-In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of = killed is $(0.112, 0.146)$.  Remember the slope is the amount that $Y$ is expected to change if $X$ changes by one unit.  Also, recall that $X$ is given in terms of thousands of powerboats registered.  If an additional one thousand powerboats are registered (one unit increase in $X$,) we are 95% confident that the average number of manatees killed in such years will increase between 0.112 and 0.146.  Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect the average number of manatee deaths witnessed in such years to be between 11.2 to 14.6 manatees.
+In this case, the 95% confidence interval for the true slope of the regression line relating the number of thousand powerboats registered in Florida to the number of manatees killed is $(0.112, 0.146)$.  Remember the slope is the amount that $Y$ is expected to change if $X$ changes by one unit.  Also, recall that $X$ is given in terms of thousands of powerboats registered.  If an additional one thousand powerboats are registered (one unit increase in $X$,) we are 95% confident that the number of manatees killed will increase between 0.112 and 0.146.  Or in other words, if 100 thousand additional powerboats are registered in Florida, we expect 11.2 to 14.6 manatees will be killed.
 
-The 95% confidence interval for the $Y$-intercept is $(-55.460, -29.623)$.  We are 95% confident that the expected number of manatees that will be killed if there are zero powerboats registered in Florida is between $-55.5$ and $-29.6$.  This is illogical.  There cannot be a negative number of manatees killed.  The $Y$-intercept is not interpretable for this data.
+Though the Math221 Excel toolbox does not compute a 95% confidence interval for the $Y$-intercept, many softwares do. The 95% confidence interval for the $Y$-intercept is $(-55.460, -29.623)$.  We are 95% confident that the expected number of manatees that will be killed if there are zero powerboats registered in Florida is between $-55.5$ and $-29.6$.  This is illogical.  There cannot be a negative number of manatees killed.  The $Y$-intercept is not interpretable.
 
 Sometimes the $Y$-intercept makes sense in the context of the problem, but in many cases it is just used to get the best fit for the regression equation.
 
@@ -521,18 +435,12 @@ Sometimes the $Y$-intercept makes sense in the context of the problem, but in ma
 
 We can compute a 95% confidence interval for the estuarine crocodile data in a similar manner.  
   
-<div class = "QuestionsHeading">Answer the following questions:</div>
-<div class = "Questions">
+<div class="QuestionsHeading">Answer the following questions:</div>
+<div class="Questions">
 1. Find a 95% confidence interval for the slope of the regression line relating the head lengths and body lengths of estuarine crocodiles.
 
-<a href = "javascript:showhide('Q1')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q1" style = "display:none;">
-
-```{r, comment = NA}
-estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
-confint(estuarine_lm, level = 0.95)
-```
-
+<a href="javascript:showhide('Q1')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q1" style="display:none;">
 <center>
 $$
 (7.218,~8.103)
@@ -543,9 +451,9 @@ $$
 
 2. Interpret the confidence interval you created in the previous problem.
 
-<a href = "javascript:showhide('Q2')"><span style = "font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q2" style = "display:none;">
-- We are 95% confident that the true slope of the regression line relating the head length and the body length of estuarine crocodiles is between 7.218 and 8.103.  So, we are 95% confident that if the length of the head increases by 1 cm, then the increase in the mean body length is expected to be between 7.218 and 8.103.
+<a href="javascript:showhide('Q2')"><span style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q2" style="display:none;">
+- We are 95% confident that the true slope of the regression line relating the head length and the body length of estuarine crocodiles is between 7.218 and 8.103.  So, we are 95% confident that if the length of the head increases by 1 cm, then the mean increase in the body length is expected to be between 7.218 and 8.103.
 </div>
 &nbsp;
 </div>
@@ -553,31 +461,27 @@ $$
 
 ## Summary
 
-<div class = "SummaryHeading">Remember...</div>
-<div class = "Summary">
+<div class="SummaryHeading">Remember...</div>
+<div class="Summary">
 
-- The unknown **true linear regression line** is $Y = \beta_0+\beta_1X$ where $\beta_0$ is the true y-intercept of the line and $\beta_1$ is the true slope of the line.
+- The unknown **true linear regression line** is $Y=\beta_0+\beta_1X$ where $\beta_0$ is the true y-intercept of the line and $\beta_1$ is the true slope of the line.
 
 - A **residual** is the difference between the observed value of $Y$ for a given $X$ and the predicted value of $Y$ on the regression line for the same $X$. It can be expressed as:
 $$
 Residual = Y - \hat Y = Y - (b_0 + b_1 X)
 $$
 
-- Residuals can be obtained in R using `lmObjectName$residuals`, [see here](Lesson23.html#r-instructions-for-computing-residuals) for details.
-
-- To check all the requirements for bivariate inference you will need to create a **scatterplot** of $X$ and $Y$, a **residual plot**, and a **histogram of the residuals**. These plots can be created in R using `plot(lmObjectName, which = 1)` and `hist(lmObjectName$residuals)`, [see here](Lesson23.html#r-instructions-for-residual-plots) for an example.
+- To check all the requirements for bivariate inference you will need to create a **scatterplot** of $X$ and $Y$, a **residual plot**, and a **histogram of the residuals**. 
 
 - We conduct a hypothesis test on bivariate data to know if there is a linear relationship between the two variables. To determine this, we test the slope ($\beta_1$) on whether or not it equals zero. The appropriate hypotheses for this test are:
 $$
 \begin{array}{1cl}
-H_0: & \beta_1 = 0 \\
+H_0: & \beta_1=0 \\
 H_a: & \beta_1\ne0
 \end{array}
 $$
 
-- For bivariate inference we use R to calculate the sample coefficients, residuals, test statistic, $P$-value, and confidence intervals of the true linear regression coefficients using `lm( )` and `summary( )` as [shown here](Lesson23.html#r-instructions-for-testing-the-regression-slope).
-
-- Confidence intervals for the true regression coefficients ($\beta_0$ and $\beta_1$) can be computed by `confint( )` as [shown here](Lesson23.html#r-instructions-for-confidence-intervals).
+- For bivariate inference we use software to calculate the sample coefficients, residuals, test statistic, $P$-value, and confidence intervals of the true linear regression coefficients.
 <br>
 </div>
 <br>
