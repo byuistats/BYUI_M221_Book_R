@@ -11,7 +11,7 @@
 
 
 
-<title>Lesson 9: Hypothesis Test for One Mean (Sigma Known)</title>
+<title>Lesson 9: Inference for One Mean with Sigma Known (Hypothesis Test)</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -381,8 +381,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lesson 9: Hypothesis Test for One Mean
-(Sigma Known)</h1>
+<h1 class="title toc-ignore">Lesson 9: Inference for One Mean with Sigma
+Known (Hypothesis Test)</h1>
 
 </div>
 
@@ -447,52 +447,86 @@ Tests</a></li>
 </ul>
 </div>
 
-<script type = "text/javascript">
+<script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<!--
-<div style = "float:right;width = 40%;">
-<br/>
-<div style = "padding-left:10%;">**Optional Lesson Video**</div>
-<iframe width = "90%" align = "right" src = "https://www.youtube.com/embed/videoseries?list = PLaZryQtbPQC9C5z9NWEjdRaS7h--99Kwv" frameborder = "1" allow = "autoplay; encrypted-media" allowfullscreen></iframe>
+<div style="width:50%;float:right;">
+<div id="optional-videos-for-this-lesson"
+class="section level4 tabset tabset-pills">
+<h4 class="tabset tabset-pills">Optional Videos for this Lesson</h4>
+<div id="part-1" class="section level5">
+<h5>Part 1</h5>
+<iframe id="kaltura_player_1643927368" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927368&amp;entry_id=1_7nd4vdlc" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
 </div>
-<br>
--->
-<div id="lesson-outcomes" class="section level2">
-<h2>Lesson Outcomes</h2>
-<a href = "javascript:showhide('oc')"><span
-style="font-size:8pt;">Show/Hide Outcomes</span></a>
-<div id="oc" style="display:none;">
-<p>By the end of this lesson, you should be able to:</p>
+<div id="part-2" class="section level5">
+<h5>Part 2</h5>
+<iframe id="kaltura_player_1643927438" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927438&amp;entry_id=1_33420h63" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-3" class="section level5">
+<h5>Part 3</h5>
+<iframe id="kaltura_player_1643927537" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927537&amp;entry_id=1_5pwu6g5i" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-4" class="section level5">
+<h5>Part 4</h5>
+<iframe id="kaltura_player_1643927595" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927595&amp;entry_id=1_ituoja82" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-5" class="section level5">
+<h5>Part 5</h5>
+<iframe id="kaltura_player_1643927653" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927653&amp;entry_id=1_krie6f5w" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+<div id="part-6" class="section level5">
+<h5>Part 6</h5>
+<iframe id="kaltura_player_1643927718" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/47306393/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player_1643927718&amp;entry_id=1_n39z2vgy" width="480" height="270" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="section" class="section level4">
+<h4></h4>
+<p>Data files used in the videos:</p>
 <ul>
-<li>Perform a hypothesis test for a single mean with σ known using the
-following steps:
-<ul>
-<li>State the null and alternative hypotheses</li>
-<li>State the level of significance (α)</li>
-<li>Create numerical and graphical summaries of the data</li>
-<li>Calculate the test-statistic by hand</li>
-<li>Determine the P-value using the normal distribution</li>
-<li>Assess statistical significance by comparing the P-value to the
-level of significance (α)</li>
-<li>State the appropriate conclusion for the hypothesis test</li>
-<li>Check the requirements for the hypothesis test</li>
-</ul></li>
-<li>Interpret Type I and II errors in the context of a hypothesis
-test</li>
-<li>Define the level of significance (α)</li>
-<li>Explain the P-value</li>
+<li><a href="./Data/ConferenceTalkLengths.xlsx">Conference Talk
+Lengths.xlsx</a><br />
+</li>
+<li><a href="Data/BalloonFloatTimes.xlsx">Balloon Float
+Times.xlsx</a></li>
 </ul>
 </div>
+</div>
+<div style="clear:both;">
+
+</div>
+<div id="lesson-outcomes" class="section level2">
+<h2>Lesson Outcomes</h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ul>
+<li>Conduct a Hypothesis Test for a single mean with σ known:
+<ul>
+<li>State the null and alternative hypothesis.</li>
+<li>Calculate the test-statistic and p-value of the hypothesis
+test.</li>
+<li>Assess the statistical significance by comparing the p-value to the
+α-level.</li>
+<li>Check the requirements for the hypothesis test.</li>
+<li>Show the appropriate connections between the numerical and graphical
+summaries that support this hypothesis test.</li>
+<li>Draw a correct conclusion for the hypothesis test.</li>
+<li>Interpret a Type I and II error.</li>
+</ul></li>
+</ul>
 <p><br></p>
-<p><img src = "Images/StepsAll.png"> <br></p>
+<p><img src="Images/StepsAll.png"> <br></p>
 </div>
 <div id="the-ethan-allen" class="section level2">
 <h2>The Ethan Allen</h2>
-<p><img src = "Images/The_Judge_Ben_Wiles_(TJG).jpg">
+<p><img src="Images/The_Judge_Ben_Wiles_(TJG).jpg">
 <!--|From [http://commons.wikimedia.org/wiki/File:The_Judge_Ben_Wiles_(TJG).jpg commons.wikimedia.org]--></p>
 <p>A tragic accident on Lake George in New York, USA, called into
 question the safety regulations for commercial tour boats. On October 5,
@@ -503,7 +537,7 @@ force caused by dipping beneath the surface caused the vessel to list,
 shifting the passengers to one side of the boat. After this shift in the
 weight distribution, the boat capsized killing 20 passengers and
 injuring 9 others.</p>
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <p>We assume that at the time of the accident, the stability
 requirements were based on the Coast Guard criteria of a mean of 140
 pounds per person. So, the Ethan Allen was supposed to be able to safely
@@ -518,7 +552,8 @@ is appropriate: “The mean weight of tour boat passengers is 140 pounds.”
 We call this the null hypothesis. The <strong>null hypothesis</strong>
 is a statement of the “status quo”, or the value typically considered to
 be appropriate. Notice that the null hypothesis is expressed with a
-statement involving equality ($ = $).</p>
+statement involving equality (<span
+class="math inline">\(=\)</span>).</p>
 <p><span class="math inline">\(H_0:~~\mu = 140\)</span> pounds</p>
 <p>In contrast to the null hypothesis, we write the alternative
 hypothesis. This is typically the statement that a researcher suspects
@@ -539,7 +574,7 @@ hypothesis test, we gather evidence against the requirement that the
 null hypothesis is true. If we get enough evidence against the null
 hypothesis, we reject it. If we do not have sufficient evidence against
 the null hypothesis, we do not reject it.</p>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <p>How do we gather evidence against a null hypothesis? We collect
 data.</p>
 <p>The marine accident report gives the weight (in pounds) of each of
@@ -621,7 +656,7 @@ the passengers and the crew member. These values are reproduced below.
 </table>
 <!--
 <center>
-{| style = "text-align: center; width: 35%"
+{| style="text-align: center; width: 35%"
 | 189
 | 110
 | 144
@@ -679,30 +714,24 @@ the passengers and the crew member. These values are reproduced below.
 |}
 </center>
 -->
-<p>Download these data from <a
-href="https://byuistats.github.io/M221R/data/ethan_allen.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/ethan_allen.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <p>To help us understand the data, we first create a graph summarizing
 the values.</p>
 <center>
 <strong>Weights of Passengers and Crew on the Ethan Allen</strong><br>
-<img src = "Images/EthanAllen-PassengerWeights-Histogram.png">
+<img src="Images/EthanAllen-PassengerWeights-Histogram.png">
 </center>
 <p>Next, we compute summary statistics. The sample size is <span
-class="math inline">\(n = 48\)</span>, and the sample mean is <span
-class="math inline">\(\bar{x} = 177.6\)</span> pounds. According to the
+class="math inline">\(n=48\)</span>, and the sample mean is <span
+class="math inline">\(\bar{x}=177.6\)</span> pounds. According to the
 CDC, the standard deviation of the weights of individuals in the United
-States is <span class="math inline">\(\sigma = 26.7\)</span> pounds.
+States is <span class="math inline">\(\sigma=26.7\)</span> pounds.
 <!-- CITE: http://www.cdc.gov/growthcharts/2000growthchart-us.pdf, page 154-155.--></p>
 <p>Considering the data as a random sample of all possible tour boat
 passengers, it appears that the true mean weight of tour boat passengers
 might be greater than 140 pounds. However, we need to check this with a
 formal test of our hypotheses.</p>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/Step4.png"></p>
 <p>It is not sufficient to gain an intuitive sense for the data. We will
 test if there is sufficient evidence to reject the null hypothesis that
 the true mean weight of tour boat passengers is 140 pounds.</p>
@@ -713,28 +742,27 @@ class="math inline">\(P\)</span>-value.</p>
 <p>To find the <span class="math inline">\(P\)</span>-value, we first
 calculate the number of standard deviations that <span
 class="math inline">\(\bar{x}\)</span> is away from the assumed value of
-true mean <span class="math inline">\(\mu = 140\)</span> pounds. This is
+true mean <span class="math inline">\(\mu=140\)</span> pounds. This is
 our <span class="math inline">\(z\)</span>-score. Then we use the applet
 to determine the probability of observing a value of <span
 class="math inline">\(z\)</span> that is as large or larger than the
 value we observed.</p>
-<p><span class="math display">\[\displaystyle{ z = \frac{ \bar{x} −
-\mu}{\sigma/\sqrt{n}} = \frac{177.6−140}{26.7/\sqrt{48}} = 9.757
+<p><span class="math display">\[\displaystyle{ z= \frac{ \bar{x} −
+\mu}{\sigma/\sqrt{n}} = \frac{177.6−140}{26.7/\sqrt{48}}=9.757
 }\]</span></p>
 <p>We use the applet to determine the probability of observing a value
 of <span class="math inline">\(z\)</span> that is as large or larger
 than <span class="math inline">\(9.757\)</span>. This is the same as the
 probability of observing a value of <span class="math inline">\(\bar{x}
-= 177.6\)</span> or more pounds, given that the true mean really is
-<span class="math inline">\(\mu = 140\)</span> pounds.</p>
-<p><img src = "Images/L09_ethan_allen_applet.png"></p>
-<p>The area to the right of <span class="math inline">\(z =
-9.757\)</span> is so small, the normal probability applet gives the area
-as “8.6086e-23.” This is how a computer represents scientific notation.
-This number is actually <span class="math inline">\(8.6086 \times
-10^{-23}\)</span> or in other words, 0.000 000 000 000 000 000 000 086
-086. This is the probability that a mean of <span
-class="math inline">\(\bar x = 177.6\)</span> pounds or greater was
+=177.6\)</span> or more pounds, given that the true mean really is <span
+class="math inline">\(\mu = 140\)</span> pounds.</p>
+<p>The area to the right of <span class="math inline">\(z=9.757\)</span>
+is so small, the normal probability applet gives the area as
+“8.6086e-23.” This is how a computer represents scientific notation.
+This number is actually <span
+class="math inline">\(8.6086ex10^{-23}\)</span> or in other words, 0.000
+000 000 000 000 000 000 086 086. This is the probability that a mean of
+<span class="math inline">\(\bar x=177.6\)</span> pounds or greater was
 observed just by chance assuming the true mean is <span
 class="math inline">\(\mu = 140\)</span> lbs. This is very, very
 unlikely. A more plausible explanation is that the true mean weight
@@ -744,19 +772,19 @@ population is greater than 140 pounds.</p>
 <span class="math inline">\(H_0\)</span> is strong enough to conclude
 that if every seat on the Ethan Allen was occupied, that the boat would
 be carrying a greater load than it was certified to handle.</p>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <p>As a result of this accident, the United States government took
 several actions. The Coast Guard stability regulations were changed, and
 the assumed average weight per person was increased to 185 pounds.
 <!-- [[CITE: http://www.uscg.mil/hq/cg5/cg5212/docs/secg12142010.pdf]]-->
 As a result, the safety of public vessels has been improved. <!--
 
-[[FOLLOW-UP QUESTION:   FIND THE TRUE MEAN WEIGHT OF ADULTS IN THE US.  FIND THE PROBABILITY THAT A RANDOM SAMPLE OF n = 48 WILL HAVE A MEAN GREATER THAN 185 POUNDS.]]
+[[FOLLOW-UP QUESTION:   FIND THE TRUE MEAN WEIGHT OF ADULTS IN THE US.  FIND THE PROBABILITY THAT A RANDOM SAMPLE OF n=48 WILL HAVE A MEAN GREATER THAN 185 POUNDS.]]
 
 [[(AGES 20--74 YEARS) MU = 175.9 LBS, SIGMA = 64.9 LBS AS OF 2002. SOURCE: ADVANCE DATA FROM VITAL HEALTH STATISTICS, NUMBER 347, 27 OCTOBER 2994 (PUBLISHED BY THE CDC) http://www.cdc.gov/nchs/data/ad/ad347.pdf, ACCESSED ON 14 OCTOBER 2013]]
 
 --></p>
-<p><img src = "Images/StepsAll.png"></p>
+<p><img src="Images/StepsAll.png"></p>
 <p><br></p>
 </div>
 <div id="body-temperatures-of-healthy-adults" class="section level2">
@@ -785,7 +813,7 @@ Answer the following question:
 <li>How would you design a study to determine if the mean body
 temperature of healthy adults is 98.6° ?</li>
 </ol>
-<a href = "javascript:showhide('Q1')"><span
+<a href="javascript:showhide('Q1')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q1" style="display:none;">
 <ul>
@@ -804,20 +832,15 @@ temperature of 98.6 degrees F.<br />
 <p>A group of researchers led by Philip A. Mackowiak, MD, conducted a
 study to assess the true mean body temperatures of healthy
 adults.<!-- \cite{Mackowiak92}--> They selected <span
-class="math inline">\(n = 148\)</span> subjects between the ages of 18
-and 40 years old, representative of the general population. Each
-volunteer was given a physical to assure that they were not ill at the
-time of the data collection. Their axillary body temperature was
-measured and reported in a paper published in the “Journal of the
-American Medical Association”. <!-- \cite{Mackowiak92}--> These data
-were extracted and are presented in a data file at <a
-href="https://byuistats.github.io/M221R/data/body_temp.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/body_temp.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
-<p>The body temperatures in the file are given in degrees Fahrenheit.
-Based on historical data, the standard deviation of body temperatures is
+class="math inline">\(n=148\)</span> subjects between the ages of 18 and
+40 years old, representative of the general population. Each volunteer
+was given a physical to assure that they were not ill at the time of the
+data collection. Their axillary body temperature was measured and
+reported in a paper published in the “Journal of the American Medical
+Association”. <!-- \cite{Mackowiak92}--> These data were extracted and
+are presented in the file <a href="./Data/BodyTemp.xlsx">BodyTemp</a>.
+The body temperatures in the file are given in degrees Fahrenheit. Based
+on historical data, the standard deviation of body temperatures is
 assumed to be <span class="math inline">\(\sigma = 0.675\)</span>°
 F.</p>
 <div class="QuestionsHeading">
@@ -829,7 +852,7 @@ Answer the following questions:
 Dr. Mackowiak to determine if the mean body temperature is really 98.6°
 F?</li>
 </ol>
-<a href = "javascript:showhide('Q2')"><span
+<a href="javascript:showhide('Q2')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q2" style="display:none;">
 <ul>
@@ -839,10 +862,10 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 </div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Find the mean of the <span class="math inline">\(n = 148\)</span>
-body temperatures.</li>
+<li>Find the mean of the <span class="math inline">\(n=148\)</span> body
+temperatures.</li>
 </ol>
-<a href = "javascript:showhide('Q3')"><span
+<a href="javascript:showhide('Q3')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q3" style="display:none;">
 <ul>
@@ -855,10 +878,10 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 <li>Create a histogram illustrating the body temperatures of the
 individuals in the Mackowiak study.</li>
 </ol>
-<a href = "javascript:showhide('Q4')"><span
+<a href="javascript:showhide('Q4')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q4" style="display:none;">
-<p><img src = "Images/BodyTemp-Hist-Excel_v2.png"></p>
+<p><img src="Images/BodyTemp-Hist-Excel_v2.png"></p>
 </div>
 <p><br></p>
 <ol start="5" style="list-style-type: decimal">
@@ -866,7 +889,7 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 of the data (Question 4,) does it appear that the mean body temperature
 of healthy adults is significantly different from 98.6° F?</li>
 </ol>
-<a href = "javascript:showhide('Q5')"><span
+<a href="javascript:showhide('Q5')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q5" style="display:none;">
 <ul>
@@ -879,7 +902,7 @@ sample mean and population mean are very close to each other.</li>
 <li>What is the shape of the distribution of all possible sample means?
 How do we know?</li>
 </ol>
-<a href = "javascript:showhide('Q6')"><span
+<a href="javascript:showhide('Q6')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q6" style="display:none;">
 <ul>
@@ -891,13 +914,13 @@ Theorem guarantees this result.</li>
 <p><br></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Assuming that the true mean body temperature of healthy adults is
-<span class="math inline">\(\mu = 98.6\)</span>° F, and the population
+<span class="math inline">\(\mu=98.6\)</span>° F, and the population
 standard deviation is <span class="math inline">\(\sigma =
 0.675\)</span>° F,<!-- \cite{SundLevander02}--> find the mean and
 standard deviation of the random variable <span
 class="math inline">\(\bar{x}\)</span>.</li>
 </ol>
-<a href = "javascript:showhide('Q7')"><span
+<a href="javascript:showhide('Q7')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q7" style="display:none;">
 <ul>
@@ -914,7 +937,7 @@ a standard deviation of <span class="math inline">\(\displaystyle{
 class="math inline">\(z\)</span>-score for the mean you calculated in
 Question 3.</li>
 </ol>
-<a href = "javascript:showhide('Q8')"><span
+<a href="javascript:showhide('Q8')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q8" style="display:none;">
 <center>
@@ -930,7 +953,7 @@ extreme (further away from 0) than the <span
 class="math inline">\(z\)</span>-score you calculated in Question
 8?</li>
 </ol>
-<a href = "javascript:showhide('Q9')"><span
+<a href="javascript:showhide('Q9')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q9" style="display:none;">
 <ul>
@@ -942,11 +965,12 @@ applet. This gives a <span class="math inline">\(P\)</span>-value of
 <p><br></p>
 <ol start="10" style="list-style-type: decimal">
 <li>Assuming the mean body temperature really is 98.6° F, how likely
-would it be for a random sample of <span class="math inline">\(n =
-148\)</span> people in the population to have a mean body temperature
-that is as extreme as was observed in Question 3?</li>
+would it be for a random sample of <span
+class="math inline">\(n=148\)</span> people in the population to have a
+mean body temperature that is as extreme as was observed in Question
+3?</li>
 </ol>
-<a href = "javascript:showhide('Q10')"><span
+<a href="javascript:showhide('Q10')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q10" style="display:none;">
 <ul>
@@ -964,12 +988,12 @@ extreme as this?</li>
 body temperatures.</li>
 <li>B. The researchers did not measure the temperature correctly.</li>
 <li>C. The true mean body temperature is different than 98.6° F.</li>
-<li>D. The sample size of <span class="math inline">\(n = 148\)</span>
-is not large enough.</li>
+<li>D. The sample size of <span class="math inline">\(n=148\)</span> is
+not large enough.</li>
 <li>E. The data were collected on a cold day.</li>
 <li>F. The data are not normally distributed.</li>
 </ul>
-<a href = "javascript:showhide('Q11')"><span
+<a href="javascript:showhide('Q11')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q11" style="display:none;">
 <ul>
@@ -1045,7 +1069,7 @@ are equal to a particular value. Sample statistics are calculated from
 our data, so there is no reason to do any test to assess what their
 value is.</p>
 <!--
-{| class = "wikitable"
+{| class="wikitable"
 |-
 |
 See Lesson \ref{Reading:SampDistOfXbar} to review the concept of the distribution of sample means, $\bar{x}$.
@@ -1053,10 +1077,10 @@ See Lesson \ref{Reading:SampDistOfXbar} to review the concept of the distributio
 -->
 <p>The null hypothesis will always be a statement involving equality.
 This gives us a starting point in our analysis. In the reading for <a
-href="Lesson05.html">Normal Distributions</a>, we assumed that the true
-mean body temperature was 98.6° F. This becomes the assumed value of the
-mean of the distribution of the random variable <span
-class="math inline">\(\bar{x}\)</span>.</p>
+href="Lesson05.html" target="_blank">Normal Distributions</a>, we
+assumed that the true mean body temperature was 98.6° F. This becomes
+the assumed value of the mean of the distribution of the random variable
+<span class="math inline">\(\bar{x}\)</span>.</p>
 <p>The scientific method demands that we make a hypothesis (a claim or
 an educated guess). We assume that the null hypothesis is true and
 gather evidence against it. In other words, we “do research” (e.g.,
@@ -1077,18 +1101,19 @@ the null hypothesis.</p>
 body temperature of healthy adults actually is <span
 class="math inline">\(\mu = 98.6^{\circ}\)</span> F. Wanting to test
 this claim, researchers collected data on the mean body temperatures of
-<span class="math inline">\(n = 148\)</span> healthy adults. The mean of
+<span class="math inline">\(n=148\)</span> healthy adults. The mean of
 the observed values was <span class="math inline">\(\bar{x} =
 98.23^{\circ}\)</span> F.</p>
 <p>A histogram of the body temperature data shows a nice bell-shaped
-distribution. Also, the sample mean, <span class="math inline">\(\bar{x}
-= 98.23^\circ\)</span> F, appears to be reasonably close to the assumed
-population mean, <span class="math inline">\(\mu = 98.6^\circ\)</span>
-F. However, it is important to remember that the standard deviation of
-<span class="math inline">\(\bar{x}\)</span> is <span
-class="math inline">\(\frac{\sigma}{\sqrt{n}} = \frac{0.675}{\sqrt{148}}
-= 0.055\)</span>. We need to determine how far <span
-class="math inline">\(\bar{x}\)</span> is from <span
+distribution. Also, the sample mean, <span
+class="math inline">\(\bar{x}=98.23^\circ\)</span> F, appears to be
+reasonably close to the assumed population mean, <span
+class="math inline">\(\mu=98.6^\circ\)</span> F. However, it is
+important to remember that the standard deviation of <span
+class="math inline">\(\bar{x}\)</span> is <span
+class="math inline">\(\frac{\sigma}{\sqrt{n}} =
+\frac{0.675}{\sqrt{148}}=0.055\)</span>. We need to determine how far
+<span class="math inline">\(\bar{x}\)</span> is from <span
 class="math inline">\(\mu\)</span>. Since we know <span
 class="math inline">\(\sigma\)</span> in this case, we can use the <span
 class="math inline">\(z\)</span>-score to determine if <span
@@ -1116,24 +1141,25 @@ class="math inline">\(z\)</span>) at least as extreme as the one you
 calculated, assuming the null hypothesis is true. In other words, our
 <span class="math inline">\(P\)</span>-value is the probability that we
 would get a <span class="math inline">\(z\)</span>-score that is as
-extreme or more extreme than <span class="math inline">\(z =
--6.6685\)</span>, assuming the true mean is 98.6° F.</p>
+extreme or more extreme than <span
+class="math inline">\(z=-6.6685\)</span>, assuming the true mean is
+98.6° F.</p>
 <p>In advance of collecting the data, we may have had no idea whether
 the true mean would be greater than 98.6 or less than 98.6, if 98.6° F
 was not the right value. This is why we used a two-sided alternative
 hypothesis (<span class="math inline">\(H_a: \mu \ne 98.6\)</span>.)
 When computing the <span class="math inline">\(P\)</span>-value, we need
 to continue this logic. So, we would have considered a value of <span
-class="math inline">\(z = -6.6685\)</span> to be equally as extreme as
-<span class="math inline">\(z = 6.6685\)</span>.</p>
+class="math inline">\(z=-6.6685\)</span> to be equally as extreme as
+<span class="math inline">\(z=6.6685\)</span>.</p>
 <p>In the case of a two-sided test for one mean with <span
 class="math inline">\(\sigma\)</span> known, the <span
 class="math inline">\(P\)</span>-value is the area in the tails beyond
 <span class="math inline">\(\pm z\)</span>, in both the left and right
 tails of the standard normal distribution.</p>
-<p><img src = "Images/Applet2584E-11-twosided-LoR.png"></p>
+<p><img src="Images/Applet2584E-11-twosided-LoR.png"></p>
 <p>Using the applet, we shade the area in both tails and then type in
-the value of <span class="math inline">\(z = -6.669\)</span>. The applet
+the value of <span class="math inline">\(z=-6.669\)</span>. The applet
 reports an area of “2.584E-11.” This is the way computers indicate
 scientific notation. Expressed using more traditional notation, we
 get</p>
@@ -1150,7 +1176,7 @@ notation using the letter “E.” For example, to write <span
 class="math inline">\(7.8\times 10^3\)</span>, a computer would output
 the expression 7.8E3. For example, the number <span
 class="math inline">\(7.8\times 10^3\)</span> is <span
-class="math inline">\(7.8 \times 1000 = 7800\)</span>, since <span
+class="math inline">\(7.8 \times 1000=7800\)</span>, since <span
 class="math inline">\(10^3 = 10 \cdot 10 \cdot 10 = 1000\)</span>.
 Another way to think of this is to move the decimal place in the number
 7.8 three places to the right, which gives you <span
@@ -1201,9 +1227,8 @@ the alternative hypothesis. If the alternative hypothesis is two-sided
 class="math inline">\(\ne\)</span>,) then the <span
 class="math inline">\(P\)</span>-value is the area in the tails further
 than <span class="math inline">\(\pm z\)</span>. That is, it is the area
-to the left of <span class="math inline">\(z = -6.669\)</span> plus the
-area to the right of <span class="math inline">\(z =
-+6.669\)</span>.</p>
+to the left of <span class="math inline">\(z=-6.669\)</span> plus the
+area to the right of <span class="math inline">\(z=+6.669\)</span>.</p>
 <p>If the alternative hypothesis involves less than (such as <span
 class="math inline">\(\mu&lt;98.6\)</span>,) we call it a left-tailed
 test. For a left-tailed test, the <span
@@ -1216,13 +1241,13 @@ test statistic, <span class="math inline">\(z\)</span>.</p>
 <p>In cases of very large or very small <span
 class="math inline">\(z\)</span> statistics sometimes the shaded area is
 so small it can’t be seen. This is the case for <span
-class="math inline">\(z = -6.669\)</span>. It is such an extreme value
-for <span class="math inline">\(z\)</span>, it is hard to see the actual
+class="math inline">\(z=-6.669\)</span>. It is such an extreme value for
+<span class="math inline">\(z\)</span>, it is hard to see the actual
 shading. However, shading is happening and the applet is calculating the
 right p-value. To help you visually see how the shading works, the three
 possibilities for alternative hypotheses are illustrated in the figures
-below, using a less extreme value of <span class="math inline">\(z =
--1.6\)</span>.</p>
+below, using a less extreme value of <span
+class="math inline">\(z=-1.6\)</span>.</p>
 <center>
 <table>
 <thead>
@@ -1282,17 +1307,17 @@ Right-tailed
 <tr class="odd">
 <td>
 <p>
-<img src = "Images/Applet-TwoTail-LoRes.png">
+<img src="Images/Applet-TwoTail-LoRes.png">
 </p>
 </td>
 <td>
 <p>
-<img src = "Images/Applet-LeftTail-LoRes.png">
+<img src="Images/Applet-LeftTail-LoRes.png">
 </p>
 </td>
 <td>
 <p>
-<img src = "Images/Applet-RightTail-LoRes.png">
+<img src="Images/Applet-RightTail-LoRes.png">
 </p>
 </td>
 </tr>
@@ -1301,14 +1326,14 @@ Right-tailed
 </center>
 <!-- Old table
 <center>
-{| class = "wikitable"
+{| class="wikitable"
 ! Two-tailed !! Left-tailed !! Right-tailed
-|- align = "center"
+|- align="center"
 | $H_0:~~\mu = 98.6$ || $H_0:~~\mu = 98.6$ || $H_0:~~\mu = 98.6$
-|- align = "center"
+|- align="center"
 | $H_a:~~\mu \ne 98.6$ || $H_a:~~\mu < 98.6$ || $H_a:~~\mu > 98.6$
-|- align = "center"
-| <img src = "Images/Applet-TwoTail-LoRes.png"> || <img src = "Images/Applet-LeftTail-LoRes.png"> || <img src = "Images/Applet-RightTail-LoRes.png">
+|- align="center"
+| <img src="Images/Applet-TwoTail-LoRes.png"> || <img src="Images/Applet-LeftTail-LoRes.png"> || <img src="Images/Applet-RightTail-LoRes.png">
 |}
 </center>
 -->
@@ -1340,12 +1365,12 @@ Small <span class="math inline">\(P\)</span>-value
 <tr class="odd">
 <td>
 <figure>
-<img src = "Images/Applet-largeP-LoRes.png" width = "300">
+<img src="Images/Applet-largeP-LoRes.png" width="300">
 </figure>
 </td>
 <td>
 <figure>
-<img src = "Images/Applet-smallP-LoRes.png">
+<img src="Images/Applet-smallP-LoRes.png">
 </figure>
 </td>
 </tr>
@@ -1366,25 +1391,25 @@ Reject <span class="math inline">\(H_0\)</span>
 </center>
 <!-- Old table
 <center>
-{| class = "wikitable"
+{| class="wikitable"
 ! Large $P$-value !! Small $P$-value
-|- align = "center"
+|- align="center"
 | [[File:Applet-largeP-LoRes.png">
-|- align = "center"
+|- align="center"
 | Fail to reject $H_0$ || Reject $H_0$
 |}
 </center>
 -->
 <p>In the case of the body temperatures, a large <span
-class="math inline">\(z\)</span>-score (<span class="math inline">\(z =
--6.669\)</span>) led to a small <span
+class="math inline">\(z\)</span>-score (<span
+class="math inline">\(z=-6.669\)</span>) led to a small <span
 class="math inline">\(P\)</span>-value (the area in the tails.) We
 observed a value for <span class="math inline">\(\bar{x}\)</span> that
-was very far from <span class="math inline">\(\mu = 98.6\)</span>.
+was very far from <span class="math inline">\(\mu=98.6\)</span>.
 Strictly due to chance, it would be very unlikely to observe a mean of
-<span class="math inline">\(\bar{x} = 98.23^\circ\)</span> F in a random
-sample of <span class="math inline">\(n = 148\)</span> if the true mean
-is 98.6° F.</p>
+<span class="math inline">\(\bar{x}=98.23^\circ\)</span> F in a random
+sample of <span class="math inline">\(n=148\)</span> if the true mean is
+98.6° F.</p>
 </div>
 </div>
 <div id="level-of-significance-alpha" class="section level3">
@@ -1405,11 +1430,11 @@ remember the decision rule using the couplet:<br /></p>
 the null.</strong></p>
 <!--
 <center>
-{| class = "wikitable"
+{| class="wikitable"
 |-
 | **Memory Aid:** <br>
 Some students find it helpful to remember the decision rule using the couplet: <br>
-|- align = "center"
+|- align="center"
 | "If the $P$ is low,<br> Reject the null."
 |}
 </center>
@@ -1455,41 +1480,42 @@ a Type I error.</p>
 small number so that the probability of committing a Type I error is
 low. The most common value for <span
 class="math inline">\(\alpha\)</span> is <span
-class="math inline">\(\alpha = 0.05\)</span>. This is equal to <span
+class="math inline">\(\alpha=0.05\)</span>. This is equal to <span
 class="math inline">\(\frac{1}{20}\)</span>. So, when the null
 hypothesis is true, there is a one-in-twenty chance that it will be
 rejected at the 0.05 level of significance. Other common choices for
 <span class="math inline">\(\alpha\)</span> include <span
 class="math inline">\(\alpha = 0.1\)</span> and <span
-class="math inline">\(\alpha = 0.01\)</span>.</p>
+class="math inline">\(\alpha=0.01\)</span>.</p>
 <p>If committing a Type I error is undesirable, why can’t we let <span
-class="math inline">\(\alpha = 0\)</span>? This would make it impossible
+class="math inline">\(\alpha=0\)</span>? This would make it impossible
 to commit a Type I error. Actually, this would also make it impossible
-to reject “any” null hypothesis! If <span class="math inline">\(\alpha =
-0\)</span>, no matter what test we do, no matter what the data show, we
-always fail to reject the null hypothesis. This would be pointless.</p>
+to reject “any” null hypothesis! If <span
+class="math inline">\(\alpha=0\)</span>, no matter what test we do, no
+matter what the data show, we always fail to reject the null hypothesis.
+This would be pointless.</p>
 <p>A Type I error is committed when we reject a true null hypothesis.
 Another problem that can arise is to fail to reject a false null
 hypothesis. This is called a Type II error. The probability of a Type II
 error is represented by <span class="math inline">\(\beta\)</span>.</p>
 <center>
-<img src = "Images/truth_table.PNG">
+<img src="Images/truth_table.PNG">
 </center>
 <!-- <center> -->
-<!-- <table border = "1"> -->
+<!-- <table border="1"> -->
 <!-- <thead> -->
-<!-- <tr class = "header"> -->
+<!-- <tr class="header"> -->
 <!-- <th>Decision</th> -->
-<!-- <th colspan = "2"><p>    Truth</p></th> -->
+<!-- <th colspan="2"><p>    Truth</p></th> -->
 <!-- </tr> -->
 <!-- </thead> -->
 <!-- <tbody> -->
-<!-- <tr class = "odd"> -->
+<!-- <tr class="odd"> -->
 <!-- <td><p></p></td> -->
 <!-- <td><p>$H_0$ is true</p></td> -->
 <!-- <td><p>$H_0$ is false</p></td> -->
 <!-- </tr> -->
-<!-- <tr class = "even"> -->
+<!-- <tr class="even"> -->
 <!-- <td><p>Fail to<br /> -->
 <!-- reject $H_0$</p></td> -->
 <!-- <td><p>Correct<br /> -->
@@ -1497,7 +1523,7 @@ error is represented by <span class="math inline">\(\beta\)</span>.</p>
 <!-- <td><p>Type II <br /> -->
 <!-- Error</p></td> -->
 <!-- </tr> -->
-<!-- <tr class = "odd"> -->
+<!-- <tr class="odd"> -->
 <!-- <td><p>Reject $H_0$</p></td> -->
 <!-- <td><p>Type I<br /> -->
 <!-- Error</p></td> -->
@@ -1517,15 +1543,15 @@ probability of committing a Type I error) is very small, the probability
 of committing a Type II error will be large. Conversely, if <span
 class="math inline">\(\alpha\)</span> is allowed to be very large, then
 the probability of committing a Type II error will be very small. A
-level of significance of <span class="math inline">\(\alpha =
-0.05\)</span> seems to strike a good balance between the probabilities
-of committing a Type I versus a Type II error. However, there may be
-instances where it will be important to choose a different value for
-<span class="math inline">\(\alpha\)</span>. The important thing is to
-choose <span class="math inline">\(\alpha\)</span> before you collect
-your data. Typical choices of <span
-class="math inline">\(\alpha\)</span> are <span
-class="math inline">\(0.05\)</span> (most common), <span
+level of significance of <span
+class="math inline">\(\alpha=0.05\)</span> seems to strike a good
+balance between the probabilities of committing a Type I versus a Type
+II error. However, there may be instances where it will be important to
+choose a different value for <span
+class="math inline">\(\alpha\)</span>. The important thing is to choose
+<span class="math inline">\(\alpha\)</span> before you collect your
+data. Typical choices of <span class="math inline">\(\alpha\)</span> are
+<span class="math inline">\(0.05\)</span> (most common), <span
 class="math inline">\(0.1\)</span>, and <span
 class="math inline">\(0.01\)</span>.</p>
 <p>Read each of the following scenarios and answer the questions.</p>
@@ -1548,7 +1574,7 @@ Answer the following questions:
 <ol start="12" style="list-style-type: decimal">
 <li>What action would lead to a Type I error in this case?</li>
 </ol>
-<a href = "javascript:showhide('Q12')"><span
+<a href="javascript:showhide('Q12')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q12" style="display:none;">
 <ul>
@@ -1560,7 +1586,7 @@ flip flops, when in reality they were flip-flops.</li>
 <ol start="13" style="list-style-type: decimal">
 <li>What action corresponds to committing a Type II error?</li>
 </ol>
-<a href = "javascript:showhide('Q13')"><span
+<a href="javascript:showhide('Q13')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q13" style="display:none;">
 <ul>
@@ -1573,7 +1599,7 @@ technically flip flops, when in reality they were not flip-flops.</li>
 <li>In this case, is a Type I error or a Type II error more serious?
 Justify your response.</li>
 </ol>
-<a href = "javascript:showhide('Q14')"><span
+<a href="javascript:showhide('Q14')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q14" style="display:none;">
 <ul>
@@ -1604,7 +1630,7 @@ Answer the following questions:
 <li>What action by the FDA would lead to a Type I error in this
 case?</li>
 </ol>
-<a href = "javascript:showhide('Q15')"><span
+<a href="javascript:showhide('Q15')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q15" style="display:none;">
 <ul>
@@ -1617,7 +1643,7 @@ improves patient’s conditions, when in actuality it does not.</li>
 <li>What action by the FDA would be associated with committing a Type II
 error?</li>
 </ol>
-<a href = "javascript:showhide('Q16')"><span
+<a href="javascript:showhide('Q16')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q16" style="display:none;">
 <ul>
@@ -1630,7 +1656,7 @@ does not improve patients’ conditions, when in reality it does.</li>
 <li>In this case, is a Type I error or a Type II error more serious?
 Justify your response.</li>
 </ol>
-<a href = "javascript:showhide('Q17')"><span
+<a href="javascript:showhide('Q17')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q17" style="display:none;">
 <ul>
@@ -1659,7 +1685,7 @@ Answer the following questions:
 <li>What action by the FDA would lead to a Type I error in this
 case?</li>
 </ol>
-<a href = "javascript:showhide('Q18')"><span
+<a href="javascript:showhide('Q18')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q18" style="display:none;">
 <ul>
@@ -1672,7 +1698,7 @@ causes serious side effects, when it does not.</li>
 <li>What action by the FDA corresponds to committing a Type II
 error?</li>
 </ol>
-<a href = "javascript:showhide('Q19')"><span
+<a href="javascript:showhide('Q19')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q19" style="display:none;">
 <ul>
@@ -1686,7 +1712,7 @@ serious side effects.</li>
 <li>In this case, is a Type I error or a Type II error more serious?
 Justify your response.</li>
 </ol>
-<a href = "javascript:showhide('Q20')"><span
+<a href="javascript:showhide('Q20')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q20" style="display:none;">
 <ul>
@@ -1716,14 +1742,15 @@ fairly well.</p>
 that has a normal distribution with mean <span
 class="math inline">\(\mu\)</span> given in the null hypothesis
 (e.g. 98.6° F) and a known standard deviation (e.g. <span
-class="math inline">\(\sigma = 0.675^\circ\)</span> F.)</p>
+class="math inline">\(\sigma=0.675^\circ\)</span> F.)</p>
 <p>It turns out that the procedure actually works quite well–even if the
 data are not normally distributed–as long as <span
 class="math inline">\(\bar{x}\)</span> follows a normal distribution.
 Under what conditions will <span class="math inline">\(\bar{x}\)</span>
 be normally distributed? (Think about it.)</p>
-<p>In the reading for <a href="Lesson06.html">Distribution of Sample
-Means &amp; The Central Limit Theorem</a>, we learned that <span
+<p>In the reading for <a href="Lesson06.html"
+target="_blank">Distribution of Sample Means &amp; The Central Limit
+Theorem|Lesson 6</a>, we learned that <span
 class="math inline">\(\bar{x}\)</span> will follow a normal distribution
 if the data are drawn from a normal distribution or if the sample size
 (<span class="math inline">\(n\)</span>) is large.</p>
@@ -1741,20 +1768,20 @@ true:
 <li>The sample size is large.</li>
 </ul></li>
 </ul>
-<p><img src = "Images/StepsAll.png"></p>
+<p><img src="Images/StepsAll.png"></p>
 </div>
 <div id="worked-example-body-temperatures" class="section level3">
 <h3>Worked Example: Body Temperatures</h3>
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <p><strong>Summarize the relevant background information</strong></p>
 <p>The following example illustrates how to conduct the hypothesis test
 for a single mean with <span class="math inline">\(\sigma\)</span>
 known. We will conduct a hypothesis test to determine if the true mean
 body temperature of healthy adults is 98.6° F, using the <span
-class="math inline">\(\alpha = 0.05\)</span> level of significance. We
+class="math inline">\(\alpha=0.05\)</span> level of significance. We
 will assume that the population standard deviation is known to be <span
-class="math inline">\(\sigma = 0.675^\circ\)</span> F. This will
-summarize the work presented in the paragraphs above.</p>
+class="math inline">\(\sigma=0.675^\circ\)</span> F. This will summarize
+the work presented in the paragraphs above.</p>
 <p><strong>State the null and alternative hypotheses and the level of
 significance</strong></p>
 <p><span class="math display">\[
@@ -1763,12 +1790,12 @@ H_0:&amp; \mu = 98.6 \\
 H_a:&amp; \mu \ne 98.6
 \end{align}
 \]</span> <span class="math display">\[ \alpha = 0.05 \]</span></p>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <p><strong>Describe the data collection procedures</strong></p>
 <p>The body temperatures of <span class="math inline">\(n = 148\)</span>
 healthy adults were measured using calibrated thermometers in a clinical
 setting.</p>
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <p><strong>Give the relevant summary statistics</strong></p>
 <p><span class="math display">\[
 \begin{array}{l}
@@ -1779,8 +1806,8 @@ n = 148
 \]</span></p>
 <p><strong>Make an appropriate graph (e.g. a histogram) to illustrate
 the data</strong></p>
-<p><img src = "Images/BodyTemp-Histogram-LoRes.png"></p>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/BodyTemp-Histogram-LoRes.png"></p>
+<p><img src="Images/Step4.png"></p>
 <p><strong>Verify the requirements have been met</strong></p>
 <ul>
 <li>We assume that the individuals chosen to participate in the study
@@ -1792,11 +1819,11 @@ distributed, so even with a small sample size, <span
 class="math inline">\(\bar{x}\)</span> would be normal.)</li>
 </ul>
 <p><strong>Give the test statistic and its value</strong></p>
-<p><span class="math display">\[z = -6.669\]</span></p>
+<p><span class="math display">\[z=-6.669\]</span></p>
 <p><strong>Mark the test statistic and <span
 class="math inline">\(P\)</span>-value on a graph of the sampling
 distribution (i.e. the standard normal curve)</strong></p>
-<p><img src = "Images/BodyTemp-AppletPvalue.png"></p>
+<p><img src="Images/BodyTemp-AppletPvalue.png"></p>
 <p><strong>Find the <span class="math inline">\(P\)</span>-value and
 compare it to the level of significance</strong></p>
 <p><span class="math display">\[P\textrm{-value} = 2.57552 \times
@@ -1805,12 +1832,12 @@ compare it to the level of significance</strong></p>
 <p>Since the <span class="math inline">\(P\)</span>-value is less than
 <span class="math inline">\(\alpha\)</span>, we reject the null
 hypothesis.</p>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <p><strong>Present your conclusion in an English sentence, relating the
 result to the context of the problem</strong></p>
 <p>There is sufficient evidence to suggest that the true mean body
 temperature of healthy adults is different from 98.6° F.</p>
-<p><img src = "Images/StepsAll.png"></p>
+<p><img src="Images/StepsAll.png"></p>
 </div>
 </div>
 <div id="worked-example-perceived-health-after-a-cardiac-arrest"
@@ -1822,35 +1849,30 @@ hospital<!-- \cite{Bunch03} -->. The long-term health of the patients
 was assessed using the Short-Form General Health Survey
 (SF-36)<!-- \cite{Ware92} --> at the time of their last follow up visit.
 The SF-36 is normalized so the mean score in the general population is
-<span class="math inline">\(\mu = 50\)</span> and the standard deviation
-is <span class="math inline">\(\sigma =
-10\)</span><!-- \cite{Jenkinson99} -->. The minimum score is 0 and the
-maximum score is 100. Lower scores on the SF-36 indicate a poorer
-quality of health.</p>
+<span class="math inline">\(\mu=50\)</span> and the standard deviation
+is <span
+class="math inline">\(\sigma=10\)</span><!-- \cite{Jenkinson99} -->. The
+minimum score is 0 and the maximum score is 100. Lower scores on the
+SF-36 indicate a poorer quality of health.</p>
 <p>Using the 0.05 level of significance, we will conduct a hypothesis
 test to determine if the mean perceived general health level among
 cardiac arrest survivors is less than 50. In other words, we want to
 know if the mean perceived overall health is lower among cardiac arrest
 survivors than in the general population.</p>
 <p>Dr. Bunch summarized the responses in a figure, <!--\cite{Bunch03}-->
-from which the data were extracted. These data are given in the data
-file at <a
-href="https://byuistats.github.io/M221R/data/cardiac_arrest.xlsx"
-class="uri">https://byuistats.github.io/M221R/data/cardiac_arrest.xlsx</a>.
-You can <a
-href="https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data">click
-here</a> for instructions on how to import the dataset into R.</p>
+from which the data were extracted. These data are given in the file <a
+href="./Data/CardiacArrestHealth.xlsx">CardiacArrestHealth</a>.</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
 <div class="Questions">
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <ol start="21" style="list-style-type: decimal">
-<li>Summarize the relevant background information.=
-<a href = "javascript:showhide('Q21')"><span
-style="font-size:8pt;">Show/Hide Solution</span></a>
-<div id = "Q21" style = "display:none;"></li>
+<li>Summarize the relevant background information.</li>
 </ol>
+<a href="javascript:showhide('Q21')"><span
+style="font-size:8pt;">Show/Hide Solution</span></a>
+<div id="Q21" style="display:none;">
 <ul>
 <li>The long-term health of patients who had previously suffered a
 cardiac arrest were studied. The researchers want to know if these
@@ -1869,7 +1891,7 @@ score of those who have had a cardiac arrest is less than 50.</li>
 <li>State the null and alternative hypotheses and the level of
 significance.</li>
 </ol>
-<a href = "javascript:showhide('Q22')"><span
+<a href="javascript:showhide('Q22')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q22" style="display:none;">
 <center>
@@ -1886,26 +1908,26 @@ H_a:~~\mu &lt; 50\\
 </ul>
 </div>
 <p><br></p>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <ol start="23" style="list-style-type: decimal">
 <li>Describe the data collection procedures.</li>
 </ol>
-<a href = "javascript:showhide('Q23')"><span
+<a href="javascript:showhide('Q23')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q23" style="display:none;">
 <ul>
-<li>The researchers collected data from <span class="math inline">\(n =
-50\)</span> patients who had suffered a cardiac arrest outside a
-hospital. The data were collected using the SF-36 survey
-instrument.</li>
+<li>The researchers collected data from <span
+class="math inline">\(n=50\)</span> patients who had suffered a cardiac
+arrest outside a hospital. The data were collected using the SF-36
+survey instrument.</li>
 </ul>
 </div>
 <p><br></p>
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <ol start="24" style="list-style-type: decimal">
 <li>Give the relevant summary statistics.</li>
 </ol>
-<a href = "javascript:showhide('Q24')"><span
+<a href="javascript:showhide('Q24')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q24" style="display:none;">
 <center>
@@ -1922,17 +1944,17 @@ n = 50
 <ol start="25" style="list-style-type: decimal">
 <li>Make an appropriate graph to illustrate the data.</li>
 </ol>
-<a href = "javascript:showhide('Q25')"><span
+<a href="javascript:showhide('Q25')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q25" style="display:none;">
-<p><img src = "Images/CardiacArrestHealth-Histogram.png"></p>
+<p><img src="Images/CardiacArrestHealth-Histogram.png"></p>
 </div>
 <p><br></p>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/Step4.png"></p>
 <ol start="26" style="list-style-type: decimal">
 <li>Verify the requirements have been met.</li>
 </ol>
-<a href = "javascript:showhide('Q26')"><span
+<a href="javascript:showhide('Q26')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q26" style="display:none;">
 <ul>
@@ -1946,13 +1968,12 @@ distributed, because the sample size is large.</li>
 <ol start="27" style="list-style-type: decimal">
 <li>Give the test statistic and its value.</li>
 </ol>
-<a href = "javascript:showhide('Q27')"><span
+<a href="javascript:showhide('Q27')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q27" style="display:none;">
 <center>
-<span class="math inline">\(\displaystyle{ z = \frac{\bar{x} -
-\mu}{\sigma / \sqrt{n}} = \frac{47.82 - 50}{10 / \sqrt{50}} = -1.5415
-}\)</span>
+<span class="math inline">\(\displaystyle{ z=\frac{\bar{x} - \mu}{\sigma
+/ \sqrt{n}} = \frac{47.82 - 50}{10 / \sqrt{50}} = -1.5415 }\)</span>
 </center>
 </div>
 <p><br></p>
@@ -1961,17 +1982,17 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 class="math inline">\(P\)</span>-value on a graph of the sampling
 distribution.</li>
 </ol>
-<a href = "javascript:showhide('Q28')"><span
+<a href="javascript:showhide('Q28')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q28" style="display:none;">
-<p><img src = "Images/CardiacArrestHealth-AppletPvalue.png"></p>
+<p><img src="Images/CardiacArrestHealth-AppletPvalue.png"></p>
 </div>
 <p><br></p>
 <ol start="29" style="list-style-type: decimal">
 <li>Find the <span class="math inline">\(P\)</span>-value and compare it
 to the level of significance.</li>
 </ol>
-<a href = "javascript:showhide('Q29')"><span
+<a href="javascript:showhide('Q29')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q29" style="display:none;">
 <center>
@@ -1983,7 +2004,7 @@ style="font-size:8pt;">Show/Hide Solution</span></a>
 <ol start="30" style="list-style-type: decimal">
 <li>State your decision.</li>
 </ol>
-<a href = "javascript:showhide('Q30')"><span
+<a href="javascript:showhide('Q30')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q30" style="display:none;">
 <ul>
@@ -1993,12 +2014,12 @@ null hypothesis.</li>
 </ul>
 </div>
 <p><br></p>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <ol start="31" style="list-style-type: decimal">
 <li>Present your conclusion in an English sentence, relating the result
 to the context of the problem.</li>
 </ol>
-<a href = "javascript:showhide('Q31')"><span
+<a href="javascript:showhide('Q31')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q31" style="display:none;">
 <ul>
@@ -2008,7 +2029,7 @@ general population. Patients who suffer from a cardiac arrest typically
 have the potential to return to full health</li>
 </ul>
 </div>
- 
+<p> </p>
 </div>
 <p><br></p>
 </div>
@@ -2030,21 +2051,21 @@ class="math inline">\(\alpha\)</span>, you will reject the null
 hypothesis. Otherwise, you fail to reject the null hypothesis. We never
 say we “accept” the null hypothesis.</p>
 <p>Hypothesis tests follow the same basic pattern.</p>
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <ol style="list-style-type: decimal">
 <li><p>Summarize the relevant background information</p></li>
 <li><p>State the null and alternative hypotheses</p></li>
 </ol>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Describe the data collection procedures</li>
 </ol>
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Give the relevant summary statistics</p></li>
 <li><p>Make an appropriate graph to illustrate the data</p></li>
 </ol>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/Step4.png"></p>
 <ol start="6" style="list-style-type: decimal">
 <li><p>Verify the requirements have been met</p></li>
 <li><p>Give the test statistic and its value</p></li>
@@ -2055,7 +2076,7 @@ distribution</p></li>
 it to the level of significance</p></li>
 <li><p>State your decision</p></li>
 </ol>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <ol start="11" style="list-style-type: decimal">
 <li>Present your conclusion in an English sentence, relating the result
 to the context of the problem</li>
@@ -2094,15 +2115,15 @@ different procedure, which you will learn soon.</p>
 processes we have learned in this course. Viewing additional examples
 can help your understanding. Click on the link at right to see two more
 examples.</p>
-<a href = "javascript:showhide('Q32')"><span style="font-size:8pt;">Show
+<a href="javascript:showhide('Q32')"><span style="font-size:8pt;">Show
 Additional Examples</span></a>
 <div id="Q32" style="display:none;">
 <p><br></p>
-<p><img src = "Images/StepsAll.png"></p>
+<p><img src="Images/StepsAll.png"></p>
 <div id="mean-age-of-people-who-read-the-new-york-times-online"
 class="section level3">
 <h3>Mean age of people who read the New York Times online</h3>
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <ol style="list-style-type: decimal">
 <li>Summarize the relevant background information</li>
 </ol>
@@ -2131,7 +2152,7 @@ H_a:&amp;~~\mu &lt; 42
 \end{align}
 \]</span></p>
 <p><span class="math display">\[ \alpha = 0.05 \]</span></p>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Describe the data collection procedures</li>
 </ol>
@@ -2167,7 +2188,7 @@ Their ages were recorded.</li>
 37
 34
 -->
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Make an appropriate graph to illustrate the data</li>
 </ol>
@@ -2176,7 +2197,7 @@ Their ages were recorded.</li>
 the x on the graph) and the median both appear to be between 30 and 40,
 less than <span class="math inline">\(42\)</span> years.</li>
 </ul>
-<p><img src = "Images/NYtimes-BoxplotExcel.png" width = 80%></p>
+<p><img src="Images/NYtimes-BoxplotExcel.png" width=80%></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Give the relevant summary statistics</li>
 </ol>
@@ -2186,7 +2207,7 @@ class="math inline">\(\bar{x} = 35.32\)</span>. There were <span
 class="math inline">\(n = 25\)</span> people included in the
 sample.</li>
 </ul>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/Step4.png"></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Verify the requirements have been met</li>
 </ol>
@@ -2197,7 +2218,7 @@ perfectly normal. However, the sample data is approximately normal. In
 other words, it is close enough to a normal shape to meet the
 requirement.</li>
 </ul>
-<!-- <img src = "Images/NYtimes-QQ-Excel.png"> -->
+<!-- <img src="Images/NYtimes-QQ-Excel.png"> -->
 <ol start="7" style="list-style-type: decimal">
 <li>Give the test statistic and its value</li>
 </ol>
@@ -2209,7 +2230,7 @@ requirement.</li>
 class="math inline">\(P\)</span>-value on a graph of the sampling
 distribution</li>
 </ol>
-<p><img src = "Images/Applet0.0027-lefttailed-LoR.png"></p>
+<p><img src="Images/Applet0.0027-lefttailed-LoR.png"></p>
 <ol start="9" style="list-style-type: decimal">
 <li>Find the <span class="math inline">\(P\)</span>-value and compare it
 to the level of significance</li>
@@ -2223,7 +2244,7 @@ to the level of significance</li>
 <li>Since the <span class="math inline">\(P\)</span>-value is less than
 the level of significance, we reject the null hypothesis.</li>
 </ul>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <ol start="11" style="list-style-type: decimal">
 <li>Present your conclusion in an English sentence, relating the result
 to the context of the problem</li>
@@ -2238,7 +2259,7 @@ in the ages of those who read the print (<span class="math inline">\(\mu
 = 42\)</span>) years and the online editions of the paper.</p></li>
 </ul>
 <p><br></p>
-<p><img src = "Images/StepsAll.png"></p>
+<p><img src="Images/StepsAll.png"></p>
 </div>
 <div id="mean-gpa-of-early-risers" class="section level3">
 <h3>Mean GPA of early risers</h3>
@@ -2255,13 +2276,13 @@ GPA of students who are early risers tends to be higher than average.
 The mean grade point average (GPA) of all students at BYU-Idaho is <span
 class="math inline">\(\mu = 3.15\)</span>. The population standard
 deviation for the grades of students at BYU-Idaho is <span
-class="math inline">\(\sigma = 0.68\)</span>.</p>
+class="math inline">\(\sigma= 0.68\)</span>.</p>
 <p>A simple random sample of <span class="math inline">\(n =
 378\)</span> early-rising BYU-Idaho students was collected. The students
 were asked to report their BYU-Idaho GPA. The GPA of each person who was
 selected and signed the informed consent statement (to authorize the use
 of their data) was recorded.</p>
-<p><img src = "Images/Step1.png"></p>
+<p><img src="Images/Step1.png"></p>
 <ol style="list-style-type: decimal">
 <li>Summarize the relevant background information</li>
 </ol>
@@ -2284,7 +2305,7 @@ H_a:&amp;~~\mu &gt; 3.15
 \end{align}
 \]</span></p>
 <p><span class="math display">\[\alpha = 0.05\]</span></p>
-<p><img src = "Images/Step2.png"></p>
+<p><img src="Images/Step2.png"></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Describe the data collection procedures</li>
 </ol>
@@ -2297,7 +2318,7 @@ tend to be early risers.</li>
 <!--
 3.89    2.55    3.4 3.3 3.87    3   2.74    3.86    4   3.81    2.37    2.89    2.55    3.54    2.37    3.8 3.07    3.63    3.85    2.81    3.51    3.54    3.64    3.04    3.21    3.36    3.2 4   3.97    2.81    3.89    3.25    2.74    3.18    3.3 3.23    3.72    3.18    3.2 3.33    2.81    3.87    3.07    3.09    2.15    3.15    3.18    2.89    4   2   3.8 3.39    3.83    2.2 3.97    3.17    2.99    4   2.65    3.74    3.06    2.69    3.59    3.88    3.3 3.25    2.58    3.12    3.07    2.63    4   2.94    2.78    3.82    2.85    3.27    3.95    3.48    4   3.05    3.95    2.78    2.2 3.54    3.12    2.71    2.2 2.56    2.65    3.89    3.5 4   3.47    2.67    3.71    3.18    2.58    4   3.03    3.82    4   2.81    3.78    2.81    3.89    2.81    3.31    3.82    3.13    3.04    2.15    3.49    3.56    3.58    3.66    3.54    3.89    3.74    2   3.35    2.6 3.35    2.7 3.12    3.1 2.72    3.73    3.18    3.91    2.48    3.49    3.13    3.75    3.13    2.58    2.6 3.5 4   3.57    3.48    3.06    3.7 2.63    3.85    2.57    2.93    3.35    3.05    3.93    1.96    3.2 2.58    3.03    2.48    3.16    3.83    3.18    2.28    3.54    2.51    2.37    3.44    1.66    2.93    3.53    0   4   3.88    3.03    2.78    3.08    2.69    3.95    2.58    2.77    2.6 3.97    3.71    3.49    3.31    3.53    4   3.88    3.51    2.49    2.72    3.54    3.16    3.71    3.12    3.66    2.57    2.57    2.58    3.2 3.54    3.52    0.94    2.69    3.2 3.97    3.04    2.99    3.8 2.6 3.44    1.97    3.03    1.49    3.81    3.73    3.39    3.16    3.5 2.03    0.49    3.18    3.32    3.48    3.89    3.05    3.31    2.55    4   3.3 3.7 2.9 3.2 2.63    2.8 4   3.39    4   3   3.36    3.57    2.74    2.48    3.97    2.88    3.08    3.56    3.95    2.96    3.1 3.71    4   2.49    3.73    3.21    3.01    3.09    3.7 3.57    2.81    3.7 2.76    3.95    4   3.95    3.71    3.23    2.72    2.94    4   3.36    3.12    2.77    3.88    3.42    2.74    2.89    3.71    3.75    3.93    0.57    2.49    3.36    3.25    3.25    3.36    3.12    2.71    3.32    3.05    2.89    3.08    3.35    3.66    2.78    2.78    3.81    3.56    3.82    3.48    3.66    3.61    1.52    3.05    3.51    2.15    3.32    3.89    3.57    3.53    2.6 3.94    3.35    2.58    2.57    2.82    3.52    3.82    3.75    2.64    3.89    3.78    3.05    3.16    2.51    3.18    3.36    3.34    3.36    3.52    3.15    3.73    4   3.13    3.7 3.21    2.94    3.1 3.13    3.8 3.78    3.47    3.42    3.12    3.53    2.74    1.96    3   3.97    3.51    3.37    3.3 3.71    2.99    2.77    2.48    2   3.8 3.35    3.78    3.89    1.52    3.09    4   3.49    3.18    3.85    2.6 3.7 3.82    3.35
 -->
-<p><img src = "Images/Step3.png"></p>
+<p><img src="Images/Step3.png"></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Give the relevant summary statistics</li>
 </ol>
@@ -2311,13 +2332,13 @@ tend to be early risers.</li>
 </ol>
 <p>The histogram shows that the data are left-skewed. That is, many of
 the sampled students have fairly high GPAs, but a few are very low.</p>
-<p><img src = "Images/EarlyRisersGPA-Hist-Excel.png"></p>
-<p><img src = "Images/Step4.png"></p>
+<p><img src="Images/EarlyRisersGPA-Hist-Excel.png"></p>
+<p><img src="Images/Step4.png"></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Verify the requirements have been met</li>
 </ol>
 <!-- * Here is a Q-Q plot of the GPA data. -->
-<!-- <img src = "Images/EarlyRisersGPA-QQ-Excel.png"> -->
+<!-- <img src="Images/EarlyRisersGPA-QQ-Excel.png"> -->
 <ul>
 <li>A simple random sample of <span class="math inline">\(n =
 378\)</span> early-rising students at BYU-Idaho was collected. It is
@@ -2336,13 +2357,13 @@ GPA data are left-skewed.</li>
 class="math inline">\(P\)</span>-value on a graph of the sampling
 distribution</li>
 </ol>
-<p><img src = "Images/Applet0.0431-righttailed-LoRes.png"></p>
+<p><img src="Images/Applet0.0431-righttailed-LoRes.png"></p>
 <ol start="9" style="list-style-type: decimal">
 <li>Find the <span class="math inline">\(P\)</span>-value and compare it
 to the level of significance</li>
 </ol>
-<p><span class="math display">\[P\text{-value} = 0.0431 &lt; 0.05 =
-\alpha\]</span></p>
+<p><span class="math display">\[P\text{-value} = 0.0431 &lt; 0.05
+=  \alpha\]</span></p>
 <ol start="10" style="list-style-type: decimal">
 <li>State your decision</li>
 </ol>
@@ -2351,7 +2372,7 @@ to the level of significance</li>
 of early risers is greater than <span
 class="math inline">\(3.15\)</span>.</li>
 </ul>
-<p><img src = "Images/Step5.png"></p>
+<p><img src="Images/Step5.png"></p>
 <ol start="11" style="list-style-type: decimal">
 <li>Present your conclusion in an English sentence, relating the result
 to the context of the problem</li>
@@ -2401,30 +2422,30 @@ logically used that requirement in the proof of itself.</p>
 <div id="why-dont-we-accept-the-null-hypothesis" class="section level3">
 <h3>Why Don’t we Accept the Null Hypothesis?</h3>
 <p>It may be hard, but imagine for a moment that <span
-class="math inline">\(1 = 2\)</span>. Even though it goes against
+class="math inline">\(1=2\)</span>. Even though it goes against
 everything you thought was true in Mathematics, relax your mind and
-assume that <span class="math inline">\(1 = 2\)</span>.</p>
-<p>If <span class="math inline">\(1 = 2\)</span>, then we can apply
-valid algebraic operations to both sides of this equation:</p>
+assume that <span class="math inline">\(1=2\)</span>.</p>
+<p>If <span class="math inline">\(1=2\)</span>, then we can apply valid
+algebraic operations to both sides of this equation:</p>
 <p><span class="math display">\[
 \begin{array}{rcll}
-1 &amp; = &amp; 2     &amp; \leftarrow \textrm{Assumed true} \\
-1(2) &amp; = &amp; 2(2)  &amp; \leftarrow \textrm{Multiply both sides by
+1 &amp;=&amp; 2     &amp; \leftarrow \textrm{Assumed true} \\
+1(2) &amp;=&amp; 2(2)  &amp; \leftarrow \textrm{Multiply both sides by
 2} \\
-2 &amp; = &amp; 4     &amp; \leftarrow \textrm{Simplify} \\
-2-3 &amp; = &amp; 4-3   &amp; \leftarrow \textrm{Subtract 3 from both
+2 &amp;=&amp; 4     &amp; \leftarrow \textrm{Simplify} \\
+2-3 &amp;=&amp; 4-3   &amp; \leftarrow \textrm{Subtract 3 from both
 sides} \\
--1 &amp; = &amp; 1     &amp; \leftarrow \textrm{Simplify} \\
-(-1)^2 &amp; = &amp; (1)^2 &amp; \leftarrow \textrm{Square both sides}
-\\
-1 &amp; = &amp; 1     &amp; \leftarrow \textrm{Simplify}
+-1 &amp;=&amp; 1     &amp; \leftarrow \textrm{Simplify} \\
+(-1)^2 &amp;=&amp; (1)^2 &amp; \leftarrow \textrm{Square both sides} \\
+1 &amp;=&amp; 1     &amp; \leftarrow \textrm{Simplify}
 \end{array}
 \]</span></p>
-<p>We started with a requirement that <span class="math inline">\(1 =
-2\)</span> is a true statement. We applied valid algebraic operations at
-each step. In the end, we found that <span class="math inline">\(1 =
-1\)</span>, which is certainly no contradiction. Logically, have we
-shown that <span class="math inline">\(1 = 2\)</span>?</p>
+<p>We started with a requirement that <span
+class="math inline">\(1=2\)</span> is a true statement. We applied valid
+algebraic operations at each step. In the end, we found that <span
+class="math inline">\(1=1\)</span>, which is certainly no contradiction.
+Logically, have we shown that <span
+class="math inline">\(1=2\)</span>?</p>
 <div class="QuestionsHeading">
 Answer the following question:
 </div>
@@ -2432,19 +2453,19 @@ Answer the following question:
 <ol start="32" style="list-style-type: decimal">
 <li>What is wrong with the logic in this “proof?”</li>
 </ol>
-<a href = "javascript:showhide('Q33')"><span
+<a href="javascript:showhide('Q33')"><span
 style="font-size:8pt;">Show/Hide Solution</span></a>
 <div id="Q33" style="display:none;">
 <ul>
 <li>The problem here is that we assumed that <span
-class="math inline">\(1 = 2\)</span>, and then we attempted to use that
+class="math inline">\(1=2\)</span>, and then we attempted to use that
 requirement to prove itself. We cannot use a requirement as evidence of
 itself.</li>
 <li>However, if we start with a requirement and then find a
 contradiction, then we know that our original requirement is not true.
 Since this did not happen, we say that we did not get enough evidence
-against the requirement that <span class="math inline">\(1 =
-2\)</span>.</li>
+against the requirement that <span
+class="math inline">\(1=2\)</span>.</li>
 </ul>
 </div>
 <p> </p>
@@ -2455,10 +2476,10 @@ we gather evidence “against” that requirement. If we cannot reject the
 hypothesis, in the mathematical example above, we started with a
 requirement and did not find sufficient evidence against that
 requirement. In the end, we arrived at no contradiction at all: <span
-class="math inline">\(1 = 1\)</span>. This did not mean that our
-original claim that <span class="math inline">\(1 = 2\)</span> was true;
-it only meant that we had not yet disproved it. We could not reject the
-original claim.</p>
+class="math inline">\(1=1\)</span>. This did not mean that our original
+claim that <span class="math inline">\(1=2\)</span> was true; it only
+meant that we had not yet disproved it. We could not reject the original
+claim.</p>
 <p>We have to be careful when conducting hypothesis tests. When we
 conduct a test, we assume the null hypothesis is true. This provides a
 distribution for the test statistic, and allows us to calculate the
@@ -2507,7 +2528,7 @@ have eternal life if they continue faithful.”</p>
 </blockquote>
 <!--
 <center>
-{| width = 80%
+{| width=80%
 |-
 |Wherefore, beware lest ye are deceived; and that ye may not be deceived seek ye earnestly the best gifts, always remembering for what they are given;
 For verily I say unto you, they are given for the benefit of those who love me and keep all my commandments, and him that seeketh so to do; that all may be benefited that seek or that ask of me, that ask and not for a sign that they may consume it upon their lusts.
