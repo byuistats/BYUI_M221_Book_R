@@ -59,7 +59,7 @@ Read the data in the file [no_click_query_summary.xlsx](./Data/no_click_query_su
 library(readxl)
 library(kableExtra)
 library(tidyverse)
-no_click_query_summary <- read_excel("./data/no_click_query_summary.xlsx")
+no_click_query_summary <- read_excel("./Data/no_click_query_summary.xlsx")
 ```
 
 ```{r, echo = FALSE}

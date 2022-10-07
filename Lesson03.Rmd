@@ -279,12 +279,12 @@ e. A, B, and C can all occur.
 
 <br>
 Before we can perform calculations on a data set, we need to load the data into R. 
-Download these data from https://byuistats.github.io/M221R/data/tuberculosis.xlsx.
+Download these data from https://byuistats.github.io/M221R/Data/tuberculosis.xlsx.
 You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
 ```{r, include = FALSE}
 library(openxlsx)
-tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/data/tuberculosis.xlsx")
+tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/Data/tuberculosis.xlsx")
 ```
 
 
@@ -505,12 +505,12 @@ Open RStudio from your Apps on your computer. It should look like this. (Using t
 
 **Step 2**
 
-Download these data from https://byuistats.github.io/M221R/data/tuberculosis.xlsx.
+Download these data from https://byuistats.github.io/M221R/Data/tuberculosis.xlsx.
 You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
 ```{r, include = FALSE}
 library(openxlsx)
-tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/data/tuberculosis.xlsx")
+tuberculosis <- read.xlsx("https://byuistats.github.io/M221R/Data/tuberculosis.xlsx")
 ```
 
 
@@ -661,7 +661,7 @@ A distribution is right-skewed if a histogram of the distribution shows a long r
 ```{r, echo = FALSE}
 library(readxl)
 par(mai = c(1.5,1,.1,1))
-ClassSurvey <- read_excel("./data/ClassSurvey.xlsx")
+ClassSurvey <- read_excel("./Data/ClassSurvey.xlsx")
 
 CS_males <- subset(ClassSurvey, Gender == "M")
 

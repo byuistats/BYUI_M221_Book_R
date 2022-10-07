@@ -738,11 +738,11 @@ This works well if you have a very small data set. Usually, we have a large data
 
 To read in a data file in R, do the following:
 
-- Read in the dataset. Download these data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+- Read in the dataset. Download these data from https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx.
 
 ```{r, include = FALSE}
 library(openxlsx)
-surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx")
 ```
 
 - In RStudio, select the "Environment" pane, click on "Import Dataset", and then choose "From Excel..." from the menu that appears. Like this:

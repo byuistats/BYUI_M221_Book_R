@@ -61,7 +61,7 @@ Read the data in the file [religion_tally.xlsx](./Data/religion_tally.xlsx) into
 library(readxl)
 library(kableExtra)
 library(tidyverse)
-religion_tally <- read_excel("./data/religion_tally.xlsx")
+religion_tally <- read_excel("./Data/religion_tally.xlsx")
 ```
 
 ```{r, echo = FALSE}

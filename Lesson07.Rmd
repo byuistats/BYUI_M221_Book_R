@@ -182,7 +182,7 @@ In environmental testing, we always assume the site is dirty.  That is, our null
 
 **Step 2: Collect Data**
 
-Scientists collected $n = 61$ measurements of the lead concentration in the soil, measured in mg/kg.  Measurements of the lead contamination in the soil samples from the uranium plant are given in the file [uranium_plant_lead](data/uranium_plant_lead.xlsx).
+Scientists collected $n = 61$ measurements of the lead concentration in the soil, measured in mg/kg.  Measurements of the lead contamination in the soil samples from the uranium plant are given in the file [uranium_plant_lead](Data/uranium_plant_lead.xlsx).
 
 
 <br>

@@ -860,12 +860,12 @@ Percentiles can be used to describe the center and spread of any distribution an
 <br />
 
 - Open the "surgery_lawsuits" data.
-Download these data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+Download these data from https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx.
 You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
 ```{r, include = FALSE}
 library(openxlsx)
-surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx")
 ```
 
 - Percentiles can then be calculated on any numeric column of the data set using the `quantile(...)` function and the selection operator `$` as follows. 
@@ -983,12 +983,12 @@ Statistical packages can give different results for some computations.  This is 
 &nbsp;&nbsp;**To find the values for a five-number summary in R, do the following**
 <br />
 
-- Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you have not already done it, please download these data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+- Open the data file you are using if you haven't already. For this example, continue using the data frame "surgery_lawsuits" that you loaded previously in this lesson. If you have not already done it, please download these data from https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx.
 You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
 ```{r, include = FALSE}
 library(openxlsx)
-surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx")
 ```
 
 
@@ -1080,12 +1080,12 @@ Follow the steps below to learn how a boxplot relates to the five-number summary
 **To create a boxplot in R, do the following**
 <br />
 
-- Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, download the data from https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx.
+- Open the data file you are using. For this example, continue using the "surgery_lawsuits" data frame that you opened previously in this lesson.  If you need to load this data frame, download the data from https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx.
 You can [click here](https://byuistats.github.io/M221R/RHelp.html#Reading_in_Data) for instructions on how to import the dataset into R.
 
 ```{r, include = FALSE}
 library(openxlsx)
-surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
+surgery_lawsuits <- read.xlsx("https://byuistats.github.io/M221R/Data/surgery_lawsuits.xlsx")
 ```
 
 
