@@ -64,6 +64,10 @@ navbar:
           href: Lesson23.html
         - text: "Lesson 24: Unit 4 Review"
           href: Lesson24.html
+    - text: "Unit 5"
+      menu:
+        - text: "Lesson 25: Introduction to R"
+          href: Lesson25.html
   right:
     - text: "Toolbox"
       href: ./Data/Math221StatisticsToolbox.xlsx
