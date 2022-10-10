@@ -398,3 +398,73 @@ By the end of this lesson, you should be able to do the following.
 
 </div>
 </div>
+
+
+<br/>
+
+<div class="mboxfull">
+<a href="javascript:showhide('Unit5')"><div class="mbox usermessage mw-customtoggle-Unit02">Unit 5: Statistics Using R</div></a>
+
+<div id="Unit5" style="display:none;">
+
+<table class="tmain">
+<tr>
+<td><p>[Lesson 25: Introduction to R](Lesson25.html) <a href="javascript:showhide('lesson25_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson25_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr class="alt">
+<td><p>[Lesson 26: Using R--Descriptive Statistics](Lesson26.html) <a href="javascript:showhide('lesson26_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson26_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr>
+<td><p>[Lesson 27: Using R--Inference for One Mean and the Mean of Differences (Two Dependent Samples)](Lesson27.html) <a href="javascript:showhide('lesson27_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson27_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr class="alt">
+<td><p>[Lesson 28: Using R--Inference for the Difference of Means (Two Independent Samples)](Lesson28.html) <a href="javascript:showhide('lesson28_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson28_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr>
+<td><p>[Lesson 29: Using R--Inference using ANOVA (Several Independent Samples)](Lesson29.html) <a href="javascript:showhide('lesson29_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson29_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr class="alt">
+<td><p>[Lesson 30: Using R--Inference for Independence of Categorical Data](Lesson30.html) <a href="javascript:showhide('lesson30_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson30_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr>
+<td><p>[Lesson 31: Using R--Inference for Bivariate Data](Lesson31.html) <a href="javascript:showhide('lesson31_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson31_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+<tr class="alt">
+<td><p>[Lesson 32: Review for Exam 5](Lesson32.html) <a href="javascript:showhide('lesson32_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a>
+<div id="lesson32_Outcomes" style="display:none;">
+</div>
+</p></td>
+</tr>
+
+</table>
+
+</div>
+</div>

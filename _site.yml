@@ -68,6 +68,20 @@ navbar:
       menu:
         - text: "Lesson 25: Introduction to R"
           href: Lesson25.html
+        - text: "Lesson 26: Using R--Descriptive Statistics"
+          href: Lesson26.html
+        - text: "Lesson 27: Using R--Inference for One Mean and the Mean of Differences (Two Dependent Samples)"
+          href: Lesson27.html
+        - text: "Lesson 28: Using R--Inference for the Difference of Means (Two Independent Samples)"
+          href: Lesson28.html
+        - text: "Lesson 29: Using R--Inference using ANOVA (Several Independent Samples)"
+          href: Lesson29.html
+        - text: "Lesson 30: Using R--Inference for Independence of Categorical Data"
+          href: Lesson30.html
+        - text: "Lesson 31: Using R--Inference for Bivariate Data"
+          href: Lesson31.html
+        - text: "Lesson 32: Review for Exam 5"
+          href: Lesson32.html
   right:
     - text: "Toolbox"
       href: ./Data/Math221StatisticsToolbox.xlsx
