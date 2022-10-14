@@ -250,7 +250,7 @@ The students were randomly assigned to one of the three treatments.  They wrote 
 
 Follow these instructions to apply the ANOVA procedure using Excel:
 
-Data representative of the values reported by Emmons and McCullough are given in the file [Gratitude.xlsx](./Data/Gratitude.xlsx).  The data is divided up into three columns which represent Grateful, Hassels, and Events.  
+Data representative of the values reported by Emmons and McCullough are given in the file [Gratitude.xlsx](./Data/gratitude.xlsx).  The data is divided up into three columns which represent Grateful, Hassels, and Events.  
 
 The summary statistics can be obtained using the [Math 221 Statistics Toolbox](./Data/Math221StatisticsToolbox.xltx).  Paste the three columns of data into the appropriate areas of column A, B, and C.  The summary statistics will appear in the table to the right labeled "Numerical Summary of the Data".
 
