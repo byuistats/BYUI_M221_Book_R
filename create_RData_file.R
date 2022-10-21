@@ -341,12 +341,13 @@ save(euro_wide,
      file="docs/Data/L15.RData")
 
 
-# Test 2
+# Test 2====
 
-cholesterol <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v2/cholesterol.xlsx")
-calcium <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v2/calcium.xlsx")
-fitness <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v2/fitness.xlsx")
-rates_of_return <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v2/rates_of_return.xlsx")
+crabs <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/crabs.xlsx")
+transactions <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/transactions.xlsx")
+vehicles <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/vehicles.xlsx")
+voltage <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/voltage.xlsx")
+rates_of_return <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/rates_of_return.xlsx")
 
 save(cholesterol,
      calcium,
