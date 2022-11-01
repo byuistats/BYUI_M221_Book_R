@@ -349,15 +349,17 @@ vehicles <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/vehicl
 voltage <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/voltage.xlsx")
 rates_of_return <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e2v3/rates_of_return.xlsx")
 
-save(cholesterol,
-     calcium,
-     fitness,
+save(crabs,
+     transactions,
+     vehicles,
+     voltage,
      rates_of_return,
      file="Data/Exam2.RData")
 
-save(cholesterol,
-     calcium,
-     fitness,
+save(crabs,
+     transactions,
+     vehicles,
+     voltage,
      rates_of_return,
      file="docs/Data/Exam2.RData")
 
