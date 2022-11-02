@@ -465,18 +465,15 @@ save(lapd_searches,
 
 # Test 3
 
-firms <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e3v2/firms.xlsx")
-ratings <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e3v2/ratings.xlsx")
-wake_county <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e3v2/wake_county.xlsx")
+berlin_marathon <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e3v3/berlin_marathon.xlsx")
+sales <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e3v3/sales.xlsx")
 
-save(firms,
-     ratings,
-     wake_county,
+save(berlin_marathon,
+     sales,
      file="Data/Exam3.RData")
 
-save(firms,
-     ratings,
-     wake_county,
+save(berlin_marathon,
+     sales,
      file="docs/Data/Exam3.RData")
 
 
@@ -612,24 +609,21 @@ save(vehicles,
 
 # Test 4
 
-ads <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v2/ads.xlsx")
-gas <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v2/gas.xlsx")
-hand_strength <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v2/hand_strength.xlsx")
-lizards <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v2/lizards.xlsx")
-study_habits <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v2/study_habits.xlsx")
+gasoline <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v3/gasoline.xlsx")
+honda_vehicles <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v3/honda_vehicles.xlsx")
+mastic_trees <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v3/mastic_trees.xlsx")
+steps <- rio::import("https://byuistats.github.io/M221R/Data/quiz/e4v3/steps.xlsx")
 
-save(ads,
-     gas,
-     hand_strength,
-     lizards,
-     study_habits,
+save(gasoline,
+     honda_vehicles,
+     mastic_trees,
+     steps,
      file="Data/Exam4.RData")
 
-save(ads,
-     gas,
-     hand_strength,
-     lizards,
-     study_habits,
+save(gasoline,
+     honda_vehicles,
+     mastic_trees,
+     steps,
      file="docs/Data/Exam4.RData")
 
 
