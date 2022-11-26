@@ -13,7 +13,7 @@
 
 <title>Textbook Home Page</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -179,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -998,38 +991,26 @@ Unit 5: Statistics Using R
 <p></a></p>
 <div id="Unit5" style="display:none;">
 <table class="tmain">
+<!-- <tr> -->
+<!-- <td><p>[Lesson 25: Introduction to R](Lesson25.html) <a href="javascript:showhide('lesson25_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a> -->
+<!-- <div id="lesson25_Outcomes" style="display:none;"> -->
+<!-- </div> -->
+<!-- </p></td> -->
+<!-- </tr> -->
+<!-- <tr class="alt"> -->
+<!-- <td><p>[Lesson 26: Using R--Descriptive Statistics](Lesson26.html) <a href="javascript:showhide('lesson26_Outcomes')"><span style="font-size:8pt;float:right;">Show Outcomes</span></a> -->
+<!-- <div id="lesson26_Outcomes" style="display:none;"> -->
+<!-- </div> -->
+<!-- </p></td> -->
+<!-- </tr> -->
 <tr>
 <td>
 <p>
-<a href="Lesson25.html">Lesson 25: Introduction to R</a>
-<a href="javascript:showhide('lesson25_Outcomes')"><span
-style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson25_Outcomes" style="display:none;">
-
-</div>
-</p>
-</td>
-</tr>
-<tr class="alt">
-<td>
-<p>
-<a href="Lesson26.html">Lesson 26: Using R–Descriptive Statistics</a>
-<a href="javascript:showhide('lesson26_Outcomes')"><span
-style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson26_Outcomes" style="display:none;">
-
-</div>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-<a href="Lesson27.html">Lesson 27: Using R–Inference for One Mean and
+<a href="Lesson25.html">Lesson 25: Using R–Inference for One Mean and
 the Mean of Differences (Two Dependent Samples)</a>
-<a href="javascript:showhide('lesson27_Outcomes')"><span
+<a href="javascript:showhide('lesson27x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson27_Outcomes" style="display:none;">
+<div id="lesson27x_Outcomes" style="display:none;">
 
 </div>
 </p>
@@ -1038,11 +1019,11 @@ style="font-size:8pt;float:right;">Show Outcomes</span></a>
 <tr class="alt">
 <td>
 <p>
-<a href="Lesson28.html">Lesson 28: Using R–Inference for the Difference
+<a href="Lesson26.html">Lesson 26: Using R–Inference for the Difference
 of Means (Two Independent Samples)</a>
-<a href="javascript:showhide('lesson28_Outcomes')"><span
+<a href="javascript:showhide('lesson28x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson28_Outcomes" style="display:none;">
+<div id="lesson28x_Outcomes" style="display:none;">
 
 </div>
 </p>
@@ -1051,11 +1032,11 @@ style="font-size:8pt;float:right;">Show Outcomes</span></a>
 <tr>
 <td>
 <p>
-<a href="Lesson29.html">Lesson 29: Using R–Inference using ANOVA
+<a href="Lesson27.html">Lesson 27: Using R–Inference using ANOVA
 (Several Independent Samples)</a>
-<a href="javascript:showhide('lesson29_Outcomes')"><span
+<a href="javascript:showhide('lesson29x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson29_Outcomes" style="display:none;">
+<div id="lesson29x_Outcomes" style="display:none;">
 
 </div>
 </p>
@@ -1064,11 +1045,11 @@ style="font-size:8pt;float:right;">Show Outcomes</span></a>
 <tr class="alt">
 <td>
 <p>
-<a href="Lesson30.html">Lesson 30: Using R–Inference for Independence of
+<a href="Lesson28.html">Lesson 28: Using R–Inference for Independence of
 Categorical Data</a>
-<a href="javascript:showhide('lesson30_Outcomes')"><span
+<a href="javascript:showhide('lesson30x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson30_Outcomes" style="display:none;">
+<div id="lesson30x_Outcomes" style="display:none;">
 
 </div>
 </p>
@@ -1077,10 +1058,10 @@ style="font-size:8pt;float:right;">Show Outcomes</span></a>
 <tr>
 <td>
 <p>
-<a href="Lesson31.html">Lesson 31: Using R–Inference for Bivariate
-Data</a> <a href="javascript:showhide('lesson31_Outcomes')"><span
+<a href="Lesson29.html">Lesson 29: Using R–Inference for Bivariate
+Data</a> <a href="javascript:showhide('lesson31x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson31_Outcomes" style="display:none;">
+<div id="lesson31x_Outcomes" style="display:none;">
 
 </div>
 </p>
@@ -1089,10 +1070,10 @@ style="font-size:8pt;float:right;">Show Outcomes</span></a>
 <tr class="alt">
 <td>
 <p>
-<a href="Lesson32.html">Lesson 32: Review for Exam 5</a>
-<a href="javascript:showhide('lesson32_Outcomes')"><span
+<a href="Lesson30.html">Lesson 30: Review for Exam 5</a>
+<a href="javascript:showhide('lesson32x_Outcomes')"><span
 style="font-size:8pt;float:right;">Show Outcomes</span></a>
-<div id="lesson32_Outcomes" style="display:none;">
+<div id="lesson32x_Outcomes" style="display:none;">
 
 </div>
 </p>
