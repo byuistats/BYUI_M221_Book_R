@@ -10,12 +10,14 @@
 # Install required packages for the course ----------------
 # (You only need to run this once!)
 install.packages("mosaic")
+install.packages("rio")
 
 
 
 # Tuberculosis Example ----------------------------------------------
 # Load the tuberculosis data:
-#   https://byuistats.github.io/M221R/data/tuberculosis.xlsx
+library(rio)
+tuberculosis <- import("https://byuistats.github.io/M221R/data/tuberculosis.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

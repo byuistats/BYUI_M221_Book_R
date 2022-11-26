@@ -1,5 +1,5 @@
 # ===================================================================
-# Lesson 3: Describing Quantitative Data (Spread)
+# Lesson 4: Describing Quantitative Data (Spread)
 # Sample R code
 # MATH 221D
 # Brigham Young University-Idaho
@@ -9,7 +9,8 @@
 
 # Surgery Lawsuits Example --------------------------------
 # Load the surgery_lawsuits data:
-#   https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx
+library(rio)
+surgery_lawsuits <- import("https://byuistats.github.io/M221R/data/surgery_lawsuits.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
