@@ -13,7 +13,8 @@
 
 # Estuarine Crocodiles Example ----------------------------
 # Load the estuarine_crocodiles data:
-#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
+library(rio)
+estuarine_crocodiles <- import("https://byuistats.github.io/M221R/Data/estuarine_crocodiles.xlsx")
 
 # Scatterplot ---------------------------------------------
 plot(body_length ~ head_length, data = estuarine_crocodiles)
@@ -33,7 +34,8 @@ abline(estuarine_lm)
 
 # Manatees and Powerboats Example -------------------------
 # Load the manatees data:
-#   https://byuistats.github.io/M221R/data/manatees.xlsx
+library(rio)
+manatees <- import("https://byuistats.github.io/M221R/Data/manatees.xlsx")
 
 # Scatterplot ---------------------------------------------
 plot(manatees_killed ~ power_boats_1000s, data = manatees)

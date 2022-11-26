@@ -13,7 +13,8 @@
 
 # Weight Loss Example -------------------------------
 # Load the weight_loss data:
-#   https://byuistats.github.io/M221R/data/weight_loss.xlsx
+library(rio)
+weight_loss <- import("https://byuistats.github.io/M221R/Data/weight_loss.xlsx")
 
 # Compute Column of Differences
 weight_loss$difference <- weight_loss$post - weight_loss$pre
@@ -35,7 +36,8 @@ t.test(weight_loss$difference,     # Data
 
 # Hospital Infections Data --------------------------------
 # Load the hospital_infections data:
-#   https://byuistats.github.io/M221R/data/hospital_infections.xlsx
+library(rio)
+hospital_infections <- import("https://byuistats.github.io/M221R/Data/hospital_infections.xlsx")
 
 # Compute Column of Differences
 hospital_infections$difference <- 
@@ -59,7 +61,8 @@ t.test(hospital_infections$difference,
 
 # REE -----------------------------------------------------
 # Load the ree data:
-#   https://byuistats.github.io/M221R/data/ree.xlsx
+library(rio)
+ree <- import("https://byuistats.github.io/M221R/Data/ree.xlsx")
 
 # Compute Column of Differences
 ree$difference <- ree$stressful - ree$silence
@@ -82,7 +85,8 @@ t.test(ree$difference,
 
 # Flight Costs --------------------------------------------
 # Load the direct_flight_costs data:
-#   https://byuistats.github.io/M221R/data/direct_flight_costs.xlsx
+library(rio)
+flight_costs <- import("https://byuistats.github.io/M221R/Data/direct_flight_costs.xlsx")
 
 # Compute Column of Differences
 flight_costs$difference <- 
@@ -110,7 +114,8 @@ t.test(flight_costs$difference,
 
 # Pine Beetles --------------------------------------------
 # Load the pine_beetle data:
-#   https://byuistats.github.io/M221R/data/pine_beetle.xlsx
+library(rio)
+pine_beetle <- import("https://byuistats.github.io/M221R/Data/pine_beetle.xlsx")
 
 # Compute Column of Differences
 pine_beetle$difference <- pine_beetle$after - pine_beetle$before
@@ -130,7 +135,8 @@ t.test(pine_beetle$difference, conf.level = 0.95)
 
 # Sleep-Inducing Drugs ------------------------------------
 # Load the sleep_drug data:
-#   https://byuistats.github.io/M221R/data/sleep_drug.xlsx
+library(rio)
+sleep <- import("https://byuistats.github.io/M221R/Data/sleep_drug.xlsx")
 
 # Compute Column of Differences
 sleep$difference = sleep$treatment - sleep$control

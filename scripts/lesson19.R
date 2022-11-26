@@ -5,9 +5,6 @@
 # Brigham Young University-Idaho
 # ===================================================================
 
-# Load R Packages ===================================================
-library(readxl)
-
 
 
 # Hypothesis Tests ==================================================
@@ -16,10 +13,13 @@ library(readxl)
 
 # Reasons for Seeking Chiropractic Care Example -----------
 # Load the data for this lesson
-load(url("https://byuistats.github.io/M221R/data/L19.RData"))
+library(rio)
+chiropractic_care <- import("https://byuistats.github.io/M221R/Data/chiropractic_care_table.xlsx")
 
-# Create a Contingency Table from the Raw Data ------------
-contingency_table <- table(chiropractic_care_raw$location, chiropractic_care_raw$motivation)
+# Reformat the data for the chi-square test ------------
+# -- Load the table_format() function
+source("https://byuistats.github.io/M221R/scripts/functions.R")
+contingency_table <- table_format(chiropractic_care)
 contingency_table
 
 # Transpose the Contingency Table -------------------------

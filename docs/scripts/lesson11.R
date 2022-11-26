@@ -12,8 +12,9 @@
 
 
 # Body Temperatures Example -------------------------------
-# Load the body_temp data:
-#   https://byuistats.github.io/M221R/data/body_temp.xlsx
+# Load the body_temp data
+library(rio)
+body_temp <- import("https://byuistats.github.io/M221R/Data/body_temp.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -32,7 +33,8 @@ t.test(body_temp$temperature,    # Data
 
 # Baby Boom Data ------------------------------------------
 # Load the baby_boom data:
-#   https://byuistats.github.io/M221R/data/baby_boom.xlsx
+library(rio)
+baby_boom <- import("https://byuistats.github.io/M221R/Data/baby_boom.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -53,7 +55,8 @@ t.test(baby_boom$weight, mu = 3373, alternative="two.sided")
 
 # BLEU Scores ---------------------------------------------
 # Load the bleu scores data:
-#   https://byuistats.github.io/M221R/data/bleu.xlsx
+library(rio)
+bleu <- import("https://byuistats.github.io/M221R/Data/bleu.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -70,7 +73,8 @@ t.test(bleu$score, conf.level=0.95)
 
 # Euro Weights --------------------------------------------
 # Load the euro weights data:
-#   https://byuistats.github.io/M221R/data/euro.xlsx
+library(rio)
+euro <- import("https://byuistats.github.io/M221R/Data/euro.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)

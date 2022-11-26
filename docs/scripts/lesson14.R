@@ -13,7 +13,8 @@
 
 # Gratitude Example ---------------------------------------
 # Load the gratitude data:
-#   https://byuistats.github.io/M221R/data/gratitude.xlsx
+library(rio)
+gratitude <- import("https://byuistats.github.io/M221R/Data/gratitude.xlsx")
 
 # Numerical Summaries -------------------------------------
 library(mosaic)
@@ -39,7 +40,8 @@ summary(aov_output)
 
 # Soccer Shoes Example ------------------------------------
 # Load the soccer_shoes data:
-#   https://byuistats.github.io/M221R/data/soccer_shoes.xlsx
+library(rio)
+soccer_shoes <- import("https://byuistats.github.io/M221R/Data/soccer_shoes.xlsx")
 
 # Convert Data from Wide to Long Format -------------------
 soccer <- stack( Filter(is.numeric, soccer_shoes) )

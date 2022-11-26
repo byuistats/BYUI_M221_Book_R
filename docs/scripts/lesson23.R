@@ -13,7 +13,8 @@
 
 # Estuarine Crocodiles Example ----------------------------
 # Load the estuarine_crocodiles data:
-#   https://byuistats.github.io/M221R/data/estuarine_crocodiles.xlsx
+library(rio)
+estuarine_crocodiles <- import("https://byuistats.github.io/M221R/Data/estuarine_crocodiles.xlsx")
 
 # Simple Linear Regression Equation and Residuals ---------
 estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
@@ -40,7 +41,8 @@ confint(estuarine_lm, level = 0.95)
 
 # Manatees and Powerboats Example -------------------------
 # Load the manatees data:
-#   https://byuistats.github.io/M221R/data/manatees.xlsx
+library(rio)
+manatees <- import("https://byuistats.github.io/M221R/Data/manatees.xlsx")
 
 # Simple Linear Regression Equation and Residuals ---------
 manatees_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
