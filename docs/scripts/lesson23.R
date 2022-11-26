@@ -16,9 +16,21 @@
 library(rio)
 estuarine_crocodiles <- import("https://byuistats.github.io/M221R/Data/estuarine_crocodiles.xlsx")
 
-# Simple Linear Regression Equation and Residuals ---------
+# Scatterplot ---------------------------------------------
+plot(body_length ~ head_length, data = estuarine_crocodiles)
+
+# Correlation Coefficient ---------------------------------
+cor(estuarine_crocodiles$head_length, estuarine_crocodiles$body_length)
+
+# Simple Linear Regression Equation -----------------------
 estuarine_lm <- lm(body_length ~ head_length, data = estuarine_crocodiles)
 summary(estuarine_lm)
+
+# Adding a Linear Regression Line to the Scatterplot ------
+plot(body_length ~ head_length, data = estuarine_crocodiles)
+abline(estuarine_lm)
+
+# Residuals -----------------------------------------------
 estuarine_lm$residuals
 
 # Checking Assumptions ------------------------------------
@@ -44,9 +56,21 @@ confint(estuarine_lm, level = 0.95)
 library(rio)
 manatees <- import("https://byuistats.github.io/M221R/Data/manatees.xlsx")
 
-# Simple Linear Regression Equation and Residuals ---------
+# Scatterplot ---------------------------------------------
+plot(manatees_killed ~ power_boats_1000s, data = manatees)
+
+# Correlation Coefficient ---------------------------------
+cor(manatees$manatees_killed, manatees$power_boats_1000s)
+
+# Simple Linear Regression Equation -----------------------
 manatees_lm <- lm(manatees_killed ~ power_boats_1000s, data = manatees)
 summary(manatees_lm)
+
+# Adding a Linear Regression Line to the Scatterplot ------
+plot(manatees_killed ~ power_boats_1000s, data = manatees)
+abline(manatees_lm)
+
+# Residuals -----------------------------------------------
 manatees_lm$residuals
 
 # Checking Assumptions ------------------------------------
